@@ -16,6 +16,10 @@ build/
 *.egg-info/
 .turbo/
 
+# Generated code (Prisma client output, codegen, vb.)
+packages/*/generated/
+apps/*/generated/
+
 # Environment variables
 .env
 .env.local

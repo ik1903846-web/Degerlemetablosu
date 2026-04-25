@@ -1,0 +1,29 @@
+{
+  "name": "@reeldeger/db",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "REELDEĞER Prisma şeması ve database client'ı",
+  "main": "index.ts",
+  "scripts": {
+    "migrate:dev": "prisma migrate dev && prisma generate",
+    "migrate:reset": "prisma migrate reset && prisma generate",
+    "migrate:deploy": "prisma migrate deploy",
+    "db:seed": "prisma db seed",
+    "db:studio": "prisma studio",
+    "db:push": "prisma db push",
+    "generate": "prisma generate",
+    "format": "prisma format",
+    "validate": "prisma validate"
+  },
+  "devDependencies": {
+    "dotenv": "^17.4.2",
+    "prisma": "^7.8.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.8.0",
+    "@prisma/client": "^7.8.0"
+  }
+}

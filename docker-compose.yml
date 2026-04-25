@@ -1,0 +1,60 @@
+# =============================================================================
+# REELDEĞER — Dev Environment (Postgres 16 + Redis 7)
+# Faz 1.1 Adım 4.3 — Modern Docker Compose v2 syntax (version: tag YOK)
+# =============================================================================
+# Komutlar:
+#   docker compose up -d         → arka planda başlat
+#   docker compose ps            → çalışan servisler
+#   docker compose logs postgres → postgres logları
+#   docker compose down          → durdur (volume korunur)
+#   docker compose down -v       → durdur + volume sil (DİKKAT: data kaybolur)
+# =============================================================================
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: reeldeger_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-reeldeger}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-reeldeger_dev}
+      POSTGRES_DB: ${POSTGRES_DB:-reeldeger_dev}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    networks:
+      - reeldeger
+
+  redis:
+    image: redis:7-alpine
+    container_name: reeldeger_redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    networks:
+      - reeldeger
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+
+networks:
+  reeldeger:
+    driver: bridge

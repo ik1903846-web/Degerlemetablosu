@@ -1,0 +1,554 @@
+// =============================================================================
+// REELDEĞER v2.2 — Prisma Schema (Faz 1.1 Adım 4.2 initial)
+// PostgreSQL 16 + Prisma 7.8.0
+// Tüm DateTime alanları @db.Timestamptz(6) — UTC, microsecond precision
+// Tüm parasal alanlar Decimal — Float'tan kaçın (ADR-024 ±%0.1 tolerance)
+// =============================================================================
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  // Prisma 7: url prisma.config.ts'te (datasource.url)
+}
+
+// =============================================================================
+// ENUMS
+// =============================================================================
+
+enum UserTier {
+  FREE
+  PAID
+  ADMIN
+}
+
+enum LifecycleStage {
+  YOUNG
+  HIGH_GROWTH
+  MATURE_GROWTH
+  MATURE_STABLE
+  DECLINE
+  DISTRESS
+}
+
+enum RiskProfile {
+  CONSERVATIVE
+  BALANCED
+  AGGRESSIVE
+}
+
+enum Sleeve {
+  CORE
+  FAST_GROWTH
+  HIGH_REWARD
+}
+
+enum PeriodType {
+  ANNUAL
+  QUARTERLY
+}
+
+enum DataSource {
+  KAP_XBRL
+  FASTWEB
+  FINTABLES
+  MANUAL
+}
+
+enum ValuationModel {
+  INDUSTRIAL_FCFF
+  BANKING_EXCESS_RETURN
+  HOLDING_SOTP
+  DISTRESSED
+  CYCLICAL
+  COMMODITY_REGRESSION
+  YOUNG_FIRM
+}
+
+enum AlertSeverity {
+  INFO
+  WARNING
+  CRITICAL
+}
+
+enum AlertType {
+  LIFECYCLE_TRANSITION
+  REBALANCE
+  EARNINGS
+  VALIDATION_FAIL
+}
+
+enum ErrorLevel {
+  CRITICAL
+  WARNING
+  INFO
+}
+
+// Narrative Integrity Detectors (ADR-050/051)
+enum DetectorStatus {
+  OK
+  SUSPECT
+  FLAGGED
+}
+
+// Education hub içerik kategorileri (Faz 5)
+enum ArticleCategory {
+  BASICS
+  DAMODARAN_METHOD
+  BIST_APPLICATIONS
+  VALIDATION_CASES
+}
+
+// =============================================================================
+// USER + NEXTAUTH (Auth.js v5 / @auth/prisma-adapter standardı)
+// =============================================================================
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  name          String?
+  emailVerified DateTime? @db.Timestamptz(6)
+  image         String?
+  locale        String    @default("tr") // "tr" | "en"
+  tier          UserTier  @default(FREE)
+
+  // Stripe
+  stripeCustomerId String? @unique
+  subscriptionId   String? @unique
+
+  // Rate limit (ADR-103: free tier 3 DCF/week)
+  dcfUsageWeekly  Int       @default(0)
+  dcfUsageResetAt DateTime? @db.Timestamptz(6)
+
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime @updatedAt @db.Timestamptz(6)
+
+  // NextAuth relations
+  accounts Account[]
+  sessions Session[]
+
+  // App relations
+  watchlistItems WatchlistItem[]
+  portfolios     Portfolio[]
+  valuations     Valuation[]
+  alerts         Alert[]
+  auditLogs      AuditLog[]
+  validationRuns ValidationRun[]
+
+  @@index([tier])
+}
+
+// NextAuth Adapter — snake_case alan isimleri OAuth provider response uyumu
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@index([userId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime @db.Timestamptz(6)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime @db.Timestamptz(6)
+
+  @@unique([identifier, token])
+}
+
+// =============================================================================
+// COMPANY + FINANCIALS
+// =============================================================================
+
+model Company {
+  id       String  @id @default(cuid())
+  ticker   String  @unique
+  name     String
+  sector   String?
+  industry String?
+
+  // ADR-099 survivorship — silinmez, sadece flag
+  listedAt        DateTime? @db.Timestamptz(6)
+  delistedAt      DateTime? @db.Timestamptz(6)
+  delistingReason String?
+
+  // Lifecycle (ADR-006d)
+  lifecycleStage   LifecycleStage?
+  lastClassifiedAt DateTime?       @db.Timestamptz(6)
+
+  // Pricing (ADR-002 valuation USD-only ama pricing iki para birimi)
+  lastTradedPriceUsd Decimal?  @db.Decimal(14, 4)
+  lastTradedPriceTry Decimal?  @db.Decimal(14, 4)
+  lastTradedAt       DateTime? @db.Timestamptz(6)
+
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime @updatedAt @db.Timestamptz(6)
+
+  financials     CompanyFinancial[]
+  valuations     Valuation[]
+  positions      Position[]
+  alerts         Alert[]
+  watchlistItems WatchlistItem[]
+
+  @@index([sector])
+  @@index([lifecycleStage])
+  @@index([delistedAt])
+}
+
+model CompanyFinancial {
+  id        String @id @default(cuid())
+  companyId String
+
+  period     String // "2025-Q3" or "2024-A"
+  periodType PeriodType
+  reportedAt DateTime?  @db.Timestamptz(6)
+
+  // Para birimi USD (ADR-002)
+  currency        String   @default("USD")
+  revenueUsd      Decimal? @db.Decimal(18, 2)
+  operatingIncome Decimal? @db.Decimal(18, 2)
+  netIncome       Decimal? @db.Decimal(18, 2)
+  capex           Decimal? @db.Decimal(18, 2)
+  rdExpense       Decimal? @db.Decimal(18, 2)
+  debt            Decimal? @db.Decimal(18, 2)
+  cash            Decimal? @db.Decimal(18, 2)
+  shares          BigInt? // hisse sayısı
+
+  // Hesaplanmış oranlar
+  roic       Decimal? @db.Decimal(10, 6)
+  roe        Decimal? @db.Decimal(10, 6)
+  ebitMargin Decimal? @db.Decimal(10, 6)
+
+  source        DataSource
+  sourceVersion String?
+
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+
+  company Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
+
+  // Aynı period için 3 source'tan da kayıt olabilir (cross-check)
+  @@unique([companyId, period, source])
+  @@index([companyId, period])
+  @@index([companyId, periodType])
+}
+
+// =============================================================================
+// WATCHLIST (Seçenek A — basit, single per user)
+// =============================================================================
+
+model WatchlistItem {
+  id        String   @id @default(cuid())
+  userId    String
+  companyId String
+  addedAt   DateTime @default(now()) @db.Timestamptz(6)
+  notes     String?  @db.Text
+
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  company Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
+
+  // Free tier max 10 enforcement uygulamada
+  @@unique([userId, companyId])
+  @@index([userId])
+}
+
+// =============================================================================
+// VALUATION (en geniş tablo — ADR-101 audit trail dahil)
+// =============================================================================
+
+model Valuation {
+  id        String @id @default(cuid())
+  userId    String
+  companyId String
+
+  modelType ValuationModel
+
+  // Inputs JSON snapshot (ADR-101 reproducibility)
+  inputs Json
+
+  // Parameter vintage (Damodaran, ADR-040)
+  rfUsd     Decimal @db.Decimal(10, 6)
+  matureErp Decimal @db.Decimal(10, 6)
+  turkeyCrp Decimal @db.Decimal(10, 6)
+  lambda    Decimal @db.Decimal(10, 6)
+  beta      Decimal @db.Decimal(10, 6)
+  wacc      Decimal @db.Decimal(10, 6)
+
+  // Output
+  currency              String   @default("USD")
+  intrinsicValue        Decimal  @db.Decimal(18, 4)
+  confidenceBand70Lower Decimal? @db.Decimal(18, 4)
+  confidenceBand70Upper Decimal? @db.Decimal(18, 4)
+  confidenceBand95Lower Decimal? @db.Decimal(18, 4)
+  confidenceBand95Upper Decimal? @db.Decimal(18, 4)
+  marketPrice           Decimal? @db.Decimal(18, 4)
+  marginOfSafety        Decimal? @db.Decimal(10, 6)
+
+  // Narrative integrity (ADR-050/051/098)
+  runawayStatus         DetectorStatus?
+  meltdownStatus        DetectorStatus?
+  narrativeConfirmScore Decimal?        @db.Decimal(10, 6)
+
+  // Humility metrics (ADR-063 Bermuda Triangle Bucket 2)
+  complexityScore Int?
+
+  // Traceability (ADR-101)
+  gitCommitHash String?
+  dataVintage   String?
+
+  // Versioning (history)
+  previousValuationId String?
+  previousValuation   Valuation?  @relation("ValuationVersions", fields: [previousValuationId], references: [id], onDelete: SetNull)
+  versions            Valuation[] @relation("ValuationVersions")
+
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  company Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt])
+  @@index([companyId, createdAt])
+  @@index([modelType])
+  @@index([gitCommitHash])
+}
+
+// =============================================================================
+// PORTFOLIO + POSITION + REBALANCE (Faz 3)
+// =============================================================================
+
+model Portfolio {
+  id          String      @id @default(cuid())
+  userId      String
+  name        String
+  riskProfile RiskProfile @default(BALANCED)
+
+  totalValueUsd Decimal? @db.Decimal(18, 2)
+  totalValueTry Decimal? @db.Decimal(18, 2)
+  cashPct       Decimal  @default(0.05) @db.Decimal(7, 4) // ADR-015
+
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime @updatedAt @db.Timestamptz(6)
+
+  user       User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  positions  Position[]
+  rebalances Rebalance[]
+
+  @@index([userId])
+}
+
+model Position {
+  id          String @id @default(cuid())
+  portfolioId String
+  companyId   String
+  sleeve      Sleeve
+
+  entryPrice  Decimal  @db.Decimal(14, 4)
+  entryDate   DateTime @db.Timestamptz(6)
+  currentSize Decimal  @db.Decimal(7, 4) // % of portfolio (örn 0.0500 = %5)
+
+  exitPrice  Decimal?  @db.Decimal(14, 4)
+  exitDate   DateTime? @db.Timestamptz(6)
+  exitReason String?
+
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime @updatedAt @db.Timestamptz(6)
+
+  portfolio Portfolio @relation(fields: [portfolioId], references: [id], onDelete: Cascade)
+  // Restrict — Company silinirse Position orphan olmasın (kullanıcı manuel kapatsın)
+  company   Company   @relation(fields: [companyId], references: [id], onDelete: Restrict)
+
+  @@index([portfolioId])
+  @@index([companyId])
+  @@index([sleeve])
+  @@index([exitDate])
+}
+
+model Rebalance {
+  id          String   @id @default(cuid())
+  portfolioId String
+  trigger     String // ADR-014 trigger: "POSITION_OVER_15PCT", "LIFECYCLE_TRANSITION", ...
+  actions     Json // change list (sell A, buy B, ...)
+  executedAt  DateTime @default(now()) @db.Timestamptz(6)
+
+  portfolio Portfolio @relation(fields: [portfolioId], references: [id], onDelete: Cascade)
+
+  @@index([portfolioId, executedAt])
+}
+
+// =============================================================================
+// ALERT
+// =============================================================================
+
+model Alert {
+  id             String        @id @default(cuid())
+  userId         String
+  companyId      String?
+  type           AlertType
+  severity       AlertSeverity
+  title          String
+  description    String        @db.Text
+  acknowledged   Boolean       @default(false)
+  acknowledgedAt DateTime?     @db.Timestamptz(6)
+
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+
+  user    User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  // Company silinirse alert mesajı kalsın, link kopsun
+  company Company? @relation(fields: [companyId], references: [id], onDelete: SetNull)
+
+  @@index([userId, acknowledged])
+  @@index([userId, createdAt])
+}
+
+// =============================================================================
+// AUDIT + ERROR (ADR-101 / ADR-102)
+// =============================================================================
+
+model AuditLog {
+  id         String  @id @default(cuid())
+  userId     String? // null = system action
+  action     String
+  entityType String?
+  entityId   String?
+  metadata   Json?
+  ipAddress  String?
+  userAgent  String? @db.Text
+
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+
+  // User silinirse audit log kalır, user pointer null olur (compliance)
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([userId, createdAt])
+  @@index([createdAt])
+  @@index([entityType, entityId])
+}
+
+model ErrorLog {
+  id         String     @id @default(cuid())
+  level      ErrorLevel
+  source     String
+  message    String     @db.Text
+  stackTrace String?    @db.Text
+  context    Json?
+
+  resolved   Boolean   @default(false)
+  resolvedAt DateTime? @db.Timestamptz(6)
+
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+
+  @@index([level, resolved])
+  @@index([createdAt])
+  @@index([source])
+}
+
+// =============================================================================
+// DAMODARAN PARAMETERS (ADR-040 checksum-based)
+// =============================================================================
+
+model DamodaranParameter {
+  id        String  @id @default(cuid())
+  parameter String // "MATURE_ERP", "TURKEY_CRP", "RF_USD", ...
+  value     Decimal @db.Decimal(20, 10) // wide precision (e.g. 0.0001234567)
+  source    String // "ERPbymonth.xlsx", "ctryprem.xlsx"
+  vintage   String // "2026-04" (YYYY-MM)
+  checksum  String // SHA-256 hash
+
+  effectiveFrom DateTime  @db.Timestamptz(6)
+  effectiveTo   DateTime? @db.Timestamptz(6)
+
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+
+  @@unique([parameter, vintage])
+  @@index([parameter, effectiveFrom])
+  @@index([source, vintage])
+}
+
+// =============================================================================
+// VALIDATION (ADR-024 — 20 case)
+// =============================================================================
+
+model ValidationCase {
+  id                   Int            @id @default(autoincrement())
+  number               Int            @unique // 1-20 from spec
+  name                 String // "Heineken 2024"
+  model                ValuationModel
+  expectedValue        Decimal        @db.Decimal(18, 4)
+  expectedCurrency     String         @default("USD")
+  tolerance            Decimal        @db.Decimal(7, 4) // 0.05 = ±5%
+  requiredSpreadsheets String[] // ["fcffginzu", "fcffginzulambda"]
+  criticalForPhase1    Boolean        @default(false)
+
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+
+  runs ValidationRun[]
+
+  @@index([criticalForPhase1])
+}
+
+model ValidationRun {
+  id            String   @id @default(cuid())
+  caseId        Int
+  userId        String? // null = CI/automated run
+  actualValue   Decimal  @db.Decimal(18, 4)
+  passed        Boolean
+  errorPercent  Decimal? @db.Decimal(10, 6)
+  gitCommitHash String
+  runAt         DateTime @default(now()) @db.Timestamptz(6)
+
+  case ValidationCase @relation(fields: [caseId], references: [id], onDelete: Cascade)
+  user User?          @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([caseId, runAt])
+  @@index([gitCommitHash])
+  @@index([passed])
+}
+
+// =============================================================================
+// ARTICLE (Education Hub — Faz 5)
+// =============================================================================
+
+model Article {
+  id        String @id @default(cuid())
+  slug      String @unique
+  localeKey String
+
+  // i18n: { "tr": "Damodaran nedir?", "en": "What is Damodaran?" }
+  titles Json
+  bodies Json
+
+  category ArticleCategory
+  readTime Int? // dakika
+  order    Int             @default(0)
+
+  publishedAt DateTime? @db.Timestamptz(6)
+  createdAt   DateTime  @default(now()) @db.Timestamptz(6)
+  updatedAt   DateTime  @updatedAt @db.Timestamptz(6)
+
+  @@index([category, order])
+  @@index([publishedAt])
+}
