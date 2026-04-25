@@ -64,6 +64,19 @@ TURKEY_NAMES = ["Turkey", "Türkiye", "Turkiye"]
 # Yarın smart parser eklenir (Excel cell'den extract)
 CTRYPREM_VINTAGE = "2025-12"
 
+DAMODARAN_BETAS_URL = "https://pages.stern.nyu.edu/~adamodar/pc/datasets/betaemerg.xls"
+
+# Beta için sheet/column fallback chains
+BETAS_SHEETS_TO_TRY = [
+    "Industry Averages",
+    "Industries",
+    "Sector Averages",
+]
+
+# Vintage manual (Damodaran yıllık update, Date updated cell'inden parse)
+# Yarın smart parser eklenir (Excel cell extract)
+BETAS_VINTAGE = "2026-01"
+
 
 def generate_cuid_like() -> str:
     """Prisma cuid format'ına benzer 25 char ID."""
@@ -347,6 +360,149 @@ async def fetch_country_risk() -> list[dict]:
     ]
 
 
+async def fetch_sector_betas() -> list[dict]:
+    """
+    betaemerg.xls'den ~95 sektör unlevered beta'sı.
+
+    Returns: list of dicts (her sektör için bir parametre)
+    """
+    print(f"[FETCH] {DAMODARAN_BETAS_URL}")
+
+    async with httpx.AsyncClient(timeout=30.0) as client:
+        response = await client.get(DAMODARAN_BETAS_URL)
+        response.raise_for_status()
+        content = response.content
+
+    print(f"[FETCH] OK — {len(content):,} bytes")
+
+    checksum = hashlib.sha256(content).hexdigest()
+    print(f"[CHECKSUM] {checksum[:16]}...")
+
+    # Sheet fallback chain
+    df = None
+    sheet_used = None
+    for sheet_name in BETAS_SHEETS_TO_TRY:
+        try:
+            # header=9 — Row 9 gerçek header (inspect2 tespit etti)
+            df = pd.read_excel(
+                BytesIO(content),
+                sheet_name=sheet_name,
+                header=9,
+                engine='xlrd'
+            )
+            sheet_used = sheet_name
+            print(f"[SHEET] '{sheet_name}' bulundu (header=Row 9)")
+            break
+        except ValueError:
+            print(f"[SHEET] '{sheet_name}' yok, sonraki dene")
+            continue
+
+    if df is None:
+        xl = pd.ExcelFile(BytesIO(content), engine='xlrd')
+        print("[ERROR] Hiçbir bilinen sheet bulunamadı")
+        print(f"[ERROR] Mevcut: {xl.sheet_names}")
+        sys.exit(1)
+
+    print(f"[PARSE] Total rows: {len(df)}")
+    print(f"[PARSE] Columns: {list(df.columns)[:8]}...")
+
+    # Industry Name kolon var mı doğrula
+    if 'Industry Name' not in df.columns:
+        # Fallback: ilk kolonu industry name olarak al
+        first_col = df.columns[0]
+        print(f"[WARN] 'Industry Name' yok, ilk kolon kullanılıyor: '{first_col}'")
+        df = df.rename(columns={first_col: 'Industry Name'})
+
+    # Unlevered beta kolonu bul
+    beta_col = None
+    for col in df.columns:
+        col_lower = str(col).lower().strip()
+        if 'unlevered' in col_lower and 'beta' in col_lower and 'corrected' not in col_lower and 'cash' not in col_lower:
+            beta_col = col
+            break
+
+    if beta_col is None:
+        # Fallback: 'Unlevered beta' exact match
+        for col in df.columns:
+            if str(col).strip() == 'Unlevered beta':
+                beta_col = col
+                break
+
+    if beta_col is None:
+        # Last fallback: col[5] (inspect2 found)
+        if len(df.columns) > 5:
+            beta_col = df.columns[5]
+            print(f"[WARN] Unlevered beta kolon bulunamadı, df.columns[5] fallback: '{beta_col}'")
+
+    if beta_col is None:
+        print(f"[ERROR] Unlevered beta kolonu bulunamadı: {list(df.columns)}")
+        sys.exit(1)
+
+    print(f"[COL] Unlevered beta: '{beta_col}'")
+
+    # Boş satırları kaldır
+    df = df.dropna(subset=['Industry Name'])
+
+    # "Total Market" aggregate satırı kaldır
+    df = df[~df['Industry Name'].astype(str).str.contains('Total Market', case=False, na=False)]
+
+    print(f"[PARSE] Sektör sayısı: {len(df)}")
+
+    # Vintage + effective_from
+    effective_from = datetime.strptime(BETAS_VINTAGE + "-01", "%Y-%m-%d").replace(tzinfo=timezone.utc)
+
+    # Her sektör için parametre üret
+    import re
+    params = []
+    skipped = 0
+
+    for _, row in df.iterrows():
+        sector_name = str(row['Industry Name']).strip()
+
+        # Boş veya geçersiz isim atla
+        if not sector_name or sector_name.lower() in ('nan', 'none', ''):
+            skipped += 1
+            continue
+
+        # Beta değeri
+        try:
+            unlevered_beta = float(row[beta_col])
+            if pd.isna(unlevered_beta):
+                skipped += 1
+                continue
+        except (ValueError, TypeError):
+            print(f"[SKIP] {sector_name}: beta değeri numeric değil ({row[beta_col]})")
+            skipped += 1
+            continue
+
+        # Sektör adı normalize (slugify)
+        normalized = (
+            sector_name
+            .lower()
+            .replace('/', '_')
+            .replace('&', 'and')
+            .replace('(', '')
+            .replace(')', '')
+            .replace(',', '')
+            .replace('.', '')
+            .replace("'", '')
+        )
+        # Birden fazla space/underscore'u tek underscore'a indir
+        normalized = re.sub(r'[\s_]+', '_', normalized).strip('_')
+
+        params.append({
+            "parameter": f"sector_unlevered_beta_{normalized}",
+            "value": unlevered_beta,
+            "source": f"betaemerg.xls::{sheet_used}::{beta_col}::{sector_name}",
+            "vintage": BETAS_VINTAGE,
+            "effective_from": effective_from,
+            "checksum": checksum,
+        })
+
+    print(f"[DATA] {len(params)} sektör hazır, {skipped} atlandı")
+    return params
+
+
 async def write_to_postgres(data: dict) -> None:
     """DamodaranParameter tablosuna kaydet (idempotent)."""
     db_url_raw = os.getenv("DATABASE_URL")
@@ -418,6 +574,20 @@ async def main():
         cr_params = await fetch_country_risk()
         for param in cr_params:
             await write_to_postgres(param)
+
+        # 3) Sector Betas (Emerging, ~95 sectors)
+        print("\n--- Sector Betas (Emerging Markets) ---")
+        beta_params = await fetch_sector_betas()
+        inserted = 0
+        for param in beta_params:
+            try:
+                await write_to_postgres(param)
+                inserted += 1
+            except Exception as e:
+                print(f"[ERROR] {param['parameter']}: {e}")
+                raise
+
+        print(f"\n[SUMMARY] Sector betas: {len(beta_params)} attempt, {inserted} processed")
 
         print("=" * 60)
         print("✅ Tüm parametreler tamamlandı")
