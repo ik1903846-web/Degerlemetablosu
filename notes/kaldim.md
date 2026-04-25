@@ -1,74 +1,92 @@
 # REELDEĞER — Kaldığım Yer
 
-**Tarih:** 25 Nisan 2026, gece (00:00 öncesi)
-**Branch:** main, working tree clean
+**Son güncelleme:** 26 Nisan 2026, 01:30
+**Aktif Faz:** Faz 1.2 (Damodaran Fetcher) — v3 tamamlandı
+**Sıradaki:** Faz 1.2 v4 — US 10Y Treasury rate (Rf_USD)
 
-## Bugünün Toplam İşi
+---
 
-9 commit:
-- 7f39ccd — Monorepo iskelet (pnpm + Turbo)
-- 2575bed — Next.js 15.5.15 + cross-env
-- 92509e0 — stackdump cleanup
-- 4c71b26 — FastAPI 0.136.1 + Python 3.12.10
-- df517e3 — Faz 1.1 progress note
-- 54da090 — Postgres + Redis + Prisma 7 (18 model + 12 enum)
-- 6095343 — Faz 1.1 progress update
-- 835958f — Damodaran fetcher v1 (Faz 1.2 başlangıç) ⭐
-- (yeni) — Faz 1.2 progress update
+## Bugünkü Durum (26 Nisan 2026)
 
-## Faz Durumları
+### Bugün Tamamlanan
+- ✅ Faz 1.1 Adım 5 — Vercel deploy + GitHub setup
+- ✅ Faz 1.2 v1 — ERPbymonth.xlsx fetcher (1 param)
+- ✅ Faz 1.2 v2 — ctryprem.xlsx fetcher (3 param, Turkey CRP)
+- ✅ Faz 1.2 v3 — betaemerg.xls fetcher (94 sector betas)
 
-### Faz 1.1 — TAMAM
-- Adım 1-4: Stack kurulumu ✓
-- Adım 5.1: GitHub repo + push ✓
-- Adım 5.2: Vercel frontend deploy + Auth korumalı ✓
-- Adım 5.3: Backend deploy YAPILMADI (bilinçli karar — sadece kişisel kullanım)
+### DB Durumu (98 parametre)
 
-### Faz 1.2 — BAŞLADI v1
-- ERPbymonth.xlsx fetcher çalışıyor
-- DB'de ilk gerçek Damodaran verisi:
-  - parameter: sp500_implied_erp
-  - value: 0.0467 (4.67%)
-  - vintage: 2026-04
-  - source: ERPbymonth.xlsx::Historical ERP::ERP (T12 m with sustainable payout)
+| Grup | Sayı | Vintage | Detay |
+|---|---|---|---|
+| ERP | 1 | 2026-04 | sp500_implied_erp = 4.67% (T12 sustainable payout) |
+| Turkey Country Risk | 3 | 2025-12 | default_spread 3.06%, crp_total 4.66%, scaling_factor 1.5234 |
+| Sector Betas (Emerging) | 94 | 2026-01 | sector_unlevered_beta_<slug>, Damodaran Industry Averages |
+| **Toplam** | **98** | | |
 
-## Kalanlar (Faz 1.2 v2-v4)
+### Cost of Equity Formülü Hazır
 
-- ctryprem.xlsx (Turkey CRP)
-- Sector betas
-- US 10Y Treasury rate (US default spread için)
-- Multi-source fetcher
-- Cron schedule (Faz 5'te deploy ile)
+```
+Cost of Equity = Rf + β_firm × Mature_ERP + λ × Turkey_CRP
 
-## Mevcut Sistem
+β_firm = β_sector_unlevered × (1 + (1-tax) × D/E_firm)   ← Hamada
+```
 
-- Frontend: Vercel canlı (degerlemetablosu-web.vercel.app, Auth korumalı)
-- Backend: Lokal FastAPI (apps/api, port 8000)
-- Database: Lokal Postgres + Redis (Docker, AOF persist)
-- ORM: Prisma 7.8.0 (driver adapter, ESM)
-- Migration: 20260425162620_init applied (527 satır SQL)
-- Damodaran data: 1 row (DamodaranParameter)
+DB'de eksik:
+- ❌ Rf_USD (US 10Y Treasury) — Faz 1.2 v4
+- ❌ λ (firm-spesifik, KAP geo segment'ten)
+
+---
+
+## Şu An Bilmen Gerekenler
+
+**1. Container'ı KAPATMIYORUZ.** Sebep:
+- `restart=unless-stopped` policy aktif
+- Yarın PC açtığında **otomatik başlar**
+- Veri volume'da kalıcı (postgres_data, redis_data)
+- Açık bırakmak hiçbir zarar vermez (RAM ~200 MB)
+
+Eğer **PC tamamen kapatacaksan** zaten otomatik durur, yarın açılınca otomatik başlar.
+
+**2. Push muhtemelen çalışacak.** Önceki başarılı push (40129f9) credential cache bıraktı. Bu push aynı session'da → cache geçerli.
+
+**3. Eğer hung olursa:** Aynı PAT'i kullanırız, döngü pattern aynı. Ama saat 01:35 civarı, eğer 5 dakikalık bir gecikme olursa **çok mühim değil**.
+
+**4. Saat 01:30 → 01:40 plan:**
+
+| Saat | İş |
+|---|---|
+| 01:30 | kaldim.md mesajı yapıştır |
+| 01:35 | Push |
+| 01:38 | Sonuç |
+| 01:40 | **MOLA / UYKU** |
+
+**5. Bugünün final skoru (push sonrası):**
+- **12 commit** toplam
+- **98 DB parametre**
+- **3 fetcher operasyonel**
+- **Frontend canlı**
+- **Backend lokal**
+- **kaldim güncel** (yarın hızlı açılış)
+
+---
 
 ## Yarın Başlangıç
 
+```bash
 cd C:\Users\unutu\Desktop\abiminprojev2
-git status (clean olmalı)
-docker compose ps (postgres + redis healthy)
+git status                  # clean olmalı
+docker compose ps           # 2 service healthy beklenir
 
-Eğer down ise:
-docker compose up -d
+# Eğer down ise:
+docker compose up -d        # 5 saniyede başlar
+```
 
-## Faz 1.2 v2 Sıradaki Adımlar
+## Faz 1.2 v4 Sıradaki Adımlar
 
-1. apps/api/scripts/fetch_damodaran.py'yi multi-source haline getir
-2. Yeni fonksiyonlar:
-   - fetch_country_risk() — ctryprem.xlsx
-   - fetch_sector_betas() — Damodaran data sayfası
-3. main() döngü: tüm parameters fetch + DB write
-4. Yeni parameters:
-   - turkey_country_risk_premium
-   - turkey_default_spread
-   - sector_beta_<sector_code> (60+ sector)
+1. apps/api/scripts/fetch_damodaran.py'ye fetch_us_treasury() ekle
+2. Damodaran sayfa veya FRED API kullan (10Y T.Bond rate)
+3. parameter: rf_usd
+4. Smart vintage parser (Excel cell extract — manual sabit yerine)
 
 ## Faz 1.3 Validation Gate (sonra)
 
@@ -81,31 +99,24 @@ docker compose up -d
 
 - Bash tool stateless: venv için absolute path
 - cross-env build wrapper (NODE_ENV sızıntısı, ADR-105)
-- Prisma 7: schema + prisma.config.ts ayrımı (A1-A8)
+- Prisma 7: schema + prisma.config.ts ayrımı
 - Python 3.12 explicit (Store alias değil)
-- ADR-099 survivorship: delistedAt + delistingReason flag
-- ADR-101 audit trail: Valuation.previousValuationId self-relation
 - ADR-002 USD-only valuation
 - Damodaran sheet rename: "Historical Imp Prem" → "Historical ERP" (Nisan 2026)
 - ERP primary metric: "ERP (T12 m with sustainable payout)" (ADR-005a)
+- Sector beta primary: "Unlevered beta" (ADR-065 Hamada)
+- Türkiye rating B1 → Ba3 upgrade (Aralık 2025)
 - _db_url.py helper: Prisma URL → asyncpg URL (whitelist 30 param)
+- xlrd dep: .xls eski format için (sector betas)
 - Decimal precision parasal değerler için (Float DEĞİL)
 
 ## Container Yönetimi
 
-Yarın için:
-- docker compose up -d → 5 saniyede aktif
-- docker compose ps → healthy görünmeli
-- docker compose down → durdur (volume korunur)
-- docker compose down -v → durdur + sil (DATA KAYBI)
-
-## Bugün Toplamda Yapılan
-
-- Docker Desktop kuruldu
-- Prisma 7 setup A1-A8 (8 alt-adım)
-- 18 model + 12 enum schema
-- Migration apply (527 satır SQL)
-- GitHub repo (private)
-- Vercel deploy + Auth
-- Damodaran fetcher v1 (ERP)
-- DB'de ilk gerçek veri ⭐
+```bash
+docker compose ps           # status
+docker compose up -d        # başlat (idempotent)
+docker compose down         # durdur (volume korunur)
+docker compose down -v      # durdur + sil (DATA KAYBI)
+docker compose logs postgres | tail -20
+docker compose logs redis | tail -20
+```
