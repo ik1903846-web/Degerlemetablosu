@@ -52,6 +52,12 @@ htmlcov/
 *.sqlite
 *.sqlite3
 
+# Crash dumps (MSYS/Cygwin bash, vb.)
+*.stackdump
+*.stackdump.*
+core
+core.*
+
 # Misc
 .cache/
 tmp/
