@@ -1,0 +1,89 @@
+{
+  "case_id": "toyota_2009_cyclical",
+  "case_name": "Toyota 2009 (1-stage Stable Growth, Cyclical Normalization)",
+  "model": "stable_growth_cyclical",
+  "snapshot_date": "early_2009",
+  "currency": "JPY",
+  "currency_unit": "billions",
+  "source": "darksideextended13.pdf::page59",
+  "ground_truth_pdf": "https://pages.stern.nyu.edu/~adamodar/pdfiles/country/darksideextended13.pdf",
+
+  "expected": {
+    "value_per_share_jpy": 4735,
+    "tolerance_pct": 0.05,
+    "operating_assets_billions": 19640,
+    "equity_value_billions": 16326,
+    "normalized_operating_income_billions": 1660.7
+  },
+
+  "market": {
+    "shares_outstanding_millions": 3448
+  },
+
+  "cyclical_normalization": {
+    "revenues_2009_billions": 22661,
+    "avg_operating_margin_98_09": 0.0733,
+    "current_operating_margin_2009": 0.0118,
+    "normalization_note": "Crisis year (FY2009) margin %1.18, historical avg %7.33. Normalize: 22661 × 0.0733 = 1660.7B¥"
+  },
+
+  "operating_margin_history": [
+    {"year": "FY1992", "revenues_b": 10163, "op_income_b": 218,   "op_margin": 0.0215},
+    {"year": "FY1993", "revenues_b": 10210, "op_income_b": 181,   "op_margin": 0.0178},
+    {"year": "FY1994", "revenues_b": 9362,  "op_income_b": 136,   "op_margin": 0.0145},
+    {"year": "FY1995", "revenues_b": 8120,  "op_income_b": 255,   "op_margin": 0.0315},
+    {"year": "FY1996", "revenues_b": 10718, "op_income_b": 348,   "op_margin": 0.0325},
+    {"year": "FY1997", "revenues_b": 12243, "op_income_b": 665,   "op_margin": 0.0543},
+    {"year": "FY1998", "revenues_b": 11678, "op_income_b": 779,   "op_margin": 0.0668},
+    {"year": "FY1999", "revenues_b": 12749, "op_income_b": 774,   "op_margin": 0.0608},
+    {"year": "FY2000", "revenues_b": 12879, "op_income_b": 775,   "op_margin": 0.0602},
+    {"year": "FY2001", "revenues_b": 13424, "op_income_b": 870,   "op_margin": 0.0648},
+    {"year": "FY2002", "revenues_b": 15106, "op_income_b": 1123,  "op_margin": 0.0744},
+    {"year": "FY2003", "revenues_b": 16054, "op_income_b": 1363,  "op_margin": 0.0849},
+    {"year": "FY2004", "revenues_b": 17294, "op_income_b": 1666,  "op_margin": 0.0964},
+    {"year": "FY2005", "revenues_b": 18551, "op_income_b": 1672,  "op_margin": 0.0901},
+    {"year": "FY2006", "revenues_b": 21036, "op_income_b": 1878,  "op_margin": 0.0893},
+    {"year": "FY2007", "revenues_b": 23948, "op_income_b": 2238,  "op_margin": 0.0935},
+    {"year": "FY2008", "revenues_b": 26289, "op_income_b": 2270,  "op_margin": 0.0864},
+    {"year": "FY2009", "revenues_b": 22661, "op_income_b": 267,   "op_margin": 0.0118}
+  ],
+
+  "cost_of_capital": {
+    "beta_auto_sector_avg": 1.10,
+    "cost_of_equity": 0.0865,
+    "cost_of_debt_pretax": 0.0325,
+    "tax_rate_japan_marginal": 0.407,
+    "cost_of_debt_after_tax": 0.01928,
+    "equity_weight": 0.471,
+    "debt_weight": 0.529,
+    "wacc": 0.0509,
+    "wacc_formula": "0.0865 × 0.471 + 0.0325 × (1-0.407) × 0.529 = 0.0509"
+  },
+
+  "stable_growth": {
+    "growth_rate": 0.015,
+    "growth_currency_note": "1.5% in Yen terms",
+    "roc": 0.0509,
+    "roc_note": "Toyota mature, ROC = WACC (no excess return assumed)",
+    "reinvestment_rate": 0.2946,
+    "reinvestment_formula": "g / ROC = 0.015 / 0.0509 = 0.2946"
+  },
+
+  "valuation_formula": {
+    "name": "Single-Stage Stable Growth FCFF",
+    "formula": "V = Normalized_OI × (1+g) × (1-t) × (1-RR) / (WACC - g)",
+    "computation": "1660.7 × 1.015 × (1-0.407) × (1-0.2946) / (0.0509-0.015)",
+    "result_billions": 19640
+  },
+
+  "balance_sheet": {
+    "cash_billions": 2288,
+    "non_operating_assets_billions": 6845,
+    "debt_billions": 11862,
+    "minority_interests_billions": 583
+  },
+
+  "spec_note": "Toyota 2009 cyclical normalization case. 1-stage (stable growth only) — Heineken/Tube 2-stage'den farklı. Crisis year margin %1.18 → normalize %7.33 (12-yıl avg). Yeni cyclical_dcf.py module'ü gerekli, mevcut industrial_fcff.py reuse YOK (formula yapısı farklı).",
+
+  "implementation_plan": "Yarın (27 Nisan) cyclical_dcf.py implement: normalize_operating_income(), single_stage_stable_growth_value(), equity_bridge_extended(). Test runner ¥4,735 ±5% replicate."
+}
