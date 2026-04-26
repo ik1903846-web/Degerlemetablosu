@@ -120,4 +120,3 @@ docker compose down -v      # durdur + sil (DATA KAYBI)
 docker compose logs postgres | tail -20
 docker compose logs redis | tail -20
 ```
-
