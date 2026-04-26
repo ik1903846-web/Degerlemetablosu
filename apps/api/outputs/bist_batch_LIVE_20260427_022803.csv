@@ -1,0 +1,20 @@
+ticker,success,is_banking,model_used,lifecycle_stage,lifecycle_sub,value_per_share_tl,market_price_tl,upside_pct,damodaran_verdict,equity_value_tl,shares_outstanding,wacc,normalized_margin,periods_fetched,items_mapped,errors
+TUPRS,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",181.16,269.00,-32.65,SAT,349.06B,1926795598,13.85%,4.64%,12,12,
+PETKM,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",1.46,23.16,-93.71,SAT,3.81B,2613000000,10.45%,6.70%,12,12,
+EREGL,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",73.87,33.00,123.85,AL,258.55B,3500000000,11.37%,19.67%,12,12,
+KRDMD,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",29.25,36.86,-20.64,IZLE-SAT,27.79B,950000000,13.66%,10.17%,12,12,
+KOZAL,False,False,none,,,,,,UNKNOWN,,,,,0,0,Pipeline error: ValueError: No items in response for KOZAL
+KOZAA,False,False,none,,,,,,UNKNOWN,,,,,0,0,Pipeline error: ValueError: No items in response for KOZAA
+BIMAS,False,False,industrial_fcff,mature_stable,stable,,760.00,,UNKNOWN,,,,,12,12,No valid margins for cyclical normalize | DCF execution returned None
+MGROS,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",180.12,638.50,-71.79,SAT,32.60B,181000000,11.96%,1.23%,12,12,
+SOKM,True,False,industrial_fcff,mature_stable,"stable,capital_intensive",-126.50,49.46,-355.77,SAT,-77.42B,612000000,12.15%,-4.31%,12,12,
+CCOLA,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",512.93,76.85,567.44,AL,130.47B,254370782,10.34%,12.19%,12,12,
+TOASO,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",140.54,295.50,-52.44,SAT,70.27B,500000000,11.00%,7.71%,12,12,
+FROTO,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",939.54,104.50,799.08,AL,329.69B,350910000,9.66%,7.27%,12,12,
+ARCLK,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",400.74,117.20,241.93,AL,270.79B,675728205,8.47%,7.52%,12,12,
+ASELS,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",182.95,392.00,-53.33,SAT,208.56B,1140000000,12.70%,23.79%,12,12,
+THYAO,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",33.42,325.00,-89.72,SAT,46.12B,1380000000,10.57%,8.14%,12,12,
+PGSUS,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",-651.80,189.10,-444.69,SAT,-66.66B,102271525,8.08%,10.04%,12,12,
+KCHOL,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",223.39,207.00,7.92,BEKLE,566.50B,2535898345,9.77%,7.89%,12,12,
+SAHOL,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",388.34,98.80,293.05,AL,792.36B,2040403931,10.55%,56.77%,12,12,
+ENKAI,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",29.48,106.50,-72.31,SAT,176.91B,6000000000,14.29%,17.84%,12,12,

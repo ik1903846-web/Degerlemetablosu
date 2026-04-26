@@ -33,6 +33,7 @@ from data_layer.fx_converter import (
     STATIC_YEAR_END_RATES,
 )
 from data_layer.shares_fetcher import get_shares_outstanding, SharesOutstanding
+from data_layer.market_price_fetcher import fetch_spot_price
 from dcf_engine.lifecycle_classifier import (
     classify_lifecycle,
     LifecycleClassification,
@@ -160,6 +161,15 @@ async def analyze_ticker(
         ValuationReport with full results
     """
     ticker = ticker.upper()
+
+    # Auto-fetch market price if not provided (Faz 2.4.4)
+    if market_price_tl is None:
+        try:
+            price_obj = await fetch_spot_price(ticker)
+            if price_obj is not None:
+                market_price_tl = float(price_obj.spot_price)
+        except Exception as e:
+            logger.warning(f"{ticker}: spot price auto-fetch failed: {e}")
 
     # Initialize report
     report = ValuationReport(

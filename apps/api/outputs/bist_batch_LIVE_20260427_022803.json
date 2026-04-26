@@ -1,0 +1,918 @@
+{
+  "timestamp": "2026-04-27T02:28:03.716961",
+  "reports": [
+    {
+      "ticker": "TUPRS",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 12,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_stable",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.85,
+        "revenue_cagr_usd": 0.04208382656538312,
+        "avg_operating_margin": 0.04640469380779247,
+        "margin_stdev": 0.038982370300142226,
+        "margin_spread": 0.1152628339759363,
+        "avg_reinvestment_rate": 0.8590609108164783,
+        "earnings_consistency": 0.9166666666666666,
+        "reasoning": [
+          "Mature Stable: CAGR 4.2% < 10%, margin 4.6% > 2%, consistency 92%",
+          "Cyclical: margin spread 11.53pp > 5pp",
+          "Capital-Intensive: reinvestment 85.9% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": 9868846185.462006,
+        "equity_value_tl": 349061089579.79114,
+        "value_per_share_usd": 5.12189575049154,
+        "value_per_share_tl": 181.16145269488578,
+        "wacc": 0.138481381499676,
+        "normalized_op_margin": 0.04640469380779247
+      },
+      "shares_outstanding": 1926795598,
+      "market": {
+        "price_tl": 269.0,
+        "upside_pct": -32.65373505766328,
+        "verdict": "SAT"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "12-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_stable + ['cyclical', 'capital_intensive']"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "PETKM",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 12,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_stable",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.85,
+        "revenue_cagr_usd": 0.03755309558380859,
+        "avg_operating_margin": 0.06697694358019483,
+        "margin_stdev": 0.11853198129223495,
+        "margin_spread": 0.35994283124693327,
+        "avg_reinvestment_rate": 1.702566186819633,
+        "earnings_consistency": 0.75,
+        "reasoning": [
+          "Mature Stable: CAGR 3.8% < 10%, margin 6.7% > 2%, consistency 75%",
+          "Cyclical: margin spread 35.99pp > 5pp",
+          "Capital-Intensive: reinvestment 170.3% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": 107692918.0752039,
+        "equity_value_tl": 3809098512.3199615,
+        "value_per_share_usd": 0.04121428169736085,
+        "value_per_share_tl": 1.457749143635653,
+        "wacc": 0.1044821701685684,
+        "normalized_op_margin": 0.06697694358019483
+      },
+      "shares_outstanding": 2613000000,
+      "market": {
+        "price_tl": 23.16,
+        "upside_pct": -93.705746357359,
+        "verdict": "SAT"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "12-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_stable + ['cyclical', 'capital_intensive']"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "EREGL",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 12,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_stable",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.85,
+        "revenue_cagr_usd": 0.04549849125766903,
+        "avg_operating_margin": 0.1967157551776165,
+        "margin_stdev": 0.08079730331100017,
+        "margin_spread": 0.27499882622890537,
+        "avg_reinvestment_rate": 4.312656985227092,
+        "earnings_consistency": 1.0,
+        "reasoning": [
+          "Mature Stable: CAGR 4.5% < 10%, margin 19.7% > 2%, consistency 100%",
+          "Cyclical: margin spread 27.50pp > 5pp",
+          "Capital-Intensive: reinvestment 431.3% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": 7309936190.359059,
+        "equity_value_tl": 258552443052.9999,
+        "value_per_share_usd": 2.0885531972454454,
+        "value_per_share_tl": 73.8721265865714,
+        "wacc": 0.11371317180785406,
+        "normalized_op_margin": 0.1967157551776165
+      },
+      "shares_outstanding": 3500000000,
+      "market": {
+        "price_tl": 33.0,
+        "upside_pct": 123.85492905021636,
+        "verdict": "AL"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "12-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_stable + ['cyclical', 'capital_intensive']"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "KRDMD",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 12,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_stable",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.85,
+        "revenue_cagr_usd": 0.08598567700049564,
+        "avg_operating_margin": 0.10169850462272136,
+        "margin_stdev": 0.11671893439372105,
+        "margin_spread": 0.3821194586968729,
+        "avg_reinvestment_rate": 2.8499295548499735,
+        "earnings_consistency": 0.75,
+        "reasoning": [
+          "Mature Stable: CAGR 8.6% < 10%, margin 10.2% > 2%, consistency 75%",
+          "Cyclical: margin spread 38.21pp > 5pp",
+          "Capital-Intensive: reinvestment 285.0% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": 785662380.2459847,
+        "equity_value_tl": 27788878389.300476,
+        "value_per_share_usd": 0.8270130318378786,
+        "value_per_share_tl": 29.251450936105762,
+        "wacc": 0.13656316347732728,
+        "normalized_op_margin": 0.10169850462272136
+      },
+      "shares_outstanding": 950000000,
+      "market": {
+        "price_tl": 36.86,
+        "upside_pct": -20.641750037694624,
+        "verdict": "IZLE-SAT"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "12-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_stable + ['cyclical', 'capital_intensive']"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "KOZAL",
+      "success": false,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 0,
+      "items_mapped": 0,
+      "lifecycle": null,
+      "dcf": {
+        "executed": false,
+        "model_used": "none",
+        "equity_value_usd": null,
+        "equity_value_tl": null,
+        "value_per_share_usd": null,
+        "value_per_share_tl": null,
+        "wacc": null,
+        "normalized_op_margin": null
+      },
+      "shares_outstanding": null,
+      "market": {
+        "price_tl": null,
+        "upside_pct": null,
+        "verdict": "UNKNOWN"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)"
+      ],
+      "errors": [
+        "Pipeline error: ValueError: No items in response for KOZAL"
+      ]
+    },
+    {
+      "ticker": "KOZAA",
+      "success": false,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 0,
+      "items_mapped": 0,
+      "lifecycle": null,
+      "dcf": {
+        "executed": false,
+        "model_used": "none",
+        "equity_value_usd": null,
+        "equity_value_tl": null,
+        "value_per_share_usd": null,
+        "value_per_share_tl": null,
+        "wacc": null,
+        "normalized_op_margin": null
+      },
+      "shares_outstanding": null,
+      "market": {
+        "price_tl": null,
+        "upside_pct": null,
+        "verdict": "UNKNOWN"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)"
+      ],
+      "errors": [
+        "Pipeline error: ValueError: No items in response for KOZAA"
+      ]
+    },
+    {
+      "ticker": "BIMAS",
+      "success": false,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 12,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_stable",
+        "sub_classifications": [
+          "stable"
+        ],
+        "confidence": 0.5,
+        "revenue_cagr_usd": null,
+        "avg_operating_margin": null,
+        "margin_stdev": null,
+        "margin_spread": null,
+        "avg_reinvestment_rate": null,
+        "earnings_consistency": 1.0,
+        "reasoning": [
+          "Default Mature Stable (low growth)"
+        ]
+      },
+      "dcf": {
+        "executed": false,
+        "model_used": "industrial_fcff",
+        "equity_value_usd": null,
+        "equity_value_tl": null,
+        "value_per_share_usd": null,
+        "value_per_share_tl": null,
+        "wacc": null,
+        "normalized_op_margin": null
+      },
+      "shares_outstanding": null,
+      "market": {
+        "price_tl": 760.0,
+        "upside_pct": null,
+        "verdict": "UNKNOWN"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "12-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_stable + ['stable']",
+        "Industrial FCFF: fallback to cyclical_dcf (Faz 2.3.x'te 2-stage)"
+      ],
+      "errors": [
+        "No valid margins for cyclical normalize",
+        "DCF execution returned None"
+      ]
+    },
+    {
+      "ticker": "MGROS",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 12,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_growth",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.5,
+        "revenue_cagr_usd": 0.11139758696372604,
+        "avg_operating_margin": 0.012275323581552545,
+        "margin_stdev": 0.028441168905715436,
+        "margin_spread": 0.07195403682205345,
+        "avg_reinvestment_rate": 0.7613094217445857,
+        "earnings_consistency": 0.5,
+        "reasoning": [
+          "Default Mature Growth (mid-range): CAGR 11.1%",
+          "Cyclical: margin spread 7.20pp > 5pp",
+          "Capital-Intensive: reinvestment 76.1% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": 921709010.6527557,
+        "equity_value_tl": 32600847706.787968,
+        "value_per_share_usd": 5.092314975982076,
+        "value_per_share_tl": 180.115180700486,
+        "wacc": 0.11958372627649706,
+        "normalized_op_margin": 0.012275323581552545
+      },
+      "shares_outstanding": 181000000,
+      "market": {
+        "price_tl": 638.5,
+        "upside_pct": -71.79088790908598,
+        "verdict": "SAT"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "12-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_growth + ['cyclical', 'capital_intensive']"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "SOKM",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 12,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_stable",
+        "sub_classifications": [
+          "stable",
+          "capital_intensive"
+        ],
+        "confidence": 0.5,
+        "revenue_cagr_usd": null,
+        "avg_operating_margin": -0.043130012259897724,
+        "margin_stdev": null,
+        "margin_spread": null,
+        "avg_reinvestment_rate": 2.408201834526432,
+        "earnings_consistency": 0.6,
+        "reasoning": [
+          "Default Mature Stable (low growth)",
+          "Capital-Intensive: reinvestment 240.8% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "industrial_fcff",
+        "equity_value_usd": -2188885487.246554,
+        "equity_value_tl": -77420879683.9106,
+        "value_per_share_usd": -3.576610273278683,
+        "value_per_share_tl": -126.504705365867,
+        "wacc": 0.12145551733084625,
+        "normalized_op_margin": -0.043130012259897724
+      },
+      "shares_outstanding": 612000000,
+      "market": {
+        "price_tl": 49.46,
+        "upside_pct": -355.77174558404164,
+        "verdict": "SAT"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "12-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_stable + ['stable', 'capital_intensive']",
+        "Industrial FCFF: fallback to cyclical_dcf (Faz 2.3.x'te 2-stage)"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "CCOLA",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 12,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_stable",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.85,
+        "revenue_cagr_usd": 0.06966215354187622,
+        "avg_operating_margin": 0.12193577731866624,
+        "margin_stdev": 0.021225151305897975,
+        "margin_spread": 0.06536599900303423,
+        "avg_reinvestment_rate": 2.5965520015126455,
+        "earnings_consistency": 0.9166666666666666,
+        "reasoning": [
+          "Mature Stable: CAGR 7.0% < 10%, margin 12.2% > 2%, consistency 92%",
+          "Cyclical: margin spread 6.54pp > 5pp",
+          "Capital-Intensive: reinvestment 259.7% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": 3688824402.950395,
+        "equity_value_tl": 130473719132.35547,
+        "value_per_share_usd": 14.501761459971434,
+        "value_per_share_tl": 512.9273028391896,
+        "wacc": 0.10342649195709186,
+        "normalized_op_margin": 0.12193577731866624
+      },
+      "shares_outstanding": 254370782,
+      "market": {
+        "price_tl": 76.85,
+        "upside_pct": 567.4395612741569,
+        "verdict": "AL"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "12-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_stable + ['cyclical', 'capital_intensive']"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "TOASO",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 12,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_stable",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.85,
+        "revenue_cagr_usd": 0.024152172554916973,
+        "avg_operating_margin": 0.07705515881804366,
+        "margin_stdev": 0.02854614072228312,
+        "margin_spread": 0.10563194110611887,
+        "avg_reinvestment_rate": 0.8371476362548492,
+        "earnings_consistency": 1.0,
+        "reasoning": [
+          "Mature Stable: CAGR 2.4% < 10%, margin 7.7% > 2%, consistency 100%",
+          "Cyclical: margin spread 10.56pp > 5pp",
+          "Capital-Intensive: reinvestment 83.7% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": 1986649025.7469807,
+        "equity_value_tl": 70267776040.6707,
+        "value_per_share_usd": 3.9732980514939613,
+        "value_per_share_tl": 140.5355520813414,
+        "wacc": 0.11000389682797242,
+        "normalized_op_margin": 0.07705515881804366
+      },
+      "shares_outstanding": 500000000,
+      "market": {
+        "price_tl": 295.5,
+        "upside_pct": -52.44143753592508,
+        "verdict": "SAT"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "12-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_stable + ['cyclical', 'capital_intensive']"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "FROTO",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 12,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_growth",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.8,
+        "revenue_cagr_usd": 0.13552905173437724,
+        "avg_operating_margin": 0.07268308960698025,
+        "margin_stdev": 0.025706448503927913,
+        "margin_spread": 0.08642083185774338,
+        "avg_reinvestment_rate": 0.8710624133324897,
+        "earnings_consistency": 1.0,
+        "reasoning": [
+          "Mature Growth: CAGR 13.6% in 10-30%, margin 7.3% > 5%",
+          "Cyclical: margin spread 8.64pp > 5pp",
+          "Capital-Intensive: reinvestment 87.1% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": 9321262478.58276,
+        "equity_value_tl": 329693053867.47217,
+        "value_per_share_usd": 26.563114412763273,
+        "value_per_share_tl": 939.5373567794369,
+        "wacc": 0.09659633269441215,
+        "normalized_op_margin": 0.07268308960698025
+      },
+      "shares_outstanding": 350910000,
+      "market": {
+        "price_tl": 104.5,
+        "upside_pct": 799.0788103152506,
+        "verdict": "AL"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "12-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_growth + ['cyclical', 'capital_intensive']"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "ARCLK",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 12,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_stable",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.85,
+        "revenue_cagr_usd": 0.09723532539808066,
+        "avg_operating_margin": 0.07521242700380074,
+        "margin_stdev": 0.02999644997397444,
+        "margin_spread": 0.10209802200842122,
+        "avg_reinvestment_rate": 1.465663698481355,
+        "earnings_consistency": 1.0,
+        "reasoning": [
+          "Mature Stable: CAGR 9.7% < 10%, margin 7.5% > 2%, consistency 100%",
+          "Cyclical: margin spread 10.21pp > 5pp",
+          "Capital-Intensive: reinvestment 146.6% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": 7655922665.3310175,
+        "equity_value_tl": 270789984672.75806,
+        "value_per_share_usd": 11.329884720930092,
+        "value_per_share_tl": 400.73802257929736,
+        "wacc": 0.0846541868615005,
+        "normalized_op_margin": 0.07521242700380074
+      },
+      "shares_outstanding": 675728205,
+      "market": {
+        "price_tl": 117.2,
+        "upside_pct": 241.92664042602163,
+        "verdict": "AL"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "12-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_stable + ['cyclical', 'capital_intensive']"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "ASELS",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 12,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_growth",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.8,
+        "revenue_cagr_usd": 0.14428597094216333,
+        "avg_operating_margin": 0.23792235436849665,
+        "margin_stdev": 0.11032643049306522,
+        "margin_spread": 0.3923586370012145,
+        "avg_reinvestment_rate": 2.1205724677706366,
+        "earnings_consistency": 1.0,
+        "reasoning": [
+          "Mature Growth: CAGR 14.4% in 10-30%, margin 23.8% > 5%",
+          "Cyclical: margin spread 39.24pp > 5pp",
+          "Capital-Intensive: reinvestment 212.1% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": 5896662095.362212,
+        "equity_value_tl": 208564938312.96143,
+        "value_per_share_usd": 5.172510609966853,
+        "value_per_share_tl": 182.95170027452758,
+        "wacc": 0.12698940815848042,
+        "normalized_op_margin": 0.23792235436849668
+      },
+      "shares_outstanding": 1140000000,
+      "market": {
+        "price_tl": 392.0,
+        "upside_pct": -53.32864788915113,
+        "verdict": "SAT"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "12-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_growth + ['cyclical', 'capital_intensive']"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "THYAO",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 12,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_growth",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.8,
+        "revenue_cagr_usd": 0.10826844792382229,
+        "avg_operating_margin": 0.0814119286568505,
+        "margin_stdev": 0.06127997243835427,
+        "margin_spread": 0.19071385325876938,
+        "avg_reinvestment_rate": 2.890137041350842,
+        "earnings_consistency": 0.8333333333333334,
+        "reasoning": [
+          "Mature Growth: CAGR 10.8% in 10-30%, margin 8.1% > 5%",
+          "Cyclical: margin spread 19.07pp > 5pp",
+          "Capital-Intensive: reinvestment 289.0% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": 1303955313.537712,
+        "equity_value_tl": 46120899439.82887,
+        "value_per_share_usd": 0.9448951547374725,
+        "value_per_share_tl": 33.4209416230644,
+        "wacc": 0.10570467620009373,
+        "normalized_op_margin": 0.0814119286568505
+      },
+      "shares_outstanding": 1380000000,
+      "market": {
+        "price_tl": 325.0,
+        "upside_pct": -89.71663334674942,
+        "verdict": "SAT"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "12-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_growth + ['cyclical', 'capital_intensive']"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "PGSUS",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 12,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_growth",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.8,
+        "revenue_cagr_usd": 0.10599336183459718,
+        "avg_operating_margin": 0.10044330595509977,
+        "margin_stdev": 0.21306811614111534,
+        "margin_spread": 0.7648775418602923,
+        "avg_reinvestment_rate": 3.2252304150513473,
+        "earnings_consistency": 0.75,
+        "reasoning": [
+          "Mature Growth: CAGR 10.6% in 10-30%, margin 10.0% > 5%",
+          "Cyclical: margin spread 76.49pp > 5pp",
+          "Capital-Intensive: reinvestment 322.5% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": -1884678216.253827,
+        "equity_value_tl": -66661068508.89786,
+        "value_per_share_usd": -18.42818141465894,
+        "value_per_share_tl": -651.8047766364866,
+        "wacc": 0.08082466145664996,
+        "normalized_op_margin": 0.10044330595509977
+      },
+      "shares_outstanding": 102271525,
+      "market": {
+        "price_tl": 189.1,
+        "upside_pct": -444.687877650178,
+        "verdict": "SAT"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "12-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_growth + ['cyclical', 'capital_intensive']"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "KCHOL",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 12,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_stable",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.85,
+        "revenue_cagr_usd": 0.059267030804948106,
+        "avg_operating_margin": 0.07886663909285258,
+        "margin_stdev": 0.04491513104194642,
+        "margin_spread": 0.13515641332428954,
+        "avg_reinvestment_rate": 1.2244613642626923,
+        "earnings_consistency": 1.0,
+        "reasoning": [
+          "Mature Stable: CAGR 5.9% < 10%, margin 7.9% > 2%, consistency 100%",
+          "Cyclical: margin spread 13.52pp > 5pp",
+          "Capital-Intensive: reinvestment 122.4% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": 16016291424.588512,
+        "equity_value_tl": 566496227687.6957,
+        "value_per_share_usd": 6.3158254967781495,
+        "value_per_share_tl": 223.39074782104313,
+        "wacc": 0.09769112957050805,
+        "normalized_op_margin": 0.07886663909285258
+      },
+      "shares_outstanding": 2535898345,
+      "market": {
+        "price_tl": 207.0,
+        "upside_pct": 7.918235662339679,
+        "verdict": "BEKLE"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "12-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_stable + ['cyclical', 'capital_intensive']"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "SAHOL",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 12,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_stable",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.85,
+        "revenue_cagr_usd": 0.05479480742328069,
+        "avg_operating_margin": 0.5676983890168702,
+        "margin_stdev": 0.2418808185042205,
+        "margin_spread": 0.9187775068014454,
+        "avg_reinvestment_rate": 3.342068853135603,
+        "earnings_consistency": 0.9166666666666666,
+        "reasoning": [
+          "Mature Stable: CAGR 5.5% < 10%, margin 56.8% > 2%, consistency 92%",
+          "Cyclical: margin spread 91.88pp > 5pp",
+          "Capital-Intensive: reinvestment 334.2% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": 22402087166.67162,
+        "equity_value_tl": 792361823085.1752,
+        "value_per_share_usd": 10.979241328795313,
+        "value_per_share_tl": 388.33576579949016,
+        "wacc": 0.10548534460677861,
+        "normalized_op_margin": 0.5676983890168702
+      },
+      "shares_outstanding": 2040403931,
+      "market": {
+        "price_tl": 98.8,
+        "upside_pct": 293.0523945338969,
+        "verdict": "AL"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "12-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_stable + ['cyclical', 'capital_intensive']"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "ENKAI",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 12,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_stable",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.5,
+        "revenue_cagr_usd": -0.040132922261309156,
+        "avg_operating_margin": 0.17837854831374847,
+        "margin_stdev": 0.0322675179093776,
+        "margin_spread": 0.10454430405470577,
+        "avg_reinvestment_rate": 2.4593553660785745,
+        "earnings_consistency": 1.0,
+        "reasoning": [
+          "Default Mature Stable (low growth)",
+          "Cyclical: margin spread 10.45pp > 5pp",
+          "Capital-Intensive: reinvestment 245.9% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": 5001666996.95295,
+        "equity_value_tl": 176908961682.2258,
+        "value_per_share_usd": 0.8336111661588249,
+        "value_per_share_tl": 29.484826947037636,
+        "wacc": 0.14288746278131587,
+        "normalized_op_margin": 0.17837854831374847
+      },
+      "shares_outstanding": 6000000000,
+      "market": {
+        "price_tl": 106.5,
+        "upside_pct": -72.31471648165481,
+        "verdict": "SAT"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "12-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_stable + ['cyclical', 'capital_intensive']"
+      ],
+      "errors": []
+    }
+  ]
+}
