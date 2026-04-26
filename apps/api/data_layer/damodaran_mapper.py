@@ -135,10 +135,16 @@ def _get_value_series(
     statements: FinancialStatements,
     item_code: str,
 ) -> List[Optional[Decimal]]:
-    """Tek kalemden 4 dönem değer çek."""
+    """Tek kalemden N dönem değer çek (N = mevcut taxonomy period count)."""
     item = statements.get_item(item_code)
     if item is None:
-        return [None, None, None, None]
+        # Period count'u taxonomy'den dinamik al
+        period_count = (
+            len(statements.items[0].values)
+            if statements.items
+            else 4
+        )
+        return [None] * period_count
     return list(item.values)
 
 
@@ -176,8 +182,16 @@ def _aggregate_capex(statements: FinancialStatements) -> List[Optional[Decimal]]
 
     Damodaran net CapEx ≈ -1 × (gross capex - asset sales)
     Basit yaklaşım: 4CB* serisi toplama (negatif değerleri pozitife çevir)
+
+    Period count taxonomy'den dinamik (4-yıl, 12-yıl, vs. desteklenir).
     """
-    capex_values = [None, None, None, None]
+    # Period count'u taxonomy'den dinamik al
+    period_count = (
+        len(statements.items[0].values)
+        if statements.items
+        else 4
+    )
+    capex_values: List[Optional[Decimal]] = [None] * period_count
 
     for code in ITEM_CAPEX_CANDIDATES:
         item = statements.get_item(code)
@@ -187,6 +201,9 @@ def _aggregate_capex(statements: FinancialStatements) -> List[Optional[Decimal]]
         for i, val in enumerate(item.values):
             if val is None:
                 continue
+            if i >= len(capex_values):
+                # Defensive: item.values period_count'tan büyükse skip
+                break
             # CapEx'in mutlak değerini topla
             abs_val = abs(val)
             if capex_values[i] is None:
