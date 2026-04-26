@@ -62,7 +62,8 @@ class DamodaranDCFInputs:
     # Cash Flow Statement
     operating_cash_flow: List[Optional[Decimal]]  # 4C
     depreciation: List[Optional[Decimal]]  # 4B
-    capex: List[Optional[Decimal]]  # Hesaplama (4CB serisi)
+    capex: List[Optional[Decimal]]  # Raw aggregate (4CB serisi, deprecated)
+    net_capex: List[Optional[Decimal]]  # Damodaran-aligned (Δ PP&E + Dep)
     working_capital_change: List[Optional[Decimal]]  # 4CAF
 
     # Balance Sheet
@@ -110,6 +111,10 @@ ITEM_CASH = "1AA"
 ITEM_ST_DEBT = "2AA"
 ITEM_LT_DEBT = "2BA"
 ITEM_TOTAL_EQUITY = "2N"
+
+# Fixed Assets (Net CapEx hesabı için)
+ITEM_PPE = "1BG"  # Maddi Duran Varlıklar (Tangible Fixed Assets)
+ITEM_INTANGIBLE = "1BH"  # Maddi Olmayan Duran Varlıklar (Intangible)
 
 
 # ============================================================================
@@ -250,6 +255,55 @@ def _compute_operating_margin(
     return [_safe_div(e, r) for e, r in zip(ebit, revenue)]
 
 
+def _compute_net_capex(
+    statements: FinancialStatements,
+    depreciation: List[Optional[Decimal]],
+) -> List[Optional[Decimal]]:
+    """
+    Damodaran-aligned Net CapEx formula.
+
+    Net CapEx = Δ Net PP&E + Depreciation
+              = (PP&E[t] + Intangible[t]) - (PP&E[t-1] + Intangible[t-1]) + Dep[t]
+
+    Sebep:
+    - PP&E hesabı bilanço net (depreciation çıkarılmış)
+    - Yıllık değişim = Gross CapEx - Depreciation
+    - Geri ekleyince: Δ Net PP&E + Depreciation = Gross CapEx
+
+    Period sıralaması:
+    - index 0 en yeni (latest year)
+    - index N-1 en eski
+    - Net CapEx[t] = Operating Assets[t] - Operating Assets[t+1] + Depreciation[t]
+
+    Son yıl için (en eski period) Net CapEx hesaplanamaz (prior year yok).
+    """
+    ppe = _get_value_series(statements, ITEM_PPE)
+    intangible = _get_value_series(statements, ITEM_INTANGIBLE)
+
+    # Operating fixed assets (PP&E + Intangible)
+    operating_assets = [_safe_add(p, i) for p, i in zip(ppe, intangible)]
+
+    # Δ Operating Assets (year-over-year)
+    delta_assets = []
+    for i in range(len(operating_assets)):
+        if i + 1 >= len(operating_assets):
+            # Son yıl (en eski) için prior year yok
+            delta_assets.append(None)
+            continue
+
+        current = operating_assets[i]
+        prior = operating_assets[i + 1]
+
+        if current is None or prior is None:
+            delta_assets.append(None)
+        else:
+            delta_assets.append(current - prior)
+
+    # Net CapEx = Δ Operating Assets + Depreciation
+    net_capex = [_safe_add(d, dep) for d, dep in zip(delta_assets, depreciation)]
+    return net_capex
+
+
 # ============================================================================
 # Main Mapping Function
 # ============================================================================
@@ -273,7 +327,8 @@ def map_to_damodaran_inputs(
     # Cash Flow
     operating_cf = _get_value_series(statements, ITEM_OPERATING_CF)
     depreciation = _get_value_series(statements, ITEM_DEPRECIATION)
-    capex = _aggregate_capex(statements)
+    capex = _aggregate_capex(statements)  # Raw, deprecated
+    net_capex = _compute_net_capex(statements, depreciation)  # Damodaran-aligned
     wc_change = _get_value_series(statements, ITEM_WC_CHANGE)
 
     # Balance Sheet
@@ -317,6 +372,7 @@ def map_to_damodaran_inputs(
         operating_cash_flow=operating_cf,
         depreciation=depreciation,
         capex=capex,
+        net_capex=net_capex,
         working_capital_change=wc_change,
         cash=cash,
         short_term_debt=st_debt,
