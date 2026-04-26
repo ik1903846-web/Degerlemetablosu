@@ -83,8 +83,14 @@ def generate_cuid_like() -> str:
     return "c" + uuid.uuid4().hex[:24]
 
 
-async def fetch_erp_monthly() -> dict:
-    """ERPbymonth.xlsx fetch + parse."""
+async def fetch_erp_monthly() -> list[dict]:
+    """
+    ERPbymonth.xlsx fetch + parse — 4 parametre döndürür:
+      - sp500_implied_erp (ADR-005a)
+      - treasury_10y (T.Bond Rate, ham)
+      - rf_usd ($ Riskfree Rate, Damodaran hazır)
+      - us_default_spread (derived: T.Bond - Rf)
+    """
     print(f"[FETCH] {DAMODARAN_ERP_URL}")
 
     async with httpx.AsyncClient(timeout=30.0) as client:
@@ -146,6 +152,32 @@ async def fetch_erp_monthly() -> dict:
         print(f"[ERROR] ERP kolonu bulunamadı: {list(df.columns)}")
         sys.exit(1)
 
+    # Treasury 10Y kolonu (T.Bond Rate, ham)
+    treasury_col = None
+    for col in df.columns:
+        col_lower = str(col).lower()
+        if 't.bond' in col_lower or ('treasury' in col_lower and '10' in col_lower):
+            treasury_col = col
+            break
+    if treasury_col is None and len(df.columns) > 2:
+        treasury_col = df.columns[2]  # Fallback: kolon index 2
+        print(f"[WARN] T.Bond kolonu bulunamadı, df.columns[2] fallback: '{treasury_col}'")
+
+    # $ Riskfree Rate kolonu (Damodaran hesaplı Rf)
+    rf_col = None
+    for col in df.columns:
+        col_lower = str(col).lower()
+        if 'riskfree' in col_lower or ('risk' in col_lower and 'free' in col_lower):
+            rf_col = col
+            break
+    if rf_col is None and len(df.columns) > 3:
+        rf_col = df.columns[3]  # Fallback: kolon index 3
+        print(f"[WARN] Riskfree kolonu bulunamadı, df.columns[3] fallback: '{rf_col}'")
+
+    print(f"[COL] ERP: '{erp_col}'")
+    print(f"[COL] Treasury 10Y: '{treasury_col}'")
+    print(f"[COL] Rf USD: '{rf_col}'")
+
     # Vintage hesapla
     month_value = latest[month_col]
     if isinstance(month_value, str):
@@ -159,31 +191,67 @@ async def fetch_erp_monthly() -> dict:
     else:
         vintage = str(month_value)[:7]
 
+    # Değerleri çek + yüzde format kontrolü
     erp_value = float(latest[erp_col])
-
-    # ÖNEMLI: Damodaran %4.67 değerini "0.0467" olarak mı, "4.67"
-    # olarak mı yazıyor? Kontrol et:
-    # Eğer 1'den büyükse muhtemelen yüzde (4.67), bizim için decimal lazım
     if erp_value > 1.0:
-        print(f"[WARN] ERP > 1.0 ({erp_value}), yüzde formatı tespit edildi, /100")
+        print(f"[WARN] ERP > 1.0 ({erp_value}), /100")
         erp_value = erp_value / 100.0
 
+    treasury_value = float(latest[treasury_col]) if treasury_col else 0.0
+    if treasury_value > 1.0:
+        treasury_value = treasury_value / 100.0
+
+    rf_value = float(latest[rf_col]) if rf_col else 0.0
+    if rf_value > 1.0:
+        rf_value = rf_value / 100.0
+
+    # Derived: US Default Spread = T.Bond - Rf
+    us_default_spread = treasury_value - rf_value
+
     print(f"[DATA] Sheet: {sheet_used}")
-    print(f"[DATA] ERP Column: {erp_col}")
-    print(f"[DATA] Month: {month_value}")
     print(f"[DATA] Vintage: {vintage}")
-    print(f"[DATA] ERP value: {erp_value:.6f} ({erp_value*100:.2f}%)")
+    print(f"[DATA] S&P 500 Implied ERP:  {erp_value:.6f} ({erp_value*100:.2f}%)")
+    print(f"[DATA] T.Bond Rate (10Y):    {treasury_value:.6f} ({treasury_value*100:.2f}%)")
+    print(f"[DATA] $ Riskfree Rate:      {rf_value:.6f} ({rf_value*100:.2f}%)")
+    print(f"[DATA] US Default Spread:    {us_default_spread:.6f} ({us_default_spread*100:.2f}%)")
 
     effective_from = datetime.strptime(vintage + "-01", "%Y-%m-%d").replace(tzinfo=timezone.utc)
 
-    return {
-        "parameter": "sp500_implied_erp",
-        "value": erp_value,
-        "source": f"ERPbymonth.xlsx::{sheet_used}::{erp_col}",  # provenance
-        "vintage": vintage,
-        "effective_from": effective_from,
-        "checksum": checksum,
-    }
+    # 4 parametre (aynı vintage + checksum + effective_from)
+    return [
+        {
+            "parameter": "sp500_implied_erp",
+            "value": erp_value,
+            "source": f"ERPbymonth.xlsx::{sheet_used}::{erp_col}",
+            "vintage": vintage,
+            "effective_from": effective_from,
+            "checksum": checksum,
+        },
+        {
+            "parameter": "treasury_10y",
+            "value": treasury_value,
+            "source": f"ERPbymonth.xlsx::{sheet_used}::{treasury_col}",
+            "vintage": vintage,
+            "effective_from": effective_from,
+            "checksum": checksum,
+        },
+        {
+            "parameter": "rf_usd",
+            "value": rf_value,
+            "source": f"ERPbymonth.xlsx::{sheet_used}::{rf_col}",
+            "vintage": vintage,
+            "effective_from": effective_from,
+            "checksum": checksum,
+        },
+        {
+            "parameter": "us_default_spread",
+            "value": us_default_spread,
+            "source": "ERPbymonth.xlsx::derived::T.Bond_minus_Rf",
+            "vintage": vintage,
+            "effective_from": effective_from,
+            "checksum": checksum,
+        },
+    ]
 
 
 async def fetch_country_risk() -> list[dict]:
@@ -564,10 +632,12 @@ async def main():
     print("=" * 60)
 
     try:
-        # 1) S&P 500 Implied ERP (monthly)
-        print("\n--- ERP Monthly ---")
-        erp_data = await fetch_erp_monthly()
-        await write_to_postgres(erp_data)
+        # 1) S&P 500 Implied ERP + Treasury + Rf (monthly, 4 parameters)
+        print("\n--- ERP Monthly + Treasury + Rf ---")
+        erp_params = await fetch_erp_monthly()
+        for param in erp_params:
+            await write_to_postgres(param)
+        print(f"[SUMMARY] {len(erp_params)} parameter from ERPbymonth.xlsx")
 
         # 2) Turkey Country Risk (3 parameters)
         print("\n--- Country Risk (Turkey) ---")
