@@ -1,122 +1,83 @@
 # REELDEĞER — Kaldığım Yer
 
-**Son güncelleme:** 26 Nisan 2026, 01:30
-**Aktif Faz:** Faz 1.2 (Damodaran Fetcher) — v3 tamamlandı
-**Sıradaki:** Faz 1.2 v4 — US 10Y Treasury rate (Rf_USD)
+**Son güncelleme:** 26 Nisan 2026, 17:20
+**Aktif Faz:** Faz 1.4 (Banking DDM) — TAMAM
+**Sıradaki:** Faz 1.5 — Tube Industries 2023 (EM Lambda formula)
 
 ---
 
-## Bugünkü Durum (26 Nisan 2026)
+## Bugün Tamamlananlar (26 Nisan 2026, 7.5 saat)
 
-### Bugün Tamamlanan
-- ✅ Faz 1.1 Adım 5 — Vercel deploy + GitHub setup
-- ✅ Faz 1.2 v1 — ERPbymonth.xlsx fetcher (1 param)
-- ✅ Faz 1.2 v2 — ctryprem.xlsx fetcher (3 param, Turkey CRP)
-- ✅ Faz 1.2 v3 — betaemerg.xls fetcher (94 sector betas)
+Sabah:
+- Faz 1.2 v4: Treasury + Rf_USD (DB 101 param)
+- gh CLI auth setup (PAT döngüsü bitti)
 
-### DB Durumu (98 parametre)
-
-| Grup | Sayı | Vintage | Detay |
-|---|---|---|---|
-| ERP | 1 | 2026-04 | sp500_implied_erp = 4.67% (T12 sustainable payout) |
-| Turkey Country Risk | 3 | 2025-12 | default_spread 3.06%, crp_total 4.66%, scaling_factor 1.5234 |
-| Sector Betas (Emerging) | 94 | 2026-01 | sector_unlevered_beta_<slug>, Damodaran Industry Averages |
-| **Toplam** | **98** | | |
-
-### Cost of Equity Formülü Hazır
-
-```
-Cost of Equity = Rf + β_firm × Mature_ERP + λ × Turkey_CRP
-
-β_firm = β_sector_unlevered × (1 + (1-tax) × D/E_firm)   ← Hamada
-```
-
-DB'de eksik:
-- ❌ Rf_USD (US 10Y Treasury) — Faz 1.2 v4
-- ❌ λ (firm-spesifik, KAP geo segment'ten)
+Öğleden sonra:
+- Faz 1.3.2: Cost of Capital (5/5 PASS)
+- Faz 1.3.3: Industrial FCFF (Heineken 59.65 EUR PASS, -0.14%)
+- Faz 1.4: Banking DDM (ABN Amro 30.87 EUR PASS, +4.06%)
 
 ---
 
-## Şu An Bilmen Gerekenler
+## REELDEĞER MOTORU — 2 MODEL ÇALIŞIYOR
 
-**1. Container'ı KAPATMIYORUZ.** Sebep:
-- `restart=unless-stopped` policy aktif
-- Yarın PC açtığında **otomatik başlar**
-- Veri volume'da kalıcı (postgres_data, redis_data)
-- Açık bırakmak hiçbir zarar vermez (RAM ~200 MB)
+- Industrial FCFF (Heineken 59.65 EUR PASS)
+- Banking DDM (ABN Amro 30.87 EUR PASS)
 
-Eğer **PC tamamen kapatacaksan** zaten otomatik durur, yarın açılınca otomatik başlar.
-
-**2. Push muhtemelen çalışacak.** Önceki başarılı push (40129f9) credential cache bıraktı. Bu push aynı session'da → cache geçerli.
-
-**3. Eğer hung olursa:** Aynı PAT'i kullanırız, döngü pattern aynı. Ama saat 01:35 civarı, eğer 5 dakikalık bir gecikme olursa **çok mühim değil**.
-
-**4. Saat 01:30 → 01:40 plan:**
-
-| Saat | İş |
-|---|---|
-| 01:30 | kaldim.md mesajı yapıştır |
-| 01:35 | Push |
-| 01:38 | Sonuç |
-| 01:40 | **MOLA / UYKU** |
-
-**5. Bugünün final skoru (push sonrası):**
-- **12 commit** toplam
-- **98 DB parametre**
-- **3 fetcher operasyonel**
-- **Frontend canlı**
-- **Backend lokal**
-- **kaldim güncel** (yarın hızlı açılış)
+Toplam 17 model fonksiyonu (Cost of Capital + FCFF + DDM)
 
 ---
 
-## Yarın Başlangıç
+## DB Durumu (101 parametre)
 
-```bash
-cd C:\Users\unutu\Desktop\abiminprojev2
-git status                  # clean olmalı
-docker compose ps           # 2 service healthy beklenir
+- 4 ERP/Treasury (sp500_implied_erp, treasury_10y, rf_usd, us_default_spread)
+- 3 Turkey Country Risk
+- 94 Sector Betas (Emerging)
 
-# Eğer down ise:
-docker compose up -d        # 5 saniyede başlar
-```
+---
 
-## Faz 1.2 v4 Sıradaki Adımlar
+## Yarın Hedef — Faz 1.5
 
-1. apps/api/scripts/fetch_damodaran.py'ye fetch_us_treasury() ekle
-2. Damodaran sayfa veya FRED API kullan (10Y T.Bond rate)
-3. parameter: rf_usd
-4. Smart vintage parser (Excel cell extract — manual sabit yerine)
+Tube Industries 2023 (EM Lambda formula)
+- Expected: 61.57 INR (5 percent tolerance)
+- ~2 saat efor
+- Industrial FCFF + lambda extension
 
-## Faz 1.3 Validation Gate (sonra)
+---
 
-3 case ±%5 tolerance:
-- Heineken €59.65 (fcffginzu)
-- ABN Amro €30.87 (eqexret)
-- Tube Industries ₹61.57 (fcffginzulambda)
+## Yarın Açılış Komutları
+
+cd /c/Users/unutu/Desktop/abiminprojev2
+git status
+docker compose ps
+cat notes/kaldim.md
+
+---
+
+## Repo Durumu
+
+- 20 commit (push beklemede 21. olacak)
+- Branch: main, clean
+- Auth: gh CLI ik1903846-web (PAT döngüsü bitti)
+
+Bugünkü 8 commit:
+- 283c767 Faz 1.4 (ABN Amro DDM)
+- b2821e0 Faz 1.4 blueprint
+- f484bdd Faz 1.3.3 (Heineken)
+- 25b5ee5 Faz 1.3.2 (Cost of Capital)
+- 3e2a8e0 Faz 1.3.1 (validation case)
+- 8ea712b gh CLI test revert
+- 57ae010 gh CLI test
+- d2be03b Faz 1.2 v4
+
+---
 
 ## Önemli Notlar
 
-- Bash tool stateless: venv için absolute path
-- cross-env build wrapper (NODE_ENV sızıntısı, ADR-105)
-- Prisma 7: schema + prisma.config.ts ayrımı
-- Python 3.12 explicit (Store alias değil)
-- ADR-002 USD-only valuation
-- Damodaran sheet rename: "Historical Imp Prem" → "Historical ERP" (Nisan 2026)
-- ERP primary metric: "ERP (T12 m with sustainable payout)" (ADR-005a)
-- Sector beta primary: "Unlevered beta" (ADR-065 Hamada)
-- Türkiye rating B1 → Ba3 upgrade (Aralık 2025)
-- _db_url.py helper: Prisma URL → asyncpg URL (whitelist 30 param)
-- xlrd dep: .xls eski format için (sector betas)
-- Decimal precision parasal değerler için (Float DEĞİL)
+1. Damodaran TV tutarsızlıkları (Heineken + ABN Amro PDF'lerinde rounding/typo).
+   Bizim formülümüz mantıken doğru, PV ve final value Damodaran ile birebir.
 
-## Container Yönetimi
+2. Spec düzeltmesi: ADR-012 'Banking Excess Return primary' yanlış.
+   Damodaran finsvc.pdf'inde ABN Amro için DDM kullanmış.
 
-```bash
-docker compose ps           # status
-docker compose up -d        # başlat (idempotent)
-docker compose down         # durdur (volume korunur)
-docker compose down -v      # durdur + sil (DATA KAYBI)
-docker compose logs postgres | tail -20
-docker compose logs redis | tail -20
-```
+3. PAT'ler (3 adet) hala active, proje sonu silinecek.
