@@ -288,3 +288,100 @@ async def fetch_yearly(
 
     periods = [{"year": y, "period": PERIOD_Y} for y in years]
     return await fetch_financial_statements(ticker, periods, financial_group)
+
+
+async def fetch_yearly_extended(
+    ticker: str,
+    years: List[int],
+    financial_group: str = FG_INDUSTRIAL,
+    chunk_size: int = 4,
+) -> FinancialStatements:
+    """
+    Multi-call paralel fetcher — 4+ yıl historical.
+
+    isyatirim single call max 4 dönem destekler.
+    Bu fonksiyon yılları 4'lü chunk'lara böler, paralel fetch yapar,
+    sonuçları merge eder.
+
+    Args:
+        ticker: BIST ticker
+        years: List of years (e.g. [2024, 2023, ..., 2013])
+        financial_group: XI_29 (industrial), XI_30 (banking)
+        chunk_size: Max yıl/call (default 4, isyatirim limit)
+
+    Returns:
+        FinancialStatements (merged 12-yıl)
+
+    Example:
+        >>> data = await fetch_yearly_extended("TUPRS", list(range(2024, 2012, -1)))
+        >>> len(data.periods)
+        12
+        >>> ebit = data.get_item("3DF")
+        >>> len(ebit.values)
+        12
+    """
+    if not years:
+        raise ValueError("Years list empty")
+
+    # Chunk years into 4-yıl groups
+    chunks = [years[i:i+chunk_size] for i in range(0, len(years), chunk_size)]
+
+    # Paralel fetch (shared client)
+    async with httpx.AsyncClient(
+        follow_redirects=True,
+        headers=DEFAULT_HEADERS,
+        timeout=30.0,
+    ) as client:
+        tasks = [
+            fetch_yearly(
+                ticker=ticker,
+                years=chunk,
+                financial_group=financial_group,
+            )
+            for chunk in chunks
+        ]
+        results = await asyncio.gather(*tasks)
+
+    # Merge: en yeni yıl önce gelir
+    # Her FinancialStatements'in items aynı sırada (147 kalem)
+
+    # Periods merge (chronological, en yeni önce)
+    merged_periods = []
+    for r in results:
+        merged_periods.extend(r.periods)
+
+    # Items merge: itemCode-bazlı consolidation
+    # Strategy: ilk result'tan items listesi al (taxonomy aynı)
+    # Her item için tüm result'lardan values'ları concatenate et
+
+    base_items = results[0].items
+    merged_items = []
+
+    for base_item in base_items:
+        item_code = base_item.item_code
+        all_values = []
+
+        # Her chunk'tan bu item_code'un values'larını topla
+        for r in results:
+            chunk_item = r.get_item(item_code)
+            if chunk_item is None:
+                # Bu chunk'ta item yok — None doldur
+                all_values.extend([None] * len(r.periods))
+            else:
+                all_values.extend(chunk_item.values)
+
+        merged_item = FinancialItem(
+            item_code=item_code,
+            desc_tr=base_item.desc_tr,
+            desc_eng=base_item.desc_eng,
+            values=all_values,
+        )
+        merged_items.append(merged_item)
+
+    return FinancialStatements(
+        ticker=ticker,
+        financial_group=financial_group,
+        periods=merged_periods,
+        items=merged_items,
+        raw_response=None,  # Multi-call, raw saklanmıyor
+    )
