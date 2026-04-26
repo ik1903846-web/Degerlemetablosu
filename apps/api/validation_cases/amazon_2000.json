@@ -1,0 +1,112 @@
+{
+  "case_id": "amazon_2000_young_firm",
+  "case_name": "Amazon January 2000 (Young Firm DCF, 5 simultaneous tapers + NOL + options)",
+  "model": "young_firm_dcf_2stage_with_tapers",
+  "snapshot_date": "january_2000",
+  "currency": "USD",
+  "currency_unit": "millions",
+  "source": "darksideextended13.pdf::page13",
+  "ground_truth_pdf": "https://pages.stern.nyu.edu/~adamodar/pdfiles/country/darksideextended13.pdf",
+
+  "expected": {
+    "value_per_share_usd": 34.32,
+    "tolerance_pct": 0.05,
+    "operating_assets_millions": 14910,
+    "firm_value_millions": 14936,
+    "equity_value_pre_options_millions": 14587,
+    "equity_options_millions": 2892,
+    "terminal_value_millions": 52148
+  },
+
+  "market": {
+    "shares_outstanding_millions": 340.5,
+    "shares_note": "Implicit derived: (14587 - 2892) / 34.32 = 340.5M",
+    "price_in_january_2000": 84.0,
+    "price_note": "Damodaran said Amazon trading at $84, value = $34.32 (overvalued)"
+  },
+
+  "starting_metrics": {
+    "current_revenues_millions": 1117,
+    "current_op_margin": -0.3671,
+    "current_ebit_millions": -410,
+    "nol_starting_millions": 500,
+    "nol_note": "Net Operating Loss tax shield, depleted as EBIT becomes positive",
+    "sales_turnover_ratio": 3.00,
+    "sales_turnover_note": "Sales-to-capital ratio (Heineken pattern). Reinvestment = ΔRevenue / 3.00"
+  },
+
+  "high_growth_phase_year_1_5": {
+    "revenue_growth_rate": 0.42,
+    "growth_note": "Dot-com era 42% revenue CAGR for 5 years",
+    "tax_rate_during_nol": 0.0,
+    "wacc_constant": 0.1284,
+    "wacc_note": "WACC stable at 12.84% during Year 1-5"
+  },
+
+  "transition_phase_year_6_10": {
+    "revenue_growth_taper": "42% → 6% (linear taper Year 6-10)",
+    "tax_rate_taper": "0% → 35% (linear, Year 4-10)",
+    "tax_taper_starts": "Year 4 (NOL exhausted)",
+    "beta_taper": "1.60 → 1.00 (Year 6-10)",
+    "debt_ratio_taper": "1.2% → 15% (Year 6-10)",
+    "wacc_taper": "12.84% → 9.61% (Year 6-10)"
+  },
+
+  "stable_growth_phase": {
+    "growth_rate": 0.06,
+    "operating_margin": 0.10,
+    "roc": 0.20,
+    "reinvestment_rate": 0.30,
+    "reinvestment_formula": "g / ROC = 0.06 / 0.20 = 0.30",
+    "wacc": 0.0961,
+    "tax_rate": 0.35
+  },
+
+  "cost_of_capital_inputs": {
+    "risk_free_rate": 0.065,
+    "rf_note": "T-Bond rate January 2000",
+    "mature_erp": 0.04,
+    "country_risk_premium": 0.0,
+    "country_note": "US, mature market, λ=0",
+    "beta_starting": 1.60,
+    "beta_note_starting": "Internet/retail high-risk early stage",
+    "beta_stable": 1.00,
+    "beta_note_stable": "Mature retail (5-yr taper)",
+    "cost_of_equity_year_1": 0.129,
+    "cost_of_equity_year_10": 0.105,
+    "cost_of_debt_pretax_starting": 0.08,
+    "cost_of_debt_pretax_stable": 0.07,
+    "rating_assumption": "BBB (assumed via interest coverage simulation)"
+  },
+
+  "yearly_projection_expected": [
+    {"year": 1,  "revenues": 2793,  "ebit": -373,  "ebit_after_tax": -373,  "reinvestment": 559,   "fcff": -931,   "wacc": 0.1284},
+    {"year": 2,  "revenues": 5585,  "ebit": -94,   "ebit_after_tax": -94,   "reinvestment": 931,   "fcff": -1024,  "wacc": 0.1284},
+    {"year": 3,  "revenues": 9774,  "ebit": 407,   "ebit_after_tax": 407,   "reinvestment": 1396,  "fcff": -989,   "wacc": 0.1284},
+    {"year": 4,  "revenues": 14661, "ebit": 1038,  "ebit_after_tax": 871,   "reinvestment": 1629,  "fcff": -758,   "wacc": 0.1283},
+    {"year": 5,  "revenues": 19059, "ebit": 1628,  "ebit_after_tax": 1058,  "reinvestment": 1466,  "fcff": -408,   "wacc": 0.1281},
+    {"year": 6,  "revenues": 23862, "ebit": 2212,  "ebit_after_tax": 1438,  "reinvestment": 1601,  "fcff": -163,   "wacc": 0.1213},
+    {"year": 7,  "revenues": 28729, "ebit": 2768,  "ebit_after_tax": 1799,  "reinvestment": 1623,  "fcff": 177,    "wacc": 0.1196},
+    {"year": 8,  "revenues": 33211, "ebit": 3261,  "ebit_after_tax": 2119,  "reinvestment": 1494,  "fcff": 625,    "wacc": 0.1169},
+    {"year": 9,  "revenues": 36798, "ebit": 3646,  "ebit_after_tax": 2370,  "reinvestment": 1196,  "fcff": 1174,   "wacc": 0.1115},
+    {"year": 10, "revenues": 39006, "ebit": 3883,  "ebit_after_tax": 2524,  "reinvestment": 736,   "fcff": 1788,   "wacc": 0.0961}
+  ],
+
+  "terminal_year": {
+    "fcff": 1881,
+    "wacc": 0.0961,
+    "growth": 0.06,
+    "terminal_value_formula": "1881 / (0.0961 - 0.06) = 52148"
+  },
+
+  "balance_sheet": {
+    "cash_millions": 26,
+    "debt_millions": 349,
+    "equity_options_millions": 2892,
+    "options_note": "Employee + investor options Black-Scholes valued (using $84 stock price)"
+  },
+
+  "spec_note": "Amazon 2000 case modeli en karmaşık olanı: 5 simultaneous taper (margin, growth, tax, beta, debt ratio) + NOL tax shield + options deduction. Heineken/Tube/Toyota pattern'lerinden farklı: backward revenue projection (Year 10 target → 5-yr CAGR), negative FCFF first 6 years, sales-to-capital approach (Heineken'a benzer ama young firm context'inde).",
+
+  "implementation_plan": "Yarın (27 Nisan): apps/api/dcf_engine/young_firm_dcf.py modülü. linear_taper() Heineken'dan re-use (5 simultaneous). Yeni concept: NOL tracking, options deduction. Test runner $34.32 ±5% replicate. Implementation süre: ~2-3 saat (en karmaşık case)."
+}
