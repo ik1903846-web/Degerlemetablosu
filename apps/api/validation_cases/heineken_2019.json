@@ -1,0 +1,95 @@
+{
+  "case_id": "heineken_2019_industrial_fcff",
+  "case_name": "Heineken Sep 2019 (2-stage FCFF)",
+  "model": "industrial_fcff_2stage",
+  "snapshot_date": "2019-09-01",
+  "currency": "EUR",
+
+  "expected": {
+    "value_per_share": 59.65,
+    "tolerance_pct": 0.05,
+    "value_of_equity_millions": 34065.26,
+    "operating_assets_millions": 51691.19,
+    "pv_terminal_value_millions": 36390.85,
+    "pv_explicit_cf_millions": 15300.34
+  },
+
+  "market": {
+    "share_price": 93.25,
+    "shares_outstanding_millions": 571.10
+  },
+
+  "operating": {
+    "revenues_ltm_millions": 23119,
+    "operating_margin_ltm": 0.1486,
+    "operating_margin_5y_avg": 0.1444,
+    "sales_to_invested_capital_ltm": 0.71,
+    "sales_to_invested_capital_5y_avg": 0.79,
+    "effective_tax_rate_ltm": 0.297,
+    "effective_tax_rate_5y_avg": 0.27
+  },
+
+  "growth": {
+    "explicit_period_years": 5,
+    "transition_period_years": 5,
+    "year_1_5_revenue_growth": 0.0322,
+    "year_10_revenue_growth": -0.005,
+    "year_10_operating_margin": 0.1400,
+    "year_10_tax_rate": 0.25,
+    "marginal_tax_rate": 0.25
+  },
+
+  "cost_of_capital": {
+    "cost_of_equity": 0.0766,
+    "cost_of_debt_after_tax": 0.0113,
+    "wacc": 0.0504,
+    "equity_weight": 0.599,
+    "debt_weight": 0.401,
+    "de_ratio": 0.6698,
+    "levered_beta": 1.20,
+    "unlevered_beta_sector_alcoholic_beverage": 0.80,
+    "euro_riskfree_rate": -0.005,
+    "default_spread": 0.02,
+    "revenue_weighted_erp": 0.0683
+  },
+
+  "stable_phase": {
+    "growth": -0.005,
+    "cost_of_capital": 0.05,
+    "roc": 0.05,
+    "reinvestment_rate": -0.10,
+    "terminal_ebit_after_tax_millions": 2972,
+    "terminal_value_millions": 54034
+  },
+
+  "balance_sheet": {
+    "debt_millions": 19709.52,
+    "minority_interests_millions": 1069.00,
+    "cash_millions": 1751.60,
+    "non_operating_assets_millions": 1401.00
+  },
+
+  "revenue_segments": [
+    {"region": "Europe",            "revenue_millions": 10348, "weight": 0.5024, "erp": 0.0690, "contribution": 0.0347},
+    {"region": "North America",     "revenue_millions": 5920,  "weight": 0.2874, "erp": 0.0575, "contribution": 0.0165},
+    {"region": "Asia",              "revenue_millions": 2919,  "weight": 0.1417, "erp": 0.0722, "contribution": 0.0102},
+    {"region": "Latin America",     "revenue_millions": 781,   "weight": 0.0379, "erp": 0.1053, "contribution": 0.0040},
+    {"region": "Africa & Mid East", "revenue_millions": 631,   "weight": 0.0306, "erp": 0.0930, "contribution": 0.0028}
+  ],
+
+  "expected_yearly_projection": [
+    {"year": 1,  "revenue_growth": 0.0322, "revenues": 23863, "ebit_margin": 0.1438, "ebit": 3432, "tax_rate": 0.2970, "ebit_after_tax": 2413, "reinvestment": 942,  "fcff": 1471},
+    {"year": 2,  "revenue_growth": 0.0322, "revenues": 24632, "ebit_margin": 0.1434, "ebit": 3532, "tax_rate": 0.2970, "ebit_after_tax": 2483, "reinvestment": 973,  "fcff": 1511},
+    {"year": 3,  "revenue_growth": 0.0322, "revenues": 25425, "ebit_margin": 0.1430, "ebit": 3635, "tax_rate": 0.2970, "ebit_after_tax": 2556, "reinvestment": 1004, "fcff": 1552},
+    {"year": 4,  "revenue_growth": 0.0322, "revenues": 26244, "ebit_margin": 0.1426, "ebit": 3741, "tax_rate": 0.2970, "ebit_after_tax": 2630, "reinvestment": 1036, "fcff": 1594},
+    {"year": 5,  "revenue_growth": 0.0322, "revenues": 27089, "ebit_margin": 0.1421, "ebit": 3850, "tax_rate": 0.2970, "ebit_after_tax": 2707, "reinvestment": 1070, "fcff": 1637},
+    {"year": 6,  "revenue_growth": 0.0248, "revenues": 27759, "ebit_margin": 0.1417, "ebit": 3934, "tax_rate": 0.2876, "ebit_after_tax": 2802, "reinvestment": 849,  "fcff": 1953},
+    {"year": 7,  "revenue_growth": 0.0173, "revenues": 28240, "ebit_margin": 0.1413, "ebit": 3990, "tax_rate": 0.2782, "ebit_after_tax": 2880, "reinvestment": 609,  "fcff": 2271},
+    {"year": 8,  "revenue_growth": 0.0099, "revenues": 28519, "ebit_margin": 0.1409, "ebit": 4017, "tax_rate": 0.2688, "ebit_after_tax": 2937, "reinvestment": 353,  "fcff": 2584},
+    {"year": 9,  "revenue_growth": 0.0024, "revenues": 28589, "ebit_margin": 0.1404, "ebit": 4015, "tax_rate": 0.2594, "ebit_after_tax": 2973, "reinvestment": 88,   "fcff": 2885},
+    {"year": 10, "revenue_growth": -0.005, "revenues": 28446, "ebit_margin": 0.1400, "ebit": 3982, "tax_rate": 0.2500, "ebit_after_tax": 2987, "reinvestment": -181, "fcff": 3168}
+  ],
+
+  "source": "valpacket1spr26.pdf::page206",
+  "ground_truth_pdf": "https://pages.stern.nyu.edu/~adamodar/pdfiles/eqnotes/valpacket1spr26.pdf"
+}
