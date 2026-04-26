@@ -1,0 +1,92 @@
+{
+  "case_id": "tube_investments_status_quo",
+  "case_name": "Tube Investments Status Quo (2-stage FCFF, India EM, additive CRP)",
+  "model": "industrial_fcff_2stage_em",
+  "snapshot_date": "circa_2003_2008",
+  "currency": "INR",
+  "source": "fcff.pdf::page8",
+  "ground_truth_pdf": "https://pages.stern.nyu.edu/~adamodar/pdfiles/eqnotes/fcff.pdf",
+
+  "expected": {
+    "value_per_share_inr": 61.57,
+    "tolerance_pct": 0.05,
+    "firm_value_millions": 19578,
+    "equity_value_millions": 15158,
+    "terminal_value_millions": 28378
+  },
+
+  "market": {
+    "shares_outstanding_millions": 246.21,
+    "shares_note": "Damodaran PDF'inde explicit yok, derived: equity 15158 / value 61.57 = 246.21M"
+  },
+
+  "starting_metrics": {
+    "ebit_after_tax_millions": 4425,
+    "net_capex_millions": 843,
+    "change_working_capital_millions": 4150,
+    "starting_fcff_millions": -568,
+    "reinvestment_rate_ltm": 1.1282,
+    "note": "Starting FCFF negative — high reinvestment phase"
+  },
+
+  "high_growth_phase": {
+    "duration_years": 5,
+    "reinvestment_rate": 0.60,
+    "return_on_capital": 0.092,
+    "expected_growth_rate": 0.0552,
+    "growth_formula": "RR × ROC = 0.60 × 0.092 = 0.0552",
+    "wacc": 0.169,
+    "expected_yearly_projection": [
+      {"year": 1, "ebit_after_tax": 4670, "reinvestment": 2802, "fcff": 1868},
+      {"year": 2, "ebit_after_tax": 4928, "reinvestment": 2957, "fcff": 1971},
+      {"year": 3, "ebit_after_tax": 5200, "reinvestment": 3120, "fcff": 2080},
+      {"year": 4, "ebit_after_tax": 5487, "reinvestment": 3292, "fcff": 2195},
+      {"year": 5, "ebit_after_tax": 5790, "reinvestment": 3474, "fcff": 2316}
+    ]
+  },
+
+  "stable_growth_phase": {
+    "growth_rate": 0.05,
+    "beta": 1.00,
+    "debt_ratio": 0.442,
+    "country_risk_premium": 0.03,
+    "return_on_capital": 0.0922,
+    "reinvestment_rate": 0.5435,
+    "wacc": 0.1478,
+    "year_6_ebit_after_tax": 6079,
+    "year_6_reinvestment": 3304,
+    "year_6_fcff": 2775
+  },
+
+  "cost_of_capital_high_growth": {
+    "cost_of_equity": 0.228,
+    "cost_of_debt_after_tax": 0.0945,
+    "cost_of_debt_pretax": 0.135,
+    "tax_rate": 0.30,
+    "equity_weight": 0.558,
+    "debt_weight": 0.442,
+    "wacc": 0.169,
+    "wacc_formula": "0.228 × 0.558 + 0.0945 × 0.442 = 0.169"
+  },
+
+  "cost_of_equity_decomposition": {
+    "risk_free_rate_real": 0.12,
+    "risk_free_note": "Real (inflation-included) India Rf, NOT nominal USD",
+    "beta_levered": 1.17,
+    "mature_erp": 0.04,
+    "country_risk_premium": 0.0523,
+    "total_erp": 0.0923,
+    "erp_formula": "Mature 4% + Country Risk 5.23% (additive, NOT lambda)",
+    "unlevered_beta_sector": 0.75,
+    "firm_de_ratio": 0.79,
+    "cost_of_equity_calc": "0.12 + 1.17 × (0.04 + 0.0523) = 0.228 = 22.80%"
+  },
+
+  "balance_sheet": {
+    "cash_millions": 13653,
+    "debt_millions": 18073,
+    "options_value_millions": 0
+  },
+
+  "spec_note": "Spec ADR-006c'de 'Tube Industries 2023 EM lambda formula' yazılmış. Damodaran fcff.pdf'inde gerçekte 'Tube Investments' (2003-2008 dönemi). Lambda EXPLICIT yok, ADDITIVE CRP kullanılmış (Mature ERP + Country Risk = Total ERP). Lambda formülü ayrı bir EM case'le validate edilecek (örn. Aracruz Cellulose, Embraer) — Faz 1.5b."
+}
