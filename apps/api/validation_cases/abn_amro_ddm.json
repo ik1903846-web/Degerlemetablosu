@@ -1,0 +1,62 @@
+{
+  "case_id": "abn_amro_banking_ddm",
+  "case_name": "ABN Amro Banking (Dividend Discount Model)",
+  "model": "banking_ddm_2stage",
+  "snapshot_date": "circa_2000s",
+  "currency": "EUR",
+  "source": "finsvc.pdf::pages_16_31_36",
+  "ground_truth_pdf": "https://pages.stern.nyu.edu/~adamodar/pdfiles/eqnotes/finsvc.pdf",
+
+  "expected": {
+    "value_per_share": 30.87,
+    "tolerance_pct": 0.05,
+    "high_growth_pv_dps_eur": null,
+    "terminal_value_eur": 42.41,
+    "pv_terminal_value_eur": null
+  },
+
+  "starting_metrics": {
+    "eps_eur": 1.60,
+    "dps_eur": 0.60,
+    "payout_ratio": 0.375,
+    "retention_ratio": 0.625,
+    "roe": 0.1556,
+    "expected_growth_rate": 0.0973,
+    "beta": 0.95
+  },
+
+  "high_growth_phase": {
+    "duration_years": 5,
+    "growth_rate": 0.0973,
+    "payout_ratio": 0.375,
+    "beta": 0.95,
+    "cost_of_equity": 0.0882,
+    "expected_dps_projection": [
+      {"year": 1, "dps_eur": 0.66},
+      {"year": 2, "dps_eur": 0.72},
+      {"year": 3, "dps_eur": 0.79},
+      {"year": 4, "dps_eur": 0.87},
+      {"year": 5, "dps_eur": 0.95}
+    ]
+  },
+
+  "stable_growth_phase": {
+    "growth_rate": 0.05,
+    "roe": 0.15,
+    "payout_ratio": 0.6667,
+    "retention_ratio": 0.3333,
+    "beta": 1.00,
+    "cost_of_equity": 0.0902,
+    "year_6_eps_eur": 2.67
+  },
+
+  "common_inputs": {
+    "risk_free_rate": 0.0502,
+    "risk_free_source": "Netherlands long-term bond rate",
+    "equity_risk_premium": 0.04,
+    "erp_source": "Mature market (Western Europe)",
+    "country_risk_premium": 0.0
+  },
+
+  "spec_note": "REELDEĞER spec ADR-012'de 'Excess Return primary' yazılmış. Damodaran'ın finsvc.pdf'inde ABN Amro için DDM (Dividend Discount Model) kullanılmış. Bu validation case DDM-based. Excess Return ayrı bir banking case olarak ileride eklenecek."
+}
