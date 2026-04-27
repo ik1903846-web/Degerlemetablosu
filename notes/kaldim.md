@@ -1,8 +1,8 @@
 # REELDEĞER — Kaldığım Yer
 
-**Son güncelleme:** 27 Nisan 2026, 15:00
-**Aktif Faz:** Faz 2.4.6 TAMAMLANDI ✓ (Component 1+2+3+4 + Bonus)
-**Sıradaki:** Faz 2.5 (SAHOL SOTP) veya Faz 3 (Portfolio Construction) — yarın karar
+**Son güncelleme:** 27 Nisan 2026, ~16:30
+**Aktif Faz:** Faz 2.5 SOTP TAMAMLANDI ✓ (KCHOL + SAHOL holdings)
+**Sıradaki:** Faz 2.6 (Banking equity-only) veya Faz 3 (Portfolio Construction) — yarın karar
 
 ---
 
@@ -191,6 +191,101 @@ Failed 2/19:
 
 ---
 
+## Faz 2.5 SOTP KAPANIŞ — Holdings Methodology Production (27 Nis 2026)
+
+### Atomic Commit Chain (5 commit, ana paket)
+
+**ADIM 1** — PDF Probe + CONFIRMED Data Research (no commit)
+- pdfplumber 0.11.9 yüklendi
+- SAHOL Q4 2024 Earnings Presentation page 24 NAV table CONFIRMED
+- Gedik Yatırım Mar 2025 KCHOL report page 2 CONFIRMED
+- 19 listed children + 12 non-listed pool stake'leri çıkarıldı
+
+**ADIM 2 (990aaa8)** — holdings_config.py
+- HoldingChild + HoldingPortfolio dataclasses (404 satır)
+- HOLDINGS_PORTFOLIO registry (KCHOL + SAHOL)
+- Public API: is_holding, get_portfolio, list_listed/banking_children
+- Test: 4/4 PASS, methodology note diagnostic
+
+**ADIM 3 (5bcee39)** — sotp.py
+- calculate_sotp_value() implementation (244 satır)
+- SOTPChildContribution + SOTPResult dataclass
+- Source tracking: dcf_lookup / book_fallback / banking_book_pb_15 / non_listed_book
+- Test: 4/4 PASS (SAHOL $11.66B / 202 TL, KCHOL $16.73B / 233 TL)
+
+**ADIM 4 (468197b)** — Orchestrator SOTP integration
+- analyze_ticker(...dcf_lookups: Optional[Dict] = None) imza
+- STEP 1.5 SOTP early-return branch
+- _populate_report_from_sotp + _fetch_children_dcfs_recursive helpers
+- batch_analyzer.py 2-aşamalı refactor (non-holdings → dcf_lookups → holdings)
+- print_report defansif WACC/margin None handling (SOTP context)
+- Test: 3/3 PASS, TUPRS 188.29 baseline INTACT
+
+**ADIM 5 (61a368b)** — BIST batch validation
+- 19 ticker batch run, 17/19 successful, 48.9s
+- 17/17 industrial ticker davranışı %100 korundu (Component 4 INTACT)
+- Research findings rapor (sotp_batch_2026-04-27.md, 242 satır)
+- Output kayıtları (CSV+JSON kalıcı)
+
+### Methodology Validation (Damodaran %100 Hizalandı)
+
+TUPRS Deep Dive Baseline (Faz 2.4.5):
+- Manual deep dive: 188.31 TL (5+ saat)
+- Production (Component 1+2+3+4 + Faz 2.5): 188.29 TL
+- Sapma: 0.02 TL (yuvarlama)
+- ★ INTACT through Faz 2.5
+
+Holdings Anchor Comparison:
+- KCHOL: 189 TL (Component 4 cyclical+whitelist) → 233 TL (Faz 2.5 SOTP)
+  +%23 yukarı: SOTP banking P/B 1.5 intrinsic premium yansıttı
+- SAHOL: 354 TL (Component 4 cyclical+whitelist) → 202 TL (Faz 2.5 SOTP)
+  -%43 düzeltme: Component 4 banking distortion (mock %55 margin) düzeldi
+
+Damodaran Insight (KRİTİK):
+- Component 4 holdings için cyclical_dcf("KCHOL") = "Pretend industrial"
+- SAHOL'da banking revenue distortion → fake %55 op_margin → +%256 fake AL
+- Faz 2.5 SOTP intrinsic-aligned, SAHOL +%106 (chronic discount kanıtlı)
+
+### Bilinen Sınırlar (Faz 2.6+ Parking)
+
+1. **SAHOL listed children BIST 30 dışı** — DCF lookup yok, hep book_fallback
+   (ENJSA, AKGRT, AGESA, AKCNS, CIMSA, BRISA, KORDS, CRFSA, TKNSA)
+   Çözüm: BIST 50 evren genişletme
+
+2. **Banking book values PROVISIONAL** (~$8B YKBNK, ~$12B AKBNK)
+   Çözüm: Faz 2.3.1 banking equity-only model + KAP gerçek özkaynak
+
+3. **KCHOL TUPRS effective ownership %40** (EYAS chain)
+   Çözüm: Annual KAP raporu güncelleme
+
+4. **Cycle bias (FROTO/CCOLA extreme +%500)** — industrial cyclical
+   Çözüm: Faz 2.4.7 sub-period weighting
+
+5. **16-yıl coverage gap (BIMAS, SOKM)** — IPO sonrası, pre-IPO yok
+   Çözüm: Lifecycle-adaptive years_back
+
+### Sleeve Implications (Future Faz 3 Portfolio)
+
+- **SAHOL** Deep Value sleeve candidate (chronic %46 discount + intrinsic +%106)
+- **KCHOL** Mature Holding sleeve (mild discount + intrinsic +%14)
+- **TUPRS** SAT (Damodaran overvalued, sweet spot retro doğrulandı)
+
+### Sonraki Faz Adayları (28 Nisan 2026)
+
+- **Faz 2.6 — Banking Equity-Only Model** (~3-4 saat, kompleks)
+  - YKBNK, AKBNK için gerçek banking DCF (banking_ddm)
+  - Book values PROVISIONAL → CONFIRMED
+  - SAHOL/KCHOL SOTP banking contribution refine
+- **Faz 2.4.7 — Cycle Bias Refinement** (~1-2 saat, methodology)
+  - Sub-period weighting (recent 10-yıl ağırlıklı)
+  - FROTO/CCOLA +%500 extreme upside calibration
+- **Faz 3 — Portfolio Construction** (~2-3 saat, daha hazır)
+  - Pentagon Scoring (5-D narrative)
+  - 3-Sleeve portfolio (alpha + hedge + opportunity)
+  - Position sizing (margin of safety bazlı)
+
+---
+
 ## Yarın Açılış Komutları
 
 cd /c/Users/unutu/Desktop/abiminprojev2
@@ -202,11 +297,11 @@ cat notes/kaldim.md
 
 ## Repo Durumu
 
-- 53 commit GitHub'da (clean)
+- 58 commit GitHub'da (clean)
 - Branch: main
 - Son commit: (kapanış commit, bu güncellemeyi içerir)
-- Önceki: 3cdbb66 (Bonus print_report None handling)
-- Faz 2.4.6 atomic chain: 7163b5e → 6e22767 → 67d6ec9 → 09a2a9b → a7ed721 → 4256744 → 3cdbb66
+- Faz 2.4.6 atomic chain: 7163b5e → 6e22767 → 67d6ec9 → 09a2a9b → a7ed721 → 4256744 → 3cdbb66 → 658c195
+- Faz 2.5 atomic chain: 990aaa8 → 5bcee39 → 468197b → 61a368b → (kapanış)
 - GitHub: https://github.com/ik1903846-web/Degerlemetablosu
 
 ---
