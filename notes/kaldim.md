@@ -1,7 +1,7 @@
 # REELDEĞER — Kaldığım Yer
 
-**Son güncelleme:** 27 Nisan 2026, ~22:45 (gece)
-**Aktif Faz:** Faz 3 Portfolio Foundation TAMAMLANDI ✓ (Pentagon + Sleeve + Construction)
+**Son güncelleme:** 27 Nisan 2026, ~23:45 (gece)
+**Aktif Faz:** Faz 2.7 Adaptive Cap TAMAMLANDI ✓ (Damodaran Lesson #4)
 **Sıradaki:** Faz 3.5 BIST 50/100 universe expansion veya Faz 4 Backtest engine
 
 ---
@@ -536,9 +536,93 @@ g) **Banking Equity-Only** (3-4 saat)
 
 ---
 
+## Faz 2.7 — CCOLA Secondary + Adaptive Cap KAPANIŞ (27 Nisan 2026 gece)
+
+### Status: TAMAMLANDI ✓
+
+3 atomic commit chain:
+- 898a14a — Faz 2.7 (a) CCOLA secondary research (high-level, gece başı)
+- 7db0cec — Faz 2.7 (a) CCOLA NET diagnosis (3 hipotez)
+- cc4ba56 — Faz 2.7 (b) Adaptive Cap implementation (Lesson #4)
+- + ADIM 8 KAPANIŞ docs (this commit)
+
+### Damodaran Lesson #4 (REELDEĞER keşfi)
+
+> "Cyclical cap should be lifecycle + recent-bias adaptive, not fixed.
+>  Defensive consumers with structural margin upshift need tighter cap (1.3x).
+>  High growth firms maintain 1.5x default (revenue growth justified)."
+
+### CCOLA Diagnosis NET Sonuç
+
+**3 Hipotez:**
+- H1 Recent margin bias: ★ DOĞRULANDI (+%31.3 post-COVID structural)
+- H2 Lifecycle misclassification: REJECTED (CAGR %6.97 mature_stable)
+- H3 Defensive low volatility: ★ DOĞRULANDI (stdev %2.03)
+
+**Yorum:** CCOLA = defensive consumer with structural margin upshift.
+Recent 5y margin %14.16 KALICI durum (post-COVID pricing power), older
+7y avg %10.79. Bias post-COVID structural, artifact değil.
+
+### Adaptive Cap Logic
+
+```python
+cap_ratio = (
+    1.3 if (lifecycle == "MATURE_STABLE" AND recent_bias > 25%)
+    else 1.5  # default Faz 2.6
+)
+```
+
+**Etkilenen ticker:** SADECE CCOLA (selektif fix)
+**Korunan:** TUPRS, ARCLK, FROTO, SAHOL, KCHOL (INTACT)
+
+### CCOLA Methodology Evolution
+
+| Aşama | DCF | Upside | Δ |
+|-------|-----|--------|---|
+| Faz 2.5 (no cap) | 486 TL | +%551 | baseline |
+| Faz 2.6 cap 1.5x | 386 TL | +%418 | -%21 |
+| Faz 2.7 adaptive | 317 TL | +%325 | -%18 |
+| **Toplam (2.5→2.7)** | -169 TL | -%41 | -%35 |
+
+### Anchor Final State (70 commit)
+
+| Ticker | DCF (TL) | Upside | Verdict |
+|--------|----------|--------|---------|
+| TUPRS | 187.10 | -%32 | SAT (deep dive baseline INTACT, sapma -%0.6) |
+| KCHOL | 203.26 | -%1 | BEKLE |
+| SAHOL | 202.09 | +%106 | AL (holding chronic discount) |
+| FROTO | 294.34 | +%187 | AL (rasyonel) |
+| ARCLK | 176.78 | +%52 | AL (mature stable) |
+| CCOLA | 317.51 | +%325 | AL (defensive, adaptive cap aktif) |
+
+### 4 Damodaran Lesson Bugün Keşfedildi
+
+#1 **Faz 2.5:** Holdings cannot be valued like industrial firms (SOTP)
+#2 **Faz 2.6:** Cyclical DCF must handle peak years asymmetric cap
+#3 **Faz 3:**   Cash > overpay when universe inadequate
+#4 **Faz 2.7:** Adaptive cap by lifecycle + recent margin bias
+
+### Bilinen Sınırlar (Faz 2.8+ Parking)
+
+- KCHOL/SAHOL SOTP routed (adaptive cap relevant değil)
+- Negatif DCF artifacts (PETKM, PGSUS, THYAO) → distress model gerek
+- BIST 30 universe yetersiz → BIST 50/100 expansion
+- ARCLK bias -%24 ilginç (recent margin DROPPED, ek analiz adayı)
+
+### Sonraki Faz Adayları (yarın için)
+
+- **Faz 3.5** BIST 50/100 universe expansion (1 hafta)
+- **Faz 4** Backtest engine (1-2 hafta, 2020-present rebalance)
+- **Faz 5** Distress model (Black-Scholes, THYAO/PGSUS, 1-2 hafta)
+- **Faz 6** Banking equity-only (3-4 saat)
+- **Faz 7** Holdings-specific Pentagon scoring (3-4 saat)
+- **Faz 8** Momentum dimension (Yahoo Finance, 2-3 saat)
+
+---
+
 ## BUGÜNÜN MARATHONUN ÖZETİ (27 Nisan 2026)
 
-19 commit Faz 2.4.6 + 2.5 + 2.6 + 3 paketleri:
+22 atomic commit Faz 2.4.6 + 2.5 + 2.6 + 2.7 + 3 paketleri:
 
 **Faz 2.4.6 (industrial Damodaran):** 7 atomic commit chain
 - Component 1+2+3+4 + Bonus + kapanış + docs
@@ -568,14 +652,14 @@ cat notes/kaldim.md
 
 ## Repo Durumu
 
-- 68 commit GitHub'da (clean)
+- 71 commit GitHub'da (clean)
 - Branch: main
-- Son commit: (Faz 3 kapanış, this update)
+- Son commit: (Faz 2.7 kapanış, this update)
 - Faz 2.4.6 atomic chain: 7163b5e → 6e22767 → 67d6ec9 → 09a2a9b → a7ed721 → 4256744 → 3cdbb66 → 658c195
 - Faz 2.5 atomic chain: 990aaa8 → 5bcee39 → 468197b → 61a368b → 3f5692b → 16358ae
 - Faz 2.6 atomic chain: c906a14 → 9820cc0 → 43b2425
-- Faz 2.7 (a) CCOLA secondary: 898a14a
-- Faz 3 atomic chain: 0c5e868 → 1026d22 → 0ac3784 → aa76179 → (kapanış)
+- Faz 3 atomic chain: 0c5e868 → 1026d22 → 0ac3784 → aa76179 → c95d4d8
+- Faz 2.7 atomic chain: 898a14a → 7db0cec → cc4ba56 → (kapanış)
 - GitHub: https://github.com/ik1903846-web/Degerlemetablosu
 
 ---
