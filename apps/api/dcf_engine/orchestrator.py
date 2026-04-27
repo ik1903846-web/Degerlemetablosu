@@ -525,7 +525,10 @@ def print_report(report: ValuationReport) -> None:
     if report.market_price_tl is not None:
         print(f"\nMarket Comparison:")
         print(f"  Market Price:       {report.market_price_tl:.2f} TL")
-        print(f"  Upside/(Discount):  {report.upside_pct:+.2f}%")
+        if report.upside_pct is not None:
+            print(f"  Upside/(Discount):  {report.upside_pct:+.2f}%")
+        else:
+            print(f"  Upside/(Discount):  n/a (DCF not executed)")
         print(f"  Damodaran Verdict:  {report.damodaran_verdict}")
 
     if report.reasoning:
