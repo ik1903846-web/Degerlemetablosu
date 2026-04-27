@@ -541,16 +541,20 @@ async def _fetch_children_dcfs_recursive(
     parent_ticker: str,
 ) -> Dict[str, float]:
     """
-    Single-ticker mode: holding'in listed children'ını recursive analyze.
+    Single-ticker mode: holding'in listed + banking_listed children'ını
+    recursive analyze.
 
-    Sadece listed type child'lar dener (banking_listed ve non_listed
-    sotp.py'de book × multiplier ile handle ediliyor — DCF lookup gerekmiyor).
+    Faz 6 ADIM 4 update: Banking children dahil (banking_ddm execute).
+    Eski: sadece listed type. Yeni: listed + banking_listed.
+    sotp.py banking_listed branch DDM result'ı dcf_lookups'tan alır
+    (CONFIRMED), book × P/B fallback'e düşmez.
 
     Holdings birbirinin child'ı değil → infinite recursion riski yok.
-    Her child için analyze_ticker(child, dcf_lookups={}) — empty dict ile
-    rekürsiv değil (is_sotp_holding(child)=False endüstriyel akış).
+    Her child için analyze_ticker(child, dcf_lookups={}) — empty dict
+    industrial/banking flow'u tetikler (recursion stopper).
 
-    Performance not: KCHOL 4 listed children × ~10-15s = ~40-60s.
+    Performance not: KCHOL ~5 children × ~10-15s = ~60-75s.
+    Banking ticker'lar daha hızlı (XBRL fetch yok, DDM hızlı).
     """
     portfolio = get_portfolio(parent_ticker)
     if portfolio is None:
@@ -558,13 +562,14 @@ async def _fetch_children_dcfs_recursive(
 
     lookups: Dict[str, float] = {}
     for child in portfolio.children:
-        if child.type != "listed" or child.ticker is None:
+        # listed + banking_listed (non_listed → book fallback, fetch gerekmez)
+        if child.type not in ("listed", "banking_listed") or child.ticker is None:
             continue
         try:
             child_report = await analyze_ticker(
                 child.ticker,
                 market_price_tl=None,
-                dcf_lookups={},  # empty dict → recursion stopper (industrial flow)
+                dcf_lookups={},  # empty dict → recursion stopper
             )
             if child_report.success and child_report.equity_value_usd:
                 lookups[child.ticker] = child_report.equity_value_usd

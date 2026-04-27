@@ -105,17 +105,29 @@ def _resolve_child_value(
         return 0.0, "missing"
 
     if child.type == "banking_listed":
+        # Faz 6 ADIM 4: DDM result öncelikli (banking valuation correct methodology)
+        # Fallback: book × P/B 1.5 (banking_data missing veya DDM fail)
+        if child.ticker and child.ticker in dcf_lookups:
+            ddm_value = dcf_lookups[child.ticker]
+            warnings.append(
+                f"Banking child '{child.ticker}': DDM result CONFIRMED "
+                f"(${ddm_value/1e9:.2f}B from banking_ddm)"
+            )
+            return ddm_value, "banking_ddm_dcf"
+
         if child.book_value_usd is None:
             warnings.append(
-                f"Banking child '{child.ticker}': book value missing (skipped)"
+                f"Banking child '{child.ticker}': "
+                f"DDM lookup missing AND book value missing (skipped)"
             )
             return 0.0, "missing"
         if "PROVISIONAL" in child.notes:
             warnings.append(
-                f"Banking child '{child.ticker}': PROVISIONAL book value "
+                f"Banking child '{child.ticker}': "
+                f"DDM lookup MISSING, PROVISIONAL book × P/B fallback "
                 f"(${child.book_value_usd/1e9:.2f}B × P/B {child.book_multiplier})"
             )
-        return child.book_value_usd * child.book_multiplier, "banking_book_pb_15"
+        return child.book_value_usd * child.book_multiplier, "banking_book_pb_15_fallback"
 
     if child.type == "non_listed":
         if child.book_value_usd is None:
