@@ -164,7 +164,7 @@ def calculate_verdict(upside_pct: float) -> str:
 async def analyze_ticker(
     ticker: str,
     market_price_tl: Optional[float] = None,
-    years_back: int = 12,
+    years_back: int = 16,
 ) -> ValuationReport:
     """
     End-to-end ticker analizi.
@@ -172,7 +172,8 @@ async def analyze_ticker(
     Args:
         ticker: BIST ticker (TUPRS, GARAN, vb.)
         market_price_tl: Optional current market price for upside calc
-        years_back: Historical depth (default 12 for cyclical)
+        years_back: Historical depth (default 16, Damodaran golden standard;
+                    3 tam cyclical döngü, peak bias hafifler — Faz 2.4.5 deep dive)
 
     Returns:
         ValuationReport with full results
