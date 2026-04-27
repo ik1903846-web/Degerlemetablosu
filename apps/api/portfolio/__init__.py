@@ -24,6 +24,12 @@ from portfolio.sleeve_assignment import (
     summarize_sleeves,
     get_risk_profile_allocations,
 )
+from portfolio.portfolio_construction import (
+    PortfolioPlan,
+    TickerPosition,
+    build_portfolio,
+    format_portfolio_report,
+)
 
 __all__ = [
     # pentagon_scoring
@@ -39,4 +45,9 @@ __all__ = [
     "assign_batch",
     "summarize_sleeves",
     "get_risk_profile_allocations",
+    # portfolio_construction
+    "PortfolioPlan",
+    "TickerPosition",
+    "build_portfolio",
+    "format_portfolio_report",
 ]
