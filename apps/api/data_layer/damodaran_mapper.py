@@ -89,7 +89,8 @@ class DamodaranDCFInputs:
 # Income Statement
 ITEM_REVENUE_DOMESTIC = "4BC"  # Yurtiçi Satışlar
 ITEM_REVENUE_FOREIGN = "4BD"  # Yurtdışı Satışlar
-ITEM_REVENUE_TOTAL_ALT = "3CB"  # Bazı şirketlerde toplam satış burada
+ITEM_REVENUE_NET_SALES = "3C"  # Single-segment Net Satışlar (BIMAS, TRALT pattern)
+ITEM_REVENUE_TOTAL_ALT = "3CB"  # Bazı şirketlerde toplam satış burada (legacy)
 
 ITEM_EBIT = "3DF"
 ITEM_PRETAX_INCOME = "3I"
@@ -157,28 +158,43 @@ def _aggregate_revenue(statements: FinancialStatements) -> List[Optional[Decimal
     """
     Net satış toplam.
 
-    Strateji 1: 4BC (yurtiçi) + 4BD (yurtdışı)
-    Strateji 2: 3CB (toplam satış alternative)
+    Strateji 1: 4BC (yurtiçi) + 4BD (yurtdışı) — TUPRS multi-segment pattern
+    Strateji 2: 3C (Net Satışlar tek kalem) — BIMAS single-segment pattern
+    Strateji 3: 3CB (legacy fallback)
     """
     domestic = _get_value_series(statements, ITEM_REVENUE_DOMESTIC)
     foreign = _get_value_series(statements, ITEM_REVENUE_FOREIGN)
 
-    # Eğer ikisi de varsa toplam
+    # Strateji 1: Multi-segment (4BC + 4BD)
+    # NOT: BIMAS gibi firmalarda bu kalemler tüm dönemlerde 0 dönüyor.
+    # "any not None" yetersiz çünkü Decimal(0) None değil ama valid de değil.
+    # Toplamın >0 olduğunu da kontrol et.
     if any(v is not None for v in domestic) or any(v is not None for v in foreign):
         result = []
         for d, f in zip(domestic, foreign):
             total = _safe_add(d, f)
             result.append(total)
-        if any(v is not None for v in result):
+        # Eğer toplam değerler hep 0 veya None ise multi-segment fail demektir
+        non_zero = [v for v in result if v is not None and v != 0]
+        if non_zero:
             return result
 
-    # Fallback: 3CB
+    # Strateji 2: Single-segment Net Satışlar (3C) ★ YENİ
+    net_sales = _get_value_series(statements, ITEM_REVENUE_NET_SALES)
+    non_zero = [v for v in net_sales if v is not None and v != 0]
+    if non_zero:
+        logger.info(f"Revenue from 3C (single-segment) for {statements.ticker}")
+        return net_sales
+
+    # Strateji 3: Legacy fallback (3CB)
     fallback = _get_value_series(statements, ITEM_REVENUE_TOTAL_ALT)
-    if any(v is not None for v in fallback):
+    non_zero = [v for v in fallback if v is not None and v != 0]
+    if non_zero:
+        logger.info(f"Revenue from 3CB (legacy) for {statements.ticker}")
         return fallback
 
     logger.warning(f"Revenue not found for {statements.ticker}")
-    return [None, None, None, None]
+    return _get_value_series(statements, "__not_existing__")  # period_count adaptive None list
 
 
 def _aggregate_capex(statements: FinancialStatements) -> List[Optional[Decimal]]:

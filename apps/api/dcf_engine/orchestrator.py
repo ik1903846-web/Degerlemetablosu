@@ -34,6 +34,7 @@ from data_layer.fx_converter import (
 )
 from data_layer.shares_fetcher import get_shares_outstanding, SharesOutstanding
 from data_layer.market_price_fetcher import fetch_spot_price
+from data_layer.ticker_mapping import resolve_current_ticker
 from dcf_engine.lifecycle_classifier import (
     classify_lifecycle,
     LifecycleClassification,
@@ -160,7 +161,12 @@ async def analyze_ticker(
     Returns:
         ValuationReport with full results
     """
-    ticker = ticker.upper()
+    # Ticker resolution — rename handling (Faz 2.4.5)
+    original_ticker = ticker.upper()
+    ticker = resolve_current_ticker(ticker)
+
+    if ticker != original_ticker:
+        logger.info(f"Ticker rename: {original_ticker} → {ticker}")
 
     # Auto-fetch market price if not provided (Faz 2.4.4)
     if market_price_tl is None:

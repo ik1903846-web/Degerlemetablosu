@@ -49,8 +49,8 @@ STATIC_SHARES_OUTSTANDING: Dict[str, int] = {
     # Steel & Mining
     "EREGL": 3_500_000_000,    # Ereğli Demir Çelik (~3.5B)
     "KRDMD": 950_000_000,      # Kardemir D
-    "KOZAL": 152_500_000,      # Koza Altın (~152.5M)
-    "KOZAA": 305_000_000,      # Koza Anadolu (~305M)
+    "TRALT": 152_500_000,      # Türk Altın İşletmeleri (eski KOZAL, Kasım 2025 rename)
+    "TRMET": 305_000_000,      # TR Anadolu Metal Madencilik (eski KOZAA, Kasım 2025 rename)
 
     # Consumer & Retail
     "BIMAS": 607_200_000,      # BIM (~607M)

@@ -41,8 +41,8 @@ BIST_30_INDUSTRIAL = [
     # Steel & Mining
     "EREGL",
     "KRDMD",
-    "KOZAL",
-    "KOZAA",
+    "TRALT",  # eski KOZAL — Türk Altın İşletmeleri (Kasım 2025 rename)
+    "TRMET",  # eski KOZAA — TR Anadolu Metal Madencilik (Kasım 2025 rename)
 
     # Consumer & Retail
     "BIMAS",
