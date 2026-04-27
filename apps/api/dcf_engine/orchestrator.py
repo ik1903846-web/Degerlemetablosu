@@ -35,6 +35,8 @@ from data_layer.fx_converter import (
 from data_layer.shares_fetcher import get_shares_outstanding, SharesOutstanding
 from data_layer.market_price_fetcher import fetch_spot_price
 from data_layer.ticker_mapping import resolve_current_ticker
+from data_layer.sector_mapping import get_damodaran_sector
+from data_layer.damodaran_db import fetch_sector_unlevered_beta
 from dcf_engine.lifecycle_classifier import (
     classify_lifecycle,
     LifecycleClassification,
@@ -42,6 +44,7 @@ from dcf_engine.lifecycle_classifier import (
     SubClassification,
 )
 from dcf_engine.cyclical_dcf import cyclical_dcf_valuation
+from dcf_engine.cost_of_capital import relever_beta
 
 logger = logging.getLogger(__name__)
 
@@ -75,6 +78,18 @@ KNOWN_BANKING_TICKERS = {
 def is_banking_ticker(ticker: str) -> bool:
     """Banking ticker tespiti (statik liste, ileride dinamik)."""
     return ticker.upper() in KNOWN_BANKING_TICKERS
+
+
+# ============================================================================
+# Holding Whitelist (bottom-up beta SKIP)
+# ============================================================================
+
+# Damodaran disiplini: 'diversified' sector beta (β=0.3634) USA conglomerates
+# için (GE, Honeywell). BIST holding'leri farklı yapılı (otomotiv + enerji +
+# finans + ...) — SOTP yaklaşımı doğru ama Faz 2.5'te yapılacak.
+# Şimdilik bu set'teki ticker'lar için bottom-up beta SKIP (eski β=1 implied).
+HOLDING_TICKERS_NO_BOTTOMUP_BETA = {"KCHOL", "SAHOL"}
+# Future (Faz 2.5 SOTP gelince): TKFEN, TRHOL, vb. eklenebilir, set kalkar
 
 
 # ============================================================================
@@ -340,7 +355,7 @@ async def _execute_cyclical_dcf(
         report.errors.append("Current revenue is None")
         return None
 
-    # WACC (USD-bazlı)
+    # WACC (USD-bazlı, Faz 2.4.6 Component 1: bottom-up beta + Hamada relever)
     debt_usd = float(inputs_usd.total_debt[0]) if inputs_usd.total_debt[0] else 0
     equity_usd = float(inputs_usd.total_equity[0]) if inputs_usd.total_equity[0] else 0
 
@@ -348,18 +363,79 @@ async def _execute_cyclical_dcf(
         report.errors.append("Equity value <= 0")
         return None
 
-    debt_ratio = debt_usd / (debt_usd + equity_usd) if (debt_usd + equity_usd) > 0 else 0
+    # İki farklı oran:
+    #   debt_weight = D/(D+E) → WACC weighting için
+    #   debt_to_equity = D/E → Hamada relever için
+    debt_weight = debt_usd / (debt_usd + equity_usd) if (debt_usd + equity_usd) > 0 else 0
+    debt_to_equity = debt_usd / equity_usd
 
-    cost_of_equity = (
-        DAMODARAN_PARAMS["rf_usd"]
-        + DAMODARAN_PARAMS["mature_erp"]
-        + DAMODARAN_PARAMS["turkey_crp"]
-    )
-    pretax_kd = DAMODARAN_PARAMS["rf_usd"] + 0.03  # BB rated default
-    after_tax_kd = pretax_kd * (1 - DAMODARAN_PARAMS["statutory_tax"])
+    tax_rate = DAMODARAN_PARAMS["statutory_tax"]
 
-    wacc = (1 - debt_ratio) * cost_of_equity + debt_ratio * after_tax_kd
+    # ─────────────────────────────────────────────────────────────────────
+    # Bottom-up beta (Damodaran ADR-065): sektör β_unlev → Hamada relever
+    # ─────────────────────────────────────────────────────────────────────
+    sector: Optional[str] = None
+    beta_unlev: Optional[float] = None
+    beta_lev: Optional[float] = None
+
+    if report.ticker.upper() in HOLDING_TICKERS_NO_BOTTOMUP_BETA:
+        # Holding fallback: 'diversified' sector beta methodologically yanlış
+        # (USA conglomerates pattern). SOTP gerek — Faz 2.5'te.
+        report.reasoning.append(
+            "Holding ticker — bottom-up beta SKIP "
+            "(diversified sector inappropriate for BIST holdings, "
+            "SOTP needed in Faz 2.5)"
+        )
+    else:
+        sector = get_damodaran_sector(report.ticker)
+        if sector is not None:
+            beta_unlev_decimal = await fetch_sector_unlevered_beta(sector)
+            if beta_unlev_decimal is not None:
+                beta_unlev = float(beta_unlev_decimal)
+                beta_lev = relever_beta(
+                    unlevered_beta=beta_unlev,
+                    debt_to_equity=debt_to_equity,
+                    tax_rate=tax_rate,
+                )
+                report.reasoning.append(
+                    f"Bottom-up beta: sector={sector}, "
+                    f"β_unlev={beta_unlev:.4f}, "
+                    f"D/E={debt_to_equity:.4f}, "
+                    f"β_lev={beta_lev:.4f}"
+                )
+            else:
+                report.reasoning.append(
+                    f"Sector '{sector}' DB'de yok — fallback β=1 implied"
+                )
+        else:
+            report.reasoning.append(
+                f"{report.ticker} sector mapping yok — fallback β=1 implied"
+            )
+
+    # Cost of Equity: Rf + β × ERP + λ × CRP  (λ=1.0 BIST domestic)
+    if beta_lev is not None:
+        coe_usd = (
+            DAMODARAN_PARAMS["rf_usd"]
+            + beta_lev * DAMODARAN_PARAMS["mature_erp"]
+            + 1.0 * DAMODARAN_PARAMS["turkey_crp"]
+        )
+    else:
+        # Fallback: β=1 implied (eski davranış — additive Rf + ERP + CRP)
+        coe_usd = (
+            DAMODARAN_PARAMS["rf_usd"]
+            + DAMODARAN_PARAMS["mature_erp"]
+            + DAMODARAN_PARAMS["turkey_crp"]
+        )
+
+    pretax_kd = DAMODARAN_PARAMS["rf_usd"] + 0.03  # BB rated default (Component 2'de değişecek)
+    after_tax_kd = pretax_kd * (1 - tax_rate)
+
+    wacc = (1 - debt_weight) * coe_usd + debt_weight * after_tax_kd
     report.wacc = wacc
+    report.reasoning.append(
+        f"WACC={wacc*100:.2f}% (CoE={coe_usd*100:.2f}%, AT_Kd={after_tax_kd*100:.2f}%, "
+        f"debt_w={debt_weight:.4f})"
+    )
 
     # Stable phase
     g = DAMODARAN_PARAMS["stable_growth_usd"]
