@@ -1,8 +1,8 @@
 # REELDEĞER — Kaldığım Yer
 
-**Son güncelleme:** 27 Nisan 2026, ~16:30
-**Aktif Faz:** Faz 2.5 SOTP TAMAMLANDI ✓ (KCHOL + SAHOL holdings)
-**Sıradaki:** Faz 2.6 (Banking equity-only) veya Faz 3 (Portfolio Construction) — yarın karar
+**Son güncelleme:** 27 Nisan 2026, ~19:50
+**Aktif Faz:** Faz 2.6 Asymmetric Cap TAMAMLANDI ✓ (Damodaran Lesson #2)
+**Sıradaki:** Faz 2.7 (CCOLA secondary, distress model, banking) veya Faz 3 (Portfolio) — yarın karar
 
 ---
 
@@ -328,6 +328,112 @@ Sonuç: SAHOL consolidated margin %54.80 (industrial %5-15 range vs reality)
 
 ---
 
+## Faz 2.6 — Cyclical Asymmetric Cap KAPANIŞ (27 Nisan 2026 akşam)
+
+### Status: TAMAMLANDI ✓
+
+2 atomic commit chain:
+- **c906a14** — ADIM 8 FROTO/CCOLA root cause diagnosis (260 satır rapor)
+- **9820cc0** — ADIM 9 cyclical_dcf asymmetric cap fix (Path A4)
+- + ADIM 10 kapanış (this commit)
+
+### Damodaran Lesson #2 (REELDEĞER keşfi)
+
+**Damodaran cyclical_dcf reference (Toyota 2009):**
+- Crisis year, current_revenue TROUGH'te
+- current(low) × avg_margin = NORMALIZE UPLIFT (DOĞRU)
+
+**REELDEĞER half-normalized formula bug:**
+- normalized_op_income = current_revenue × avg_margin
+-                          ↑ peak bias!     ↑ OK
+- FROTO 2024 PEAK year, current 2.34x avg → INFLATION
+
+**FIX (Path A4 — Asymmetric Cap, cap 1.5x):**
+- effective_revenue = min(current_revenues, avg_revenue × 1.5)
+- normalized_oi = effective_revenue × historical_avg_margin
+- Trough year (current ≤ avg×1.5) → Toyota pattern KORUNUR
+- Peak year (current > avg×1.5) → cap kicks in (peak inflation kırılır)
+- Asymmetric: trough'u dokunmaz, peak'i disipline eder
+
+### Anchor Sonuçları (61 commit batch)
+
+| Ticker | Faz 2.5 | Faz 2.6 cap 1.5x | Δ | Verdict |
+|--------|---------|-------------------|---|---------|
+| TUPRS  | 188.29  | 187.10            | -%0.6 ★ | SAT (INTACT) |
+| FROTO  | 671.37  | 294.34            | -%56 | AL (rasyonel +%187) |
+| ARCLK  | 311.54  | 176.78            | -%43 | AL (sadeleşti +%52) |
+| CCOLA  | 486.30  | 386.85            | -%20 | AL (+%418 hâlâ yüksek) |
+| KCHOL  | 233.36  | 203.26            | -%13 | BEKLE (-%1) |
+| SAHOL  | 202.09  | 202.09            | UNCHANGED | AL (book_fallback) |
+| TOASO  | 114.90  | 114.90            | UNCHANGED | SAT |
+| THYAO  | 16.45   | -110.81           | NEGATİF | SAT (distress) |
+| PGSUS  | -839.77 | -1082.76          | DAHA NEG | SAT (distress) |
+
+**TUPRS deep dive baseline -%0.6 sub-noise (effectively INTACT).**
+Cap 1.5x mükemmel kalibrasyon — tahmin -%7, gerçek -%0.6.
+
+**BIST Avg upside: +34.65% → -14.20%** (rasyonelleşme, methodology disipline).
+
+### Bilinen Sınırlar (Faz 2.7+ Parking)
+
+1. **CCOLA hâlâ +%418** — kısmen düzeldi:
+   - 2.86B avg × 1.5 = 4.29B cap, current 5.10B = capped at -%16
+   - Cap kısmi etkili (FROTO 2.34x vs CCOLA 1.78x)
+   - Secondary analysis: 2-stage explicit veya lifecycle-adaptive cap
+
+2. **THYAO/PGSUS negatif DCF** — distress
+   - Damodaran distress-adjusted value formula
+   - Equity as call option (Black-Scholes)
+
+3. **BIMAS/SOKM 16-yıl coverage gap** (devam ediyor)
+
+### Methodology Evolution Timeline
+
+- **Faz 2.4.5** TUPRS deep dive baseline (Toyota 2009 trough pattern)
+- **Faz 2.5** Holdings SOTP (Damodaran Lesson #1: per-child intrinsic)
+- **Faz 2.6** Asymmetric cap (Damodaran Lesson #2: peak year extension)
+
+İki Damodaran-aligned methodology iyileştirmesi keşfedildi.
+
+### Faz 2.7+ Önerileri (yarın için)
+
+a) **CCOLA Secondary Analysis** (30-60 dk, quick win)
+   - 2-stage explicit projection (defensive consumer)
+   - Lifecycle-adaptive cap (mature_stable için)
+b) **Distress Model** (THYAO/PGSUS, 1-2 hafta)
+   - Damodaran equity-as-call-option
+   - Black-Scholes
+c) **Banking Equity-Only Model** (3-4 saat)
+   - YKBNK, AKBNK gerçek DCF
+   - SOTP banking refinement
+d) **Faz 3 Portfolio Foundation** (2-3 saat)
+   - Pentagon Scoring (5-D narrative ADR-098)
+   - 3-Sleeve (alpha + hedge + opportunity)
+   - Methodology hazır → portfolio construction'a geçebiliriz
+
+---
+
+## BUGÜNÜN MARATHONUN ÖZETİ (27 Nisan 2026)
+
+14 commit Faz 2.4.6 + 2.5 + 2.6 paketleri:
+
+**Faz 2.4.6 (industrial Damodaran):** 7 atomic commit chain
+- Component 1+2+3+4 + Bonus + kapanış + docs
+
+**Faz 2.5 (holdings SOTP):** 6 atomic commit chain
+- ADIM 1 (PDF probe, no commit)
+- ADIM 2 holdings_config + ADIM 3 sotp.py + ADIM 4 orchestrator integration
+- ADIM 5 BIST batch validation + ADIM 6 kapanış + ADIM 7 follow-up
+
+**Faz 2.6 (asymmetric cap):** 3 atomic commit chain
+- ADIM 8 FROTO/CCOLA diagnosis + ADIM 9 cap fix + ADIM 10 kapanış (this)
+
+İki Damodaran Lesson keşfi:
+- #1 Holdings SOTP (industrial DCF holdings için yetersiz)
+- #2 Cyclical Asymmetric Cap (peak yıllar için extension)
+
+---
+
 ## Yarın Açılış Komutları
 
 cd /c/Users/unutu/Desktop/abiminprojev2
@@ -339,11 +445,12 @@ cat notes/kaldim.md
 
 ## Repo Durumu
 
-- 58 commit GitHub'da (clean)
+- 62 commit GitHub'da (clean)
 - Branch: main
-- Son commit: (kapanış commit, bu güncellemeyi içerir)
+- Son commit: (Faz 2.6 kapanış, this update)
 - Faz 2.4.6 atomic chain: 7163b5e → 6e22767 → 67d6ec9 → 09a2a9b → a7ed721 → 4256744 → 3cdbb66 → 658c195
-- Faz 2.5 atomic chain: 990aaa8 → 5bcee39 → 468197b → 61a368b → (kapanış)
+- Faz 2.5 atomic chain: 990aaa8 → 5bcee39 → 468197b → 61a368b → 3f5692b → 16358ae
+- Faz 2.6 atomic chain: c906a14 → 9820cc0 → (kapanış)
 - GitHub: https://github.com/ik1903846-web/Degerlemetablosu
 
 ---
