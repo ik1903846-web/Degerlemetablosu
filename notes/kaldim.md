@@ -1,8 +1,8 @@
 # REELDEĞER — Kaldığım Yer
 
-**Son güncelleme:** 27 Nisan 2026, ~23:45 (gece)
-**Aktif Faz:** Faz 2.7 Adaptive Cap TAMAMLANDI ✓ (Damodaran Lesson #4)
-**Sıradaki:** Faz 3.5 BIST 50/100 universe expansion veya Faz 4 Backtest engine
+**Son güncelleme:** 28 Nisan 2026, ~01:30 (gece)
+**Aktif Faz:** Faz 6 Banking Equity-Only TAMAMLANDI ✓ (Damodaran Lesson #5)
+**Sıradaki:** Faz 6.5 banking ticker tam coverage + batch banking phase, sonra Faz 4 Backtest engine
 
 ---
 
@@ -706,3 +706,100 @@ TUPRS DCF: manuel = batch = live = **181.16 TL** (3 yöntem birebir)
    - Sıfırdan production sistem
    - Faz 1 + Faz 2 birlikte
    - Validation gate: hep zero-deviation
+
+---
+
+# Faz 6 — Banking Equity-Only (KAPANIŞ — 28 Nisan 2026 gece)
+
+## Status: TAMAMLANDI ✓
+
+5 atomic commit chain:
+- 8df7eb4 — ADIM 2 banking_data.py (KAP CONFIRMED config)
+- 1df5463 — ADIM 3 orchestrator banking DDM integration
+- bacd356 — ADIM 4 SOTP banking refinement (PROVISIONAL → CONFIRMED)
+- b4d17cb — ADIM 5 BIST batch + ABN Amro validation
+- (this) — ADIM 6 KAPANIŞ docs
+
+## Damodaran Lesson #5 (REELDEĞER keşfi)
+
+"Banking holding subsidiaries valued via DDM (not justified P/B fallback)
+ produce more conservative SOTP values when banking weight is high.
+ SAHOL %63 banking weight: book × P/B 1.5 fallback overestimates by ~%19
+ vs DDM USD-basis."
+
+## Banking Anchor Tablosu (5/5 DDM Production)
+
+| Ticker | DDM TL  | Equity USD | ROE   | CoE    | Market | Upside  | Verdict |
+|--------|---------|------------|-------|--------|--------|---------|---------|
+| AKBNK  | 98.96   | $14.55B    | 21.5% | 11.09% | 70.00  | +41.37% | AL      |
+| GARAN  | 197.28  | $23.43B    | 30.0% | 11.09% | 140.00 | +40.92% | AL      |
+| YKBNK  | 38.96   | $9.30B     | 25.0% | 11.09% | 35.00  | +11.32% | IZLE-AL |
+| ISCTR  | 17.19   | $4.38B     | 16.0% | 11.09% | 13.00  | +32.27% | AL      |
+| HALKB  | 142.24  | $5.03B     | 12.0% | 11.09% | 23.00  | +518%   | AL ★   |
+
+★ HALKB +%518 anomaly: state bank, payout %0, terminal dominant
+   Methodology doğru söylüyor, market chronic state risk premium
+
+## ABN Amro Validation (Damodaran Reference)
+
+- Damodaran kitap: €30.87/share (ABN Amro 2008)
+- Faz 6 retest: €32.12
+- Diff: +%4.06 (within ±%5 tolerance)
+- Status: ★ PASS — Banking DDM motoru INTACT through Faz 6
+
+## SOTP Refinement Etki
+
+KCHOL (banking-light %12 YKBNK):
+- Eski: 203.26 TL (book × P/B 1.5 PROVISIONAL)
+- Yeni: 190.16 TL (banking_ddm CONFIRMED)
+- Δ: -%6.4
+
+SAHOL (banking-heavy %63 AKBNK):
+- Eski: 202.09 TL (book × P/B 1.5 PROVISIONAL)
+- Yeni: 181.24 TL (banking_ddm CONFIRMED)
+- Δ: -%10.3
+- Banking contribution: $7.38B → $5.96B (-$1.42B)
+
+## TUPRS Regression — INTACT
+
+- Deep dive baseline: 188.31 TL (manuel 5+ saat)
+- 23 atomic commit boyunca: 187.10 TL
+- Sapma: -%0.6 (sub-noise)
+- Industrial pipeline DOKUNMADI (Faz 6 banking-only scope)
+
+## 5 Damodaran Lesson Timeline (Bugün + Gece)
+
+#1 Faz 2.5: Holdings cannot be valued like industrial firms (SOTP)
+#2 Faz 2.6: Cyclical DCF asymmetric cap (peak year)
+#3 Faz 3:   Cash > overpay when universe inadequate (portfolio)
+#4 Faz 2.7: Adaptive cap by lifecycle + recent margin bias
+#5 Faz 6:   Banking DDM > P/B fallback (SOTP refinement)
+
+## Bilinen Sınırlar (Faz 6.5+ parking)
+
+1. 6 banking ticker eksik:
+   - VAKBN, QNBFB, TSKB, SKBNK, ICBCT, ALBRK
+   - banking_data.py'de YOK
+   - Faz 6.5: Tam coverage (11 BIST banking)
+
+2. 2021-2023 ESTIMATE confidence:
+   - 2024 CONFIRMED, eski yıllar manuel estimate
+   - Faz 6.5: KAP PDF parser otomasyon
+
+3. Banking sector beta tek değer (0.2495):
+   - Tüm banking için bank_money_center default
+   - Faz 7+: ticker-specific bottom-up beta (Hamada banking)
+
+4. Batch banking phase entegrasyonu:
+   - Banking ticker'lar batch'e eklenmedi (test_orchestrator_live.py)
+   - Faz 6.5: Banking phase 1.5 (industrial → banking → holdings)
+
+## Faz 6.5+ Önerileri
+
+a) Banking ticker tam coverage (VAKBN, QNBFB, TSKB, SKBNK, ICBCT, ALBRK)
+b) Batch banking phase integration (Phase 1.5)
+c) Ticker-specific banking beta (Hamada)
+d) KAP PDF parser otomasyon (2021-2023 CONFIRMED)
+e) Faz 7+ Holdings-specific Pentagon scoring
+f) Faz 8 Momentum dimension (Yahoo Finance)
+g) Faz 4 Backtest engine (2020-present)
