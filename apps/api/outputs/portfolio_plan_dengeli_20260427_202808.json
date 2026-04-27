@@ -1,0 +1,110 @@
+{
+  "risk_profile": "dengeli",
+  "total_capital_tl": 1000000.0,
+  "target_allocations_pct": {
+    "core": 60.0,
+    "hizli_buyume": 25.0,
+    "yuksek_kazanc": 15.0
+  },
+  "actual_allocations_pct": {
+    "core": 60.0,
+    "hizli_buyume": 0.0,
+    "yuksek_kazanc": 15.0
+  },
+  "positions": [
+    {
+      "ticker": "EREGL",
+      "sleeve": "core",
+      "sub_category": null,
+      "weight_pct": 10.0,
+      "composite": 63.63,
+      "capital_allocation_tl": 100000.0,
+      "reasoning": [
+        "Sleeve core: 60% × composite_share(63.6/133.1) = raw 28.7%",
+        "Cap applied: raw 28.7% → 10.0%"
+      ]
+    },
+    {
+      "ticker": "ARCLK",
+      "sleeve": "core",
+      "sub_category": null,
+      "weight_pct": 10.0,
+      "composite": 69.48,
+      "capital_allocation_tl": 100000.0,
+      "reasoning": [
+        "Sleeve core: 60% × composite_share(69.5/133.1) = raw 31.3%",
+        "Cap applied: raw 31.3% → 10.0%"
+      ]
+    },
+    {
+      "ticker": "TRALT",
+      "sleeve": "yuksek_kazanc",
+      "sub_category": "deep_value",
+      "weight_pct": 3.2254,
+      "composite": 59.34,
+      "capital_allocation_tl": 32254.49,
+      "reasoning": [
+        "Sleeve yuksek_kazanc: 15% × composite_share(59.3/276.0) = raw 3.2%",
+        "No cap: 3.2%"
+      ]
+    },
+    {
+      "ticker": "CCOLA",
+      "sleeve": "yuksek_kazanc",
+      "sub_category": "deep_value",
+      "weight_pct": 4.2224,
+      "composite": 77.69,
+      "capital_allocation_tl": 42224.4,
+      "reasoning": [
+        "Sleeve yuksek_kazanc: 15% × composite_share(77.7/276.0) = raw 4.2%",
+        "No cap: 4.2%"
+      ]
+    },
+    {
+      "ticker": "FROTO",
+      "sleeve": "yuksek_kazanc",
+      "sub_category": "deep_value",
+      "weight_pct": 4.0877,
+      "composite": 75.21,
+      "capital_allocation_tl": 40876.5,
+      "reasoning": [
+        "Sleeve yuksek_kazanc: 15% × composite_share(75.2/276.0) = raw 4.1%",
+        "No cap: 4.1%"
+      ]
+    },
+    {
+      "ticker": "SAHOL",
+      "sleeve": "yuksek_kazanc",
+      "sub_category": "holding_chronic_discount",
+      "weight_pct": 3.4645,
+      "composite": 63.74,
+      "capital_allocation_tl": 34644.6,
+      "reasoning": [
+        "Sleeve yuksek_kazanc: 15% × composite_share(63.7/276.0) = raw 3.5%",
+        "No cap: 3.5%"
+      ]
+    }
+  ],
+  "cash_reserve_pct": 65.0,
+  "cash_reserve_tl": 650000.0,
+  "cash_reasons": [
+    "Sleeve 'hizli_buyume' BOŞ (25% target → cash)"
+  ],
+  "total_positions": 6,
+  "sleeve_breakdown": {
+    "core": 2,
+    "hizli_buyume": 0,
+    "yuksek_kazanc": 4,
+    "skip": 11
+  },
+  "warnings": [
+    "EREGL (core): raw 28.7% → capped 10.0%",
+    "ARCLK (core): raw 31.3% → capped 10.0%",
+    "Cash reserve 65.0% > max 30.0% (under-investment, boş sleeve veya cap overflow)"
+  ],
+  "reasoning": [
+    "⚠ Boş sleeve: hizli_buyume (target 25%, allocation cash'e)",
+    "Risk profile: dengeli. Target alloc: core=60%, hizli=25%, yuksek=15%.",
+    "6 pozisyon, cash reserve 65.0%."
+  ]
+}
