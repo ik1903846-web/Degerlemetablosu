@@ -599,21 +599,54 @@ async def _execute_cyclical_dcf(
     valid_revenues = [float(r) for r in inputs_usd.revenue if r is not None and float(r) > 0]
     avg_revenue_usd = sum(valid_revenues) / len(valid_revenues) if valid_revenues else None
 
+    # Faz 2.7 — Damodaran Lesson #4 (Adaptive Cap): recent vs older margin bias
+    # MATURE_STABLE + bias > 25% → cap 1.5 → 1.3 (defensive consumer high-bias)
+    valid_margins = [float(m) for m in inputs_usd.operating_margin if m is not None]
+    recent_margin_bias_pct = None
+    if len(valid_margins) >= 8:
+        recent_5 = valid_margins[:5]
+        older = valid_margins[5:]
+        if older:
+            recent_avg = sum(recent_5) / 5.0
+            older_avg = sum(older) / len(older)
+            if older_avg > 0:
+                recent_margin_bias_pct = (recent_avg / older_avg - 1.0) * 100.0
+
+    lifecycle_stage = (
+        report.lifecycle.stage.value.upper() if report.lifecycle and report.lifecycle.stage else None
+    )
+
+    # Adaptive cap_ratio karar
+    base_cap_ratio = 1.5
+    effective_cap_ratio = base_cap_ratio
+    if (
+        lifecycle_stage == "MATURE_STABLE"
+        and recent_margin_bias_pct is not None
+        and recent_margin_bias_pct > 25.0
+    ):
+        effective_cap_ratio = 1.3
+
     if avg_revenue_usd and current_revenue:
         ratio = current_revenue / avg_revenue_usd
-        cap_ratio = 1.5
-        if ratio > cap_ratio:
+        if ratio > effective_cap_ratio:
             report.reasoning.append(
                 f"Revenue cap ACTIVE: latest ${current_revenue/1e9:.2f}B > "
-                f"avg ${avg_revenue_usd/1e9:.2f}B × {cap_ratio} "
-                f"(latest/avg {ratio:.2f}x → capped at avg×{cap_ratio})"
+                f"avg ${avg_revenue_usd/1e9:.2f}B × {effective_cap_ratio} "
+                f"(latest/avg {ratio:.2f}x → capped at avg×{effective_cap_ratio})"
             )
         else:
             report.reasoning.append(
                 f"Revenue cap INACTIVE: latest ${current_revenue/1e9:.2f}B ≤ "
-                f"avg ${avg_revenue_usd/1e9:.2f}B × {cap_ratio} "
+                f"avg ${avg_revenue_usd/1e9:.2f}B × {effective_cap_ratio} "
                 f"(latest/avg {ratio:.2f}x — Toyota 2009 pattern korunur)"
             )
+        # Adaptive cap diagnostic
+        if recent_margin_bias_pct is not None:
+            adaptive_note = (
+                f" [adaptive: lifecycle={lifecycle_stage}, "
+                f"bias={recent_margin_bias_pct:+.1f}% → cap_ratio={effective_cap_ratio}]"
+            )
+            report.reasoning[-1] = report.reasoning[-1] + adaptive_note
 
     # Execute cyclical_dcf
     result = cyclical_dcf_valuation(
@@ -631,7 +664,9 @@ async def _execute_cyclical_dcf(
         options_value=0.0,
         current_op_margin=float(inputs_usd.operating_margin[0]) if inputs_usd.operating_margin[0] else None,
         avg_revenue=avg_revenue_usd,
-        revenue_cap_ratio=1.5,
+        revenue_cap_ratio=base_cap_ratio,
+        lifecycle_stage=lifecycle_stage,
+        recent_margin_bias_pct=recent_margin_bias_pct,
     )
 
     return result.equity_bridge.equity_value

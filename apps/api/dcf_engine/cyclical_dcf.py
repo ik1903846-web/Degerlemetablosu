@@ -285,6 +285,8 @@ def cyclical_dcf_valuation(
     current_op_margin: float = None,
     avg_revenue: float = None,
     revenue_cap_ratio: float = 1.5,
+    lifecycle_stage: str = None,
+    recent_margin_bias_pct: float = None,
 ) -> CyclicalDCFResult:
     """
     Full cyclical company DCF: normalize → stable growth → equity bridge.
@@ -323,8 +325,21 @@ def cyclical_dcf_valuation(
     # 1) Asymmetric Revenue Cap (Faz 2.6 — Damodaran Lesson #2)
     # Damodaran Toyota 2009 reference (current × avg) trough year için doğrudur.
     # Peak year için inflation yaratır; cap ile asimetrik düzeltme uygulanır.
+    #
+    # Faz 2.7 — Damodaran Lesson #4 (Adaptive Cap):
+    # MATURE_STABLE + recent_margin_bias > %25 → cap_ratio 1.5 → 1.3
+    # (defensive consumers with structural margin upshift need tighter cap)
+    effective_cap_ratio = revenue_cap_ratio
+    if (
+        lifecycle_stage is not None
+        and lifecycle_stage.upper().replace("-", "_") == "MATURE_STABLE"
+        and recent_margin_bias_pct is not None
+        and recent_margin_bias_pct > 25.0
+    ):
+        effective_cap_ratio = 1.3  # Tighter cap for defensive consumer high-bias
+
     if avg_revenue is not None and avg_revenue > 0:
-        revenue_ceiling = avg_revenue * revenue_cap_ratio
+        revenue_ceiling = avg_revenue * effective_cap_ratio
         effective_revenue = min(current_revenues, revenue_ceiling)
     else:
         effective_revenue = current_revenues  # Backward-compat (no cap)
