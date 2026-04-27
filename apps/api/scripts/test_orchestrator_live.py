@@ -15,6 +15,8 @@ load_dotenv(Path(__file__).parent.parent.parent.parent / ".env")
 
 from dcf_engine.orchestrator import analyze_ticker, print_report
 from dcf_engine.batch_analyzer import (
+    BIST_30,
+    BIST_30_BANKING,
     BIST_30_INDUSTRIAL,
     analyze_batch,
     rank_by_upside,
@@ -50,23 +52,25 @@ async def main():
         print(f"  ⚠ Market price beklenen değil")
 
     # ========================================================================
-    # TEST 2: BIST batch live (no manual prices)
+    # TEST 2: BIST batch live (no manual prices) — Faz 6.5 3-phase flow
     # ========================================================================
-    print("\n[TEST 2] BIST 19 industrial — auto-fetch all prices")
+    print(f"\n[TEST 2] BIST {len(BIST_30)} ticker — auto-fetch all prices")
+    print(f"  Industrial: {len(BIST_30_INDUSTRIAL)} (holdings dahil)")
+    print(f"  Banking:    {len(BIST_30_BANKING)} (DDM, Faz 6.5 phase entegrasyonu)")
     print("-"*80)
 
     start = time.time()
 
     # market_prices=None → orchestrator her ticker için auto-fetch
     reports = await analyze_batch(
-        tickers=BIST_30_INDUSTRIAL,
+        tickers=BIST_30,
         market_prices=None,  # ← KRİTİK: auto-fetch trigger
         max_concurrent=5,
     )
 
     duration = time.time() - start
 
-    print(f"  Duration: {duration:.1f}s ({len(BIST_30_INDUSTRIAL)} ticker)")
+    print(f"  Duration: {duration:.1f}s ({len(BIST_30)} ticker)")
 
     summary = summarize_batch(reports, duration)
     print(f"  Successful: {summary.successful}")

@@ -2,12 +2,17 @@
 BIST 30 Batch Analyzer.
 
 Paralel orchestration:
-- asyncio.gather: 25 ticker eş zamanlı
+- asyncio.gather: 26 ticker eş zamanlı (Faz 6.5'te banking phase eklendi)
 - Ranking: en ucuz (deep value) → en pahalı
 - CSV + JSON output
 - Failure isolation: 1 ticker fail diğerleri etkilemiyor
 
-Banking ticker'lar skip edilir (Faz 2.3.1'de eklenecek).
+Faz 6.5 — 3-phase flow:
+  Phase 1: Holdings/Banking/Industrial 3-way ayrım
+  Phase 2: Industrial paralel (industrial DCF — cyclical/FCFF)
+  Phase 3: Banking paralel (banking_ddm, manuel KAP config)
+  Phase 4: dcf_lookups dict (industrial + banking, holdings için input)
+  Phase 5: Holdings paralel (SOTP, banking children DDM CONFIRMED)
 """
 
 import asyncio
@@ -24,13 +29,14 @@ from dcf_engine.orchestrator import (
     analyze_ticker,
     ValuationReport,
     KNOWN_BANKING_TICKERS,
+    is_banking_ticker,
 )
 
 logger = logging.getLogger(__name__)
 
 
 # ============================================================================
-# BIST 30 Universe (industrial only — banking skip)
+# BIST 30 Universe — 3 dilim (industrial / banking / holding)
 # ============================================================================
 
 BIST_30_INDUSTRIAL = [
@@ -69,6 +75,20 @@ BIST_30_INDUSTRIAL = [
 ]
 
 
+# Faz 6.5 — banking_data.py'de CONFIRMED 5 ticker (DDM production)
+BIST_30_BANKING = [
+    "GARAN",
+    "AKBNK",
+    "YKBNK",
+    "ISCTR",
+    "HALKB",
+]
+
+
+# Faz 6.5 — combined universe (24 ticker, holdings dahil)
+BIST_30 = BIST_30_INDUSTRIAL + BIST_30_BANKING
+
+
 # ============================================================================
 # Batch Result
 # ============================================================================
@@ -100,12 +120,15 @@ async def analyze_batch(
     max_concurrent: int = 5,
 ) -> List[ValuationReport]:
     """
-    Paralel ticker analizi (Faz 2.5 sonrası 2-aşamalı: non-holdings → holdings).
+    Paralel ticker analizi — Faz 6.5 3-phase flow.
 
-    Phase 1: Holdings vs non-holdings ayrımı (data_layer.holdings_config.is_holding)
-    Phase 2: Non-holdings paralel (HOLDINGS HARİÇ TÜM TİCKER)
-    Phase 3: dcf_lookups dict (successful non-holdings'ten)
-    Phase 4: Holdings paralel (dcf_lookups parametresiyle)
+    Phase 1: 3-way ayrım (holdings/banking/industrial)
+    Phase 2: Industrial paralel (industrial DCF — cyclical/FCFF, dcf_lookups=None)
+    Phase 3: Banking paralel (banking_ddm, manuel KAP config, dcf_lookups=None)
+    Phase 4: dcf_lookups dict (industrial + banking, successful + equity_value_usd)
+    Phase 5: Holdings paralel (SOTP, banking children DDM CONFIRMED)
+
+    Backward-compat: Banking yok → Phase 3 boş; holdings yok → Phase 5 boş.
 
     Args:
         tickers: BIST ticker listesi
@@ -113,7 +136,7 @@ async def analyze_batch(
         max_concurrent: Aynı anda çalışan task sayısı (rate limit için)
 
     Returns:
-        Liste of ValuationReport (her ticker için, original sıra ile)
+        Liste of ValuationReport (industrial + banking + holdings sırasıyla)
     """
     from data_layer.holdings_config import is_holding
 
@@ -160,37 +183,62 @@ async def analyze_batch(
                     errors=[f"Exception: {type(e).__name__}: {e}"],
                 )
 
-    # Phase 1: Holdings vs non-holdings ayrımı
+    # Phase 1: 3-way ayrım (holdings öncelikli, sonra banking, sonra industrial)
     holding_tickers = [t for t in tickers if is_holding(t)]
-    non_holding_tickers = [t for t in tickers if not is_holding(t)]
+    banking_tickers = [
+        t for t in tickers if not is_holding(t) and is_banking_ticker(t)
+    ]
+    industrial_tickers = [
+        t for t in tickers if not is_holding(t) and not is_banking_ticker(t)
+    ]
 
-    # Phase 2: Non-holdings paralel (dcf_lookups=None — industrial flow)
-    non_holding_reports: List[ValuationReport] = []
-    if non_holding_tickers:
-        non_holding_reports = await asyncio.gather(*[
+    logger.info(
+        f"[Phase 1] 3-way ayrım: industrial={len(industrial_tickers)}, "
+        f"banking={len(banking_tickers)}, holdings={len(holding_tickers)}"
+    )
+
+    # Phase 2: Industrial paralel (dcf_lookups=None — cyclical/FCFF flow)
+    industrial_reports: List[ValuationReport] = []
+    if industrial_tickers:
+        logger.info(f"[Phase 2] Industrial paralel ({len(industrial_tickers)} ticker)...")
+        industrial_reports = await asyncio.gather(*[
             analyze_with_semaphore(t, dcf_lookups=None)
-            for t in non_holding_tickers
+            for t in industrial_tickers
         ])
 
-    # Phase 3: dcf_lookups dict (successful non-holdings'ten)
+    # Phase 3: Banking paralel (banking_ddm, dcf_lookups=None)
+    banking_reports: List[ValuationReport] = []
+    if banking_tickers:
+        logger.info(f"[Phase 3] Banking paralel ({len(banking_tickers)} ticker, banking_ddm)...")
+        banking_reports = await asyncio.gather(*[
+            analyze_with_semaphore(t, dcf_lookups=None)
+            for t in banking_tickers
+        ])
+
+    # Phase 4: dcf_lookups dict (industrial + banking, holdings input için)
     dcf_lookups: Dict[str, float] = {
         r.ticker: r.equity_value_usd
-        for r in non_holding_reports
+        for r in (list(industrial_reports) + list(banking_reports))
         if r.success and r.equity_value_usd is not None
     }
+    logger.info(
+        f"[Phase 4] dcf_lookups: {len(dcf_lookups)} entry "
+        f"(industrial+banking successful with equity_value_usd)"
+    )
 
-    # Phase 4: Holdings paralel (dcf_lookups parametresiyle)
+    # Phase 5: Holdings paralel (SOTP, banking children DDM CONFIRMED via dcf_lookups)
     holding_reports: List[ValuationReport] = []
     if holding_tickers:
+        logger.info(f"[Phase 5] Holdings paralel ({len(holding_tickers)} ticker, SOTP)...")
         holding_reports = await asyncio.gather(*[
             analyze_with_semaphore(t, dcf_lookups=dcf_lookups)
             for t in holding_tickers
         ])
 
-    # Sonuçları birleştir (sıra: non_holdings + holdings).
+    # Sonuçları birleştir (sıra: industrial + banking + holdings).
     # Caller (rank_by_upside) ticker.field ile sorting yapıyor, original
     # input sırası kritik değil.
-    return list(non_holding_reports) + list(holding_reports)
+    return list(industrial_reports) + list(banking_reports) + list(holding_reports)
 
 
 # ============================================================================

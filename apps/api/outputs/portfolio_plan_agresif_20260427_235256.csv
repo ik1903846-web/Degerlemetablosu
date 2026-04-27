@@ -1,0 +1,10 @@
+# Portfolio Plan,agresif,capital_tl=1000000
+ticker,sleeve,sub_category,weight_pct,composite,capital_allocation_tl
+EREGL,core,,10.00,63.63,100000
+ARCLK,core,,10.00,69.48,100000
+CCOLA,yuksek_kazanc,deep_value,5.67,77.69,56657
+FROTO,yuksek_kazanc,deep_value,5.48,75.21,54848
+HALKB,yuksek_kazanc,deep_value,5.00,68.50,49956
+SAHOL,yuksek_kazanc,holding_chronic_discount,4.53,62.06,45261
+TRALT,yuksek_kazanc,deep_value,4.33,59.34,43279
+CASH,cash,reserve,55.00,,550000
