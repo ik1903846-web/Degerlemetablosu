@@ -60,6 +60,7 @@ DAMODARAN_PARAMS = {
     "stable_growth_usd": 0.03,
     "statutory_tax": 0.25,
     "spot_rate_usd_tl": 35.37,  # 24 Nisan 2026
+    "synthetic_spread": 0.04,   # BB+ rating (Sovereign B1 + Sector BBB cap, Faz 2.4.5 deep dive)
 }
 
 
@@ -427,8 +428,16 @@ async def _execute_cyclical_dcf(
             + DAMODARAN_PARAMS["turkey_crp"]
         )
 
-    pretax_kd = DAMODARAN_PARAMS["rf_usd"] + 0.03  # BB rated default (Component 2'de değişecek)
+    # BB+ Sovereign+Sector synthetic rating (Faz 2.4.5 deep dive, BB %3 → BB+ %4)
+    synthetic_spread = DAMODARAN_PARAMS["synthetic_spread"]
+    pretax_kd = DAMODARAN_PARAMS["rf_usd"] + synthetic_spread
     after_tax_kd = pretax_kd * (1 - tax_rate)
+
+    report.reasoning.append(
+        f"Synthetic rating: BB+ (Sovereign+Sector), "
+        f"spread={synthetic_spread*100:.2f}%, "
+        f"pretax_Kd={pretax_kd*100:.2f}%, AT_Kd={after_tax_kd*100:.2f}%"
+    )
 
     wacc = (1 - debt_weight) * coe_usd + debt_weight * after_tax_kd
     report.wacc = wacc
