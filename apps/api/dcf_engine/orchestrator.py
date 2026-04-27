@@ -37,6 +37,7 @@ from data_layer.market_price_fetcher import fetch_spot_price
 from data_layer.ticker_mapping import resolve_current_ticker
 from data_layer.sector_mapping import get_damodaran_sector
 from data_layer.damodaran_db import fetch_sector_unlevered_beta
+from data_layer.holdings_config import is_holding as is_sotp_holding, get_portfolio
 from dcf_engine.lifecycle_classifier import (
     classify_lifecycle,
     LifecycleClassification,
@@ -45,6 +46,7 @@ from dcf_engine.lifecycle_classifier import (
 )
 from dcf_engine.cyclical_dcf import cyclical_dcf_valuation
 from dcf_engine.cost_of_capital import relever_beta
+from dcf_engine.sotp import calculate_sotp_value, SOTPResult
 
 logger = logging.getLogger(__name__)
 
@@ -87,10 +89,13 @@ def is_banking_ticker(ticker: str) -> bool:
 
 # Damodaran disiplini: 'diversified' sector beta (β=0.3634) USA conglomerates
 # için (GE, Honeywell). BIST holding'leri farklı yapılı (otomotiv + enerji +
-# finans + ...) — SOTP yaklaşımı doğru ama Faz 2.5'te yapılacak.
-# Şimdilik bu set'teki ticker'lar için bottom-up beta SKIP (eski β=1 implied).
-HOLDING_TICKERS_NO_BOTTOMUP_BETA = {"KCHOL", "SAHOL"}
-# Future (Faz 2.5 SOTP gelince): TKFEN, TRHOL, vb. eklenebilir, set kalkar
+# finans + ...) — SOTP yaklaşımı doğru, Faz 2.5'te entegre edildi.
+# Faz 2.5: HOLDING_TICKERS_USE_SOTP set, STEP 1.5 SOTP routing
+HOLDING_TICKERS_USE_SOTP = {"KCHOL", "SAHOL"}
+# Backward-compat alias (Component 1 line ~390 WACC bypass branch hâlâ
+# kullanıyor — STEP 1.5 SOTP routing ile holdings cyclical_dcf'e ulaşmıyor,
+# alias kod arkeolojisi için tutuluyor).
+HOLDING_TICKERS_NO_BOTTOMUP_BETA = HOLDING_TICKERS_USE_SOTP
 
 
 # ============================================================================
@@ -165,6 +170,7 @@ async def analyze_ticker(
     ticker: str,
     market_price_tl: Optional[float] = None,
     years_back: int = 16,
+    dcf_lookups: Optional[Dict[str, float]] = None,
 ) -> ValuationReport:
     """
     End-to-end ticker analizi.
@@ -174,6 +180,9 @@ async def analyze_ticker(
         market_price_tl: Optional current market price for upside calc
         years_back: Historical depth (default 16, Damodaran golden standard;
                     3 tam cyclical döngü, peak bias hafifler — Faz 2.4.5 deep dive)
+        dcf_lookups: Opsiyonel ticker → equity_value_usd dict (Faz 2.5 SOTP).
+                     Holdings için child DCF'lerin batch context'inden geçer.
+                     None ise holding single-ticker mode'da recursive fetch yapılır.
 
     Returns:
         ValuationReport with full results
@@ -231,6 +240,41 @@ async def analyze_ticker(
             report.errors.append("Banking DCF orchestration Faz 2.3.1'de eklenecek (şu an industrial only)")
             report.model_used = "banking_ddm"
             return report  # Skip — banking pipeline ayrı
+
+        # ====================================================================
+        # STEP 1.5: Holding SOTP Routing (Faz 2.5)
+        # ====================================================================
+        if is_sotp_holding(ticker):
+            report.financial_group = "HOLDING"
+            report.model_used = "holding_sotp"
+            report.reasoning.append("Holding ticker — SOTP routing (Faz 2.5)")
+
+            # Single-ticker mode: dcf_lookups None ise recursive fetch
+            if dcf_lookups is None:
+                report.reasoning.append(
+                    "Single-ticker mode: recursive child DCF fetch"
+                )
+                dcf_lookups = await _fetch_children_dcfs_recursive(ticker)
+                portfolio_obj = get_portfolio(ticker)
+                listed_total = (
+                    sum(1 for c in portfolio_obj.children
+                        if c.type == "listed" and c.ticker)
+                    if portfolio_obj else 0
+                )
+                if len(dcf_lookups) < listed_total:
+                    report.reasoning.append(
+                        f"Single-ticker mode: limited DCF coverage "
+                        f"({len(dcf_lookups)}/{listed_total} listed children), "
+                        f"book_fallback used. Batch mode recommended for accurate SOTP."
+                    )
+
+            sotp_result = calculate_sotp_value(ticker, dcf_lookups=dcf_lookups)
+            if sotp_result is None:
+                report.errors.append("SOTP calculation returned None")
+                return report
+
+            _populate_report_from_sotp(report, sotp_result, market_price_tl)
+            return report  # SKIP industrial pipeline
 
         report.reasoning.append(f"Industrial ticker (XI_29)")
 
@@ -329,6 +373,102 @@ async def analyze_ticker(
         logger.exception(f"Orchestrator failed for {ticker}")
         report.errors.append(f"Pipeline error: {type(e).__name__}: {e}")
         return report
+
+
+# ============================================================================
+# SOTP Helpers (Faz 2.5, private)
+# ============================================================================
+
+def _populate_report_from_sotp(
+    report: ValuationReport,
+    sotp_result: SOTPResult,
+    market_price_tl: Optional[float],
+) -> None:
+    """SOTPResult → ValuationReport field mapping (Faz 2.5)."""
+    spot = DAMODARAN_PARAMS["spot_rate_usd_tl"]
+
+    report.equity_value_usd = sotp_result.net_value_usd
+    report.equity_value_tl = sotp_result.net_value_usd * spot
+
+    shares_obj = get_shares_outstanding(report.ticker)
+    if shares_obj is not None:
+        report.shares_outstanding = shares_obj.shares
+        if shares_obj.shares > 0:
+            report.value_per_share_usd = sotp_result.net_value_usd / shares_obj.shares
+            report.value_per_share_tl = report.equity_value_tl / shares_obj.shares
+    else:
+        report.errors.append(f"Shares outstanding not found for {report.ticker}")
+
+    if market_price_tl is not None and report.value_per_share_tl is not None:
+        report.upside_pct = (
+            (report.value_per_share_tl - market_price_tl) / market_price_tl * 100
+        )
+        report.damodaran_verdict = calculate_verdict(report.upside_pct)
+
+    report.dcf_executed = True
+    report.success = True
+    report.currency_dcf = "USD"
+
+    # Diagnostic: per-child breakdown (one line each)
+    for child in sotp_result.children:
+        report.reasoning.append(
+            f"  SOTP: {child.name[:30]} ({child.type}) — "
+            f"{child.ownership_pct*100:.1f}% × ${child.full_equity_value_usd/1e9:.2f}B "
+            f"= ${child.contribution_usd/1e9:.2f}B [{child.source}]"
+        )
+    report.reasoning.append(
+        f"SOTP totals: Listed=${sotp_result.listed_contribution_usd/1e9:.2f}B + "
+        f"Banking=${sotp_result.banking_contribution_usd/1e9:.2f}B + "
+        f"NonListed=${sotp_result.non_listed_contribution_usd/1e9:.2f}B"
+    )
+    report.reasoning.append(
+        f"SOTP: gross ${sotp_result.gross_value_usd/1e9:.2f}B + "
+        f"cash ${sotp_result.holding_net_cash_usd/1e9:+.2f}B "
+        f"- minority ${sotp_result.minority_adjustment_usd/1e9:.2f}B "
+        f"× (1 - {sotp_result.disconto_pct*100:.0f}% disconto) = "
+        f"${sotp_result.net_value_usd/1e9:.2f}B net"
+    )
+    # Yansıt sotp warning'leri (banking PROVISIONAL, DCF missing, vb.)
+    for w in sotp_result.warnings:
+        report.reasoning.append(f"  ⚠ {w}")
+
+
+async def _fetch_children_dcfs_recursive(
+    parent_ticker: str,
+) -> Dict[str, float]:
+    """
+    Single-ticker mode: holding'in listed children'ını recursive analyze.
+
+    Sadece listed type child'lar dener (banking_listed ve non_listed
+    sotp.py'de book × multiplier ile handle ediliyor — DCF lookup gerekmiyor).
+
+    Holdings birbirinin child'ı değil → infinite recursion riski yok.
+    Her child için analyze_ticker(child, dcf_lookups={}) — empty dict ile
+    rekürsiv değil (is_sotp_holding(child)=False endüstriyel akış).
+
+    Performance not: KCHOL 4 listed children × ~10-15s = ~40-60s.
+    """
+    portfolio = get_portfolio(parent_ticker)
+    if portfolio is None:
+        return {}
+
+    lookups: Dict[str, float] = {}
+    for child in portfolio.children:
+        if child.type != "listed" or child.ticker is None:
+            continue
+        try:
+            child_report = await analyze_ticker(
+                child.ticker,
+                market_price_tl=None,
+                dcf_lookups={},  # empty dict → recursion stopper (industrial flow)
+            )
+            if child_report.success and child_report.equity_value_usd:
+                lookups[child.ticker] = child_report.equity_value_usd
+        except Exception as e:
+            logger.warning(
+                f"Recursive fetch failed for {parent_ticker}/{child.ticker}: {e}"
+            )
+    return lookups
 
 
 # ============================================================================
@@ -519,8 +659,10 @@ def print_report(report: ValuationReport) -> None:
         print(f"  Shares Outstanding: {report.shares_outstanding:,}")
         print(f"  Value/Share (USD):  ${report.value_per_share_usd:.4f}")
         print(f"  Value/Share (TL):   {report.value_per_share_tl:.2f} TL")
-        print(f"  WACC:               {report.wacc*100:.2f}%")
-        print(f"  Normalized Margin:  {report.normalized_op_margin*100:.2f}%")
+        if report.wacc is not None:
+            print(f"  WACC:               {report.wacc*100:.2f}%")
+        if report.normalized_op_margin is not None:
+            print(f"  Normalized Margin:  {report.normalized_op_margin*100:.2f}%")
 
     if report.market_price_tl is not None:
         print(f"\nMarket Comparison:")

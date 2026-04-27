@@ -100,7 +100,12 @@ async def analyze_batch(
     max_concurrent: int = 5,
 ) -> List[ValuationReport]:
     """
-    Paralel ticker analizi.
+    Paralel ticker analizi (Faz 2.5 sonrası 2-aşamalı: non-holdings → holdings).
+
+    Phase 1: Holdings vs non-holdings ayrımı (data_layer.holdings_config.is_holding)
+    Phase 2: Non-holdings paralel (HOLDINGS HARİÇ TÜM TİCKER)
+    Phase 3: dcf_lookups dict (successful non-holdings'ten)
+    Phase 4: Holdings paralel (dcf_lookups parametresiyle)
 
     Args:
         tickers: BIST ticker listesi
@@ -108,17 +113,23 @@ async def analyze_batch(
         max_concurrent: Aynı anda çalışan task sayısı (rate limit için)
 
     Returns:
-        Liste of ValuationReport (her ticker için)
+        Liste of ValuationReport (her ticker için, original sıra ile)
     """
+    from data_layer.holdings_config import is_holding
+
     semaphore = asyncio.Semaphore(max_concurrent)
 
-    async def analyze_with_semaphore(ticker: str) -> ValuationReport:
+    async def analyze_with_semaphore(
+        ticker: str,
+        dcf_lookups: Optional[Dict[str, float]] = None,
+    ) -> ValuationReport:
         async with semaphore:
             price = market_prices.get(ticker) if market_prices else None
             try:
                 return await analyze_ticker(
                     ticker=ticker,
                     market_price_tl=price,
+                    dcf_lookups=dcf_lookups,
                 )
             except Exception as e:
                 logger.exception(f"Failed: {ticker}")
@@ -149,9 +160,37 @@ async def analyze_batch(
                     errors=[f"Exception: {type(e).__name__}: {e}"],
                 )
 
-    tasks = [analyze_with_semaphore(t) for t in tickers]
-    reports = await asyncio.gather(*tasks)
-    return reports
+    # Phase 1: Holdings vs non-holdings ayrımı
+    holding_tickers = [t for t in tickers if is_holding(t)]
+    non_holding_tickers = [t for t in tickers if not is_holding(t)]
+
+    # Phase 2: Non-holdings paralel (dcf_lookups=None — industrial flow)
+    non_holding_reports: List[ValuationReport] = []
+    if non_holding_tickers:
+        non_holding_reports = await asyncio.gather(*[
+            analyze_with_semaphore(t, dcf_lookups=None)
+            for t in non_holding_tickers
+        ])
+
+    # Phase 3: dcf_lookups dict (successful non-holdings'ten)
+    dcf_lookups: Dict[str, float] = {
+        r.ticker: r.equity_value_usd
+        for r in non_holding_reports
+        if r.success and r.equity_value_usd is not None
+    }
+
+    # Phase 4: Holdings paralel (dcf_lookups parametresiyle)
+    holding_reports: List[ValuationReport] = []
+    if holding_tickers:
+        holding_reports = await asyncio.gather(*[
+            analyze_with_semaphore(t, dcf_lookups=dcf_lookups)
+            for t in holding_tickers
+        ])
+
+    # Sonuçları birleştir (sıra: non_holdings + holdings).
+    # Caller (rank_by_upside) ticker.field ile sorting yapıyor, original
+    # input sırası kritik değil.
+    return list(non_holding_reports) + list(holding_reports)
 
 
 # ============================================================================
