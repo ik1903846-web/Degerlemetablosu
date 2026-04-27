@@ -1,8 +1,8 @@
 # REELDEĞER — Kaldığım Yer
 
-**Son güncelleme:** 27 Nisan 2026, ~19:50
-**Aktif Faz:** Faz 2.6 Asymmetric Cap TAMAMLANDI ✓ (Damodaran Lesson #2)
-**Sıradaki:** Faz 2.7 (CCOLA secondary, distress model, banking) veya Faz 3 (Portfolio) — yarın karar
+**Son güncelleme:** 27 Nisan 2026, ~22:45 (gece)
+**Aktif Faz:** Faz 3 Portfolio Foundation TAMAMLANDI ✓ (Pentagon + Sleeve + Construction)
+**Sıradaki:** Faz 3.5 BIST 50/100 universe expansion veya Faz 4 Backtest engine
 
 ---
 
@@ -314,10 +314,10 @@ Sonuç: SAHOL consolidated margin %54.80 (industrial %5-15 range vs reality)
 - **Faz 2.4.7 — Cycle Bias Refinement** (~1-2 saat, methodology)
   - Sub-period weighting (recent 10-yıl ağırlıklı)
   - FROTO/CCOLA +%500 extreme upside calibration
-- **Faz 3 — Portfolio Construction** (~2-3 saat, daha hazır)
-  - Pentagon Scoring (5-D narrative)
-  - 3-Sleeve portfolio (alpha + hedge + opportunity)
-  - Position sizing (margin of safety bazlı)
+- **Faz 3 — Portfolio Construction** (TAMAMLANDI 27 Nis 2026 gece)
+  - Pentagon Scoring (5-D Damodaran ADR-007) ✓
+  - 3-Sleeve portfolio (Core/Hızlı/Yüksek, ADR-066, 067) ✓
+  - Position sizing (ADR-015, concentration cap %10) ✓
 - **FROTO/CCOLA Root Cause Analysis** (30-90 dk, quick win)
   - Component 4 batch'te FROTO +%545, CCOLA +%541 extreme upside
   - Hipotez 1: Industrial cycle peak bias (Faz 2.4.7 fix)
@@ -413,9 +413,132 @@ d) **Faz 3 Portfolio Foundation** (2-3 saat)
 
 ---
 
+## Faz 3 — Portfolio Foundation KAPANIŞ (27 Nisan 2026 gece)
+
+### Status: TAMAMLANDI ✓ (foundation %50-60)
+
+5 atomic commit chain:
+- 0c5e868 — ADIM 2 pentagon_scoring.py (5-D Pentagon, lifecycle weights)
+- 1026d22 — ADIM 3 sleeve_assignment.py (Core/Hızlı/Yüksek/Skip)
+- 0ac3784 — ADIM 4 portfolio_construction.py (position sizing, cap %10)
+- aa76179 — ADIM 5 end-to-end pipeline + research findings
+- + ADIM 6 KAPANIŞ docs (this commit)
+
+### Yeni Modül: apps/api/portfolio/
+
+- **pentagon_scoring.py** (~330 satır) — Pentagon 5-D (Damodaran ADR-007)
+  - Value, Growth, Quality, Momentum (PARKING), Risk
+  - Lifecycle-adjusted weights (ADR-044, 049)
+- **sleeve_assignment.py** (~274 satır) — 3-Sleeve mapping (ADR-066, 067)
+  - 4 YÜKSEK KAZANÇ alt-kategori (deep_value, holding_chronic_discount, distress, mature_transition)
+  - Rule cascade with priority (holdings öncelikli)
+- **portfolio_construction.py** (~283 satır) — Position sizing (ADR-015)
+  - 3 risk profile (Konservatif/Dengeli/Agresif)
+  - Concentration cap %10 + cash reserve management
+  - Boş sleeve auto-reallocation to cash
+
+### Pipeline Sonuçları (BIST 30 / 1M TL)
+
+| Profile | Invested | Cash | Note |
+|---------|----------|------|------|
+| Konservatif | %28 | %72 | cap overflow + boş sleeve |
+| Dengeli | %35 | %65 | cap overflow + boş sleeve |
+| Agresif | %45 | %55 | en az cash |
+
+★ Cash dominance methodology-aligned ("Better cash than overpay" Damodaran).
+
+### Pentagon Top 5 / Bottom 3
+
+**Top 5:**
+- CCOLA 77.7 (deep value, +%418 — Faz 2.7 secondary pending)
+- FROTO 75.2 (mature_growth, +%187)
+- ARCLK 69.5 (Mature Stable, Q=85)
+- SAHOL 63.7 (UNKNOWN holding chronic discount)
+- EREGL 63.6 (Mature Stable, +%74)
+
+**Bottom 3:**
+- PETKM 31.1 (negatif DCF)
+- TRMET 34.8 (low composite)
+- PGSUS 36.7 (negatif DCF)
+
+### Sleeve Breakdown (17 ticker)
+
+- **CORE (2):** EREGL, ARCLK (mature_stable + upside > %30 + Q > 60)
+- **HIZLI BÜYÜME (0):** BIST 30 mature ağırlıklı, beklenen
+- **YÜKSEK KAZANÇ (4):**
+  - Deep Value: CCOLA, FROTO, TRALT
+  - Holding Chronic Discount: SAHOL
+- **SKIP (11):** TUPRS (SAT), TOASO/MGROS/ASELS/ENKAI (overvalued), THYAO/PGSUS/PETKM (negatif DCF), KCHOL (composite < 50), KRDMD/TRMET (weak)
+
+### Bilinen Sınırlar (Faz 3.5+ Parking)
+
+1. **BIST 30 universe yetersiz** — 6 investable ticker yetmedi
+   - Konservatif Core %80 için 8+ ticker gerek
+   - Çözüm: BIST 50/100 evren genişletme
+
+2. **Hızlı Büyüme sleeve boş** — BIST 30 mature ağırlıklı
+   - YOUNG/HIGH_GROWTH ticker yok
+   - Çözüm: BIST 50/100 + IPO ticker'lar
+
+3. **Holdings UNKNOWN stage fallback** — KCHOL composite 49.9 (eşik altı)
+   - SOTP routing lifecycle skip → UNKNOWN → Mature Stable weights
+   - Çözüm: SOTP children lifecycle weighted aggregate
+
+4. **Momentum boyutu PARKING** — MVP default 50 (neutral)
+   - Yahoo Finance fetcher gerek (yfinance/yahooquery)
+   - Çözüm: Faz 3.5+ momentum dimension activation
+
+5. **CCOLA Pentagon Top 1** — V=100, Q=85 ama +%418 hâlâ
+   - Faz 2.6 cap kısmen düzeltti (-%20)
+   - Pentagon scoring methodology-aligned (input data shape)
+   - Faz 2.7 secondary analysis dikkat
+
+### Damodaran Lesson #3 (REELDEĞER 27 Nis 2026 keşfi)
+
+> "When investable universe is inadequate, holding cash is methodology-correct.
+>  Better to under-invest at intrinsic prices than to overpay because of
+>  artificial allocation targets. Concentration cap + sleeve boundaries
+>  enforce this discipline automatically."
+
+(BIST 30 universe %55-72 cash → Damodaran-aligned, BIST 50/100 universe
+expansion ile %20-30 cash beklentisi.)
+
+### Faz 4+ Adayları
+
+a) **BIST 50/100 Universe Expansion** (~1 hafta)
+   - ENJSA, AKGRT, AGESA, AKCNS, CIMSA, BRISA, KORDS, vb.
+   - Hızlı Büyüme sleeve dolar
+   - Konservatif Core gerçek 8+ ticker
+
+b) **Holdings-specific Pentagon Scoring** (3-4 saat)
+   - SOTP children lifecycle weighted aggregate
+   - KCHOL/SAHOL kendi lifecycle stage hesaplama
+
+c) **Momentum Dimension** (Yahoo Finance, 2-3 saat)
+   - 12M price momentum
+   - 5. Pentagon boyutu aktif
+
+d) **Backtest Engine** (1-2 hafta)
+   - 2020-present quarterly rebalance simulation
+   - Triple benchmark (XU100, BIST-30 ETF, S&P 500 ETF)
+   - 5-failure metric tracker
+
+e) **CCOLA Secondary Analysis** (30-60 dk)
+   - Lifecycle-adaptive cap factor
+   - 2-stage explicit projection
+
+f) **Distress Model** (THYAO/PGSUS, 1-2 hafta)
+   - Black-Scholes equity-as-call-option
+
+g) **Banking Equity-Only** (3-4 saat)
+   - YKBNK/AKBNK gerçek DCF
+   - SAHOL/KCHOL SOTP banking PROVISIONAL → CONFIRMED
+
+---
+
 ## BUGÜNÜN MARATHONUN ÖZETİ (27 Nisan 2026)
 
-14 commit Faz 2.4.6 + 2.5 + 2.6 paketleri:
+19 commit Faz 2.4.6 + 2.5 + 2.6 + 3 paketleri:
 
 **Faz 2.4.6 (industrial Damodaran):** 7 atomic commit chain
 - Component 1+2+3+4 + Bonus + kapanış + docs
@@ -445,12 +568,14 @@ cat notes/kaldim.md
 
 ## Repo Durumu
 
-- 62 commit GitHub'da (clean)
+- 68 commit GitHub'da (clean)
 - Branch: main
-- Son commit: (Faz 2.6 kapanış, this update)
+- Son commit: (Faz 3 kapanış, this update)
 - Faz 2.4.6 atomic chain: 7163b5e → 6e22767 → 67d6ec9 → 09a2a9b → a7ed721 → 4256744 → 3cdbb66 → 658c195
 - Faz 2.5 atomic chain: 990aaa8 → 5bcee39 → 468197b → 61a368b → 3f5692b → 16358ae
-- Faz 2.6 atomic chain: c906a14 → 9820cc0 → (kapanış)
+- Faz 2.6 atomic chain: c906a14 → 9820cc0 → 43b2425
+- Faz 2.7 (a) CCOLA secondary: 898a14a
+- Faz 3 atomic chain: 0c5e868 → 1026d22 → 0ac3784 → aa76179 → (kapanış)
 - GitHub: https://github.com/ik1903846-web/Degerlemetablosu
 
 ---
