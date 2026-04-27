@@ -9,6 +9,10 @@ if hasattr(sys.stdout, 'reconfigure'):
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
+# Proje root'undaki .env'i yükle (DATABASE_URL — Faz 2.4.6 Component 1)
+from dotenv import load_dotenv
+load_dotenv(Path(__file__).parent.parent.parent.parent / ".env")
+
 from dcf_engine.orchestrator import analyze_ticker, print_report
 from dcf_engine.batch_analyzer import (
     BIST_30_INDUSTRIAL,

@@ -1,0 +1,20 @@
+ticker,success,is_banking,model_used,lifecycle_stage,lifecycle_sub,value_per_share_tl,market_price_tl,upside_pct,damodaran_verdict,equity_value_tl,shares_outstanding,wacc,normalized_margin,periods_fetched,items_mapped,errors
+TUPRS,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",188.29,272.50,-30.90,SAT,362.80B,1926795598,12.81%,4.50%,16,12,
+PETKM,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",-3.76,23.56,-115.94,SAT,-9.82B,2613000000,12.09%,5.69%,16,12,
+EREGL,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",58.54,33.72,73.61,AL,204.89B,3500000000,12.06%,17.62%,16,12,
+KRDMD,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",26.37,37.40,-29.49,IZLE-SAT,25.05B,950000000,13.29%,8.98%,16,12,
+TRALT,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",157.88,46.56,239.09,AL,24.08B,152500000,16.27%,44.12%,16,12,
+TRMET,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",69.14,131.40,-47.38,SAT,21.09B,305000000,15.75%,33.44%,16,12,
+BIMAS,False,False,industrial_fcff,mature_stable,stable,,761.00,,UNKNOWN,,,,4.91%,16,12,Current revenue is None | DCF execution returned None
+MGROS,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",267.61,636.50,-57.96,SAT,48.44B,181000000,12.18%,1.89%,16,12,
+SOKM,False,False,none,,,,49.56,,UNKNOWN,,,,,0,0,Pipeline error: ValueError: No items in response for SOKM
+CCOLA,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",486.30,75.80,541.55,AL,123.70B,254370782,10.38%,11.73%,16,12,
+TOASO,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",114.90,297.00,-61.31,SAT,57.45B,500000000,12.67%,7.47%,16,12,
+FROTO,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",671.37,104.00,545.55,AL,235.59B,350910000,11.91%,7.14%,16,12,
+ARCLK,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",311.54,118.00,164.02,AL,210.52B,675728205,10.25%,7.68%,16,12,
+ASELS,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",145.74,410.50,-64.50,SAT,166.14B,1140000000,14.21%,21.70%,16,12,
+THYAO,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",16.45,324.25,-94.93,SAT,22.70B,1380000000,10.47%,7.73%,16,12,
+PGSUS,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",-839.77,188.30,-545.98,SAT,-85.88B,102271525,9.22%,9.02%,16,12,
+KCHOL,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",189.21,207.40,-8.77,BEKLE,479.82B,2535898345,10.15%,7.65%,16,12,
+SAHOL,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",354.60,99.45,256.56,AL,723.53B,2040403931,10.86%,54.80%,16,12,
+ENKAI,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",31.86,107.20,-70.28,SAT,191.18B,6000000000,12.08%,16.78%,16,12,
