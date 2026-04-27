@@ -595,6 +595,26 @@ async def _execute_cyclical_dcf(
     # Cash + minority
     cash_usd = float(inputs_usd.cash[0]) if inputs_usd.cash[0] else 0
 
+    # Avg revenue (Faz 2.6 — Damodaran Lesson #2 asymmetric cap)
+    valid_revenues = [float(r) for r in inputs_usd.revenue if r is not None and float(r) > 0]
+    avg_revenue_usd = sum(valid_revenues) / len(valid_revenues) if valid_revenues else None
+
+    if avg_revenue_usd and current_revenue:
+        ratio = current_revenue / avg_revenue_usd
+        cap_ratio = 1.5
+        if ratio > cap_ratio:
+            report.reasoning.append(
+                f"Revenue cap ACTIVE: latest ${current_revenue/1e9:.2f}B > "
+                f"avg ${avg_revenue_usd/1e9:.2f}B × {cap_ratio} "
+                f"(latest/avg {ratio:.2f}x → capped at avg×{cap_ratio})"
+            )
+        else:
+            report.reasoning.append(
+                f"Revenue cap INACTIVE: latest ${current_revenue/1e9:.2f}B ≤ "
+                f"avg ${avg_revenue_usd/1e9:.2f}B × {cap_ratio} "
+                f"(latest/avg {ratio:.2f}x — Toyota 2009 pattern korunur)"
+            )
+
     # Execute cyclical_dcf
     result = cyclical_dcf_valuation(
         current_revenues=current_revenue,
@@ -610,6 +630,8 @@ async def _execute_cyclical_dcf(
         shares_outstanding=1,  # placeholder, actual shares orchestrator'da
         options_value=0.0,
         current_op_margin=float(inputs_usd.operating_margin[0]) if inputs_usd.operating_margin[0] else None,
+        avg_revenue=avg_revenue_usd,
+        revenue_cap_ratio=1.5,
     )
 
     return result.equity_bridge.equity_value

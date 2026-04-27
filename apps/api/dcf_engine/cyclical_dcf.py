@@ -283,15 +283,20 @@ def cyclical_dcf_valuation(
     shares_outstanding: float,
     options_value: float = 0.0,
     current_op_margin: float = None,
+    avg_revenue: float = None,
+    revenue_cap_ratio: float = 1.5,
 ) -> CyclicalDCFResult:
     """
     Full cyclical company DCF: normalize → stable growth → equity bridge.
 
     Steps:
-        1. Normalize OI (revenues × historical avg margin)
-        2. Compute operating value (single-stage stable growth)
-        3. Equity bridge (operating + cash + non-op - debt - minority)
-        4. Value/share = equity / shares
+        1. Asymmetric revenue cap (Faz 2.6 Damodaran Lesson #2):
+           effective_revenue = min(current_revenues, avg_revenue × cap_ratio)
+           if avg_revenue verilirse. Trough year korunur, peak year disipline.
+        2. Normalize OI (effective_revenue × historical avg margin)
+        3. Compute operating value (single-stage stable growth)
+        4. Equity bridge (operating + cash + non-op - debt - minority)
+        5. Value/share = equity / shares
 
     Args:
         current_revenues: Latest reported revenues
@@ -307,13 +312,26 @@ def cyclical_dcf_valuation(
         shares_outstanding: Outstanding shares
         options_value: Employee options (genelde 0)
         current_op_margin: Current margin (optional, diagnostic)
+        avg_revenue: 16-yıl avg revenue (asymmetric cap için).
+                     None ise cap inactive (backward-compat, Toyota 2009 pattern).
+        revenue_cap_ratio: Revenue cap factor (default 1.5).
+                           current > avg × ratio → cap kicks in.
 
     Returns:
         CyclicalDCFResult
     """
-    # 1) Normalize earnings
+    # 1) Asymmetric Revenue Cap (Faz 2.6 — Damodaran Lesson #2)
+    # Damodaran Toyota 2009 reference (current × avg) trough year için doğrudur.
+    # Peak year için inflation yaratır; cap ile asimetrik düzeltme uygulanır.
+    if avg_revenue is not None and avg_revenue > 0:
+        revenue_ceiling = avg_revenue * revenue_cap_ratio
+        effective_revenue = min(current_revenues, revenue_ceiling)
+    else:
+        effective_revenue = current_revenues  # Backward-compat (no cap)
+
+    # 2) Normalize earnings
     norm = normalize_operating_income(
-        current_revenues=current_revenues,
+        current_revenues=effective_revenue,
         historical_avg_margin=historical_avg_margin,
         current_op_margin=current_op_margin,
     )
