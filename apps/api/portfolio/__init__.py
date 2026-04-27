@@ -16,11 +16,27 @@ from portfolio.pentagon_scoring import (
     score_from_json_dict,
     get_lifecycle_weights,
 )
+from portfolio.sleeve_assignment import (
+    Sleeve,
+    SleeveAssignment,
+    assign_sleeve,
+    assign_batch,
+    summarize_sleeves,
+    get_risk_profile_allocations,
+)
 
 __all__ = [
+    # pentagon_scoring
     "PentagonScore",
     "score_ticker",
     "score_batch",
     "score_from_json_dict",
     "get_lifecycle_weights",
+    # sleeve_assignment
+    "Sleeve",
+    "SleeveAssignment",
+    "assign_sleeve",
+    "assign_batch",
+    "summarize_sleeves",
+    "get_risk_profile_allocations",
 ]

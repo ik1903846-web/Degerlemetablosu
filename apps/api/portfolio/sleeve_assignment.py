@@ -1,0 +1,274 @@
+"""
+3-Sleeve Assignment — Damodaran Portfolio Architecture.
+
+Faz 3 ADIM 3 — Pentagon Score → Sleeve mapping.
+
+3-Sleeve Mapping (Damodaran ADR-066, 067):
+
+  CORE (default 60%):
+    Lifecycle ∈ {MATURE_GROWTH, MATURE_STABLE, UNKNOWN}
+    Upside > %30 + Quality > 60 + Composite > 50
+
+  HIZLI BÜYÜME (default 25%):
+    Lifecycle ∈ {YOUNG, HIGH_GROWTH}
+    Growth > 60 + Composite > 55
+    (BIST 30 nadir → MVP'de boş kalabilir)
+
+  YÜKSEK KAZANÇ (default 15%) — 4 alt-kategori:
+    deep_value:               upside > %100 + composite > 55
+    holding_chronic_discount: financial_group=HOLDING + upside > 50
+    mature_transition:        Mature/Decline + Quality<60 + Value>70
+    distress:                 stage=DISTRESS
+
+  SKIP / SAT:
+    composite < 35  OR  value < 20  OR  upside < -%30
+    negative DCF (THYAO, PGSUS, PETKM)
+
+Risk Profile Allocations (ADR-016):
+  Konservatif: Core 80, Hızlı 15, Yüksek 5
+  Dengeli (default): Core 60, Hızlı 25, Yüksek 15
+  Agresif: Core 40, Hızlı 35, Yüksek 25
+"""
+
+from dataclasses import dataclass, field
+from enum import Enum
+from typing import Any, Dict, List, Optional
+
+from portfolio.pentagon_scoring import PentagonScore, _get_nested
+
+
+# ============================================================================
+# Sleeve Enum
+# ============================================================================
+
+class Sleeve(str, Enum):
+    """3-Sleeve + Skip."""
+    CORE = "core"
+    HIZLI_BUYUME = "hizli_buyume"
+    YUKSEK_KAZANC = "yuksek_kazanc"
+    SKIP = "skip"
+
+
+# ============================================================================
+# DataClass
+# ============================================================================
+
+@dataclass
+class SleeveAssignment:
+    """Tek ticker için sleeve assignment sonucu."""
+    ticker: str
+    sleeve: Sleeve
+    sub_category: Optional[str]  # YUKSEK_KAZANC için: deep_value | holding_chronic_discount | mature_transition | distress
+    pentagon_score: PentagonScore
+    composite: float
+    confidence: float
+    reasoning: List[str] = field(default_factory=list)
+
+
+# ============================================================================
+# Risk Profile Allocations
+# ============================================================================
+
+RISK_PROFILES: Dict[str, Dict[str, float]] = {
+    "konservatif": {"core": 0.80, "hizli_buyume": 0.15, "yuksek_kazanc": 0.05},
+    "dengeli":     {"core": 0.60, "hizli_buyume": 0.25, "yuksek_kazanc": 0.15},
+    "agresif":     {"core": 0.40, "hizli_buyume": 0.35, "yuksek_kazanc": 0.25},
+}
+
+
+def get_risk_profile_allocations(profile: str = "dengeli") -> Dict[str, float]:
+    """Damodaran risk profile allocations (ADR-016, default Dengeli 60/25/15)."""
+    return RISK_PROFILES.get(profile.lower(), RISK_PROFILES["dengeli"])
+
+
+# ============================================================================
+# Sleeve Assignment Logic
+# ============================================================================
+
+def _stage_key(report: Any) -> str:
+    """Lifecycle stage normalize (UNKNOWN if missing)."""
+    raw = _get_nested(report, "lifecycle", "stage")
+    if raw is None:
+        return "UNKNOWN"
+    if hasattr(raw, "name"):
+        return raw.name.upper()
+    return str(raw).upper().replace("-", "_")
+
+
+def _is_holding(report: Any) -> bool:
+    """Holding ticker mi (financial_group=HOLDING)?"""
+    fg = _get_nested(report, "financial_group")
+    return fg == "HOLDING"
+
+
+def assign_sleeve(report: Any, score: PentagonScore) -> SleeveAssignment:
+    """
+    Damodaran 3-sleeve assignment (ADR-066, 067).
+
+    Priority order (rule cascade):
+      1. SKIP (success/dcf/composite/value/upside thresholds)
+      2. YÜKSEK KAZANÇ — deep_value (upside > 100)
+      3. YÜKSEK KAZANÇ — holding_chronic_discount (KCHOL/SAHOL chronic)
+      4. YÜKSEK KAZANÇ — distress (stage=DISTRESS)
+      5. YÜKSEK KAZANÇ — mature_transition (stage compression)
+      6. HIZLI BÜYÜME (Young/High Growth)
+      7. CORE (Mature + upside + quality)
+      8. SKIP (uncertain fallback)
+
+    Args:
+        report: ValuationReport veya JSON dict (polymorphic).
+        score:  PentagonScore (pentagon_scoring.score_ticker output).
+
+    Returns:
+        SleeveAssignment with sub_category, confidence, reasoning.
+    """
+    ticker = _get_nested(report, "ticker") or score.ticker
+
+    success = _get_nested(report, "success")
+    dcf_executed = _get_nested(report, "dcf", "executed")
+    if dcf_executed is None:
+        dcf_executed = _get_nested(report, "dcf_executed")
+
+    upside = _get_nested(report, "market", "upside_pct")
+    if upside is None:
+        upside = _get_nested(report, "upside_pct")
+    if upside is None:
+        upside = 0.0
+
+    equity_value_usd = _get_nested(report, "dcf", "equity_value_usd")
+    if equity_value_usd is None:
+        equity_value_usd = _get_nested(report, "equity_value_usd")
+
+    stage = _stage_key(report)
+    holding = _is_holding(report)
+
+    # ---- Rule 1: SKIP — failed pipeline ----
+    if not success or not dcf_executed:
+        return SleeveAssignment(
+            ticker, Sleeve.SKIP, None, score, score.composite, 1.0,
+            ["SKIP: success=False veya DCF execute edilmedi"]
+        )
+
+    # ---- Rule 1b: SKIP — negatif DCF (THYAO, PGSUS, PETKM artifact) ----
+    if equity_value_usd is not None and equity_value_usd < 0:
+        return SleeveAssignment(
+            ticker, Sleeve.SKIP, None, score, score.composite, 1.0,
+            [f"SKIP: negatif DCF (equity_value_usd=${equity_value_usd/1e9:.2f}B, distress artifact)"]
+        )
+
+    # ---- Rule 1c: SKIP — composite/value/upside hard floors ----
+    if score.composite < 35:
+        return SleeveAssignment(
+            ticker, Sleeve.SKIP, None, score, score.composite, 0.9,
+            [f"SKIP: composite {score.composite:.1f} < 35 (Pentagon zayıf)"]
+        )
+
+    if score.value < 20:
+        return SleeveAssignment(
+            ticker, Sleeve.SKIP, None, score, score.composite, 0.9,
+            [f"SKIP: V={score.value:.0f} < 20 (overvalued)"]
+        )
+
+    if upside < -30:
+        return SleeveAssignment(
+            ticker, Sleeve.SKIP, None, score, score.composite, 0.9,
+            [f"SKIP: upside {upside:+.0f}% < -30% (SAT verdict)"]
+        )
+
+    # ---- Rule 2: YÜKSEK KAZANÇ — holding chronic discount (öncelikli) ----
+    # Holdings için deep_value sub'ından farklı sınıflandırma — KCHOL/SAHOL
+    # SOTP routed, lifecycle UNKNOWN, intrinsic > market chronic discount.
+    if holding and upside > 50 and score.composite > 50:
+        return SleeveAssignment(
+            ticker, Sleeve.YUKSEK_KAZANC, "holding_chronic_discount",
+            score, score.composite, 0.80,
+            [f"YÜKSEK KAZANÇ holding: SOTP chronic discount, upside {upside:+.0f}%"]
+        )
+
+    # ---- Rule 3: YÜKSEK KAZANÇ — deep_value (non-holding upside > %100) ----
+    if upside > 100 and score.composite > 55:
+        return SleeveAssignment(
+            ticker, Sleeve.YUKSEK_KAZANC, "deep_value", score, score.composite, 0.85,
+            [f"YÜKSEK KAZANÇ deep_value: upside {upside:+.0f}% > %100, composite {score.composite:.1f}"]
+        )
+
+    # ---- Rule 4: YÜKSEK KAZANÇ — distress ----
+    if stage == "DISTRESS":
+        return SleeveAssignment(
+            ticker, Sleeve.YUKSEK_KAZANC, "distress", score, score.composite, 0.75,
+            [f"YÜKSEK KAZANÇ distress: stage={stage}"]
+        )
+
+    # ---- Rule 5: YÜKSEK KAZANÇ — mature_transition ----
+    if stage in ("MATURE_STABLE", "DECLINE") and score.quality < 60 and score.value > 70:
+        return SleeveAssignment(
+            ticker, Sleeve.YUKSEK_KAZANC, "mature_transition",
+            score, score.composite, 0.70,
+            [f"YÜKSEK KAZANÇ mature_transition: stage={stage}, "
+             f"Q={score.quality:.0f}<60, V={score.value:.0f}>70"]
+        )
+
+    # ---- Rule 6: HIZLI BÜYÜME ----
+    if stage in ("YOUNG", "HIGH_GROWTH") and score.growth > 60 and score.composite > 55:
+        return SleeveAssignment(
+            ticker, Sleeve.HIZLI_BUYUME, None, score, score.composite, 0.85,
+            [f"HIZLI BÜYÜME: stage={stage}, G={score.growth:.0f}>60, "
+             f"composite {score.composite:.1f}"]
+        )
+
+    # ---- Rule 7: CORE ----
+    if (
+        stage in ("MATURE_GROWTH", "MATURE_STABLE", "UNKNOWN")
+        and upside > 30
+        and score.quality > 60
+        and score.composite > 50
+    ):
+        return SleeveAssignment(
+            ticker, Sleeve.CORE, None, score, score.composite, 0.90,
+            [f"CORE: stage={stage}, upside {upside:+.0f}% > %30, "
+             f"Q={score.quality:.0f}>60, composite {score.composite:.1f}>50"]
+        )
+
+    # ---- Rule 8: SKIP fallback (uncertain) ----
+    return SleeveAssignment(
+        ticker, Sleeve.SKIP, None, score, score.composite, 0.5,
+        [f"SKIP (uncertain): stage={stage}, upside={upside:+.0f}%, "
+         f"V={score.value:.0f}, Q={score.quality:.0f}, comp={score.composite:.1f}"]
+    )
+
+
+def assign_batch(
+    reports: List[Any],
+    scores: List[PentagonScore],
+) -> List[SleeveAssignment]:
+    """
+    Batch sleeve assignment.
+
+    Reports + scores ticker-bazlı eşlenir. Eğer score yoksa o ticker skip.
+    """
+    score_map = {s.ticker: s for s in scores}
+    assignments: List[SleeveAssignment] = []
+    for r in reports:
+        ticker = _get_nested(r, "ticker")
+        if ticker is None:
+            continue
+        score = score_map.get(ticker)
+        if score is None:
+            continue
+        assignments.append(assign_sleeve(r, score))
+    return assignments
+
+
+def summarize_sleeves(assignments: List[SleeveAssignment]) -> Dict[str, Any]:
+    """Sleeve breakdown summary (count, tickers per sleeve)."""
+    summary: Dict[str, Any] = {
+        "total": len(assignments),
+        "by_sleeve": {s.value: [] for s in Sleeve},
+        "yuksek_kazanc_subs": {},
+    }
+    for a in assignments:
+        summary["by_sleeve"][a.sleeve.value].append(a.ticker)
+        if a.sleeve == Sleeve.YUKSEK_KAZANC and a.sub_category:
+            summary["yuksek_kazanc_subs"].setdefault(a.sub_category, []).append(a.ticker)
+    summary["counts"] = {k: len(v) for k, v in summary["by_sleeve"].items()}
+    return summary
