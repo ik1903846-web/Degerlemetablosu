@@ -1,0 +1,14 @@
+# Portfolio Plan,agresif,capital_tl=1000000
+ticker,sleeve,sub_category,weight_pct,composite,capital_allocation_tl
+GARAN,core,banking_intrinsic,7.83,82.74,78268
+AKBNK,core,banking_intrinsic,7.05,74.50,70473
+YKBNK,core,banking_intrinsic,6.72,71.04,67199
+ARCLK,core,,6.57,69.48,65719
+EREGL,core,,6.02,63.63,60184
+ISCTR,core,banking_intrinsic,5.82,61.48,58157
+CCOLA,yuksek_kazanc,deep_value,5.58,77.69,55842
+FROTO,yuksek_kazanc,deep_value,5.41,75.21,54060
+HALKB,yuksek_kazanc,deep_value,5.28,73.50,52832
+SAHOL,yuksek_kazanc,holding_chronic_discount,4.46,62.06,44610
+TRALT,yuksek_kazanc,deep_value,4.27,59.34,42657
+CASH,cash,reserve,35.00,,350000

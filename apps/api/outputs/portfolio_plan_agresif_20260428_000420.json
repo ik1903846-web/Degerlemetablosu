@@ -1,0 +1,168 @@
+{
+  "risk_profile": "agresif",
+  "total_capital_tl": 1000000.0,
+  "target_allocations_pct": {
+    "core": 40.0,
+    "hizli_buyume": 35.0,
+    "yuksek_kazanc": 25.0
+  },
+  "actual_allocations_pct": {
+    "core": 40.0,
+    "hizli_buyume": 0.0,
+    "yuksek_kazanc": 25.0
+  },
+  "positions": [
+    {
+      "ticker": "EREGL",
+      "sleeve": "core",
+      "sub_category": null,
+      "weight_pct": 6.0184,
+      "composite": 63.63,
+      "capital_allocation_tl": 60184.01,
+      "reasoning": [
+        "Sleeve core: 40% × composite_share(63.6/422.9) = raw 6.0%",
+        "No cap: 6.0%"
+      ]
+    },
+    {
+      "ticker": "ARCLK",
+      "sleeve": "core",
+      "sub_category": null,
+      "weight_pct": 6.5719,
+      "composite": 69.48,
+      "capital_allocation_tl": 65718.84,
+      "reasoning": [
+        "Sleeve core: 40% × composite_share(69.5/422.9) = raw 6.6%",
+        "No cap: 6.6%"
+      ]
+    },
+    {
+      "ticker": "GARAN",
+      "sleeve": "core",
+      "sub_category": "banking_intrinsic",
+      "weight_pct": 7.8268,
+      "composite": 82.74,
+      "capital_allocation_tl": 78267.55,
+      "reasoning": [
+        "Sleeve core: 40% × composite_share(82.7/422.9) = raw 7.8%",
+        "No cap: 7.8%"
+      ]
+    },
+    {
+      "ticker": "AKBNK",
+      "sleeve": "core",
+      "sub_category": "banking_intrinsic",
+      "weight_pct": 7.0473,
+      "composite": 74.5,
+      "capital_allocation_tl": 70473.28,
+      "reasoning": [
+        "Sleeve core: 40% × composite_share(74.5/422.9) = raw 7.0%",
+        "No cap: 7.0%"
+      ]
+    },
+    {
+      "ticker": "YKBNK",
+      "sleeve": "core",
+      "sub_category": "banking_intrinsic",
+      "weight_pct": 6.7199,
+      "composite": 71.04,
+      "capital_allocation_tl": 67199.16,
+      "reasoning": [
+        "Sleeve core: 40% × composite_share(71.0/422.9) = raw 6.7%",
+        "No cap: 6.7%"
+      ]
+    },
+    {
+      "ticker": "ISCTR",
+      "sleeve": "core",
+      "sub_category": "banking_intrinsic",
+      "weight_pct": 5.8157,
+      "composite": 61.48,
+      "capital_allocation_tl": 58157.16,
+      "reasoning": [
+        "Sleeve core: 40% × composite_share(61.5/422.9) = raw 5.8%",
+        "No cap: 5.8%"
+      ]
+    },
+    {
+      "ticker": "TRALT",
+      "sleeve": "yuksek_kazanc",
+      "sub_category": "deep_value",
+      "weight_pct": 4.2657,
+      "composite": 59.34,
+      "capital_allocation_tl": 42656.83,
+      "reasoning": [
+        "Sleeve yuksek_kazanc: 25% × composite_share(59.3/347.8) = raw 4.3%",
+        "No cap: 4.3%"
+      ]
+    },
+    {
+      "ticker": "CCOLA",
+      "sleeve": "yuksek_kazanc",
+      "sub_category": "deep_value",
+      "weight_pct": 5.5842,
+      "composite": 77.69,
+      "capital_allocation_tl": 55842.11,
+      "reasoning": [
+        "Sleeve yuksek_kazanc: 25% × composite_share(77.7/347.8) = raw 5.6%",
+        "No cap: 5.6%"
+      ]
+    },
+    {
+      "ticker": "FROTO",
+      "sleeve": "yuksek_kazanc",
+      "sub_category": "deep_value",
+      "weight_pct": 5.406,
+      "composite": 75.21,
+      "capital_allocation_tl": 54059.5,
+      "reasoning": [
+        "Sleeve yuksek_kazanc: 25% × composite_share(75.2/347.8) = raw 5.4%",
+        "No cap: 5.4%"
+      ]
+    },
+    {
+      "ticker": "HALKB",
+      "sleeve": "yuksek_kazanc",
+      "sub_category": "deep_value",
+      "weight_pct": 5.2832,
+      "composite": 73.5,
+      "capital_allocation_tl": 52831.66,
+      "reasoning": [
+        "Sleeve yuksek_kazanc: 25% × composite_share(73.5/347.8) = raw 5.3%",
+        "No cap: 5.3%"
+      ]
+    },
+    {
+      "ticker": "SAHOL",
+      "sleeve": "yuksek_kazanc",
+      "sub_category": "holding_chronic_discount",
+      "weight_pct": 4.461,
+      "composite": 62.06,
+      "capital_allocation_tl": 44609.9,
+      "reasoning": [
+        "Sleeve yuksek_kazanc: 25% × composite_share(62.1/347.8) = raw 4.5%",
+        "No cap: 4.5%"
+      ]
+    }
+  ],
+  "cash_reserve_pct": 35.0,
+  "cash_reserve_tl": 350000.0,
+  "cash_reasons": [
+    "Sleeve 'hizli_buyume' BOŞ (35% target → cash)"
+  ],
+  "total_positions": 11,
+  "sleeve_breakdown": {
+    "core": 6,
+    "hizli_buyume": 0,
+    "yuksek_kazanc": 5,
+    "skip": 11
+  },
+  "warnings": [
+    "Cash reserve 35.0% > max 30.0% (under-investment, boş sleeve veya cap overflow)"
+  ],
+  "reasoning": [
+    "⚠ Boş sleeve: hizli_buyume (target 35%, allocation cash'e)",
+    "Risk profile: agresif. Target alloc: core=40%, hizli=35%, yuksek=25%.",
+    "11 pozisyon, cash reserve 35.0%."
+  ]
+}

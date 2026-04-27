@@ -2,6 +2,7 @@
 3-Sleeve Assignment — Damodaran Portfolio Architecture.
 
 Faz 3 ADIM 3 — Pentagon Score → Sleeve mapping.
+Faz 6.5 (e) — Banking-specific sleeve rules (Damodaran Lesson #6).
 
 3-Sleeve Mapping (Damodaran ADR-066, 067):
 
@@ -9,14 +10,19 @@ Faz 3 ADIM 3 — Pentagon Score → Sleeve mapping.
     Lifecycle ∈ {MATURE_GROWTH, MATURE_STABLE, UNKNOWN}
     Upside > %30 + Quality > 60 + Composite > 50
 
+    Banking branch (Faz 6.5 e):
+      excess_return ≥ 4pp + upside > 0 + composite > 50 + value > 30
+      Sub: "banking_intrinsic" (ROE > CoE + market gap)
+
   HIZLI BÜYÜME (default 25%):
     Lifecycle ∈ {YOUNG, HIGH_GROWTH}
     Growth > 60 + Composite > 55
     (BIST 30 nadir → MVP'de boş kalabilir)
 
-  YÜKSEK KAZANÇ (default 15%) — 4 alt-kategori:
+  YÜKSEK KAZANÇ (default 15%) — alt-kategoriler:
     deep_value:               upside > %100 + composite > 55
     holding_chronic_discount: financial_group=HOLDING + upside > 50
+    banking_premium:          is_banking + ROE > %20 + upside > %50  (Faz 6.5 e)
     mature_transition:        Mature/Decline + Quality<60 + Value>70
     distress:                 stage=DISTRESS
 
@@ -101,6 +107,39 @@ def _is_holding(report: Any) -> bool:
     return fg == "HOLDING"
 
 
+def _banking_metrics(report: Any) -> tuple:
+    """
+    Banking ticker için (excess_return_pp, roe_pct) tuple döndür.
+
+    Returns (None, None) banking değilse veya banking_data yoksa.
+    """
+    if not _get_nested(report, "is_banking"):
+        return None, None
+
+    ticker = _get_nested(report, "ticker")
+    if not ticker:
+        return None, None
+
+    coe = _get_nested(report, "dcf", "wacc")
+    if coe is None:
+        coe = _get_nested(report, "wacc")
+
+    # Lazy import — avoid eager dep
+    from data_layer.banking_data import get_banking_data
+
+    config = get_banking_data(ticker)
+    if config is None or not config.yearly:
+        return None, None
+
+    latest = max(config.yearly, key=lambda d: d.year)
+    roe = latest.roe_pct
+    if roe is None or coe is None:
+        return None, roe
+
+    spread_pp = roe - (coe * 100.0)
+    return spread_pp, roe
+
+
 def assign_sleeve(report: Any, score: PentagonScore) -> SleeveAssignment:
     """
     Damodaran 3-sleeve assignment (ADR-066, 067).
@@ -173,6 +212,51 @@ def assign_sleeve(report: Any, score: PentagonScore) -> SleeveAssignment:
         return SleeveAssignment(
             ticker, Sleeve.SKIP, None, score, score.composite, 0.9,
             [f"SKIP: upside {upside:+.0f}% < -30% (SAT verdict)"]
+        )
+
+    # ---- Rule 1d: Banking branch (Faz 6.5 e — Damodaran Lesson #6) ----
+    is_banking = bool(_get_nested(report, "is_banking"))
+    if is_banking:
+        spread_pp, roe_pct = _banking_metrics(report)
+
+        # Banking deep_value: upside > %100 (HALKB-tarzı state bank chronic discount)
+        if upside > 100 and score.composite > 55:
+            return SleeveAssignment(
+                ticker, Sleeve.YUKSEK_KAZANC, "deep_value", score, score.composite, 0.85,
+                [f"YÜKSEK KAZANÇ deep_value (banking): upside {upside:+.0f}% > %100, "
+                 f"composite {score.composite:.1f}"]
+            )
+
+        # Banking intrinsic CORE: excess_return ≥ 4pp + upside > 0 + composite > 50
+        if (
+            spread_pp is not None and spread_pp >= 4.0
+            and upside > 0
+            and score.composite > 50
+            and score.value > 30
+        ):
+            return SleeveAssignment(
+                ticker, Sleeve.CORE, "banking_intrinsic",
+                score, score.composite, 0.85,
+                [f"CORE banking_intrinsic: excess_return {spread_pp:+.2f}pp ≥ 4pp, "
+                 f"upside {upside:+.0f}% > 0, composite {score.composite:.1f}, V={score.value:.0f}"]
+            )
+
+        # Banking premium: ROE > %20 + upside > %50 (excess_return marginal ama
+        # ROE high + significant market gap — opportunistic)
+        if roe_pct is not None and roe_pct > 20 and upside > 50:
+            return SleeveAssignment(
+                ticker, Sleeve.YUKSEK_KAZANC, "banking_premium",
+                score, score.composite, 0.75,
+                [f"YÜKSEK KAZANÇ banking_premium: ROE {roe_pct:.1f}% > %20, "
+                 f"upside {upside:+.0f}% > %50"]
+            )
+
+        # Banking SKIP fallback (composite/spread inadequate)
+        return SleeveAssignment(
+            ticker, Sleeve.SKIP, None, score, score.composite, 0.6,
+            [f"SKIP (banking): excess_return={spread_pp:+.2f}pp"
+             if spread_pp is not None else f"SKIP (banking): excess_return YOK",
+             f"upside={upside:+.0f}%, composite {score.composite:.1f}"]
         )
 
     # ---- Rule 2: YÜKSEK KAZANÇ — holding chronic discount (öncelikli) ----

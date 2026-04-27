@@ -2,6 +2,7 @@
 Pentagon Scoring — Damodaran 5-Dimensional Foundation.
 
 Faz 3 ADIM 2 — Portfolio scoring temeli.
+Faz 6.5 (e) — Banking-specific Pentagon branch (Damodaran Lesson #6).
 
 5 Boyut (Damodaran ADR-007 spec):
   1. Value (default 30%):     DCF intrinsic vs market gap
@@ -17,6 +18,12 @@ Lifecycle-Adjusted Weights (ADR-044, 049):
   Young:         V15/G40/Q20/M15/R10
   Decline:       V20/G05/Q30/M15/R30
   Distress:      V25/G05/Q25/M15/R30
+  Banking:       V30/G15/Q30/M05/R20  (ROE-CoE excess return Q-dominant)
+
+Banking branch (Faz 6.5 e):
+  - score_*_banking() functions: ROE-CoE spread (Q), NI CAGR (G), upside (V)
+  - banking_data lookup: roe_pct, payout_pct, net_income_tl yearly
+  - is_banking gate in score_ticker()
 
 Composite = sum(score_i × weight_i), 0-100 scale.
 """
@@ -40,6 +47,8 @@ LIFECYCLE_WEIGHTS: Dict[str, Dict[str, float]] = {
     "YOUNG":         {"value": 0.15, "growth": 0.40, "quality": 0.20, "momentum": 0.15, "risk": 0.10},
     "DECLINE":       {"value": 0.20, "growth": 0.05, "quality": 0.30, "momentum": 0.15, "risk": 0.30},
     "DISTRESS":      {"value": 0.25, "growth": 0.05, "quality": 0.25, "momentum": 0.15, "risk": 0.30},
+    # Faz 6.5 (e) — Banking weights: ROE-CoE Q-dominant (Damodaran banking valuation)
+    "BANKING":       {"value": 0.30, "growth": 0.15, "quality": 0.30, "momentum": 0.05, "risk": 0.20},
 }
 # UNKNOWN/Foobar/holding (SOTP) → fallback Mature Stable defaults below
 
@@ -252,12 +261,137 @@ def score_risk(report: Any) -> Tuple[float, str]:
 
 
 # ============================================================================
+# Banking-Specific Scoring (Faz 6.5 e — Damodaran Lesson #6)
+# ============================================================================
+
+def _excess_return_pp(roe_pct: Optional[float], coe_decimal: Optional[float]) -> Optional[float]:
+    """
+    Banking excess return = ROE − CoE (percentage points).
+
+    Args:
+        roe_pct: Return on Equity (decimal değil, % örn. 21.5)
+        coe_decimal: Cost of Equity (decimal, örn. 0.1109)
+
+    Returns:
+        Spread in pp (e.g., 21.5 - 11.09 = 10.41) or None.
+    """
+    if roe_pct is None or coe_decimal is None:
+        return None
+    return roe_pct - (coe_decimal * 100.0)
+
+
+def score_quality_banking(report: Any, banking_config: Any) -> Tuple[float, str]:
+    """
+    Banking Quality boyutu — ROE-CoE excess return spread (Damodaran banking primary).
+
+    Banks create value when ROE > CoE (excess return > 0).
+    Spread > 15pp → 100, 10-15pp → 80, 5-10pp → 60, 0-5pp → 40, <0 → 20.
+    """
+    coe = _get_nested(report, "dcf", "wacc")
+    if coe is None:
+        coe = _get_nested(report, "wacc")
+
+    roe = None
+    if banking_config is not None and banking_config.yearly:
+        latest = max(banking_config.yearly, key=lambda d: d.year)
+        roe = latest.roe_pct
+
+    spread = _excess_return_pp(roe, coe)
+    if spread is None:
+        return 50.0, "Quality(banking): ROE veya CoE YOK, neutral 50"
+
+    if spread > 15:
+        score = 100.0
+    elif spread > 10:
+        score = 80.0
+    elif spread > 5:
+        score = 60.0
+    elif spread > 0:
+        score = 40.0
+    else:
+        score = 20.0
+
+    return score, (
+        f"Quality(banking): ROE {roe:.1f}% − CoE {coe*100:.2f}% = {spread:+.2f}pp → {score:.0f}"
+    )
+
+
+def score_growth_banking(report: Any, banking_config: Any) -> Tuple[float, str]:
+    """
+    Banking Growth boyutu — Net income CAGR (latest 3-yıl trend).
+
+    CAGR > %30 → 100, %15-30 → 75, %5-15 → 50, %0-5 → 30, <0 → 10.
+    Eski yıl YOK ise neutral 50.
+    """
+    if banking_config is None or len(banking_config.yearly) < 2:
+        return 50.0, "Growth(banking): yearly data <2, neutral 50"
+
+    sorted_yearly = sorted(banking_config.yearly, key=lambda d: d.year)
+    earliest = sorted_yearly[0]
+    latest = sorted_yearly[-1]
+    years = latest.year - earliest.year
+    if years <= 0 or earliest.net_income_tl <= 0:
+        return 50.0, "Growth(banking): year span/NI invalid, neutral 50"
+
+    cagr = (latest.net_income_tl / earliest.net_income_tl) ** (1.0 / years) - 1.0
+
+    if cagr > 0.30:
+        score = 100.0
+    elif cagr > 0.15:
+        score = 75.0
+    elif cagr > 0.05:
+        score = 50.0
+    elif cagr > 0:
+        score = 30.0
+    else:
+        score = 10.0
+
+    return score, (
+        f"Growth(banking): NI {earliest.year}={earliest.net_income_tl:.0f}M "
+        f"→ {latest.year}={latest.net_income_tl:.0f}M, "
+        f"CAGR={cagr*100:+.1f}%/yr ({years}y) → {score:.0f}"
+    )
+
+
+def score_risk_banking(report: Any, banking_config: Any) -> Tuple[float, str]:
+    """
+    Banking Risk boyutu (INVERSE — low risk = high score).
+
+    Damodaran banking sector beta 0.2495 (low systematic risk).
+    WACC <13% → 70, <16% → 50, else → 30.
+
+    Faz 7+ extension: Tier 1 capital ratio + leverage ratio when KAP available.
+    """
+    coe = _get_nested(report, "dcf", "wacc")
+    if coe is None:
+        coe = _get_nested(report, "wacc")
+
+    if coe is None:
+        return 60.0, "Risk(banking): CoE YOK, neutral 60 (banking conservative)"
+
+    if coe < 0.13:
+        score = 70.0
+    elif coe < 0.16:
+        score = 50.0
+    else:
+        score = 30.0
+
+    return score, (
+        f"Risk(banking): CoE={coe*100:.2f}% (β=0.2495 low systematic) → {score:.0f}"
+    )
+
+
+# ============================================================================
 # Composite Scoring
 # ============================================================================
 
 def score_ticker(report: Any) -> Optional[PentagonScore]:
     """
     Single ticker Pentagon scoring.
+
+    Branch:
+      - is_banking → banking-specific scoring (Q=ROE-CoE, G=NI CAGR, R=banking β)
+      - else      → industrial/holding scoring (lifecycle weights)
 
     Args:
         report: ValuationReport veya JSON dict (polymorphic).
@@ -270,6 +404,41 @@ def score_ticker(report: Any) -> Optional[PentagonScore]:
         return None
 
     ticker = _get_nested(report, "ticker") or "?"
+    is_banking = bool(_get_nested(report, "is_banking"))
+
+    # ---- Banking branch (Faz 6.5 e) ----
+    if is_banking:
+        # Lazy import — avoid circular dep if data_layer imports portfolio
+        from data_layer.banking_data import get_banking_data
+
+        banking_config = get_banking_data(ticker)
+
+        s = PentagonScore(ticker=ticker, lifecycle_stage="BANKING")
+        s.value, log_v = score_value(report)
+        s.growth, log_g = score_growth_banking(report, banking_config)
+        s.quality, log_q = score_quality_banking(report, banking_config)
+        s.momentum, log_m = score_momentum(report)
+        s.risk, log_r = score_risk_banking(report, banking_config)
+        s.weights = get_lifecycle_weights("BANKING")
+
+        s.composite = (
+            s.value * s.weights["value"]
+            + s.growth * s.weights["growth"]
+            + s.quality * s.weights["quality"]
+            + s.momentum * s.weights["momentum"]
+            + s.risk * s.weights["risk"]
+        )
+        s.reasoning.extend([log_v, log_g, log_q, log_m, log_r])
+        s.reasoning.append(
+            f"Composite (BANKING): V({s.value:.0f}*{s.weights['value']*100:.0f}) + "
+            f"G({s.growth:.0f}*{s.weights['growth']*100:.0f}) + "
+            f"Q({s.quality:.0f}*{s.weights['quality']*100:.0f}) + "
+            f"M({s.momentum:.0f}*{s.weights['momentum']*100:.0f}) + "
+            f"R({s.risk:.0f}*{s.weights['risk']*100:.0f}) = {s.composite:.1f}"
+        )
+        return s
+
+    # ---- Industrial / holding branch ----
     stage = _get_nested(report, "lifecycle", "stage") or "UNKNOWN"
     stage_key = (stage or "").upper().replace("-", "_")
 
