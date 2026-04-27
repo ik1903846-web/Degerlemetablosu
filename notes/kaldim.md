@@ -246,6 +246,41 @@ Damodaran Insight (KRİTİK):
 - SAHOL'da banking revenue distortion → fake %55 op_margin → +%256 fake AL
 - Faz 2.5 SOTP intrinsic-aligned, SAHOL +%106 (chronic discount kanıtlı)
 
+### Damodaran Lesson — Component 4 SAHOL BUG (Explicit Quote)
+
+**Damodaran principle (REELDEĞER 27 April 2026'da deneyimle doğrulandı):**
+
+> "Holdings cannot be valued like industrial firms. Their cash flows
+> belong to subsidiaries, not parent. SOTP is correct methodology.
+> Industrial DCF on consolidated holding cash flows is BUG-PRONE,
+> not just suboptimal."
+
+**Bug mechanics (REELDEĞER discovery):**
+
+isyatirim XBRL "Net Satışlar" SAHOL için BANKING DOMINANT:
+- Akbank %41 stake: interest income revenue olarak görüldü
+- Banking net interest margin %3-4 → revenue olarak görünüyor
+- Insurance revenue (Aksigorta, Agesa) ek
+- Industrial revenue (Carrefoursa, Teknosa, Çimsa) yarısından az
+
+Sonuç: SAHOL consolidated margin %54.80 (industrial %5-15 range vs reality)
+- cyclical_dcf "industrial firm" gibi alıyor
+- Future Op Income = Future Revenue × 54.8% margin
+- $20.46B fake intrinsic
+- 354 TL fake DCF
+- +%256 fake AL signal
+
+**Faz 2.5 SOTP fix:**
+- Per-child DCF/book aggregation
+- Banking P/B 1.5 (justified Damodaran)
+- Non-listed book × 1.0 (conservative)
+- Disconto %15 (NAV intrinsic target)
+- SAHOL +%106 deep value (gerçek intrinsic)
+
+**Magnitude depends on banking weight:**
+- KCHOL banking weight %12 (YKBNK only) → bug MILD (189 vs 233, sapma %23)
+- SAHOL banking weight %63 (AKBNK dominant) → bug CATASTROPHIC (354 vs 202, sapma %75)
+
 ### Bilinen Sınırlar (Faz 2.6+ Parking)
 
 1. **SAHOL listed children BIST 30 dışı** — DCF lookup yok, hep book_fallback
@@ -283,6 +318,13 @@ Damodaran Insight (KRİTİK):
   - Pentagon Scoring (5-D narrative)
   - 3-Sleeve portfolio (alpha + hedge + opportunity)
   - Position sizing (margin of safety bazlı)
+- **FROTO/CCOLA Root Cause Analysis** (30-90 dk, quick win)
+  - Component 4 batch'te FROTO +%545, CCOLA +%541 extreme upside
+  - Hipotez 1: Industrial cycle peak bias (Faz 2.4.7 fix)
+  - Hipotez 2: SAHOL-tipi banking/distortion bug (?)
+  - Hipotez 3: Lifecycle misclassification (mature_growth → mature_stable?)
+  - Diagnosis FIRST, then choose fix path
+  - Quick win: 30-60 dk probe → karar
 
 ---
 
