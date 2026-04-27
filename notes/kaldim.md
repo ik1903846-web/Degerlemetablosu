@@ -1,8 +1,8 @@
 # REELDEĞER — Kaldığım Yer
 
-**Son güncelleme:** 27 Nisan 2026, ~11:15
-**Aktif Faz:** Faz 2.4.6 Component 1 — Bottom-up Beta Integration (TAMAM)
-**Sıradaki:** Faz 2.4.6 Component 2 — Synthetic rating Sovereign+Sector (yarın)
+**Son güncelleme:** 27 Nisan 2026, 15:00
+**Aktif Faz:** Faz 2.4.6 TAMAMLANDI ✓ (Component 1+2+3+4 + Bonus)
+**Sıradaki:** Faz 2.5 (SAHOL SOTP) veya Faz 3 (Portfolio Construction) — yarın karar
 
 ---
 
@@ -87,53 +87,107 @@ ticker → fetch (12 yıl) → map → USD → classify → DCF → shares → Y
 
 ---
 
-## Faz 2.4.6 Component 1 — Bottom-up Beta Integration (TAMAM, 27 Nis 2026)
+## Faz 2.4.6 KAPANIŞ — Damodaran Methodology Production Parity (27 Nis 2026)
 
-### Atomic Commit Chain (3 step, 47 commit GitHub'da)
+### Atomic Commit Chain (6 commit, ana paket)
 
-**Adım 1.1 (7163b5e)** — DB Read Helper
-- apps/api/data_layer/damodaran_db.py (143 satır)
-- apps/api/scripts/test_damodaran_db.py (230 satır)
-- 3/3 PASS: TUPRS oil_gas_integrated 0.7043, cache 3400x speedup
-- 8/11 BIST sektör coverage (eksik 3'ü Adım 1.2'de düzeldi)
+**Component 1 — Bottom-up Beta Integration** (3 atomic step)
+- Adım 1.1 (7163b5e): damodaran_db.py + test (DB read helper, asyncpg + cache 3400x)
+- Adım 1.2 (6e22767): sector_mapping.py + test (19/19 BIST 30, 13 unique sektör)
+- Adım 1.3 (67d6ec9): orchestrator integration (Hamada relever, holding whitelist, +86/-10 satır)
 
-**Adım 1.2 (6e22767)** — Sector Mapping
-- apps/api/data_layer/sector_mapping.py (118 satır)
-- apps/api/scripts/test_sector_mapping.py (128 satır)
-- 19/19 BIST 30 ticker → 13 unique sektör mapping
-- 4/4 anchor PASS: TUPRS, CCOLA, TRALT, TRMET
-- Damodaran taksonomi keşfi: 'and' eki naming convention
-- CCOLA → beverage_soft (kritik fix, +%567 overestimate adres edilen)
+**Component 2 — Synthetic Rating Sovereign+Sector** (09a2a9b)
+- DAMODARAN_PARAMS["synthetic_spread"] = 0.04 (BB+)
+- pretax_kd hard-coded BB %3 → BB+ %4
+- TUPRS WACC 12.81% (deep dive baseline TAM TUTUYOR)
+- AT_Kd 5.23% → 5.98% (+75 bps)
 
-**Adım 1.3 (67d6ec9)** — Orchestrator Integration
-- apps/api/dcf_engine/orchestrator.py modified (+86/-10)
-- apps/api/scripts/test_orchestrator.py modified (+4 dotenv)
-- HOLDING_TICKERS_NO_BOTTOMUP_BETA whitelist (KCHOL, SAHOL)
-- 3 yeni import + WACC bloğu yeniden yazıldı
-- TUPRS 181 → 193 (+%6.8)
-- ARCLK sector lookup çalışıyor (β=0.7695)
-- GARAN banking branch routing doğru
+**Component 3 — 16-yıl Historical Default** (a7ed721)
+- analyze_ticker years_back: 12 → 16 (Damodaran golden standard)
+- TUPRS DCF 192.85 → 188.29 TL (deep dive 188.31, sapma 0.02 TL)
+- 3 tam cyclical döngü (2009-2024)
+- Margin 4.64% → 4.50% (-14 bps, peak bias hafifledi)
 
-### Methodology Validation (Faz 2.4.5 deep dive ile karşılaştırma)
-- CoE delta: -116 bps (deep dive: -116 bps) ✓ TAM TUTUYOR
-- WACC delta: -109 bps (deep dive: -104 bps) ✓ ±5 bps
-- DCF delta: +%6.8 (181 → 193) → Component 2+3 sonrası ~188 (deep dive baseline)
+**Component 4 — BIST 30 FINAL Batch** (4256744)
+- 19 ticker batch run (17/19 successful, 2 coverage gap)
+- test_orchestrator_live.py dotenv eki
+- Outputs: bist_batch_LIVE_20260427_133236.csv + .json
+- Research rapor: _research_findings/bist_batch_2026-04-27.md (142 satır)
 
-### Bilinen Sınırlar (Component 2-4'te düzeltilecek)
-- pretax_kd hard-coded BB %3 (Component 2: Sovereign+Sector → BB+ %4 olacak)
-- Margin 12-yıl (Component 3: 16-yıl default olacak)
-- BIST 30 batch eski methodology (Component 4: re-run güncellenecek)
+**Bonus — print_report None Handling** (3cdbb66)
+- Cosmetic E bug fix (banking + failed industrial ticker'lar)
+- Pattern A inline defansif fix (+4/-1 satır)
+- test_orchestrator.py exit code 0 (eski 1)
 
-### Cosmetic Bug Parking
-- print_report Success=False durumda upside_pct None için defansif değil
-- Pre-existing bug (önceki Success=False ticker'larda da olurdu)
-- Ayrı atomic commit'e parking (post-Component 1)
+### Methodology Validation %100
 
-### Sonraki Faz (Yarın 28 Nisan 2026)
-- Component 2: Synthetic rating Sovereign+Sector fallback (~30-45 dk)
-- Component 3: 16-yıl default historical depth (~15-20 dk)
-- Component 4: BIST 30 batch FINAL Damodaran-aligned re-run (~30-45 dk)
-- Toplam tahmin: 1.5-2 saat (taze kafayla disiplinli)
+TUPRS Faz 2.4.5 Deep Dive Baseline:
+- Manual deep dive (5+ saat): 188.31 TL
+- Production (Component 1+2+3 entegre): 188.29 TL
+- Sapma: 0.02 TL (yuvarlama)
+- WACC: 12.81% (BIREBIR)
+- Margin: 4.50% (BIREBIR)
+- Upside: -30.00% (BIREBIR)
+
+6/6 Damodaran Checkpoint PASS:
+- ✓ 16-yıl historical (Damodaran ideal)
+- ✓ Bottom-up beta (sector + Hamada)
+- ✓ Sovereign + Sector synthetic rating
+- ✓ USD-bazlı tutarlı WACC
+- ✓ Real shares outstanding (KAP doğrulamalı)
+- ✓ Net CapEx Damodaran formula
+
+### Component 4 BIST 19 Sonuçları (Anchor Regression)
+
+Successful 17/19, 6 deep value, 1 fair, 9 overvalued.
+Detay: apps/api/_research_findings/bist_batch_2026-04-27.md
+
+| Ticker | Eski (Faz 2.4) | Yeni (C1+2+3) | Δ |
+|--------|----------------|----------------|---|
+| TUPRS  | 181 TL         | 188 TL         | deep dive baseline |
+| ARCLK  | 401 TL         | 311 TL         | -78 pp upside, rasyonel |
+| KCHOL  | 223 TL         | 189 TL         | whitelist + C2+3 |
+| SAHOL  | 388 TL         | 354 TL         | whitelist + C2+3 |
+| CCOLA  | 513 TL         | 486 TL         | β fix kısmen, hâlâ +%541 |
+| FROTO  | 940 TL         | 671 TL         | cycle peak bias kısmen, -254 pp |
+| EREGL  | 74 TL          | 58 TL          | steel β + 16-yıl |
+| TRALT  | yeni           | 158 TL         | precious_metals 1.4176 |
+| TRMET  | yeni           | 69 TL          | metals_and_mining 1.3013 |
+
+Failed 2/19:
+- BIMAS: "No items in response" (taxonomy + 16-yıl coverage)
+- SOKM: 2017 IPO, pre-IPO veri yok
+
+### Bilinen Sınırlar (Component 5+ / Faz 2.5+ Parking)
+
+1. **16-yıl Coverage Gap** (BIMAS, SOKM)
+   - Çözüm önerisi: Lifecycle-adaptive years_back veya retry logic
+
+2. **Extreme Upside (Cycle Peak Bias)** — FROTO +%545, CCOLA +%541
+   - Çözüm önerisi: Sub-period weighting (recent 10-yıl ağırlıklı)
+   - Veya industry-implied EV/EBITDA cross-check
+
+3. **Negatif DCF (PETKM, PGSUS)** — Cycle dipi extreme
+   - Çözüm önerisi: Distress-adjusted DCF (Faz 2.5+)
+   - Equity as call option (Black-Scholes)
+
+4. **Holding SOTP** — KCHOL/SAHOL whitelist geçici
+   - Çözüm: Sum of Parts model (Faz 2.5)
+   - 3-level segment-based valuation
+
+### Sonraki Faz Adayları (Yarın 28 Nisan 2026)
+
+- **Faz 2.5 — SAHOL SOTP** (~3-4 saat, kompleks)
+  - Holding'leri segment-bazlı parçala
+  - Otomotiv + Enerji + Finans + ... ayrı DCF
+  - Re-aggregation + minority interests + holdings'e özel disconto
+- **Faz 3 — Portfolio Construction** (~2-3 saat, daha hazır)
+  - 19 ticker AL/SAT verdict'inden 3-sleeve portfolio (alpha, hedge, opportunity)
+  - Position sizing (margin of safety bazlı)
+  - Backtest Yahoo Finance historical
+- **Faz 2.4.7 — Cycle Bias Refinement** (~1-2 saat, methodology)
+  - Sub-period weighting (recent 10-yıl ağırlıklı)
+  - FROTO/CCOLA için spesifik calibration
 
 ---
 
@@ -148,9 +202,11 @@ cat notes/kaldim.md
 
 ## Repo Durumu
 
-- 47 commit GitHub'da (clean)
+- 53 commit GitHub'da (clean)
 - Branch: main
-- Son commit: 67d6ec9 (Faz 2.4.6 Component 1 Adım 1.3 — Bottom-up beta orchestrator integration)
+- Son commit: (kapanış commit, bu güncellemeyi içerir)
+- Önceki: 3cdbb66 (Bonus print_report None handling)
+- Faz 2.4.6 atomic chain: 7163b5e → 6e22767 → 67d6ec9 → 09a2a9b → a7ed721 → 4256744 → 3cdbb66
 - GitHub: https://github.com/ik1903846-web/Degerlemetablosu
 
 ---
