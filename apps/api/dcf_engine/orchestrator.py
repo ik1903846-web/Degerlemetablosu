@@ -237,9 +237,113 @@ async def analyze_ticker(
 
         if report.is_banking:
             report.reasoning.append(f"Banking ticker detected (XI_30)")
-            report.errors.append("Banking DCF orchestration Faz 2.3.1'de eklenecek (şu an industrial only)")
             report.model_used = "banking_ddm"
-            return report  # Skip — banking pipeline ayrı
+
+            # Faz 6 ADIM 3: Banking DDM execute (KAP-sourced data)
+            from data_layer.banking_data import (
+                get_banking_data,
+                is_banking_data_available,
+            )
+            from dcf_engine.banking_ddm import dcf_ddm
+
+            if not is_banking_data_available(ticker):
+                report.errors.append(
+                    f"Banking data not available for {ticker} "
+                    f"(banking_data.py'ye eklenmeli)"
+                )
+                report.reasoning.append(
+                    "Banking DCF SKIP: data manuel config eksik"
+                )
+                return report
+
+            bank_config = get_banking_data(ticker)
+            latest = max(bank_config.yearly, key=lambda d: d.year)
+
+            report.reasoning.append(
+                f"Banking DDM input: {bank_config.name} | "
+                f"EPS {latest.eps_tl:.2f} TL, DPS {latest.dps_tl:.2f}, "
+                f"ROE {latest.roe_pct:.1f}%, Payout {latest.payout_pct:.1f}%, "
+                f"confidence={latest.confidence}"
+            )
+
+            # Cost of Equity (USD basis, banking sector β)
+            spot_rate = DAMODARAN_PARAMS["spot_rate_usd_tl"]
+            rf_usd = DAMODARAN_PARAMS["rf_usd"]
+            mature_erp = DAMODARAN_PARAMS["mature_erp"]
+            turkey_crp = DAMODARAN_PARAMS["turkey_crp"]
+
+            beta_unlev = bank_config.beta_unlevered
+            ke_usd = rf_usd + beta_unlev * mature_erp + 1.0 * turkey_crp
+
+            report.reasoning.append(
+                f"CoE USD: {rf_usd*100:.2f}% + "
+                f"{beta_unlev:.4f}*{mature_erp*100:.2f}% + "
+                f"1.0*{turkey_crp*100:.2f}% = {ke_usd*100:.2f}%"
+            )
+
+            # USD-basis EPS conversion
+            eps_usd_0 = latest.eps_tl / spot_rate
+
+            # Growth assumptions (USD basis, banking)
+            roe = latest.roe_pct / 100.0
+            payout_high = latest.payout_pct / 100.0
+            retention_high = max(0.0, 1.0 - payout_high)
+            # High growth USD: ROE × retention, capped to 8% (TR banking nominal high → USD ~moderate)
+            g_high = min(roe * retention_high, 0.08)
+            g_stable = DAMODARAN_PARAMS["stable_growth_usd"]  # 3% USD
+
+            # Stable phase: ROE → Ke (Damodaran banking convergence)
+            roe_stable = max(ke_usd, 0.10)  # min 10% banking floor
+            payout_stable = max(0.0, min(1.0, 1.0 - g_stable / roe_stable))
+
+            try:
+                ddm_result = dcf_ddm(
+                    starting_eps=eps_usd_0,
+                    high_growth_rate=g_high,
+                    high_growth_payout=payout_high,
+                    high_growth_coe=ke_usd,
+                    high_growth_duration=5,
+                    stable_growth=g_stable,
+                    stable_payout=payout_stable,
+                    stable_coe=ke_usd,
+                )
+            except Exception as e:
+                report.errors.append(f"Banking DDM execution error: {e}")
+                report.reasoning.append(f"DDM exception: {type(e).__name__}: {e}")
+                return report
+
+            value_per_share_usd = ddm_result.value_per_share
+            value_per_share_tl = value_per_share_usd * spot_rate
+
+            report.value_per_share_usd = value_per_share_usd
+            report.value_per_share_tl = value_per_share_tl
+            report.shares_outstanding = latest.shares_outstanding
+            report.equity_value_usd = value_per_share_usd * latest.shares_outstanding
+            report.equity_value_tl = value_per_share_tl * latest.shares_outstanding
+            report.wacc = ke_usd  # Banking için CoE = WACC equivalent
+            report.currency_dcf = "USD"
+            report.dcf_executed = True
+            report.success = True
+
+            report.reasoning.append(
+                f"DDM USD: g_high={g_high*100:.2f}%, payout_high={payout_high*100:.0f}%, "
+                f"g_stable={g_stable*100:.2f}%, payout_stable={payout_stable*100:.1f}%, "
+                f"5y high+stable"
+            )
+            report.reasoning.append(
+                f"DDM Value: ${value_per_share_usd:.4f}/share = "
+                f"{value_per_share_tl:.2f} TL/share, "
+                f"Equity ${report.equity_value_usd/1e9:.2f}B"
+            )
+
+            # Market Comparison
+            if market_price_tl is not None and value_per_share_tl > 0:
+                report.upside_pct = (
+                    (value_per_share_tl - market_price_tl) / market_price_tl * 100
+                )
+                report.damodaran_verdict = calculate_verdict(report.upside_pct)
+
+            return report  # Banking pipeline complete
 
         # ====================================================================
         # STEP 1.5: Holding SOTP Routing (Faz 2.5)
