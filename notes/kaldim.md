@@ -1,8 +1,8 @@
 # REELDEĞER — Kaldığım Yer
 
-**Son güncelleme:** 27 Nisan 2026, sabah
-**Aktif Faz:** Faz 2.4.4 — Orchestrator Live Integration (TAMAM)
-**Sıradaki:** Faz 2.4.5 — EM cyclicality threshold calibration
+**Son güncelleme:** 27 Nisan 2026, ~11:15
+**Aktif Faz:** Faz 2.4.6 Component 1 — Bottom-up Beta Integration (TAMAM)
+**Sıradaki:** Faz 2.4.6 Component 2 — Synthetic rating Sovereign+Sector (yarın)
 
 ---
 
@@ -73,20 +73,67 @@ ticker → fetch (12 yıl) → map → USD → classify → DCF → shares → Y
 
 ---
 
-## Bugün Hedef — Faz 2.4.5 EM Calibration
+## Faz 2.4.5 — TUPRS Damodaran Deep Dive (TAMAM)
 
-Calibration soruları:
-1. FROTO/CCOLA neden +%500+ overestimate?
-   - 12-yıl avg margin cycle peak ağırlıklı olabilir
-   - Rolling median veya outlier removal düşün
-2. SOKM/PGSUS negatif DCF nasıl floor edilmeli?
-   - operating_value <= 0 → "unreliable" flag
-   - Veya alternative model (book value floor)
-3. SAHOL holding için SOTP yaklaşım mı tek DCF mi?
-4. EM threshold: Türkiye'de "stable" var mı, yoksa hepsi cyclical mi?
+**Commit cb77d02:** apps/api/_research_findings/tuprs_deep_dive_2026-04-27.md (213 satır)
+- 6/6 methodology checkpoint PASS
+- 16-yıl historical depth (Damodaran ideal)
+- Bottom-up beta (oil_gas_integrated 0.7043 + Hamada relever)
+- Sovereign+Sector synthetic rating (BB+ %4)
+- USD-only valuation (TFRS 29 noise paralel iptal)
+- Real shares (KAP 1.93B doğrulandı)
+- Net CapEx (Δ PP&E + Dep)
+- Sonuç: TUPRS Damodaran-aligned DCF = 188.31 TL (eski 181.16 → +%4)
 
-Tahmini efor: ~3-4 saat
-Hedef: KCHOL +%8 anchor'ını koru, FROTO/CCOLA gerçeğe yaklaşsın
+---
+
+## Faz 2.4.6 Component 1 — Bottom-up Beta Integration (TAMAM, 27 Nis 2026)
+
+### Atomic Commit Chain (3 step, 47 commit GitHub'da)
+
+**Adım 1.1 (7163b5e)** — DB Read Helper
+- apps/api/data_layer/damodaran_db.py (143 satır)
+- apps/api/scripts/test_damodaran_db.py (230 satır)
+- 3/3 PASS: TUPRS oil_gas_integrated 0.7043, cache 3400x speedup
+- 8/11 BIST sektör coverage (eksik 3'ü Adım 1.2'de düzeldi)
+
+**Adım 1.2 (6e22767)** — Sector Mapping
+- apps/api/data_layer/sector_mapping.py (118 satır)
+- apps/api/scripts/test_sector_mapping.py (128 satır)
+- 19/19 BIST 30 ticker → 13 unique sektör mapping
+- 4/4 anchor PASS: TUPRS, CCOLA, TRALT, TRMET
+- Damodaran taksonomi keşfi: 'and' eki naming convention
+- CCOLA → beverage_soft (kritik fix, +%567 overestimate adres edilen)
+
+**Adım 1.3 (67d6ec9)** — Orchestrator Integration
+- apps/api/dcf_engine/orchestrator.py modified (+86/-10)
+- apps/api/scripts/test_orchestrator.py modified (+4 dotenv)
+- HOLDING_TICKERS_NO_BOTTOMUP_BETA whitelist (KCHOL, SAHOL)
+- 3 yeni import + WACC bloğu yeniden yazıldı
+- TUPRS 181 → 193 (+%6.8)
+- ARCLK sector lookup çalışıyor (β=0.7695)
+- GARAN banking branch routing doğru
+
+### Methodology Validation (Faz 2.4.5 deep dive ile karşılaştırma)
+- CoE delta: -116 bps (deep dive: -116 bps) ✓ TAM TUTUYOR
+- WACC delta: -109 bps (deep dive: -104 bps) ✓ ±5 bps
+- DCF delta: +%6.8 (181 → 193) → Component 2+3 sonrası ~188 (deep dive baseline)
+
+### Bilinen Sınırlar (Component 2-4'te düzeltilecek)
+- pretax_kd hard-coded BB %3 (Component 2: Sovereign+Sector → BB+ %4 olacak)
+- Margin 12-yıl (Component 3: 16-yıl default olacak)
+- BIST 30 batch eski methodology (Component 4: re-run güncellenecek)
+
+### Cosmetic Bug Parking
+- print_report Success=False durumda upside_pct None için defansif değil
+- Pre-existing bug (önceki Success=False ticker'larda da olurdu)
+- Ayrı atomic commit'e parking (post-Component 1)
+
+### Sonraki Faz (Yarın 28 Nisan 2026)
+- Component 2: Synthetic rating Sovereign+Sector fallback (~30-45 dk)
+- Component 3: 16-yıl default historical depth (~15-20 dk)
+- Component 4: BIST 30 batch FINAL Damodaran-aligned re-run (~30-45 dk)
+- Toplam tahmin: 1.5-2 saat (taze kafayla disiplinli)
 
 ---
 
@@ -101,9 +148,9 @@ cat notes/kaldim.md
 
 ## Repo Durumu
 
-- 41 commit GitHub'da (clean)
+- 47 commit GitHub'da (clean)
 - Branch: main
-- Son commit: 3a63d28 (Faz 2.4.4 Orchestrator Live)
+- Son commit: 67d6ec9 (Faz 2.4.6 Component 1 Adım 1.3 — Bottom-up beta orchestrator integration)
 - GitHub: https://github.com/ik1903846-web/Degerlemetablosu
 
 ---
