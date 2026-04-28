@@ -329,14 +329,21 @@ def cyclical_dcf_valuation(
     # Faz 2.7 — Damodaran Lesson #4 (Adaptive Cap):
     # MATURE_STABLE + recent_margin_bias > %25 → cap_ratio 1.5 → 1.3
     # (defensive consumers with structural margin upshift need tighter cap)
+    #
+    # Faz 4.7 — Damodaran Lesson #10 (3-tier Extreme Detection):
+    # MATURE_STABLE + bias > 50% → cap 1.15x (EXTREME post-COVID restoration)
+    # MATURE_STABLE + bias 25-50% → cap 1.30x (MEDIUM Faz 2.7 baseline)
+    # else → cap 1.50x (NORMAL default, Toyota peak year pattern)
     effective_cap_ratio = revenue_cap_ratio
-    if (
+    is_mature_stable = (
         lifecycle_stage is not None
         and lifecycle_stage.upper().replace("-", "_") == "MATURE_STABLE"
         and recent_margin_bias_pct is not None
-        and recent_margin_bias_pct > 25.0
-    ):
-        effective_cap_ratio = 1.3  # Tighter cap for defensive consumer high-bias
+    )
+    if is_mature_stable and recent_margin_bias_pct > 50.0:
+        effective_cap_ratio = 1.15  # EXTREME (Faz 4.7)
+    elif is_mature_stable and recent_margin_bias_pct > 25.0:
+        effective_cap_ratio = 1.3   # MEDIUM (Faz 2.7)
 
     if avg_revenue is not None and avg_revenue > 0:
         revenue_ceiling = avg_revenue * effective_cap_ratio

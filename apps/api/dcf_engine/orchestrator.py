@@ -725,15 +725,17 @@ async def _execute_cyclical_dcf(
         report.lifecycle.stage.value.upper() if report.lifecycle and report.lifecycle.stage else None
     )
 
-    # Adaptive cap_ratio karar
+    # Adaptive cap_ratio karar (Faz 4.7 — Damodaran Lesson #10 3-tier)
     base_cap_ratio = 1.5
     effective_cap_ratio = base_cap_ratio
-    if (
+    is_mature_stable_with_bias = (
         lifecycle_stage == "MATURE_STABLE"
         and recent_margin_bias_pct is not None
-        and recent_margin_bias_pct > 25.0
-    ):
-        effective_cap_ratio = 1.3
+    )
+    if is_mature_stable_with_bias and recent_margin_bias_pct > 50.0:
+        effective_cap_ratio = 1.15  # EXTREME (Faz 4.7 post-COVID restoration)
+    elif is_mature_stable_with_bias and recent_margin_bias_pct > 25.0:
+        effective_cap_ratio = 1.3   # MEDIUM (Faz 2.7 baseline)
 
     if avg_revenue_usd and current_revenue:
         ratio = current_revenue / avg_revenue_usd
