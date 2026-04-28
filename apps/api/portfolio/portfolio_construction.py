@@ -2,20 +2,22 @@
 Portfolio Construction — Position Sizing + Risk Profile Allocation.
 
 Faz 3 ADIM 4 — Sleeve assignments → PortfolioPlan.
+Faz 4.2 — Cash policy refinement (Damodaran Lesson #8).
 
 Damodaran ADR-015 (Position Sizing):
   1. Risk profile allocation (Konservatif 80/15/5, Dengeli 60/25/15, Agresif 40/35/25)
-  2. Boş sleeve → cash reallocation (BIST 30'da Hızlı Büyüme boş)
+  2. Boş sleeve → AKTIF SLEEVE'lere overflow redistribution (Faz 4.2 yenilik)
+     Mevcut universe'de Hızlı Büyüme boş → Core+Yüksek Kazanç'a kaydır
+     (eski: cash'e atılırdı, %30+ underinvested oluşurdu)
   3. Composite-weighted distribution within sleeve:
      weight_i = (composite_i / sum(composite_in_sleeve)) × sleeve_allocation
   4. Concentration caps:
-     - Max %10 single ticker (over-concentration guard)
+     - Max %12 single ticker (Faz 4.2: %10 → %12, hafif esneklik)
      - Min %2 single ticker (significant position only)
-  5. Cash reserve:
+  5. Cash reserve (Faz 4.2 strict):
      - Min %2 (full investment principle)
-     - Max %30 (under-investment guard)
-     - Boş sleeve overflow → cash
-     - Cap overflow → cash
+     - Max %15 (eski %30 → %15, Damodaran Lesson #8 cash drag minimize)
+     - Cap overflow + capacity overflow → cash (rare)
 """
 
 from dataclasses import dataclass, field
@@ -29,13 +31,13 @@ from portfolio.sleeve_assignment import (
 
 
 # ============================================================================
-# Constants (ADR-015)
+# Constants (ADR-015 + Faz 4.2 refinement — Damodaran Lesson #8)
 # ============================================================================
 
-MAX_SINGLE_TICKER_PCT = 10.0
+MAX_SINGLE_TICKER_PCT = 12.0   # Faz 4.2: 10 → 12 (BIST 30 universe darlığı)
 MIN_SINGLE_TICKER_PCT = 2.0
 MIN_CASH_PCT = 2.0
-MAX_CASH_PCT = 30.0  # Boş sleeve fallback dahil
+MAX_CASH_PCT = 15.0            # Faz 4.2: 30 → 15 (cash drag minimize)
 
 
 # ============================================================================
@@ -118,18 +120,56 @@ def build_portfolio(
     warnings: List[str] = []
     reasoning: List[str] = []
 
-    # 4. Boş sleeve detection + cash reallocation
+    # 4. Boş sleeve detection + REDISTRIBUTION (Faz 4.2 yenilik)
+    # Önce: boş sleeve target'ı cash'e dökerdi → %30+ cash drag
+    # Yeni: aktif sleeve'lere capacity-pro-rata redistribute
+    empty_target_pct = 0.0
     for sleeve_name, target_pct in target_alloc_pct.items():
         if not sleeve_groups[sleeve_name]:
             actual_alloc_pct[sleeve_name] = 0.0
+            empty_target_pct += target_pct
             cash_reasons.append(
-                f"Sleeve '{sleeve_name}' BOŞ ({target_pct:.0f}% target → cash)"
-            )
-            reasoning.append(
-                f"⚠ Boş sleeve: {sleeve_name} (target {target_pct:.0f}%, allocation cash'e)"
+                f"Sleeve '{sleeve_name}' BOŞ ({target_pct:.0f}% target → "
+                f"aktif sleeve'lere redistribute, Faz 4.2)"
             )
         else:
             actual_alloc_pct[sleeve_name] = target_pct
+
+    # Redistribution: empty target'ları aktif sleeve'lere capacity-pro-rata kaydır
+    # MIN_CASH_PCT buffer korunur (Damodaran ADR-015 minimal cash floor)
+    if empty_target_pct > 0:
+        active_sleeves = {
+            name: actual_alloc_pct[name]
+            for name in actual_alloc_pct
+            if sleeve_groups[name]
+        }
+        if active_sleeves:
+            # Capacity headroom: max kapasite (n_ticker × cap) - mevcut target
+            capacity_headroom = {}
+            for name in active_sleeves:
+                max_cap = len(sleeve_groups[name]) * MAX_SINGLE_TICKER_PCT
+                headroom = max(0.0, max_cap - actual_alloc_pct[name])
+                capacity_headroom[name] = headroom
+
+            total_headroom = sum(capacity_headroom.values())
+            sum_active = sum(active_sleeves.values())
+            # Cash buffer (MIN_CASH_PCT) korunur
+            cash_reserved_max = max(0.0, 100.0 - MIN_CASH_PCT - sum_active)
+            if total_headroom > 0:
+                redistributable = min(empty_target_pct, total_headroom, cash_reserved_max)
+                for name, headroom in capacity_headroom.items():
+                    if headroom > 0:
+                        share = (headroom / total_headroom) * redistributable
+                        actual_alloc_pct[name] += share
+                        reasoning.append(
+                            f"↪ Redistribute → {name}: +{share:.1f}% "
+                            f"(headroom {headroom:.1f}%)"
+                        )
+                if redistributable < empty_target_pct:
+                    overflow = empty_target_pct - redistributable
+                    cash_reasons.append(
+                        f"Redistribution capacity overflow: +{overflow:.1f}% → cash"
+                    )
 
     # 5. Position sizing within each non-empty sleeve
     positions: List[TickerPosition] = []
