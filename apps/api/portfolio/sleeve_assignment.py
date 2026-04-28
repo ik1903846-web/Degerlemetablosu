@@ -76,9 +76,13 @@ class SleeveAssignment:
 # ============================================================================
 
 RISK_PROFILES: Dict[str, Dict[str, float]] = {
-    "konservatif": {"core": 0.80, "hizli_buyume": 0.15, "yuksek_kazanc": 0.05},
-    "dengeli":     {"core": 0.60, "hizli_buyume": 0.25, "yuksek_kazanc": 0.15},
-    "agresif":     {"core": 0.40, "hizli_buyume": 0.35, "yuksek_kazanc": 0.25},
+    # Faz 4.14 — Allocation lever (Damodaran Lesson #14):
+    # Yüksek Kazanç sleeve target reduction (drag minimize WITHOUT ticker drop).
+    # Core sleeve allocation increase (Konservatif/Dengeli/Agresif quality dominant).
+    # Eski Faz 4.7 v2: 0.80/0.15/0.05, 0.60/0.25/0.15, 0.40/0.35/0.25
+    "konservatif": {"core": 0.82, "hizli_buyume": 0.15, "yuksek_kazanc": 0.03},
+    "dengeli":     {"core": 0.65, "hizli_buyume": 0.25, "yuksek_kazanc": 0.10},
+    "agresif":     {"core": 0.50, "hizli_buyume": 0.35, "yuksek_kazanc": 0.15},
 }
 
 
