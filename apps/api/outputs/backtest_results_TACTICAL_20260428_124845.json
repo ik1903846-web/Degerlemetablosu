@@ -1,0 +1,318 @@
+{
+  "metadata": {
+    "timestamp": "20260428_124845",
+    "period_start": "2021-06-30",
+    "period_end": "2026-03-31",
+    "fx_devaluation": 5.093422270077162,
+    "look_ahead_bias": true,
+    "adr_reference": "ADR-042 (tactical regime overlay)",
+    "regime_overlay": {
+      "normal": {
+        "sleeve_multiplier": 1.0,
+        "cash_min_pct": 2.0,
+        "cash_max_pct": 15.0
+      },
+      "moderate_stress": {
+        "sleeve_multiplier": 0.95,
+        "cash_min_pct": 5.0,
+        "cash_max_pct": 15.0
+      },
+      "significant_stress": {
+        "sleeve_multiplier": 0.85,
+        "cash_min_pct": 10.0,
+        "cash_max_pct": 20.0
+      },
+      "panic": {
+        "sleeve_multiplier": 0.75,
+        "cash_min_pct": 15.0,
+        "cash_max_pct": 25.0
+      }
+    }
+  },
+  "regime_calendar": [
+    {
+      "quarter_end": "2021-06-30",
+      "vix": 15.829999923706055,
+      "regime": "normal"
+    },
+    {
+      "quarter_end": "2021-09-30",
+      "vix": 23.139999389648438,
+      "regime": "moderate_stress"
+    },
+    {
+      "quarter_end": "2021-12-31",
+      "vix": 17.219999313354492,
+      "regime": "normal"
+    },
+    {
+      "quarter_end": "2022-03-31",
+      "vix": 20.559999465942383,
+      "regime": "moderate_stress"
+    },
+    {
+      "quarter_end": "2022-06-30",
+      "vix": 28.709999084472656,
+      "regime": "significant_stress"
+    },
+    {
+      "quarter_end": "2022-09-30",
+      "vix": 31.6200008392334,
+      "regime": "panic"
+    },
+    {
+      "quarter_end": "2022-12-31",
+      "vix": 21.670000076293945,
+      "regime": "moderate_stress"
+    },
+    {
+      "quarter_end": "2023-03-31",
+      "vix": 18.700000762939453,
+      "regime": "normal"
+    },
+    {
+      "quarter_end": "2023-06-30",
+      "vix": 13.59000015258789,
+      "regime": "normal"
+    },
+    {
+      "quarter_end": "2023-09-30",
+      "vix": 17.520000457763672,
+      "regime": "normal"
+    },
+    {
+      "quarter_end": "2023-12-31",
+      "vix": 12.449999809265137,
+      "regime": "normal"
+    },
+    {
+      "quarter_end": "2024-03-31",
+      "vix": 13.010000228881836,
+      "regime": "normal"
+    },
+    {
+      "quarter_end": "2024-06-30",
+      "vix": 12.4399995803833,
+      "regime": "normal"
+    },
+    {
+      "quarter_end": "2024-09-30",
+      "vix": 16.729999542236328,
+      "regime": "normal"
+    },
+    {
+      "quarter_end": "2024-12-31",
+      "vix": 17.350000381469727,
+      "regime": "normal"
+    },
+    {
+      "quarter_end": "2025-03-31",
+      "vix": 22.280000686645508,
+      "regime": "moderate_stress"
+    },
+    {
+      "quarter_end": "2025-06-30",
+      "vix": 16.729999542236328,
+      "regime": "normal"
+    },
+    {
+      "quarter_end": "2025-09-30",
+      "vix": 16.280000686645508,
+      "regime": "normal"
+    },
+    {
+      "quarter_end": "2025-12-31",
+      "vix": 14.949999809265137,
+      "regime": "normal"
+    },
+    {
+      "quarter_end": "2026-03-31",
+      "vix": 30.610000610351562,
+      "regime": "panic"
+    }
+  ],
+  "regime_summary": {
+    "normal": 13,
+    "moderate_stress": 4,
+    "significant_stress": 1,
+    "panic": 2
+  },
+  "comparison": [
+    {
+      "profile": "konservatif",
+      "cost": "zero",
+      "mode": "static",
+      "tl_cumulative": 7.388137179122793,
+      "tl_annualized": 0.5647894156296289,
+      "tl_sharpe": 1.3708909013206343,
+      "tl_max_dd": -0.09875191919091302,
+      "usd_cumulative": 0.6468568153874512,
+      "usd_annualized": 0.11073832253283711,
+      "usd_sharpe": 0.1795015577943977,
+      "usd_max_dd": -0.2511435980851533
+    },
+    {
+      "profile": "konservatif",
+      "cost": "zero",
+      "mode": "tactical",
+      "tl_cumulative": 6.214548820263705,
+      "tl_annualized": 0.5159176730311528,
+      "tl_sharpe": 1.4131356356870823,
+      "tl_max_dd": -0.09875191919091289,
+      "usd_cumulative": 0.41644427611033485,
+      "usd_annualized": 0.07604757318926114,
+      "usd_sharpe": 0.10381817523128442,
+      "usd_max_dd": -0.2551248115370408
+    },
+    {
+      "profile": "konservatif",
+      "cost": "realistic",
+      "mode": "static",
+      "tl_cumulative": 7.1996028715519635,
+      "tl_annualized": 0.5573184740588002,
+      "tl_sharpe": 1.3514037034272466,
+      "tl_max_dd": -0.10243005154389066,
+      "usd_cumulative": 0.6098415636423853,
+      "usd_annualized": 0.10543520568833542,
+      "usd_sharpe": 0.16608231834102324,
+      "usd_max_dd": -0.258019959793066
+    },
+    {
+      "profile": "konservatif",
+      "cost": "realistic",
+      "mode": "tactical",
+      "tl_cumulative": 6.051496436169318,
+      "tl_annualized": 0.5086397099464626,
+      "tl_sharpe": 1.3915788611329,
+      "tl_max_dd": -0.10243005154389061,
+      "usd_cumulative": 0.38443193245442275,
+      "usd_annualized": 0.07088143873858033,
+      "usd_sharpe": 0.08896542795303647,
+      "usd_max_dd": -0.26196689152215813
+    },
+    {
+      "profile": "dengeli",
+      "cost": "zero",
+      "mode": "static",
+      "tl_cumulative": 7.284478755443832,
+      "tl_annualized": 0.5606984069235801,
+      "tl_sharpe": 1.4064094269397946,
+      "tl_max_dd": -0.09800073776836438,
+      "usd_cumulative": 0.6265053859982288,
+      "usd_annualized": 0.10783439175324672,
+      "usd_sharpe": 0.1768083484803703,
+      "usd_max_dd": -0.2491169586712049
+    },
+    {
+      "profile": "dengeli",
+      "cost": "zero",
+      "mode": "tactical",
+      "tl_cumulative": 6.145274760342077,
+      "tl_annualized": 0.5128416052263056,
+      "tl_sharpe": 1.4561062825115707,
+      "tl_max_dd": -0.09800073776836439,
+      "usd_cumulative": 0.40284358560238376,
+      "usd_annualized": 0.07386408040778791,
+      "usd_sharpe": 0.10037989258415939,
+      "usd_max_dd": -0.25200218587865975
+    },
+    {
+      "profile": "dengeli",
+      "cost": "realistic",
+      "mode": "static",
+      "tl_cumulative": 7.097520192401731,
+      "tl_annualized": 0.5532165461024214,
+      "tl_sharpe": 1.3862142960135544,
+      "tl_max_dd": -0.0993368594872732,
+      "usd_cumulative": 0.5897995027769531,
+      "usd_annualized": 0.10252352407040655,
+      "usd_sharpe": 0.1630035228632652,
+      "usd_max_dd": -0.2560477769842007
+    },
+    {
+      "profile": "dengeli",
+      "cost": "realistic",
+      "mode": "tactical",
+      "tl_cumulative": 5.983157030906767,
+      "tl_annualized": 0.5055497722556317,
+      "tl_sharpe": 1.4336891510090404,
+      "tl_max_dd": -0.09933685948727322,
+      "usd_cumulative": 0.37101474423815595,
+      "usd_annualized": 0.06868810066179942,
+      "usd_sharpe": 0.08506285690492711,
+      "usd_max_dd": -0.2589068687199908
+    },
+    {
+      "profile": "agresif",
+      "cost": "zero",
+      "mode": "static",
+      "tl_cumulative": 7.149966994993251,
+      "tl_annualized": 0.55532905179393,
+      "tl_sharpe": 1.4283012149588514,
+      "tl_max_dd": -0.11536625358076676,
+      "usd_cumulative": 0.6000964700831277,
+      "usd_annualized": 0.10402304918521788,
+      "usd_sharpe": 0.1703577722483057,
+      "usd_max_dd": -0.24929297198415099
+    },
+    {
+      "profile": "agresif",
+      "cost": "zero",
+      "mode": "tactical",
+      "tl_cumulative": 6.047384462810783,
+      "tl_annualized": 0.5084544587941922,
+      "tl_sharpe": 1.4835166385038434,
+      "tl_max_dd": -0.1153662535807668,
+      "usd_cumulative": 0.383624621938919,
+      "usd_annualized": 0.07074994145717972,
+      "usd_sharpe": 0.09317936875662351,
+      "usd_max_dd": -0.25117702993001223
+    },
+    {
+      "profile": "agresif",
+      "cost": "realistic",
+      "mode": "static",
+      "tl_cumulative": 6.965317333357839,
+      "tl_annualized": 0.5478432041765009,
+      "tl_sharpe": 1.4075492787792194,
+      "tl_max_dd": -0.11671979967544852,
+      "usd_cumulative": 0.5638438972854232,
+      "usd_annualized": 0.0987093515449673,
+      "usd_sharpe": 0.1562551797398679,
+      "usd_max_dd": -0.25625697517210844
+    },
+    {
+      "profile": "agresif",
+      "cost": "realistic",
+      "mode": "tactical",
+      "tl_cumulative": 5.886880848888959,
+      "tl_annualized": 0.5011559226390263,
+      "tl_sharpe": 1.4604230282738726,
+      "tl_max_dd": -0.1167197996754486,
+      "usd_cumulative": 0.3521126825372416,
+      "usd_annualized": 0.0655692035732438,
+      "usd_sharpe": 0.07750430878796273,
+      "usd_max_dd": -0.25812230644402656
+    }
+  ],
+  "benchmarks_usd": [
+    {
+      "label": "XU100",
+      "usd_annualized": 0.13537626175863826,
+      "usd_sharpe": 0.22690506232988072,
+      "usd_max_dd": -0.2491391527466856
+    },
+    {
+      "label": "XU030",
+      "usd_annualized": 0.14741707500101153,
+      "usd_sharpe": 0.26692359412871863,
+      "usd_max_dd": -0.22719236493439193
+    },
+    {
+      "label": "SPY",
+      "usd_annualized": 0.0854737511544097,
+      "usd_sharpe": 0.299037537122017,
+      "usd_max_dd": -0.2479787790514068
+    }
+  ]
+}
