@@ -97,9 +97,14 @@ STATIC_SHARES_OUTSTANDING: Dict[str, int] = {
     "KARSN": 720_000_000,      # Karsan (~720M)
     "DOHOL": 2_616_938_288,    # Doğan Holding (~2.62B)
 
-    # Faz 4.6 — BIST 100 expansion (KAP/şirket sayfası tahmini, 15 ticker)
-    # Drop'lanan (orchestrator XBRL items missing, Faz 4.7+ debug parking):
-    #   SMRTG, CWENE, KCAER, KONTR, ENJSA, KONKA
+    # Faz 4.6 — BIST 100 expansion (KAP/şirket sayfası tahmini, 20 ticker)
+    # Faz 4.7 — graceful IPO-aware fetch eklendi, 5 high-growth recover:
+    "SMRTG": 1_213_750_000,    # Smart Güneş (~1.21B)
+    "CWENE": 145_000_000,      # CW Enerji (~145M)
+    "KCAER": 290_000_000,      # Kocaer Çelik (~290M)
+    "KONTR": 540_000_000,      # Kontrolmatik (~540M)
+    "ENJSA": 1_181_250_000,    # Enerjisa Enerji (~1.18B)
+
     "INFO":  110_000_000,      # İnfo Yatırım (~110M, fintech)
 
     # Mid-cap Industrial

@@ -326,7 +326,8 @@ async def fetch_yearly_extended(
     # Chunk years into 4-yıl groups
     chunks = [years[i:i+chunk_size] for i in range(0, len(years), chunk_size)]
 
-    # Paralel fetch (shared client)
+    # Paralel fetch (shared client) — Faz 4.7 graceful: IPO öncesi
+    # chunk'lar fail eder, 4-yıl minimum bulundukça devam.
     async with httpx.AsyncClient(
         follow_redirects=True,
         headers=DEFAULT_HEADERS,
@@ -340,7 +341,18 @@ async def fetch_yearly_extended(
             )
             for chunk in chunks
         ]
-        results = await asyncio.gather(*tasks)
+        raw_results = await asyncio.gather(*tasks, return_exceptions=True)
+
+    # Graceful chunk filter — IPO öncesi fail'leri at, mevcut chunk'larla devam
+    results = [r for r in raw_results if not isinstance(r, Exception)]
+    if not results:
+        raise ValueError(f"No items in response for {ticker}")
+    if len(results) < len(raw_results):
+        n_failed = len(raw_results) - len(results)
+        logger.info(
+            f"{ticker}: {n_failed}/{len(raw_results)} chunk(s) failed "
+            f"(likely pre-IPO years), continuing with {len(results)} chunk(s)"
+        )
 
     # Merge: en yeni yıl önce gelir
     # Her FinancialStatements'in items aynı sırada (147 kalem)

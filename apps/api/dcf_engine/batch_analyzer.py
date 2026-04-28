@@ -125,12 +125,17 @@ BIST_50_ADDITIONS = [
 BIST_50 = BIST_30 + BIST_50_ADDITIONS
 
 
-# Faz 4.6 — BIST 100 universe expansion (+15 quality-focused mid-cap)
-# isyatirim XBRL CONFIRMED + orchestrator pipeline tested.
-# Drop'lanan (orchestrator XBRL items missing): SMRTG, CWENE, KCAER, KONTR,
-# EUREN, ECILC, ENJSA, KONKA, MAVI (Faz 4.5'ten devam) — Faz 4.7+ debug parking
+# Faz 4.6 — BIST 100 universe expansion (+20 ticker)
+# Faz 4.7 — graceful IPO-aware fetch: SMRTG/CWENE/KCAER/KONTR/ENJSA recovered
 BIST_100_ADDITIONS = [
-    # Tech/Fintech (Hızlı Büyüme aday)
+    # High Growth ★ (Hızlı Büyüme adayları, Faz 4.7 IPO graceful fix)
+    "SMRTG",  # Smart Güneş Solar (post-2018 IPO, 8-yıl XBRL)
+    "CWENE",  # CW Enerji Solar (post-2020 IPO)
+    "KCAER",  # Kocaer Çelik (specialty)
+    "KONTR",  # Kontrolmatik (tech)
+    "ENJSA",  # Enerjisa Enerji (utility growth)
+
+    # Tech/Fintech
     "INFO",   # İnfo Yatırım
 
     # Mid-cap Industrial
@@ -151,9 +156,9 @@ BIST_100_ADDITIONS = [
     "INDES",  # İndeks Bilgisayar
 
     # Cyclical/Other
-    "EUREN",  # Eurometal (test'te fail ama probe OK, retry)
-    "ECILC",  # Eczacıbaşı İlaç (probe OK, retry — coverage gap)
-    "TUKAS",  # Tukaş Gıda (probe OK)
+    "EUREN",  # Eurometal
+    "ECILC",  # Eczacıbaşı İlaç
+    "TUKAS",  # Tukaş Gıda
 ]
 
 
