@@ -56,15 +56,19 @@ BIST_SUFFIX = ".IS"
 
 def to_yahoo_symbol(ticker_or_symbol: str) -> str:
     """
-    BIST ticker → Yahoo symbol; index/ETF passthrough.
+    BIST ticker → Yahoo symbol; index/ETF/FX passthrough.
 
-    TUPRS  → TUPRS.IS
-    XU100  → XU100.IS
-    SPY    → SPY (no suffix)
-    %5EVIX → %5EVIX (URL-encoded ^VIX, passthrough)
+    TUPRS    → TUPRS.IS
+    XU100    → XU100.IS
+    SPY      → SPY (no suffix)
+    %5EVIX   → %5EVIX (URL-encoded ^VIX, passthrough)
+    USDTRY=X → USDTRY=X (FX pair, passthrough)
     """
     s = ticker_or_symbol.upper().strip()
     if s.endswith(BIST_SUFFIX):
+        return s
+    if s.endswith("=X"):
+        # FX pair: USDTRY=X, EURTRY=X, etc.
         return s
     if s in ("SPY", "QQQ", "DIA"):
         return s
