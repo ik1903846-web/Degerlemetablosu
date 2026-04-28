@@ -89,6 +89,42 @@ BIST_30_BANKING = [
 BIST_30 = BIST_30_INDUSTRIAL + BIST_30_BANKING
 
 
+# Faz 4.5 — BIST 50 universe expansion (+19 ticker, isyatirim XBRL CONFIRMED)
+# Hedef: Hızlı Büyüme sleeve dolma + Core capacity 6 → 12+ + XU100 USD gap
+BIST_50_ADDITIONS = [
+    # Telecom & Consumer (mature stable)
+    "TCELL",   # Turkcell — mobile/data
+    "TTKOM",   # Türk Telekom — fixed/mobile
+    "AEFES",   # Anadolu Efes — beverage
+    "ULKER",   # Ülker — food
+    "AKSA",    # Aksa Akrilik — acrylic fiber
+    "HEKTS",   # Hektaş — chemical/agro
+    "NETAS",   # Netaş — tech mature
+
+    # Mid-cap growth & infra
+    "TAVHL",   # TAV Havalimanları — aviation infra (mature growth)
+    "AKSGY",   # Akiş GYO — REIT
+    "AKSEN",   # Aksa Enerji — power
+    "BIZIM",   # Bizim Toptan — wholesale
+
+    # High Growth ★ Hızlı Büyüme adayları
+    "MAVI",    # Mavi — apparel retail
+    "LOGO",    # Logo Yazılım — SaaS (★ HIZLI_BUYUME aday)
+    "ASUZU",   # Anadolu Isuzu — commercial vehicle (export growth)
+
+    # Cyclical/Industrial
+    "TKFEN",   # Tekfen — construction/petrokimya
+    "VESTL",   # Vestel — electronics (cyclical)
+    "OYAKC",   # OYAK Çimento — cement
+    "KARSN",   # Karsan — commercial vehicle
+    "DOHOL",   # Doğan Holding (modern non-banking, industrial pipeline)
+]
+
+
+# Faz 4.5 — full BIST 50 universe (43 ticker)
+BIST_50 = BIST_30 + BIST_50_ADDITIONS
+
+
 # ============================================================================
 # Batch Result
 # ============================================================================

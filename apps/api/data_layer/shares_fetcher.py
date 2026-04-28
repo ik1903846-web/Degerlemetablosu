@@ -76,6 +76,27 @@ STATIC_SHARES_OUTSTANDING: Dict[str, int] = {
     "PETKM": 2_613_000_000,    # Petkim (~2.6B)
     "CCOLA": 254_370_782,      # Coca-Cola İçecek
 
+    # Faz 4.5 — BIST 50 expansion (resmi şirket sayfası + KAP cross-check)
+    "TCELL": 2_200_000_000,    # Turkcell (~2.2B)
+    "TTKOM": 3_500_000_000,    # Türk Telekom (~3.5B)
+    "AEFES": 592_105_263,      # Anadolu Efes (~592M)
+    "ULKER": 384_000_000,      # Ülker Bisküvi (~384M)
+    "AKSA": 185_000_000,       # Aksa Akrilik (~185M)
+    "HEKTS": 1_440_000_000,    # Hektaş (~1.44B)
+    "NETAS": 65_000_000,       # Netaş (~65M, küçük cap)
+    "TAVHL": 363_281_250,      # TAV Havalimanları (~363M)
+    "AKSGY": 1_200_000_000,    # Akiş GYO (~1.2B)
+    "AKSEN": 1_226_750_000,    # Aksa Enerji (~1.23B)
+    "BIZIM": 60_000_000,       # Bizim Toptan (~60M, küçük cap)
+    "MAVI": 198_750_000,       # Mavi (~199M)
+    "LOGO": 25_000_000,        # Logo Yazılım (~25M, küçük cap)
+    "ASUZU": 30_000_000,       # Anadolu Isuzu (~30M, küçük cap)
+    "TKFEN": 370_000_000,      # Tekfen (~370M)
+    "VESTL": 374_500_000,      # Vestel (~374M)
+    "OYAKC": 460_000_000,      # OYAK Çimento (~460M)
+    "KARSN": 720_000_000,      # Karsan (~720M)
+    "DOHOL": 2_616_938_288,    # Doğan Holding (~2.62B)
+
     # NOT: Bu liste cross-check edildi ama %100 doğru olmayabilir.
     # BIST 30 batch testinde her ticker market cap doğrulaması yapılmalı.
     # TUPRS Adım 3.5 sonrası canonical (resmi 1.93B kayıt altında).

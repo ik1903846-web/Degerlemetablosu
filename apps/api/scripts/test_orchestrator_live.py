@@ -18,6 +18,8 @@ from dcf_engine.batch_analyzer import (
     BIST_30,
     BIST_30_BANKING,
     BIST_30_INDUSTRIAL,
+    BIST_50,
+    BIST_50_ADDITIONS,
     analyze_batch,
     rank_by_upside,
     write_csv,
@@ -52,25 +54,25 @@ async def main():
         print(f"  ⚠ Market price beklenen değil")
 
     # ========================================================================
-    # TEST 2: BIST batch live (no manual prices) — Faz 6.5 3-phase flow
+    # TEST 2: BIST 50 batch live — Faz 4.5 universe expansion
     # ========================================================================
-    print(f"\n[TEST 2] BIST {len(BIST_30)} ticker — auto-fetch all prices")
-    print(f"  Industrial: {len(BIST_30_INDUSTRIAL)} (holdings dahil)")
-    print(f"  Banking:    {len(BIST_30_BANKING)} (DDM, Faz 6.5 phase entegrasyonu)")
+    print(f"\n[TEST 2] BIST {len(BIST_50)} ticker — auto-fetch all prices")
+    print(f"  BIST 30 base:    {len(BIST_30)} (industrial+banking+holdings)")
+    print(f"  BIST 50 additions: {len(BIST_50_ADDITIONS)} (Faz 4.5 universe expansion)")
     print("-"*80)
 
     start = time.time()
 
     # market_prices=None → orchestrator her ticker için auto-fetch
     reports = await analyze_batch(
-        tickers=BIST_30,
+        tickers=BIST_50,
         market_prices=None,  # ← KRİTİK: auto-fetch trigger
         max_concurrent=5,
     )
 
     duration = time.time() - start
 
-    print(f"  Duration: {duration:.1f}s ({len(BIST_30)} ticker)")
+    print(f"  Duration: {duration:.1f}s ({len(BIST_50)} ticker)")
 
     summary = summarize_batch(reports, duration)
     print(f"  Successful: {summary.successful}")
