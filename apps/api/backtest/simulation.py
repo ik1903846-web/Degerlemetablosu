@@ -130,6 +130,8 @@ def run_backtest(
     prices: Dict[str, Dict[date, float]],
     quarter_ends: List[date],
     cost_model: str = "zero",
+    regime_overlay: Optional[Dict[str, Dict[str, float]]] = None,
+    regime_calendar: Optional[List] = None,
 ) -> BacktestResult:
     """
     Tek profile + cost model için 20-quarter simulation.
@@ -139,11 +141,13 @@ def run_backtest(
         prices: ticker → {date: close}
         quarter_ends: 21 quarter-end (start + 20 quarter)
         cost_model: "zero" | "realistic"
+        regime_overlay: Faz 4.8 — {regime_name: {sleeve_multiplier, cash_min, cash_max}}
+        regime_calendar: List[RegimeTag] (per quarter regime tag)
     """
     if cost_model not in ("zero", "realistic"):
         raise ValueError(f"cost_model: {cost_model}")
 
-    target_w = dict(snapshot.position_weights)
+    base_target_w = dict(snapshot.position_weights)
     cash_w = snapshot.cash_weight
     quarter_results: List[QuarterResult] = []
     quarterly_returns: List[float] = []
@@ -152,10 +156,26 @@ def run_backtest(
     total_trading_cost = 0.0
     total_tax_drag = 0.0
 
+    # Tactical overlay per-quarter regime map
+    regime_for_qe: Dict[date, str] = {}
+    if regime_calendar:
+        for rt in regime_calendar:
+            regime_for_qe[rt.quarter_end] = rt.regime.value
+
     # Quarter loop: q_start → q_end pairs
     for i in range(len(quarter_ends) - 1):
         q_start = quarter_ends[i]
         q_end = quarter_ends[i + 1]
+
+        # Regime-adjusted target weights (Faz 4.8 tactical overlay)
+        if regime_overlay and regime_calendar:
+            regime = regime_for_qe.get(q_start, "normal")
+            mult = regime_overlay.get(regime, regime_overlay.get("normal", {})).get(
+                "sleeve_multiplier", 1.0
+            )
+            target_w = {t: w * mult for t, w in base_target_w.items()}
+        else:
+            target_w = base_target_w
 
         ticker_returns = _compute_ticker_returns(prices, q_start, q_end)
         skipped = [t for t in target_w if t not in ticker_returns]

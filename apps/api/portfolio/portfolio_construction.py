@@ -3,21 +3,25 @@ Portfolio Construction — Position Sizing + Risk Profile Allocation.
 
 Faz 3 ADIM 4 — Sleeve assignments → PortfolioPlan.
 Faz 4.2 — Cash policy refinement (Damodaran Lesson #8).
+Faz 4.8 — Tactical regime overlay (Damodaran Lesson #11, ADR-042).
 
 Damodaran ADR-015 (Position Sizing):
   1. Risk profile allocation (Konservatif 80/15/5, Dengeli 60/25/15, Agresif 40/35/25)
   2. Boş sleeve → AKTIF SLEEVE'lere overflow redistribution (Faz 4.2 yenilik)
-     Mevcut universe'de Hızlı Büyüme boş → Core+Yüksek Kazanç'a kaydır
-     (eski: cash'e atılırdı, %30+ underinvested oluşurdu)
-  3. Composite-weighted distribution within sleeve:
-     weight_i = (composite_i / sum(composite_in_sleeve)) × sleeve_allocation
+  3. Composite-weighted distribution within sleeve
   4. Concentration caps:
-     - Max %12 single ticker (Faz 4.2: %10 → %12, hafif esneklik)
-     - Min %2 single ticker (significant position only)
+     - Max %12 single ticker (Faz 4.2)
+     - Min %2 single ticker
   5. Cash reserve (Faz 4.2 strict):
      - Min %2 (full investment principle)
-     - Max %15 (eski %30 → %15, Damodaran Lesson #8 cash drag minimize)
-     - Cap overflow + capacity overflow → cash (rare)
+     - Max %15 (Damodaran Lesson #8 cash drag minimize)
+
+Damodaran ADR-042 (Tactical Regime Overlay — Faz 4.8):
+  Regime detection (VIX + ERP) → cash escalation:
+    Normal:      sleeve_multiplier 1.00, cash 2-15%
+    Moderate:    sleeve_multiplier 0.95, cash 5-15%
+    Significant: sleeve_multiplier 0.85, cash 10-20%
+    Panic:       sleeve_multiplier 0.75, cash 15-25% (drawdown protection)
 """
 
 from dataclasses import dataclass, field
@@ -38,6 +42,39 @@ MAX_SINGLE_TICKER_PCT = 12.0   # Faz 4.2: 10 → 12 (BIST 30 universe darlığı
 MIN_SINGLE_TICKER_PCT = 2.0
 MIN_CASH_PCT = 2.0
 MAX_CASH_PCT = 15.0            # Faz 4.2: 30 → 15 (cash drag minimize)
+
+
+# ============================================================================
+# REGIME_OVERLAY — Tactical Cash Escalation (Faz 4.8 ADR-042)
+# ============================================================================
+
+REGIME_OVERLAY: Dict[str, Dict[str, float]] = {
+    "normal": {
+        "sleeve_multiplier": 1.00,
+        "cash_min_pct": 2.0,
+        "cash_max_pct": 15.0,
+    },
+    "moderate_stress": {
+        "sleeve_multiplier": 0.95,
+        "cash_min_pct": 5.0,
+        "cash_max_pct": 15.0,
+    },
+    "significant_stress": {
+        "sleeve_multiplier": 0.85,
+        "cash_min_pct": 10.0,
+        "cash_max_pct": 20.0,
+    },
+    "panic": {
+        "sleeve_multiplier": 0.75,
+        "cash_min_pct": 15.0,
+        "cash_max_pct": 25.0,
+    },
+}
+
+
+def get_regime_overlay(regime: str = "normal") -> Dict[str, float]:
+    """Regime adı → overlay parametreleri (default: normal)."""
+    return REGIME_OVERLAY.get(regime.lower(), REGIME_OVERLAY["normal"])
 
 
 # ============================================================================
@@ -89,21 +126,26 @@ def build_portfolio(
     assignments: List[SleeveAssignment],
     risk_profile: str = "dengeli",
     total_capital_tl: float = 1_000_000.0,
+    regime: str = "normal",
 ) -> PortfolioPlan:
     """
-    Damodaran portfolio construction (ADR-015).
+    Damodaran portfolio construction (ADR-015) + tactical regime overlay (ADR-042).
 
     Args:
         assignments: SleeveAssignment listesi (sleeve_assignment.assign_batch output)
         risk_profile: "konservatif" | "dengeli" | "agresif"
         total_capital_tl: Toplam yatırım sermayesi TL
+        regime: "normal" | "moderate_stress" | "significant_stress" | "panic"
+                (Faz 4.8 — sleeve_multiplier + cash floor adjustment)
 
     Returns:
         PortfolioPlan with positions, cash reserve, warnings.
     """
-    # 1. Risk profile allocations
+    # 1. Risk profile allocations + regime overlay (Faz 4.8)
     target_alloc = get_risk_profile_allocations(risk_profile)
-    target_alloc_pct = {k: v * 100.0 for k, v in target_alloc.items()}
+    overlay = get_regime_overlay(regime)
+    sleeve_mult = overlay["sleeve_multiplier"]
+    target_alloc_pct = {k: v * 100.0 * sleeve_mult for k, v in target_alloc.items()}
 
     # 2. SKIP'leri filtrele
     investable = [a for a in assignments if a.sleeve != Sleeve.SKIP]
@@ -219,18 +261,21 @@ def build_portfolio(
                 )
             )
 
-    # 6. Cash reserve calculation
+    # 6. Cash reserve calculation (Faz 4.8 regime-aware)
     invested_pct = sum(p.weight_pct for p in positions)
     cash_reserve_pct = max(0.0, 100.0 - invested_pct)
 
-    if cash_reserve_pct < MIN_CASH_PCT:
+    regime_cash_min = overlay["cash_min_pct"]
+    regime_cash_max = overlay["cash_max_pct"]
+    if cash_reserve_pct < regime_cash_min:
         warnings.append(
-            f"Cash reserve {cash_reserve_pct:.1f}% < min {MIN_CASH_PCT}% (over-allocation)"
+            f"Cash reserve {cash_reserve_pct:.1f}% < regime '{regime}' min "
+            f"{regime_cash_min:.1f}% (over-allocation)"
         )
-    if cash_reserve_pct > MAX_CASH_PCT:
+    if cash_reserve_pct > regime_cash_max:
         warnings.append(
-            f"Cash reserve {cash_reserve_pct:.1f}% > max {MAX_CASH_PCT}% "
-            f"(under-investment, boş sleeve veya cap overflow)"
+            f"Cash reserve {cash_reserve_pct:.1f}% > regime '{regime}' max "
+            f"{regime_cash_max:.1f}% (under-investment)"
         )
 
     cash_reserve_tl = (cash_reserve_pct / 100.0) * total_capital_tl
