@@ -1,8 +1,8 @@
 # REELDEĞER — Kaldığım Yer
 
-**Son güncelleme:** 28 Nisan 2026, ~01:30 (gece)
-**Aktif Faz:** Faz 6 Banking Equity-Only TAMAMLANDI ✓ (Damodaran Lesson #5)
-**Sıradaki:** Faz 6.5 banking ticker tam coverage + batch banking phase, sonra Faz 4 Backtest engine
+**Son güncelleme:** 28 Nisan 2026, ~09:15 (sabah)
+**Aktif Faz:** Faz 4.2 Cash Policy Refinement TAMAMLANDI ✓ (Damodaran Lesson #8)
+**Sıradaki:** Faz 4.5 BIST 50/100 universe expansion (XU100 USD gap kapatma) veya Faz 4.7 historical Pentagon recompute
 
 ---
 
@@ -803,3 +803,131 @@ d) KAP PDF parser otomasyon (2021-2023 CONFIRMED)
 e) Faz 7+ Holdings-specific Pentagon scoring
 f) Faz 8 Momentum dimension (Yahoo Finance)
 g) Faz 4 Backtest engine (2020-present)
+
+---
+
+# Faz 4 / 4.1 / 4.2 Backtest Engine Chain (KAPANIŞ — 28 Nis 2026 sabah)
+
+## Status: Faz 4.2 TAMAMLANDI ✓ (Damodaran Lesson #8)
+
+Atomic commit chain (Faz 4 + 4.1 + 4.2 = 5 commit, total 80 → ~84):
+- ee6207a — Faz 4   Backtest Engine Foundation (8 module + production run)
+- 87839a9 — Faz 4.1 USD-basis re-report (Damodaran ADR-002)
+- (this+1) — Faz 4.2 ADIM 2 Sleeve threshold + cash policy revize
+- (this+2) — Faz 4.2 ADIM 3 Portfolio re-run yeni cash policy
+- (this+3) — Faz 4.2 ADIM 4 USD backtest verify (cash drag fix)
+- (this+4) — Faz 4.2 KAPANIŞ docs (Damodaran Lesson #8)
+
+## Damodaran Lesson #7 (Faz 4)
+
+"MVP backtest with documented look-ahead bias is acceptable IF
+ (a) bias direction is conservative, (b) methodology evolution tracked,
+ (c) primary insight hardware-independent."
+
+## Damodaran Lesson #8 (Faz 4.2 — REELDEĞER finding) ★
+
+"Cash policy must be strict (max %15) to capture USD alpha.
+ Sleeve threshold flexibility (composite > 48 vs > 50) maintains
+ value discipline. Lesson #3 prensibi (cash > overpay) korunur AMA
+ cash band tightening + empty sleeve redistribution ile cash drag
+ minimize edilir."
+
+## Faz 4.2 Trigger: Faz 4.1 USD-Basis Bulgusu
+
+REELDEĞER 4.75 yıl USD basis essentially flat (Dengeli +0.06%/yr).
+Tüm benchmark'lara underperform (XU100 -13pp, XU030 -14pp, SPY -8pp/yr).
+Ana neden: Cash %27-35 (Hızlı Büyüme boş + Konservatif Core capacity).
+
+## Faz 4.2 Çözüm
+
+### Sleeve Thresholds (sleeve_assignment.py):
+- Skip floor: comp<35 → <32, V<20 → <15, ups<-30 → <-35
+- Core industrial: ups>30/Q>60/comp>50 → ups>20/Q>55/comp>48
+- Core banking: excess≥4pp/ups>0/comp>55/V>30 → excess≥3pp/ups>-5/comp>50/V>25
+- Yüksek deep_value: ups>100/comp>55 → ups>80/comp>50
+- Banking premium: ROE>20/ups>50 → ROE>18/ups>30
+
+### Cash Policy (portfolio_construction.py):
+- MAX_SINGLE_TICKER_PCT 10 → 12 (BIST 30 universe darlığı esneklik)
+- MAX_CASH_PCT 30 → 15 (Damodaran Lesson #8)
+- Empty sleeve REDISTRIBUTION (yeni): boş target → aktif sleeve'lere
+  capacity-pro-rata kaydır (eski: cash'e döker)
+- MIN_CASH_PCT 2.0 buffer korunur
+
+## Sleeve Breakdown (24 ticker, değişmedi)
+
+- Core: 6 (GARAN, AKBNK, YKBNK, ARCLK, EREGL, ISCTR)
+- Hızlı Büyüme: 0 (BIST 30 mature, Faz 4.5 expansion)
+- Yüksek Kazanç: 5 (CCOLA, FROTO, HALKB, SAHOL, TRALT)
+- Skip: 11 (TUPRS, MGROS, TOASO, KCHOL, ENKAI, KRDMD, ASELS, THYAO, PGSUS, TRMET, PETKM)
+
+★ Threshold gevşetme yeni ticker eklemedi — SKIP'tekilerin hepsi
+  upside <-30% (overvalued) veya negative DCF (THYAO/PGSUS/PETKM
+  Black-Scholes Faz 7+ parking). Beklenen — value discipline korundu.
+
+## Cash Policy Etki (Eski → Yeni)
+
+| Profile     | Eski Cash | Yeni Cash | Δ          |
+|-------------|----------:|----------:|-----------:|
+| Konservatif | %70.0     | %10.4     | -59.6pp ★  |
+| Dengeli     | %27.4     | %2.7      | -24.7pp    |
+| Agresif     | %35.0     | %2.0      | -33.0pp    |
+
+## TL-Basis Backtest (eski → yeni, 4.75 yıl)
+
+| Profile         | Eski TL Ann | Yeni TL Ann | Δ        |
+|-----------------|------------:|------------:|---------:|
+| Konservatif zero| +40.59%/yr  | +51.75%/yr  | +11.2pp  |
+| Konservatif real| +39.91%/yr  | +51.03%/yr  | +11.1pp  |
+| Dengeli zero    | +41.65%/yr  | +54.50%/yr  | +12.9pp  |
+| Dengeli real    | +40.96%/yr  | +53.76%/yr  | +12.8pp  |
+| Agresif zero    | +35.27%/yr  | +53.29%/yr  | +18.0pp ★|
+| Agresif real    | +34.61%/yr  | +52.55%/yr  | +17.9pp ★|
+
+**Trade-off:** Max DD elevation -3-6pp (cash buffer azaldı), Sharpe iyileşti
+(+0.05-0.08), risk-adjusted alpha kalıcı.
+
+## USD-Basis Backtest ★ HİPOTEZ DOĞRULANDI (Damodaran Lesson #8)
+
+| Profile         | Eski USD Ann | Yeni USD Ann | Δ              |
+|-----------------|-------------:|-------------:|---------------:|
+| Konservatif zero|  -0.21%/yr   | +7.72%/yr    | +7.93pp ★      |
+| Konservatif real|  -0.69%/yr   | +7.20%/yr    | +7.89pp ★      |
+| Dengeli zero    |  +0.54%/yr   | +9.67%/yr    | +9.13pp ★      |
+| Dengeli real    |  +0.06%/yr   | +9.14%/yr    | +9.08pp ★      |
+| Agresif zero    |  -3.98%/yr   | +8.81%/yr    | +12.79pp ★★    |
+| Agresif real    |  -4.45%/yr   | +8.29%/yr    | +12.74pp ★★    |
+
+Hipotez "+%5-7/yr" beklenenten yüksek (+%7-13/yr) — cash policy fix
+beklentiyi aştı.
+
+## REELDEĞER vs Benchmark USD-Basis (Dengeli realistic)
+
+| Comparison      | Eski Δ          | Yeni Δ          | Update                    |
+|-----------------|----------------:|----------------:|---------------------------|
+| vs XU100 USD    | -13.48 pp/yr    | -4.40 pp/yr     | UNDERPERFORM (gap %67 ↓)  |
+| vs XU030 USD    | -14.68 pp/yr    | -5.60 pp/yr     | UNDERPERFORM (gap %62 ↓)  |
+| vs SPY USD      |  -8.49 pp/yr    | **+0.59 pp/yr** | **OUTPERFORM ★ INVERTED**|
+
+SPY beat geri kazanıldı (Faz 4.1'de cash drag tersine çevirmişti).
+XU100/XU030 kalan gap %5-6/yr (BIST 30 universe darlığı, Faz 4.5 expansion).
+
+## 8 Damodaran Lesson Timeline (Cumulative)
+
+#1 Holdings SOTP (Faz 2.5)
+#2 Cyclical asymmetric cap (Faz 2.6)
+#3 Cash > overpay (Faz 3) — REVISITED Faz 4.2 max %15 cap
+#4 Adaptive cap by lifecycle (Faz 2.7)
+#5 Banking DDM > P/B fallback (Faz 6)
+#6 Banking-specific Pentagon (Faz 6.5 e)
+#7 MVP backtest documented bias (Faz 4)
+#8 Cash band strict %15 + empty sleeve redistribute (Faz 4.2) ★
+
+## Faz 4.5+ Adaylar
+
+- BIST 50/100 universe expansion (XU100 gap %5-6 kapatma)
+- Tactical regime overlay (VIX > 30 cash escalation, DD azaltma)
+- Faz 4.7 Option A historical Pentagon recompute (look-ahead bias removal)
+- Distress model THYAO/PGSUS/PETKM Black-Scholes
+- Multi-currency real return (USD - US CPI)
+- Holdings-specific Pentagon scoring
