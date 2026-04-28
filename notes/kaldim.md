@@ -1,9 +1,10 @@
 # REELDEĞER — Kaldığım Yer
 
-**Son güncelleme:** 28 Nisan 2026, ~14:40 (öğle)
-**Aktif Faz:** Faz 4.13 ROLLBACK ✓ — Faz 4.7 v2 baseline restore (Damodaran Lesson #13 dökümante)
-**Konservatif XU100 BEAT geri kazanıldı:** +0.59pp zero, +0.03pp real ★
-**Sıradaki:** Faz 4.14 sleeve target reduction veya Faz 5 Frontend integration
+**Son güncelleme:** 28 Nisan 2026, ~15:10 (öğle)
+**Aktif Faz:** Faz 4.14 Allocation Lever TAMAMLANDI ★★★ (Damodaran Lesson #14 — Allocation > Filter)
+**Konservatif XU100 BEAT genişledi:** +1.33pp zero, +0.77pp real
+**Dengeli SPY BEAT GERİ KAZANILDI:** +0.42pp (Faz 4.6'dan beri kayıptı)
+**Sıradaki:** Faz 4.15 Agresif daha agresif allocation veya Faz 5 Frontend
 
 ---
 
