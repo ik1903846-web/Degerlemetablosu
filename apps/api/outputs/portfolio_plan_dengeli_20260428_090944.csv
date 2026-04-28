@@ -1,0 +1,14 @@
+# Portfolio Plan,dengeli,capital_tl=1000000
+ticker,sleeve,sub_category,weight_pct,composite,capital_allocation_tl
+GARAN,core,banking_intrinsic,12.00,82.74,120000
+AKBNK,core,banking_intrinsic,11.42,74.50,114241
+YKBNK,core,banking_intrinsic,10.89,71.04,108933
+ARCLK,core,,10.65,69.48,106534
+EREGL,core,,9.76,63.63,97561
+ISCTR,core,banking_intrinsic,9.43,61.48,94276
+CCOLA,yuksek_kazanc,deep_value,7.41,77.69,74064
+FROTO,yuksek_kazanc,deep_value,7.17,75.21,71700
+HALKB,yuksek_kazanc,deep_value,7.01,73.50,70071
+SAHOL,yuksek_kazanc,holding_chronic_discount,5.92,62.06,59167
+TRALT,yuksek_kazanc,deep_value,5.66,59.34,56576
+CASH,cash,reserve,2.69,,26876
