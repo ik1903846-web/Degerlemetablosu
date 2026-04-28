@@ -1,8 +1,8 @@
 # REELDEĞER — Kaldığım Yer
 
-**Son güncelleme:** 28 Nisan 2026, ~12:30 (öğle)
-**Aktif Faz:** Faz 4.7 Adaptive Cap Refinement TAMAMLANDI ✓ (Damodaran Lesson #10 — hipotez falsification)
-**Sıradaki:** Faz 4.8 AEFES/AKSA real root cause (distress signal) veya Faz 4.6 BIST 100
+**Son güncelleme:** 28 Nisan 2026, ~13:00 (öğle)
+**Aktif Faz:** Faz 4.8 Tactical Regime Overlay TAMAMLANDI ✓ (Damodaran Lesson #11 — tactical NOT EFFECTIVE)
+**Sıradaki:** Faz 4.9 Sector rotation/momentum alternative veya Faz 4.6 BIST 100
 
 ---
 
