@@ -1,0 +1,2169 @@
+{
+  "timestamp": "2026-04-28T09:35:23.063153",
+  "reports": [
+    {
+      "ticker": "TUPRS",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 16,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_stable",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.85,
+        "revenue_cagr_usd": 0.04208382656538312,
+        "avg_operating_margin": 0.04504721192868792,
+        "margin_stdev": 0.03381211845836794,
+        "margin_spread": 0.1152628339759363,
+        "avg_reinvestment_rate": 0.8697632436380238,
+        "earnings_consistency": 0.9166666666666666,
+        "reasoning": [
+          "Mature Stable: CAGR 4.2% < 10%, margin 4.5% > 2%, consistency 92%",
+          "Cyclical: margin spread 11.53pp > 5pp",
+          "Capital-Intensive: reinvestment 87.0% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": 10192547327.362461,
+        "equity_value_tl": 360510398968.81024,
+        "value_per_share_usd": 5.289895481358921,
+        "value_per_share_tl": 187.10360317566503,
+        "wacc": 0.1280945259176106,
+        "normalized_op_margin": 0.04504721192868792
+      },
+      "shares_outstanding": 1926795598,
+      "market": {
+        "price_tl": 274.0,
+        "upside_pct": -31.714013439538313,
+        "verdict": "SAT"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "16-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_stable + ['cyclical', 'capital_intensive']",
+        "Bottom-up beta: sector=oil_gas_integrated, \u03b2_unlev=0.7043, D/E=0.0663, \u03b2_lev=0.7393",
+        "Synthetic rating: BB+ (Sovereign+Sector), spread=4.00%, pretax_Kd=7.97%, AT_Kd=5.98%",
+        "WACC=12.81% (CoE=13.26%, AT_Kd=5.98%, debt_w=0.0622)",
+        "Revenue cap ACTIVE: latest $30.33B > avg $20.06B \u00d7 1.5 (latest/avg 1.51x \u2192 capped at avg\u00d71.5) [adaptive: lifecycle=MATURE_STABLE, bias=+0.9% \u2192 cap_ratio=1.5]"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "PETKM",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 16,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_stable",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.85,
+        "revenue_cagr_usd": 0.03755309558380859,
+        "avg_operating_margin": 0.056866916982645226,
+        "margin_stdev": 0.10348673165928315,
+        "margin_spread": 0.35994283124693327,
+        "avg_reinvestment_rate": 1.7095347903901892,
+        "earnings_consistency": 0.75,
+        "reasoning": [
+          "Mature Stable: CAGR 3.8% < 10%, margin 5.7% > 2%, consistency 75%",
+          "Cyclical: margin spread 35.99pp > 5pp",
+          "Capital-Intensive: reinvestment 171.0% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": -277498659.86988497,
+        "equity_value_tl": -9815127599.59783,
+        "value_per_share_usd": -0.10619925750856676,
+        "value_per_share_tl": -3.756267738078006,
+        "wacc": 0.12088427496046143,
+        "normalized_op_margin": 0.056866916982645226
+      },
+      "shares_outstanding": 2613000000,
+      "market": {
+        "price_tl": 23.74,
+        "upside_pct": -115.82252627665545,
+        "verdict": "SAT"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "16-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_stable + ['cyclical', 'capital_intensive']",
+        "Bottom-up beta: sector=chemical_basic, \u03b2_unlev=0.9690, D/E=0.7608, \u03b2_lev=1.5220",
+        "Synthetic rating: BB+ (Sovereign+Sector), spread=4.00%, pretax_Kd=7.97%, AT_Kd=5.98%",
+        "WACC=12.09% (CoE=16.74%, AT_Kd=5.98%, debt_w=0.4321)",
+        "Revenue cap INACTIVE: latest $2.92B \u2264 avg $2.31B \u00d7 1.5 (latest/avg 1.27x \u2014 Toyota 2009 pattern korunur) [adaptive: lifecycle=MATURE_STABLE, bias=-80.1% \u2192 cap_ratio=1.5]"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "EREGL",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 16,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_stable",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.85,
+        "revenue_cagr_usd": 0.04549849125766903,
+        "avg_operating_margin": 0.17619319751551957,
+        "margin_stdev": 0.08718507514305542,
+        "margin_spread": 0.36983764482248915,
+        "avg_reinvestment_rate": 4.325359146670897,
+        "earnings_consistency": 1.0,
+        "reasoning": [
+          "Mature Stable: CAGR 4.5% < 10%, margin 17.6% > 2%, consistency 100%",
+          "Cyclical: margin spread 36.98pp > 5pp",
+          "Capital-Intensive: reinvestment 432.5% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": 5792777700.984244,
+        "equity_value_tl": 204890547283.8127,
+        "value_per_share_usd": 1.6550793431383555,
+        "value_per_share_tl": 58.54015636680363,
+        "wacc": 0.12061180416427796,
+        "normalized_op_margin": 0.17619319751551957
+      },
+      "shares_outstanding": 3500000000,
+      "market": {
+        "price_tl": 33.6,
+        "upside_pct": 74.22665585358223,
+        "verdict": "AL"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "16-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_stable + ['cyclical', 'capital_intensive']",
+        "Bottom-up beta: sector=steel, \u03b2_unlev=0.8371, D/E=0.4962, \u03b2_lev=1.1487",
+        "Synthetic rating: BB+ (Sovereign+Sector), spread=4.00%, pretax_Kd=7.97%, AT_Kd=5.98%",
+        "WACC=12.06% (CoE=15.08%, AT_Kd=5.98%, debt_w=0.3316)",
+        "Revenue cap INACTIVE: latest $7.30B \u2264 avg $4.89B \u00d7 1.5 (latest/avg 1.49x \u2014 Toyota 2009 pattern korunur) [adaptive: lifecycle=MATURE_STABLE, bias=+14.3% \u2192 cap_ratio=1.5]"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "KRDMD",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 16,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_stable",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.85,
+        "revenue_cagr_usd": 0.08598567700049564,
+        "avg_operating_margin": 0.08975669145331759,
+        "margin_stdev": 0.11324957308884545,
+        "margin_spread": 0.4143630174077101,
+        "avg_reinvestment_rate": 2.8817789218491527,
+        "earnings_consistency": 0.75,
+        "reasoning": [
+          "Mature Stable: CAGR 8.6% < 10%, margin 9.0% > 2%, consistency 75%",
+          "Cyclical: margin spread 41.44pp > 5pp",
+          "Capital-Intensive: reinvestment 288.2% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": 673710350.4787205,
+        "equity_value_tl": 23829135096.432343,
+        "value_per_share_usd": 0.7091687899776006,
+        "value_per_share_tl": 25.08330010150773,
+        "wacc": 0.13287061717535034,
+        "normalized_op_margin": 0.08975669145331758
+      },
+      "shares_outstanding": 950000000,
+      "market": {
+        "price_tl": 36.9,
+        "upside_pct": -32.023576960683656,
+        "verdict": "SAT"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "16-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_stable + ['cyclical', 'capital_intensive']",
+        "Bottom-up beta: sector=steel, \u03b2_unlev=0.8371, D/E=0.0906, \u03b2_lev=0.8940",
+        "Synthetic rating: BB+ (Sovereign+Sector), spread=4.00%, pretax_Kd=7.97%, AT_Kd=5.98%",
+        "WACC=13.29% (CoE=13.95%, AT_Kd=5.98%, debt_w=0.0831)",
+        "Revenue cap ACTIVE: latest $1.45B > avg $0.92B \u00d7 1.5 (latest/avg 1.57x \u2192 capped at avg\u00d71.5) [adaptive: lifecycle=MATURE_STABLE, bias=-25.9% \u2192 cap_ratio=1.5]"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "TRALT",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 16,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_stable",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.5,
+        "revenue_cagr_usd": -0.026726037987856666,
+        "avg_operating_margin": 0.4411529257884418,
+        "margin_stdev": 0.19084719963946786,
+        "margin_spread": 0.6538777839792064,
+        "avg_reinvestment_rate": 3.9324265901821174,
+        "earnings_consistency": 0.9166666666666666,
+        "reasoning": [
+          "Default Mature Stable (low growth)",
+          "Cyclical: margin spread 65.39pp > 5pp",
+          "Capital-Intensive: reinvestment 393.2% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": 680703764.5306625,
+        "equity_value_tl": 24076492151.44953,
+        "value_per_share_usd": 4.463631242824016,
+        "value_per_share_tl": 157.87863705868546,
+        "wacc": 0.16272831222661577,
+        "normalized_op_margin": 0.4411529257884418
+      },
+      "shares_outstanding": 152500000,
+      "market": {
+        "price_tl": 45.7,
+        "upside_pct": 245.46747715248455,
+        "verdict": "AL"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "16-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_stable + ['cyclical', 'capital_intensive']",
+        "Bottom-up beta: sector=precious_metals, \u03b2_unlev=1.4176, D/E=0.0002, \u03b2_lev=1.4178",
+        "Synthetic rating: BB+ (Sovereign+Sector), spread=4.00%, pretax_Kd=7.97%, AT_Kd=5.98%",
+        "WACC=16.27% (CoE=16.28%, AT_Kd=5.98%, debt_w=0.0002)",
+        "Revenue cap INACTIVE: latest $0.32B \u2264 avg $0.38B \u00d7 1.5 (latest/avg 0.86x \u2014 Toyota 2009 pattern korunur) [adaptive: lifecycle=MATURE_STABLE, bias=-41.4% \u2192 cap_ratio=1.5]"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "TRMET",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 16,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_stable",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.5,
+        "revenue_cagr_usd": -0.0365600524270695,
+        "avg_operating_margin": 0.3344311160385258,
+        "margin_stdev": 0.19126571690894562,
+        "margin_spread": 0.6042356255070033,
+        "avg_reinvestment_rate": 3.707125518074045,
+        "earnings_consistency": 0.75,
+        "reasoning": [
+          "Default Mature Stable (low growth)",
+          "Cyclical: margin spread 60.42pp > 5pp",
+          "Capital-Intensive: reinvestment 370.7% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": 596190106.9926745,
+        "equity_value_tl": 21087244084.330894,
+        "value_per_share_usd": 1.954721662271064,
+        "value_per_share_tl": 69.13850519452753,
+        "wacc": 0.15753288035284196,
+        "normalized_op_margin": 0.3344311160385258
+      },
+      "shares_outstanding": 305000000,
+      "market": {
+        "price_tl": 131.0,
+        "upside_pct": -47.22251511868128,
+        "verdict": "SAT"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "16-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_stable + ['cyclical', 'capital_intensive']",
+        "Bottom-up beta: sector=metals_and_mining, \u03b2_unlev=1.3013, D/E=0.0008, \u03b2_lev=1.3021",
+        "Synthetic rating: BB+ (Sovereign+Sector), spread=4.00%, pretax_Kd=7.97%, AT_Kd=5.98%",
+        "WACC=15.75% (CoE=15.76%, AT_Kd=5.98%, debt_w=0.0008)",
+        "Revenue cap INACTIVE: latest $0.34B \u2264 avg $0.40B \u00d7 1.5 (latest/avg 0.85x \u2014 Toyota 2009 pattern korunur) [adaptive: lifecycle=MATURE_STABLE, bias=-29.5% \u2192 cap_ratio=1.5]"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "BIMAS",
+      "success": false,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 16,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_stable",
+        "sub_classifications": [
+          "stable"
+        ],
+        "confidence": 0.5,
+        "revenue_cagr_usd": null,
+        "avg_operating_margin": 0.0491021074933325,
+        "margin_stdev": null,
+        "margin_spread": null,
+        "avg_reinvestment_rate": null,
+        "earnings_consistency": 1.0,
+        "reasoning": [
+          "Default Mature Stable (low growth)"
+        ]
+      },
+      "dcf": {
+        "executed": false,
+        "model_used": "industrial_fcff",
+        "equity_value_usd": null,
+        "equity_value_tl": null,
+        "value_per_share_usd": null,
+        "value_per_share_tl": null,
+        "wacc": null,
+        "normalized_op_margin": 0.0491021074933325
+      },
+      "shares_outstanding": null,
+      "market": {
+        "price_tl": 752.5,
+        "upside_pct": null,
+        "verdict": "UNKNOWN"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "16-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_stable + ['stable']",
+        "Industrial FCFF: fallback to cyclical_dcf (Faz 2.3.x'te 2-stage)"
+      ],
+      "errors": [
+        "Current revenue is None",
+        "DCF execution returned None"
+      ]
+    },
+    {
+      "ticker": "MGROS",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 16,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_growth",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.5,
+        "revenue_cagr_usd": 0.11139758696372604,
+        "avg_operating_margin": 0.018943637124753873,
+        "margin_stdev": 0.027284213481972706,
+        "margin_spread": 0.0816645108621588,
+        "avg_reinvestment_rate": 0.7635550831593637,
+        "earnings_consistency": 0.5,
+        "reasoning": [
+          "Default Mature Growth (mid-range): CAGR 11.1%",
+          "Cyclical: margin spread 8.17pp > 5pp",
+          "Capital-Intensive: reinvestment 76.4% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": 948144144.5475802,
+        "equity_value_tl": 33535858392.64791,
+        "value_per_share_usd": 5.238365439489393,
+        "value_per_share_tl": 185.28098559473983,
+        "wacc": 0.12178377199371877,
+        "normalized_op_margin": 0.018943637124753873
+      },
+      "shares_outstanding": 181000000,
+      "market": {
+        "price_tl": 634.0,
+        "upside_pct": -70.77586978000949,
+        "verdict": "SAT"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "16-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_growth + ['cyclical', 'capital_intensive']",
+        "Bottom-up beta: sector=retail_grocery_and_food, \u03b2_unlev=0.7894, D/E=0.3657, \u03b2_lev=1.0059",
+        "Synthetic rating: BB+ (Sovereign+Sector), spread=4.00%, pretax_Kd=7.97%, AT_Kd=5.98%",
+        "WACC=12.18% (CoE=14.45%, AT_Kd=5.98%, debt_w=0.2678)",
+        "Revenue cap ACTIVE: latest $10.96B > avg $4.97B \u00d7 1.5 (latest/avg 2.21x \u2192 capped at avg\u00d71.5) [adaptive: lifecycle=MATURE_GROWTH, bias=-129.8% \u2192 cap_ratio=1.5]"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "SOKM",
+      "success": false,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 0,
+      "items_mapped": 0,
+      "lifecycle": null,
+      "dcf": {
+        "executed": false,
+        "model_used": "none",
+        "equity_value_usd": null,
+        "equity_value_tl": null,
+        "value_per_share_usd": null,
+        "value_per_share_tl": null,
+        "wacc": null,
+        "normalized_op_margin": null
+      },
+      "shares_outstanding": null,
+      "market": {
+        "price_tl": 49.36,
+        "upside_pct": null,
+        "verdict": "UNKNOWN"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)"
+      ],
+      "errors": [
+        "Pipeline error: ValueError: No items in response for SOKM"
+      ]
+    },
+    {
+      "ticker": "CCOLA",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 16,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_stable",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.85,
+        "revenue_cagr_usd": 0.06966215354187622,
+        "avg_operating_margin": 0.1172904033963207,
+        "margin_stdev": 0.02067730771319286,
+        "margin_spread": 0.06536599900303423,
+        "avg_reinvestment_rate": 2.644527165537913,
+        "earnings_consistency": 0.9166666666666666,
+        "reasoning": [
+          "Mature Stable: CAGR 7.0% < 10%, margin 11.7% > 2%, consistency 92%",
+          "Cyclical: margin spread 6.54pp > 5pp",
+          "Capital-Intensive: reinvestment 264.5% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": 2283434449.848593,
+        "equity_value_tl": 80765076491.14473,
+        "value_per_share_usd": 8.976795337479418,
+        "value_per_share_tl": 317.509251086647,
+        "wacc": 0.10376288902159504,
+        "normalized_op_margin": 0.1172904033963207
+      },
+      "shares_outstanding": 254370782,
+      "market": {
+        "price_tl": 74.7,
+        "upside_pct": 325.04585152161576,
+        "verdict": "AL"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "16-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_stable + ['cyclical', 'capital_intensive']",
+        "Bottom-up beta: sector=beverage_soft, \u03b2_unlev=0.5501, D/E=0.7971, \u03b2_lev=0.8790",
+        "Synthetic rating: BB+ (Sovereign+Sector), spread=4.00%, pretax_Kd=7.97%, AT_Kd=5.98%",
+        "WACC=10.38% (CoE=13.88%, AT_Kd=5.98%, debt_w=0.4436)",
+        "Revenue cap ACTIVE: latest $5.10B > avg $2.86B \u00d7 1.3 (latest/avg 1.79x \u2192 capped at avg\u00d71.3) [adaptive: lifecycle=MATURE_STABLE, bias=+33.3% \u2192 cap_ratio=1.3]"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "TOASO",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 16,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_stable",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.85,
+        "revenue_cagr_usd": 0.024152172554916973,
+        "avg_operating_margin": 0.07467516994712538,
+        "margin_stdev": 0.025178020491744082,
+        "margin_spread": 0.10563194110611887,
+        "avg_reinvestment_rate": 0.8357187347012541,
+        "earnings_consistency": 1.0,
+        "reasoning": [
+          "Mature Stable: CAGR 2.4% < 10%, margin 7.5% > 2%, consistency 100%",
+          "Cyclical: margin spread 10.56pp > 5pp",
+          "Capital-Intensive: reinvestment 83.6% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": 1624192415.9453926,
+        "equity_value_tl": 57447685751.98853,
+        "value_per_share_usd": 3.2483848318907853,
+        "value_per_share_tl": 114.89537150397707,
+        "wacc": 0.1266575313823398,
+        "normalized_op_margin": 0.07467516994712538
+      },
+      "shares_outstanding": 500000000,
+      "market": {
+        "price_tl": 297.0,
+        "upside_pct": -61.31468972930065,
+        "verdict": "SAT"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "16-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_stable + ['cyclical', 'capital_intensive']",
+        "Bottom-up beta: sector=auto_and_truck, \u03b2_unlev=1.0367, D/E=0.5924, \u03b2_lev=1.4972",
+        "Synthetic rating: BB+ (Sovereign+Sector), spread=4.00%, pretax_Kd=7.97%, AT_Kd=5.98%",
+        "WACC=12.67% (CoE=16.63%, AT_Kd=5.98%, debt_w=0.3720)",
+        "Revenue cap INACTIVE: latest $4.23B \u2264 avg $3.92B \u00d7 1.3 (latest/avg 1.08x \u2014 Toyota 2009 pattern korunur) [adaptive: lifecycle=MATURE_STABLE, bias=+36.4% \u2192 cap_ratio=1.3]"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "FROTO",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 16,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_growth",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.8,
+        "revenue_cagr_usd": 0.13552905173437724,
+        "avg_operating_margin": 0.0714043943483818,
+        "margin_stdev": 0.02230471580908733,
+        "margin_spread": 0.08642083185774338,
+        "avg_reinvestment_rate": 0.8838317541157964,
+        "earnings_consistency": 1.0,
+        "reasoning": [
+          "Mature Growth: CAGR 13.6% in 10-30%, margin 7.1% > 5%",
+          "Cyclical: margin spread 8.64pp > 5pp",
+          "Capital-Intensive: reinvestment 88.4% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": 2920208761.912925,
+        "equity_value_tl": 103287783908.86014,
+        "value_per_share_usd": 8.321816881573408,
+        "value_per_share_tl": 294.34266310125145,
+        "wacc": 0.11914144201696183,
+        "normalized_op_margin": 0.0714043943483818
+      },
+      "shares_outstanding": 350910000,
+      "market": {
+        "price_tl": 102.6,
+        "upside_pct": 186.88368723318857,
+        "verdict": "AL"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "16-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_growth + ['cyclical', 'capital_intensive']",
+        "Bottom-up beta: sector=auto_and_truck, \u03b2_unlev=1.0367, D/E=1.0741, \u03b2_lev=1.8717",
+        "Synthetic rating: BB+ (Sovereign+Sector), spread=4.00%, pretax_Kd=7.97%, AT_Kd=5.98%",
+        "WACC=11.91% (CoE=18.29%, AT_Kd=5.98%, debt_w=0.5179)",
+        "Revenue cap ACTIVE: latest $22.49B > avg $9.61B \u00d7 1.5 (latest/avg 2.34x \u2192 capped at avg\u00d71.5) [adaptive: lifecycle=MATURE_GROWTH, bias=+48.7% \u2192 cap_ratio=1.5]"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "ARCLK",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 16,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_stable",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.85,
+        "revenue_cagr_usd": 0.09723532539808066,
+        "avg_operating_margin": 0.07681310490033302,
+        "margin_stdev": 0.0271370252396869,
+        "margin_spread": 0.10209802200842122,
+        "avg_reinvestment_rate": 1.4705064569180026,
+        "earnings_consistency": 1.0,
+        "reasoning": [
+          "Mature Stable: CAGR 9.7% < 10%, margin 7.7% > 2%, consistency 100%",
+          "Cyclical: margin spread 10.21pp > 5pp",
+          "Capital-Intensive: reinvestment 147.1% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": 3377250030.736084,
+        "equity_value_tl": 119453333587.13528,
+        "value_per_share_usd": 4.997941488525085,
+        "value_per_share_tl": 176.77719044913226,
+        "wacc": 0.10250515438891167,
+        "normalized_op_margin": 0.07681310490033302
+      },
+      "shares_outstanding": 675728205,
+      "market": {
+        "price_tl": 116.5,
+        "upside_pct": 51.740077638740146,
+        "verdict": "AL"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "16-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_stable + ['cyclical', 'capital_intensive']",
+        "Bottom-up beta: sector=household_products, \u03b2_unlev=0.7695, D/E=1.8390, \u03b2_lev=1.8308",
+        "Synthetic rating: BB+ (Sovereign+Sector), spread=4.00%, pretax_Kd=7.97%, AT_Kd=5.98%",
+        "WACC=10.25% (CoE=18.11%, AT_Kd=5.98%, debt_w=0.6478)",
+        "Revenue cap ACTIVE: latest $15.86B > avg $7.61B \u00d7 1.5 (latest/avg 2.08x \u2192 capped at avg\u00d71.5) [adaptive: lifecycle=MATURE_STABLE, bias=-24.4% \u2192 cap_ratio=1.5]"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "ASELS",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 16,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_growth",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.8,
+        "revenue_cagr_usd": 0.14428597094216333,
+        "avg_operating_margin": 0.2169677061224308,
+        "margin_stdev": 0.10166747691830706,
+        "margin_spread": 0.3923586370012145,
+        "avg_reinvestment_rate": 2.1537439481413805,
+        "earnings_consistency": 1.0,
+        "reasoning": [
+          "Mature Growth: CAGR 14.4% in 10-30%, margin 21.7% > 5%",
+          "Cyclical: margin spread 39.24pp > 5pp",
+          "Capital-Intensive: reinvestment 215.4% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": 3082860894.3524714,
+        "equity_value_tl": 109040789833.2469,
+        "value_per_share_usd": 2.7042639424144483,
+        "value_per_share_tl": 95.64981564319903,
+        "wacc": 0.14207874481752433,
+        "normalized_op_margin": 0.2169677061224308
+      },
+      "shares_outstanding": 1140000000,
+      "market": {
+        "price_tl": 415.0,
+        "upside_pct": -76.9518516522412,
+        "verdict": "SAT"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "16-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_growth + ['cyclical', 'capital_intensive']",
+        "Bottom-up beta: sector=aerospace_defense, \u03b2_unlev=1.1760, D/E=0.2304, \u03b2_lev=1.3792",
+        "Synthetic rating: BB+ (Sovereign+Sector), spread=4.00%, pretax_Kd=7.97%, AT_Kd=5.98%",
+        "WACC=14.21% (CoE=16.10%, AT_Kd=5.98%, debt_w=0.1872)",
+        "Revenue cap ACTIVE: latest $4.48B > avg $2.08B \u00d7 1.5 (latest/avg 2.16x \u2192 capped at avg\u00d71.5) [adaptive: lifecycle=MATURE_GROWTH, bias=+93.2% \u2192 cap_ratio=1.5]"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "THYAO",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 16,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_growth",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.8,
+        "revenue_cagr_usd": 0.10826844792382229,
+        "avg_operating_margin": 0.07726388019679714,
+        "margin_stdev": 0.05607709815166811,
+        "margin_spread": 0.19071385325876938,
+        "avg_reinvestment_rate": 2.933993173948865,
+        "earnings_consistency": 0.8333333333333334,
+        "reasoning": [
+          "Mature Growth: CAGR 10.8% in 10-30%, margin 7.7% > 5%",
+          "Cyclical: margin spread 19.07pp > 5pp",
+          "Capital-Intensive: reinvestment 293.4% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": -4323363911.677401,
+        "equity_value_tl": -152917381556.02963,
+        "value_per_share_usd": -3.1328723997662324,
+        "value_per_share_tl": -110.80969677973164,
+        "wacc": 0.10468312307763886,
+        "normalized_op_margin": 0.07726388019679714
+      },
+      "shares_outstanding": 1380000000,
+      "market": {
+        "price_tl": 320.5,
+        "upside_pct": -134.57400835561052,
+        "verdict": "SAT"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "16-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_growth + ['cyclical', 'capital_intensive']",
+        "Bottom-up beta: sector=air_transport, \u03b2_unlev=0.5445, D/E=0.7205, \u03b2_lev=0.8387",
+        "Synthetic rating: BB+ (Sovereign+Sector), spread=4.00%, pretax_Kd=7.97%, AT_Kd=5.98%",
+        "WACC=10.47% (CoE=13.70%, AT_Kd=5.98%, debt_w=0.4188)",
+        "Revenue cap ACTIVE: latest $26.69B > avg $11.99B \u00d7 1.5 (latest/avg 2.23x \u2192 capped at avg\u00d71.5) [adaptive: lifecycle=MATURE_GROWTH, bias=+64.8% \u2192 cap_ratio=1.5]"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "PGSUS",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 16,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_growth",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.8,
+        "revenue_cagr_usd": 0.10599336183459718,
+        "avg_operating_margin": 0.09024328298494268,
+        "margin_stdev": 0.1851992008458517,
+        "margin_spread": 0.7648775418602923,
+        "avg_reinvestment_rate": 3.262820942858322,
+        "earnings_consistency": 0.75,
+        "reasoning": [
+          "Mature Growth: CAGR 10.6% in 10-30%, margin 9.0% > 5%",
+          "Cyclical: margin spread 76.49pp > 5pp",
+          "Capital-Intensive: reinvestment 326.3% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": -3130778412.373635,
+        "equity_value_tl": -110735632445.65546,
+        "value_per_share_usd": -30.612415453603873,
+        "value_per_share_tl": -1082.761134593969,
+        "wacc": 0.09221433745171376,
+        "normalized_op_margin": 0.09024328298494266
+      },
+      "shares_outstanding": 102271525,
+      "market": {
+        "price_tl": 186.0,
+        "upside_pct": -682.1296422548221,
+        "verdict": "SAT"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "16-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_growth + ['cyclical', 'capital_intensive']",
+        "Bottom-up beta: sector=air_transport, \u03b2_unlev=0.5445, D/E=2.2198, \u03b2_lev=1.4510",
+        "Synthetic rating: BB+ (Sovereign+Sector), spread=4.00%, pretax_Kd=7.97%, AT_Kd=5.98%",
+        "WACC=9.22% (CoE=16.42%, AT_Kd=5.98%, debt_w=0.6894)",
+        "Revenue cap ACTIVE: latest $2.66B > avg $1.16B \u00d7 1.5 (latest/avg 2.30x \u2192 capped at avg\u00d71.5) [adaptive: lifecycle=MATURE_GROWTH, bias=-31.4% \u2192 cap_ratio=1.5]"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "ENKAI",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 16,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_stable",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.5,
+        "revenue_cagr_usd": -0.040132922261309156,
+        "avg_operating_margin": 0.16782427178718037,
+        "margin_stdev": 0.03476052139699366,
+        "margin_spread": 0.1248151854955479,
+        "avg_reinvestment_rate": 2.4691650860332746,
+        "earnings_consistency": 1.0,
+        "reasoning": [
+          "Default Mature Stable (low growth)",
+          "Cyclical: margin spread 12.48pp > 5pp",
+          "Capital-Intensive: reinvestment 246.9% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": 5405093069.333481,
+        "equity_value_tl": 191178141862.3252,
+        "value_per_share_usd": 0.9008488448889135,
+        "value_per_share_tl": 31.86302364372087,
+        "wacc": 0.12084471432207705,
+        "normalized_op_margin": 0.16782427178718037
+      },
+      "shares_outstanding": 6000000000,
+      "market": {
+        "price_tl": 106.3,
+        "upside_pct": -70.02537756940652,
+        "verdict": "SAT"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "16-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_stable + ['cyclical', 'capital_intensive']",
+        "Bottom-up beta: sector=engineering_construction, \u03b2_unlev=0.4886, D/E=0.0145, \u03b2_lev=0.4939",
+        "Synthetic rating: BB+ (Sovereign+Sector), spread=4.00%, pretax_Kd=7.97%, AT_Kd=5.98%",
+        "WACC=12.08% (CoE=12.17%, AT_Kd=5.98%, debt_w=0.0143)",
+        "Revenue cap INACTIVE: latest $3.72B \u2264 avg $3.25B \u00d7 1.5 (latest/avg 1.14x \u2014 Toyota 2009 pattern korunur) [adaptive: lifecycle=MATURE_STABLE, bias=+17.9% \u2192 cap_ratio=1.5]"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "TCELL",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 16,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_stable",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.85,
+        "revenue_cagr_usd": 0.013093007126393719,
+        "avg_operating_margin": 0.24974176825306277,
+        "margin_stdev": 0.07841714195464708,
+        "margin_spread": 0.3531643129823373,
+        "avg_reinvestment_rate": 6.788739403958094,
+        "earnings_consistency": 1.0,
+        "reasoning": [
+          "Mature Stable: CAGR 1.3% < 10%, margin 25.0% > 2%, consistency 100%",
+          "Cyclical: margin spread 35.32pp > 5pp",
+          "Capital-Intensive: reinvestment 678.9% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": 9130528092.005173,
+        "equity_value_tl": 322946778614.22296,
+        "value_per_share_usd": 4.150240041820533,
+        "value_per_share_tl": 146.79399027919223,
+        "wacc": 0.1139606554371278,
+        "normalized_op_margin": 0.24974176825306277
+      },
+      "shares_outstanding": 2200000000,
+      "market": {
+        "price_tl": 116.6,
+        "upside_pct": 25.89536044527636,
+        "verdict": "IZLE-AL"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "16-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_stable + ['cyclical', 'capital_intensive']",
+        "TCELL sector mapping yok \u2014 fallback \u03b2=1 implied",
+        "Synthetic rating: BB+ (Sovereign+Sector), spread=4.00%, pretax_Kd=7.97%, AT_Kd=5.98%",
+        "WACC=11.40% (CoE=14.42%, AT_Kd=5.98%, debt_w=0.3582)",
+        "Revenue cap INACTIVE: latest $6.17B \u2264 avg $4.44B \u00d7 1.5 (latest/avg 1.39x \u2014 Toyota 2009 pattern korunur) [adaptive: lifecycle=MATURE_STABLE, bias=+19.7% \u2192 cap_ratio=1.5]"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "TTKOM",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 16,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_stable",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.5,
+        "revenue_cagr_usd": -0.005422127472412663,
+        "avg_operating_margin": 0.23517578475841341,
+        "margin_stdev": 0.047126349364720564,
+        "margin_spread": 0.140352764815081,
+        "avg_reinvestment_rate": 5.323932110371319,
+        "earnings_consistency": 0.8333333333333334,
+        "reasoning": [
+          "Default Mature Stable (low growth)",
+          "Cyclical: margin spread 14.04pp > 5pp",
+          "Capital-Intensive: reinvestment 532.4% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": 6979721993.273002,
+        "equity_value_tl": 246872766902.06604,
+        "value_per_share_usd": 1.9942062837922863,
+        "value_per_share_tl": 70.53507625773317,
+        "wacc": 0.1167126327987748,
+        "normalized_op_margin": 0.23517578475841341
+      },
+      "shares_outstanding": 3500000000,
+      "market": {
+        "price_tl": 64.3,
+        "upside_pct": 9.696852655883623,
+        "verdict": "BEKLE"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "16-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_stable + ['cyclical', 'capital_intensive']",
+        "TTKOM sector mapping yok \u2014 fallback \u03b2=1 implied",
+        "Synthetic rating: BB+ (Sovereign+Sector), spread=4.00%, pretax_Kd=7.97%, AT_Kd=5.98%",
+        "WACC=11.67% (CoE=14.42%, AT_Kd=5.98%, debt_w=0.3256)",
+        "Revenue cap INACTIVE: latest $5.98B \u2264 avg $5.89B \u00d7 1.5 (latest/avg 1.02x \u2014 Toyota 2009 pattern korunur) [adaptive: lifecycle=MATURE_STABLE, bias=-25.4% \u2192 cap_ratio=1.5]"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "AEFES",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 16,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_growth",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.5,
+        "revenue_cagr_usd": 0.06423049768621003,
+        "avg_operating_margin": 0.10801739234648902,
+        "margin_stdev": 0.027754472207228504,
+        "margin_spread": 0.09709858758560633,
+        "avg_reinvestment_rate": 3.9142829509854624,
+        "earnings_consistency": 0.6666666666666666,
+        "reasoning": [
+          "Default Mature Growth (mid-range): CAGR 6.4%",
+          "Cyclical: margin spread 9.71pp > 5pp",
+          "Capital-Intensive: reinvestment 391.4% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": 4175359619.465659,
+        "equity_value_tl": 147682469740.50037,
+        "value_per_share_usd": 7.051718470311349,
+        "value_per_share_tl": 249.4192822949124,
+        "wacc": 0.11746302429145968,
+        "normalized_op_margin": 0.10801739234648902
+      },
+      "shares_outstanding": 592105263,
+      "market": {
+        "price_tl": 19.24,
+        "upside_pct": 1196.3580160858235,
+        "verdict": "AL"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "16-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_growth + ['cyclical', 'capital_intensive']",
+        "AEFES sector mapping yok \u2014 fallback \u03b2=1 implied",
+        "Synthetic rating: BB+ (Sovereign+Sector), spread=4.00%, pretax_Kd=7.97%, AT_Kd=5.98%",
+        "WACC=11.75% (CoE=14.42%, AT_Kd=5.98%, debt_w=0.3167)",
+        "Revenue cap ACTIVE: latest $8.56B > avg $4.77B \u00d7 1.5 (latest/avg 1.80x \u2192 capped at avg\u00d71.5) [adaptive: lifecycle=MATURE_GROWTH, bias=+5.2% \u2192 cap_ratio=1.5]"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "ULKER",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 16,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_stable",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.85,
+        "revenue_cagr_usd": 0.0568072253975862,
+        "avg_operating_margin": 0.09933536554411243,
+        "margin_stdev": 0.03735344108678722,
+        "margin_spread": 0.13958541699742785,
+        "avg_reinvestment_rate": 1.0730766169296948,
+        "earnings_consistency": 0.8333333333333334,
+        "reasoning": [
+          "Mature Stable: CAGR 5.7% < 10%, margin 9.9% > 2%, consistency 83%",
+          "Cyclical: margin spread 13.96pp > 5pp",
+          "Capital-Intensive: reinvestment 107.3% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": 1380903585.819921,
+        "equity_value_tl": 48842559830.4506,
+        "value_per_share_usd": 3.596103088072711,
+        "value_per_share_tl": 127.19416622513178,
+        "wacc": 0.09445872743644376,
+        "normalized_op_margin": 0.09933536554411243
+      },
+      "shares_outstanding": 384000000,
+      "market": {
+        "price_tl": 124.0,
+        "upside_pct": 2.575940504138533,
+        "verdict": "BEKLE"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "16-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_stable + ['cyclical', 'capital_intensive']",
+        "ULKER sector mapping yok \u2014 fallback \u03b2=1 implied",
+        "Synthetic rating: BB+ (Sovereign+Sector), spread=4.00%, pretax_Kd=7.97%, AT_Kd=5.98%",
+        "WACC=9.45% (CoE=14.42%, AT_Kd=5.98%, debt_w=0.5892)",
+        "Revenue cap ACTIVE: latest $3.11B > avg $2.07B \u00d7 1.3 (latest/avg 1.50x \u2192 capped at avg\u00d71.3) [adaptive: lifecycle=MATURE_STABLE, bias=+76.6% \u2192 cap_ratio=1.3]"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "AKSA",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 16,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_stable",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.85,
+        "revenue_cagr_usd": 0.024777094378035214,
+        "avg_operating_margin": 0.12064921598411088,
+        "margin_stdev": 0.04008122324034311,
+        "margin_spread": 0.1306416161044904,
+        "avg_reinvestment_rate": 2.0302114082501723,
+        "earnings_consistency": 1.0,
+        "reasoning": [
+          "Mature Stable: CAGR 2.5% < 10%, margin 12.1% > 2%, consistency 100%",
+          "Cyclical: margin spread 13.06pp > 5pp",
+          "Capital-Intensive: reinvestment 203.0% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": 693492144.5186769,
+        "equity_value_tl": 24528817151.6256,
+        "value_per_share_usd": 3.7486061865874425,
+        "value_per_share_tl": 132.58820081959783,
+        "wacc": 0.12626916377200537,
+        "normalized_op_margin": 0.12064921598411088
+      },
+      "shares_outstanding": 185000000,
+      "market": {
+        "price_tl": 10.91,
+        "upside_pct": 1115.2905666324275,
+        "verdict": "AL"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "16-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_stable + ['cyclical', 'capital_intensive']",
+        "AKSA sector mapping yok \u2014 fallback \u03b2=1 implied",
+        "Synthetic rating: BB+ (Sovereign+Sector), spread=4.00%, pretax_Kd=7.97%, AT_Kd=5.98%",
+        "WACC=12.63% (CoE=14.42%, AT_Kd=5.98%, debt_w=0.2124)",
+        "Revenue cap INACTIVE: latest $1.10B \u2264 avg $0.90B \u00d7 1.5 (latest/avg 1.23x \u2014 Toyota 2009 pattern korunur) [adaptive: lifecycle=MATURE_STABLE, bias=+10.3% \u2192 cap_ratio=1.5]"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "HEKTS",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 16,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_growth",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.8,
+        "revenue_cagr_usd": 0.10744102712853332,
+        "avg_operating_margin": 0.12535047406578415,
+        "margin_stdev": 0.20991285277227872,
+        "margin_spread": 0.8321603306709979,
+        "avg_reinvestment_rate": 5.769637547413592,
+        "earnings_consistency": 0.8333333333333334,
+        "reasoning": [
+          "Mature Growth: CAGR 10.7% in 10-30%, margin 12.5% > 5%",
+          "Cyclical: margin spread 83.22pp > 5pp",
+          "Capital-Intensive: reinvestment 577.0% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": -28376091.17546305,
+        "equity_value_tl": -1003662344.8761281,
+        "value_per_share_usd": -0.01970561887184934,
+        "value_per_share_tl": -0.6969877394973111,
+        "wacc": 0.1150176264101446,
+        "normalized_op_margin": 0.12535047406578415
+      },
+      "shares_outstanding": 1440000000,
+      "market": {
+        "price_tl": 3.42,
+        "upside_pct": -120.37975846483366,
+        "verdict": "SAT"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "16-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_growth + ['cyclical', 'capital_intensive']",
+        "HEKTS sector mapping yok \u2014 fallback \u03b2=1 implied",
+        "Synthetic rating: BB+ (Sovereign+Sector), spread=4.00%, pretax_Kd=7.97%, AT_Kd=5.98%",
+        "WACC=11.50% (CoE=14.42%, AT_Kd=5.98%, debt_w=0.3457)",
+        "Revenue cap INACTIVE: latest $0.20B \u2264 avg $0.16B \u00d7 1.5 (latest/avg 1.24x \u2014 Toyota 2009 pattern korunur) [adaptive: lifecycle=MATURE_GROWTH, bias=-114.8% \u2192 cap_ratio=1.5]"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "NETAS",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 16,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_stable",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.5,
+        "revenue_cagr_usd": 0.01258525174448999,
+        "avg_operating_margin": -0.01216541838700558,
+        "margin_stdev": 0.10332945796109808,
+        "margin_spread": 0.40489634508985295,
+        "avg_reinvestment_rate": 0.3642204505071542,
+        "earnings_consistency": 0.5,
+        "reasoning": [
+          "Default Mature Stable (low growth)",
+          "Cyclical: margin spread 40.49pp > 5pp",
+          "Capital-Intensive: reinvestment 36.4% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": -118903599.69099972,
+        "equity_value_tl": -4205620321.0706596,
+        "value_per_share_usd": -1.8292861490923034,
+        "value_per_share_tl": -64.70185109339477,
+        "wacc": 0.06040929181747503,
+        "normalized_op_margin": -0.012165418387005581
+      },
+      "shares_outstanding": 65000000,
+      "market": {
+        "price_tl": null,
+        "upside_pct": null,
+        "verdict": "UNKNOWN"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "16-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_stable + ['cyclical', 'capital_intensive']",
+        "NETAS sector mapping yok \u2014 fallback \u03b2=1 implied",
+        "Synthetic rating: BB+ (Sovereign+Sector), spread=4.00%, pretax_Kd=7.97%, AT_Kd=5.98%",
+        "WACC=6.04% (CoE=14.42%, AT_Kd=5.98%, debt_w=0.9925)",
+        "Revenue cap INACTIVE: latest $0.34B \u2264 avg $0.26B \u00d7 1.5 (latest/avg 1.29x \u2014 Toyota 2009 pattern korunur) [adaptive: lifecycle=MATURE_STABLE, bias=-583.6% \u2192 cap_ratio=1.5]"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "TAVHL",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 16,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_stable",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.85,
+        "revenue_cagr_usd": 0.054997944479642236,
+        "avg_operating_margin": 0.1960986880365745,
+        "margin_stdev": 0.14199194234614318,
+        "margin_spread": 0.6188801116653628,
+        "avg_reinvestment_rate": 9.7604000293742,
+        "earnings_consistency": 0.9166666666666666,
+        "reasoning": [
+          "Mature Stable: CAGR 5.5% < 10%, margin 19.6% > 2%, consistency 92%",
+          "Cyclical: margin spread 61.89pp > 5pp",
+          "Capital-Intensive: reinvestment 976.0% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": 881674824.4325786,
+        "equity_value_tl": 31184838540.1803,
+        "value_per_share_usd": 2.426975860803657,
+        "value_per_share_tl": 85.84213619662533,
+        "wacc": 0.09924482838570438,
+        "normalized_op_margin": 0.1960986880365745
+      },
+      "shares_outstanding": 363281250,
+      "market": {
+        "price_tl": 302.0,
+        "upside_pct": -71.57545159052141,
+        "verdict": "SAT"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "16-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_stable + ['cyclical', 'capital_intensive']",
+        "TAVHL sector mapping yok \u2014 fallback \u03b2=1 implied",
+        "Synthetic rating: BB+ (Sovereign+Sector), spread=4.00%, pretax_Kd=7.97%, AT_Kd=5.98%",
+        "WACC=9.92% (CoE=14.42%, AT_Kd=5.98%, debt_w=0.5325)",
+        "Revenue cap ACTIVE: latest $2.19B > avg $1.27B \u00d7 1.5 (latest/avg 1.72x \u2192 capped at avg\u00d71.5) [adaptive: lifecycle=MATURE_STABLE, bias=-72.6% \u2192 cap_ratio=1.5]"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "AKSGY",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 16,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_growth",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.8,
+        "revenue_cagr_usd": 0.12543348173054136,
+        "avg_operating_margin": 0.6809558469335106,
+        "margin_stdev": 0.5352439851703488,
+        "margin_spread": 2.3238717738248917,
+        "avg_reinvestment_rate": 0.3937970131347814,
+        "earnings_consistency": 0.9166666666666666,
+        "reasoning": [
+          "Mature Growth: CAGR 12.5% in 10-30%, margin 68.1% > 5%",
+          "Cyclical: margin spread 232.39pp > 5pp",
+          "Capital-Intensive: reinvestment 39.4% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": 317633012.8538948,
+        "equity_value_tl": 11234679664.64226,
+        "value_per_share_usd": 0.2646941773782457,
+        "value_per_share_tl": 9.362233053868549,
+        "wacc": 0.139683708977578,
+        "normalized_op_margin": 0.6809558469335106
+      },
+      "shares_outstanding": 1200000000,
+      "market": {
+        "price_tl": 8.86,
+        "upside_pct": 5.668544626055859,
+        "verdict": "BEKLE"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "16-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_growth + ['cyclical', 'capital_intensive']",
+        "AKSGY sector mapping yok \u2014 fallback \u03b2=1 implied",
+        "Synthetic rating: BB+ (Sovereign+Sector), spread=4.00%, pretax_Kd=7.97%, AT_Kd=5.98%",
+        "WACC=13.97% (CoE=14.42%, AT_Kd=5.98%, debt_w=0.0535)",
+        "Revenue cap ACTIVE: latest $0.12B > avg $0.06B \u00d7 1.5 (latest/avg 1.90x \u2192 capped at avg\u00d71.5) [adaptive: lifecycle=MATURE_GROWTH, bias=-5.2% \u2192 cap_ratio=1.5]"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "AKSEN",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 16,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_stable",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.5,
+        "revenue_cagr_usd": 0.03113772182014296,
+        "avg_operating_margin": 0.13266734888023735,
+        "margin_stdev": 0.033041322774723055,
+        "margin_spread": 0.11628890745215605,
+        "avg_reinvestment_rate": 4.942207745052468,
+        "earnings_consistency": 0.6666666666666666,
+        "reasoning": [
+          "Default Mature Stable (low growth)",
+          "Cyclical: margin spread 11.63pp > 5pp",
+          "Capital-Intensive: reinvestment 494.2% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": 72931533.89323139,
+        "equity_value_tl": 2579588353.803594,
+        "value_per_share_usd": 0.05945101601241605,
+        "value_per_share_tl": 2.1027824363591554,
+        "wacc": 0.11148948868876929,
+        "normalized_op_margin": 0.13266734888023735
+      },
+      "shares_outstanding": 1226750000,
+      "market": {
+        "price_tl": 84.05,
+        "upside_pct": -97.49817675626514,
+        "verdict": "SAT"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "16-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_stable + ['cyclical', 'capital_intensive']",
+        "AKSEN sector mapping yok \u2014 fallback \u03b2=1 implied",
+        "Synthetic rating: BB+ (Sovereign+Sector), spread=4.00%, pretax_Kd=7.97%, AT_Kd=5.98%",
+        "WACC=11.15% (CoE=14.42%, AT_Kd=5.98%, debt_w=0.3875)",
+        "Revenue cap INACTIVE: latest $1.17B \u2264 avg $1.31B \u00d7 1.3 (latest/avg 0.89x \u2014 Toyota 2009 pattern korunur) [adaptive: lifecycle=MATURE_STABLE, bias=+26.8% \u2192 cap_ratio=1.3]"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "BIZIM",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 16,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_stable",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.5,
+        "revenue_cagr_usd": 0.03626265892652558,
+        "avg_operating_margin": 0.004350658070031774,
+        "margin_stdev": 0.02734570936826409,
+        "margin_spread": 0.09480638507541903,
+        "avg_reinvestment_rate": 0.40506379502667844,
+        "earnings_consistency": 0.8333333333333334,
+        "reasoning": [
+          "Default Mature Stable (low growth)",
+          "Cyclical: margin spread 9.48pp > 5pp",
+          "Capital-Intensive: reinvestment 40.5% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": 32436222.101253107,
+        "equity_value_tl": 1147269175.7213223,
+        "value_per_share_usd": 0.5406037016875518,
+        "value_per_share_tl": 19.121152928688705,
+        "wacc": 0.09333101057153453,
+        "normalized_op_margin": 0.004350658070031774
+      },
+      "shares_outstanding": 60000000,
+      "market": {
+        "price_tl": 27.74,
+        "upside_pct": -31.070104799247634,
+        "verdict": "SAT"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "16-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_stable + ['cyclical', 'capital_intensive']",
+        "BIZIM sector mapping yok \u2014 fallback \u03b2=1 implied",
+        "Synthetic rating: BB+ (Sovereign+Sector), spread=4.00%, pretax_Kd=7.97%, AT_Kd=5.98%",
+        "WACC=9.33% (CoE=14.42%, AT_Kd=5.98%, debt_w=0.6025)",
+        "Revenue cap ACTIVE: latest $1.57B > avg $1.04B \u00d7 1.5 (latest/avg 1.51x \u2192 capped at avg\u00d71.5) [adaptive: lifecycle=MATURE_STABLE, bias=-228.4% \u2192 cap_ratio=1.5]"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "MAVI",
+      "success": false,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 0,
+      "items_mapped": 0,
+      "lifecycle": null,
+      "dcf": {
+        "executed": false,
+        "model_used": "none",
+        "equity_value_usd": null,
+        "equity_value_tl": null,
+        "value_per_share_usd": null,
+        "value_per_share_tl": null,
+        "wacc": null,
+        "normalized_op_margin": null
+      },
+      "shares_outstanding": null,
+      "market": {
+        "price_tl": 43.34,
+        "upside_pct": null,
+        "verdict": "UNKNOWN"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)"
+      ],
+      "errors": [
+        "Pipeline error: ValueError: No items in response for MAVI"
+      ]
+    },
+    {
+      "ticker": "LOGO",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 16,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_growth",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.8,
+        "revenue_cagr_usd": 0.1631226364593359,
+        "avg_operating_margin": 0.22427207690763643,
+        "margin_stdev": 0.03280978835237726,
+        "margin_spread": 0.08264621162714655,
+        "avg_reinvestment_rate": 2.4183559572359594,
+        "earnings_consistency": 1.0,
+        "reasoning": [
+          "Mature Growth: CAGR 16.3% in 10-30%, margin 22.4% > 5%",
+          "Cyclical: margin spread 8.26pp > 5pp",
+          "Capital-Intensive: reinvestment 241.8% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": 166140492.8616134,
+        "equity_value_tl": 5876389232.515265,
+        "value_per_share_usd": 6.6456197144645355,
+        "value_per_share_tl": 235.0555693006106,
+        "wacc": 0.1438674347151282,
+        "normalized_op_margin": 0.22427207690763643
+      },
+      "shares_outstanding": 25000000,
+      "market": {
+        "price_tl": 140.9,
+        "upside_pct": 66.82439269028431,
+        "verdict": "AL"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "16-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_growth + ['cyclical', 'capital_intensive']",
+        "LOGO sector mapping yok \u2014 fallback \u03b2=1 implied",
+        "Synthetic rating: BB+ (Sovereign+Sector), spread=4.00%, pretax_Kd=7.97%, AT_Kd=5.98%",
+        "WACC=14.39% (CoE=14.42%, AT_Kd=5.98%, debt_w=0.0039)",
+        "Revenue cap ACTIVE: latest $0.15B > avg $0.08B \u00d7 1.5 (latest/avg 1.82x \u2192 capped at avg\u00d71.5)"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "ASUZU",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 16,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_stable",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.85,
+        "revenue_cagr_usd": 0.08432908927665461,
+        "avg_operating_margin": 0.024378438483658834,
+        "margin_stdev": 0.03802016114589419,
+        "margin_spread": 0.15483217930998866,
+        "avg_reinvestment_rate": 2.2123170879989913,
+        "earnings_consistency": 0.75,
+        "reasoning": [
+          "Mature Stable: CAGR 8.4% < 10%, margin 2.4% > 2%, consistency 75%",
+          "Cyclical: margin spread 15.48pp > 5pp",
+          "Capital-Intensive: reinvestment 221.2% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": 3326749.1467269063,
+        "equity_value_tl": 117667117.31973067,
+        "value_per_share_usd": 0.1108916382242302,
+        "value_per_share_tl": 3.922237243991022,
+        "wacc": 0.1167861767164766,
+        "normalized_op_margin": 0.024378438483658834
+      },
+      "shares_outstanding": 30000000,
+      "market": {
+        "price_tl": 70.25,
+        "upside_pct": -94.41674413666759,
+        "verdict": "SAT"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "16-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_stable + ['cyclical', 'capital_intensive']",
+        "ASUZU sector mapping yok \u2014 fallback \u03b2=1 implied",
+        "Synthetic rating: BB+ (Sovereign+Sector), spread=4.00%, pretax_Kd=7.97%, AT_Kd=5.98%",
+        "WACC=11.68% (CoE=14.42%, AT_Kd=5.98%, debt_w=0.3247)",
+        "Revenue cap ACTIVE: latest $0.79B > avg $0.39B \u00d7 1.3 (latest/avg 2.03x \u2192 capped at avg\u00d71.3) [adaptive: lifecycle=MATURE_STABLE, bias=+87.5% \u2192 cap_ratio=1.3]"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "TKFEN",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 16,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_stable",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.85,
+        "revenue_cagr_usd": 0.017738510754819803,
+        "avg_operating_margin": 0.021164570821457545,
+        "margin_stdev": 0.07349442960242497,
+        "margin_spread": 0.29124949119335936,
+        "avg_reinvestment_rate": 1.7722064034102913,
+        "earnings_consistency": 0.75,
+        "reasoning": [
+          "Mature Stable: CAGR 1.8% < 10%, margin 2.1% > 2%, consistency 75%",
+          "Cyclical: margin spread 29.12pp > 5pp",
+          "Capital-Intensive: reinvestment 177.2% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": 158471591.34306526,
+        "equity_value_tl": 5605140185.804218,
+        "value_per_share_usd": 0.4283015982245007,
+        "value_per_share_tl": 15.14902752920059,
+        "wacc": 0.11898136937127232,
+        "normalized_op_margin": 0.021164570821457545
+      },
+      "shares_outstanding": 370000000,
+      "market": {
+        "price_tl": 141.3,
+        "upside_pct": -89.27881986610008,
+        "verdict": "SAT"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "16-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_stable + ['cyclical', 'capital_intensive']",
+        "TKFEN sector mapping yok \u2014 fallback \u03b2=1 implied",
+        "Synthetic rating: BB+ (Sovereign+Sector), spread=4.00%, pretax_Kd=7.97%, AT_Kd=5.98%",
+        "WACC=11.90% (CoE=14.42%, AT_Kd=5.98%, debt_w=0.2987)",
+        "Revenue cap INACTIVE: latest $2.15B \u2264 avg $1.87B \u00d7 1.5 (latest/avg 1.15x \u2014 Toyota 2009 pattern korunur) [adaptive: lifecycle=MATURE_STABLE, bias=-192.2% \u2192 cap_ratio=1.5]"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "VESTL",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 16,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_stable",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.85,
+        "revenue_cagr_usd": 0.05997498240222576,
+        "avg_operating_margin": 0.021702071831668703,
+        "margin_stdev": 0.0446898581640365,
+        "margin_spread": 0.1502800672551003,
+        "avg_reinvestment_rate": 1.5814332105309845,
+        "earnings_consistency": 0.75,
+        "reasoning": [
+          "Mature Stable: CAGR 6.0% < 10%, margin 2.2% > 2%, consistency 75%",
+          "Cyclical: margin spread 15.03pp > 5pp",
+          "Capital-Intensive: reinvestment 158.1% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": -1194485710.1901166,
+        "equity_value_tl": -42248959569.42442,
+        "value_per_share_usd": -3.189547957784023,
+        "value_per_share_tl": -112.81431126682088,
+        "wacc": 0.09858845602541452,
+        "normalized_op_margin": 0.021702071831668703
+      },
+      "shares_outstanding": 374500000,
+      "market": {
+        "price_tl": 28.84,
+        "upside_pct": -491.17306264501,
+        "verdict": "SAT"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "16-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_stable + ['cyclical', 'capital_intensive']",
+        "VESTL sector mapping yok \u2014 fallback \u03b2=1 implied",
+        "Synthetic rating: BB+ (Sovereign+Sector), spread=4.00%, pretax_Kd=7.97%, AT_Kd=5.98%",
+        "WACC=9.86% (CoE=14.42%, AT_Kd=5.98%, debt_w=0.5403)",
+        "Revenue cap INACTIVE: latest $5.78B \u2264 avg $3.88B \u00d7 1.5 (latest/avg 1.49x \u2014 Toyota 2009 pattern korunur) [adaptive: lifecycle=MATURE_STABLE, bias=-123.0% \u2192 cap_ratio=1.5]"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "OYAKC",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 16,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_growth",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.8,
+        "revenue_cagr_usd": 0.2915082276769647,
+        "avg_operating_margin": 0.2456198373151352,
+        "margin_stdev": 0.08322616767646317,
+        "margin_spread": 0.3109898505990749,
+        "avg_reinvestment_rate": 7.63079535071554,
+        "earnings_consistency": 0.8333333333333334,
+        "reasoning": [
+          "Mature Growth: CAGR 29.2% in 10-30%, margin 24.6% > 5%",
+          "Cyclical: margin spread 31.10pp > 5pp",
+          "Capital-Intensive: reinvestment 763.1% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": 1217710101.5120683,
+        "equity_value_tl": 43070406290.48185,
+        "value_per_share_usd": 2.6471958728523224,
+        "value_per_share_tl": 93.63131802278663,
+        "wacc": 0.1437903568490037,
+        "normalized_op_margin": 0.2456198373151352
+      },
+      "shares_outstanding": 460000000,
+      "market": {
+        "price_tl": 24.56,
+        "upside_pct": 281.2350082361019,
+        "verdict": "AL"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "16-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_growth + ['cyclical', 'capital_intensive']",
+        "OYAKC sector mapping yok \u2014 fallback \u03b2=1 implied",
+        "Synthetic rating: BB+ (Sovereign+Sector), spread=4.00%, pretax_Kd=7.97%, AT_Kd=5.98%",
+        "WACC=14.38% (CoE=14.42%, AT_Kd=5.98%, debt_w=0.0049)",
+        "Revenue cap ACTIVE: latest $1.65B > avg $0.50B \u00d7 1.5 (latest/avg 3.29x \u2192 capped at avg\u00d71.5) [adaptive: lifecycle=MATURE_GROWTH, bias=-20.8% \u2192 cap_ratio=1.5]"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "KARSN",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 16,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_stable",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.5,
+        "revenue_cagr_usd": -0.004454708846985955,
+        "avg_operating_margin": 0.0812747280635305,
+        "margin_stdev": 0.14216047336714477,
+        "margin_spread": 0.5213428413960101,
+        "avg_reinvestment_rate": 2.8465083335047545,
+        "earnings_consistency": 0.5833333333333334,
+        "reasoning": [
+          "Default Mature Stable (low growth)",
+          "Cyclical: margin spread 52.13pp > 5pp",
+          "Capital-Intensive: reinvestment 284.7% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": 56623948.545142084,
+        "equity_value_tl": 2002789060.0416753,
+        "value_per_share_usd": 0.07864437297936401,
+        "value_per_share_tl": 2.781651472280105,
+        "wacc": 0.10017256939852115,
+        "normalized_op_margin": 0.0812747280635305
+      },
+      "shares_outstanding": 720000000,
+      "market": {
+        "price_tl": 11.6,
+        "upside_pct": -76.02024592861979,
+        "verdict": "SAT"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "16-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_stable + ['cyclical', 'capital_intensive']",
+        "KARSN sector mapping yok \u2014 fallback \u03b2=1 implied",
+        "Synthetic rating: BB+ (Sovereign+Sector), spread=4.00%, pretax_Kd=7.97%, AT_Kd=5.98%",
+        "WACC=10.02% (CoE=14.42%, AT_Kd=5.98%, debt_w=0.5215)",
+        "Revenue cap ACTIVE: latest $0.40B > avg $0.29B \u00d7 1.3 (latest/avg 1.40x \u2192 capped at avg\u00d71.3) [adaptive: lifecycle=MATURE_STABLE, bias=+834.8% \u2192 cap_ratio=1.3]"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "DOHOL",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "XI_29",
+      "periods_fetched": 16,
+      "items_mapped": 12,
+      "lifecycle": {
+        "stage": "mature_stable",
+        "sub_classifications": [
+          "cyclical",
+          "capital_intensive"
+        ],
+        "confidence": 0.5,
+        "revenue_cagr_usd": 0.028287116187223793,
+        "avg_operating_margin": 0.05142970632198881,
+        "margin_stdev": 0.1299955996739245,
+        "margin_spread": 0.563438340139257,
+        "avg_reinvestment_rate": 2.9051918090560847,
+        "earnings_consistency": 0.5,
+        "reasoning": [
+          "Default Mature Stable (low growth)",
+          "Cyclical: margin spread 56.34pp > 5pp",
+          "Capital-Intensive: reinvestment 290.5% > 15%"
+        ]
+      },
+      "dcf": {
+        "executed": true,
+        "model_used": "cyclical_dcf",
+        "equity_value_usd": 616558935.0605292,
+        "equity_value_tl": 21807689533.090916,
+        "value_per_share_usd": 0.23560316186582128,
+        "value_per_share_tl": 8.333283835194099,
+        "wacc": 0.11956496562841151,
+        "normalized_op_margin": 0.05142970632198881
+      },
+      "shares_outstanding": 2616938288,
+      "market": {
+        "price_tl": 22.84,
+        "upside_pct": -63.51451911035859,
+        "verdict": "SAT"
+      },
+      "reasoning": [
+        "Industrial ticker (XI_29)",
+        "16-y\u0131l historical, 12/12 items",
+        "USD conversion completed (year-end rates)",
+        "Lifecycle: mature_stable + ['cyclical', 'capital_intensive']",
+        "DOHOL sector mapping yok \u2014 fallback \u03b2=1 implied",
+        "Synthetic rating: BB+ (Sovereign+Sector), spread=4.00%, pretax_Kd=7.97%, AT_Kd=5.98%",
+        "WACC=11.96% (CoE=14.42%, AT_Kd=5.98%, debt_w=0.2918)",
+        "Revenue cap INACTIVE: latest $2.38B \u2264 avg $1.96B \u00d7 1.3 (latest/avg 1.21x \u2014 Toyota 2009 pattern korunur) [adaptive: lifecycle=MATURE_STABLE, bias=+3804.1% \u2192 cap_ratio=1.3]"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "GARAN",
+      "success": true,
+      "is_banking": true,
+      "financial_group": "XI_30",
+      "periods_fetched": 0,
+      "items_mapped": 0,
+      "lifecycle": null,
+      "dcf": {
+        "executed": true,
+        "model_used": "banking_ddm",
+        "equity_value_usd": 23426478837.704113,
+        "equity_value_tl": 828594556489.5945,
+        "value_per_share_usd": 5.577733056596218,
+        "value_per_share_tl": 197.2844182118082,
+        "wacc": 0.1108778,
+        "normalized_op_margin": null
+      },
+      "shares_outstanding": 4200000000,
+      "market": {
+        "price_tl": 136.7,
+        "upside_pct": 44.31925253241274,
+        "verdict": "AL"
+      },
+      "reasoning": [
+        "Banking ticker detected (XI_30)",
+        "Banking DDM input: T\u00fcrkiye Garanti Bankas\u0131 A.\u015e. | EPS 21.95 TL, DPS 4.39, ROE 30.0%, Payout 20.0%, confidence=CONFIRMED",
+        "CoE USD: 3.97% + 0.2495*4.44% + 1.0*6.01% = 11.09%",
+        "DDM USD: g_high=8.00%, payout_high=20%, g_stable=3.00%, payout_stable=72.9%, 5y high+stable",
+        "DDM Value: $5.5777/share = 197.28 TL/share, Equity $23.43B"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "AKBNK",
+      "success": true,
+      "is_banking": true,
+      "financial_group": "XI_30",
+      "periods_fetched": 0,
+      "items_mapped": 0,
+      "lifecycle": null,
+      "dcf": {
+        "executed": true,
+        "model_used": "banking_ddm",
+        "equity_value_usd": 14548354121.013515,
+        "equity_value_tl": 514575285260.248,
+        "value_per_share_usd": 2.7977604078872145,
+        "value_per_share_tl": 98.95678562697077,
+        "wacc": 0.1108778,
+        "normalized_op_margin": null
+      },
+      "shares_outstanding": 5200000000,
+      "market": {
+        "price_tl": 77.7,
+        "upside_pct": 27.357510459421835,
+        "verdict": "IZLE-AL"
+      },
+      "reasoning": [
+        "Banking ticker detected (XI_30)",
+        "Banking DDM input: Akbank T.A.\u015e. | EPS 11.01 TL, DPS 2.20, ROE 21.5%, Payout 20.0%, confidence=CONFIRMED",
+        "CoE USD: 3.97% + 0.2495*4.44% + 1.0*6.01% = 11.09%",
+        "DDM USD: g_high=8.00%, payout_high=20%, g_stable=3.00%, payout_stable=72.9%, 5y high+stable",
+        "DDM Value: $2.7978/share = 98.96 TL/share, Equity $14.55B"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "YKBNK",
+      "success": true,
+      "is_banking": true,
+      "financial_group": "XI_30",
+      "periods_fetched": 0,
+      "items_mapped": 0,
+      "lifecycle": null,
+      "dcf": {
+        "executed": true,
+        "model_used": "banking_ddm",
+        "equity_value_usd": 9304716988.082,
+        "equity_value_tl": 329107839868.4603,
+        "value_per_share_usd": 1.101534331359696,
+        "value_per_share_tl": 38.96126930019244,
+        "wacc": 0.1108778,
+        "normalized_op_margin": null
+      },
+      "shares_outstanding": 8447051284,
+      "market": {
+        "price_tl": 37.6,
+        "upside_pct": 3.6203970749798935,
+        "verdict": "BEKLE"
+      },
+      "reasoning": [
+        "Banking ticker detected (XI_30)",
+        "Banking DDM input: Yap\u0131 ve Kredi Bankas\u0131 A.\u015e. | EPS 4.14 TL, DPS 1.21, ROE 25.0%, Payout 29.2%, confidence=ESTIMATE",
+        "CoE USD: 3.97% + 0.2495*4.44% + 1.0*6.01% = 11.09%",
+        "DDM USD: g_high=8.00%, payout_high=29%, g_stable=3.00%, payout_stable=72.9%, 5y high+stable",
+        "DDM Value: $1.1015/share = 38.96 TL/share, Equity $9.30B"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "ISCTR",
+      "success": true,
+      "is_banking": true,
+      "financial_group": "XI_30",
+      "periods_fetched": 0,
+      "items_mapped": 0,
+      "lifecycle": null,
+      "dcf": {
+        "executed": true,
+        "model_used": "banking_ddm",
+        "equity_value_usd": 4375280083.268514,
+        "equity_value_tl": 154753656545.2073,
+        "value_per_share_usd": 0.48614223147427926,
+        "value_per_share_tl": 17.194850727245257,
+        "wacc": 0.1108778,
+        "normalized_op_margin": null
+      },
+      "shares_outstanding": 9000000000,
+      "market": {
+        "price_tl": 14.31,
+        "upside_pct": 20.15968362854826,
+        "verdict": "IZLE-AL"
+      },
+      "reasoning": [
+        "Banking ticker detected (XI_30)",
+        "Banking DDM input: T\u00fcrkiye \u0130\u015f Bankas\u0131 A.\u015e. (C) | EPS 1.82 TL, DPS 0.55, ROE 16.0%, Payout 30.0%, confidence=CONFIRMED",
+        "CoE USD: 3.97% + 0.2495*4.44% + 1.0*6.01% = 11.09%",
+        "DDM USD: g_high=8.00%, payout_high=30%, g_stable=3.00%, payout_stable=72.9%, 5y high+stable",
+        "DDM Value: $0.4861/share = 17.19 TL/share, Equity $4.38B"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "HALKB",
+      "success": true,
+      "is_banking": true,
+      "financial_group": "XI_30",
+      "periods_fetched": 0,
+      "items_mapped": 0,
+      "lifecycle": null,
+      "dcf": {
+        "executed": true,
+        "model_used": "banking_ddm",
+        "equity_value_usd": 5026980820.427355,
+        "equity_value_tl": 177804311618.51553,
+        "value_per_share_usd": 4.021584656341884,
+        "value_per_share_tl": 142.24344929481242,
+        "wacc": 0.1108778,
+        "normalized_op_margin": null
+      },
+      "shares_outstanding": 1250000000,
+      "market": {
+        "price_tl": 39.86,
+        "upside_pct": 256.857624924266,
+        "verdict": "AL"
+      },
+      "reasoning": [
+        "Banking ticker detected (XI_30)",
+        "Banking DDM input: T\u00fcrkiye Halk Bankas\u0131 A.\u015e. | EPS 17.63 TL, DPS 0.00, ROE 12.0%, Payout 0.0%, confidence=CONFIRMED",
+        "CoE USD: 3.97% + 0.2495*4.44% + 1.0*6.01% = 11.09%",
+        "DDM USD: g_high=8.00%, payout_high=0%, g_stable=3.00%, payout_stable=72.9%, 5y high+stable",
+        "DDM Value: $4.0216/share = 142.24 TL/share, Equity $5.03B"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "KCHOL",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "HOLDING",
+      "periods_fetched": 0,
+      "items_mapped": 0,
+      "lifecycle": null,
+      "dcf": {
+        "executed": true,
+        "model_used": "holding_sotp",
+        "equity_value_usd": 13633666110.150467,
+        "equity_value_tl": 482222770316.022,
+        "value_per_share_usd": 5.376266811732339,
+        "value_per_share_tl": 190.15855713097284,
+        "wacc": null,
+        "normalized_op_margin": null
+      },
+      "shares_outstanding": 2535898345,
+      "market": {
+        "price_tl": 205.0,
+        "upside_pct": -7.239728228793737,
+        "verdict": "BEKLE"
+      },
+      "reasoning": [
+        "Holding ticker \u2014 SOTP routing (Faz 2.5)",
+        "  SOTP: Yap\u0131 Kredi Bankas\u0131 (banking_listed) \u2014 41.0% \u00d7 $9.30B = $3.81B [banking_ddm_dcf]",
+        "  SOTP: T\u00fcpra\u015f (listed) \u2014 40.0% \u00d7 $10.19B = $4.08B [dcf_lookup]",
+        "  SOTP: Ford Otosan (listed) \u2014 38.7% \u00d7 $2.92B = $1.13B [dcf_lookup]",
+        "  SOTP: Ar\u00e7elik (listed) \u2014 41.4% \u00d7 $3.38B = $1.40B [dcf_lookup]",
+        "  SOTP: Tofa\u015f (listed) \u2014 37.6% \u00d7 $1.62B = $0.61B [dcf_lookup]",
+        "  SOTP: Otokar (listed) \u2014 47.4% \u00d7 $1.65B = $0.78B [book_fallback]",
+        "  SOTP: T\u00fcrk Trakt\u00f6r (listed) \u2014 37.5% \u00d7 $2.32B = $0.87B [book_fallback]",
+        "  SOTP: Aygaz (listed) \u2014 40.7% \u00d7 $0.99B = $0.40B [book_fallback]",
+        "  SOTP: Otoko\u00e7 (Otomoto retail) (non_listed) \u2014 96.4% \u00d7 $1.10B = $1.06B [non_listed_book]",
+        "  SOTP: Tourism Pool (Alt\u0131nyunus, Mare (non_listed) \u2014 100.0% \u00d7 $0.20B = $0.20B [non_listed_book]",
+        "  SOTP: Real Estate Pool (non_listed) \u2014 100.0% \u00d7 $0.26B = $0.26B [non_listed_book]",
+        "  SOTP: Other Non-Listed (Ko\u00e7 Sistem,  (non_listed) \u2014 100.0% \u00d7 $0.45B = $0.45B [non_listed_book]",
+        "SOTP totals: Listed=$9.28B + Banking=$3.81B + NonListed=$1.97B",
+        "SOTP: gross $15.06B + cash $+0.98B - minority $0.00B \u00d7 (1 - 15% disconto) = $13.63B net",
+        "  \u26a0 Banking child 'YKBNK': DDM result CONFIRMED ($9.30B from banking_ddm)",
+        "  \u26a0 Listed child 'OTKAR': DCF lookup MISSING, book fallback ($1.65B \u00d7 1.0)",
+        "  \u26a0 Listed child 'TTRAK': DCF lookup MISSING, book fallback ($2.32B \u00d7 1.0)",
+        "  \u26a0 Listed child 'AYGAZ': DCF lookup MISSING, book fallback ($0.99B \u00d7 1.0)"
+      ],
+      "errors": []
+    },
+    {
+      "ticker": "SAHOL",
+      "success": true,
+      "is_banking": false,
+      "financial_group": "HOLDING",
+      "periods_fetched": 0,
+      "items_mapped": 0,
+      "lifecycle": null,
+      "dcf": {
+        "executed": true,
+        "model_used": "holding_sotp",
+        "equity_value_usd": 10455012911.17321,
+        "equity_value_tl": 369793806668.1964,
+        "value_per_share_usd": 5.123991751010408,
+        "value_per_share_tl": 181.23558823323813,
+        "wacc": null,
+        "normalized_op_margin": null
+      },
+      "shares_outstanding": 2040403931,
+      "market": {
+        "price_tl": 98.15,
+        "upside_pct": 84.65164364058901,
+        "verdict": "AL"
+      },
+      "reasoning": [
+        "Holding ticker \u2014 SOTP routing (Faz 2.5)",
+        "  SOTP: Akbank (banking_listed) \u2014 41.0% \u00d7 $14.55B = $5.96B [banking_ddm_dcf]",
+        "  SOTP: Enerjisa Enerji (listed) \u2014 40.0% \u00d7 $1.89B = $0.75B [book_fallback]",
+        "  SOTP: Aksigorta (listed) \u2014 36.0% \u00d7 $0.28B = $0.10B [book_fallback]",
+        "  SOTP: Agesa Hayat ve Emeklilik (listed) \u2014 40.0% \u00d7 $0.71B = $0.28B [book_fallback]",
+        "  SOTP: Ak\u00e7ansa (listed) \u2014 40.0% \u00d7 $0.91B = $0.36B [book_fallback]",
+        "  SOTP: \u00c7imsa (listed) \u2014 55.0% \u00d7 $1.17B = $0.64B [book_fallback]",
+        "  SOTP: Brisa (listed) \u2014 44.0% \u00d7 $0.67B = $0.29B [book_fallback]",
+        "  SOTP: Kordsa (listed) \u2014 71.0% \u00d7 $0.34B = $0.24B [book_fallback]",
+        "  SOTP: Carrefoursa (listed) \u2014 57.0% \u00d7 $0.31B = $0.18B [book_fallback]",
+        "  SOTP: Teknosa (listed) \u2014 50.0% \u00d7 $0.13B = $0.07B [book_fallback]",
+        "  SOTP: Enerjisa \u00dcretim (non_listed) \u2014 50.0% \u00d7 $3.95B = $1.98B [non_listed_book]",
+        "  SOTP: \u00c7imsa Building Solutions (non_listed) \u2014 32.0% \u00d7 $0.29B = $0.09B [non_listed_book]",
+        "  SOTP: Sabanc\u0131 Climate Technologies (non_listed) \u2014 100.0% \u00d7 $0.46B = $0.46B [non_listed_book]",
+        "  SOTP: DxBV (digital) (non_listed) \u2014 100.0% \u00d7 $0.08B = $0.08B [non_listed_book]",
+        "  SOTP: TUA (non_listed) \u2014 50.0% \u00d7 $0.19B = $0.09B [non_listed_book]",
+        "  SOTP: Other (Tursa, AEO, TMA, Sabanc (non_listed) \u2014 100.0% \u00d7 $0.36B = $0.36B [non_listed_book]",
+        "SOTP totals: Listed=$2.92B + Banking=$5.96B + NonListed=$3.06B",
+        "SOTP: gross $11.95B + cash $+0.35B - minority $0.00B \u00d7 (1 - 15% disconto) = $10.46B net",
+        "  \u26a0 Banking child 'AKBNK': DDM result CONFIRMED ($14.55B from banking_ddm)",
+        "  \u26a0 Listed child 'ENJSA': DCF lookup MISSING, book fallback ($1.89B \u00d7 1.0)",
+        "  \u26a0 Listed child 'AKGRT': DCF lookup MISSING, book fallback ($0.28B \u00d7 1.0)",
+        "  \u26a0 Listed child 'AGESA': DCF lookup MISSING, book fallback ($0.71B \u00d7 1.0)",
+        "  \u26a0 Listed child 'AKCNS': DCF lookup MISSING, book fallback ($0.91B \u00d7 1.0)",
+        "  \u26a0 Listed child 'CIMSA': DCF lookup MISSING, book fallback ($1.17B \u00d7 1.0)",
+        "  \u26a0 Listed child 'BRISA': DCF lookup MISSING, book fallback ($0.67B \u00d7 1.0)",
+        "  \u26a0 Listed child 'KORDS': DCF lookup MISSING, book fallback ($0.34B \u00d7 1.0)",
+        "  \u26a0 Listed child 'CRFSA': DCF lookup MISSING, book fallback ($0.31B \u00d7 1.0)",
+        "  \u26a0 Listed child 'TKNSA': DCF lookup MISSING, book fallback ($0.13B \u00d7 1.0)"
+      ],
+      "errors": []
+    }
+  ]
+}
