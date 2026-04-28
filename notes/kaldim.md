@@ -1,8 +1,8 @@
 # REELDEĞER — Kaldığım Yer
 
-**Son güncelleme:** 28 Nisan 2026, ~09:50 (sabah)
-**Aktif Faz:** Faz 4.5 BIST 50 Universe Expansion TAMAMLANDI ✓ (Damodaran Lesson #9)
-**Sıradaki:** Faz 4.6 BIST 100 expansion (Hızlı Büyüme dolar) veya Faz 4.7 lifecycle sub-stages
+**Son güncelleme:** 28 Nisan 2026, ~12:30 (öğle)
+**Aktif Faz:** Faz 4.7 Adaptive Cap Refinement TAMAMLANDI ✓ (Damodaran Lesson #10 — hipotez falsification)
+**Sıradaki:** Faz 4.8 AEFES/AKSA real root cause (distress signal) veya Faz 4.6 BIST 100
 
 ---
 
