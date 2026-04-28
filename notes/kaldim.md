@@ -1,9 +1,9 @@
 # REELDEĞER — Kaldığım Yer
 
-**Son güncelleme:** 28 Nisan 2026, ~14:35 (öğle)
-**Aktif Faz:** Faz 4.13 Selective Filter Strengthen ⚠ HİPOTEZ FAIL (Damodaran Lesson #13)
-**Sonuç:** Konservatif XU100 BEAT KAYBOLDU, tüm profilerde alpha LOSS -0.74 to -2.90pp
-**Sıradaki:** Rollback Faz 4.7 v2 (user kararı) veya Faz 5 Frontend
+**Son güncelleme:** 28 Nisan 2026, ~14:40 (öğle)
+**Aktif Faz:** Faz 4.13 ROLLBACK ✓ — Faz 4.7 v2 baseline restore (Damodaran Lesson #13 dökümante)
+**Konservatif XU100 BEAT geri kazanıldı:** +0.59pp zero, +0.03pp real ★
+**Sıradaki:** Faz 4.14 sleeve target reduction veya Faz 5 Frontend integration
 
 ---
 

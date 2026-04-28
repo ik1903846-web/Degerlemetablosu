@@ -1,0 +1,14 @@
+# REELDEĞER USD-Basis Backtest 2021-Q2 → 2026-Q1 (ADR-002)
+# Source: backtest_results_20260428_143533.json
+# USD/TRY devaluation: 5.093x (8.73 → 44.45)
+
+category,label,cost_model,tl_cum_pct,usd_cum_pct,tl_ann_pct,usd_ann_pct,usd_vol_pct,usd_sharpe,usd_sortino,usd_max_dd_pct
+portfolio,konservatif,zero,854.11,87.32,60.78,14.13,48.43,0.209,1.028,-28.04
+portfolio,konservatif,realistic,832.13,83.01,59.99,13.57,48.42,0.198,0.971,-28.35
+portfolio,dengeli,zero,626.59,42.65,51.82,7.77,42.53,0.089,0.395,-26.69
+portfolio,dengeli,realistic,609.85,39.37,51.08,7.24,42.52,0.076,0.340,-26.88
+portfolio,agresif,zero,587.37,34.95,50.05,6.51,42.12,0.060,0.224,-28.18
+portfolio,agresif,realistic,571.48,31.83,49.32,5.99,42.11,0.047,0.177,-28.86
+benchmark,XU100,n/a,830.94,82.77,59.95,13.54,42.03,0.227,,-24.91
+benchmark,XU030,n/a,878.78,92.17,61.65,14.74,40.24,0.267,,-22.72
+benchmark,SPY,n/a,47.64,47.64,8.55,8.55,15.21,0.299,,-24.80

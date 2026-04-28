@@ -219,12 +219,12 @@ def assign_sleeve(report: Any, score: PentagonScore) -> SleeveAssignment:
     if is_banking:
         spread_pp, roe_pct = _banking_metrics(report)
 
-        # Banking deep_value: upside > %80 (Faz 4.2 gevşetme, Faz 4.13 Q gate)
-        if upside > 80 and score.composite > 50 and score.quality > 45:
+        # Banking deep_value: upside > %80 (Faz 4.2 gevşetme)
+        if upside > 80 and score.composite > 50:
             return SleeveAssignment(
                 ticker, Sleeve.YUKSEK_KAZANC, "deep_value", score, score.composite, 0.85,
                 [f"YÜKSEK KAZANÇ deep_value (banking): upside {upside:+.0f}% > %80, "
-                 f"composite {score.composite:.1f}, Q={score.quality:.0f}>45"]
+                 f"composite {score.composite:.1f}"]
             )
 
         # Banking intrinsic CORE: excess_return ≥ 3pp + upside > -5 (Faz 4.2 gevşetme)
@@ -241,18 +241,13 @@ def assign_sleeve(report: Any, score: PentagonScore) -> SleeveAssignment:
                  f"upside {upside:+.0f}% > -5, composite {score.composite:.1f}, V={score.value:.0f}"]
             )
 
-        # Banking premium: ROE > %20 + upside > %50 + Q > 60 (Faz 4.13 strict)
-        if (
-            roe_pct is not None
-            and roe_pct > 20
-            and upside > 50
-            and score.quality > 60
-        ):
+        # Banking premium: ROE > %18 + upside > %30 (Faz 4.2 gevşetme)
+        if roe_pct is not None and roe_pct > 18 and upside > 30:
             return SleeveAssignment(
                 ticker, Sleeve.YUKSEK_KAZANC, "banking_premium",
                 score, score.composite, 0.75,
-                [f"YÜKSEK KAZANÇ banking_premium: ROE {roe_pct:.1f}% > %20, "
-                 f"upside {upside:+.0f}% > %50, Q={score.quality:.0f}>60"]
+                [f"YÜKSEK KAZANÇ banking_premium: ROE {roe_pct:.1f}% > %18, "
+                 f"upside {upside:+.0f}% > %30"]
             )
 
         # Banking SKIP fallback (composite/spread inadequate)
@@ -263,24 +258,21 @@ def assign_sleeve(report: Any, score: PentagonScore) -> SleeveAssignment:
              f"upside={upside:+.0f}%, composite {score.composite:.1f}"]
         )
 
-    # ---- Rule 2: YÜKSEK KAZANÇ — holding chronic discount (Faz 4.13 strict) ----
+    # ---- Rule 2: YÜKSEK KAZANÇ — holding chronic discount (öncelikli) ----
     # Holdings için deep_value sub'ından farklı sınıflandırma — KCHOL/SAHOL
     # SOTP routed, lifecycle UNKNOWN, intrinsic > market chronic discount.
-    # Faz 4.13: upside > 50 → > 70, composite > 50 → > 55 (strict)
-    if holding and upside > 70 and score.composite > 55:
+    if holding and upside > 50 and score.composite > 50:
         return SleeveAssignment(
             ticker, Sleeve.YUKSEK_KAZANC, "holding_chronic_discount",
             score, score.composite, 0.80,
-            [f"YÜKSEK KAZANÇ holding: SOTP chronic discount, "
-             f"upside {upside:+.0f}% > 70, comp {score.composite:.1f}>55"]
+            [f"YÜKSEK KAZANÇ holding: SOTP chronic discount, upside {upside:+.0f}%"]
         )
 
-    # ---- Rule 3: YÜKSEK KAZANÇ — deep_value (Faz 4.13 strict: upside > %120 + Q > 45) ----
-    if upside > 120 and score.composite > 55 and score.quality > 45:
+    # ---- Rule 3: YÜKSEK KAZANÇ — deep_value (non-holding upside > %80, Faz 4.2 gevşetme) ----
+    if upside > 80 and score.composite > 50:
         return SleeveAssignment(
             ticker, Sleeve.YUKSEK_KAZANC, "deep_value", score, score.composite, 0.85,
-            [f"YÜKSEK KAZANÇ deep_value: upside {upside:+.0f}% > %120, "
-             f"composite {score.composite:.1f}>55, Q={score.quality:.0f}>45"]
+            [f"YÜKSEK KAZANÇ deep_value: upside {upside:+.0f}% > %80, composite {score.composite:.1f}"]
         )
 
     # ---- Rule 4: YÜKSEK KAZANÇ — distress ----
