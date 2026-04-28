@@ -1,0 +1,26 @@
+# Portfolio Plan,konservatif,capital_tl=1000000
+ticker,sleeve,sub_category,weight_pct,composite,capital_allocation_tl
+GARAN,core,banking_intrinsic,11.04,82.92,110376
+AKBNK,core,banking_intrinsic,9.93,74.61,99317
+YKBNK,core,banking_intrinsic,9.48,71.19,94771
+ARCLK,core,,9.27,69.67,92747
+LOGO,core,,9.27,69.62,92678
+TKNSA,core,,8.77,65.87,87690
+EREGL,core,,8.47,63.65,84728
+ISCTR,core,banking_intrinsic,8.20,61.59,81992
+TCELL,core,,7.48,56.16,74758
+TRALT,yuksek_kazanc,deep_value,2.00,59.34,20000
+CCOLA,yuksek_kazanc,deep_value,2.00,77.69,20000
+FROTO,yuksek_kazanc,deep_value,2.00,75.28,20000
+AEFES,yuksek_kazanc,deep_value,2.00,71.75,20000
+AKSA,yuksek_kazanc,deep_value,2.00,76.12,20000
+OYAKC,yuksek_kazanc,deep_value,2.00,77.50,20000
+INFO,yuksek_kazanc,deep_value,2.00,82.18,20000
+VESBE,yuksek_kazanc,deep_value,2.00,69.51,20000
+ISMEN,yuksek_kazanc,deep_value,2.00,78.08,20000
+BOSSA,yuksek_kazanc,mature_transition,2.00,59.26,20000
+ARENA,yuksek_kazanc,deep_value,2.00,78.80,20000
+INDES,yuksek_kazanc,deep_value,2.00,78.27,20000
+HALKB,yuksek_kazanc,deep_value,2.00,73.50,20000
+SAHOL,yuksek_kazanc,holding_chronic_discount,2.00,62.14,20000
+CASH,cash,reserve,0.00,,0
