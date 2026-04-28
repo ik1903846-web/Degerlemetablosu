@@ -97,6 +97,31 @@ STATIC_SHARES_OUTSTANDING: Dict[str, int] = {
     "KARSN": 720_000_000,      # Karsan (~720M)
     "DOHOL": 2_616_938_288,    # Doğan Holding (~2.62B)
 
+    # Faz 4.6 — BIST 100 expansion (KAP/şirket sayfası tahmini, 15 ticker)
+    # Drop'lanan (orchestrator XBRL items missing, Faz 4.7+ debug parking):
+    #   SMRTG, CWENE, KCAER, KONTR, ENJSA, KONKA
+    "INFO":  110_000_000,      # İnfo Yatırım (~110M, fintech)
+
+    # Mid-cap Industrial
+    "OTKAR":  24_000_000,      # Otokar (~24M)
+    "KORDS": 194_500_000,      # Kordsa (~195M)
+    "PARSN":  95_000_000,      # Parsan (~95M)
+    "VESBE": 190_000_000,      # Vestel Beyaz Eşya (~190M)
+    "EUREN": 290_000_000,      # Eurometal (~290M)
+    "ECILC":  30_000_000,      # Eczacıbaşı İlaç (~30M)
+
+    # Mid-cap Diversified
+    "TKNSA": 165_000_000,      # Teknosa (~165M)
+    "PRKAB": 134_000_000,      # Türk Prysmian Kablo (~134M)
+    "KAPLM": 200_000_000,      # Kaplamin (~200M)
+    "ISMEN": 210_000_000,      # İş Yatırım (~210M)
+
+    # Mid-cap Specialty
+    "BOSSA": 220_000_000,      # Bossa (~220M)
+    "ARENA":  63_000_000,      # Arena Bilgisayar (~63M)
+    "INDES": 280_000_000,      # İndeks Bilgisayar (~280M)
+    "TUKAS":  60_000_000,      # Tukaş Gıda (~60M)
+
     # NOT: Bu liste cross-check edildi ama %100 doğru olmayabilir.
     # BIST 30 batch testinde her ticker market cap doğrulaması yapılmalı.
     # TUPRS Adım 3.5 sonrası canonical (resmi 1.93B kayıt altında).

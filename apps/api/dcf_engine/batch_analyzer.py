@@ -125,6 +125,42 @@ BIST_50_ADDITIONS = [
 BIST_50 = BIST_30 + BIST_50_ADDITIONS
 
 
+# Faz 4.6 — BIST 100 universe expansion (+15 quality-focused mid-cap)
+# isyatirim XBRL CONFIRMED + orchestrator pipeline tested.
+# Drop'lanan (orchestrator XBRL items missing): SMRTG, CWENE, KCAER, KONTR,
+# EUREN, ECILC, ENJSA, KONKA, MAVI (Faz 4.5'ten devam) — Faz 4.7+ debug parking
+BIST_100_ADDITIONS = [
+    # Tech/Fintech (Hızlı Büyüme aday)
+    "INFO",   # İnfo Yatırım
+
+    # Mid-cap Industrial
+    "OTKAR",  # Otokar Otomotiv
+    "KORDS",  # Kordsa (specialty fiber)
+    "PARSN",  # Parsan (auto parts)
+    "VESBE",  # Vestel Beyaz Eşya
+
+    # Mid-cap Diversified
+    "TKNSA",  # Teknosa (retail growth)
+    "PRKAB",  # Türk Prysmian Kablo
+    "KAPLM",  # Kaplamin
+    "ISMEN",  # İş Yatırım Menkul Değerler
+
+    # Mid-cap Specialty
+    "BOSSA",  # Bossa Tekstil
+    "ARENA",  # Arena Bilgisayar
+    "INDES",  # İndeks Bilgisayar
+
+    # Cyclical/Other
+    "EUREN",  # Eurometal (test'te fail ama probe OK, retry)
+    "ECILC",  # Eczacıbaşı İlaç (probe OK, retry — coverage gap)
+    "TUKAS",  # Tukaş Gıda (probe OK)
+]
+
+
+# Faz 4.6 — full BIST 100 universe (63 ticker, quality-focused)
+BIST_100 = BIST_50 + BIST_100_ADDITIONS
+
+
 # ============================================================================
 # Batch Result
 # ============================================================================
