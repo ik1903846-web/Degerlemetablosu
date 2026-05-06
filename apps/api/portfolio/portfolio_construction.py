@@ -177,7 +177,12 @@ def build_portfolio(
         else:
             actual_alloc_pct[sleeve_name] = target_pct
 
-    # Redistribution: empty target'ları aktif sleeve'lere capacity-pro-rata kaydır
+    # Redistribution: empty target'ları aktif sleeve'lere kaydır
+    # Faz 4.16 — Core PRIORITY algoritma (Damodaran Lesson #15):
+    #   Step 1: Core'a kapasite dolana kadar (quality > opportunistic)
+    #   Step 2: Kalan kapasite diğer sleeve'lere capacity-pro-rata
+    # Eski (Faz 4.2): pure capacity-pro-rata — Yüksek Kazanç dominant drag
+    # Yeni (Faz 4.16): Core önce, kalan Yüksek Kazanç'a — quality first
     # MIN_CASH_PCT buffer korunur (Damodaran ADR-015 minimal cash floor)
     if empty_target_pct > 0:
         active_sleeves = {
@@ -193,25 +198,50 @@ def build_portfolio(
                 headroom = max(0.0, max_cap - actual_alloc_pct[name])
                 capacity_headroom[name] = headroom
 
-            total_headroom = sum(capacity_headroom.values())
             sum_active = sum(active_sleeves.values())
             # Cash buffer (MIN_CASH_PCT) korunur
             cash_reserved_max = max(0.0, 100.0 - MIN_CASH_PCT - sum_active)
-            if total_headroom > 0:
-                redistributable = min(empty_target_pct, total_headroom, cash_reserved_max)
-                for name, headroom in capacity_headroom.items():
-                    if headroom > 0:
-                        share = (headroom / total_headroom) * redistributable
+            redistributable = min(empty_target_pct, cash_reserved_max)
+
+            # Step 1: Core PRIORITY (Faz 4.16 — Damodaran quality first)
+            remaining_pp = redistributable
+            if "core" in active_sleeves and capacity_headroom["core"] > 0:
+                core_addition = min(remaining_pp, capacity_headroom["core"])
+                actual_alloc_pct["core"] += core_addition
+                remaining_pp -= core_addition
+                reasoning.append(
+                    f"↪ Redistribute → core (PRIORITY): +{core_addition:.1f}% "
+                    f"(headroom {capacity_headroom['core']:.1f}%)"
+                )
+
+            # Step 2: Kalan kapasite diğer aktif sleeve'lere capacity-pro-rata
+            if remaining_pp > 0:
+                other_sleeves = {
+                    name: capacity_headroom[name]
+                    for name in active_sleeves
+                    if name != "core" and capacity_headroom[name] > 0
+                }
+                # Step 2 sonrası capacity (Step 1'den sonra Core'un yeni headroom'u 0)
+                # Kalan headroom diğer sleeve'lerin headroom'u
+                other_total_headroom = sum(other_sleeves.values())
+                if other_total_headroom > 0:
+                    step2_redist = min(remaining_pp, other_total_headroom)
+                    for name, headroom in other_sleeves.items():
+                        share = (headroom / other_total_headroom) * step2_redist
                         actual_alloc_pct[name] += share
                         reasoning.append(
                             f"↪ Redistribute → {name}: +{share:.1f}% "
-                            f"(headroom {headroom:.1f}%)"
+                            f"(headroom {headroom:.1f}%, Step 2 pro-rata)"
                         )
-                if redistributable < empty_target_pct:
-                    overflow = empty_target_pct - redistributable
-                    cash_reasons.append(
-                        f"Redistribution capacity overflow: +{overflow:.1f}% → cash"
-                    )
+                    remaining_pp -= step2_redist
+
+            # Capacity overflow → cash
+            total_redistributed = redistributable - remaining_pp
+            if total_redistributed < empty_target_pct:
+                overflow = empty_target_pct - total_redistributed
+                cash_reasons.append(
+                    f"Redistribution capacity overflow: +{overflow:.1f}% → cash"
+                )
 
     # 5. Position sizing within each non-empty sleeve
     positions: List[TickerPosition] = []
