@@ -577,13 +577,17 @@ BS option time value (turnaround optionality).
 - `apps/api/portfolio/sleeve_assignment.py` Rule 1.5 distress_turnaround sub
 - `apps/api/scripts/test_distress_dcf.py` — Eurotunnel + LVS + 6 BIST validation 3/3
 
-### Impact ★ PRODUCTION-VALIDATED
+### Impact ★ PRODUCTION-VALIDATED + RIGOR (Faz 7.2)
 - 3 distress_turnaround Yüksek Kazanç (KONTR/HEKTS/PGSUS, upside > 80)
 - 1 distress Core (VESTL Pentagon MATURE_GROWTH güçlü)
 - TUPRS regression INTACT (distress branch hassas, positive DCF korunur)
 - 16/18 backtest BEAT (Konservatif 6/6, Dengeli 6/6, Agresif 4/6)
 - Konservatif zero USD +19.11%/yr (vs XU100 +5.57pp BEAT)
-- Module + smoke + pipeline + backtest 4 katman validate
+- **Faz 7.2 Modified BS rigor:** Eurotunnel £122M ±%5 PASS (computed £122.08M,
+  dev 0.06%, y=11.70% calibrated) — Damodaran Dark Side kitap-aligned
+- API: `black_scholes_equity_with_yield(..., cashflow_yield=0.0)` modified BS
+  formula; `black_scholes_equity_as_call(...)` backward compat alias (y=0)
+- Module + smoke + pipeline + backtest + Eurotunnel anchor = **5 katman validate**
 
 ---
 
@@ -632,7 +636,7 @@ methodology evaluation."
 
 ---
 
-**Compendium last updated:** 7 May 2026 (Faz 7.1 KAPANIŞ)
-**Total commits:** 132+ (Faz 7.1 forward + FALSIFIED rollback evidence)
-**TUPRS regression anchor:** 187.10 TL (41+ commit INTACT, deep dive baseline -%0.6 sub-noise)
-**18 Damodaran Lesson:** #1-15 (foundational) + #17 (distress prod-validated) + #18 (frozen baseline META)
+**Compendium last updated:** 7 May 2026 (Faz 7.2 Eurotunnel modified BS rigor)
+**Total commits:** 135+ (Faz 7.1 forward + Faz 7.2 modified BS + 4/4 validation)
+**TUPRS regression anchor:** 187.10 TL (42+ commit INTACT, deep dive baseline -%0.6 sub-noise)
+**18 Damodaran Lesson:** #1-15 (foundational) + #17 (distress prod-validated + RIGOR) + #18 (frozen baseline META)
