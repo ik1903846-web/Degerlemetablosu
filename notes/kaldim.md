@@ -1,10 +1,10 @@
 # REELDEĞER — Kaldığım Yer
 
-**Son güncelleme:** 28 Nisan 2026, ~15:10 (öğle)
-**Aktif Faz:** Faz 4.14 Allocation Lever TAMAMLANDI ★★★ (Damodaran Lesson #14 — Allocation > Filter)
-**Konservatif XU100 BEAT genişledi:** +1.33pp zero, +0.77pp real
-**Dengeli SPY BEAT GERİ KAZANILDI:** +0.42pp (Faz 4.6'dan beri kayıptı)
-**Sıradaki:** Faz 4.15 Agresif daha agresif allocation veya Faz 5 Frontend
+**Son güncelleme:** 28 Nisan 2026, ~15:35 (öğle)
+**Aktif Faz:** Faz 4.15 Agresif Tune TAMAMLANDI ✓ (Lesson #14 extension)
+**Anchor:** Konservatif/Dengeli BIT-IDENTICAL korundu (4 BEAT INTACT)
+**Agresif Δ:** USD ann +0.40pp gain, SPY -2.10 → -1.71pp (BEAT geri kazanılmadı, marjinal)
+**Sıradaki:** Faz 4.16 redistribution algoritma veya Faz 5 Frontend
 
 ---
 
