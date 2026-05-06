@@ -85,26 +85,39 @@ class DistressValuation:
 # Black-Scholes Equity-as-Call
 # ============================================================================
 
-def black_scholes_equity_as_call(
+def black_scholes_equity_with_yield(
     firm_value: float,        # S — total firm value (assets at market)
     debt_face_value: float,   # K — strike (debt face)
     duration: float,          # t — debt weighted avg duration (years)
     volatility: float,        # σ — annualized firm value volatility
     risk_free_rate: float,    # r — risk-free rate
+    cashflow_yield: float = 0.0,  # y — Damodaran Faz 7.2 (asset payout/dividend yield)
 ) -> BlackScholesResult:
     """
-    Damodaran Dark Side: Equity as a call option on firm value.
+    Damodaran Dark Side: Equity as a call option with cashflow yield (modified BS).
 
-    Formula:
-        Equity = S * N(d1) - K * exp(-r*t) * N(d2)
+    Modified Formula (y > 0, cashflow yield reduces equity time value):
+        Equity = S * exp(-y*t) * N(d1) - K * exp(-r*t) * N(d2)
 
-        d1 = (ln(S/K) + (r + σ²/2) * t) / (σ * √t)
+        d1 = (ln(S/K) + (r - y + σ²/2) * t) / (σ * √t)
         d2 = d1 - σ * √t
+
+    Vanilla case (y = 0):
+        Equity = S * N(d1) - K * exp(-r*t) * N(d2)
+        d1 = (ln(S/K) + (r + σ²/2) * t) / (σ * √t)
+
+    Cashflow yield (y) Damodaran Eurotunnel reference:
+        - y captures asset payout (dividends, asset sale, debt service) consuming
+          firm value over option life. Long-duration distress firms with
+          significant cash burn → y materially reduces equity option value.
+        - Eurotunnel 1998: y ≈ 11.70% calibrates equity to £122M anchor
+          (vs vanilla BS y=0 £5,570M overestimate, 25-yıl duration sensitive).
+        - BIST distress ticker'larında y ≈ 0 (asset payout minimal pre-distress).
 
     Edge cases:
         - Invalid inputs (≤0): fallback to max(0, S - K) book floor
         - Deep underwater (S << K): equity ≈ 0 (option far OTM)
-        - Deep ITM (S >> K): equity ≈ S - K * e^(-rt)
+        - Deep ITM (S >> K, y=0): equity ≈ S - K * e^(-rt)
     """
     if (
         firm_value <= 0
@@ -122,7 +135,7 @@ def black_scholes_equity_as_call(
 
     d1 = (
         math.log(firm_value / debt_face_value)
-        + (risk_free_rate + 0.5 * volatility ** 2) * duration
+        + (risk_free_rate - cashflow_yield + 0.5 * volatility ** 2) * duration
     ) / sigma_sqrt_t
 
     d2 = d1 - sigma_sqrt_t
@@ -131,15 +144,42 @@ def black_scholes_equity_as_call(
     n_d2 = norm_cdf(d2)
 
     equity_value = (
-        firm_value * n_d1
+        firm_value * math.exp(-cashflow_yield * duration) * n_d1
         - debt_face_value * math.exp(-risk_free_rate * duration) * n_d2
+    )
+
+    method_label = (
+        "black_scholes_with_yield" if cashflow_yield > 0 else "black_scholes"
     )
 
     return BlackScholesResult(
         equity_value=equity_value,
         d1=d1, d2=d2,
         n_d1=n_d1, n_d2=n_d2,
-        method="black_scholes",
+        method=method_label,
+    )
+
+
+def black_scholes_equity_as_call(
+    firm_value: float,
+    debt_face_value: float,
+    duration: float,
+    volatility: float,
+    risk_free_rate: float,
+) -> BlackScholesResult:
+    """
+    Vanilla Black-Scholes equity-as-call (backward compat alias, y=0).
+
+    Faz 7.2'de modified BS (`black_scholes_equity_with_yield`) tanıtıldı,
+    bu fonksiyon vanilla case'i koruyor (mevcut çağrılar değişmez).
+    """
+    return black_scholes_equity_with_yield(
+        firm_value=firm_value,
+        debt_face_value=debt_face_value,
+        duration=duration,
+        volatility=volatility,
+        risk_free_rate=risk_free_rate,
+        cashflow_yield=0.0,
     )
 
 
@@ -263,6 +303,7 @@ def value_distressed_company(
     interest_coverage: Optional[float] = None,
     distress_sale_recovery: float = 0.6,
     deep_distress_threshold: float = 0.50,
+    cashflow_yield: float = 0.0,  # Faz 7.2: modified BS y param (default 0 = vanilla)
 ) -> DistressValuation:
     """
     Full distress valuation pipeline (Damodaran Dark Side).
@@ -290,13 +331,14 @@ def value_distressed_company(
     Returns:
         DistressValuation with intrinsic_equity_value (positive or zero).
     """
-    # Step 1: Black-Scholes equity as call
-    bs = black_scholes_equity_as_call(
+    # Step 1: Black-Scholes equity as call (Faz 7.2: modified BS with yield)
+    bs = black_scholes_equity_with_yield(
         firm_value=firm_value,
         debt_face_value=debt_face_value,
         duration=duration,
         volatility=volatility,
         risk_free_rate=risk_free_rate,
+        cashflow_yield=cashflow_yield,
     )
 
     # Step 2: πDistress
