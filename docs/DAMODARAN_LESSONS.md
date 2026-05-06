@@ -549,6 +549,78 @@ lever path Lesson #13 fail'inden sonra deneildi → ULTIMATE WIN).
 
 ---
 
+## Lesson #17 — Distress as Call Option (Black-Scholes) ★ PRODUCTION-VALIDATED
+
+### Statement
+Distressed firms cannot be valued with traditional DCF (negative intrinsic
+artifact, not feature). Equity is a CALL OPTION on firm value (Black-Scholes,
+strike = debt face). Time value alone produces positive equity even when
+S < K (deep underwater). Asymmetric payoff: downside book floor, upside
+BS option time value (turnaround optionality).
+
+### Evidence
+6 BIST distress ticker negative cyclical_dcf → positive distress-adjusted intrinsic:
+
+| Ticker | Cyclical DCF | BS Equity | πDistress | Adjusted | Upside |
+|--------|-------------:|----------:|----------:|---------:|-------:|
+| KONTR  | -2.82 TL     | 477.7M$   | 40.0%     | 21.92 TL | +124.81% |
+| HEKTS  | -0.70 TL     | 440.3M$   | 43.8%     | 6.73 TL  | +82.83%  |
+| PGSUS  | -1082.76 TL  | 2,831.8M$ | 27.5%     | 755.68 TL| +310.03% |
+| VESTL  | -112.81 TL   | 783.9M$   | 40.0%     | 50.09 TL | +77.36%  |
+| PETKM  | -3.76 TL     | 1,461.9M$ | 23.8%     | 16.63 TL | -31.04%  |
+| THYAO  | -110.81 TL   | 9,513.5M$ | 25.0%     | 198.25 TL| -36.00%  |
+
+### Implementation
+- `apps/api/dcf_engine/distress_dcf.py` — BS equity-as-call (math.erf, no scipy)
+- `apps/api/data_layer/distress_data.py` — 6 BIST manual KAP-sourced inputs
+- `apps/api/dcf_engine/orchestrator.py` STEP 5.5 distress override branch
+- `apps/api/portfolio/sleeve_assignment.py` Rule 1.5 distress_turnaround sub
+- `apps/api/scripts/test_distress_dcf.py` — Eurotunnel + LVS + 6 BIST validation 3/3
+
+### Impact ★ PRODUCTION-VALIDATED
+- 3 distress_turnaround Yüksek Kazanç (KONTR/HEKTS/PGSUS, upside > 80)
+- 1 distress Core (VESTL Pentagon MATURE_GROWTH güçlü)
+- TUPRS regression INTACT (distress branch hassas, positive DCF korunur)
+- 16/18 backtest BEAT (Konservatif 6/6, Dengeli 6/6, Agresif 4/6)
+- Konservatif zero USD +19.11%/yr (vs XU100 +5.57pp BEAT)
+- Module + smoke + pipeline + backtest 4 katman validate
+
+---
+
+## Lesson #18 — Frozen Baseline Required (META) ★ FALSIFIED ROLLBACK
+
+### Statement
+Methodology comparison REQUIRES frozen baseline. Live data shift (yfinance
+fresh fetch, market prices, snapshot composition kayma) environmental drift
+yaratır. Faz N → Faz N+1 comparison için BIT-IDENTICAL baseline gerek.
+"Drag" veya "gain" iddiaları frozen baseline ile doğrulanmadan rollback
+decision yapılmamalı. Live data drift ≠ methodology change.
+
+### Evidence — FALSIFIED rollback (Faz 7.1)
+Pre-rollback Faz 7.1: Konservatif zero +17.31%/yr → "drag" iddia (vs Apr 28 +18.98 spec).
+Post-rollback baseline: Konservatif zero **+17.31%/yr (EXACT MATCH 6/6)**.
+→ Distress integration backtest NEUTRAL (0pp etki).
+Re-add Faz 7.1 v2: Konservatif zero +19.11%/yr (live data refresh, +1.80pp).
+
+### Implementation
+- Production iteration discipline: baseline donmadan iddiada bulunma
+- BIST batch + portfolio + backtest re-run her metodoloji kararından önce
+- "Drag" tespit edilirse mutlaka rollback ile control evidence çıkar
+
+### Impact ★ META-LESSON
+4 ardışık rollback pattern reframed:
+- Faz 4.7 cap extreme: REAL methodology FAIL → ROLLBACK doğru
+- Faz 4.8 tactical: REAL methodology FAIL → ROLLBACK doğru
+- Faz 4.13 filter: REAL methodology FAIL → ROLLBACK doğru
+- **Faz 7.1 distress: ENVIRONMENTAL drift → ROLLBACK YANLIŞTI (FALSIFIED) ★**
+
+Lesson #18 disipline asset (rollback hatası) → "validate before rollback"
+prensibini güçlendirir. Lesson #10 + #18 birleşim:
+"Validate hypothesis with frozen baseline; environmental drift confounds
+methodology evaluation."
+
+---
+
 ## References
 
 - `apps/api/_research_findings/` — 20 research findings (Lesson source)
@@ -560,6 +632,7 @@ lever path Lesson #13 fail'inden sonra deneildi → ULTIMATE WIN).
 
 ---
 
-**Compendium last updated:** 7 May 2026
-**Total commits:** 120+
-**TUPRS regression anchor:** 187.10 TL (40+ commit INTACT, deep dive baseline -%0.6 sub-noise)
+**Compendium last updated:** 7 May 2026 (Faz 7.1 KAPANIŞ)
+**Total commits:** 132+ (Faz 7.1 forward + FALSIFIED rollback evidence)
+**TUPRS regression anchor:** 187.10 TL (41+ commit INTACT, deep dive baseline -%0.6 sub-noise)
+**18 Damodaran Lesson:** #1-15 (foundational) + #17 (distress prod-validated) + #18 (frozen baseline META)
