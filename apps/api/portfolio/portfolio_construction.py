@@ -291,6 +291,30 @@ def build_portfolio(
                 )
             )
 
+    # 5b. Sleeve renormalization (Faz 10 P0 bug fix — sleeve target preservation)
+    # Bug: MIN_SINGLE_TICKER_PCT %2 cap, 34 ticker × %2 = %68 sleeve total,
+    #      Konservatif Yüksek target %3 ile 22x aşım, total ≈ %160 invest.
+    # Fix: cap edilmiş weight'leri sleeve target'a renormalize et,
+    #      composite-weighted dağılım korunur, sleeve total = target.
+    from collections import defaultdict
+    positions_by_sleeve = defaultdict(list)
+    for p in positions:
+        positions_by_sleeve[p.sleeve].append(p)
+
+    for sleeve_name, sleeve_positions in positions_by_sleeve.items():
+        sleeve_target = actual_alloc_pct.get(sleeve_name, 0)
+        sleeve_actual = sum(p.weight_pct for p in sleeve_positions)
+        if sleeve_actual > sleeve_target + 0.5 and sleeve_target > 0:
+            factor = sleeve_target / sleeve_actual
+            for p in sleeve_positions:
+                p.weight_pct *= factor
+                p.capital_allocation_tl = (p.weight_pct / 100.0) * total_capital_tl
+            warnings.append(
+                f"Sleeve '{sleeve_name}' renormalized: "
+                f"raw {sleeve_actual:.1f}% → {sleeve_target:.1f}% "
+                f"(factor {factor:.3f}, {len(sleeve_positions)} ticker)"
+            )
+
     # 6. Cash reserve calculation (Faz 4.8 regime-aware)
     invested_pct = sum(p.weight_pct for p in positions)
     cash_reserve_pct = max(0.0, 100.0 - invested_pct)
