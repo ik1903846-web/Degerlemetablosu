@@ -310,6 +310,12 @@ def assign_sleeve(report: Any, score: PentagonScore) -> SleeveAssignment:
              f"composite {score.composite:.1f}"]
         )
 
+    # Faz 4.10 ROLLBACK: early_growth_proxy MATURE_GROWTH proxy rule denendi
+    # ama BIST 63 universe'de tek qualifier (CWENE) %12 single-ticker
+    # concentration → Dengeli -5.53pp / Agresif -9.84pp ÇÖKÜŞ.
+    # Lesson #19 REFRAMED: universe constraint sleeve target. Hızlı Büyüme
+    # %0 documented, profile spectrum Core/Yüksek dengesi ile sağlanır.
+
     # ---- Rule 7: CORE (Faz 4.2 gevşetme: upside > 20, Q > 55, composite > 48) ----
     if (
         stage in ("MATURE_GROWTH", "MATURE_STABLE", "UNKNOWN")
