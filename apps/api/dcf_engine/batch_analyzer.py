@@ -229,6 +229,45 @@ BIST_100_OFFICIAL_ADDITIONS = [
 BIST_100 = BIST_100_QUALITY_SUBSET + BIST_100_OFFICIAL_ADDITIONS
 
 
+# Faz 4.22 — BIST 200 partial layer (+19 ticker)
+# Source: getmidas.com BIST 100/200 cross-reference May 2026
+# Tam 200 için Faz 4.23+ multi-session (web fetch pagination eksik)
+BIST_200_ADDITIONS = [
+    # Holding & Banking
+    "AGHOL",   # Anadolu Group Holding
+    "TSKB",    # Türkiye Sınai Kalkınma Bankası (banking)
+    "SKBNK",   # Şekerbank (banking)
+
+    # Industrial / Specialty
+    "ALTNY",   # Altınyağ
+    "ASTOR",   # Astor Enerji (post-IPO 2022, ★ HIGH_GROWTH adayı)
+    "BRSAN",   # Borusan Mannesmann (steel pipe)
+    "DAPGM",   # Dapadami / DAP Yapı Group
+    "DSTKF",   # Destekfonu / DSTKF
+    "GLRMK",   # Güler Yatırım Holding
+    "GRTHO",   # Güre Tarım Holding
+    "PATEK",   # Patek Mücevherat (specialty)
+    "TABGD",   # Tab Gıda
+    "TUREX",   # Türker İnşaat / TUREX
+
+    # REIT / GYO
+    "EKGYO",   # Emlak Konut GYO (large-cap REIT)
+
+    # Tech / Mid-cap Growth (★ HIZLI BÜYÜME adayları)
+    "GENIL",   # Geneksis İlaç (post-IPO biotech)
+    "MPARK",   # MLP Care (private hospitals)
+
+    # Specialty / Other
+    "GSRAY",   # Galatasaray Sportif (sports/services)
+    "KTLEV",   # KaplanTekstil / KTLEV
+    "QUAGR",   # Quagger Tarım
+]
+
+
+# Faz 4.22 — BIST 200 partial layer total (118 ticker)
+BIST_200 = BIST_100 + BIST_200_ADDITIONS
+
+
 # ============================================================================
 # Batch Result
 # ============================================================================

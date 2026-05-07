@@ -164,6 +164,27 @@ STATIC_SHARES_OUTSTANDING: Dict[str, int] = {
     "TURSG":   10_000_000_000,    # Türkiye Sigorta
     "ZOREN":    5_000_000_000,    # Zorlu Energy
 
+    # Faz 4.22 — BIST 200 partial layer (19 ticker, yfinance fetch May 2026)
+    "AGHOL":    2_435_345_180,    # Anadolu Group Holding
+    "ALTNY":    1_000_000_000,    # Altınyağ
+    "ASTOR":      998_000_000,    # Astor Enerji (★ post-IPO 2022)
+    "BRSAN":      141_771_582,    # Borusan Mannesmann
+    "DAPGM":    2_650_000_000,    # DAP Yapı Group
+    "DSTKF":      333_333_333,    # Destekfonu
+    "EKGYO":    3_661_120_138,    # Emlak Konut GYO
+    "GENIL":    4_500_000_000,    # Geneksis İlaç
+    "GLRMK":      322_600_000,    # Güler Yatırım Holding
+    "GRTHO":      125_000_000,    # Güre Tarım Holding
+    "GSRAY":   13_500_000_000,    # Galatasaray Sportif
+    "KTLEV":    2_070_000_000,    # KaplanTekstil
+    "MPARK":      102_122_233,    # MLP Care
+    "PATEK":      674_934_432,    # Patek Mücevherat
+    "QUAGR":    2_640_000_000,    # Quagger Tarım
+    "SKBNK":    2_500_000_000,    # Şekerbank
+    "TABGD":      261_292_000,    # Tab Gıda
+    "TSKB":     2_800_000_000,    # Türkiye Sınai Kalkınma Bankası
+    "TUREX":    1_080_000_000,    # Türker İnşaat
+
     # NOT: Bu liste cross-check edildi ama %100 doğru olmayabilir.
     # BIST 30 batch testinde her ticker market cap doğrulaması yapılmalı.
     # TUPRS Adım 3.5 sonrası canonical (resmi 1.93B kayıt altında).
