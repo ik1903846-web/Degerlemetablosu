@@ -14,16 +14,24 @@ karşılaştırması, upside renkli, lifecycle stage yıldız etiketli.
 
 from __future__ import annotations
 
+import json
 import sys
 from pathlib import Path
 
 import pandas as pd
 import streamlit as st
 
-# Frontend utils path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from utils.data_loader import load_latest_batch  # noqa: E402
+# ============================================================================
+# Path Resolution (Streamlit Cloud + Local uyumlu)
+# ============================================================================
+# apps/frontend/pages/1_Tarayici.py
+#   parents[0] = pages, parents[1] = frontend, parents[2] = apps
+# Streamlit Cloud working dir: /mount/src/degerlemetablosu
+# Local working dir: C:/Users/unutu/Desktop/abiminprojev2
+
+REPO_APPS = Path(__file__).resolve().parents[2]              # apps/
+OUTPUTS_DIR = REPO_APPS / "api" / "outputs"
 
 
 # ============================================================================
@@ -78,11 +86,38 @@ STAGE_LABELS = {
 # ============================================================================
 
 @st.cache_data(ttl=300)
-def _load_scanner_df() -> pd.DataFrame:
-    """Batch JSON → 5-column DataFrame (ticker/price/intrinsic/upside/lifecycle)."""
-    batch = load_latest_batch()
-    if not batch:
-        return pd.DataFrame()
+def _load_scanner_df() -> tuple[pd.DataFrame, str]:
+    """Batch JSON → 5-column DataFrame (ticker/price/intrinsic/upside/lifecycle).
+
+    Streamlit Cloud-compatible explicit path (REPO_APPS / api / outputs).
+    Returns (df, debug_message).
+    """
+    if not OUTPUTS_DIR.exists():
+        debug = (
+            f"❌ OUTPUTS_DIR yok: `{OUTPUTS_DIR}`\n"
+            f"REPO_APPS: `{REPO_APPS}` (exists={REPO_APPS.exists()})"
+        )
+        return pd.DataFrame(), debug
+
+    files = sorted(
+        OUTPUTS_DIR.glob("bist_batch_LIVE_*.json"),
+        reverse=True,
+    )
+    if not files:
+        contents = list(OUTPUTS_DIR.iterdir())[:10]
+        debug = (
+            f"❌ bist_batch_LIVE_*.json bulunamadı.\n"
+            f"Aranan path: `{OUTPUTS_DIR}`\n"
+            f"Klasör içeriği (ilk 10): {[p.name for p in contents]}"
+        )
+        return pd.DataFrame(), debug
+
+    latest = files[0]
+    try:
+        batch = json.loads(latest.read_text(encoding="utf-8"))
+    except Exception as e:
+        debug = f"❌ JSON parse hatası ({latest.name}): {type(e).__name__}: {e}"
+        return pd.DataFrame(), debug
 
     rows = []
     for r in batch.get("reports", []):
@@ -111,17 +146,26 @@ def _load_scanner_df() -> pd.DataFrame:
         })
 
     df = pd.DataFrame(rows)
+    debug_ok = (
+        f"✓ Source: `{latest.name}` "
+        f"(reports {len(batch.get('reports', []))}, success {len(rows)})"
+    )
     if df.empty:
-        return df
-    return df.sort_values("upside_pct", ascending=False).reset_index(drop=True)
+        return df, debug_ok + " — ama success satırı yok"
+    return (
+        df.sort_values("upside_pct", ascending=False).reset_index(drop=True),
+        debug_ok,
+    )
 
 
-df = _load_scanner_df()
+df, debug_msg = _load_scanner_df()
 
 if df.empty:
-    st.error(
-        "Tarayıcı verisi bulunamadı. "
-        "apps/api/outputs/bist_batch_LIVE_*.json dosyası gerekli."
+    st.error("Tarayıcı verisi bulunamadı.")
+    st.code(debug_msg, language="text")
+    st.caption(
+        "DEBUG: Streamlit Cloud working dir vs path resolution analizi yukarıda. "
+        "Beklenen path: `apps/api/outputs/bist_batch_LIVE_*.json` (repo-relative)."
     )
     st.stop()
 
