@@ -25,11 +25,13 @@ Faz 6.5 (e) — Banking-specific sleeve rules (Damodaran Lesson #6).
     banking_premium:          is_banking + ROE > %20 + upside > %50  (Faz 6.5 e)
     mature_transition:        Mature/Decline + Quality<60 + Value>70
     distress:                 stage=DISTRESS
-    distress_turnaround:      model_used="distress_adjusted" + upside > %80 (Faz 7.1)
 
   SKIP / SAT:
     composite < 35  OR  value < 20  OR  upside < -%30
-    negative DCF (THYAO, PGSUS, PETKM) — Faz 7.1 BS override aktive ise SKIP'ten kurtulur
+    negative DCF (THYAO, PGSUS, PETKM) — Faz 7.3 ROLLBACK: distress_turnaround
+    sub-category Faz 7.1 v2'de eklenmişti, race-fixed evidence ile -1.6pp
+    real drag exposed → re-rollback. Module distress_dcf.py production-ready
+    parking, integration future iteration (40Q+ horizon veya separate sleeve).
 
 Risk Profile Allocations (ADR-016):
   Konservatif: Core 80, Hızlı 15, Yüksek 5
@@ -221,24 +223,6 @@ def assign_sleeve(report: Any, score: PentagonScore) -> SleeveAssignment:
         return SleeveAssignment(
             ticker, Sleeve.SKIP, None, score, score.composite, 0.9,
             [f"SKIP: upside {upside:+.0f}% < -35% (SAT verdict)"]
-        )
-
-    # ---- Rule 1.5: YÜKSEK KAZANÇ — distress_turnaround (Faz 7.1, Damodaran Lesson #17) ----
-    # Black-Scholes equity-as-call override sonucu positive intrinsic.
-    # Asymmetric payoff: BS option time value + book floor (turnaround optionality).
-    # Banking/holding flow'larından önce yakalanır (model_used override hassas).
-    model_used = (
-        _get_nested(report, "model_used")
-        or _get_nested(report, "dcf", "model_used")
-        or ""
-    )
-    if model_used == "distress_adjusted" and upside > 80:
-        return SleeveAssignment(
-            ticker, Sleeve.YUKSEK_KAZANC, "distress_turnaround",
-            score, score.composite, 0.70,
-            [f"YÜKSEK KAZANÇ distress_turnaround (Faz 7.1): "
-             f"BS equity-as-call override, upside {upside:+.0f}% > %80, "
-             f"composite {score.composite:.1f}"]
         )
 
     # ---- Rule 1d: Banking branch (Faz 6.5 e — Damodaran Lesson #6) ----
