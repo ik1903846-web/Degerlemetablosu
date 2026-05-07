@@ -677,6 +677,59 @@ Methodology evaluation requires:
 
 ---
 
+## Lesson #19 — Universe Constraint Sleeve Target (Faz 4.10 ROLLBACK) ★ NEGATIVE FINDING
+
+### Statement
+Sleeve allocation REFLECTS universe opportunity set, NOT classifier rule alone.
+Universe'de yeterli ticker yoksa sleeve target açığı tek ticker'a yüklenir =
+anti-diversification (Damodaran prensibi ihlali). Single-ticker proxy
+concentration trap.
+
+### Evidence — Faz 4.10 Hızlı Büyüme Proxy ROLLBACK
+**Hipotez (FALSIFIED):**
+"sleeve_assignment.py revenue-CAGR proxy rule MATURE_GROWTH high-grown
+ticker'ları Hızlı Büyüme'ye route edecek, sleeve %15-35 dolacak."
+
+**Universe probe:**
+- BIST 63 ticker MATURE_GROWTH high-CAGR (rev>25%): 4 candidates
+- Threshold filter (composite>60, growth>65, upside<80): **1 qualifier (CWENE)**
+- KONTR composite < 60 (negative DCF), INFO/OYAKC deep_value precedence
+
+**Concentration:**
+| Profile | Hızlı target | CWENE weight |
+|---------|------------:|-------------:|
+| Konservatif | 15% | **12.0%** |
+| Dengeli     | 25% | **12.0%** |
+| Agresif     | 35% | **12.0%** |
+
+**Backtest regression:**
+- Konservatif zero -1.09pp / Dengeli zero **-5.53pp** / Agresif zero **-9.84pp**
+- BEAT 16/18 → ~6/18 (10/18 KAYIP)
+
+### Implementation
+- `apps/api/portfolio/sleeve_assignment.py` Rule 6.5 early_growth_proxy REMOVED
+- Faz 4.10 commits ROLLBACK
+- Lifecycle classifier (6-stage) dokunulmadı
+
+### Impact ★ NEGATIVE FINDING + 5. ardışık ROLLBACK pattern
+5. ardışık rollback pattern reinforce (Lesson #10 ULTIMATE):
+- Faz 4.7 cap extreme: REAL fail → ROLLBACK doğru
+- Faz 4.8 tactical: REAL fail → ROLLBACK doğru
+- Faz 4.13 filter: REAL fail → ROLLBACK doğru
+- Faz 7.1 distress (race-fixed): REAL fail → ROLLBACK doğru
+- **Faz 4.10 proxy: REAL fail → ROLLBACK doğru ★**
+
+**Future paths (parking):**
+- Universe expansion (BIST Tüm 500+) → 5-10 HIGH_GROWTH candidate
+- Sleeve target realistic (Hızlı %5-10 max BIST 63 için)
+- HIGH_GROWTH classifier rule loosening + young_firm_dcf orchestrator
+- Per-position cap Hızlı sleeve (%2-5) + cash overflow tolerance
+
+**Anchor-safe pragmatic:** Hızlı sleeve %0 documented, profile spectrum
+Core/Yüksek dengesi ile sağlanır.
+
+---
+
 ## References
 
 - `apps/api/_research_findings/` — 20 research findings (Lesson source)
@@ -688,9 +741,9 @@ Methodology evaluation requires:
 
 ---
 
-**Compendium last updated:** 7 May 2026 (Faz 4.18 pipeline orchestrator automation)
-**Total commits:** 142+ (Faz 4.18 pipeline wrapper + race-free verify + docs)
-**TUPRS regression anchor:** 187.10 TL (44+ commit INTACT, deep dive baseline -%0.6 sub-noise)
-**18 Damodaran Lesson:** #1-15 (foundational) + #17 (distress MODULE-ONLY + Eurotunnel rigor) + #18 (race condition tool integrity AUTOMATION COMPLETE)
+**Compendium last updated:** 7 May 2026 (Faz 4.10 Hızlı proxy ROLLBACK + Lesson #19)
+**Total commits:** 145+ (Faz 4.10 proxy try + ROLLBACK + Lesson #19 reframe)
+**TUPRS regression anchor:** 187.10 TL (46+ commit INTACT, deep dive baseline -%0.6 sub-noise)
+**19 Damodaran Lesson:** #1-15 (foundational) + #17 (distress MODULE-ONLY + Eurotunnel rigor) + #18 (race condition AUTOMATION) + #19 (universe constraint NEGATIVE FINDING)
 **Konservatif zero anchor:** TL +67.80%/yr / USD +19.11%/yr (race-fixed pipeline, 16/18 BEAT)
-**Pipeline orchestrator:** `scripts/run_pipeline_full.py` (Faz 4.18, race-free by design)
+**5. ardışık ROLLBACK pattern:** Faz 4.7 + 4.8 + 4.13 + 7.1 + 4.10 — Lesson #10 ULTIMATE
