@@ -216,6 +216,37 @@ LESSONS = [
             "için sleeve sum invariant test eklenecek (Faz 10.x parking)."
         ),
     },
+    {
+        "id": 21, "faz": "Faz 10 felsefe revizyonu",
+        "title": "Wrong success metric: Backtest portföy ≠ DCF accuracy",
+        "status": "META ★★★ — Project pivot", "category": "Methodology",
+        "summary": (
+            "REELDEĞER amacı **Damodaran replication** — yatırım otomasyonu "
+            "DEĞİL. Faz 4-9 boyunca portfolio + backtest üzerinden 'XU100 "
+            "BEAT' aranması yanlış success metric idi.\n\n"
+            "**Doğru metric:**\n"
+            "- DCF accuracy ±%5 vs Damodaran reference (Heineken/Toyota/ABN/"
+            "Tube/TUPRS/Eurotunnel/LVS — 20/20 PASS ✓)\n"
+            "- KAP coverage %70+ (391/559 BIST Tüm DCF runnable ✓)\n"
+            "- Lifecycle classifier accuracy (6 stage, sub-classifications)\n"
+            "- Damodaran sector beta DB integrity (210+ industry)\n\n"
+            "**Yanlış metric:**\n"
+            "- Backtest XU100/XU030/SPY BEAT (Faz 4-9 misdirected)\n"
+            "- 18/18 ULTIMATE WIN claim (Lesson #20 leverage artifact)\n"
+            "- 'Konservatif zero +25.86%/yr' alpha rakamları\n\n"
+            "**Felsefe pivot (Faz 10):** Frontend yatırım otomasyonu yerine "
+            "Damodaran hedef fiyat hesaplayıcısı olarak yeniden konumlandırıldı.\n"
+            "- Portfolio + Backtest sayfaları _archive'a taşındı\n"
+            "- Asıl ürün: 🔍 Tarayıcı sayfası (5 sütun: ticker, fiyat, "
+            "intrinsic, upside%, lifecycle stars)\n"
+            "- Home page: 20/20 validation case + lifecycle dağılımı\n\n"
+            "**Generalization:** Methodology project'lerde success metric "
+            "alignment kritik. 'X aracı yapıyoruz' iddiası ile 'X'in başarı "
+            "kriteri Y' tanımı uyumsuzsa tüm rollback pattern'i (Faz 4.7/4.8/"
+            "4.13/7.1/4.10/10) yanlış optimization domain'i. Tool purpose "
+            "→ tool metric tutarlılığı önce."
+        ),
+    },
 ]
 
 
