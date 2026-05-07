@@ -379,6 +379,64 @@ BIST_200_FULL_ADDITIONS = [
 BIST_200 = BIST_200_PARTIAL + BIST_200_FULL_ADDITIONS
 
 
+# Faz 4.23 — BIST Tüm universe (518 → 559 ticker)
+# Source: uzmanpara.milliyet.com.tr/canli-borsa/bist-tum-hisseleri (full)
+# ETF/fund/derivative tickers filtered (Z prefix, OPK/OPT/OPX, USDTR, A1YEN vb)
+# yfinance shares fetch 359/366 success
+# Türk borsasında işlem gören tüm halka açık şirketler — production claim ULTIMATE
+BIST_TUM_ADDITIONS = [
+    "AAGYO", "ACSEL", "ADEL", "ADGYO", "AFYON", "AGYO", "AHGAZ", "AHSGY",
+    "AKFIS", "AKFYE", "AKSUE", "AKYHO", "ALCAR", "ALCTL", "ALFAS", "ALKIM",
+    "ALKLC", "ALVES", "ANGEN", "ARASE", "ARDYZ", "ARMGD", "ARSAN", "ARTMS",
+    "ARZUM", "ATAKP", "ATATP", "ATEKS", "ATSYH", "AVPGY", "AVTUR", "AYCES",
+    "AYES", "AZTEK", "BAHKM", "BAKAB", "BALAT", "BARMA", "BASCM", "BASGZ",
+    "BAYRK", "BEGYO", "BESLR", "BESTE", "BEYAZ", "BIENY", "BIGCH", "BIGEN",
+    "BIGTK", "BINBN", "BINHO", "BIOEN", "BJKAS", "BLCYT", "BLUME", "BMSCH",
+    "BMSTL", "BNTAS", "BOBET", "BORLS", "BORSK", "BRKO", "BRKSN", "BRLSM",
+    "BRMEN", "BUCIM", "BULGS", "BURCE", "BURVA", "BVSAN", "BYDNR", "CASA",
+    "CATES", "CELHA", "CEMAS", "CEMTS", "CEMZY", "CGCAM", "CMBTN", "CMENT",
+    "CONSE", "COSMO", "CRDFA", "CUSAN", "DARDL", "DCTTR", "DENGE", "DERHL",
+    "DERIM", "DESA", "DESPC", "DGNMO", "DIRIT", "DITAS", "DMRGD", "DNISI",
+    "DOFER", "DOFRB", "DOGUB", "DOKTA", "DUNYH", "DURDO", "DURKN", "DZGYO",
+    "ECOGR", "EDATA", "EGEPO", "EGGUB", "EGPRO", "EKIZ", "EKOS", "EKSUN",
+    "ELITE", "EMKEL", "EMNIS", "EMPAE", "ENDAE", "ENPRA", "ENSRI", "ENTRA",
+    "ERBOS", "ERCB", "ERSU", "ESCAR", "ESCOM", "ESEN", "ETILR", "ETYAT",
+    "EUHOL", "EUKYO", "EUYO", "EYGYO", "FADE", "FLAP", "FMIZP", "FONET",
+    "FORMT", "FORTE", "FRIGO", "FRMPL", "FZLGY", "GARFA", "GATEG", "GEDZA",
+    "GENKM", "GEREL", "GLCVY", "GMTAS", "GOKNR", "GOLTS", "GRNYO", "GSDDE",
+    "GUNDG", "GWIND", "GZNMI", "HATEK", "HDFGS", "HKTM", "HRKET", "HTTBT",
+    "HUNER", "HURGZ", "ICUGS", "IHAAS", "IHEVA", "IHGZT", "IHLGM", "IHYAY",
+    "IMASM", "INGRM", "INVES", "ISBIR", "ISDMR", "ISFIN", "ISKPL", "ISKUR",
+    "ISSEN", "ISYAT", "IZFAS", "IZINV", "IZMDC", "KATMR", "KAYSE", "KBORU",
+    "KERVN", "KGYO", "KIMMR", "KLKIM", "KLSER", "KLSYN", "KLYPV", "KMPUR",
+    "KNFRT", "KOCMT", "KONKA", "KONYA", "KOPOL", "KRGYO", "KRPLS", "KRSTL",
+    "KRTEK", "KRVGD", "KSTUR", "KTSKR", "KUTPO", "KUVVA", "KZBGY", "LIDER",
+    "LIDFA", "LILAK", "LINK", "LKMNH", "LRSHO", "LUKSK", "LXGYO", "LYDHO",
+    "LYDYE", "MAALT", "MACKO", "MAKIM", "MAKTK", "MANAS", "MARBL", "MARKA",
+    "MARMR", "MCARD", "MEDTR", "MEKAG", "MEPET", "MERIT", "MERKO", "METRO",
+    "MEYSU", "MHRGY", "MMCAS", "MOBTL", "MRGYO", "MRSHL", "MSGYO", "MTRKS",
+    "MTRYO", "NIBAS", "NTGAZ", "OFSYM", "ONCSM", "ONRYT", "ORMA", "OSMEN",
+    "OSTIM", "OTTO", "OYAYO", "OYLUM", "OYYAT", "OZATD", "OZGYO", "OZRDN",
+    "OZSUB", "OZYSR", "PAGYO", "PAMEL", "PAPIL", "PCILT", "PEKGY", "PINSU",
+    "PKART", "PKENT", "PLTUR", "PNLSN", "POLTK", "PRDGS", "PRKME", "PRZMA",
+    "QNBFK", "RGYAS", "RNPOL", "RODRG", "RTALB", "RUBNS", "RUZYE", "RYSAS",
+    "SAFKR", "SAMAT", "SANEL", "SANFM", "SANKO", "SAYAS", "SDTTR", "SEGMN",
+    "SEGYO", "SEKFK", "SEKUR", "SELVA", "SERNT", "SEYKM", "SILVR", "SKYLP",
+    "SKYMD", "SMRVA", "SNPAM", "SODSN", "SOKE", "SONME", "SUMAS", "SURGY",
+    "SUWEN", "SVGYO", "TARKM", "TATEN", "TATGD", "TBORG", "TCKRC", "TDGYO",
+    "TEHOL", "TEKTU", "TERA", "TEZOL", "TGSAS", "TLMAN", "TMPOL", "TMSN",
+    "TNZTP", "TRCAS", "TRGYO", "TRILC", "TSGYO", "TUCLK", "TURGG", "UCAYM",
+    "UFUK", "ULUSE", "ULUUN", "UNLU", "USAK", "VAKFA", "VAKFN", "VAKKO",
+    "VANGD", "VERTU", "VKFYO", "VKGYO", "VKING", "VRGYO", "VSNMD", "YAPRK",
+    "YAYLA", "YBTAS", "YEOTK", "YESIL", "YGGYO", "YIGIT", "YKSLN", "YONGA",
+    "YUNSA", "YYAPI", "YYLGD", "ZEDUR", "ZERGY", "ZGYO", "ZRGYO",
+]
+
+
+# Faz 4.23 — BIST Tüm universe (BIST 200 + 359 küçük cap layer = 559 ticker)
+BIST_TUM = BIST_200 + BIST_TUM_ADDITIONS
+
+
 # ============================================================================
 # Batch Result
 # ============================================================================
