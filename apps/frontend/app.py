@@ -2,10 +2,12 @@
 REELDEĞER — Damodaran-Aligned BIST Valuation Platform.
 
 Streamlit dashboard home page.
-4-yıl marathon (24 Nis → 7 May 2026, 117+ commit) sonucu UI'ı.
+Marathon (24 Nis → 7 May 2026, 160+ commit) sonucu UI'ı.
 """
 
 from __future__ import annotations
+
+import hmac
 
 import streamlit as st
 
@@ -17,7 +19,7 @@ from utils.data_loader import (
 
 
 # ============================================================================
-# Page Config
+# Page Config (must run first, before any st.* call)
 # ============================================================================
 
 st.set_page_config(
@@ -26,6 +28,59 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
 )
+
+
+# ============================================================================
+# Password Auth (Faz 10 ADIM 1.B — Streamlit Cloud private access)
+# ============================================================================
+
+def _check_password() -> bool:
+    """st.secrets['auth']['password'] ile karşılaştırma. Doğru ise True."""
+
+    def password_entered() -> None:
+        try:
+            expected = st.secrets["auth"]["password"]
+        except (KeyError, FileNotFoundError):
+            st.session_state["password_correct"] = None
+            return
+        if hmac.compare_digest(st.session_state.get("password", ""), expected):
+            st.session_state["password_correct"] = True
+            del st.session_state["password"]
+        else:
+            st.session_state["password_correct"] = False
+
+    if "password_correct" not in st.session_state:
+        st.markdown("## 🔐 REELDEĞER — Private Access")
+        st.text_input(
+            "Şifre",
+            type="password",
+            on_change=password_entered,
+            key="password",
+        )
+        return False
+
+    state = st.session_state["password_correct"]
+    if state is None:
+        st.error(
+            "secrets.toml [auth] password yapılandırılmamış. "
+            "Streamlit Cloud → Settings → Secrets ekle."
+        )
+        return False
+    if state is False:
+        st.markdown("## 🔐 REELDEĞER — Private Access")
+        st.text_input(
+            "Şifre",
+            type="password",
+            on_change=password_entered,
+            key="password",
+        )
+        st.error("😕 Yanlış şifre")
+        return False
+    return True
+
+
+if not _check_password():
+    st.stop()
 
 
 # ============================================================================
