@@ -1,0 +1,478 @@
+{
+  "risk_profile": "dengeli",
+  "total_capital_tl": 1000000.0,
+  "target_allocations_pct": {
+    "core": 65.0,
+    "hizli_buyume": 25.0,
+    "yuksek_kazanc": 10.0
+  },
+  "actual_allocations_pct": {
+    "core": 88.0,
+    "hizli_buyume": 0.0,
+    "yuksek_kazanc": 10.0
+  },
+  "positions": [
+    {
+      "ticker": "EREGL",
+      "sleeve": "core",
+      "sub_category": null,
+      "weight_pct": 5.7131,
+      "composite": 61.4,
+      "capital_allocation_tl": 57131.09,
+      "reasoning": [
+        "Sleeve core: 88% × composite_share(61.4/945.7) = raw 5.7%",
+        "No cap: 5.7%"
+      ]
+    },
+    {
+      "ticker": "ARCLK",
+      "sleeve": "core",
+      "sub_category": null,
+      "weight_pct": 6.5144,
+      "composite": 70.01,
+      "capital_allocation_tl": 65144.1,
+      "reasoning": [
+        "Sleeve core: 88% × composite_share(70.0/945.7) = raw 6.5%",
+        "No cap: 6.5%"
+      ]
+    },
+    {
+      "ticker": "TCELL",
+      "sleeve": "core",
+      "sub_category": null,
+      "weight_pct": 5.1827,
+      "composite": 55.7,
+      "capital_allocation_tl": 51826.53,
+      "reasoning": [
+        "Sleeve core: 88% × composite_share(55.7/945.7) = raw 5.2%",
+        "No cap: 5.2%"
+      ]
+    },
+    {
+      "ticker": "LOGO",
+      "sleeve": "core",
+      "sub_category": null,
+      "weight_pct": 6.3404,
+      "composite": 68.14,
+      "capital_allocation_tl": 63403.9,
+      "reasoning": [
+        "Sleeve core: 88% × composite_share(68.1/945.7) = raw 6.3%",
+        "No cap: 6.3%"
+      ]
+    },
+    {
+      "ticker": "CWENE",
+      "sleeve": "core",
+      "sub_category": null,
+      "weight_pct": 7.1394,
+      "composite": 76.73,
+      "capital_allocation_tl": 71393.99,
+      "reasoning": [
+        "Sleeve core: 88% × composite_share(76.7/945.7) = raw 7.1%",
+        "No cap: 7.1%"
+      ]
+    },
+    {
+      "ticker": "ENJSA",
+      "sleeve": "core",
+      "sub_category": null,
+      "weight_pct": 5.8704,
+      "composite": 63.09,
+      "capital_allocation_tl": 58703.58,
+      "reasoning": [
+        "Sleeve core: 88% × composite_share(63.1/945.7) = raw 5.9%",
+        "No cap: 5.9%"
+      ]
+    },
+    {
+      "ticker": "DOAS",
+      "sleeve": "core",
+      "sub_category": null,
+      "weight_pct": 6.2462,
+      "composite": 67.13,
+      "capital_allocation_tl": 62462.35,
+      "reasoning": [
+        "Sleeve core: 88% × composite_share(67.1/945.7) = raw 6.2%",
+        "No cap: 6.2%"
+      ]
+    },
+    {
+      "ticker": "HLGYO",
+      "sleeve": "core",
+      "sub_category": null,
+      "weight_pct": 5.5367,
+      "composite": 59.5,
+      "capital_allocation_tl": 55367.42,
+      "reasoning": [
+        "Sleeve core: 88% × composite_share(59.5/945.7) = raw 5.5%",
+        "No cap: 5.5%"
+      ]
+    },
+    {
+      "ticker": "TTRAK",
+      "sleeve": "core",
+      "sub_category": null,
+      "weight_pct": 6.2337,
+      "composite": 66.99,
+      "capital_allocation_tl": 62337.02,
+      "reasoning": [
+        "Sleeve core: 88% × composite_share(67.0/945.7) = raw 6.2%",
+        "No cap: 6.2%"
+      ]
+    },
+    {
+      "ticker": "GEDIK",
+      "sleeve": "core",
+      "sub_category": null,
+      "weight_pct": 6.2115,
+      "composite": 66.75,
+      "capital_allocation_tl": 62114.81,
+      "reasoning": [
+        "Sleeve core: 88% × composite_share(66.8/945.7) = raw 6.2%",
+        "No cap: 6.2%"
+      ]
+    },
+    {
+      "ticker": "GARAN",
+      "sleeve": "core",
+      "sub_category": "banking_intrinsic",
+      "weight_pct": 7.7005,
+      "composite": 82.76,
+      "capital_allocation_tl": 77005.03,
+      "reasoning": [
+        "Sleeve core: 88% × composite_share(82.8/945.7) = raw 7.7%",
+        "No cap: 7.7%"
+      ]
+    },
+    {
+      "ticker": "AKBNK",
+      "sleeve": "core",
+      "sub_category": "banking_intrinsic",
+      "weight_pct": 7.0057,
+      "composite": 75.29,
+      "capital_allocation_tl": 70057.36,
+      "reasoning": [
+        "Sleeve core: 88% × composite_share(75.3/945.7) = raw 7.0%",
+        "No cap: 7.0%"
+      ]
+    },
+    {
+      "ticker": "YKBNK",
+      "sleeve": "core",
+      "sub_category": "banking_intrinsic",
+      "weight_pct": 6.6044,
+      "composite": 70.98,
+      "capital_allocation_tl": 66043.51,
+      "reasoning": [
+        "Sleeve core: 88% × composite_share(71.0/945.7) = raw 6.6%",
+        "No cap: 6.6%"
+      ]
+    },
+    {
+      "ticker": "ISCTR",
+      "sleeve": "core",
+      "sub_category": "banking_intrinsic",
+      "weight_pct": 5.7009,
+      "composite": 61.27,
+      "capital_allocation_tl": 57009.31,
+      "reasoning": [
+        "Sleeve core: 88% × composite_share(61.3/945.7) = raw 5.7%",
+        "No cap: 5.7%"
+      ]
+    },
+    {
+      "ticker": "TRALT",
+      "sleeve": "yuksek_kazanc",
+      "sub_category": "deep_value",
+      "weight_pct": 2.0,
+      "composite": 59.34,
+      "capital_allocation_tl": 20000.0,
+      "reasoning": [
+        "Sleeve yuksek_kazanc: 10% × composite_share(59.3/1505.2) = raw 0.4%",
+        "Cap applied: raw 0.4% → 2.0%"
+      ]
+    },
+    {
+      "ticker": "CCOLA",
+      "sleeve": "yuksek_kazanc",
+      "sub_category": "deep_value",
+      "weight_pct": 2.0,
+      "composite": 77.69,
+      "capital_allocation_tl": 20000.0,
+      "reasoning": [
+        "Sleeve yuksek_kazanc: 10% × composite_share(77.7/1505.2) = raw 0.5%",
+        "Cap applied: raw 0.5% → 2.0%"
+      ]
+    },
+    {
+      "ticker": "FROTO",
+      "sleeve": "yuksek_kazanc",
+      "sub_category": "deep_value",
+      "weight_pct": 2.0,
+      "composite": 75.34,
+      "capital_allocation_tl": 20000.0,
+      "reasoning": [
+        "Sleeve yuksek_kazanc: 10% × composite_share(75.3/1505.2) = raw 0.5%",
+        "Cap applied: raw 0.5% → 2.0%"
+      ]
+    },
+    {
+      "ticker": "AEFES",
+      "sleeve": "yuksek_kazanc",
+      "sub_category": "deep_value",
+      "weight_pct": 2.0,
+      "composite": 71.75,
+      "capital_allocation_tl": 20000.0,
+      "reasoning": [
+        "Sleeve yuksek_kazanc: 10% × composite_share(71.7/1505.2) = raw 0.5%",
+        "Cap applied: raw 0.5% → 2.0%"
+      ]
+    },
+    {
+      "ticker": "AKSA",
+      "sleeve": "yuksek_kazanc",
+      "sub_category": "deep_value",
+      "weight_pct": 2.0,
+      "composite": 76.12,
+      "capital_allocation_tl": 20000.0,
+      "reasoning": [
+        "Sleeve yuksek_kazanc: 10% × composite_share(76.1/1505.2) = raw 0.5%",
+        "Cap applied: raw 0.5% → 2.0%"
+      ]
+    },
+    {
+      "ticker": "MAVI",
+      "sleeve": "yuksek_kazanc",
+      "sub_category": "deep_value",
+      "weight_pct": 2.0,
+      "composite": 76.13,
+      "capital_allocation_tl": 20000.0,
+      "reasoning": [
+        "Sleeve yuksek_kazanc: 10% × composite_share(76.1/1505.2) = raw 0.5%",
+        "Cap applied: raw 0.5% → 2.0%"
+      ]
+    },
+    {
+      "ticker": "OYAKC",
+      "sleeve": "yuksek_kazanc",
+      "sub_category": "deep_value",
+      "weight_pct": 2.0,
+      "composite": 77.5,
+      "capital_allocation_tl": 20000.0,
+      "reasoning": [
+        "Sleeve yuksek_kazanc: 10% × composite_share(77.5/1505.2) = raw 0.5%",
+        "Cap applied: raw 0.5% → 2.0%"
+      ]
+    },
+    {
+      "ticker": "KCAER",
+      "sleeve": "yuksek_kazanc",
+      "sub_category": "deep_value",
+      "weight_pct": 2.0,
+      "composite": 74.42,
+      "capital_allocation_tl": 20000.0,
+      "reasoning": [
+        "Sleeve yuksek_kazanc: 10% × composite_share(74.4/1505.2) = raw 0.5%",
+        "Cap applied: raw 0.5% → 2.0%"
+      ]
+    },
+    {
+      "ticker": "VESBE",
+      "sleeve": "yuksek_kazanc",
+      "sub_category": "deep_value",
+      "weight_pct": 2.0,
+      "composite": 69.51,
+      "capital_allocation_tl": 20000.0,
+      "reasoning": [
+        "Sleeve yuksek_kazanc: 10% × composite_share(69.5/1505.2) = raw 0.5%",
+        "Cap applied: raw 0.5% → 2.0%"
+      ]
+    },
+    {
+      "ticker": "ISMEN",
+      "sleeve": "yuksek_kazanc",
+      "sub_category": "deep_value",
+      "weight_pct": 2.0,
+      "composite": 78.08,
+      "capital_allocation_tl": 20000.0,
+      "reasoning": [
+        "Sleeve yuksek_kazanc: 10% × composite_share(78.1/1505.2) = raw 0.5%",
+        "Cap applied: raw 0.5% → 2.0%"
+      ]
+    },
+    {
+      "ticker": "BOSSA",
+      "sleeve": "yuksek_kazanc",
+      "sub_category": "mature_transition",
+      "weight_pct": 2.0,
+      "composite": 59.57,
+      "capital_allocation_tl": 20000.0,
+      "reasoning": [
+        "Sleeve yuksek_kazanc: 10% × composite_share(59.6/1505.2) = raw 0.4%",
+        "Cap applied: raw 0.4% → 2.0%"
+      ]
+    },
+    {
+      "ticker": "ARENA",
+      "sleeve": "yuksek_kazanc",
+      "sub_category": "deep_value",
+      "weight_pct": 2.0,
+      "composite": 81.66,
+      "capital_allocation_tl": 20000.0,
+      "reasoning": [
+        "Sleeve yuksek_kazanc: 10% × composite_share(81.7/1505.2) = raw 0.5%",
+        "Cap applied: raw 0.5% → 2.0%"
+      ]
+    },
+    {
+      "ticker": "INDES",
+      "sleeve": "yuksek_kazanc",
+      "sub_category": "deep_value",
+      "weight_pct": 2.0,
+      "composite": 78.27,
+      "capital_allocation_tl": 20000.0,
+      "reasoning": [
+        "Sleeve yuksek_kazanc: 10% × composite_share(78.3/1505.2) = raw 0.5%",
+        "Cap applied: raw 0.5% → 2.0%"
+      ]
+    },
+    {
+      "ticker": "EUREN",
+      "sleeve": "yuksek_kazanc",
+      "sub_category": "deep_value",
+      "weight_pct": 2.0,
+      "composite": 68.85,
+      "capital_allocation_tl": 20000.0,
+      "reasoning": [
+        "Sleeve yuksek_kazanc: 10% × composite_share(68.8/1505.2) = raw 0.5%",
+        "Cap applied: raw 0.5% → 2.0%"
+      ]
+    },
+    {
+      "ticker": "KUYAS",
+      "sleeve": "yuksek_kazanc",
+      "sub_category": "deep_value",
+      "weight_pct": 2.0,
+      "composite": 65.34,
+      "capital_allocation_tl": 20000.0,
+      "reasoning": [
+        "Sleeve yuksek_kazanc: 10% × composite_share(65.3/1505.2) = raw 0.4%",
+        "Cap applied: raw 0.4% → 2.0%"
+      ]
+    },
+    {
+      "ticker": "AGHOL",
+      "sleeve": "yuksek_kazanc",
+      "sub_category": "deep_value",
+      "weight_pct": 2.0,
+      "composite": 80.16,
+      "capital_allocation_tl": 20000.0,
+      "reasoning": [
+        "Sleeve yuksek_kazanc: 10% × composite_share(80.2/1505.2) = raw 0.5%",
+        "Cap applied: raw 0.5% → 2.0%"
+      ]
+    },
+    {
+      "ticker": "ISGYO",
+      "sleeve": "yuksek_kazanc",
+      "sub_category": "mature_transition",
+      "weight_pct": 2.0,
+      "composite": 54.36,
+      "capital_allocation_tl": 20000.0,
+      "reasoning": [
+        "Sleeve yuksek_kazanc: 10% × composite_share(54.4/1505.2) = raw 0.4%",
+        "Cap applied: raw 0.4% → 2.0%"
+      ]
+    },
+    {
+      "ticker": "KLGYO",
+      "sleeve": "yuksek_kazanc",
+      "sub_category": "deep_value",
+      "weight_pct": 2.0,
+      "composite": 70.69,
+      "capital_allocation_tl": 20000.0,
+      "reasoning": [
+        "Sleeve yuksek_kazanc: 10% × composite_share(70.7/1505.2) = raw 0.5%",
+        "Cap applied: raw 0.5% → 2.0%"
+      ]
+    },
+    {
+      "ticker": "GOODY",
+      "sleeve": "yuksek_kazanc",
+      "sub_category": "deep_value",
+      "weight_pct": 2.0,
+      "composite": 74.07,
+      "capital_allocation_tl": 20000.0,
+      "reasoning": [
+        "Sleeve yuksek_kazanc: 10% × composite_share(74.1/1505.2) = raw 0.5%",
+        "Cap applied: raw 0.5% → 2.0%"
+      ]
+    },
+    {
+      "ticker": "HALKB",
+      "sleeve": "yuksek_kazanc",
+      "sub_category": "deep_value",
+      "weight_pct": 2.0,
+      "composite": 73.5,
+      "capital_allocation_tl": 20000.0,
+      "reasoning": [
+        "Sleeve yuksek_kazanc: 10% × composite_share(73.5/1505.2) = raw 0.5%",
+        "Cap applied: raw 0.5% → 2.0%"
+      ]
+    },
+    {
+      "ticker": "SAHOL",
+      "sleeve": "yuksek_kazanc",
+      "sub_category": "holding_chronic_discount",
+      "weight_pct": 2.0,
+      "composite": 62.87,
+      "capital_allocation_tl": 20000.0,
+      "reasoning": [
+        "Sleeve yuksek_kazanc: 10% × composite_share(62.9/1505.2) = raw 0.4%",
+        "Cap applied: raw 0.4% → 2.0%"
+      ]
+    }
+  ],
+  "cash_reserve_pct": 0.0,
+  "cash_reserve_tl": 0.0,
+  "cash_reasons": [
+    "Sleeve 'hizli_buyume' BOŞ (25% target → aktif sleeve'lere redistribute, Faz 4.2)",
+    "Redistribution capacity overflow: +2.0% → cash"
+  ],
+  "total_positions": 35,
+  "sleeve_breakdown": {
+    "core": 14,
+    "hizli_buyume": 0,
+    "yuksek_kazanc": 21,
+    "skip": 113
+  },
+  "warnings": [
+    "TRALT (yuksek_kazanc): raw 0.4% → capped 2.0%",
+    "CCOLA (yuksek_kazanc): raw 0.5% → capped 2.0%",
+    "FROTO (yuksek_kazanc): raw 0.5% → capped 2.0%",
+    "AEFES (yuksek_kazanc): raw 0.5% → capped 2.0%",
+    "AKSA (yuksek_kazanc): raw 0.5% → capped 2.0%",
+    "MAVI (yuksek_kazanc): raw 0.5% → capped 2.0%",
+    "OYAKC (yuksek_kazanc): raw 0.5% → capped 2.0%",
+    "KCAER (yuksek_kazanc): raw 0.5% → capped 2.0%",
+    "VESBE (yuksek_kazanc): raw 0.5% → capped 2.0%",
+    "ISMEN (yuksek_kazanc): raw 0.5% → capped 2.0%",
+    "BOSSA (yuksek_kazanc): raw 0.4% → capped 2.0%",
+    "ARENA (yuksek_kazanc): raw 0.5% → capped 2.0%",
+    "INDES (yuksek_kazanc): raw 0.5% → capped 2.0%",
+    "EUREN (yuksek_kazanc): raw 0.5% → capped 2.0%",
+    "KUYAS (yuksek_kazanc): raw 0.4% → capped 2.0%",
+    "AGHOL (yuksek_kazanc): raw 0.5% → capped 2.0%",
+    "ISGYO (yuksek_kazanc): raw 0.4% → capped 2.0%",
+    "KLGYO (yuksek_kazanc): raw 0.5% → capped 2.0%",
+    "GOODY (yuksek_kazanc): raw 0.5% → capped 2.0%",
+    "HALKB (yuksek_kazanc): raw 0.5% → capped 2.0%",
+    "SAHOL (yuksek_kazanc): raw 0.4% → capped 2.0%",
+    "Cash reserve 0.0% < regime 'normal' min 2.0% (over-allocation)"
+  ],
+  "reasoning": [
+    "↪ Redistribute → core (PRIORITY): +23.0% (headroom 103.0%)",
+    "Risk profile: dengeli. Target alloc: core=65%, hizli=25%, yuksek=10%.",
+    "35 pozisyon, cash reserve 0.0%."
+  ]
+}

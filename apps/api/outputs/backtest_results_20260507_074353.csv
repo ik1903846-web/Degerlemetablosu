@@ -1,0 +1,12 @@
+# REELDEĞER Backtest 2021-Q2 → 2026-Q1 (look-ahead bias)
+
+category,label,cost_model,cumulative_twr_pct,annualized_pct,annual_vol_pct,sharpe,sortino,max_drawdown_pct,best_q_pct,worst_q_pct,n_pos_q,n_neg_q
+portfolio,konservatif,zero,1392.48,76.66,61.37,1.184,4.844,-18.34,101.67,-18.34,14,5
+portfolio,konservatif,realistic,1357.92,75.79,61.37,1.170,4.785,-18.48,101.52,-18.48,14,5
+portfolio,dengeli,zero,1239.25,72.68,58.30,1.178,4.805,-17.38,96.69,-17.38,14,5
+portfolio,dengeli,realistic,1208.30,71.83,58.30,1.163,4.745,-17.52,96.54,-17.52,14,5
+portfolio,agresif,zero,1137.73,69.83,56.11,1.173,4.775,-16.70,93.13,-16.70,14,5
+portfolio,agresif,realistic,1109.16,69.00,56.11,1.159,4.714,-16.84,92.99,-16.84,14,5
+benchmark,XU100,n/a,830.94,59.95,41.95,1.334,5.926,-12.64,73.25,-12.64,15,4
+benchmark,XU030,n/a,878.78,61.65,40.53,1.422,6.269,-10.94,71.93,-10.94,14,5
+benchmark,SPY,n/a,47.64,8.55,15.21,0.299,0.475,-24.80,11.19,-16.47,13,6
