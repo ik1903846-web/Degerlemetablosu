@@ -743,9 +743,30 @@ ranking optimization + deep_value sleeve büyümesi + Core composition shift
 yoluyla alpha gain üretildi. Universe constraint (Lesson #19) PARTIAL FIX
 production'da validate edildi.
 
+### Faz 4.22 BIST 200 Partial EXTENDED ★★★ (Pattern Reproducibility)
+Universe 99 → 118 ticker (+19 mid-cap layer, getmidas.com cross-reference):
+
+| Profile          | Faz 4.21    | Faz 4.22    | Δ        | BEAT  |
+|------------------|------------:|------------:|---------:|-------|
+| Konservatif zero | +22.41%/yr  | **+23.55%** | +1.14pp  | 3/3 ✓ |
+| Konservatif real | +21.81%/yr  | +22.94%/yr  | +1.13pp  | 3/3 ✓ |
+| Dengeli zero     | +19.56%/yr  | +20.69%/yr  | +1.13pp  | 3/3 ✓ |
+| Dengeli real     | +18.98%/yr  | +20.10%/yr  | +1.12pp  | 3/3 ✓ |
+| Agresif zero     | +17.53%/yr  | +18.66%/yr  | +1.13pp  | 3/3 ✓ |
+| Agresif real     | +16.95%/yr  | +18.08%/yr  | +1.13pp  | 3/3 ✓ |
+
+★★★ **18/18 BEAT KORUNUR** (Faz 4.21 ULTIMATE state preserved)
+
+**Cumulative gain Faz 4.18 → 4.21 → 4.22:**
+- Konservatif zero: +19.11% → +22.41% → **+23.55%** (+4.44pp toplam)
+- Marginal returns diminishing (3.30pp → 1.14pp) — opportunity set saturation
+
+**Pattern reproducibility:** Universe expansion deep-value alpha tekrar üretildi
+(Faz 4.21, 4.22 ardışık WIN). Lesson #19 generalization VALIDATED:
+universe size opportunity set'le doğru orantılı alpha üretir.
+
 **Future paths:**
-- Faz 4.22 BIST 200 mid-cap layer (+100 ticker)
-- Faz 4.23 BIST Tüm 500+ (multi-session)
+- Faz 4.23+ BIST Tüm 500+ (multi-session 10-16 saat)
 - Faz 7.4 HIGH_GROWTH classifier loosening + young_firm_dcf orchestrator
 - Per-position cap Hızlı sleeve (%2-5) + cash overflow tolerance
 
@@ -762,10 +783,10 @@ production'da validate edildi.
 
 ---
 
-**Compendium last updated:** 7 May 2026 (Faz 4.21 BIST 100 official ULTIMATE WIN)
-**Total commits:** 148+ (Faz 4.21 universe expansion + 18/18 BEAT verify)
-**TUPRS regression anchor:** 187.10 TL (47+ commit INTACT, deep dive baseline -%0.6 sub-noise)
-**19 Damodaran Lesson:** #1-15 (foundational) + #17 (distress MODULE-ONLY) + #18 (race AUTOMATION) + #19 (universe expansion ★★★ VALIDATED)
-**Konservatif zero anchor:** TL +72.45%/yr / USD +22.41%/yr (★★★ Faz 4.21 ULTIMATE, 18/18 BEAT)
+**Compendium last updated:** 7 May 2026 (Faz 4.22 BIST 200 partial DOUBLE ULTIMATE)
+**Total commits:** 151+ (Faz 4.22 universe extension + pattern reproducibility)
+**TUPRS regression anchor:** 187.10 TL (48+ commit INTACT, deep dive baseline -%0.6 sub-noise)
+**19 Damodaran Lesson:** #1-15 (foundational) + #17 (distress MODULE-ONLY) + #18 (race AUTOMATION) + #19 (universe expansion ★★★ DOUBLE WIN reproducibility)
+**Konservatif zero anchor:** TL +74.05%/yr / USD +23.55%/yr (★★★ Faz 4.22 DOUBLE ULTIMATE, 18/18 BEAT)
 **5. ardışık ROLLBACK pattern:** Faz 4.7 + 4.8 + 4.13 + 7.1 + 4.10 — Lesson #10 ULTIMATE
-**Faz 4.21 ULTIMATE STATE:** 16/18 → 18/18 BEAT, Konservatif/Dengeli/Agresif 6/6 each
+**Faz 4.21 → 4.22 ULTIMATE STATE:** 16/18 → 18/18 BEAT preserved (cumulative +4.44pp Konservatif zero gain)
