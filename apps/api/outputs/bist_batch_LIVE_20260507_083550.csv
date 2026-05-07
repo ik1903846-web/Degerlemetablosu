@@ -1,0 +1,560 @@
+ticker,success,is_banking,model_used,lifecycle_stage,lifecycle_sub,value_per_share_tl,market_price_tl,upside_pct,damodaran_verdict,equity_value_tl,shares_outstanding,wacc,normalized_margin,periods_fetched,items_mapped,errors
+TUPRS,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",187.10,271.00,-30.96,SAT,360.51B,1926795598,12.81%,4.50%,16,12,
+PETKM,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",-3.76,24.12,-115.57,SAT,-9.82B,2613000000,12.09%,5.69%,16,12,
+EREGL,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",58.54,37.68,55.36,AL,204.89B,3500000000,12.06%,17.62%,16,12,
+KRDMD,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",25.08,39.90,-37.13,SAT,23.83B,950000000,13.29%,8.98%,16,12,
+TRALT,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",157.88,42.06,275.37,AL,24.08B,152500000,16.27%,44.12%,16,12,
+TRMET,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",69.14,119.10,-41.95,SAT,21.09B,305000000,15.75%,33.44%,16,12,
+BIMAS,False,False,industrial_fcff,mature_stable,stable,,781.00,,UNKNOWN,,,,4.91%,16,12,Current revenue is None | DCF execution returned None
+MGROS,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",185.28,683.50,-72.89,SAT,33.54B,181000000,12.18%,1.89%,16,12,
+SOKM,True,False,industrial_fcff,mature_stable,"stable,capital_intensive",-125.23,54.05,-331.69,SAT,-76.64B,612000000,12.28%,-4.31%,12,12,
+CCOLA,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",317.51,84.85,274.20,AL,80.77B,254370782,10.38%,11.73%,16,12,
+TOASO,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",114.90,312.50,-63.23,SAT,57.45B,500000000,12.67%,7.47%,16,12,
+FROTO,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",294.34,99.00,197.32,AL,103.29B,350910000,11.91%,7.14%,16,12,
+ARCLK,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",176.78,113.50,55.75,AL,119.45B,675728205,10.25%,7.68%,16,12,
+ASELS,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",95.65,434.00,-77.96,SAT,109.04B,1140000000,14.21%,21.70%,16,12,
+THYAO,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",-110.81,309.75,-135.77,SAT,-152.92B,1380000000,10.47%,7.73%,16,12,
+PGSUS,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",-1082.76,184.30,-687.50,SAT,-110.74B,102271525,9.22%,9.02%,16,12,
+ENKAI,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",31.86,110.50,-71.16,SAT,191.18B,6000000000,12.08%,16.78%,16,12,
+TCELL,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",146.79,117.70,24.72,IZLE-AL,322.95B,2200000000,11.40%,24.97%,16,12,
+TTKOM,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",70.54,65.65,7.44,BEKLE,246.87B,3500000000,11.67%,23.52%,16,12,
+AEFES,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",249.42,20.02,1145.85,AL,147.68B,592105263,11.75%,10.80%,16,12,
+ULKER,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",103.98,129.10,-19.45,IZLE-SAT,39.93B,384000000,9.45%,9.93%,16,12,
+AKSA,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",132.59,11.00,1105.35,AL,24.53B,185000000,12.63%,12.06%,16,12,
+HEKTS,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",-0.70,3.68,-118.94,SAT,-1.00B,1440000000,11.50%,12.54%,16,12,
+NETAS,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",-64.70,67.25,-196.21,SAT,-4.21B,65000000,6.04%,-1.22%,16,12,
+TAVHL,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",85.84,289.75,-70.37,SAT,31.18B,363281250,9.92%,19.61%,16,12,
+AKSGY,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",9.36,9.40,-0.40,BEKLE,11.23B,1200000000,13.97%,68.10%,16,12,
+AKSEN,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",2.10,88.60,-97.63,SAT,2.58B,1226750000,11.15%,13.27%,16,12,
+BIZIM,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",19.12,29.80,-35.84,SAT,1.15B,60000000,9.33%,0.44%,16,12,
+MAVI,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",137.06,43.86,212.49,AL,27.24B,198750000,12.85%,10.86%,12,12,
+LOGO,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",235.06,155.00,51.65,AL,5.88B,25000000,14.39%,22.43%,16,12,
+ASUZU,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",-7.14,69.85,-110.23,SAT,-0.21B,30000000,11.68%,2.44%,16,12,
+TKFEN,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",15.15,142.00,-89.33,SAT,5.61B,370000000,11.90%,2.12%,16,12,
+VESTL,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",-112.81,28.24,-499.48,SAT,-42.25B,374500000,9.86%,2.17%,16,12,
+OYAKC,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",93.63,24.54,281.55,AL,43.07B,460000000,14.38%,24.56%,16,12,
+KARSN,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",1.45,11.72,-87.60,SAT,1.05B,720000000,10.02%,8.13%,16,12,
+DOHOL,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",7.79,24.64,-68.38,SAT,20.39B,2616938288,11.96%,5.14%,16,12,
+SMRTG,False,False,young_firm_dcf,high_growth,"cyclical,capital_intensive",,8.41,,UNKNOWN,,,,,8,12,Model young_firm_dcf orchestration TBD (Faz 2.3.x)
+CWENE,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",56.06,38.88,44.18,AL,8.13B,145000000,12.01%,13.61%,8,12,
+KCAER,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",60.26,12.46,383.65,AL,17.48B,290000000,11.63%,12.21%,8,12,
+KONTR,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",-2.82,9.75,-128.88,SAT,-1.52B,540000000,9.32%,15.06%,8,12,
+ENJSA,True,False,industrial_fcff,mature_stable,"stable,capital_intensive",167.99,117.50,42.97,AL,198.44B,1181250000,10.87%,14.48%,12,12,
+INFO,True,False,cyclical_dcf,mature_growth,cyclical,96.62,3.63,2561.84,AL,10.63B,110000000,9.71%,3.32%,16,12,
+OTKAR,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",406.82,374.75,8.56,BEKLE,9.76B,24000000,8.32%,11.34%,16,12,
+KORDS,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",39.97,65.70,-39.16,SAT,7.77B,194500000,10.03%,8.75%,16,12,
+PARSN,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",-24.84,84.45,-129.41,SAT,-2.36B,95000000,12.17%,7.86%,16,12,
+VESBE,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",123.36,7.10,1637.51,AL,23.44B,190000000,12.28%,7.20%,16,12,
+TKNSA,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",39.63,23.30,70.10,AL,6.54B,165000000,11.47%,1.08%,16,12,
+PRKAB,True,False,cyclical_dcf,mature_stable,cyclical,8.32,38.84,-78.58,SAT,1.11B,134000000,13.90%,0.51%,16,12,
+KAPLM,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",-0.09,665.00,-100.01,SAT,-0.02B,200000000,12.42%,3.21%,16,12,
+ISMEN,True,False,industrial_fcff,mature_stable,"stable,asset_light",236.34,43.02,449.37,AL,49.63B,210000000,14.01%,0.82%,16,12,
+BOSSA,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",11.52,6.48,77.74,AL,2.53B,220000000,12.58%,13.61%,16,12,
+ARENA,True,False,industrial_fcff,mature_stable,stable,80.30,34.50,132.74,AL,5.06B,63000000,7.61%,2.82%,16,12,
+INDES,True,False,industrial_fcff,mature_growth,stable,67.37,10.79,524.36,AL,18.86B,280000000,11.39%,3.32%,16,12,
+EUREN,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",23.67,5.10,364.06,AL,6.86B,290000000,13.38%,20.46%,8,12,
+ECILC,False,False,decline_dcf,decline,"cyclical,capital_intensive",,85.75,,UNKNOWN,,,,,16,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+TUKAS,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",-1.74,2.55,-168.42,SAT,-0.10B,60000000,12.53%,8.54%,16,12,
+ALARK,False,False,decline_dcf,decline,"cyclical,capital_intensive",,100.30,,UNKNOWN,,,,,16,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+ZOREN,False,False,cyclical_dcf,mature_stable,cyclical,,3.17,,UNKNOWN,,,,44.79%,16,12,Current revenue is None | DCF execution returned None
+ENERY,True,False,industrial_fcff,mature_growth,"stable,capital_intensive",2.12,9.00,-76.49,SAT,19.05B,9000000000,13.83%,9.61%,8,12,
+ODAS,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",5.99,7.60,-21.23,IZLE-SAT,8.38B,1400000000,14.26%,11.95%,16,12,
+EUPWR,False,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",,61.35,,UNKNOWN,,,,20.48%,8,12,Current revenue is None | DCF execution returned None
+TRENJ,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",92.84,92.05,0.86,BEKLE,24.12B,259785561,14.41%,35.17%,16,12,
+IZENR,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",3.14,10.55,-70.22,SAT,7.68B,2443750000,14.05%,15.19%,8,12,
+PASEU,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",1.96,109.40,-98.21,SAT,1.32B,672000000,13.80%,12.52%,8,12,
+SISE,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",25.24,49.62,-49.14,SAT,77.31B,3063214056,11.16%,11.95%,12,12,
+SASA,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",-1.79,3.08,-158.07,SAT,-78.36B,43815615361,10.71%,10.91%,16,12,
+GUBRF,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",114.56,583.00,-80.35,SAT,38.26B,334000000,11.85%,10.78%,16,12,
+CIMSA,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",19.84,58.45,-66.06,SAT,18.76B,945591094,11.03%,17.01%,16,12,
+BTCIM,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",0.20,6.49,-96.98,SAT,1.09B,5580000000,12.65%,8.10%,16,12,
+KUYAS,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",2347.50,86.60,2610.73,AL,939.00B,400000000,11.78%,16027.42%,16,12,
+BSOKE,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",-1.64,38.26,-104.29,SAT,-2.62B,1600000000,12.33%,2.14%,16,12,
+MAGEN,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",-0.05,64.65,-100.08,SAT,-0.16B,2950000000,12.50%,45.38%,8,12,
+SARKY,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",9.91,27.72,-64.26,SAT,9.91B,1000000000,10.79%,4.30%,16,12,
+BALSU,False,False,decline_dcf,decline,"cyclical,capital_intensive",,14.58,,UNKNOWN,,,,,4,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+ANSGR,False,False,none,,,,30.24,,UNKNOWN,,,,,0,0,Pipeline error: ValueError: No items in response for ANSGR
+GRSEL,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",66.05,321.00,-79.42,SAT,6.74B,102000000,13.78%,14.07%,8,12,
+TURSG,False,False,none,,,,14.12,,UNKNOWN,,,,,0,0,Pipeline error: ValueError: No items in response for TURSG
+DOAS,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",279.57,185.40,50.79,AL,61.51B,220000000,12.91%,7.27%,16,12,
+BRYAT,False,False,decline_dcf,decline,"cyclical,asset_light",,2213.00,,UNKNOWN,,,,,16,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+OBAMS,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",3.91,8.44,-53.72,SAT,11.24B,2876530554,14.16%,6.52%,8,12,
+PAHOL,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",0.25,1.55,-83.64,SAT,5.07B,20000000000,14.40%,69.73%,4,12,
+PSGYO,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",-1.97,3.05,-164.49,SAT,-13.57B,6900847276,11.21%,9.36%,8,12,
+RALYH,False,False,distress_dcf,distress,"cyclical,capital_intensive",,371.25,,UNKNOWN,,,,,16,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+MIATK,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",20.58,43.54,-52.74,SAT,10.16B,494000000,13.35%,50.61%,8,12,
+REEDR,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",5.25,7.74,-32.18,SAT,4.99B,950000000,13.60%,26.21%,8,12,
+GESAN,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",34.68,56.50,-38.63,SAT,15.95B,460000000,13.66%,21.51%,8,12,
+CANTE,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",0.78,1.77,-55.80,SAT,7.80B,9974175415,14.39%,17.63%,8,12,
+CVKMD,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",3.17,37.08,-91.45,SAT,4.44B,1400000000,12.41%,27.87%,8,12,
+EFOR,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",1.79,12.10,-85.19,SAT,3.90B,2178000000,11.81%,9.76%,4,12,
+FENER,False,False,distress_dcf,distress,"cyclical,capital_intensive",,3.46,,UNKNOWN,,,,,16,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+KLRHO,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",4.24,111.30,-96.19,SAT,6.88B,1625000000,13.87%,15.33%,8,12,
+AGHOL,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",78.63,34.18,130.05,AL,191.49B,2435345180,11.71%,6.07%,16,12,
+ALTNY,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",3.85,17.75,-78.33,SAT,3.85B,1000000000,13.02%,28.90%,4,12,
+ASTOR,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",45.83,317.75,-85.58,SAT,45.74B,998000000,13.70%,26.27%,8,12,
+BRSAN,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",42.93,620.00,-93.08,SAT,6.09B,141771582,11.98%,6.26%,16,12,
+DAPGM,True,False,cyclical_dcf,mature_growth,"cyclical,asset_light",7.78,10.38,-25.03,IZLE-SAT,20.62B,2650000000,12.87%,44.81%,8,12,
+DSTKF,False,False,none,,,,2755.00,,UNKNOWN,,,,,0,0,Pipeline error: ValueError: No items in response for DSTKF
+GLRMK,True,False,industrial_fcff,mature_stable,"stable,capital_intensive",114.25,195.30,-41.50,SAT,36.86B,322600000,10.57%,8.64%,4,12,
+GRTHO,True,False,industrial_fcff,mature_stable,"stable,capital_intensive",28.39,246.10,-88.47,SAT,3.55B,125000000,13.83%,15.89%,8,12,
+PATEK,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",-0.32,25.24,-101.25,SAT,-0.21B,674934432,13.18%,0.32%,8,12,
+TABGD,False,False,young_firm_dcf,high_growth,"cyclical,capital_intensive",,270.00,,UNKNOWN,,,,,8,12,Model young_firm_dcf orchestration TBD (Faz 2.3.x)
+TUREX,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",3.62,9.08,-60.18,SAT,3.91B,1080000000,13.41%,13.70%,8,12,
+EKGYO,True,False,industrial_fcff,mature_stable,"stable,capital_intensive",14.82,21.22,-30.16,SAT,54.26B,3661120138,13.43%,25.62%,16,12,
+GENIL,True,False,industrial_fcff,mature_growth,"stable,capital_intensive",1.59,8.86,-82.07,SAT,7.15B,4500000000,13.27%,6.07%,8,12,
+MPARK,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",279.17,454.00,-38.51,SAT,28.51B,102122233,12.28%,13.95%,12,12,
+GSRAY,False,False,distress_dcf,distress,cyclical,,1.17,,UNKNOWN,,,,,16,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+KTLEV,False,False,none,,,,115.30,,UNKNOWN,,,,,0,0,Pipeline error: ValueError: No items in response for KTLEV
+QUAGR,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",5.16,3.68,40.16,AL,13.62B,2640000000,11.36%,26.64%,8,12,
+KLNMA,False,False,none,,,,9.56,,UNKNOWN,,,,,0,0,Pipeline error: ValueError: No items in response for KLNMA
+QNBTR,False,False,none,,,,242.00,,UNKNOWN,,,,,0,0,Pipeline error: ValueError: No items in response for QNBTR
+AGESA,False,False,none,,,,245.70,,UNKNOWN,,,,,0,0,Pipeline error: ValueError: No items in response for AGESA
+ANHYT,False,False,none,,,,114.00,,UNKNOWN,,,,,0,0,Pipeline error: ValueError: No items in response for ANHYT
+AKGRT,False,False,none,,,,7.42,,UNKNOWN,,,,,0,0,Pipeline error: ValueError: No items in response for AKGRT
+RAYSG,False,False,none,,,,201.90,,UNKNOWN,,,,,0,0,Pipeline error: ValueError: No items in response for RAYSG
+GLYHO,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",-6.13,15.61,-139.25,SAT,-11.95B,1950000000,7.89%,24.54%,16,12,
+NTHOL,True,False,industrial_fcff,mature_stable,"stable,capital_intensive",32.23,39.84,-19.11,IZLE-SAT,14.70B,456040861,13.45%,14.71%,16,12,
+AVHOL,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",-1.09,38.92,-102.80,SAT,-0.04B,37250000,12.94%,7.04%,16,12,
+IEYHO,False,False,distress_dcf,distress,"cyclical,capital_intensive",,100.50,,UNKNOWN,,,,,16,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+POLHO,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",4.07,21.00,-80.64,SAT,3.08B,758500000,13.58%,10.03%,16,12,
+GOZDE,False,False,distress_dcf,distress,"cyclical,asset_light",,20.46,,UNKNOWN,,,,,16,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+MZHLD,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",7.57,6.70,12.97,IZLE-AL,0.82B,108559000,14.19%,6.41%,16,12,
+TRHOL,False,False,distress_dcf,distress,"cyclical,capital_intensive",,1331.00,,UNKNOWN,,,,,16,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+AKFGY,False,False,decline_dcf,decline,cyclical,,3.01,,UNKNOWN,,,,,16,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+AKMGY,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",114.55,,,UNKNOWN,4.27B,37264000,14.42%,65.56%,16,12,
+ALGYO,True,False,cyclical_dcf,mature_stable,"cyclical,asset_light",4.84,,,UNKNOWN,9.82B,2028600000,13.51%,541.36%,16,12,
+ASGYO,False,False,distress_dcf,distress,"cyclical,capital_intensive",,,,UNKNOWN,,,,,8,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+ATAGY,True,False,cyclical_dcf,mature_growth,cyclical,6.91,,,UNKNOWN,0.33B,47500000,14.42%,127.30%,16,12,
+AVGYO,True,False,industrial_fcff,mature_stable,"stable,capital_intensive",8.23,,,UNKNOWN,0.92B,111600000,14.42%,53.73%,16,12,
+DGGYO,True,False,cyclical_dcf,mature_growth,cyclical,23.05,31.42,-26.63,IZLE-SAT,7.65B,332007786,12.51%,181.93%,16,12,
+HLGYO,True,False,industrial_fcff,mature_stable,"stable,capital_intensive",7.91,6.11,29.41,IZLE-AL,29.67B,3752699766,13.17%,279.31%,16,12,
+IDGYO,False,False,distress_dcf,distress,"cyclical,asset_light",,3.30,,UNKNOWN,,,,,16,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+ISGYO,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",33.25,20.34,63.49,AL,31.88B,958750000,13.59%,138.36%,16,12,
+KLGYO,True,False,industrial_fcff,mature_stable,"stable,capital_intensive",13.73,5.23,162.55,AL,19.16B,1395000000,14.33%,31.41%,16,12,
+NUGYO,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",13.57,9.74,39.35,AL,4.55B,335348000,14.22%,51.71%,16,12,
+AKCNS,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",126.73,210.60,-39.82,SAT,24.26B,191447068,13.40%,13.76%,16,12,
+AYGAZ,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",95.36,285.75,-66.63,SAT,20.96B,219800767,14.11%,3.06%,16,12,
+BAGFS,False,False,decline_dcf,decline,"cyclical,capital_intensive",,35.74,,UNKNOWN,,,,,16,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+BANVT,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",136.26,155.00,-12.09,IZLE-SAT,13.63B,100023579,12.97%,3.43%,16,12,
+BRISA,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",76.47,87.85,-12.96,IZLE-SAT,23.33B,305116875,10.99%,9.31%,16,12,
+CLEBI,False,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",,1822.00,,UNKNOWN,,,,13.21%,16,12,Current revenue is None | DCF execution returned None
+CRFSA,False,False,young_firm_dcf,young,cyclical,,147.00,,UNKNOWN,,,,,16,12,Model young_firm_dcf orchestration TBD (Faz 2.3.x)
+DEVA,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",56.29,66.20,-14.97,IZLE-SAT,11.26B,200019288,12.49%,19.12%,16,12,
+DOCO,False,False,none,,,,9762.50,,UNKNOWN,,,,,0,0,Pipeline error: ValueError: No items in response for DOCO
+TTRAK,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",606.61,451.25,34.43,AL,60.70B,100066875,11.33%,11.83%,16,12,
+MNDRS,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",8.19,13.10,-37.48,SAT,2.27B,277292576,12.54%,9.27%,16,12,
+AYDEM,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",-0.85,29.50,-102.86,SAT,-0.60B,705000000,10.44%,45.53%,8,12,
+AYEN,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",33.06,35.52,-6.93,BEKLE,9.17B,277500000,11.86%,29.10%,16,12,
+KRDMA,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",29.51,39.56,-25.40,IZLE-SAT,7.09B,240303646,13.72%,8.98%,16,12,
+KRDMB,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",29.51,90.65,-67.44,SAT,3.53B,119470352,13.72%,8.98%,16,12,
+KAREL,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",4.55,12.95,-64.88,SAT,3.67B,805885530,8.55%,8.86%,16,12,
+KFEIN,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",6.33,9.16,-30.94,SAT,1.25B,197500000,14.33%,11.81%,12,12,
+KRONT,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",2.30,20.84,-88.94,SAT,0.39B,171222156,12.87%,19.07%,16,12,
+NETCD,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",25.47,138.70,-81.64,SAT,3.49B,137000000,14.21%,52.77%,4,12,
+PENTA,True,False,industrial_fcff,mature_stable,stable,16.64,15.00,10.95,IZLE-AL,6.55B,393516000,14.23%,3.37%,8,12,
+SMART,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",8.83,36.56,-75.85,SAT,0.28B,31862500,13.13%,21.70%,12,12,
+INVEO,False,False,decline_dcf,decline,"cyclical,asset_light",,7.50,,UNKNOWN,,,,,16,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+GOODY,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",42.04,15.91,164.26,AL,11.35B,270000000,12.09%,5.74%,16,12,
+JANTS,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",9.47,17.53,-45.96,SAT,6.63B,700000000,13.41%,18.07%,16,12,
+INTEK,False,False,distress_dcf,distress,"cyclical,capital_intensive",,240.60,,UNKNOWN,,,,,16,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+EBEBK,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",8.20,75.25,-89.10,SAT,1.31B,160000000,12.13%,1.09%,8,12,
+EDIP,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",40.53,39.50,2.61,BEKLE,2.63B,65000000,12.44%,114.69%,16,12,
+EGEGY,False,False,distress_dcf,distress,"cyclical,capital_intensive",,31.34,,UNKNOWN,,,,,4,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+HUBVC,False,False,decline_dcf,decline,"cyclical,capital_intensive",,3.78,,UNKNOWN,,,,,16,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+KOTON,False,False,decline_dcf,decline,"cyclical,capital_intensive",,15.50,,UNKNOWN,,,,,4,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+MOPAS,False,False,decline_dcf,decline,"stable,capital_intensive",,40.74,,UNKNOWN,,,,,4,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+MOGAN,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",-8.28,15.53,-153.32,SAT,-20.21B,2440108000,11.70%,16.09%,8,12,
+NUHCM,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",153.35,244.80,-37.36,SAT,23.03B,150213600,13.67%,15.43%,16,12,
+ORCAY,True,False,industrial_fcff,mature_stable,"stable,capital_intensive",2.09,4.33,-51.80,SAT,0.50B,240000000,10.26%,22.31%,8,12,
+PETUN,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",7.82,13.45,-41.87,SAT,2.37B,303345000,12.87%,5.84%,16,12,
+SUNTK,True,False,industrial_fcff,mature_growth,"stable,capital_intensive",21.57,37.64,-42.69,SAT,10.24B,474600000,12.66%,11.15%,8,12,
+AVOD,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",1.64,5.04,-67.41,SAT,0.44B,270000000,11.52%,10.28%,16,12,
+BERA,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",14.11,18.00,-21.63,IZLE-SAT,9.64B,683200000,13.79%,9.40%,16,12,
+BFREN,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",15.09,145.30,-89.62,SAT,1.85B,122522806,11.74%,12.09%,16,12,
+DAGI,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",-3.31,7.40,-144.70,SAT,-1.32B,400000000,10.89%,-0.40%,16,12,
+GEDIK,True,False,cyclical_dcf,mature_growth,"cyclical,asset_light",6.95,5.68,22.29,IZLE-AL,13.89B,2000000000,9.12%,1.84%,16,12,
+GENTS,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",4.30,8.40,-48.78,SAT,3.23B,750000000,13.53%,11.22%,16,12,
+ECZYT,False,False,industrial_fcff,mature_stable,stable,,370.00,,UNKNOWN,,,,-0.09%,16,12,Current revenue is None | DCF execution returned None
+DGATE,True,False,cyclical_dcf,mature_growth,"cyclical,asset_light",61.56,96.75,-36.38,SAT,1.84B,29841960,14.17%,2.89%,16,12,
+HEDEF,False,False,decline_dcf,decline,"cyclical,capital_intensive",,145.00,,UNKNOWN,,,,,8,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+HOROZ,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",-24.98,81.35,-130.71,SAT,-2.26B,90488084,10.62%,-0.53%,4,12,
+INTEM,False,False,decline_dcf,decline,"cyclical,capital_intensive",,290.75,,UNKNOWN,,,,,16,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+MEGMT,True,False,industrial_fcff,mature_growth,"stable,capital_intensive",21.85,85.20,-74.35,SAT,5.79B,265000000,10.22%,4.85%,8,12,
+MERCN,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",11.61,24.08,-51.80,SAT,2.21B,190370946,12.05%,13.22%,8,12,
+OBASE,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",5.45,39.86,-86.33,SAT,0.25B,45500000,12.94%,5.40%,8,12,
+OZKGY,False,False,cyclical_dcf,mature_stable,cyclical,,12.89,,UNKNOWN,,,,111.90%,16,12,Current revenue is None | DCF execution returned None
+PSDTC,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",75.22,139.00,-45.89,SAT,0.56B,7425000,10.41%,32.72%,16,12,
+SELEC,True,False,industrial_fcff,mature_stable,"stable,capital_intensive",55.54,104.30,-46.75,SAT,34.49B,621000000,12.27%,3.78%,16,12,
+ULAS,False,False,distress_dcf,distress,"cyclical,asset_light",,29.10,,UNKNOWN,,,,,16,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+AAGYO,True,False,industrial_fcff,mature_stable,"stable,capital_intensive",1.07,18.90,-94.34,SAT,0.75B,701000000,13.93%,45.85%,4,12,
+ACSEL,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",7.75,133.80,-94.21,SAT,0.08B,10721700,11.60%,9.93%,16,12,
+ADEL,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",16.70,51.40,-67.51,SAT,4.34B,259875000,10.96%,13.64%,16,12,
+ADGYO,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",4.46,60.40,-92.62,SAT,2.43B,545854435,14.42%,43.68%,8,12,
+AFYON,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",5.88,13.68,-57.01,SAT,2.35B,400000000,14.39%,4.84%,16,12,
+AGYO,False,False,distress_dcf,distress,"stable,capital_intensive",,9.00,,UNKNOWN,,,,,16,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+AHGAZ,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",11.34,27.94,-59.40,SAT,28.76B,2534953405,13.28%,12.12%,8,12,
+AHSGY,False,False,distress_dcf,distress,"stable,asset_light",,21.52,,UNKNOWN,,,,,4,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+AKFIS,True,False,industrial_fcff,mature_stable,"stable,capital_intensive",172.65,54.70,215.63,AL,109.91B,636584078,10.21%,183.67%,4,12,
+AKFYE,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",4.69,23.42,-79.97,SAT,5.56B,1185075250,12.88%,36.56%,8,12,
+AKSUE,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",0.71,37.32,-98.11,SAT,0.05B,66000000,13.85%,15.75%,16,12,
+AKYHO,False,False,distress_dcf,distress,"cyclical,capital_intensive",,2.77,,UNKNOWN,,,,,16,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+ALCAR,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",242.06,787.50,-69.26,SAT,2.61B,10800000,11.15%,7.16%,16,12,
+ALCTL,True,False,cyclical_dcf,mature_stable,cyclical,72.67,131.50,-44.74,SAT,2.81B,38700772,13.97%,4.73%,16,12,
+ALFAS,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",13.78,42.90,-67.88,SAT,5.07B,368000000,12.25%,10.26%,8,12,
+ALKIM,False,False,decline_dcf,decline,"cyclical,capital_intensive",,20.44,,UNKNOWN,,,,,16,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+ALKLC,True,False,industrial_fcff,mature_stable,"stable,capital_intensive",20.49,340.00,-93.97,SAT,2.29B,112000000,11.24%,11.28%,4,12,
+ALVES,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",1.76,3.47,-49.21,SAT,2.82B,1600000000,11.39%,11.41%,8,12,
+ANGEN,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",10.37,11.36,-8.75,BEKLE,2.28B,220000000,14.41%,54.52%,8,12,
+ARASE,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",154.84,104.00,48.88,AL,38.71B,250000000,12.89%,16.07%,8,12,
+ARDYZ,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",10.56,58.50,-81.95,SAT,3.28B,310542259,12.87%,44.24%,12,12,
+ARMGD,False,False,decline_dcf,decline,"cyclical,capital_intensive",,131.50,,UNKNOWN,,,,,4,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+ARSAN,False,False,decline_dcf,decline,"cyclical,capital_intensive",,3.62,,UNKNOWN,,,,,16,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+ARTMS,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",87.73,42.84,104.80,AL,6.14B,70000000,13.84%,82.99%,8,12,
+ARZUM,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",2.07,2.70,-23.35,IZLE-SAT,1.24B,600000000,7.12%,4.34%,8,12,
+ATAKP,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",33.40,52.10,-35.89,SAT,4.63B,138768000,13.87%,22.01%,8,12,
+ATATP,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",88.01,159.50,-44.82,SAT,2.33B,26474083,14.11%,15.98%,8,12,
+ATEKS,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",41.87,93.85,-55.38,SAT,1.06B,25200000,13.61%,10.21%,16,12,
+ATSYH,False,False,distress_dcf,distress,"cyclical,capital_intensive",,71.90,,UNKNOWN,,,,,16,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+AVPGY,True,False,industrial_fcff,mature_stable,"stable,asset_light",195.71,61.70,217.19,AL,78.28B,400000000,14.42%,147.16%,8,12,
+AVTUR,False,False,distress_dcf,distress,"cyclical,capital_intensive",,18.83,,UNKNOWN,,,,,16,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+AYCES,False,False,distress_dcf,distress,"cyclical,capital_intensive",,768.50,,UNKNOWN,,,,,16,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+AYES,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",4.55,31.00,-85.31,SAT,0.68B,150000000,11.58%,2.89%,16,12,
+AZTEK,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",7.66,4.89,56.64,AL,7.66B,1000000000,10.99%,11.08%,8,12,
+BAHKM,False,False,decline_dcf,decline,"cyclical,capital_intensive",,123.50,,UNKNOWN,,,,,4,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+BAKAB,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",31.96,46.02,-30.55,SAT,2.30B,72000000,12.45%,8.33%,16,12,
+BALAT,False,False,decline_dcf,decline,"cyclical,capital_intensive",,80.00,,UNKNOWN,,,,,16,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+BARMA,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",0.22,60.05,-99.64,SAT,0.06B,262500000,9.95%,18.62%,8,12,
+BASCM,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",5.63,13.83,-59.29,SAT,3.72B,660000000,14.00%,8.18%,16,12,
+BASGZ,True,False,industrial_fcff,mature_stable,"stable,capital_intensive",29.59,48.76,-39.31,SAT,20.71B,700000000,13.54%,6.61%,8,12,
+BAYRK,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",0.12,5.00,-97.52,SAT,0.03B,249999992,10.20%,7.47%,8,12,
+BEGYO,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",1.53,4.35,-64.79,SAT,1.25B,815000000,14.42%,38.89%,8,12,
+BESLR,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",10.25,15.70,-34.73,SAT,6.78B,662000000,11.99%,4.89%,16,12,
+BESTE,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",2.56,28.80,-91.12,SAT,0.40B,158205000,13.49%,33.60%,4,12,
+BEYAZ,True,False,industrial_fcff,mature_stable,"stable,capital_intensive",23.65,29.82,-20.69,IZLE-SAT,2.36B,99687500,13.98%,1.40%,16,12,
+BIENY,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",15.77,24.30,-35.12,SAT,5.69B,361000000,12.92%,13.35%,8,12,
+BIGCH,False,False,young_firm_dcf,high_growth,"cyclical,capital_intensive",,7.46,,UNKNOWN,,,,,8,12,Model young_firm_dcf orchestration TBD (Faz 2.3.x)
+BIGEN,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",5.63,20.30,-72.28,SAT,3.25B,577000000,9.51%,74.87%,4,12,
+BIGTK,False,False,decline_dcf,decline,"cyclical,capital_intensive",,205.10,,UNKNOWN,,,,,16,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+BINBN,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",12.09,178.40,-93.22,SAT,1.11B,92000000,14.01%,17.82%,4,12,
+BINHO,False,False,decline_dcf,decline,"cyclical,capital_intensive",,9.40,,UNKNOWN,,,,,4,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+BIOEN,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",-1.86,21.52,-108.63,SAT,-0.93B,500000000,10.23%,16.93%,8,12,
+BJKAS,False,False,distress_dcf,distress,"cyclical,capital_intensive",,1.60,,UNKNOWN,,,,,16,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+BLCYT,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",21.54,33.62,-35.93,SAT,2.15B,100000000,14.42%,25.87%,16,12,
+BLUME,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",1.12,42.64,-97.38,SAT,0.19B,173840256,13.54%,20.31%,16,12,
+BMSCH,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",1.26,18.92,-93.34,SAT,0.13B,100000000,11.80%,2.73%,8,12,
+BMSTL,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",4.56,84.15,-94.58,SAT,0.68B,150000000,11.21%,9.41%,8,12,
+BNTAS,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",4.88,6.86,-28.88,IZLE-SAT,1.18B,241538295,14.34%,14.98%,16,12,
+BOBET,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",17.88,19.74,-9.40,BEKLE,6.80B,380000000,13.79%,11.28%,8,12,
+BORLS,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",3.93,7.93,-50.50,SAT,2.73B,694168347,8.80%,11.37%,4,12,
+BORSK,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",6.51,7.38,-11.80,IZLE-SAT,6.25B,960000000,14.09%,23.19%,8,12,
+BRKO,False,False,decline_dcf,decline,"cyclical,capital_intensive",,13.00,,UNKNOWN,,,,,16,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+BRKSN,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",3.08,9.19,-66.54,SAT,0.29B,93600000,13.88%,6.52%,16,12,
+BRLSM,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",12.40,15.68,-20.92,IZLE-SAT,2.78B,224000000,11.83%,10.13%,8,12,
+BRMEN,False,False,distress_dcf,distress,"cyclical,asset_light",,7.42,,UNKNOWN,,,,,16,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+BUCIM,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",4.68,6.25,-25.10,IZLE-SAT,7.02B,1500000000,13.17%,12.42%,16,12,
+BULGS,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",50.50,45.56,10.85,IZLE-AL,13.53B,268000000,14.37%,112.43%,4,12,
+BURCE,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",1.87,54.85,-96.59,SAT,0.16B,84240000,14.28%,1.69%,16,12,
+BURVA,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",9.25,1214.00,-99.24,SAT,0.07B,7347672,14.09%,3.11%,16,12,
+BVSAN,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",78.51,124.50,-36.94,SAT,2.95B,37600000,13.42%,35.47%,8,12,
+BYDNR,False,False,young_firm_dcf,high_growth,"cyclical,capital_intensive",,44.00,,UNKNOWN,,,,,8,12,Model young_firm_dcf orchestration TBD (Faz 2.3.x)
+CASA,False,False,distress_dcf,distress,"cyclical,capital_intensive",,100.00,,UNKNOWN,,,,,16,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+CATES,False,False,young_firm_dcf,high_growth,"cyclical,capital_intensive",,40.10,,UNKNOWN,,,,,8,12,Model young_firm_dcf orchestration TBD (Faz 2.3.x)
+CELHA,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",-0.39,13.84,-102.79,SAT,-0.15B,385499653,13.38%,2.82%,16,12,
+CEMAS,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",-0.35,4.81,-107.18,SAT,-0.27B,791000000,13.71%,0.44%,16,12,
+CEMTS,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",8.64,10.87,-20.53,IZLE-SAT,4.32B,500000000,13.47%,11.12%,16,12,
+CEMZY,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",1.91,12.55,-84.79,SAT,4.39B,2300000000,12.77%,25.05%,4,12,
+CGCAM,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",22.54,42.60,-47.08,SAT,3.79B,168000000,13.93%,21.62%,4,12,
+CMBTN,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",-231.66,1741.00,-113.31,SAT,-0.41B,1770000,12.27%,-0.86%,16,12,
+CMENT,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",66.68,322.25,-79.31,SAT,5.77B,86592207,14.31%,3.31%,16,12,
+CONSE,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",-2.28,3.39,-167.35,SAT,-1.76B,771000000,10.37%,3.08%,8,12,
+COSMO,True,False,industrial_fcff,mature_stable,"stable,capital_intensive",42.24,198.90,-78.76,SAT,0.29B,6917538,13.16%,5.75%,16,12,
+CRDFA,False,False,none,,,,30.58,,UNKNOWN,,,,,0,0,Pipeline error: ValueError: No items in response for CRDFA
+CUSAN,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",21.51,25.26,-14.84,IZLE-SAT,1.53B,71250000,8.89%,9.37%,16,12,
+DARDL,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",3.73,2.27,64.31,AL,8.74B,2344397132,11.08%,21.13%,16,12,
+DCTTR,False,False,decline_dcf,decline,"cyclical,capital_intensive",,12.60,,UNKNOWN,,,,,4,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+DENGE,False,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",,2.57,,UNKNOWN,,,,4791.92%,16,12,Current revenue is None | DCF execution returned None
+DERHL,False,False,young_firm_dcf,high_growth,"cyclical,capital_intensive",,15.62,,UNKNOWN,,,,,12,12,Model young_firm_dcf orchestration TBD (Faz 2.3.x)
+DERIM,True,False,cyclical_dcf,mature_growth,"cyclical,asset_light",36.31,38.50,-5.68,BEKLE,1.96B,54000000,13.81%,5.21%,16,12,
+DESA,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",2.45,15.04,-83.70,SAT,1.20B,490000000,13.60%,6.15%,16,12,
+DESPC,True,False,cyclical_dcf,mature_growth,"cyclical,asset_light",85.53,42.58,100.87,AL,1.97B,23000000,14.31%,6.69%,16,12,
+DGNMO,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",7.59,9.40,-19.23,IZLE-SAT,2.63B,345830251,9.93%,7.08%,16,12,
+DIRIT,False,False,distress_dcf,distress,"cyclical,capital_intensive",,26.90,,UNKNOWN,,,,,16,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+DITAS,False,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",,33.20,,UNKNOWN,,,,1.50%,16,12,Current revenue is None | DCF execution returned None
+DMRGD,False,False,young_firm_dcf,high_growth,"cyclical,capital_intensive",,6.85,,UNKNOWN,,,,,8,12,Model young_firm_dcf orchestration TBD (Faz 2.3.x)
+DNISI,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",3.27,20.34,-83.92,SAT,0.39B,119728125,13.75%,11.24%,8,12,
+DOFER,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",22.84,33.72,-32.28,SAT,1.27B,55750000,14.16%,3.99%,4,12,
+DOFRB,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",10.01,170.00,-94.11,SAT,1.50B,150000000,10.33%,35.18%,4,12,
+DOGUB,False,False,distress_dcf,distress,"cyclical,capital_intensive",,102.00,,UNKNOWN,,,,,16,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+DOKTA,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",5.27,24.98,-78.91,SAT,1.71B,324000000,10.10%,8.44%,16,12,
+DUNYH,True,False,cyclical_dcf,mature_stable,"cyclical,asset_light",4.65,117.40,-96.04,SAT,0.17B,36732300,14.42%,13.24%,16,12,
+DURDO,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",2.56,5.00,-48.85,SAT,1.28B,500000000,11.97%,11.58%,16,12,
+DURKN,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",5.39,21.20,-74.60,SAT,0.71B,132500000,12.18%,14.22%,4,12,
+DZGYO,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",2.49,8.10,-69.27,SAT,1.00B,400000000,14.40%,29.75%,16,12,
+ECOGR,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",8.78,39.56,-77.82,SAT,4.74B,540000000,11.21%,44.02%,4,12,
+EDATA,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",2.38,23.16,-89.72,SAT,0.96B,402170000,14.36%,9.91%,8,12,
+EGEPO,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",1.44,18.53,-92.23,SAT,0.72B,500000000,14.06%,9.58%,8,12,
+EGGUB,False,False,cyclical_dcf,mature_stable,cyclical,,127.60,,UNKNOWN,,,,7.39%,16,12,Current revenue is None | DCF execution returned None
+EGPRO,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",14.89,40.16,-62.92,SAT,8.12B,545000000,13.73%,12.38%,16,12,
+EKIZ,True,False,cyclical_dcf,mature_stable,"cyclical,asset_light",-5.44,94.75,-105.74,SAT,-0.05B,9284470,14.42%,-2.70%,16,12,
+EKOS,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",2.59,7.18,-63.93,SAT,2.90B,1120000000,13.40%,18.74%,8,12,
+EKSUN,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",4.50,6.07,-25.87,IZLE-SAT,2.70B,600000000,9.71%,4.48%,8,12,
+ELITE,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",30.41,33.46,-9.11,BEKLE,3.94B,129600000,13.75%,36.08%,8,12,
+EMKEL,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",0.83,25.04,-96.67,SAT,0.13B,150000000,13.43%,4.91%,16,12,
+EMNIS,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",-17.13,158.00,-110.84,SAT,-0.11B,6200000,14.42%,-3.96%,16,12,
+EMPAE,False,False,decline_dcf,decline,stable,,44.00,,UNKNOWN,,,,,4,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+ENDAE,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",4.64,16.63,-72.07,SAT,1.91B,411141318,13.94%,24.27%,4,12,
+ENPRA,False,False,none,,,,80.85,,UNKNOWN,,,,,0,0,Pipeline error: ValueError: No items in response for ENPRA
+ENSRI,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",1.65,13.79,-88.01,SAT,0.90B,545800000,12.73%,29.03%,8,12,
+ENTRA,True,False,industrial_fcff,mature_stable,"stable,capital_intensive",-5.64,11.10,-150.85,SAT,-10.41B,1845000000,11.72%,14.40%,4,12,
+ERBOS,False,False,industrial_fcff,mature_stable,"stable,asset_light",,209.90,,UNKNOWN,,,,16.66%,16,12,Current revenue is None | DCF execution returned None
+ERCB,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",60.51,60.00,0.85,BEKLE,4.71B,77770481,9.82%,13.22%,8,12,
+ERSU,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",3.44,25.10,-86.28,SAT,0.12B,36000000,14.42%,0.35%,16,12,
+ESCAR,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",12.06,55.70,-78.35,SAT,6.03B,500000000,11.92%,37.97%,8,12,
+ESCOM,False,False,distress_dcf,distress,"cyclical,asset_light",,5.82,,UNKNOWN,,,,,16,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+ESEN,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",-1.08,3.76,-128.77,SAT,-1.97B,1820000000,12.46%,27.49%,8,12,
+ETILR,False,False,distress_dcf,distress,"cyclical,capital_intensive",,6.09,,UNKNOWN,,,,,16,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+ETYAT,False,False,decline_dcf,decline,"cyclical,capital_intensive",,8.00,,UNKNOWN,,,,,16,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+EUHOL,False,False,distress_dcf,distress,"cyclical,capital_intensive",,12.60,,UNKNOWN,,,,,16,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+EUKYO,False,False,decline_dcf,decline,"cyclical,capital_intensive",,7.11,,UNKNOWN,,,,,16,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+EUYO,False,False,decline_dcf,decline,"cyclical,capital_intensive",,5.47,,UNKNOWN,,,,,16,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+EYGYO,False,False,distress_dcf,distress,"cyclical,capital_intensive",,2.75,,UNKNOWN,,,,,4,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+FADE,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",8.59,15.40,-44.25,SAT,0.72B,83895000,13.89%,26.67%,12,12,
+FLAP,False,False,cyclical_dcf,mature_stable,cyclical,,13.90,,UNKNOWN,,,,7.78%,4,9,Current revenue is None | DCF execution returned None
+FMIZP,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",89.08,299.50,-70.26,SAT,1.27B,14276790,13.97%,21.11%,16,12,
+FONET,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",0.75,5.42,-86.13,SAT,0.70B,936000000,14.24%,26.83%,16,12,
+FORMT,False,False,cyclical_dcf,mature_stable,cyclical,,2.81,,UNKNOWN,,,,18.67%,12,12,Current revenue is None | DCF execution returned None
+FORTE,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",29.93,100.70,-70.28,SAT,2.00B,67000000,13.35%,18.36%,8,12,
+FRIGO,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",0.95,9.44,-89.97,SAT,0.28B,294204950,13.43%,7.86%,16,12,
+FRMPL,False,False,decline_dcf,decline,"cyclical,capital_intensive",,33.64,,UNKNOWN,,,,,4,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+FZLGY,False,False,distress_dcf,distress,"stable,capital_intensive",,14.83,,UNKNOWN,,,,,8,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+GARFA,False,False,none,,,,29.90,,UNKNOWN,,,,,0,0,Pipeline error: ValueError: No items in response for GARFA
+GATEG,False,False,decline_dcf,decline,"cyclical,capital_intensive",,318.00,,UNKNOWN,,,,,16,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+GEDZA,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",22.06,34.12,-35.36,SAT,1.03B,46656000,13.82%,22.87%,16,12,
+GENKM,False,False,decline_dcf,decline,"stable,capital_intensive",,14.26,,UNKNOWN,,,,,4,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+GEREL,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",0.54,38.20,-98.60,SAT,0.20B,372475397,10.84%,4.96%,16,12,
+GLCVY,False,False,none,,,,63.45,,UNKNOWN,,,,,0,0,Pipeline error: ValueError: No items in response for GLCVY
+GMTAS,True,False,industrial_fcff,mature_stable,"stable,capital_intensive",7.93,41.64,-80.96,SAT,2.38B,300000000,14.42%,10.11%,8,12,
+GOKNR,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",52.15,21.94,137.68,AL,18.25B,350000000,12.38%,21.71%,8,12,
+GOLTS,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",233.00,371.50,-37.28,SAT,4.19B,18000000,13.07%,13.90%,16,12,
+GRNYO,False,False,decline_dcf,decline,"cyclical,asset_light",,18.29,,UNKNOWN,,,,,16,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+GSDDE,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",6.12,17.40,-64.81,SAT,0.92B,150000000,12.19%,19.45%,16,12,
+GUNDG,False,False,decline_dcf,decline,"stable,capital_intensive",,858.00,,UNKNOWN,,,,,4,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+GWIND,False,False,decline_dcf,decline,"cyclical,capital_intensive",,28.50,,UNKNOWN,,,,,8,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+GZNMI,False,False,young_firm_dcf,high_growth,"cyclical,capital_intensive",,71.25,,UNKNOWN,,,,,8,12,Model young_firm_dcf orchestration TBD (Faz 2.3.x)
+HATEK,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",-12.37,16.22,-176.28,SAT,-0.78B,63000000,11.15%,4.54%,16,12,
+HDFGS,False,False,cyclical_dcf,mature_growth,"cyclical,asset_light",,3.46,,UNKNOWN,,,,67.20%,16,12,Current revenue is None | DCF execution returned None
+HKTM,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",3.38,14.15,-76.13,SAT,0.35B,105000000,11.59%,11.08%,8,12,
+HRKET,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",18.40,81.70,-77.48,SAT,2.12B,115200000,11.86%,19.01%,4,12,
+HTTBT,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",5.09,42.48,-88.01,SAT,1.53B,300000000,13.71%,23.23%,8,12,
+HUNER,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",-0.34,3.29,-110.36,SAT,-0.34B,1000000000,11.89%,31.64%,8,12,
+HURGZ,False,False,distress_dcf,distress,"cyclical,capital_intensive",,9.01,,UNKNOWN,,,,,16,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+ICUGS,False,False,distress_dcf,distress,"cyclical,asset_light",,6.30,,UNKNOWN,,,,,16,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+IHAAS,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",0.26,79.30,-99.68,SAT,0.04B,163000000,13.55%,1.26%,8,12,
+IHEVA,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",1.65,2.26,-26.82,IZLE-SAT,0.58B,350500000,13.96%,3.54%,16,12,
+IHGZT,False,False,distress_dcf,distress,"cyclical,capital_intensive",,1.52,,UNKNOWN,,,,,16,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+IHLGM,False,False,distress_dcf,distress,"cyclical,capital_intensive",,2.35,,UNKNOWN,,,,,16,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+IHYAY,False,False,distress_dcf,distress,"cyclical,capital_intensive",,1.86,,UNKNOWN,,,,,16,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+IMASM,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",2.19,3.79,-42.23,SAT,2.03B,925000000,13.97%,17.40%,8,12,
+INGRM,True,False,industrial_fcff,mature_growth,"stable,asset_light",33.76,459.25,-92.65,SAT,0.81B,24000000,8.97%,2.40%,16,12,
+INVES,False,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",,574.50,,UNKNOWN,,,,320.15%,8,12,Current revenue is None | DCF execution returned None
+ISBIR,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",-105.25,83.75,-225.67,SAT,-3.41B,32387040,12.29%,-2.55%,16,12,
+ISDMR,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",50.17,53.00,-5.34,BEKLE,145.49B,2900000000,12.56%,18.88%,16,12,
+ISFIN,False,False,none,,,,20.42,,UNKNOWN,,,,,0,0,Pipeline error: ValueError: No items in response for ISFIN
+ISKPL,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",1.16,22.50,-94.83,SAT,1.74B,1500000000,12.12%,14.77%,8,12,
+ISKUR,False,False,none,,,,2702000.00,,UNKNOWN,,,,,0,0,Pipeline error: ValueError: No items in response for ISKUR
+ISSEN,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",12.58,8.36,50.54,AL,5.34B,424397982,12.04%,21.70%,8,12,
+ISYAT,False,False,decline_dcf,decline,"cyclical,asset_light",,8.68,,UNKNOWN,,,,,16,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+IZFAS,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",0.79,60.55,-98.69,SAT,0.14B,177187500,12.50%,8.09%,16,12,
+IZINV,False,False,distress_dcf,distress,"cyclical,asset_light",,71.05,,UNKNOWN,,,,,16,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+IZMDC,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",-10.46,7.34,-242.51,SAT,-15.69B,1500000000,10.01%,1.83%,16,12,
+KATMR,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",0.56,2.94,-81.05,SAT,1.20B,2153250000,12.93%,22.90%,16,12,
+KAYSE,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",5.11,5.12,-0.16,BEKLE,15.34B,3000000000,12.59%,11.46%,8,12,
+KBORU,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",3.23,26.72,-87.90,SAT,1.94B,600000000,12.51%,11.43%,8,12,
+KERVN,False,False,distress_dcf,distress,"cyclical,capital_intensive",,4.21,,UNKNOWN,,,,,16,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+KGYO,False,False,decline_dcf,decline,"cyclical,asset_light",,12.75,,UNKNOWN,,,,,16,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+KIMMR,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",2.98,16.56,-82.00,SAT,0.72B,240000000,11.28%,1.69%,8,12,
+KLKIM,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",18.28,35.32,-48.25,SAT,8.41B,460000000,13.74%,14.77%,8,12,
+KLSER,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",-8.54,29.30,-129.13,SAT,-4.39B,514778661,10.83%,0.79%,8,12,
+KLSYN,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",4.58,12.49,-63.33,SAT,1.98B,431419816,13.30%,16.16%,8,12,
+KLYPV,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",-3.77,58.90,-106.40,SAT,-1.55B,411441018,10.06%,18.74%,4,12,
+KMPUR,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",35.07,21.92,60.00,AL,17.05B,486200000,9.67%,15.29%,8,12,
+KNFRT,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",9.97,11.88,-16.09,IZLE-SAT,2.63B,264000000,13.76%,14.23%,16,12,
+KOCMT,False,False,decline_dcf,decline,"stable,capital_intensive",,2.68,,UNKNOWN,,,,,4,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+KONKA,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",9.09,16.39,-44.53,SAT,3.55B,390000000,14.37%,17.66%,8,12,
+KONYA,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",630.93,4285.00,-85.28,SAT,3.07B,4873440,13.37%,9.69%,16,12,
+KOPOL,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",3.49,5.82,-40.00,SAT,4.53B,1296960000,12.31%,14.42%,8,12,
+KRGYO,True,False,industrial_fcff,mature_stable,"stable,capital_intensive",0.42,2.90,-85.41,SAT,0.42B,990000000,13.71%,45.42%,16,12,
+KRPLS,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",5.40,9.34,-42.21,SAT,0.94B,174600000,11.58%,6.14%,8,12,
+KRSTL,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",1.37,9.54,-85.69,SAT,0.26B,192000000,14.33%,1.44%,16,12,
+KRTEK,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",44.70,24.76,80.53,AL,1.57B,35100498,10.32%,17.59%,16,12,
+KRVGD,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",4.41,3.09,42.65,AL,9.52B,2159961700,10.57%,14.30%,8,12,
+KSTUR,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",373.37,3062.50,-87.81,SAT,1.58B,4244587,14.42%,74.86%,16,12,
+KTSKR,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",77.67,122.60,-36.65,SAT,3.57B,46000000,14.24%,14.22%,8,12,
+KUTPO,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",56.31,98.85,-43.04,SAT,2.25B,39916800,14.24%,8.46%,16,12,
+KUVVA,False,False,distress_dcf,distress,"cyclical,capital_intensive",,142.00,,UNKNOWN,,,,,16,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+KZBGY,True,False,industrial_fcff,mature_stable,stable,15.97,3.41,368.32,AL,63.88B,4000000000,13.84%,130.41%,8,12,
+LIDER,True,False,industrial_fcff,mature_stable,"stable,capital_intensive",0.04,108.10,-99.96,SAT,0.04B,814125000,12.83%,5.72%,12,12,
+LIDFA,False,False,none,,,,3.47,,UNKNOWN,,,,,0,0,Pipeline error: ValueError: No items in response for LIDFA
+LILAK,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",40.44,35.22,14.83,IZLE-AL,23.86B,590000000,13.01%,20.18%,4,12,
+LINK,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",0.37,6.13,-93.98,SAT,0.33B,891754956,14.42%,22.44%,16,12,
+LKMNH,False,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",,15.42,,UNKNOWN,,,,9.85%,16,12,Current revenue is None | DCF execution returned None
+LRSHO,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",0.09,4.02,-97.80,SAT,0.07B,764193492,14.13%,2.37%,16,12,
+LUKSK,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",17.56,108.10,-83.76,SAT,0.49B,28000000,13.47%,20.05%,16,12,
+LXGYO,False,False,distress_dcf,distress,"cyclical,capital_intensive",,17.49,,UNKNOWN,,,,,4,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+LYDHO,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",3.43,195.00,-98.24,SAT,1.21B,351991314,14.42%,98.00%,16,12,
+LYDYE,False,False,distress_dcf,distress,"cyclical,capital_intensive",,16290.00,,UNKNOWN,,,,,16,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+MAALT,False,False,distress_dcf,distress,"cyclical,capital_intensive",,1097.00,,UNKNOWN,,,,,16,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+MACKO,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",30.93,44.00,-29.69,IZLE-SAT,3.09B,100000000,14.31%,60.27%,8,12,
+MAKIM,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",19.72,17.12,15.20,IZLE-AL,2.21B,112000000,12.82%,29.59%,8,12,
+MAKTK,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",2.81,14.40,-80.46,SAT,0.56B,200000000,13.80%,6.52%,16,12,
+MANAS,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",0.03,29.60,-99.91,SAT,0.01B,331056000,11.32%,18.39%,8,12,
+MARBL,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",5.23,14.02,-62.68,SAT,1.20B,228600000,12.52%,9.85%,8,12,
+MARKA,False,False,distress_dcf,distress,"cyclical,asset_light",,53.15,,UNKNOWN,,,,,12,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+MARMR,False,False,none,,,,2.85,,UNKNOWN,,,,,0,0,Pipeline error: ValueError: No items in response for MARMR
+MCARD,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",30.79,177.60,-82.67,SAT,2.85B,92600000,13.10%,16.01%,4,12,
+MEDTR,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",26.11,30.30,-13.84,IZLE-SAT,3.11B,119000000,14.25%,18.62%,8,12,
+MEKAG,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",1.55,4.05,-61.70,SAT,1.24B,800000000,13.76%,8.21%,8,12,
+MEPET,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",4.55,22.62,-79.86,SAT,0.33B,73298051,13.71%,2.29%,16,12,
+MERIT,True,False,cyclical_dcf,mature_stable,"cyclical,asset_light",1.10,16.81,-93.43,SAT,0.37B,336600000,14.42%,35.06%,16,12,
+MERKO,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",-0.34,2.35,-114.56,SAT,-0.29B,849999993,12.70%,1.65%,16,12,
+METRO,False,False,industrial_fcff,mature_stable,stable,,6.62,,UNKNOWN,,,,1.19%,16,12,Current revenue is None | DCF execution returned None
+MEYSU,False,False,decline_dcf,decline,"stable,capital_intensive",,19.95,,UNKNOWN,,,,,4,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+MHRGY,False,False,none,,,,3.79,,UNKNOWN,,,,,0,0,Pipeline error: ValueError: No items in response for MHRGY
+MMCAS,False,False,distress_dcf,distress,"cyclical,capital_intensive",,79.00,,UNKNOWN,,,,,16,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+MOBTL,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",4.25,12.80,-66.76,SAT,4.36B,1025000000,13.36%,7.56%,8,12,
+MRGYO,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",1.60,1.86,-14.05,IZLE-SAT,3.84B,2400156000,13.54%,504.40%,16,12,
+MRSHL,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",80.59,1645.00,-95.10,SAT,0.89B,10994134,11.47%,1.40%,16,12,
+MSGYO,False,False,decline_dcf,decline,"cyclical,capital_intensive",,6.88,,UNKNOWN,,,,,12,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+MTRKS,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",7.00,24.42,-71.34,SAT,0.68B,97703710,13.64%,12.70%,8,12,
+MTRYO,True,False,cyclical_dcf,mature_growth,"cyclical,asset_light",15.53,10.72,44.84,AL,0.65B,42000000,14.42%,2.31%,16,12,
+NIBAS,False,False,distress_dcf,distress,"cyclical,capital_intensive",,6.01,,UNKNOWN,,,,,16,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+NTGAZ,True,False,industrial_fcff,mature_stable,"stable,capital_intensive",8.31,12.59,-33.99,SAT,5.73B,690000000,13.67%,13.50%,8,12,
+OFSYM,False,False,young_firm_dcf,high_growth,"cyclical,capital_intensive",,59.20,,UNKNOWN,,,,,8,12,Model young_firm_dcf orchestration TBD (Faz 2.3.x)
+ONCSM,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",17.65,274.25,-93.56,SAT,0.42B,23850000,13.19%,14.80%,8,12,
+ONRYT,False,False,decline_dcf,decline,"cyclical,capital_intensive",,68.60,,UNKNOWN,,,,,4,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+ORMA,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",-41.48,172.00,-124.11,SAT,-1.13B,27200000,12.44%,3.14%,16,12,
+OSMEN,False,False,decline_dcf,decline,"cyclical,asset_light",,7.78,,UNKNOWN,,,,,16,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+OSTIM,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",0.20,2.87,-93.11,SAT,0.12B,590000000,14.13%,5.59%,16,12,
+OTTO,False,False,distress_dcf,distress,"cyclical,capital_intensive",,297.00,,UNKNOWN,,,,,16,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+OYAYO,False,False,decline_dcf,decline,"cyclical,asset_light",,54.00,,UNKNOWN,,,,,16,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+OYLUM,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",-0.14,8.91,-101.54,SAT,-0.01B,85000000,13.13%,0.16%,16,12,
+OYYAT,False,False,decline_dcf,decline,cyclical,,55.05,,UNKNOWN,,,,,8,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+OZATD,False,False,none,,,,496.50,,UNKNOWN,,,,,0,0,Pipeline error: ValueError: No items in response for OZATD
+OZGYO,True,False,industrial_fcff,mature_stable,"stable,capital_intensive",0.34,2.27,-85.14,SAT,0.34B,1000000000,14.41%,56.28%,16,12,
+OZRDN,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",5.40,33.04,-83.65,SAT,0.40B,73500000,14.37%,11.58%,16,12,
+OZSUB,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",3.54,28.26,-87.48,SAT,0.42B,120000000,9.39%,5.98%,8,12,
+OZYSR,False,False,decline_dcf,decline,"cyclical,capital_intensive",,12.06,,UNKNOWN,,,,,4,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+PAGYO,True,False,industrial_fcff,mature_stable,"stable,asset_light",88.14,141.20,-37.58,SAT,7.67B,87000000,14.42%,141.99%,16,12,
+PAMEL,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",25.16,89.55,-71.90,SAT,0.78B,31095331,14.37%,167.62%,8,12,
+PAPIL,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",1.01,16.59,-93.91,SAT,0.21B,206250000,14.32%,10.99%,12,12,
+PCILT,True,False,industrial_fcff,mature_stable,"stable,capital_intensive",22.93,30.68,-25.26,IZLE-SAT,2.54B,110699972,14.31%,5.46%,8,12,
+PEKGY,False,False,decline_dcf,decline,"cyclical,capital_intensive",,17.02,,UNKNOWN,,,,,8,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+PINSU,False,False,young_firm_dcf,young,"cyclical,capital_intensive",,11.70,,UNKNOWN,,,,,16,12,Model young_firm_dcf orchestration TBD (Faz 2.3.x)
+PKART,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",19.48,163.70,-88.10,SAT,0.44B,22750000,14.42%,3.93%,16,12,
+PKENT,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",1.67,154.20,-98.92,SAT,1.39B,829440000,14.42%,22.54%,16,12,
+PLTUR,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",33.98,27.20,24.93,IZLE-AL,8.32B,244750000,13.49%,29.54%,8,12,
+PNLSN,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",25.94,46.08,-43.71,SAT,1.95B,75000000,14.16%,9.39%,8,12,
+POLTK,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",226.73,5495.00,-95.87,SAT,0.85B,3750000,13.30%,17.39%,16,12,
+PRDGS,True,False,industrial_fcff,mature_stable,"stable,asset_light",0.57,9.30,-93.82,SAT,0.11B,196000000,14.33%,51.60%,4,12,
+PRKME,False,False,decline_dcf,decline,"cyclical,capital_intensive",,20.28,,UNKNOWN,,,,,16,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+PRZMA,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",-0.36,39.06,-100.93,SAT,-0.03B,77449591,13.93%,-1.62%,16,12,
+QNBFK,False,False,none,,,,39.50,,UNKNOWN,,,,,0,0,Pipeline error: ValueError: No items in response for QNBFK
+RGYAS,True,False,industrial_fcff,mature_stable,"stable,capital_intensive",109.07,182.20,-40.14,SAT,36.10B,331000000,12.99%,86.50%,4,12,
+RNPOL,True,False,industrial_fcff,mature_stable,"stable,capital_intensive",2.06,2.74,-24.93,IZLE-SAT,1.23B,600000000,11.62%,19.76%,8,12,
+RODRG,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",0.16,27.22,-99.40,SAT,0.00B,28340000,13.46%,1.58%,16,12,
+RTALB,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",-0.44,3.31,-113.27,SAT,-0.22B,500000000,13.42%,5.59%,16,12,
+RUBNS,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",29.26,35.32,-17.15,IZLE-SAT,2.40B,81950000,13.69%,24.37%,8,12,
+RUZYE,False,False,decline_dcf,decline,"cyclical,capital_intensive",,13.97,,UNKNOWN,,,,,16,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+RYSAS,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",4.55,20.10,-77.37,SAT,9.10B,2000000000,11.21%,24.92%,16,12,
+SAFKR,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",2.63,24.92,-89.44,SAT,0.53B,200000000,13.76%,9.80%,12,12,
+SAMAT,False,False,decline_dcf,decline,"cyclical,capital_intensive",,5.62,,UNKNOWN,,,,,16,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+SANEL,False,False,decline_dcf,decline,"cyclical,capital_intensive",,36.72,,UNKNOWN,,,,,16,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+SANFM,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",0.44,7.58,-94.23,SAT,0.16B,375000000,11.05%,5.54%,16,12,
+SANKO,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",12.66,23.06,-45.08,SAT,1.90B,150000000,14.42%,2.43%,16,12,
+SAYAS,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",15.26,50.50,-69.77,SAT,1.18B,77250000,12.67%,12.33%,16,12,
+SDTTR,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",67.53,265.50,-74.56,SAT,3.92B,58000000,13.12%,24.68%,8,12,
+SEGMN,False,False,decline_dcf,decline,"cyclical,capital_intensive",,56.70,,UNKNOWN,,,,,4,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+SEGYO,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",3.96,4.89,-18.97,IZLE-SAT,3.19B,804604132,13.72%,104.26%,8,12,
+SEKFK,False,False,none,,,,12.19,,UNKNOWN,,,,,0,0,Pipeline error: ValueError: No items in response for SEKFK
+SEKUR,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",1.07,8.15,-86.93,SAT,0.20B,187641391,10.12%,7.83%,16,12,
+SELVA,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",0.30,2.50,-88.15,SAT,0.29B,965250000,13.13%,6.42%,8,12,
+SERNT,False,False,decline_dcf,decline,"cyclical,capital_intensive",,8.55,,UNKNOWN,,,,,4,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+SEYKM,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",1.06,5.35,-80.17,SAT,0.21B,200000000,14.38%,12.72%,16,12,
+SILVR,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",0.37,2.53,-85.44,SAT,0.13B,350000000,13.89%,1.69%,16,12,
+SKYLP,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",1.81,345.00,-99.47,SAT,0.02B,9500000,14.30%,1.56%,16,12,
+SKYMD,True,False,industrial_fcff,mature_stable,"stable,asset_light",16.92,13.89,21.80,IZLE-AL,2.62B,155000000,12.26%,0.81%,8,12,
+SMRVA,False,False,none,,,,18.80,,UNKNOWN,,,,,0,0,Pipeline error: ValueError: No items in response for SMRVA
+SNPAM,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",61.19,23.00,166.04,AL,47.31B,773163891,14.42%,876.56%,16,12,
+SODSN,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",3.50,10.14,-65.52,SAT,0.42B,120000000,14.39%,18.37%,16,12,
+SOKE,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",6.81,20.90,-67.41,SAT,2.63B,386500000,13.32%,5.47%,8,12,
+SONME,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",27.62,138.50,-80.06,SAT,2.04B,74000000,14.42%,645.39%,16,12,
+SUMAS,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",115.33,384.00,-69.97,SAT,0.69B,5995098,14.34%,17.86%,12,12,
+SURGY,False,False,industrial_fcff,mature_stable,stable,,73.00,,UNKNOWN,,,,,4,11,No valid margins for cyclical normalize | DCF execution returned None
+SUWEN,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",5.53,8.92,-37.98,SAT,2.26B,408531098,10.66%,11.07%,8,12,
+SVGYO,False,False,distress_dcf,distress,"cyclical,capital_intensive",,18.96,,UNKNOWN,,,,,4,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+TARKM,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",111.05,479.75,-76.85,SAT,2.33B,21000000,13.47%,22.65%,8,12,
+TATEN,True,False,industrial_fcff,mature_stable,"stable,capital_intensive",4.26,15.14,-71.86,SAT,4.76B,1118058500,10.81%,59.51%,8,12,
+TATGD,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",-1.97,19.81,-109.95,SAT,-0.48B,244800000,10.06%,5.78%,16,12,
+TBORG,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",94.78,145.10,-34.68,SAT,30.57B,322508253,13.80%,17.12%,16,12,
+TCKRC,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",18.70,108.10,-82.70,SAT,3.18B,170000000,13.43%,22.11%,4,12,
+TDGYO,False,False,decline_dcf,decline,"cyclical,capital_intensive",,17.35,,UNKNOWN,,,,,12,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+TEHOL,False,False,decline_dcf,decline,"cyclical,capital_intensive",,25.28,,UNKNOWN,,,,,16,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+TEKTU,False,False,distress_dcf,distress,"cyclical,capital_intensive",,11.97,,UNKNOWN,,,,,16,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+TERA,True,False,industrial_fcff,mature_stable,"stable,capital_intensive",8.33,241.30,-96.55,SAT,5.83B,700000000,8.14%,1223.37%,8,12,
+TEZOL,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",13.27,19.57,-32.20,SAT,6.63B,500000000,13.39%,17.20%,8,12,
+TGSAS,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",69.87,162.30,-56.95,SAT,1.05B,15000000,14.34%,59.64%,16,12,
+TLMAN,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",87.85,95.50,-8.01,BEKLE,1.84B,21000000,13.73%,45.38%,12,12,
+TMPOL,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",9.28,439.00,-97.89,SAT,0.13B,14175000,10.02%,11.93%,16,12,
+TMSN,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",0.89,104.00,-99.14,SAT,0.10B,115000000,11.33%,7.75%,16,12,
+TNZTP,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",5.03,27.80,-81.91,SAT,2.01B,400000000,13.71%,16.70%,8,12,
+TRCAS,False,False,industrial_fcff,mature_stable,stable,,49.80,,UNKNOWN,,,,12.83%,16,12,Current revenue is None | DCF execution returned None
+TRGYO,True,False,industrial_fcff,mature_stable,stable,64.67,101.40,-36.22,SAT,64.67B,1000000000,14.25%,62.76%,16,12,
+TRILC,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",38.73,3.87,900.73,AL,40.16B,1037000000,10.53%,221.67%,8,12,
+TSGYO,True,False,industrial_fcff,mature_stable,"stable,capital_intensive",2.44,6.97,-65.03,SAT,1.58B,650000000,14.14%,145.63%,16,12,
+TUCLK,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",-1.01,4.25,-123.68,SAT,-0.36B,360000000,10.99%,16.22%,16,12,
+TURGG,False,False,industrial_fcff,mature_stable,stable,,37.40,,UNKNOWN,,,,,16,11,No valid margins for cyclical normalize | DCF execution returned None
+UCAYM,False,False,decline_dcf,decline,"stable,capital_intensive",,29.70,,UNKNOWN,,,,,4,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+UFUK,False,False,cyclical_dcf,mature_growth,"cyclical,asset_light",,1476.00,,UNKNOWN,,,,359.21%,12,12,Current revenue is None | DCF execution returned None
+ULUSE,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",91.45,248.10,-63.14,SAT,7.32B,80000000,7.43%,13.72%,16,12,
+ULUUN,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",15.67,9.30,68.54,AL,11.76B,750000000,11.18%,4.92%,16,12,
+UNLU,True,False,industrial_fcff,mature_stable,"stable,capital_intensive",31.04,13.94,122.65,AL,5.45B,175740000,11.72%,254.30%,8,12,
+USAK,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",0.50,1.74,-71.42,SAT,1.21B,2431460676,11.72%,11.53%,16,12,
+VAKFA,False,False,none,,,,13.70,,UNKNOWN,,,,,0,0,Pipeline error: ValueError: No items in response for VAKFA
+VAKFN,False,False,none,,,,1.84,,UNKNOWN,,,,,0,0,Pipeline error: ValueError: No items in response for VAKFN
+VAKKO,False,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",,83.35,,UNKNOWN,,,,7.26%,16,12,Current revenue is None | DCF execution returned None
+VANGD,False,False,distress_dcf,distress,"cyclical,asset_light",,94.00,,UNKNOWN,,,,,16,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+VERTU,False,False,distress_dcf,distress,"cyclical,capital_intensive",,39.76,,UNKNOWN,,,,,12,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+VKFYO,False,False,cyclical_dcf,mature_stable,cyclical,,34.84,,UNKNOWN,,,,0.55%,16,12,Current revenue is None | DCF execution returned None
+VKGYO,True,False,industrial_fcff,mature_stable,"stable,asset_light",12.11,2.80,332.37,AL,41.77B,3450000000,14.41%,93.68%,16,12,
+VKING,False,False,distress_dcf,distress,"cyclical,capital_intensive",,27.62,,UNKNOWN,,,,,16,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+VRGYO,False,False,distress_dcf,distress,"cyclical,asset_light",,2.43,,UNKNOWN,,,,,8,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+VSNMD,False,False,decline_dcf,decline,"cyclical,capital_intensive",,87.00,,UNKNOWN,,,,,4,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+YAPRK,True,False,industrial_fcff,mature_stable,"stable,capital_intensive",4.25,14.57,-70.84,SAT,1.27B,298200000,13.27%,60.06%,16,12,
+YAYLA,False,False,distress_dcf,distress,"stable,capital_intensive",,28.56,,UNKNOWN,,,,,16,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+YBTAS,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",2.51,18.10,-86.12,SAT,0.75B,300000000,14.42%,8.17%,16,12,
+YEOTK,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",16.23,66.65,-75.65,SAT,5.76B,355000000,9.92%,15.57%,8,12,
+YESIL,False,False,distress_dcf,distress,"cyclical,asset_light",,1.62,,UNKNOWN,,,,,16,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+YGGYO,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",61.43,240.40,-74.45,SAT,14.35B,233582013,14.23%,65.75%,16,12,
+YIGIT,False,False,decline_dcf,decline,"cyclical,capital_intensive",,24.64,,UNKNOWN,,,,,4,12,Model decline_dcf orchestration TBD (Faz 2.3.x)
+YKSLN,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",3.64,3.34,9.07,BEKLE,1.82B,500000000,9.83%,16.68%,12,12,
+YONGA,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",-0.85,57.55,-101.47,SAT,-0.01B,16800000,11.80%,7.07%,16,12,
+YUNSA,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",2.44,8.37,-70.84,SAT,1.17B,480000000,13.67%,8.99%,16,12,
+YYAPI,False,False,distress_dcf,distress,"cyclical,capital_intensive",,1.19,,UNKNOWN,,,,,16,12,Model distress_dcf orchestration TBD (Faz 2.3.x)
+YYLGD,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",1.08,12.38,-91.29,SAT,1.17B,1086980000,9.63%,12.09%,8,12,
+ZEDUR,True,False,cyclical_dcf,mature_stable,"cyclical,capital_intensive",-1.94,9.44,-120.59,SAT,-0.34B,174750000,13.15%,4.57%,16,12,
+ZERGY,True,False,industrial_fcff,mature_stable,"stable,asset_light",-0.22,21.72,-101.03,SAT,-0.14B,626000000,11.88%,1.44%,4,12,
+ZGYO,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",31.48,31.02,1.48,BEKLE,6.63B,210492225,14.30%,20299.39%,4,12,
+ZRGYO,True,False,cyclical_dcf,mature_growth,"cyclical,capital_intensive",12.65,21.78,-41.93,SAT,59.36B,4693620000,13.71%,1185.21%,8,12,
+GARAN,True,True,banking_ddm,,,197.28,136.60,44.42,AL,828.59B,4200000000,11.09%,,0,0,
+AKBNK,True,True,banking_ddm,,,98.96,74.35,33.10,AL,514.58B,5200000000,11.09%,,0,0,
+YKBNK,True,True,banking_ddm,,,38.96,37.76,3.18,BEKLE,329.11B,8447051284,11.09%,,0,0,
+ISCTR,True,True,banking_ddm,,,17.19,14.49,18.67,IZLE-AL,154.75B,9000000000,11.09%,,0,0,
+HALKB,True,True,banking_ddm,,,142.24,38.12,273.15,AL,177.80B,1250000000,11.09%,,0,0,
+VAKBN,False,True,banking_ddm,,,,31.46,,UNKNOWN,,,,,0,0,Banking data not available for VAKBN (banking_data.py'ye eklenmeli)
+TSKB,False,True,banking_ddm,,,,11.95,,UNKNOWN,,,,,0,0,Banking data not available for TSKB (banking_data.py'ye eklenmeli)
+SKBNK,False,True,banking_ddm,,,,12.90,,UNKNOWN,,,,,0,0,Banking data not available for SKBNK (banking_data.py'ye eklenmeli)
+ALBRK,False,True,banking_ddm,,,,8.77,,UNKNOWN,,,,,0,0,Banking data not available for ALBRK (banking_data.py'ye eklenmeli)
+ICBCT,False,True,banking_ddm,,,,17.05,,UNKNOWN,,,,,0,0,Banking data not available for ICBCT (banking_data.py'ye eklenmeli)
+KCHOL,True,False,holding_sotp,,,177.78,210.50,-15.54,IZLE-SAT,450.83B,2535898345,,,0,0,
+SAHOL,True,False,holding_sotp,,,195.83,100.70,94.47,AL,399.57B,2040403931,,,0,0,
