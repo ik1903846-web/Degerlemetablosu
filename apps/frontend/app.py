@@ -92,8 +92,15 @@ st.markdown(
     "**Damodaran-Aligned BIST Valuation + Portfolio Construction Platform**"
 )
 st.caption(
-    "v2.2 · 4-stage DCF (Industrial/Banking/Holdings/Cyclical) · "
-    "Pentagon scoring · 3-Sleeve portfolio · Backtest 2021-Q2 → 2026-Q1"
+    "v2.6 · 5-stage DCF (Industrial/Banking/Holdings/Cyclical/Distress) · "
+    "Pentagon scoring · 3-Sleeve portfolio · BIST Tüm 559 ticker · "
+    "Backtest 2021-Q2 → 2026-Q1 (Faz 10 sermaye math bug-fixed)"
+)
+st.info(
+    "🔬 **Humility Protocol (Faz 10 P0 fix, Lesson #20):** Önceki +25.86%/yr "
+    "Konservatif rakamı sermaye matematiği bug'ından doğan leverage artifact'iydi. "
+    "Gerçek normalize sonuç +4.43%/yr — XU100 (+13.54%) altında. "
+    "Risk-adjusted Sharpe analiz aşağıda. Damodaran disipline: 'gerçeği kabul et, ders çıkar.'"
 )
 
 st.divider()
@@ -125,10 +132,11 @@ if usd:
     with col1:
         if konser_zero:
             ann = konser_zero["usd_annualized"] * 100
+            label = "★ BEAT XU100" if ann > 13.54 else "underperform"
             st.metric(
                 "Konservatif USD Ann",
                 f"{ann:+.2f}%/yr",
-                "★★★ Best profile" if ann > 15 else None,
+                label,
             )
 
     with col2:
@@ -142,13 +150,16 @@ if usd:
             )
 
     with col3:
-        if konser_zero and spy:
-            delta = (konser_zero["usd_annualized"] -
-                     spy["usd_annualized"]) * 100
+        # Risk-adjusted: Sharpe karşılaştırma (Faz 10 P0 sonrası)
+        konser_sharpe = (konser_zero or {}).get("usd_sharpe", 0) if konser_zero else 0
+        xu100_sharpe = (xu100 or {}).get("usd_sharpe", 0) if xu100 else 0
+        if konser_zero:
+            sharpe_delta = konser_sharpe - xu100_sharpe
+            label = "Risk-adj BEAT ★" if sharpe_delta > 0 else "Risk-adj underperform"
             st.metric(
-                "vs SPY USD",
-                f"{delta:+.2f}pp",
-                "BEAT ★" if delta > 0 else "underperform",
+                "Sharpe (Konser vs XU100)",
+                f"{konser_sharpe:.2f} vs {xu100_sharpe:.2f}",
+                label,
             )
 
     with col4:

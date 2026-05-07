@@ -6,31 +6,43 @@
 > değerleme + 3-sleeve portföy konstrüksiyon + 20-quarter backtest + Streamlit dashboard.
 
 [![status](https://img.shields.io/badge/status-PRODUCTION_READY-success)]()
-[![commits](https://img.shields.io/badge/commits-159-blue)]()
+[![commits](https://img.shields.io/badge/commits-164%2B-blue)]()
 [![universe](https://img.shields.io/badge/Universe-559_ticker-orange)]()
-[![backtest](https://img.shields.io/badge/Backtest-18%2F18_BEAT-green)]()
-[![lessons](https://img.shields.io/badge/Damodaran_Lessons-19-purple)]()
+[![sharpe](https://img.shields.io/badge/Risk--adjusted-Sharpe_analysis_pending-yellow)]()
+[![lessons](https://img.shields.io/badge/Damodaran_Lessons-20-purple)]()
 
 ---
 
-## Hero Metrics ★★★★ QUADRUPLE ULTIMATE VALIDATION
+## Hero Metrics — Faz 10 P0 Bug Fix Sonrası (HUMILITY PROTOCOL)
 
-**Faz 4.23 (Lesson #19 Universe Expansion ULTIMATE) — 7 May 2026**
+**Faz 10 (Lesson #20 Sermaye matematiği bug → leverage artifact) — 8 May 2026**
 
-| Metric (USD basis, 4.75-yıl backtest)        | Value                |
-|----------------------------------------------|---------------------:|
-| Konservatif zero USD Annualized              | **+25.86%/yr** ★★★★ |
-| vs XU100 USD (BIST 100 broad market)         | **+12.32pp BEAT** ★ |
-| vs XU030 USD (BIST 30 peer)                  | **+11.12pp BEAT** ★ |
-| vs SPY USD (S&P 500 ETF)                     | **+17.31pp BEAT** ★ |
-| Universe                                     | **559 BIST Tüm**    |
-| Damodaran Lessons documented                 | **19**              |
-| Backtest BEAT count                          | **18/18** (4 ardışık WIN) |
+> ⚠ **REVISED EVIDENCE:** Önceki "+25.86%/yr Konservatif zero ULTIMATE WIN"
+> rakamı sermaye matematiği bug'ından doğan **leverage artifact**'iydi
+> (sleeve toplamları > %100 invested → fictitious leverage). Faz 10 P0 fix
+> sonrası gerçek normalize sonuçlar:
+
+| Metric (USD basis, 4.75-yıl backtest)        | Value                  |
+|----------------------------------------------|-----------------------:|
+| Konservatif zero USD Annualized              | **+4.43%/yr** (was +25.86 leveraged) |
+| vs XU100 USD (BIST 100 broad market)         | **-9.11pp** UNDERPERFORM |
+| vs XU030 USD (BIST 30 peer)                  | **-10.31pp** UNDERPERFORM |
+| vs SPY USD (S&P 500 ETF)                     | **-4.12pp** UNDERPERFORM |
+| Konservatif Sharpe USD                       | **0.01** (vs XU100 0.23) |
+| Konservatif MaxDD USD                        | **-30.13%** (vs XU100 -24.91%) |
+| Universe                                     | **559 BIST Tüm**       |
+| Damodaran Lessons documented                 | **20** (★ #20 humility) |
 | TUPRS regression anchor                      | 187.10 TL INTACT (50+ commit) |
-| Cumulative gain Faz 4.18 → 4.23              | **+6.75pp** (~%35 relative) |
+| Total invested (1M TL Konservatif)           | 980,000 TL (✓ ≤ sermaye constraint) |
 
-**18/18 backtest × 3/3 benchmark BEAT, 4 ardışık ULTIMATE WIN** — REELDEĞER methodology
-production-validated. **Türk borsası TAM coverage** (559 ticker).
+**Damodaran Humility Protocol:** Pasif XU100 ETF ham getiri açısından REELDEĞER
+Konservatif portföyünden daha iyi. Risk-adjusted analiz (Sharpe 0.01 vs 0.23)
+hâlâ tatmin edici değil. Methodology asset olarak Lesson #20 dökümante edildi —
+**real money production'da total_invested ≤ total_capital constraint zorunlu.**
+
+> 🔬 Methodology integrity > flashy alpha. Bug fix prensibi gereği önceki
+> "ULTIMATE WIN" iddiaları geri çekildi. Sistem 1M TL real money math
+> doğru, ancak XU100 BEAT etmiyor.
 
 ---
 
