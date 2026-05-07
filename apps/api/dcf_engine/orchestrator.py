@@ -38,7 +38,6 @@ from data_layer.ticker_mapping import resolve_current_ticker
 from data_layer.sector_mapping import get_damodaran_sector
 from data_layer.damodaran_db import fetch_sector_unlevered_beta
 from data_layer.holdings_config import is_holding as is_sotp_holding, get_portfolio
-from data_layer.distress_data import is_distress_available, get_distress_inputs
 from dcf_engine.lifecycle_classifier import (
     classify_lifecycle,
     LifecycleClassification,
@@ -48,7 +47,9 @@ from dcf_engine.lifecycle_classifier import (
 from dcf_engine.cyclical_dcf import cyclical_dcf_valuation
 from dcf_engine.cost_of_capital import relever_beta
 from dcf_engine.sotp import calculate_sotp_value, SOTPResult
-from dcf_engine.distress_dcf import value_distressed_company
+# Faz 7.3 ROLLBACK: distress branch race-fixed evidence ile drag exposed
+# (orchestrator STEP 5.5 + sleeve Rule 1.5 removed). Module dosyaları
+# (distress_dcf.py + distress_data.py + test) production-ready parking.
 
 logger = logging.getLogger(__name__)
 
@@ -448,47 +449,6 @@ async def analyze_ticker(
         report.equity_value_usd = equity_value_usd
         report.equity_value_tl = equity_value_usd * DAMODARAN_PARAMS["spot_rate_usd_tl"]
         report.dcf_executed = True
-
-        # ====================================================================
-        # STEP 5.5: Distress Override (Faz 7.1 — Damodaran Dark Side)
-        # ====================================================================
-        # Negative DCF + manuel distress data varsa Black-Scholes equity-as-call
-        # ile override (Damodaran Dark Side equity option). Yalnızca cyclical_dcf
-        # negative üretirse devreye girer; TUPRS gibi positive DCF etkilenmez.
-        if equity_value_usd < 0 and is_distress_available(ticker):
-            cyclical_negative_usd = equity_value_usd
-            inputs_d = get_distress_inputs(ticker)
-            try:
-                distress_val = value_distressed_company(
-                    ticker=ticker,
-                    firm_value=inputs_d.firm_value,
-                    debt_face_value=inputs_d.debt_face_value,
-                    duration=inputs_d.duration,
-                    volatility=inputs_d.volatility,
-                    risk_free_rate=inputs_d.risk_free_rate,
-                    book_value=inputs_d.book_value,
-                    rating=inputs_d.rating,
-                    z_score=inputs_d.z_score,
-                    interest_coverage=inputs_d.interest_coverage,
-                )
-                equity_value_usd = distress_val.intrinsic_equity_value
-                report.equity_value_usd = equity_value_usd
-                report.equity_value_tl = (
-                    equity_value_usd * DAMODARAN_PARAMS["spot_rate_usd_tl"]
-                )
-                report.model_used = "distress_adjusted"
-                report.reasoning.append(
-                    f"Distress override (Faz 7.1): cyclical_dcf "
-                    f"{cyclical_negative_usd/1e6:.1f}M USD < 0 → "
-                    f"BS {distress_val.black_scholes_value/1e6:.1f}M, "
-                    f"πDistress {distress_val.pi_distress*100:.1f}%, "
-                    f"adjusted {equity_value_usd/1e6:.1f}M ({distress_val.method})"
-                )
-            except Exception as e:
-                report.reasoning.append(
-                    f"Distress override SKIP: {type(e).__name__}: {e} "
-                    f"(cyclical negative korunur)"
-                )
 
         # ====================================================================
         # STEP 6: Value per Share
