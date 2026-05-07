@@ -64,6 +64,34 @@ cd apps/frontend
 
 ---
 
+## 🚀 Deployment (Faz 10)
+
+### Streamlit Cloud (Private, password-protected)
+
+1. https://share.streamlit.io → Sign in with GitHub
+2. **New app** → Repository: `ik1903846-web/Degerlemetablosu`
+3. Branch: `main`, Main file path: `apps/frontend/app.py`
+4. **Advanced settings → Secrets** ekle:
+   ```toml
+   [auth]
+   password = "GENERATED_16CHAR_PASSWORD"
+
+   [telegram]
+   bot_token = ""   # Faz 10 ADIM 6 (opsiyonel)
+   chat_id = ""
+   ```
+5. **Deploy** — birkaç dakika sonra `https://<app>.streamlit.app` URL aktif
+
+> 🔐 Erişim: Sadece şifre bilen (sen) görebilir. URL public ama auth gate var.
+> Şifre `secrets.toml` içinde, Git'te DEĞİL (gitignore korunur).
+
+### GitHub Actions Auto-Pipeline (Faz 10 ADIM 4 — opsiyonel)
+- Cron: Pzt-Cum 09:00-18:00 her 30 dk
+- KAP detection → pipeline run → repo commit → Streamlit auto-reload
+- Telegram alert (Faz 10 ADIM 6) opsiyonel
+
+---
+
 ## Architecture (3-Tier)
 
 ```
