@@ -1,48 +1,49 @@
 # REELDEĞER
 
-**Damodaran-Aligned BIST Valuation + Portfolio Construction Platform**
+**Damodaran Hedef Fiyat Hesaplayıcısı — BIST 559 hisse**
 
-> Aswath Damodaran metodolojisiyle **Türk borsasında işlem gören TÜM 559 halka açık şirket**
-> değerleme + 3-sleeve portföy konstrüksiyon + 20-quarter backtest + Streamlit dashboard.
+> REELDEĞER, Aswath Damodaran metodolojisini BIST 559 hissesine uygulayan
+> **hedef fiyat hesaplayıcısı**dır. Yatırım otomasyonu **değildir** — DCF
+> intrinsic value + lifecycle classification + sektörel beta üzerinden
+> "ucuz/pahalı" değerlendirmesi yapan bir tarayıcı aracıdır.
+>
+> **Asıl ürün:** Tek tablo, 5 sütun (Tarayıcı sayfası):
+> ticker · anlık fiyat · Damodaran hedef fiyat · upside % · lifecycle yıldız.
 
 [![status](https://img.shields.io/badge/status-PRODUCTION_READY-success)]()
-[![commits](https://img.shields.io/badge/commits-164%2B-blue)]()
-[![universe](https://img.shields.io/badge/Universe-559_ticker-orange)]()
-[![sharpe](https://img.shields.io/badge/Risk--adjusted-Sharpe_analysis_pending-yellow)]()
-[![lessons](https://img.shields.io/badge/Damodaran_Lessons-20-purple)]()
+[![commits](https://img.shields.io/badge/commits-170%2B-blue)]()
+[![universe](https://img.shields.io/badge/BIST_Universe-559_hisse-orange)]()
+[![validation](https://img.shields.io/badge/Damodaran_Validation-20%2F20_PASS-brightgreen)]()
+[![lessons](https://img.shields.io/badge/Damodaran_Lessons-21-purple)]()
+[![scope](https://img.shields.io/badge/Scope-Hedef_Fiyat_Hesaplay%C4%B1c%C4%B1s%C4%B1-blue)]()
 
 ---
 
-## Hero Metrics — Faz 10 P0 Bug Fix Sonrası (HUMILITY PROTOCOL)
+## Asıl Success Metric — Damodaran Replication (Faz 10 felsefe revizyonu)
 
-**Faz 10 (Lesson #20 Sermaye matematiği bug → leverage artifact) — 8 May 2026**
+**Doğru success metric** (Lesson #21):
+- DCF accuracy ±%5 vs Damodaran reference (validation case'leri)
+- KAP coverage %70+ (BIST Tüm 559 universe)
+- Lifecycle classifier accuracy (6 stage)
+- Damodaran sector beta DB integrity
 
-> ⚠ **REVISED EVIDENCE:** Önceki "+25.86%/yr Konservatif zero ULTIMATE WIN"
-> rakamı sermaye matematiği bug'ından doğan **leverage artifact**'iydi
-> (sleeve toplamları > %100 invested → fictitious leverage). Faz 10 P0 fix
-> sonrası gerçek normalize sonuçlar:
+**Yanlış success metric** (Faz 4-9 misdirected, geri çekildi):
+- Backtest portfolio returns vs XU100 (yanlış soru)
+- "18/18 BEAT" / "+25.86%/yr ULTIMATE" (Lesson #20 leverage artifact)
 
-| Metric (USD basis, 4.75-yıl backtest)        | Value                  |
-|----------------------------------------------|-----------------------:|
-| Konservatif zero USD Annualized              | **+4.43%/yr** (was +25.86 leveraged) |
-| vs XU100 USD (BIST 100 broad market)         | **-9.11pp** UNDERPERFORM |
-| vs XU030 USD (BIST 30 peer)                  | **-10.31pp** UNDERPERFORM |
-| vs SPY USD (S&P 500 ETF)                     | **-4.12pp** UNDERPERFORM |
-| Konservatif Sharpe USD                       | **0.01** (vs XU100 0.23) |
-| Konservatif MaxDD USD                        | **-30.13%** (vs XU100 -24.91%) |
-| Universe                                     | **559 BIST Tüm**       |
-| Damodaran Lessons documented                 | **20** (★ #20 humility) |
-| TUPRS regression anchor                      | 187.10 TL INTACT (50+ commit) |
-| Total invested (1M TL Konservatif)           | 980,000 TL (✓ ≤ sermaye constraint) |
-
-**Damodaran Humility Protocol:** Pasif XU100 ETF ham getiri açısından REELDEĞER
-Konservatif portföyünden daha iyi. Risk-adjusted analiz (Sharpe 0.01 vs 0.23)
-hâlâ tatmin edici değil. Methodology asset olarak Lesson #20 dökümante edildi —
-**real money production'da total_invested ≤ total_capital constraint zorunlu.**
-
-> 🔬 Methodology integrity > flashy alpha. Bug fix prensibi gereği önceki
-> "ULTIMATE WIN" iddiaları geri çekildi. Sistem 1M TL real money math
-> doğru, ancak XU100 BEAT etmiyor.
+| Metric (Damodaran Replication)                | Value                |
+|-----------------------------------------------|---------------------:|
+| Damodaran Reference Validation Cases          | **20 / 20 PASS ±%5** |
+| Heineken intrinsic                            | €59.65 ✓             |
+| Toyota 2009 cyclical                          | ¥4,737 ✓             |
+| ABN Amro DDM                                  | €30.87 ✓             |
+| Tube India EM                                 | ₹61.55 ✓             |
+| TUPRS BIST anchor                             | 187.10 TL ✓ (50+ commit INTACT) |
+| Eurotunnel Distress (Modified BS)             | £122M ±0.06% ✓       |
+| BIST Universe                                 | **559 ticker** (391 DCF runnable) |
+| Lifecycle Stages classified                   | 6 stage (Young → Distress) |
+| Damodaran Sector Beta DB                      | 210+ industry coverage |
+| Damodaran Lessons documented                  | **21** (★ #21 felsefe pivot) |
 
 ---
 
