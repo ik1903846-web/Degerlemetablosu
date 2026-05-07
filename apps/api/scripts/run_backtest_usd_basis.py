@@ -16,12 +16,14 @@ Damodaran disiplini:
   USD-basis return real alpha measurement
 """
 
+import argparse
 import asyncio
 import csv
 import json
 import sys
 from datetime import date, datetime
 from pathlib import Path
+from typing import Optional
 
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
@@ -54,15 +56,37 @@ def _latest_tl_backtest_json() -> Path:
     return files[-1]
 
 
-async def main() -> int:
+def _resolve_tl_path(explicit: Optional[str]) -> Path:
+    """
+    Faz 7.3 race condition fix: explicit TL path arg desteği.
+
+    --tl-results <path>: kullanıcı belirttiği path okunur (deterministic).
+    None: latest mtime-sort fallback (backward compat — UYARI: race-prone
+    eğer TL backtest paralel çalışıyorsa).
+    """
+    if explicit:
+        p = Path(explicit)
+        if not p.is_absolute() and not p.exists():
+            p = (_outputs_dir() / Path(explicit).name).resolve()
+        if not p.exists():
+            raise FileNotFoundError(f"TL backtest path not found: {p}")
+        return p
+    return _latest_tl_backtest_json()
+
+
+async def main(tl_results_path: Optional[str] = None) -> int:
     print("\n" + "#" * 80)
     print("# USD-Basis Backtest Re-Report — Faz 4.1 (ADR-002)")
     print(f"# Period: {START_DATE} → {END_DATE}")
     print("#" * 80)
 
     # ── 1. Mevcut TL backtest yükle ──
-    tl_json = _latest_tl_backtest_json()
-    print(f"\n[1/4] TL backtest yükleniyor: {tl_json.name}")
+    tl_json = _resolve_tl_path(tl_results_path)
+    if tl_results_path:
+        print(f"\n[1/4] TL backtest (explicit path): {tl_json.name}")
+    else:
+        print(f"\n[1/4] TL backtest (latest mtime-sort): {tl_json.name}")
+        print(f"       NOT: Faz 7.3 race-fix — paralel TL run varsa --tl-results kullan")
     tl_data = json.loads(tl_json.read_text(encoding="utf-8"))
 
     # ── 2. USD/TRY quarterly fetch ──
@@ -267,4 +291,15 @@ async def main() -> int:
 
 
 if __name__ == "__main__":
-    sys.exit(asyncio.run(main()))
+    parser = argparse.ArgumentParser(
+        description="USD-Basis backtest (Faz 4.1 ADR-002, Faz 7.3 race-fix)"
+    )
+    parser.add_argument(
+        "--tl-results",
+        type=str,
+        default=None,
+        help="Explicit TL backtest JSON path (race-fix). "
+             "Default: latest mtime-sort.",
+    )
+    args = parser.parse_args()
+    sys.exit(asyncio.run(main(tl_results_path=args.tl_results)))
