@@ -765,8 +765,37 @@ Universe 99 → 118 ticker (+19 mid-cap layer, getmidas.com cross-reference):
 (Faz 4.21, 4.22 ardışık WIN). Lesson #19 generalization VALIDATED:
 universe size opportunity set'le doğru orantılı alpha üretir.
 
+### Faz 4.22 EXTEND BIST 200 Tam TRIPLE WIN ★★★ (Saturation FALSIFIED)
+Universe 118 → 200 ticker (+82 mid-cap layer, BIST Tüm subset pragmatik mix):
+
+| Profile          | Faz 4.22    | Faz 4.22 EXT  | Δ        | BEAT  |
+|------------------|------------:|--------------:|---------:|-------|
+| Konservatif zero | +23.55%/yr  | **+25.40%**   | +1.85pp  | 3/3 ✓ |
+| Konservatif real | +22.94%/yr  | +24.78%/yr    | +1.84pp  | 3/3 ✓ |
+| Dengeli zero     | +20.69%/yr  | +22.57%/yr    | +1.88pp  | 3/3 ✓ |
+| Dengeli real     | +20.10%/yr  | +21.97%/yr    | +1.87pp  | 3/3 ✓ |
+| Agresif zero     | +18.66%/yr  | +20.55%/yr    | +1.89pp  | 3/3 ✓ |
+| Agresif real     | +18.08%/yr  | +19.96%/yr    | +1.88pp  | 3/3 ✓ |
+
+★★★ **18/18 BEAT TRIPLE ULTIMATE** ★★★
+
+**Cumulative gain (Faz 4.18 → 4.22 EXTEND):**
+- Konservatif zero: +19.11% → +22.41% → +23.55% → **+25.40%** (+6.29pp ~33% relative)
+- Dengeli zero: +16.34% → +22.57% (+6.23pp)
+- Agresif zero: +14.36% → +20.55% (+6.19pp)
+
+**Sürpriz bulgu:** 4.22 EXTEND marjinal +1.85pp > 4.22 marjinal +1.14pp
+→ "diminishing returns saturation" hipotezi FALSIFIED. BIST 200 tam layer
+hâlâ alpha üretti (saturation noktası BIST 200+ üzerinde).
+
+**Lesson #19 TRIPLE WIN generalization:**
+"Universe expansion deep-value alpha 3 ardışık WIN ile reproducibility kanıtı.
+Mid-cap deep_value layer Pentagon ranking optimization ile yakalanır.
+HIGH_GROWTH classifier rule katı kalsa bile Core/Yüksek sleeve genişlemesi
+alpha üretir."
+
 **Future paths:**
-- Faz 4.23+ BIST Tüm 500+ (multi-session 10-16 saat)
+- Faz 4.23+ BIST Tüm 500+ (multi-session 10-16 saat, KAP HTML scrape)
 - Faz 7.4 HIGH_GROWTH classifier loosening + young_firm_dcf orchestrator
 - Per-position cap Hızlı sleeve (%2-5) + cash overflow tolerance
 
@@ -783,10 +812,10 @@ universe size opportunity set'le doğru orantılı alpha üretir.
 
 ---
 
-**Compendium last updated:** 7 May 2026 (Faz 4.22 BIST 200 partial DOUBLE ULTIMATE)
-**Total commits:** 151+ (Faz 4.22 universe extension + pattern reproducibility)
-**TUPRS regression anchor:** 187.10 TL (48+ commit INTACT, deep dive baseline -%0.6 sub-noise)
-**19 Damodaran Lesson:** #1-15 (foundational) + #17 (distress MODULE-ONLY) + #18 (race AUTOMATION) + #19 (universe expansion ★★★ DOUBLE WIN reproducibility)
-**Konservatif zero anchor:** TL +74.05%/yr / USD +23.55%/yr (★★★ Faz 4.22 DOUBLE ULTIMATE, 18/18 BEAT)
+**Compendium last updated:** 7 May 2026 (Faz 4.22 EXTEND BIST 200 tam TRIPLE ULTIMATE)
+**Total commits:** 154+ (Faz 4.22 EXTEND BIST 200 tam universe + Lesson #19 TRIPLE WIN)
+**TUPRS regression anchor:** 187.10 TL (49+ commit INTACT, deep dive baseline -%0.6 sub-noise)
+**19 Damodaran Lesson:** #1-15 (foundational) + #17 (distress MODULE-ONLY) + #18 (race AUTOMATION) + #19 (universe expansion ★★★ TRIPLE WIN saturation FALSIFIED)
+**Konservatif zero anchor:** TL +76.66%/yr / USD +25.40%/yr (★★★ Faz 4.22 EXTEND TRIPLE ULTIMATE, 18/18 BEAT)
 **5. ardışık ROLLBACK pattern:** Faz 4.7 + 4.8 + 4.13 + 7.1 + 4.10 — Lesson #10 ULTIMATE
-**Faz 4.21 → 4.22 ULTIMATE STATE:** 16/18 → 18/18 BEAT preserved (cumulative +4.44pp Konservatif zero gain)
+**Faz 4.21 → 4.22 → 4.22 EXTEND CUMULATIVE:** 18/18 BEAT preserved (cumulative +6.29pp Konservatif zero gain, ~33% relative)
