@@ -2,31 +2,35 @@
 
 **Damodaran-Aligned BIST Valuation + Portfolio Construction Platform**
 
-> Aswath Damodaran metodolojisiyle BIST 100 ticker değerleme + 3-sleeve
-> portföy konstrüksiyon + 20-quarter backtest + Streamlit dashboard.
+> Aswath Damodaran metodolojisiyle **Türk borsasında işlem gören TÜM 559 halka açık şirket**
+> değerleme + 3-sleeve portföy konstrüksiyon + 20-quarter backtest + Streamlit dashboard.
 
-[![commits](https://img.shields.io/badge/commits-120%2B-blue)]()
-[![status](https://img.shields.io/badge/status-production--ready-green)]()
-[![lessons](https://img.shields.io/badge/Damodaran_Lessons-15_documented-orange)]()
-[![backtest](https://img.shields.io/badge/backtest-6%2F6_%C3%97_3%2F3_BEAT-brightgreen)]()
+[![status](https://img.shields.io/badge/status-PRODUCTION_READY-success)]()
+[![commits](https://img.shields.io/badge/commits-159-blue)]()
+[![universe](https://img.shields.io/badge/Universe-559_ticker-orange)]()
+[![backtest](https://img.shields.io/badge/Backtest-18%2F18_BEAT-green)]()
+[![lessons](https://img.shields.io/badge/Damodaran_Lessons-19-purple)]()
 
 ---
 
-## Hero Metrics ★★★ ULTIMATE VALIDATION
+## Hero Metrics ★★★★ QUADRUPLE ULTIMATE VALIDATION
 
-**Faz 4.16 (Lesson #15 Core PRIORITY redistribution) — 28 Nis 2026**
+**Faz 4.23 (Lesson #19 Universe Expansion ULTIMATE) — 7 May 2026**
 
-| Metric (USD basis, 4.75-yıl backtest)        | Value             |
-|----------------------------------------------|------------------:|
-| Konservatif zero USD Annualized              | **+18.98%/yr** ★★★|
-| vs XU100 USD (BIST 100 broad market)          | **+5.44pp BEAT** ★|
-| vs XU030 USD (BIST 30 peer)                  | **+4.24pp BEAT** ★|
-| vs SPY USD (S&P 500 ETF)                     | **+10.43pp BEAT** ★|
-| Universe                                      | 63 BIST ticker    |
-| Damodaran Lessons documented                 | 15                |
-| TUPRS regression anchor (deep dive 188.31 TL)| 187.10 TL INTACT  |
+| Metric (USD basis, 4.75-yıl backtest)        | Value                |
+|----------------------------------------------|---------------------:|
+| Konservatif zero USD Annualized              | **+25.86%/yr** ★★★★ |
+| vs XU100 USD (BIST 100 broad market)         | **+12.32pp BEAT** ★ |
+| vs XU030 USD (BIST 30 peer)                  | **+11.12pp BEAT** ★ |
+| vs SPY USD (S&P 500 ETF)                     | **+17.31pp BEAT** ★ |
+| Universe                                     | **559 BIST Tüm**    |
+| Damodaran Lessons documented                 | **19**              |
+| Backtest BEAT count                          | **18/18** (4 ardışık WIN) |
+| TUPRS regression anchor                      | 187.10 TL INTACT (50+ commit) |
+| Cumulative gain Faz 4.18 → 4.23              | **+6.75pp** (~%35 relative) |
 
-**6/6 backtest × 3/3 benchmark BEAT** — REELDEĞER methodology validate.
+**18/18 backtest × 3/3 benchmark BEAT, 4 ardışık ULTIMATE WIN** — REELDEĞER methodology
+production-validated. **Türk borsası TAM coverage** (559 ticker).
 
 ---
 
@@ -106,17 +110,18 @@ ticker korundu (filter approach'tan farklı). TÜM 6 backtest USD GAIN.
 Empty sleeve overflow Core ÖNCE (capacity dolana kadar), kalan diğer
 sleeve'lere pro-rata. **6/6 × 3/3 BEAT** — methodology validate.
 
-📖 [**15 Damodaran Lessons full compendium →**](docs/DAMODARAN_LESSONS.md)
+📖 [**19 Damodaran Lessons full compendium →**](docs/DAMODARAN_LESSONS.md)
 
 ---
 
 ## Documentation
 
-- **[15 Damodaran Lessons](docs/DAMODARAN_LESSONS.md)** — Methodology compendium (validated + falsified findings)
+- **[Project Closure](docs/PROJECT_CLOSURE.md)** — v2.5 production-ready manifest (Faz 4.23 final state)
+- **[19 Damodaran Lessons](docs/DAMODARAN_LESSONS.md)** — Methodology compendium (validated + falsified findings)
 - **[User Manual](docs/USER_MANUAL.md)** — Frontend + backend usage, troubleshooting FAQ
 - **[Methodology](docs/METHODOLOGY.md)** — Pipeline architecture, DCF formulas, Pentagon weights
-- **[Daily Progress](notes/kaldim.md)** — In-project notebook (5-day marathon log)
-- **[Research Findings](apps/api/_research_findings/)** — 20 dosya per-faz analysis
+- **[Daily Progress](notes/kaldim.md)** — In-project notebook (marathon log)
+- **[Research Findings](apps/api/_research_findings/)** — 25+ dosya per-faz analysis
 - **[ADR's](docs/ADR/)** — Architecture decision records
 
 ---
