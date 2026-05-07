@@ -68,3 +68,7 @@ core.*
 .cache/
 tmp/
 temp/
+
+# Streamlit secrets (Faz 10 — never commit)
+.streamlit/secrets.toml
+apps/frontend/.streamlit/secrets.toml
