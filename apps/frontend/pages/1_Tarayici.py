@@ -129,7 +129,8 @@ def _load_scanner_df() -> tuple[pd.DataFrame, str]:
         market = r.get("market") or {}
 
         intrinsic = dcf.get("value_per_share_tl")
-        price = market.get("market_price_tl")
+        # JSON field name: market.price_tl (NOT market_price_tl)
+        price = market.get("price_tl") or market.get("market_price_tl")
         upside = market.get("upside_pct")
         stage = (lc.get("stage") or "unknown").lower()
 
