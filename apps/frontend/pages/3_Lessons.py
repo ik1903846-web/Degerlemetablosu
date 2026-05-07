@@ -158,6 +158,64 @@ LESSONS = [
             "vs XU030 (TR peer) ilk kez tüm profillerde BEAT. vs SPY +7-10pp BEAT."
         ),
     },
+    {
+        "id": 16, "faz": "Faz 4.17", "title": "Profile differentiation (Yüksek %10/%15)",
+        "status": "Production", "category": "Portfolio",
+        "summary": (
+            "Faz 4.16 sonrası Dengeli/Agresif IDENTICAL emergent. Yüksek %10 "
+            "her ikisinde + Core PRIORITY → spread kayboldu. Fix: Agresif Yüksek "
+            "%10 → %15 differentiation. 3 distinct profile spectrum."
+        ),
+    },
+    {
+        "id": 17, "faz": "Faz 7→7.1→7.2→7.3", "title": "Distress as Call Option (Black-Scholes)",
+        "status": "MODULE-ONLY ★", "category": "Methodology",
+        "summary": (
+            "Damodaran Dark Side equity-as-call (Eurotunnel £122M ±0.06% PASS). "
+            "Module + smoke + pipeline + backtest 4 katman validate. "
+            "BIST production'da -1.64pp drag (race-fixed evidence) → "
+            "module-only parking, longer horizon (40Q+) için future iteration."
+        ),
+    },
+    {
+        "id": 18, "faz": "Faz 7.1→7.2→7.3→4.18", "title": "Race condition methodology tool integrity",
+        "status": "AUTOMATION ★", "category": "Methodology",
+        "summary": (
+            "USD backtest mtime-sort race condition stale TL artifact. "
+            "Fix: --tl-results explicit path + run_pipeline_full.py wrapper. "
+            "META → FIX → AUTOMATION evolution. 'Validate hypothesis with frozen "
+            "baseline; environmental drift confounds methodology evaluation.'"
+        ),
+    },
+    {
+        "id": 19, "faz": "Faz 4.21→4.22→4.22EXT→4.23", "title": "Universe expansion deep-value alpha",
+        "status": "★★★★ QUADRUPLE WIN", "category": "Universe",
+        "summary": (
+            "63 → 99 → 118 → 200 → 559 ticker (BIST Tüm). 4 ardışık ULTIMATE "
+            "WIN cumulative +6.75pp Konservatif zero. Saturation profile-spesifik "
+            "(Konservatif BIST 200, Agresif BIST Tüm üstü). NOT: Faz 10'da bu "
+            "rakamlar leverage artifact bulgusu ile revize."
+        ),
+    },
+    {
+        "id": 20, "faz": "Faz 10 P0", "title": "Sermaye matematiği bug → backtest leverage artifact",
+        "status": "VALIDATED → CRITICAL ⚠", "category": "Methodology",
+        "summary": (
+            "MIN_SINGLE_TICKER_PCT %2 cap, 34 ticker × %2 = %68 sleeve total. "
+            "Konservatif Yüksek %3 target ile 22x aşım → Core %95 + Yüksek %68 "
+            "= %163 invested, total CSV 1.560.000 TL > 1M sermaye. Backtest "
+            "engine raw weights × returns = fictitious leverage. Önceki "
+            "+25.86%/yr ULTIMATE WIN bug'lı leveraged sistemden geldi.\n\n"
+            "FIX: Sleeve renormalize (cap edilmiş weights × scale-down factor "
+            "= sleeve_target). Total ≤ 100% guaranteed. Real money math correct.\n\n"
+            "GERÇEK SONUÇ: Konservatif zero USD +4.43%/yr, Sharpe 0.01 vs XU100 "
+            "+13.54% Sharpe 0.23. 0/18 BEAT (tüm benchmark UNDERPERFORM). "
+            "Damodaran Humility Protocol: gerçeği kabul et, ders çıkar.\n\n"
+            "Generalization: Real money production'da total_invested ≤ "
+            "total_capital constraint zorunlu. Backtest tool integrity check "
+            "için sleeve sum invariant test eklenecek (Faz 10.x parking)."
+        ),
+    },
 ]
 
 
