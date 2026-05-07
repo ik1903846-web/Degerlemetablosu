@@ -711,7 +711,7 @@ ticker'ları Hızlı Büyüme'ye route edecek, sleeve %15-35 dolacak."
 - Faz 4.10 commits ROLLBACK
 - Lifecycle classifier (6-stage) dokunulmadı
 
-### Impact ★ NEGATIVE FINDING + 5. ardışık ROLLBACK pattern
+### Impact ★ NEGATIVE FINDING (Faz 4.10) → ★★★ VALIDATED (Faz 4.21)
 5. ardışık rollback pattern reinforce (Lesson #10 ULTIMATE):
 - Faz 4.7 cap extreme: REAL fail → ROLLBACK doğru
 - Faz 4.8 tactical: REAL fail → ROLLBACK doğru
@@ -719,14 +719,35 @@ ticker'ları Hızlı Büyüme'ye route edecek, sleeve %15-35 dolacak."
 - Faz 7.1 distress (race-fixed): REAL fail → ROLLBACK doğru
 - **Faz 4.10 proxy: REAL fail → ROLLBACK doğru ★**
 
-**Future paths (parking):**
-- Universe expansion (BIST Tüm 500+) → 5-10 HIGH_GROWTH candidate
-- Sleeve target realistic (Hızlı %5-10 max BIST 63 için)
-- HIGH_GROWTH classifier rule loosening + young_firm_dcf orchestrator
-- Per-position cap Hızlı sleeve (%2-5) + cash overflow tolerance
+### Faz 4.21 Universe Expansion VALIDATED ★★★
+Universe expansion path (Lesson #19'un asıl kanıtı):
+- BIST 100 quality subset 63 → official 99 ticker (+36 mid-cap layer)
+- Web fetch BIST 100 endeksi (uzmanpara.milliyet.com.tr)
+- yfinance shares outstanding fetch (35 ticker config)
+- 86/99 batch success (87%, graceful skip XBRL eksik)
 
-**Anchor-safe pragmatic:** Hızlı sleeve %0 documented, profile spectrum
-Core/Yüksek dengesi ile sağlanır.
+**Backtest sonuçları (race-free pipeline):**
+| Profile          | Faz 4.18    | Faz 4.21    | Δ        | BEAT  |
+|------------------|------------:|------------:|---------:|-------|
+| Konservatif zero | +19.11%/yr  | **+22.41%** | +3.30pp  | 3/3 ✓ |
+| Konservatif real | +18.53%/yr  | +21.81%/yr  | +3.28pp  | 3/3 ✓ |
+| Dengeli zero     | +16.34%/yr  | +19.56%/yr  | +3.22pp  | 3/3 ✓ |
+| Dengeli real     | +15.77%/yr  | +18.98%/yr  | +3.21pp  | 3/3 ✓ |
+| Agresif zero     | +14.36%/yr  | +17.53%/yr  | +3.17pp  | 3/3 ✓ |
+| Agresif real     | +13.80%/yr  | +16.95%/yr  | +3.15pp  | 3/3 ✓ |
+
+★★★ **BEAT 16/18 → 18/18 ULTIMATE STATE** ★★★
+
+**Mekanizma:** HIGH_GROWTH detection rule katı kalsa da mid-cap layer Pentagon
+ranking optimization + deep_value sleeve büyümesi + Core composition shift
+yoluyla alpha gain üretildi. Universe constraint (Lesson #19) PARTIAL FIX
+production'da validate edildi.
+
+**Future paths:**
+- Faz 4.22 BIST 200 mid-cap layer (+100 ticker)
+- Faz 4.23 BIST Tüm 500+ (multi-session)
+- Faz 7.4 HIGH_GROWTH classifier loosening + young_firm_dcf orchestrator
+- Per-position cap Hızlı sleeve (%2-5) + cash overflow tolerance
 
 ---
 
@@ -741,9 +762,10 @@ Core/Yüksek dengesi ile sağlanır.
 
 ---
 
-**Compendium last updated:** 7 May 2026 (Faz 4.10 Hızlı proxy ROLLBACK + Lesson #19)
-**Total commits:** 145+ (Faz 4.10 proxy try + ROLLBACK + Lesson #19 reframe)
-**TUPRS regression anchor:** 187.10 TL (46+ commit INTACT, deep dive baseline -%0.6 sub-noise)
-**19 Damodaran Lesson:** #1-15 (foundational) + #17 (distress MODULE-ONLY + Eurotunnel rigor) + #18 (race condition AUTOMATION) + #19 (universe constraint NEGATIVE FINDING)
-**Konservatif zero anchor:** TL +67.80%/yr / USD +19.11%/yr (race-fixed pipeline, 16/18 BEAT)
+**Compendium last updated:** 7 May 2026 (Faz 4.21 BIST 100 official ULTIMATE WIN)
+**Total commits:** 148+ (Faz 4.21 universe expansion + 18/18 BEAT verify)
+**TUPRS regression anchor:** 187.10 TL (47+ commit INTACT, deep dive baseline -%0.6 sub-noise)
+**19 Damodaran Lesson:** #1-15 (foundational) + #17 (distress MODULE-ONLY) + #18 (race AUTOMATION) + #19 (universe expansion ★★★ VALIDATED)
+**Konservatif zero anchor:** TL +72.45%/yr / USD +22.41%/yr (★★★ Faz 4.21 ULTIMATE, 18/18 BEAT)
 **5. ardışık ROLLBACK pattern:** Faz 4.7 + 4.8 + 4.13 + 7.1 + 4.10 — Lesson #10 ULTIMATE
+**Faz 4.21 ULTIMATE STATE:** 16/18 → 18/18 BEAT, Konservatif/Dengeli/Agresif 6/6 each
