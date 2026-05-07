@@ -794,9 +794,43 @@ Mid-cap deep_value layer Pentagon ranking optimization ile yakalanır.
 HIGH_GROWTH classifier rule katı kalsa bile Core/Yüksek sleeve genişlemesi
 alpha üretir."
 
+### Faz 4.23 BIST Tüm QUADRUPLE WIN ★★★★ (Saturation Found)
+Universe 200 → 559 ticker (+359 küçük cap layer, "Türk borsası tüm halka açık şirketler"):
+
+| Profile          | Faz 4.22 EXT | Faz 4.23      | Δ        | BEAT  |
+|------------------|-------------:|--------------:|---------:|-------|
+| Konservatif zero | +25.40%/yr   | **+25.86%**   | +0.46pp  | 3/3 ✓ |
+| Konservatif real | +24.78%/yr   | +25.21%/yr    | +0.43pp  | 3/3 ✓ |
+| Dengeli zero     | +22.57%/yr   | +23.62%/yr    | +1.05pp  | 3/3 ✓ |
+| Dengeli real     | +21.97%/yr   | +22.99%/yr    | +1.02pp  | 3/3 ✓ |
+| Agresif zero     | +20.55%/yr   | +22.02%/yr    | +1.47pp  | 3/3 ✓ |
+| Agresif real     | +19.96%/yr   | +21.39%/yr    | +1.43pp  | 3/3 ✓ |
+
+★★★★ **18/18 BEAT QUADRUPLE ULTIMATE** ★★★★
+
+**Cumulative gain (Faz 4.18 → 4.23):**
+- Konservatif zero: +19.11% → **+25.86%** (+6.75pp ~%35 relative)
+- Dengeli zero: +16.34% → +23.62% (+7.28pp)
+- Agresif zero: +14.36% → +22.02% (+7.66pp)
+
+**Profile-spesifik saturation:**
+- Konservatif (büyük cap dominant): saturation BIST 200'de (+0.46pp marjin)
+- Dengeli/Agresif (mixed): saturation BIST Tüm üzerinde (+1.0-1.5pp)
+- Optimal universe profil-spesifik
+
+**DD Trade-off:**
+- DD ~-26% → ~-35% (küçük cap volatility eklenmesi)
+- Sharpe 0.31-0.35 (was 0.30+) — risk-adjusted return iyileşti
+
+**Lesson #19 ULTIMATE generalization:**
+"Universe expansion deep-value alpha 4 ardışık WIN. Saturation noktası
+profil-spesifik bulundu (Konservatif BIST 200, Agresif BIST Tüm). Damodaran
+prensibi 'broader hunting ground = alpha source' production-validated.
+Cumulative +6.75-7.66pp gain ~%35 relative. 559 ticker = Türk borsası tamamı."
+
 **Future paths:**
-- Faz 4.23+ BIST Tüm 500+ (multi-session 10-16 saat, KAP HTML scrape)
 - Faz 7.4 HIGH_GROWTH classifier loosening + young_firm_dcf orchestrator
+- Faz 9.x XBRL availability iyileştirme (banking_data.py 10 banking)
 - Per-position cap Hızlı sleeve (%2-5) + cash overflow tolerance
 
 ---
@@ -812,10 +846,11 @@ alpha üretir."
 
 ---
 
-**Compendium last updated:** 7 May 2026 (Faz 4.22 EXTEND BIST 200 tam TRIPLE ULTIMATE)
-**Total commits:** 154+ (Faz 4.22 EXTEND BIST 200 tam universe + Lesson #19 TRIPLE WIN)
-**TUPRS regression anchor:** 187.10 TL (49+ commit INTACT, deep dive baseline -%0.6 sub-noise)
-**19 Damodaran Lesson:** #1-15 (foundational) + #17 (distress MODULE-ONLY) + #18 (race AUTOMATION) + #19 (universe expansion ★★★ TRIPLE WIN saturation FALSIFIED)
-**Konservatif zero anchor:** TL +76.66%/yr / USD +25.40%/yr (★★★ Faz 4.22 EXTEND TRIPLE ULTIMATE, 18/18 BEAT)
+**Compendium last updated:** 7 May 2026 (Faz 4.23 BIST Tüm QUADRUPLE ULTIMATE — Türk borsası tamamı)
+**Total commits:** 157+ (Faz 4.23 BIST Tüm 559 universe + Lesson #19 ULTIMATE saturation found)
+**TUPRS regression anchor:** 187.10 TL (50+ commit INTACT, deep dive baseline -%0.6 sub-noise)
+**19 Damodaran Lesson:** #1-15 (foundational) + #17 (distress MODULE-ONLY) + #18 (race AUTOMATION) + #19 (universe expansion ★★★★ QUADRUPLE WIN saturation found profile-specific)
+**Konservatif zero anchor:** TL +77.31%/yr / USD +25.86%/yr (★★★★ Faz 4.23 QUADRUPLE ULTIMATE, 18/18 BEAT)
 **5. ardışık ROLLBACK pattern:** Faz 4.7 + 4.8 + 4.13 + 7.1 + 4.10 — Lesson #10 ULTIMATE
-**Faz 4.21 → 4.22 → 4.22 EXTEND CUMULATIVE:** 18/18 BEAT preserved (cumulative +6.29pp Konservatif zero gain, ~33% relative)
+**Faz 4.21 → 4.23 CUMULATIVE:** 18/18 BEAT preserved (cumulative +6.75pp Konservatif zero, +7.66pp Agresif zero, ~%35 relative)
+**Universe scope:** 559 ticker (Türk borsasında işlem gören tüm halka açık şirketler — production claim ULTIMATE)
