@@ -577,51 +577,98 @@ BS option time value (turnaround optionality).
 - `apps/api/portfolio/sleeve_assignment.py` Rule 1.5 distress_turnaround sub
 - `apps/api/scripts/test_distress_dcf.py` — Eurotunnel + LVS + 6 BIST validation 3/3
 
-### Impact ★ PRODUCTION-VALIDATED + RIGOR (Faz 7.2)
-- 3 distress_turnaround Yüksek Kazanç (KONTR/HEKTS/PGSUS, upside > 80)
-- 1 distress Core (VESTL Pentagon MATURE_GROWTH güçlü)
-- TUPRS regression INTACT (distress branch hassas, positive DCF korunur)
-- 16/18 backtest BEAT (Konservatif 6/6, Dengeli 6/6, Agresif 4/6)
-- Konservatif zero USD +19.11%/yr (vs XU100 +5.57pp BEAT)
-- **Faz 7.2 Modified BS rigor:** Eurotunnel £122M ±%5 PASS (computed £122.08M,
-  dev 0.06%, y=11.70% calibrated) — Damodaran Dark Side kitap-aligned
-- API: `black_scholes_equity_with_yield(..., cashflow_yield=0.0)` modified BS
-  formula; `black_scholes_equity_as_call(...)` backward compat alias (y=0)
-- Module + smoke + pipeline + backtest + Eurotunnel anchor = **5 katman validate**
+### Impact — STATUS REVISE (Faz 7.3 Race-Fixed Evidence)
+**Faz 7.1 v2 "production-validated" status REVISE → MODULE-ONLY.**
+
+Faz 7.1 v2 USD "+19.11%/yr" claim'i ASLINDA race condition USD reader
+artifact'iydi (mtime-sort stale TL → rollback baseline okunmuştu).
+Faz 7.3 race-fix sonrası gerçek evidence:
+- Distress integration TL ann -1.64pp drag (Konservatif zero +66.16 vs +67.80)
+- USD ann -1.16pp drag (BEAT marjini daraldı, anchor metric kayboldu)
+
+**Mevcut status:**
+- **MODULE-VALIDATED ★** — Damodaran rigor korunur:
+  - Eurotunnel £122M ±%5 PASS (computed £122.08M, dev 0.06%, y=11.70%)
+  - Modified BS API: `black_scholes_equity_with_yield(..., cashflow_yield=0.0)`
+  - 4/4 test PASS (Eurotunnel BS + Eurotunnel modified + LVS + 6 BIST)
+- **PIPELINE INTEGRATION PARKING** — race-fixed evidence ile pipeline drag:
+  - Yüksek Kazanç sleeve overflow (17 → 20 ticker)
+  - Cap %2 each, deep_value alpha sources sıkıştı (Lesson #14 ihlali)
+  - 16/18 BEAT (rollback baseline) > 12-15/18 (distress integrated)
+- **FUTURE iteration** — longer horizon backtest (40Q+) veya separate sleeve
+
+Anchor restored (Faz 7.3 race-fixed):
+- TUPRS 187.10 INTACT (43+ commit)
+- Konservatif zero TL +67.80%/yr / USD +19.11%/yr (race-fixed evidence)
+- 16/18 BEAT (Konservatif 6/6, Dengeli 6/6, Agresif 4/6)
 
 ---
 
-## Lesson #18 — Frozen Baseline Required (META) ★ FALSIFIED ROLLBACK
+## Lesson #18 — Race Condition Methodology Tool Integrity (META) ★ REFRAMED
 
-### Statement
-Methodology comparison REQUIRES frozen baseline. Live data shift (yfinance
-fresh fetch, market prices, snapshot composition kayma) environmental drift
-yaratır. Faz N → Faz N+1 comparison için BIT-IDENTICAL baseline gerek.
-"Drag" veya "gain" iddiaları frozen baseline ile doğrulanmadan rollback
-decision yapılmamalı. Live data drift ≠ methodology change.
+### Statement (Faz 7.3 race-fixed evidence)
+Methodology comparison TOOL pipelines race-free olmalı. Parallel artifact
+yazımı + mtime-sort reader stale evidence yaratır. Faz N → Faz N+1
+comparison'da explicit artifact path (race-fix) zorunlu.
 
-### Evidence — FALSIFIED rollback (Faz 7.1)
-Pre-rollback Faz 7.1: Konservatif zero +17.31%/yr → "drag" iddia (vs Apr 28 +18.98 spec).
-Post-rollback baseline: Konservatif zero **+17.31%/yr (EXACT MATCH 6/6)**.
-→ Distress integration backtest NEUTRAL (0pp etki).
-Re-add Faz 7.1 v2: Konservatif zero +19.11%/yr (live data refresh, +1.80pp).
+ESKİ tez ("frozen baseline / live data drift", Faz 7.1 KAPANIŞ) FALSIFIED:
+yfinance ZATEN frozen cached, drift kaynağı yfinance live fetch DEĞİL.
+Asıl kaynak: USD backtest reader `_latest_tl_backtest_json()` mtime-sort
+ile parallel TL run henüz yazmadığında STALE artifact okuyor.
 
-### Implementation
-- Production iteration discipline: baseline donmadan iddiada bulunma
-- BIST batch + portfolio + backtest re-run her metodoloji kararından önce
-- "Drag" tespit edilirse mutlaka rollback ile control evidence çıkar
+### Evidence — Race Condition Exposed (Faz 7.3)
+**Yfinance cache audit:**
+- Path: `~/.cache/reeldeger_backtest/` (1.5 MB, 37 ticker)
+- Statik key: `_2021-06-20_2026-03-31` (range never changes)
+- → "Live data drift" hipotezi PREMISE FALSE
 
-### Impact ★ META-LESSON
+**TL backtest determinism:**
+- 2 ardışık run (aynı portföy + cache) BIT-IDENTICAL output
+- → engine deterministic given identical inputs
+
+**Portfolio plan determinism:**
+- Faz 7.1 v2 (015033) vs Faz 7.2 (021038): 32/32 positions IDENTICAL across
+  3 profiller (sleeve + weight 6 dec rounded)
+
+**Race condition exposed:**
+- TL backtest yazıyor: `backtest_results_20260507_015041.json` (01:50:41)
+- USD backtest okuyor: `backtest_results_USD_20260507_015040.json` (01:50:40)
+- USD 1 saniye ÖNCE → mtime-sort'ta TL 015041 görünmüyor → 013500 (rollback) okuyor
+
+**Race-fixed evidence:**
+- 013500 TL (rollback, NO distress): Konservatif zero ann +67.80%/yr
+- 015041 TL (Faz 7.1 v2, distress ON): Konservatif zero ann +66.16%/yr
+- DELTA: -1.64pp REAL drag (TL ann), -1.16pp USD ann
+
+USD backtest (race-misleading):
+- Faz 7.1 v2 USD "+19.11" ASLINDA TL 013500 okumuş (rollback baseline)
+- Faz 7.2 USD "+17.95" race-fixed: gerçek distress drag
+
+### Implementation (Faz 7.3 Fix)
+- `scripts/run_backtest_usd_basis.py --tl-results PATH` (explicit, deterministic)
+- Default: mtime-sort `_latest_tl_backtest_json()` (backward compat, race-prone uyarı)
+- Sequential pipeline pattern: TL → wait write → USD --tl-results <new TL>
+
+### Impact ★ META-LESSON REFRAMED
 4 ardışık rollback pattern reframed:
 - Faz 4.7 cap extreme: REAL methodology FAIL → ROLLBACK doğru
 - Faz 4.8 tactical: REAL methodology FAIL → ROLLBACK doğru
 - Faz 4.13 filter: REAL methodology FAIL → ROLLBACK doğru
-- **Faz 7.1 distress: ENVIRONMENTAL drift → ROLLBACK YANLIŞTI (FALSIFIED) ★**
+- **Faz 7.1 distress: REAL methodology drag (race-misleading initial evidence)
+  → Faz 7.3 race-fixed re-rollback CORRECT ★**
 
-Lesson #18 disipline asset (rollback hatası) → "validate before rollback"
-prensibini güçlendirir. Lesson #10 + #18 birleşim:
-"Validate hypothesis with frozen baseline; environmental drift confounds
-methodology evaluation."
+3 ardışık decision revision:
+- Faz 7.1: distress integration (race-misleading evidence based)
+- Faz 7.1 v2: re-add (stale USD evidence based)
+- **Faz 7.3: race exposed → re-rollback (correct decision)**
+
+Lesson #10 + #18 birleşim ULTIMATE:
+"Validate before claim, expose tool bugs, revise on cleaner evidence."
+
+Methodology evaluation requires:
+- (a) Frozen seed input cache (Faz 4 yfinance cache ZATEN var)
+- (b) Sequential pipeline (TL → USD ordering enforce)
+- (c) Explicit artifact path arg (race-free) — `--tl-results PATH`
 
 ---
 
@@ -636,7 +683,8 @@ methodology evaluation."
 
 ---
 
-**Compendium last updated:** 7 May 2026 (Faz 7.2 Eurotunnel modified BS rigor)
-**Total commits:** 135+ (Faz 7.1 forward + Faz 7.2 modified BS + 4/4 validation)
-**TUPRS regression anchor:** 187.10 TL (42+ commit INTACT, deep dive baseline -%0.6 sub-noise)
-**18 Damodaran Lesson:** #1-15 (foundational) + #17 (distress prod-validated + RIGOR) + #18 (frozen baseline META)
+**Compendium last updated:** 7 May 2026 (Faz 7.3 race-fix + distress re-rollback)
+**Total commits:** 139+ (Faz 7.3 race fix + 2 revert + KAPANIŞ)
+**TUPRS regression anchor:** 187.10 TL (43+ commit INTACT, deep dive baseline -%0.6 sub-noise)
+**18 Damodaran Lesson:** #1-15 (foundational) + #17 (distress MODULE-ONLY + Eurotunnel rigor) + #18 (race condition tool integrity REFRAMED)
+**Konservatif zero anchor:** TL +67.80%/yr / USD +19.11%/yr (race-fixed, 16/18 BEAT)
