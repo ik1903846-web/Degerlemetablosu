@@ -172,6 +172,44 @@ if df.empty:
 
 
 # ============================================================================
+# Sanity Bounds (Faz 10 — Lesson #22)
+# ============================================================================
+# DCF model bazı ticker'larda patlıyor (XBRL veri corruption, WACC kalibrasyon,
+# reinvestment anomaly). Damodaran sanity:
+#   upside > +500% → suspect (data quality issue)
+#   upside > +1000% → exclude (model failure)
+# Production listesinde -50% < upside < +500% varsayılan filter.
+
+SANITY_LOWER_BOUND = -50.0
+SANITY_UPPER_BOUND = 500.0
+
+extreme_count = ((df["upside_pct"] > SANITY_UPPER_BOUND) |
+                 (df["upside_pct"] < SANITY_LOWER_BOUND)).sum()
+
+show_extreme = st.checkbox(
+    f"⚠️ Şüpheli upside göster (debug, {extreme_count} hisse)",
+    value=False,
+    help=(
+        f"Damodaran sanity: upside > +{SANITY_UPPER_BOUND:.0f}% genelde DCF model failure "
+        "(XBRL veri kalitesi, WACC/reinvestment kalibrasyon hatası). "
+        f"Default: {SANITY_LOWER_BOUND:.0f}% < upside < {SANITY_UPPER_BOUND:.0f}% gösterilir."
+    ),
+)
+
+if not show_extreme:
+    df = df[
+        (df["upside_pct"] >= SANITY_LOWER_BOUND)
+        & (df["upside_pct"] <= SANITY_UPPER_BOUND)
+    ].reset_index(drop=True)
+    if extreme_count > 0:
+        st.caption(
+            f"🔬 **Sanity filter aktif** — {extreme_count} şüpheli hisse gizlendi "
+            f"(upside <{SANITY_LOWER_BOUND:.0f}% veya >{SANITY_UPPER_BOUND:.0f}%). "
+            "Lesson #22 — DCF sanity bounds. Detay için ☑️ checkbox aktive et."
+        )
+
+
+# ============================================================================
 # Search Box
 # ============================================================================
 

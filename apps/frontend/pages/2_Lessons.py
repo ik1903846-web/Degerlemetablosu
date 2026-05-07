@@ -247,6 +247,38 @@ LESSONS = [
             "→ tool metric tutarlılığı önce."
         ),
     },
+    {
+        "id": 22, "faz": "Faz 10 P1",
+        "title": "DCF sanity bounds — extreme upside model failure flag",
+        "status": "VALIDATED — Production filter",
+        "category": "Methodology",
+        "summary": (
+            "Tarayıcı production'da bazı hisselerde +%2,000 → +%2,500 upside "
+            "tespit edildi (KUYAS, INFO, VESBE). Damodaran metodolojisi sanity:\n\n"
+            "**Diagnoz (forensic, 4 ticker karşılaştırma):**\n"
+            "- TUPRS (baseline ✓): WACC 12.81%, op margin 4.5%, reinvestment 87% "
+            "→ +187.10 TL hedef, -27.83% upside (mature_stable, mantıklı)\n"
+            "- KUYAS (XBRL corruption ★): avg_op_margin **%16,027** (160x revenue!) "
+            "→ +%2,582 upside (Konya Çimento, KAP/isyatirim XBRL parse hatası)\n"
+            "- INFO (low-WACC + small-cap): WACC %9.71 (TR için DÜŞÜK, beklenen 12-15%) "
+            "→ +%2,576 upside, market 3.61 TL vs hedef 96.62 TL\n"
+            "- VESBE (reinvestment anomaly): avg_reinvestment **190.7%** "
+            "(revenue'nun 1.9x reinvest = imkansız) → +%1,599 upside\n\n"
+            "**Üç farklı root cause:**\n"
+            "1. Veri kalitesi (KAP XBRL corruption)\n"
+            "2. WACC kalibrasyon (sektör beta + CRP eksik küçük cap için)\n"
+            "3. Reinvestment hesaplama (negatif/aşırı capex parse)\n\n"
+            "**Production filter (Tarayıcı sayfası):**\n"
+            "- Default: -50% < upside < +500% (mantıklı zone)\n"
+            "- Checkbox '⚠️ Şüpheli upside göster' debug için extreme'leri açar\n"
+            "- Backend DCF motoru DOKUNMADI (Damodaran replication odaklı, "
+            "Lesson #21 prensibi). Backend kalibrasyon Faz 11+ parking.\n\n"
+            "**Generalization:** Damodaran 'sanity check' methodology asset. "
+            "Production output'una display-layer filter eklenir (frontend "
+            "discipline). Backend root cause fix multi-step (data quality, "
+            "calibration, formula)."
+        ),
+    },
 ]
 
 
