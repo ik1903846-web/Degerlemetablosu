@@ -162,8 +162,71 @@ BIST_100_ADDITIONS = [
 ]
 
 
-# Faz 4.6 — full BIST 100 universe (63 ticker, quality-focused)
-BIST_100 = BIST_50 + BIST_100_ADDITIONS
+# Faz 4.6 — quality-curated BIST 100 subset (63 ticker)
+BIST_100_QUALITY_SUBSET = BIST_50 + BIST_100_ADDITIONS
+
+
+# Faz 4.21 — gerçek BIST 100 endeksi tamamlama (+36 ticker)
+# Source: uzmanpara.milliyet.com.tr/canli-borsa/bist-100-hisseleri/ (Web fetch May 2026)
+# 63 quality-curated + 36 mid-cap layer = 99 ticker (BIST 100 endeksi yaklaşık)
+# Lesson #19 PARTIAL FIX: universe expansion start (63 → 99).
+BIST_100_OFFICIAL_ADDITIONS = [
+    # Banking (eksik)
+    "VAKBN",   # Vakıfbank — banking (BIST 30 banking ek)
+
+    # Holding & Energy
+    "ALARK",   # Alarko Holding (industrial conglomerate)
+    "ZOREN",   # Zorlu Energy (electricity, renewable)
+    "ENERY",   # Enerya Enerji (gas distribution)
+    "ODAS",    # Odaş Elektrik (power generation)
+    "EUPWR",   # Europower Enerji (electricity)
+    "TRENJ",   # Türkiye Tuborg/TR Enerji
+    "IZENR",   # İzmir Demir Çelik / İZ Enerji
+    "PASEU",   # Pasifik Eurasia (energy)
+
+    # Industrial / Cement / Chemical
+    "SISE",    # Şişe Cam (glass, large-cap)
+    "SASA",    # Sasa Polyester (chemical)
+    "GUBRF",   # Gübre Fabrikaları (fertilizer)
+    "CIMSA",   # Çimsa Çimento (cement)
+    "BTCIM",   # Batıçim Çimento (cement)
+    "KUYAS",   # Konya Çimento (cement)
+    "BSOKE",   # Batısöke Çimento
+    "MAGEN",   # Margün Enerji
+    "SARKY",   # Sarkuysan (copper)
+    "BALSU",   # Balıkesir Çimento
+
+    # Insurance / Financial
+    "ANSGR",   # Anadolu Sigorta (insurance)
+    "GRSEL",   # Garanti Sigorta
+    "TURSG",   # Türkiye Sigorta
+
+    # Auto / Industrial
+    "DOAS",    # Doğuş Otomotiv (auto distribution)
+    "BRYAT",   # Borusan Yatırım Holding
+    "OBAMS",   # Oba Makarnacılık (food)
+    "PAHOL",   # Pasifik GYO Holding
+
+    # REIT
+    "PSGYO",   # Petrol Ofisi GYO
+    "RALYH",   # RAL Yatırım Holding
+
+    # Tech / Mid-cap Growth (★ HIZLI BÜYÜME adayları)
+    "MIATK",   # MIA Teknoloji (post-IPO 2022 IT)
+    "REEDR",   # Reeder Teknoloji (consumer electronics)
+    "GESAN",   # Girişim Elektrik (industrial automation)
+
+    # Specialty / Other mid-cap
+    "CANTE",   # Çan2 Termik (energy)
+    "CVKMD",   # CVK Maden (mining)
+    "EFOR",    # Eforce Group / EFORC
+    "FENER",   # Fenerbahçe Sportif (sports/services)
+    "KLRHO",   # Kıler Holding (retail/property)
+]
+
+
+# Faz 4.21 — Gerçek BIST 100 endeksi tamamlama (99 ticker)
+BIST_100 = BIST_100_QUALITY_SUBSET + BIST_100_OFFICIAL_ADDITIONS
 
 
 # ============================================================================

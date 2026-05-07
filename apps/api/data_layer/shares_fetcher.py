@@ -127,6 +127,43 @@ STATIC_SHARES_OUTSTANDING: Dict[str, int] = {
     "INDES": 280_000_000,      # İndeks Bilgisayar (~280M)
     "TUKAS":  60_000_000,      # Tukaş Gıda (~60M)
 
+    # Faz 4.21 — BIST 100 official tamamlama (35 ticker, yfinance fetch May 2026)
+    "ALARK":      434_526_825,    # Alarko Holding
+    "ANSGR":    2_000_000_000,    # Anadolu Sigorta
+    "BALSU":    1_112_000_000,    # Balıkesir Çimento
+    "BRYAT":       27_537_101,    # Borusan Yatırım Holding
+    "BSOKE":    1_600_000_000,    # Batısöke Çimento
+    "BTCIM":    5_580_000_000,    # Batıçim Çimento
+    "CANTE":    9_974_175_415,    # Çan2 Termik
+    "CIMSA":      945_591_094,    # Çimsa Çimento
+    "CVKMD":    1_400_000_000,    # CVK Maden
+    "DOAS":       220_000_000,    # Doğuş Otomotiv
+    "EFOR":     2_178_000_000,    # Eforce Group
+    "ENERY":    9_000_000_000,    # Enerya Enerji
+    "EUPWR":      555_000_000,    # Europower Enerji
+    "FENER":    6_250_000_000,    # Fenerbahçe Sportif
+    "GESAN":      460_000_000,    # Girişim Elektrik
+    "GRSEL":      102_000_000,    # Garanti Sigorta
+    "GUBRF":      334_000_000,    # Gübre Fabrikaları
+    "IZENR":    2_443_750_000,    # İz Enerji
+    "KLRHO":    1_625_000_000,    # Kıler Holding
+    "KUYAS":      400_000_000,    # Konya Çimento
+    "MAGEN":    2_950_000_000,    # Margün Enerji
+    "MIATK":      494_000_000,    # MIA Teknoloji (★ post-IPO)
+    "OBAMS":    2_876_530_554,    # Oba Makarnacılık
+    "ODAS":     1_400_000_000,    # Odaş Elektrik
+    "PAHOL":   20_000_000_000,    # Pasifik GYO Holding
+    "PASEU":      672_000_000,    # Pasifik Eurasia
+    "PSGYO":    6_900_847_276,    # Petrol Ofisi GYO
+    "RALYH":      333_000_000,    # RAL Yatırım Holding
+    "REEDR":      950_000_000,    # Reeder Teknoloji (★ post-IPO)
+    "SARKY":    1_000_000_000,    # Sarkuysan
+    "SASA":    43_815_615_361,    # Sasa Polyester
+    "SISE":     3_063_214_056,    # Şişe Cam
+    "TRENJ":      259_785_561,    # TR Enerji
+    "TURSG":   10_000_000_000,    # Türkiye Sigorta
+    "ZOREN":    5_000_000_000,    # Zorlu Energy
+
     # NOT: Bu liste cross-check edildi ama %100 doğru olmayabilir.
     # BIST 30 batch testinde her ticker market cap doğrulaması yapılmalı.
     # TUPRS Adım 3.5 sonrası canonical (resmi 1.93B kayıt altında).
