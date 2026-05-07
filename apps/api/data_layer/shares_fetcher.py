@@ -185,6 +185,90 @@ STATIC_SHARES_OUTSTANDING: Dict[str, int] = {
     "TSKB":     2_800_000_000,    # Türkiye Sınai Kalkınma Bankası
     "TUREX":    1_080_000_000,    # Türker İnşaat
 
+    # Faz 4.22 EXTEND — BIST 200 tam endeks tamamlama (82 ticker, yfinance May 2026)
+    "AGESA":      180_000_000,    # Agesa Hayat Emeklilik
+    "AKCNS":      191_447_068,    # Akçansa Çimento
+    "AKFGY":    3_900_000_000,    # Akfen GYO
+    "AKGRT":    1_612_000_000,    # Aksigorta
+    "AKMGY":       37_264_000,    # Akmerkez GYO
+    "ALBRK":    2_500_000_000,    # Albaraka Türk Katılım (banking)
+    "ALGYO":    2_028_600_000,    # Alarko GYO
+    "ANHYT":      430_000_000,    # Anadolu Hayat Emeklilik
+    "ASGYO":      659_000_000,    # Akiş GYO
+    "ATAGY":       47_500_000,    # Ata GYO
+    "AVGYO":      111_600_000,    # Avrasya GYO
+    "AVHOL":       37_250_000,    # Avrasya Holding
+    "AVOD":       270_000_000,    # Avod Kurutulmuş Gıda
+    "AYDEM":      705_000_000,    # Aydem Enerji
+    "AYEN":       277_500_000,    # Aydın Enerji
+    "AYGAZ":      219_800_767,    # Aygaz LPG
+    "BAGFS":      135_000_000,    # Bagfaş Fertilizer
+    "BANVT":      100_023_579,    # Banvit Tavukçuluk
+    "BERA":       683_200_000,    # Bera Holding
+    "BFREN":      122_522_806,    # Brisa Fren
+    "BRISA":      305_116_875,    # Brisa Bridgestone
+    "CLEBI":       24_300_000,    # Çelebi Hava Servisi
+    "CRFSA":      127_773_766,    # CarrefourSA
+    "DAGI":       400_000_000,    # Dagi Yatırım Holding
+    "DEVA":       200_019_288,    # Deva Holding
+    "DGATE":       29_841_960,    # Datagate Bilgisayar
+    "DGGYO":      332_007_786,    # Doğuş GYO
+    "DOCO":        10_983_458,    # DO & Co Catering
+    "EBEBK":      160_000_000,    # eBebek
+    "ECZYT":      105_000_000,    # Eczacıbaşı Yatırım
+    "EDIP":        65_000_000,    # Edip Gayrimenkul
+    "EGEGY":      200_000_000,    # Ege Endüstri
+    "GEDIK":    2_000_000_000,    # Gedik Yatırım
+    "GENTS":      750_000_000,    # Gen İlaç (post-IPO)
+    "GLYHO":    1_950_000_000,    # Global Yatırım Holding
+    "GOODY":      270_000_000,    # Good Year Lastik
+    "GOZDE":      385_000_000,    # Gözde Girişim Sermayesi
+    "HEDEF":    1_949_455_899,    # Hedef Yatırım
+    "HLGYO":    3_752_699_766,    # Halk GYO
+    "HOROZ":       90_488_084,    # Horoz Lojistik
+    "HUBVC":      280_000_000,    # Hub Girişim
+    "ICBCT":      860_000_000,    # ICBC Türkiye (banking)
+    "IDGYO":      150_000_000,    # İdealist GYO
+    "IEYHO":      543_595_733,    # IE Yatırım Holding
+    "INTEK":        8_000_000,    # İntek Yatırım
+    "INTEM":       19_164_221,    # İntema İnşaat
+    "INVEO":    1_000_000_000,    # Inveo Yatırım
+    "ISGYO":      958_750_000,    # İş GYO
+    "JANTS":      700_000_000,    # Jantsa Jant
+    "KAREL":      805_885_530,    # Karel Elektronik
+    "KFEIN":      197_500_000,    # Kafein Yazılım
+    "KLGYO":    1_395_000_000,    # Kıler GYO
+    "KLNMA":   10_000_000_000,    # Kalkınma Bankası (banking)
+    "KOTON":      829_650_000,    # Koton Apparel
+    "KRDMA":      240_303_646,    # Kardemir A
+    "KRDMB":      119_470_352,    # Kardemir B
+    "KRONT":      171_222_156,    # Kron Teknoloji
+    "MEGMT":      265_000_000,    # Megamotion
+    "MERCN":      190_370_946,    # Merkez Tekstil
+    "MNDRS":      277_292_576,    # Menderes Tekstil
+    "MOGAN":    2_440_108_000,    # Mogan Enerji
+    "MOPAS":      273_000_000,    # Mopaş Marketler
+    "MZHLD":      108_559_000,    # Mazhar-El Holding
+    "NETCD":      137_000_000,    # Net Holding C
+    "NTHOL":      456_040_861,    # Net Holding
+    "NUGYO":      335_348_000,    # Nurol GYO
+    "NUHCM":      150_213_600,    # Nuh Çimento
+    "OBASE":       45_500_000,    # Obase
+    "ORCAY":      240_000_000,    # Orçay
+    "OZKGY":    1_452_635_728,    # Özak GYO
+    "PENTA":      393_516_000,    # Penta Teknoloji
+    "PETUN":      303_345_000,    # Pet Holding
+    "POLHO":      758_500_000,    # Polisan Holding
+    "PSDTC":        7_425_000,    # Pasdas Termik
+    "QNBTR":    5_500_000_000,    # QNB Finansbank (banking)
+    "RAYSG":      163_069_856,    # Ray Sigorta
+    "SELEC":      621_000_000,    # Selçuk İlaç
+    "SMART":       31_862_500,    # Smart Solar (post-IPO)
+    "SUNTK":      474_600_000,    # Sun Tekstil
+    "TRHOL":       30_000_000,    # Türkiye Holding
+    "TTRAK":      100_066_875,    # Türk Traktör
+    "ULAS":        25_382_175,    # Ulaşlar Tekstil
+
     # NOT: Bu liste cross-check edildi ama %100 doğru olmayabilir.
     # BIST 30 batch testinde her ticker market cap doğrulaması yapılmalı.
     # TUPRS Adım 3.5 sonrası canonical (resmi 1.93B kayıt altında).

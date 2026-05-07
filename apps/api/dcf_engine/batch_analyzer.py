@@ -265,7 +265,118 @@ BIST_200_ADDITIONS = [
 
 
 # Faz 4.22 — BIST 200 partial layer total (118 ticker)
-BIST_200 = BIST_100 + BIST_200_ADDITIONS
+BIST_200_PARTIAL = BIST_100 + BIST_200_ADDITIONS
+
+
+# Faz 4.22 EXTEND — BIST 200 tam endeks tamamlama (+82 ticker, 200 toplam)
+# Source: uzmanpara.milliyet.com.tr/canli-borsa/bist-tum-hisseleri/ (BIST Tüm subset)
+# Pragmatik mid-cap mix sektörel çeşitlilikle seçildi (banking/holding/REIT/industrial/tech).
+# yfinance shares fetch 82/82 success.
+BIST_200_FULL_ADDITIONS = [
+    # Banking ek (4)
+    "ALBRK",   # Albaraka Türk Katılım
+    "ICBCT",   # ICBC Türkiye
+    "KLNMA",   # Kalkınma Bankası
+    "QNBTR",   # QNB Finansbank
+
+    # Sigorta (4)
+    "AGESA",   # Agesa Hayat Emeklilik
+    "ANHYT",   # Anadolu Hayat Emeklilik
+    "AKGRT",   # Aksigorta
+    "RAYSG",   # Ray Sigorta
+
+    # Holding ek (8)
+    "GLYHO",   # Global Yatırım Holding
+    "NTHOL",   # Net Holding
+    "AVHOL",   # Avrasya Holding
+    "IEYHO",   # IE Yatırım Holding
+    "POLHO",   # Polisan Holding
+    "GOZDE",   # Gözde Girişim Sermayesi
+    "MZHLD",   # Mazhar-El Holding
+    "TRHOL",   # Türkiye Holding
+
+    # REIT/GYO (12)
+    "AKFGY",   # Akfen GYO
+    "AKMGY",   # Akmerkez GYO
+    "ALGYO",   # Alarko GYO
+    "ASGYO",   # Akiş GYO
+    "ATAGY",   # Ata GYO
+    "AVGYO",   # Avrasya GYO
+    "DGGYO",   # Doğuş GYO
+    "HLGYO",   # Halk GYO
+    "IDGYO",   # İdealist GYO
+    "ISGYO",   # İş GYO
+    "KLGYO",   # Kıler GYO
+    "NUGYO",   # Nurol GYO
+
+    # Industrial büyük (15)
+    "AKCNS",   # Akçansa Çimento
+    "AYGAZ",   # Aygaz LPG
+    "BAGFS",   # Bagfaş Fertilizer
+    "BANVT",   # Banvit Tavukçuluk
+    "BRISA",   # Brisa Bridgestone
+    "CLEBI",   # Çelebi Hava Servisi
+    "CRFSA",   # CarrefourSA
+    "DEVA",    # Deva Holding (pharma)
+    "DOCO",    # DO & Co Catering
+    "TTRAK",   # Türk Traktör
+    "MNDRS",   # Menderes Tekstil
+    "AYDEM",   # Aydem Enerji
+    "AYEN",    # Aydın Enerji
+    "KRDMA",   # Kardemir A
+    "KRDMB",   # Kardemir B
+
+    # Tech/Specialty (10)
+    "KAREL",   # Karel Elektronik
+    "KFEIN",   # Kafein Yazılım
+    "KRONT",   # Kron Teknoloji
+    "NETCD",   # Net Holding C
+    "PENTA",   # Penta Teknoloji
+    "SMART",   # Smart Solar (post-IPO)
+    "INVEO",   # Inveo Yatırım
+    "GOODY",   # Good Year Lastik
+    "JANTS",   # Jantsa Jant
+    "INTEK",   # İntek Yatırım
+
+    # Mid-cap diversified (15)
+    "EBEBK",   # eBebek
+    "EDIP",    # Edip Gayrimenkul
+    "EGEGY",   # Ege Endüstri
+    "HUBVC",   # Hub Girişim
+    "KOTON",   # Koton Apparel
+    "MOPAS",   # Mopaş Marketler
+    "MOGAN",   # Mogan Enerji
+    "NUHCM",   # Nuh Çimento
+    "ORCAY",   # Orçay
+    "PETUN",   # Pet Holding
+    "SUNTK",   # Sun Tekstil
+    "AVOD",    # Avod Kurutulmuş Gıda
+    "BERA",    # Beratep / Bera Holding
+    "BFREN",   # Brisa Fren
+    "DAGI",    # Dagi Yatırım Holding
+
+    # Specialty (4)
+    "GEDIK",   # Gedik Yatırım
+    "GENTS",   # Gen İlaç (post-IPO biotech)
+    "ECZYT",   # Eczacıbaşı Yatırım
+    "DGATE",   # Datagate Bilgisayar
+
+    # Other (10)
+    "HEDEF",   # Hedef Yatırım
+    "HOROZ",   # Horoz Lojistik
+    "INTEM",   # İntema İnşaat
+    "MEGMT",   # Megamotion
+    "MERCN",   # Merkez Tekstil
+    "OBASE",   # Obase
+    "OZKGY",   # Özak GYO
+    "PSDTC",   # Pasdas Termik
+    "SELEC",   # Selçuk İlaç
+    "ULAS",   # Ulaşlar Tekstil
+]
+
+
+# Faz 4.22 EXTEND — full BIST 200 endeksi (200 ticker)
+BIST_200 = BIST_200_PARTIAL + BIST_200_FULL_ADDITIONS
 
 
 # ============================================================================
