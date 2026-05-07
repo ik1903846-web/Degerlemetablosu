@@ -34,12 +34,20 @@
 
 ### Backend (Valuation + Backtest)
 
+**Önerilen — Full pipeline orchestrator (race-free, Faz 4.18):**
+```bash
+cd apps/api
+.venv/Scripts/python.exe scripts/run_pipeline_full.py            # 4-step sequential
+.venv/Scripts/python.exe scripts/run_pipeline_full.py --skip-batch  # 3-step (fast re-run)
+```
+
+**Manuel (gelişmiş):**
 ```bash
 cd apps/api
 .venv/Scripts/python.exe scripts/test_orchestrator_live.py     # BIST 100 batch (~85s)
 .venv/Scripts/python.exe scripts/run_portfolio_pipeline.py     # 3 risk profile
 .venv/Scripts/python.exe scripts/run_backtest_2021_2026.py     # TL backtest
-.venv/Scripts/python.exe scripts/run_backtest_usd_basis.py     # USD backtest (ADR-002)
+.venv/Scripts/python.exe scripts/run_backtest_usd_basis.py --tl-results <fresh TL JSON>  # USD (race-fix)
 ```
 
 ### Frontend (Streamlit Dashboard)

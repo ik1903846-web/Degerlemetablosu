@@ -644,10 +644,15 @@ USD backtest (race-misleading):
 - Faz 7.1 v2 USD "+19.11" ASLINDA TL 013500 okumuş (rollback baseline)
 - Faz 7.2 USD "+17.95" race-fixed: gerçek distress drag
 
-### Implementation (Faz 7.3 Fix)
+### Implementation (Faz 7.3 Fix → Faz 4.18 Automation)
 - `scripts/run_backtest_usd_basis.py --tl-results PATH` (explicit, deterministic)
 - Default: mtime-sort `_latest_tl_backtest_json()` (backward compat, race-prone uyarı)
 - Sequential pipeline pattern: TL → wait write → USD --tl-results <new TL>
+- **Faz 4.18 AUTOMATION:** `scripts/run_pipeline_full.py` wrapper (race-free by design)
+  - Sequential subprocess 4-step (batch → portfolio → TL → USD)
+  - File-based handoff with auto-detect fresh outputs
+  - `--skip-batch` flag (faster re-runs)
+  - 2 ardışık run BIT-IDENTICAL verified (deterministic)
 
 ### Impact ★ META-LESSON REFRAMED
 4 ardışık rollback pattern reframed:
@@ -683,8 +688,9 @@ Methodology evaluation requires:
 
 ---
 
-**Compendium last updated:** 7 May 2026 (Faz 7.3 race-fix + distress re-rollback)
-**Total commits:** 139+ (Faz 7.3 race fix + 2 revert + KAPANIŞ)
-**TUPRS regression anchor:** 187.10 TL (43+ commit INTACT, deep dive baseline -%0.6 sub-noise)
-**18 Damodaran Lesson:** #1-15 (foundational) + #17 (distress MODULE-ONLY + Eurotunnel rigor) + #18 (race condition tool integrity REFRAMED)
-**Konservatif zero anchor:** TL +67.80%/yr / USD +19.11%/yr (race-fixed, 16/18 BEAT)
+**Compendium last updated:** 7 May 2026 (Faz 4.18 pipeline orchestrator automation)
+**Total commits:** 142+ (Faz 4.18 pipeline wrapper + race-free verify + docs)
+**TUPRS regression anchor:** 187.10 TL (44+ commit INTACT, deep dive baseline -%0.6 sub-noise)
+**18 Damodaran Lesson:** #1-15 (foundational) + #17 (distress MODULE-ONLY + Eurotunnel rigor) + #18 (race condition tool integrity AUTOMATION COMPLETE)
+**Konservatif zero anchor:** TL +67.80%/yr / USD +19.11%/yr (race-fixed pipeline, 16/18 BEAT)
+**Pipeline orchestrator:** `scripts/run_pipeline_full.py` (Faz 4.18, race-free by design)

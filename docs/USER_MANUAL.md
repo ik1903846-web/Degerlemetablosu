@@ -161,6 +161,24 @@ Streamlit `utils/data_loader.py` latest dosyaları otomatik picks:
 
 ## Backend CLI Commands
 
+### Full Pipeline (Önerilen, Faz 4.18 race-free)
+```bash
+.venv/Scripts/python.exe scripts/run_pipeline_full.py
+# Sequential 4-step:
+#   1/4 BIST batch (orchestrator live)
+#   2/4 Portfolio plan (3 risk profile)
+#   3/4 TL backtest (20-quarter)
+#   4/4 USD backtest (--tl-results <fresh path>, race-free)
+
+.venv/Scripts/python.exe scripts/run_pipeline_full.py --skip-batch
+# 3-step (batch atlandı, hızlı re-run mevcut latest batch ile)
+```
+
+Race-free by design (Damodaran Lesson #18 actionable):
+- File-based handoff with auto-detect fresh outputs
+- Step 4 USD backtest explicit `--tl-results <step3 fresh TL>`
+- Logs: `C:/tmp/pipeline_<step>_<timestamp>.log`
+
 ### Tek Ticker Analiz
 ```python
 # apps/api/scripts/test_orchestrator.py içinde:
