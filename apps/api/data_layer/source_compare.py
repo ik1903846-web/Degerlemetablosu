@@ -39,6 +39,8 @@ from kap_subsidiaries_fetcher import (
     fetch_subsidiaries_snapshot,
     lookup_parent,
 )  # noqa: E402
+from kap_corporate_events import load_snapshot as load_ce_snapshot  # noqa: E402
+from kap_corporate_events import resolve_ticker as ce_resolve_ticker  # noqa: E402
 
 
 TICKERS: List[Tuple[str, str, str]] = [
@@ -253,6 +255,7 @@ def check_ticker(
     expected_dialect: str,
     float_snapshot,
     subs_snapshot,
+    ce_snapshot=None,
 ) -> TickerCheck:
     t = TickerCheck(
         ticker=ticker,
@@ -261,13 +264,22 @@ def check_ticker(
     )
 
     # Pre-validation: ticker kpy41_acc5 universe'inde mi?
-    # (Yanlış/delisted ticker'lar disclosure aşamasında 'not found' verir;
-    #  data quality issue olarak FLAG'lensin, FAIL değil.)
     fr_pre = lookup_ticker(float_snapshot, ticker)
     if fr_pre is None:
+        # Corporate events resolver — eski ticker mı?
+        if ce_snapshot is not None:
+            res = ce_resolve_ticker(ce_snapshot, ticker)
+            if res:
+                t.sanity_flags.append(
+                    f"name_change: {ticker} → {res['new_ticker']} "
+                    f"({res['change_date']}) [{res['new_name'][:40]}]"
+                )
+                return t
+        # Hiçbir mapping yok → gerçek delisted/invalid candidate
         t.sanity_flags.append(
             f"data_quality: ticker '{ticker}' not in KAP kpy41_acc5 "
-            f"(delisted/invalid/non-BIST)"
+            f"and not in Ünvan Değişikliği registry "
+            f"(delisted/kayyum/iflas — Session 5+ scope)"
         )
         return t
 
@@ -412,12 +424,19 @@ def main() -> int:
         return 1
     print(f"  ✓ {subs_snap.record_count} records  matched_parents={subs_snap.matched_parents}")
 
+    print("\n→ Loading ticker_mappings (corporate events)...")
+    ce_snap = load_ce_snapshot()
+    if ce_snap is None:
+        print("  ⚠ ticker_mappings.json not found — name_change resolution disabled")
+    else:
+        print(f"  ✓ {ce_snap.record_count} Ünvan Değişikliği records loaded")
+
     print("\n→ Per-ticker checks (30 ticker)...")
     checks: List[TickerCheck] = []
     for i, (ticker, exp_dialect, cat) in enumerate(TICKERS, 1):
         print(f"  [{i:2d}/{len(TICKERS)}] {ticker:6} ({cat}) ...", end=" ", flush=True)
         try:
-            c = check_ticker(ticker, cat, exp_dialect, float_snap, subs_snap)
+            c = check_ticker(ticker, cat, exp_dialect, float_snap, subs_snap, ce_snap)
         except Exception as e:
             c = TickerCheck(ticker=ticker, category=cat,
                             expected_dialect=exp_dialect)

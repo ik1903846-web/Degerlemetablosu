@@ -342,7 +342,7 @@ Faz 11 v4.0 — multi-source orchestration validation
 
 
 **Sanity flags**
-- ⚠ data_quality: ticker 'KOZAL' not in KAP kpy41_acc5 (delisted/invalid/non-BIST)
+- ⚠ name_change: KOZAL → TRALT (2025-11-06) [KOZA ALTIN İŞLETMELERİ A.Ş.]
 
 ### ✓ TCELL  (random, expected=industrial)
 
@@ -597,7 +597,7 @@ Faz 11 v4.0 — multi-source orchestration validation
 
 
 **Sanity flags**
-- ⚠ data_quality: ticker 'MIPAZ' not in KAP kpy41_acc5 (delisted/invalid/non-BIST)
+- ⚠ data_quality: ticker 'MIPAZ' not in KAP kpy41_acc5 and not in Ünvan Değişikliği registry (delisted/kayyum/iflas — Session 5+ scope)
 
 ### ⚠ DENGE  (ipo, expected=industrial)
 

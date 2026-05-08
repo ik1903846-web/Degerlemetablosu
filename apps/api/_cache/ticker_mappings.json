@@ -1,0 +1,1204 @@
+{
+  "fetch_date": "2026-05-08",
+  "record_count": 119,
+  "subject_oid": "srp2205201502",
+  "subject": "Ünvan Değişikliği",
+  "years_back": 5,
+  "records": [
+    {
+      "new_ticker": "MEPET",
+      "new_name": "MEPET METRO PETROL VE TESİSLERİ SANAYİ TİCARET A.Ş.",
+      "old_name": null,
+      "change_date": "2026-04-28",
+      "disclosure_index": 1598141,
+      "summary_raw": "Ünvan Değişikliğine İlişkin Sermaye Piyasası Kurulu'na yapılan Başvuru Hakkında",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "MEPET",
+      "new_name": "MEPET METRO PETROL VE TESİSLERİ SANAYİ TİCARET A.Ş.",
+      "old_name": "Hakkında",
+      "change_date": "2026-04-27",
+      "disclosure_index": 1597729,
+      "summary_raw": "Şirket Ünvanı Değişikliği Hakkında",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "DITAS",
+      "new_name": "DİTAŞ DOĞAN YEDEK PARÇA İMALAT VE TEKNİK A.Ş.",
+      "old_name": null,
+      "change_date": "2026-04-22",
+      "disclosure_index": 1596737,
+      "summary_raw": "Unvan Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "BLU",
+      "new_name": "BLUPAY MENKUL DEĞERLER A.Ş.",
+      "old_name": "Şirket",
+      "change_date": "2026-04-14",
+      "disclosure_index": 1593067,
+      "summary_raw": "Şirket Ünvan Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "MEPET",
+      "new_name": "MEPET METRO PETROL VE TESİSLERİ SANAYİ TİCARET A.Ş.",
+      "old_name": "Şirket",
+      "change_date": "2026-03-09",
+      "disclosure_index": 1569028,
+      "summary_raw": "Şirket ünvanının Değişmesi Hususunda Sermaye Piyasası Başvurusu Hakkında.",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "MEPET",
+      "new_name": "MEPET METRO PETROL VE TESİSLERİ SANAYİ TİCARET A.Ş.",
+      "old_name": "Şirket",
+      "change_date": "2026-02-26",
+      "disclosure_index": 1561851,
+      "summary_raw": "Şirket ünvanının Değişmesi Hususunda Alınan Yönetim Kurulu Kararı Hakkında.",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "ARSAN",
+      "new_name": "ARSAN TEKSTİL TİCARET VE SANAYİ A.Ş.",
+      "old_name": null,
+      "change_date": "2026-02-05",
+      "disclosure_index": 1553097,
+      "summary_raw": "Unvan Değişikliği Bildirimi",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "IEP",
+      "new_name": "QINVEST PORTFÖY YÖNETİMİ A.Ş.",
+      "old_name": null,
+      "change_date": "2026-02-03",
+      "disclosure_index": 1551744,
+      "summary_raw": "Ünvan Değişikliği Hakkında",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "GATEG",
+      "new_name": "SENKRON SİBER GÜVENLİK YAZILIM VE BİLİŞİM ÇÖZÜMLERİ A.Ş.",
+      "old_name": null,
+      "change_date": "2026-01-12",
+      "disclosure_index": 1541098,
+      "summary_raw": "Unvan Değişikliği Hakkında",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "TRENJ",
+      "new_name": "İPEK DOĞAL ENERJİ KAYNAKLARI ARAŞTIRMA VE ÜRETİM A.Ş.",
+      "old_name": null,
+      "change_date": "2025-11-06",
+      "disclosure_index": 1512408,
+      "summary_raw": "Ünvan Değişikliği Hk.",
+      "member_oid": null,
+      "old_ticker": "IPEKE"
+    },
+    {
+      "new_ticker": "TRMET",
+      "new_name": "KOZA ANADOLU METAL MADENCİLİK İŞLETMELERİ A.Ş.",
+      "old_name": null,
+      "change_date": "2025-11-06",
+      "disclosure_index": 1512394,
+      "summary_raw": "Ünvan Değişikliği Hk.",
+      "member_oid": null,
+      "old_ticker": "KOZAA"
+    },
+    {
+      "new_ticker": "TRALT",
+      "new_name": "KOZA ALTIN İŞLETMELERİ A.Ş.",
+      "old_name": null,
+      "change_date": "2025-11-06",
+      "disclosure_index": 1512378,
+      "summary_raw": "Ünvan Değişikliği Hk.",
+      "member_oid": null,
+      "old_ticker": "KOZAL"
+    },
+    {
+      "new_ticker": "BTC",
+      "new_name": "BTCTURK PORTFÖY YÖNETİMİ A.Ş.",
+      "old_name": null,
+      "change_date": "2025-11-05",
+      "disclosure_index": 1511846,
+      "summary_raw": "Ünvan Değişikliği Bildirimi",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "BIGTK",
+      "new_name": "BİG MEDYA TEKNOLOJİ A.Ş.",
+      "old_name": "Şirketimiz",
+      "change_date": "2025-10-20",
+      "disclosure_index": 1506152,
+      "summary_raw": "Şirketimiz Ünvan Değişikliğinin Tescili Hk.",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "KSFIN",
+      "new_name": "KOÇ FIAT KREDİ FİNANSMAN A.Ş.",
+      "old_name": null,
+      "change_date": "2025-10-17",
+      "disclosure_index": 1505440,
+      "summary_raw": "Ünvan Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "BIGTK",
+      "new_name": "DOĞAN BURDA DERGİ YAYINCILIK VE PAZARLAMA A.Ş.",
+      "old_name": null,
+      "change_date": "2025-10-16",
+      "disclosure_index": 1505106,
+      "summary_raw": "Ünvan Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "EFOR",
+      "new_name": "EFOR ÇAY SANAYİ TİCARET A.Ş.",
+      "old_name": null,
+      "change_date": "2025-10-09",
+      "disclosure_index": 1501738,
+      "summary_raw": "Ünvan Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "GRP",
+      "new_name": "FONERİA PORTFÖY YÖNETİMİ A.Ş.",
+      "old_name": null,
+      "change_date": "2025-09-17",
+      "disclosure_index": 1490584,
+      "summary_raw": "Ünvan Değişkliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "DUNYH",
+      "new_name": "SELÇUK GIDA ENDÜSTRİ İHRACAT İTHALAT A.Ş.",
+      "old_name": "Şirketimizin",
+      "change_date": "2025-09-05",
+      "disclosure_index": 1487027,
+      "summary_raw": "Şirketimizin Ünvan Değişikliği hakkında,",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "BLUME",
+      "new_name": "METEMTUR YATIRIM ENERJİ TURİZM VE İNŞAAT A.Ş.",
+      "old_name": null,
+      "change_date": "2025-09-05",
+      "disclosure_index": 1486790,
+      "summary_raw": "Ünvan Değişikliği Hakkında",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "TRCAS",
+      "new_name": "TURCAS PETROL A.Ş.",
+      "old_name": null,
+      "change_date": "2025-09-02",
+      "disclosure_index": 1484842,
+      "summary_raw": "Unvan Değişikliği Bildirimi",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "TRHOL",
+      "new_name": "DAGİ YATIRIM HOLDİNG A.Ş.",
+      "old_name": null,
+      "change_date": "2025-08-06",
+      "disclosure_index": 1472705,
+      "summary_raw": "Ünvan Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "TEHOL",
+      "new_name": "PERA YATIRIM HOLDİNG A.Ş.",
+      "old_name": null,
+      "change_date": "2025-07-07",
+      "disclosure_index": 1458299,
+      "summary_raw": "Ünvan Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "ENSRI",
+      "new_name": "ENSARİ DERİ GIDA SANAYİ VE TİCARET A.Ş.",
+      "old_name": "Şirketimizin",
+      "change_date": "2025-06-03",
+      "disclosure_index": 1445242,
+      "summary_raw": "Şirketimizin Ünvan Değişikliği Hakkında",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "BESLR",
+      "new_name": "KEREVİTAŞ GIDA SANAYİ VE TİCARET A.Ş.",
+      "old_name": "Şirketimiz",
+      "change_date": "2025-05-16",
+      "disclosure_index": 1439773,
+      "summary_raw": "Şirketimiz Ünvan Değişikliğinin Tescili Hk.",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "A1YEN",
+      "new_name": "KARTAL YENİLENEBİLİR ENERJİ ÜRETİM A.Ş.",
+      "old_name": null,
+      "change_date": "2025-04-29",
+      "disclosure_index": 1430722,
+      "summary_raw": "Unvan Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "TKY, TKYAT",
+      "new_name": "TURKISH MENKUL DEĞERLER A.Ş.",
+      "old_name": null,
+      "change_date": "2025-03-13",
+      "disclosure_index": 1406285,
+      "summary_raw": "Şirketimizin unvanı, Turkish Menkul Değerler Anonim Şirketi olarak değişmiş olup 27.02.2025 tarihinde tescil edilmiştir.",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "ELP",
+      "new_name": "ELİPTİK YATIRIM MENKUL DEĞERLER A.Ş.",
+      "old_name": null,
+      "change_date": "2025-03-13",
+      "disclosure_index": 1406269,
+      "summary_raw": "Eliptik Yatırım Menkul Değerler A.Ş Unvan Değişikliği Tescili HK.",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "RUZYE",
+      "new_name": "ALTINYAĞ MADENCİLİK VE ENERJİ YATIRIMLARI SANAYİ VE TİCARET A.Ş.",
+      "old_name": null,
+      "change_date": "2025-03-04",
+      "disclosure_index": 1399816,
+      "summary_raw": "Ünvan Değişikliği Hk.",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "BSRFK",
+      "new_name": "BAŞER FİNANS FAKTORİNG A.Ş.",
+      "old_name": null,
+      "change_date": "2025-02-24",
+      "disclosure_index": 1395137,
+      "summary_raw": "Ünvan Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "TEHOL",
+      "new_name": "PERA YATIRIM HOLDİNG A.Ş.",
+      "old_name": null,
+      "change_date": "2025-01-30",
+      "disclosure_index": 1386798,
+      "summary_raw": "Ünvan Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "KNFRT",
+      "new_name": "KONFRUT GIDA SANAYİ VE TİCARET A.Ş.",
+      "old_name": null,
+      "change_date": "2025-01-20",
+      "disclosure_index": 1382848,
+      "summary_raw": "Şirketimiz Unvan Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "RGE",
+      "new_name": "ARGEUS GAYRİMENKUL PORTFÖY YÖNETİMİ A.Ş.",
+      "old_name": null,
+      "change_date": "2025-01-02",
+      "disclosure_index": 1371415,
+      "summary_raw": "Unvan değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "FNV",
+      "new_name": "FONEVA PORTFÖY YÖNETİMİ A.Ş.",
+      "old_name": null,
+      "change_date": "2024-12-31",
+      "disclosure_index": 1370578,
+      "summary_raw": "Şirket Unvan Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "AXG",
+      "new_name": "AKFEN GAYRİMENKUL PORTFÖY YÖNETİMİ A.Ş.",
+      "old_name": null,
+      "change_date": "2024-12-23",
+      "disclosure_index": 1367773,
+      "summary_raw": "Şirket Unvanı Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "QFINF",
+      "new_name": "BİEN FİNANS FAKTORİNG A.Ş.",
+      "old_name": "Şirketimiz",
+      "change_date": "2024-12-18",
+      "disclosure_index": 1366698,
+      "summary_raw": "Şirketimiz ünvan değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "QNBFK",
+      "new_name": "QNB FİNANS FİNANSAL KİRALAMA A.Ş.",
+      "old_name": null,
+      "change_date": "2024-10-25",
+      "disclosure_index": 1350898,
+      "summary_raw": "Ünvan değişikliği hk.,",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "TRFFA",
+      "new_name": "ARENA FİNANS FAKTORİNG A.Ş.",
+      "old_name": null,
+      "change_date": "2024-10-21",
+      "disclosure_index": 1349749,
+      "summary_raw": "UNVAN DEĞİŞİKLİĞİ",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "AMK",
+      "new_name": "ALTERNATİF YATIRIM MENKUL DEĞERLER A.Ş.",
+      "old_name": null,
+      "change_date": "2024-10-16",
+      "disclosure_index": 1349015,
+      "summary_raw": "Unvan Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "QNBVK",
+      "new_name": "QNB FİNANS VARLIK KİRALAMA A.Ş.",
+      "old_name": null,
+      "change_date": "2024-10-14",
+      "disclosure_index": 1348072,
+      "summary_raw": "QNB Varlık Kiralama A.Ş. - Unvan Değişikliği Tescilin Tamamlanması HK.",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "FIN, QNBTR",
+      "new_name": "QNB FİNANSBANK A.Ş.",
+      "old_name": null,
+      "change_date": "2024-10-11",
+      "disclosure_index": 1347375,
+      "summary_raw": "Bankamızın ticaret unvanının QNB Bank A.Ş. olarak değiştirilmesi hk.",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "KZBGY",
+      "new_name": "KIZILBÜK GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.",
+      "old_name": null,
+      "change_date": "2024-10-10",
+      "disclosure_index": 1346944,
+      "summary_raw": "Bağlı Ortaklık Unvan Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "FNY, QNBIN",
+      "new_name": "QNB FİNANS YATIRIM MENKUL DEĞERLER A.Ş.",
+      "old_name": null,
+      "change_date": "2024-10-09",
+      "disclosure_index": 1346290,
+      "summary_raw": "QNB Yatırım Menkul Değerler A.Ş. - Unvan Değişikliği Tescilin Tamamlanması HK.",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "MTY",
+      "new_name": "METRO YATIRIM MENKUL DEĞERLER A.Ş.",
+      "old_name": null,
+      "change_date": "2024-10-09",
+      "disclosure_index": 1346139,
+      "summary_raw": "Ünvan Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "FPY",
+      "new_name": "QNB FİNANS PORTFÖY YÖNETİMİ A.Ş.",
+      "old_name": null,
+      "change_date": "2024-10-04",
+      "disclosure_index": 1341777,
+      "summary_raw": "Şirket unvan değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "QNBFF",
+      "new_name": "QNB FİNANS FAKTORİNG A.Ş.",
+      "old_name": null,
+      "change_date": "2024-10-02",
+      "disclosure_index": 1340836,
+      "summary_raw": "Ünvan Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "LYDYE",
+      "new_name": "TETAMAT GIDA YATIRIMLARI A.Ş.",
+      "old_name": null,
+      "change_date": "2024-09-09",
+      "disclosure_index": 1332219,
+      "summary_raw": "Unvan Değişikliği Hk.",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "GRTHO",
+      "new_name": "GRAINTURK TARIM A.Ş.",
+      "old_name": null,
+      "change_date": "2024-09-04",
+      "disclosure_index": 1330108,
+      "summary_raw": "Unvan Değişikliği Hk",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "ICT",
+      "new_name": "ICBC TURKEY YATIRIM MENKUL DEĞERLER A.Ş.",
+      "old_name": null,
+      "change_date": "2024-08-22",
+      "disclosure_index": 1326891,
+      "summary_raw": "Ünvan ve Ades Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "PATEK",
+      "new_name": "PASİFİK DONANIM VE YAZILIM BİLGİ TEKNOLOJİLERİ A.Ş.",
+      "old_name": null,
+      "change_date": "2024-08-05",
+      "disclosure_index": 1321162,
+      "summary_raw": "Unvan Değişikliği Hakkında",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "MTRKS",
+      "new_name": "MATRİKS BİLGİ DAĞITIM HİZMETLERİ A.Ş.",
+      "old_name": null,
+      "change_date": "2024-08-02",
+      "disclosure_index": 1320586,
+      "summary_raw": "Ünvan Değişikliği Hakkında",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "LYDHO",
+      "new_name": "MİLPA TİCARİ VE SINAİ ÜRÜNLER PAZARLAMA SANAYİ VE TİCARET A.Ş.",
+      "old_name": null,
+      "change_date": "2024-07-31",
+      "disclosure_index": 1318144,
+      "summary_raw": "Ünvan Değişikliği Hk",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "MEKAG",
+      "new_name": "MEKA BETON SANTRALLERİ İMALAT SANAYİ VE TİCARET A.Ş.",
+      "old_name": null,
+      "change_date": "2024-07-23",
+      "disclosure_index": 1314722,
+      "summary_raw": "Şirket Unvanı Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "INTEK",
+      "new_name": "UZERTAŞ BOYA SANAYİ TİCARET VE YATIRIM A.Ş.",
+      "old_name": null,
+      "change_date": "2024-07-05",
+      "disclosure_index": 1306425,
+      "summary_raw": "Unvan Değişikliği Tescili",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "TEHOL",
+      "new_name": "PERA GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.",
+      "old_name": null,
+      "change_date": "2024-05-24",
+      "disclosure_index": 1290852,
+      "summary_raw": "Şirket Unvanının Pera Yatırım Holding A.Ş. Olarak Tescil Edilmesi",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "PA1",
+      "new_name": "A1 PORTFÖY YÖNETİMİ A.Ş.",
+      "old_name": null,
+      "change_date": "2024-05-06",
+      "disclosure_index": 1281584,
+      "summary_raw": "Unvan Değişikliği Hk.",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "PPR",
+      "new_name": "POLEN MENKUL DEĞERLER A.Ş.",
+      "old_name": null,
+      "change_date": "2024-03-28",
+      "disclosure_index": 1263681,
+      "summary_raw": "Unvan Değişikliği ve İşletme Adı",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "SKYLP",
+      "new_name": "İDEAL FİNANSAL TEKNOLOJİLER VE DANIŞMANLIK A.Ş.",
+      "old_name": null,
+      "change_date": "2024-02-09",
+      "disclosure_index": 1248487,
+      "summary_raw": "Unvan Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "TKY, TKYAT",
+      "new_name": "TURKİSH YATIRIM MENKUL DEĞERLER A.Ş.",
+      "old_name": null,
+      "change_date": "2024-01-26",
+      "disclosure_index": 1243015,
+      "summary_raw": "Unvan Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "ALQ, ALROS",
+      "new_name": "BAHAR MENKUL DEĞERLER TİCARET A.Ş.",
+      "old_name": null,
+      "change_date": "2024-01-16",
+      "disclosure_index": 1240832,
+      "summary_raw": "Ünvan Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "BLS, BLSMD",
+      "new_name": "SANKO YATIRIM MENKUL DEĞERLER A.Ş.",
+      "old_name": null,
+      "change_date": "2023-11-30",
+      "disclosure_index": 1221135,
+      "summary_raw": "Şirket Ortaklık ve Unvan değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "BRSAN",
+      "new_name": "BORUSAN MANNESMANN BORU SANAYİ VE TİCARET A.Ş.",
+      "old_name": null,
+      "change_date": "2023-11-27",
+      "disclosure_index": 1220337,
+      "summary_raw": "Şirket Unvanı",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "KTP",
+      "new_name": "KT PORTFÖY YÖNETİMİ A.Ş.",
+      "old_name": null,
+      "change_date": "2023-11-01",
+      "disclosure_index": 1212745,
+      "summary_raw": "Ünvan Değişikliği Hk.",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "ORA",
+      "new_name": "ORAGON GAYRİMENKUL PORTFÖY YÖNETİMİ A.Ş.",
+      "old_name": null,
+      "change_date": "2023-10-25",
+      "disclosure_index": 1209322,
+      "summary_raw": "Unvan Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "LRSHO",
+      "new_name": "İTTİFAK HOLDİNG A.Ş.",
+      "old_name": null,
+      "change_date": "2023-10-09",
+      "disclosure_index": 1202514,
+      "summary_raw": "Unvan Değişikliği Hk.",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "LRSHO",
+      "new_name": "İTTİFAK HOLDİNG A.Ş.",
+      "old_name": null,
+      "change_date": "2023-08-14",
+      "disclosure_index": 1185309,
+      "summary_raw": "Ünvan Değişikliği Hk.",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "OZRDN",
+      "new_name": "ÖZERDEN PLASTİK SANAYİ VE TİCARET A.Ş.",
+      "old_name": null,
+      "change_date": "2023-07-27",
+      "disclosure_index": 1175750,
+      "summary_raw": "Şirket Unvan Değişikliği (Tescil)",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "GRP",
+      "new_name": "GRİ PORTFÖY YÖNETİMİ A.Ş.",
+      "old_name": null,
+      "change_date": "2023-07-05",
+      "disclosure_index": 1165828,
+      "summary_raw": "Portföy Yönetim Şirketi Unvan Değişikliği Hk.",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "ULAS",
+      "new_name": "ULAŞLAR TURİZM YATIRIMLARI VE DAYANIKLI TÜKETİM MALLARI TİCARET PAZARLAMA A.Ş.",
+      "old_name": "Şirket Ticaret",
+      "change_date": "2023-06-15",
+      "disclosure_index": 1158956,
+      "summary_raw": "Şirket Ticaret Ünvanı Değişikliği hk.",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "ICUGS",
+      "new_name": "RHEA GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş.",
+      "old_name": "(Tescil)_Düzeltme",
+      "change_date": "2023-06-05",
+      "disclosure_index": 1156059,
+      "summary_raw": "Şirket Ünvan Değişikliği (Tescil)_Düzeltme",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "ICUGS",
+      "new_name": "RHEA GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş.",
+      "old_name": "(Tescil)",
+      "change_date": "2023-06-05",
+      "disclosure_index": 1156028,
+      "summary_raw": "Şirket Ünvan Değişikliği (Tescil)",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "INGRM",
+      "new_name": "ARMADA BİLGİSAYAR SİSTEMLERİ SANAYİ VE TİCARET A.Ş.",
+      "old_name": null,
+      "change_date": "2023-05-26",
+      "disclosure_index": 1154142,
+      "summary_raw": "Şirket Unvan Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "ATATP",
+      "new_name": "ATP TİCARİ BİLGİSAYAR AĞI VE ELEKTRİK GÜÇ KAYNAKLARI ÜRETİM PAZARLAMA VE TİCARET A.Ş.",
+      "old_name": null,
+      "change_date": "2023-04-25",
+      "disclosure_index": 1140745,
+      "summary_raw": "Şirket Unvanı Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "TKBIR",
+      "new_name": "TARIM KREDİ BİRLİK TARIM ÜRÜNLERİ HAYVANCILIK AMBALAJ PETROL NAKLİYAT İTHALAT İHRACAT SANAYİ VE TİCARET A.Ş.",
+      "old_name": null,
+      "change_date": "2023-04-11",
+      "disclosure_index": 1136411,
+      "summary_raw": "Unvan Değişikliği Hk.",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "AKSEN",
+      "new_name": "AKSA ENERJİ ÜRETİM A.Ş.",
+      "old_name": null,
+      "change_date": "2023-02-21",
+      "disclosure_index": 1115511,
+      "summary_raw": "Şirket Unvan Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "NOR",
+      "new_name": "NOOR CAPİTAL MARKET MENKUL DEĞERLER A.Ş.",
+      "old_name": null,
+      "change_date": "2023-01-06",
+      "disclosure_index": 1094999,
+      "summary_raw": "Unvan Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "KRONT",
+      "new_name": "KRON TEKNOLOJİ A.Ş.",
+      "old_name": null,
+      "change_date": "2022-12-07",
+      "disclosure_index": 1085119,
+      "summary_raw": "Unvan Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "KIG",
+      "new_name": "KIG PORTFÖY YÖNETİMİ A.Ş.",
+      "old_name": null,
+      "change_date": "2022-11-28",
+      "disclosure_index": 1082621,
+      "summary_raw": "KIG PORTFÖY YÖNETİMİ A.Ş. UNVAN DEĞİŞİKLİĞİ",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "ALN",
+      "new_name": "ALAN YATIRIM MENKUL DEĞERLER A.Ş.",
+      "old_name": null,
+      "change_date": "2022-11-18",
+      "disclosure_index": 1081143,
+      "summary_raw": "Unvan Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "MUP",
+      "new_name": "MÜKAFAT PORTFÖY YÖNETİMİ A.Ş.",
+      "old_name": null,
+      "change_date": "2022-10-25",
+      "disclosure_index": 1073846,
+      "summary_raw": "Şirket Unvan Değişikliği Bilgilendirmesi",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "VST",
+      "new_name": "BGC PARTNERS MENKUL DEĞERLER A.Ş.",
+      "old_name": null,
+      "change_date": "2022-10-12",
+      "disclosure_index": 1071248,
+      "summary_raw": "Ünvan değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "MNDTR",
+      "new_name": "MONDİ TİRE KUTSAN KAĞIT VE AMBALAJ SANAYİ A.Ş.",
+      "old_name": null,
+      "change_date": "2022-09-30",
+      "disclosure_index": 1066343,
+      "summary_raw": "Unvan Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "ZEDUR",
+      "new_name": "UTOPYA TURİZM İNŞAAT İŞLETMECİLİK TİCARET A.Ş.",
+      "old_name": null,
+      "change_date": "2022-09-27",
+      "disclosure_index": 1065474,
+      "summary_raw": "Şirket Unvanı Değişikliği Hk.",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "OGP",
+      "new_name": "OMURGA GAYRİMENKUL VE GİRİŞİM SERMAYESİ PORTFÖY YÖNETİMİ A.Ş.",
+      "old_name": "OGC Fonu",
+      "change_date": "2022-09-23",
+      "disclosure_index": 1064922,
+      "summary_raw": "OGC Fonu ünvan Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "KNTFA",
+      "new_name": "KENT FAKTORİNG A.Ş.",
+      "old_name": null,
+      "change_date": "2022-09-21",
+      "disclosure_index": 1064396,
+      "summary_raw": "Ünvan değikliği hk.",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "TRMEN, TVM",
+      "new_name": "IŞIK YATIRIM MENKUL DEĞERLER A.Ş.",
+      "old_name": null,
+      "change_date": "2022-08-12",
+      "disclosure_index": 1054936,
+      "summary_raw": "Unvan Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "KUVVA",
+      "new_name": "SERVE FİLM PRODÜKSİYON EĞLENCE A.Ş.",
+      "old_name": null,
+      "change_date": "2022-07-29",
+      "disclosure_index": 1049065,
+      "summary_raw": "Şirketimizin Unvanının Kuvva Gıda Ticaret ve Sanayi Yatırımları Anonim Şirketi olarak değişiminin tescil ve ilanı hakkında",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "HPY",
+      "new_name": "HSBC PORTFÖY YÖNETİMİ A.Ş.",
+      "old_name": null,
+      "change_date": "2022-07-19",
+      "disclosure_index": 1046444,
+      "summary_raw": "Unvan Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "HPY",
+      "new_name": "HSBC PORTFÖY YÖNETİMİ A.Ş.",
+      "old_name": null,
+      "change_date": "2022-07-19",
+      "disclosure_index": 1046443,
+      "summary_raw": "Unvan Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "HPY",
+      "new_name": "HSBC PORTFÖY YÖNETİMİ A.Ş.",
+      "old_name": null,
+      "change_date": "2022-07-19",
+      "disclosure_index": 1046442,
+      "summary_raw": "Unvan Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "HPY",
+      "new_name": "HSBC PORTFÖY YÖNETİMİ A.Ş.",
+      "old_name": null,
+      "change_date": "2022-07-19",
+      "disclosure_index": 1046440,
+      "summary_raw": "Unvan Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "HPY",
+      "new_name": "HSBC PORTFÖY YÖNETİMİ A.Ş.",
+      "old_name": null,
+      "change_date": "2022-07-19",
+      "disclosure_index": 1046439,
+      "summary_raw": "Unvan Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "HPY",
+      "new_name": "HSBC PORTFÖY YÖNETİMİ A.Ş.",
+      "old_name": null,
+      "change_date": "2022-07-19",
+      "disclosure_index": 1046437,
+      "summary_raw": "Unvan Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "HPY",
+      "new_name": "HSBC PORTFÖY YÖNETİMİ A.Ş.",
+      "old_name": null,
+      "change_date": "2022-07-19",
+      "disclosure_index": 1046436,
+      "summary_raw": "Unvan Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "AKP",
+      "new_name": "AK PORTFÖY YÖNETİMİ A.Ş.",
+      "old_name": null,
+      "change_date": "2022-05-26",
+      "disclosure_index": 1032563,
+      "summary_raw": "UNVAN DEGISMI",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "SANFM",
+      "new_name": "SANİFOAM SÜNGER SANAYİ VE TİCARET A.Ş.",
+      "old_name": "Şirket",
+      "change_date": "2022-04-28",
+      "disclosure_index": 1024658,
+      "summary_raw": "Şirket Ünvan Değişikliği Hk.",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "ESCAR",
+      "new_name": "ESCAR TURİZM TAŞIMACILIK TİCARET A.Ş.",
+      "old_name": null,
+      "change_date": "2022-04-07",
+      "disclosure_index": 1017021,
+      "summary_raw": "Unvan değişkliği tescili hk",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "IZINV",
+      "new_name": "İZ HAYVANCILIK TARIM VE GIDA SANAYİ TİCARET A.Ş.",
+      "old_name": null,
+      "change_date": "2022-04-05",
+      "disclosure_index": 1016117,
+      "summary_raw": "Unvan Değişikliğinin Tescili",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "ABO",
+      "new_name": "SKY GAYRİMENKUL VE GİRİŞİM SERMAYESİ PORTFÖY YÖNETİMİ A.Ş.",
+      "old_name": null,
+      "change_date": "2022-03-08",
+      "disclosure_index": 1008369,
+      "summary_raw": "Unvan Değişikliği Hk.",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "GATEG",
+      "new_name": "SENKRON GÜVENLİK VE İLETİŞİM SİSTEMLERİ A.Ş.",
+      "old_name": null,
+      "change_date": "2022-02-16",
+      "disclosure_index": 1002263,
+      "summary_raw": "ÜNVAN DEĞİŞİKLİĞİ HAKKINDA",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "DMK",
+      "new_name": "DİNAMİK MENKUL DEĞERLER A.Ş.",
+      "old_name": null,
+      "change_date": "2022-02-08",
+      "disclosure_index": 1000181,
+      "summary_raw": "Unvan Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "DGNMO",
+      "new_name": "DOĞTAŞ KELEBEK MOBİLYA SANAYİ VE TİCARET A.Ş.",
+      "old_name": null,
+      "change_date": "2021-12-24",
+      "disclosure_index": 986045,
+      "summary_raw": "Şirketimizin Unvan Değişikliğinin Tescili Hakkında",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "ALBMD, ALM",
+      "new_name": "ALB MENKUL DEĞERLER A.Ş.",
+      "old_name": "Şirket",
+      "change_date": "2021-12-15",
+      "disclosure_index": 983286,
+      "summary_raw": "Şirket Ünvanı Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "OTTO",
+      "new_name": "TAÇ TARIM ÜRÜNLERİ HAYVANCILIK GIDA SANAYİ VE TİCARET A.Ş.",
+      "old_name": null,
+      "change_date": "2021-12-06",
+      "disclosure_index": 981063,
+      "summary_raw": "Unvan Değişikliği Hk.",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "LYDYE",
+      "new_name": "TAZE KURU GIDA SANAYİ VE TİCARET A.Ş.",
+      "old_name": null,
+      "change_date": "2021-10-15",
+      "disclosure_index": 971118,
+      "summary_raw": "Şirket Unvan Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "TRFFA",
+      "new_name": "ARENA FAKTORİNG A.Ş",
+      "old_name": "Şirket",
+      "change_date": "2021-10-06",
+      "disclosure_index": 967512,
+      "summary_raw": "Şirket ünvan değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "SKYLP",
+      "new_name": "İDEALİST DANIŞMANLIK A.Ş.",
+      "old_name": null,
+      "change_date": "2021-09-14",
+      "disclosure_index": 963621,
+      "summary_raw": "Unvan Değişikliği Hk.",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "TRMEN, TVM",
+      "new_name": "IŞIK MENKUL DEĞERLER A.Ş.",
+      "old_name": null,
+      "change_date": "2021-09-08",
+      "disclosure_index": 962906,
+      "summary_raw": "Unvan Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "PAMEL",
+      "new_name": "PAMUKOVA YENİLENEBİLİR ELEKTRİK ÜRETİM A.Ş.",
+      "old_name": null,
+      "change_date": "2021-08-19",
+      "disclosure_index": 959366,
+      "summary_raw": "Unvan Değişikliği Tescili",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "KUYAS",
+      "new_name": "KUYUMCUKENT GAYRİMENKUL YATIRIMLARI A.Ş.",
+      "old_name": null,
+      "change_date": "2021-08-17",
+      "disclosure_index": 958804,
+      "summary_raw": "ünvan değişilkiği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "PAPIL",
+      "new_name": "PAPİLON SAVUNMA-GÜVENLİK SİSTEMLERİ BİLİŞİM MÜHENDİSLİK HİZMETLERİ İTHALAT İHRACAT SANAYİ VE TİCARET A.Ş.",
+      "old_name": null,
+      "change_date": "2021-08-06",
+      "disclosure_index": 955253,
+      "summary_raw": "Unvan Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "FORMT",
+      "new_name": "FORMET ÇELİK KAPI SANAYİ VE TİCARET A.Ş.",
+      "old_name": null,
+      "change_date": "2021-08-05",
+      "disclosure_index": 954891,
+      "summary_raw": "Unvan değişikliğinin tescili",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "FORMT",
+      "new_name": "FORMET ÇELİK KAPI SANAYİ VE TİCARET A.Ş.",
+      "old_name": null,
+      "change_date": "2021-07-29",
+      "disclosure_index": 952637,
+      "summary_raw": "Unvan değişikliği genel kurul onayı",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "AGESA",
+      "new_name": "AVİVASA EMEKLİLİK VE HAYAT A.Ş.",
+      "old_name": null,
+      "change_date": "2021-07-09",
+      "disclosure_index": 949925,
+      "summary_raw": "Unvan değişikliği hk.",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "FORMT",
+      "new_name": "FORMET ÇELİK KAPI SANAYİ VE TİCARET A.Ş.",
+      "old_name": null,
+      "change_date": "2021-07-09",
+      "disclosure_index": 949907,
+      "summary_raw": "SPK tarafından onaylanan unvan değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "MAP",
+      "new_name": "MAQASID PORTFÖY YÖNETİMİ A.Ş.",
+      "old_name": null,
+      "change_date": "2021-06-18",
+      "disclosure_index": 942998,
+      "summary_raw": "ÜNVAN DEĞİŞİKLİĞİ",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "KGYO",
+      "new_name": "YAPI KREDİ KORAY GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.",
+      "old_name": null,
+      "change_date": "2021-06-14",
+      "disclosure_index": 942285,
+      "summary_raw": "Ünvan Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "OLMK",
+      "new_name": "OLMUKSAN INTERNATIONAL PAPER AMBALAJ SANAYİ VE TİCARET A.Ş.",
+      "old_name": null,
+      "change_date": "2021-06-10",
+      "disclosure_index": 941784,
+      "summary_raw": "Unvan Değişikliği",
+      "member_oid": null,
+      "old_ticker": null
+    },
+    {
+      "new_ticker": "FORMT",
+      "new_name": "FORMET ÇELİK KAPI SANAYİ VE TİCARET A.Ş.",
+      "old_name": null,
+      "change_date": "2021-06-01",
+      "disclosure_index": 939422,
+      "summary_raw": "Şirket unvanının değiştirilmesi",
+      "member_oid": null,
+      "old_ticker": null
+    }
+  ],
+  "notes": [
+    "Subject: srp2205201502 (Ünvan Değişikliği)",
+    "Years back: 5",
+    "Manual eski_ticker override: 3 of 119 (KNOWN_TICKER_MAPPINGS dict)"
+  ]
+}
