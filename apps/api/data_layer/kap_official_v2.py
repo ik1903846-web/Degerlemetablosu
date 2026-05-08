@@ -90,53 +90,90 @@ class CompanyDisclosureSummary:
 # Company Resolution
 # ============================================================================
 
-def fetch_companies(member_types: Optional[List[str]] = None) -> List[CompanyMeta]:
+# Module-level memoize: paralel ortamda her thread tek seferlik fetch
+# (önceden her find_company çağrısı ile fetch_companies tetikleniyor,
+#  ThreadPoolExecutor 5 worker × 6 endpoint × N ticker → KAP rate limit
+#  → "no_FR" empty response. Memoize ile 1 kez fetch + cache).
+_COMPANIES_CACHE: Optional[List[CompanyMeta]] = None
+_COMPANIES_CACHE_LOCK = None  # threading.Lock — lazy init
+
+
+def _get_companies_lock():
+    global _COMPANIES_CACHE_LOCK
+    if _COMPANIES_CACHE_LOCK is None:
+        from threading import Lock
+        _COMPANIES_CACHE_LOCK = Lock()
+    return _COMPANIES_CACHE_LOCK
+
+
+def fetch_companies(
+    member_types: Optional[List[str]] = None,
+    force_refresh: bool = False,
+) -> List[CompanyMeta]:
     """KAP IGS+BDK+YK+PYS member types union.
+
+    Module-level memoize: ilk çağrıda tüm 4 member type'ı fetch eder,
+    sonraki çağrılar in-memory cache döndürür. Thread-safe.
 
     IGS = Industrial general (BIST listed companies)
     BDK = Bankalar
     YK   = Yatırım Kuruluşları
     PYS  = Portföy Yönetim Şirketleri
     """
-    types = member_types or ["IGS", "BDK", "YK", "PYS"]
-    results: Dict[str, CompanyMeta] = {}
+    global _COMPANIES_CACHE
+    # Default args ile cache döndür
+    if (member_types is None and not force_refresh
+            and _COMPANIES_CACHE is not None):
+        return _COMPANIES_CACHE
 
-    with httpx.Client(headers=DEFAULT_HEADERS, timeout=30.0) as c:
-        for mt in types:
-            try:
-                r = c.get(
-                    f"{KAP_COMPANY_ITEMS_URL}/{mt}/A",
-                    follow_redirects=True,
-                )
-                if r.status_code != 200:
-                    continue
-                rows = r.json() or []
-            except Exception:
-                continue
+    with _get_companies_lock():
+        if (member_types is None and not force_refresh
+                and _COMPANIES_CACHE is not None):
+            return _COMPANIES_CACHE
 
-            for row in rows:
-                stock_codes = (row.get("stockCode") or "").split(",")
-                for sc in stock_codes:
-                    sc = sc.strip().upper()
-                    if not sc or sc == "-":
-                        continue
-                    if sc in results:
-                        continue
-                    results[sc] = CompanyMeta(
-                        ticker=sc,
-                        kap_member_oid=row.get("kapMemberOid"),
-                        mkk_member_oid=row.get("mkkMemberOid"),
-                        company_title=row.get("kapMemberTitle"),
-                        member_type=row.get("kapMemberType"),
-                        pay_islem_durumu=row.get("payIslemDurumu"),
-                        faaliyet_durumu=row.get("faaliyetDurumu"),
-                        raw=row,
+        types = member_types or ["IGS", "BDK", "YK", "PYS"]
+        results: Dict[str, CompanyMeta] = {}
+
+        with httpx.Client(headers=DEFAULT_HEADERS, timeout=30.0) as c:
+            for mt in types:
+                try:
+                    r = c.get(
+                        f"{KAP_COMPANY_ITEMS_URL}/{mt}/A",
+                        follow_redirects=True,
                     )
-    return list(results.values())
+                    if r.status_code != 200:
+                        continue
+                    rows = r.json() or []
+                except Exception:
+                    continue
+
+                for row in rows:
+                    stock_codes = (row.get("stockCode") or "").split(",")
+                    for sc in stock_codes:
+                        sc = sc.strip().upper()
+                        if not sc or sc == "-":
+                            continue
+                        if sc in results:
+                            continue
+                        results[sc] = CompanyMeta(
+                            ticker=sc,
+                            kap_member_oid=row.get("kapMemberOid"),
+                            mkk_member_oid=row.get("mkkMemberOid"),
+                            company_title=row.get("kapMemberTitle"),
+                            member_type=row.get("kapMemberType"),
+                            pay_islem_durumu=row.get("payIslemDurumu"),
+                            faaliyet_durumu=row.get("faaliyetDurumu"),
+                            raw=row,
+                        )
+
+        out = list(results.values())
+        if member_types is None:
+            _COMPANIES_CACHE = out
+        return out
 
 
 def find_company(ticker: str) -> Optional[CompanyMeta]:
-    """Tek ticker resolve (IGS+BDK+YK+PYS scan)."""
+    """Tek ticker resolve (IGS+BDK+YK+PYS scan, memoized)."""
     ticker = ticker.upper().strip()
     for c in fetch_companies():
         if c.ticker == ticker:
