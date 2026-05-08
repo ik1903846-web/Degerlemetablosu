@@ -46,10 +46,13 @@ DEFAULT_HEADERS = {
     "Referer": f"{KAP_BASE_URL}/tr/bildirim-sorgu",
 }
 
-# Subject OIDs — kap-client FundSubject (resmi KAP UUID format)
-SUBJECT_FINANSAL_RAPOR = "8aca490d502dd03b01502deede79010a"
-SUBJECT_FINANSAL_TABLO = "8aca490d502dd03b01502df05c54011a"
-SUBJECT_OZEL_DURUM = "8aca490d51458dcf01514802e9ac0490"
+# Subject OIDs — pykap (recent KAP API format, Session 1.5 evidence)
+# kap-client OID'leri OUTDATED, pykap source code'tan extracted:
+SUBJECT_FINANSAL_RAPOR = "4028328c594bfdca01594c0af9aa0057"
+SUBJECT_FAALIYET_RAPORU = "4028328d594c04f201594c5155dd0076"
+# Disclosure class codes (KAP):
+DISCLOSURE_CLASS_FR = "FR"   # Financial Report (zorunlu, pykap evidence)
+DISCLOSURE_CLASS_OZD = "ODA"  # Özel Durum Açıklaması
 
 
 @dataclass
@@ -150,9 +153,13 @@ def fetch_disclosures(
     start_date: Optional[date] = None,
     end_date: Optional[date] = None,
     subject_oid: Optional[str] = SUBJECT_FINANSAL_RAPOR,
-    days_back: int = 730,  # 2 yıl default
+    days_back: int = 365,
 ) -> CompanyDisclosureSummary:
-    """KAP disclosure search (member oid + date range + subject filter)."""
+    """KAP disclosure search (member oid + date range + subject filter).
+
+    NOT: KAP API tarih aralığı **max 365 gün** (Session 1.5 evidence).
+    Daha geniş aralık için chunked fetch yap (auto-split 365 gün).
+    """
 
     summary = CompanyDisclosureSummary(ticker=ticker.upper())
 
@@ -166,64 +173,68 @@ def fetch_disclosures(
     end_date = end_date or date.today()
     start_date = start_date or (end_date - timedelta(days=days_back))
 
-    # Schema match kap-client MemberDisclosureQueryBody (resmi KAP format)
-    payload = {
-        "fromDate": start_date.isoformat(),
-        "toDate": end_date.isoformat(),
-        "memberType": "",
-        "mkkMemberOidList": [company.mkk_member_oid],
-        "inactiveMkkMemberOidList": [],
-        "disclosureClass": "",
-        "subjectList": [subject_oid] if subject_oid else [],
-        "isLate": "",
-        "mainSector": "",
-        "sector": "",
-        "subSector": "",
-        "marketOid": "",
-        "index": "",
-        "bdkReview": "",
-        "bdkMemberOidList": [],
-        "year": "",
-        "term": "",
-        "ruleType": "",
-        "period": "",
-        "fromSrc": False,
-        "srcCategory": "",
-        "disclosureIndexList": [],
-    }
+    # Date range chunk (KAP 365-day limit, Session 1.5 evidence)
+    chunks: list[tuple[date, date]] = []
+    cur_end = end_date
+    while cur_end > start_date:
+        cur_start = max(start_date, cur_end - timedelta(days=365))
+        chunks.append((cur_start, cur_end))
+        cur_end = cur_start - timedelta(days=1)
+        if cur_end <= start_date:
+            break
 
+    # Multi-chunk fetch (KAP 365-day limit per request)
+    seen_idx: set = set()
     try:
         with httpx.Client(headers=DEFAULT_HEADERS, timeout=30.0) as c:
-            r = c.post(
-                KAP_MEMBER_DISCLOSURE_URL,
-                json=payload,
-                follow_redirects=True,
-            )
-            if r.status_code != 200:
-                summary.error = (
-                    f"Disclosure POST {r.status_code}: {r.text[:200]}"
+            for ch_start, ch_end in chunks:
+                payload = {
+                    "fromDate": ch_start.isoformat(),
+                    "toDate": ch_end.isoformat(),
+                    "disclosureClass": DISCLOSURE_CLASS_FR,
+                    "subjectList": [subject_oid] if subject_oid else [SUBJECT_FINANSAL_RAPOR],
+                    "mkkMemberOidList": [company.mkk_member_oid],
+                    "inactiveMkkMemberOidList": [],
+                    "bdkMemberOidList": [],
+                    "fromSrc": False,
+                    "disclosureIndexList": [],
+                }
+                r = c.post(
+                    KAP_MEMBER_DISCLOSURE_URL,
+                    json=payload,
+                    follow_redirects=True,
                 )
-                return summary
+                if r.status_code != 200:
+                    summary.error = (
+                        f"Chunk {ch_start}/{ch_end} POST {r.status_code}: {r.text[:120]}"
+                    )
+                    return summary
 
-            rows = r.json() or []
-            for row in rows:
-                summary.disclosures.append(DisclosureRecord(
-                    disclosure_index=(
-                        row.get("disclosureIndex")
-                        or row.get("index")
-                    ),
-                    publish_date=(
-                        row.get("publishDate")
-                        or row.get("kapPublishDate")
-                    ),
-                    subject=row.get("subject") or row.get("title"),
-                    title=row.get("summary") or row.get("title"),
-                    company_oid=row.get("memberOid"),
-                    raw=row,
-                ))
+                rows = r.json() or []
+                for row in rows:
+                    idx = row.get("disclosureIndex") or row.get("index")
+                    if idx in seen_idx:
+                        continue
+                    seen_idx.add(idx)
+                    summary.disclosures.append(DisclosureRecord(
+                        disclosure_index=idx,
+                        publish_date=(
+                            row.get("publishDate")
+                            or row.get("kapPublishDate")
+                        ),
+                        subject=row.get("subject") or row.get("disclosureClass"),
+                        title=row.get("summary") or row.get("kapTitle"),
+                        company_oid=row.get("memberOid"),
+                        raw=row,
+                    ))
     except Exception as e:
         summary.error = f"Disclosure fetch error: {type(e).__name__}: {e}"
 
+    # Sort newest-first
+    summary.disclosures.sort(
+        key=lambda d: d.publish_date or "",
+        reverse=True,
+    )
     return summary
 
 
