@@ -57,6 +57,7 @@ class FinancialLineItems:
     onceki_donem: Optional[str] = None
     sunum_birimi: Optional[str] = None     # "1.000 TL" veya "1 TL"
     konsolide: Optional[bool] = None
+    dialect: Optional[str] = None          # industrial / banking / holding / insurance / unknown
 
     # Income statement (Cari + Önceki)
     revenue_cari: Optional[float] = None
@@ -67,6 +68,14 @@ class FinancialLineItems:
     net_income_cari: Optional[float] = None
     net_income_onceki: Optional[float] = None
     tax_expense_cari: Optional[float] = None
+
+    # Banking-specific dialect fields (yalnız banking için doludur)
+    interest_income_cari: Optional[float] = None    # FAİZ GELİRLERİ
+    interest_expense_cari: Optional[float] = None   # FAİZ GİDERLERİ (negatif)
+    net_interest_income_cari: Optional[float] = None  # interest_income + interest_expense
+
+    # Holding-specific (Hasılat'a ek finans hizmetleri hasılatı)
+    finance_sector_revenue_cari: Optional[float] = None
 
     # Cash Flow
     capex_cari: Optional[float] = None             # negatif → absolute saklanır
@@ -178,30 +187,25 @@ def _find_value_in_tables(
 
                 for row_idx in mask[mask].index:
                     row = df.iloc[row_idx]
-                    # KAP layout: skip cols 0,1 (label) — note col 2 small int filter
-                    # Note column: integer 1-99999 (TFRS standart referansı, ör. 41011)
-                    # Financial col: decimal OR int > 99999 (binlik TL büyüklüğü)
+                    # KAP layout: col 0/1 = label (skip), col 2 = note column,
+                    # col 3+ = period values (cari, [3-aylık], önceki, [3-aylık])
+                    # Note: integer 1-99999 (TFRS standart referansı, ör. 41011).
+                    # Financial values: col 3+'ta her TR-parse-able sayı kabul
+                    # (KCHOL gibi 1.000.000 TL sunum biriminde değerler 5-haneli).
                     numeric_values: List = []
                     for ci in range(2, min(df.shape[1], 8)):
                         v = _parse_tr_number(row.iloc[ci])
                         if v is None:
                             continue
-                        # Skip integer notes (1-99999, no decimal)
-                        is_note = (v == int(v) and 1 <= abs(v) <= 99999)
-                        if is_note:
-                            continue
-                        if abs(v) >= 1000:
-                            numeric_values.append((ci, v))
-                    if not numeric_values:
-                        # Negatif/sıfır ya da küçük value (loss) için fallback
-                        for ci in range(3, min(df.shape[1], 8)):
-                            v = _parse_tr_number(row.iloc[ci])
-                            if v is None:
-                                continue
+                        # Note filter ONLY for col 2
+                        if ci == 2:
                             is_note = (v == int(v) and 1 <= abs(v) <= 99999)
                             if is_note:
                                 continue
-                            numeric_values.append((ci, v))
+                            if abs(v) < 1000:  # Boş/eser değer skip
+                                continue
+                        # col 3+ → her sayı financial (sıfır dahil)
+                        numeric_values.append((ci, v))
                     if not numeric_values:
                         continue
                     if period_col == "cari":
@@ -215,6 +219,78 @@ def _find_value_in_tables(
                         return numeric_values[1][1]
 
     return None
+
+
+def _detect_dialect(all_tables: List[pd.DataFrame]) -> str:
+    """KAP Excel-HTML → dialect classification.
+
+    industrial: Hasılat + ESAS FAALİYET KARI (TUPRS, ARCLK gibi)
+    banking:    FAİZ GELİRLERİ + FAİZ GİDERLERİ ana satırı (GARAN, AKBNK)
+    holding:    Hasılat + Finans Sektörü Hasılatı ikisi anlamlı (SAHOL, KCHOL)
+    insurance:  Hasar Karşılıkları / Net Tahakkuk Eden Primler
+    unknown:    Hiçbiri eşleşmedi (parser skip-safe)
+
+    Heuristic: tablolarda label normalize edilmiş anahtar kelime varlığı +
+    aynı satırda numeric value var mı kontrolü.
+    """
+    has_revenue = False
+    has_finance_revenue = False
+    has_op_income = False
+    has_interest_income = False
+    has_interest_expense = False
+    has_insurance_terms = False
+
+    for df in all_tables:
+        if df.shape[0] < 5 or df.shape[1] < 4 or df.shape[1] > 10:
+            continue
+        for lcol in (0, 1):
+            if lcol >= df.shape[1]:
+                continue
+            labels = df.iloc[:, lcol].fillna("").astype(str)
+            for ri, raw_lbl in enumerate(labels):
+                lbl = _normalize_tr(raw_lbl).strip()
+                if not lbl or len(lbl) < 4:
+                    continue
+                # numeric value var mı row'da? (col 3+ where note artifact yok)
+                row = df.iloc[ri]
+                has_num = False
+                for ci in range(3, min(df.shape[1], 8)):
+                    v = _parse_tr_number(row.iloc[ci])
+                    if v is None:
+                        continue
+                    if abs(v) >= 1:  # KCHOL gibi milyon-TL'de değerler küçük olabilir
+                        has_num = True
+                        break
+
+                if lbl == "hasilat" and has_num:
+                    has_revenue = True
+                if "finans sektoru faaliyetleri hasilati" in lbl and has_num:
+                    has_finance_revenue = True
+                if lbl.startswith("esas faaliyet kari") and has_num:
+                    has_op_income = True
+                if lbl == "faiz gelirleri" and has_num:
+                    has_interest_income = True
+                if lbl.startswith("faiz giderleri") and has_num:
+                    has_interest_expense = True
+                if ("hasar karsilik" in lbl or
+                    "net tahakkuk eden prim" in lbl) and has_num:
+                    has_insurance_terms = True
+
+    # Banking primary signal
+    if has_interest_income and has_interest_expense and not has_op_income:
+        return "banking"
+    # Insurance primary
+    if has_insurance_terms and not has_revenue:
+        return "insurance"
+    # Holding: hem industrial revenue hem finance sector revenue anlamlı
+    if has_revenue and has_finance_revenue and has_op_income:
+        return "holding"
+    # Industrial default (TUPRS regression)
+    if has_revenue and has_op_income:
+        return "industrial"
+    if has_revenue:
+        return "industrial"
+    return "unknown"
 
 
 def parse_excel_html(content_bytes: bytes, disclosure_index: int = 0) -> FinancialLineItems:
@@ -262,8 +338,113 @@ def parse_excel_html(content_bytes: bytes, disclosure_index: int = 0) -> Financi
             break
 
     # =====================================================================
-    # Income Statement (Tablo 300 ve civarı)
+    # Dialect detection (Session 3B)
     # =====================================================================
+    fli.dialect = _detect_dialect(all_tables)
+
+    # Banking: ayrı income statement path
+    if fli.dialect == "banking":
+        _parse_banking_income(fli, all_tables)
+    elif fli.dialect == "insurance":
+        fli.notes.append("Insurance dialect — IS parse skipped (3rd dialect parking)")
+        # Bilanço alanları yine denenecek (genellikle uyumlu)
+    else:
+        # industrial + holding aynı path
+        _parse_industrial_income(fli, all_tables)
+        # Finans Sektörü Hasılatı — holding template ek (her zaman dene).
+        # Industrial template'da bu satır boş, _find_value_in_tables None döner,
+        # revenue toplaması no-op (TUPRS regression-safe).
+        fs_rev = _find_value_in_tables(
+            all_tables,
+            ["Finans Sektörü Faaliyetleri Hasılatı"],
+            "cari", require_exact=True,
+        )
+        fli.finance_sector_revenue_cari = fs_rev
+        if fs_rev is not None and fli.revenue_cari is not None:
+            fli.revenue_cari = fli.revenue_cari + fs_rev
+            if fli.dialect == "industrial":
+                # Auto-promote dialect: Hasılat + Finans Sektörü Hasılatı her ikisi
+                # değer varsa template HOLDING'tir.
+                fli.dialect = "holding"
+
+    # =====================================================================
+    # Bilanço (tüm dialect'lerde benzer pattern)
+    # =====================================================================
+    _parse_balance_sheet(fli, all_tables)
+
+    # =====================================================================
+    # Cash Flow (industrial/holding; banking'de bazıları farklı isim alabilir)
+    # =====================================================================
+    if fli.dialect in ("industrial", "holding", "unknown"):
+        _parse_cash_flow(fli, all_tables)
+
+    # =====================================================================
+    # Computed fields
+    # =====================================================================
+    if fli.revenue_cari and fli.operating_income_cari is not None:
+        if fli.revenue_cari != 0:
+            fli.operating_margin_pct = fli.operating_income_cari / fli.revenue_cari * 100
+    if fli.short_term_debt is not None and fli.long_term_debt is not None:
+        fli.total_debt = fli.short_term_debt + fli.long_term_debt
+    if fli.current_assets is not None and fli.current_liabilities is not None:
+        fli.working_capital = fli.current_assets - fli.current_liabilities
+
+    # Field counter
+    fli.parsed_field_count = sum(1 for v in [
+        fli.revenue_cari, fli.operating_income_cari, fli.ebit_cari,
+        fli.tax_expense_cari, fli.net_income_cari,
+        fli.capex_cari, fli.depreciation_cari,
+        fli.total_assets, fli.total_liabilities, fli.total_equity,
+        fli.cash, fli.paid_in_capital,
+    ] if v is not None)
+
+    return fli
+
+
+def _parse_banking_income(fli: FinancialLineItems, all_tables: List[pd.DataFrame]) -> None:
+    """Banking dialect (TFRS 9 banka mali tablosu) — Faiz Geliri/Gideri tabanlı."""
+    fli.interest_income_cari = _find_value_in_tables(
+        all_tables, ["Faiz Gelirleri"], "cari", require_exact=True,
+    )
+    fli.interest_expense_cari = _find_value_in_tables(
+        all_tables, ["Faiz Giderleri (-)", "Faiz Giderleri"],
+        "cari", require_exact=True,
+    )
+    if fli.interest_income_cari is not None and fli.interest_expense_cari is not None:
+        fli.net_interest_income_cari = (
+            fli.interest_income_cari + fli.interest_expense_cari  # gider negatif
+        )
+
+    # Banking convention: revenue ≈ NET FAİZ GELİRİ (Damodaran banking model)
+    fli.revenue_cari = fli.net_interest_income_cari
+
+    # Net Income — banks have "DÖNEM NET KARI/ZARARI" pattern
+    fli.net_income_cari = _find_value_in_tables(
+        all_tables,
+        ["Dönem Net Karı/Zararı", "Dönem Net Kar/Zararı",
+         "Net Dönem Karı/Zararı", "Dönem Karı (Zararı)", "Dönem Karı"],
+        "cari", require_exact=True,
+    )
+
+    # Tax — banks
+    fli.tax_expense_cari = _find_value_in_tables(
+        all_tables,
+        ["Vergi Karşılığı (-)", "Sürdürülen Faaliyetler Vergi Karşılığı (-)",
+         "Sürdürülen Faaliyetler Vergi (Gideri) Geliri",
+         "Vergi Karşılığı"],
+        "cari", require_exact=True,
+    )
+
+    # Banking'de "operating income" yerine net interest income proxy kullanılır
+    fli.operating_income_cari = fli.net_interest_income_cari
+    fli.notes.append(
+        "Banking dialect: revenue=NET FAİZ GELİRİ, "
+        "operating_income=NET FAİZ GELİRİ proxy (Damodaran banking model)"
+    )
+
+
+def _parse_industrial_income(fli: FinancialLineItems, all_tables: List[pd.DataFrame]) -> None:
+    """Industrial / Holding dialect — TUPRS-style Tablo 300."""
     fli.revenue_cari = _find_value_in_tables(all_tables, ["Hasılat"], "cari")
     fli.revenue_onceki = _find_value_in_tables(all_tables, ["Hasılat"], "onceki")
     fli.operating_income_cari = _find_value_in_tables(
@@ -294,9 +475,9 @@ def parse_excel_html(content_bytes: bytes, disclosure_index: int = 0) -> Financi
         "cari", require_exact=True,
     )
 
-    # =====================================================================
-    # Cash Flow (Tablo 457 ve civarı)
-    # =====================================================================
+
+def _parse_cash_flow(fli: FinancialLineItems, all_tables: List[pd.DataFrame]) -> None:
+    """Cash Flow Statement (Tablo 457 ve civarı)."""
     capex_raw = _find_value_in_tables(
         all_tables,
         ["Maddi ve Maddi Olmayan Duran Varlıkların Alımından Kaynaklanan Nakit Çıkışları",
@@ -312,9 +493,9 @@ def parse_excel_html(content_bytes: bytes, disclosure_index: int = 0) -> Financi
         "cari", require_exact=True,
     )
 
-    # =====================================================================
-    # Balance Sheet (Tablo 1 ve civarı)
-    # =====================================================================
+
+def _parse_balance_sheet(fli: FinancialLineItems, all_tables: List[pd.DataFrame]) -> None:
+    """Bilanço (Tablo 1 ve civarı) — industrial/holding/banking ortak."""
     fli.total_assets = _find_value_in_tables(
         all_tables, ["Toplam Varlıklar"], "cari", require_exact=True,
     )
@@ -343,28 +524,6 @@ def parse_excel_html(content_bytes: bytes, disclosure_index: int = 0) -> Financi
         all_tables, ["Ödenmiş Sermaye"], "cari", require_exact=True,
     )
 
-    # =====================================================================
-    # Computed fields
-    # =====================================================================
-    if fli.revenue_cari and fli.operating_income_cari is not None:
-        if fli.revenue_cari != 0:
-            fli.operating_margin_pct = fli.operating_income_cari / fli.revenue_cari * 100
-    if fli.short_term_debt is not None and fli.long_term_debt is not None:
-        fli.total_debt = fli.short_term_debt + fli.long_term_debt
-    if fli.current_assets is not None and fli.current_liabilities is not None:
-        fli.working_capital = fli.current_assets - fli.current_liabilities
-
-    # Field counter (11 ana Damodaran field + paid-in proxy)
-    fli.parsed_field_count = sum(1 for v in [
-        fli.revenue_cari, fli.operating_income_cari, fli.ebit_cari,
-        fli.tax_expense_cari, fli.net_income_cari,
-        fli.capex_cari, fli.depreciation_cari,
-        fli.total_assets, fli.total_liabilities, fli.total_equity,
-        fli.cash, fli.paid_in_capital,
-    ] if v is not None)
-
-    return fli
-
 
 if __name__ == "__main__":
     import sys
@@ -377,59 +536,64 @@ if __name__ == "__main__":
     from kap_excel_fetcher import fetch_excel_export  # noqa: E402
 
     print("=" * 78)
-    print("KAP Excel Parser — Session 3A Refinement Validation (TR-normalize)")
+    print("KAP Excel Parser — Session 3B Multi-Dialect Validation")
     print("=" * 78)
 
     targets = [
-        ("TUPRS",   1510162, "ANCHOR  — DCF /share TL: 187.10 ±%5"),
-        ("KUYAS",   1480086, "BUG     — isyatirim op_margin %16,027"),
-        ("AGROT",   1481009, "NEW IPO — eski 559'da yoktu"),
+        # Industrial regression
+        ("TUPRS",   1510162, "industrial", "ANCHOR — 12/12 PASS olmalı"),
+        ("AGROT",   1481009, "industrial", "Yeni IPO"),
+        # Banking
+        ("GARAN",   1508775, "banking",    "Net Faiz Gel. proxy"),
+        ("AKBNK",   1467850, "banking",    "Net Faiz Gel. proxy"),
+        # Holding (KUYAS bug eliminate)
+        ("SAHOL",   1477828, "holding",    "Hasılat + Finans Sektörü"),
+        ("KCHOL",   1470523, "holding",    "Hasılat + Finans Sektörü"),
+        ("KUYAS",   1480086, "industrial", "BUG bypass test"),
+        # Insurance (parser skip)
+        ("ANSGR",   1599078, "insurance",  "3rd dialect parking"),
     ]
 
-    for ticker, idx, note in targets:
+    for ticker, idx, expected_dialect, note in targets:
         print(f"\n{'─'*78}")
-        print(f"{ticker}  disclosure_index={idx}  ({note})")
+        print(f"{ticker}  idx={idx}  expected={expected_dialect}  ({note})")
         print('─'*78)
 
         dl = fetch_excel_export(idx)
         if not dl.success:
             print(f"  ✗ Download fail: {dl.error}")
             continue
-        print(f"  ✓ Downloaded {dl.content_length:,} bytes")
 
         fli = parse_excel_html(dl.content_bytes, disclosure_index=idx)
         if fli.error:
             print(f"  ⚠ Parse warning: {fli.error}")
 
-        print(f"  Period:           Cari {fli.cari_donem}  Önceki {fli.onceki_donem}")
-        print(f"  Sunum birimi:     {fli.sunum_birimi}")
-        print(f"  Konsolide:        {fli.konsolide}")
-        print(f"  Tables found:     {fli.raw_table_count}")
-        print(f"  Fields parsed:    {fli.parsed_field_count} / 12")
-        print()
-        # Income Statement
+        dialect_match = "✓" if fli.dialect == expected_dialect else "⚠"
+        print(f"  Dialect detected: {fli.dialect}  {dialect_match}  (expected={expected_dialect})")
+        print(f"  Period: {fli.cari_donem} / {fli.onceki_donem}  "
+              f"Birim: {fli.sunum_birimi}  Konsolide: {fli.konsolide}")
+        print(f"  Tables: {fli.raw_table_count}  Parsed: {fli.parsed_field_count}/12")
+
         def fmt(v): return f"{v:>22,.0f}" if v is not None else f"{'?':>22}"
         print(f"  ── INCOME STATEMENT ─────────────────────────────────")
         print(f"    Revenue (cari):      {fmt(fli.revenue_cari)}")
-        print(f"    Revenue (önceki):    {fmt(fli.revenue_onceki)}")
         print(f"    Op Income (cari):    {fmt(fli.operating_income_cari)}")
         print(f"    EBIT (cari):         {fmt(fli.ebit_cari)}")
         print(f"    Tax Expense:         {fmt(fli.tax_expense_cari)}")
         print(f"    Net Income (cari):   {fmt(fli.net_income_cari)}")
+        if fli.dialect == "banking":
+            print(f"    Faiz Gelirleri:      {fmt(fli.interest_income_cari)}")
+            print(f"    Faiz Giderleri:      {fmt(fli.interest_expense_cari)}")
+            print(f"    Net Faiz Geliri:     {fmt(fli.net_interest_income_cari)}")
+        if fli.dialect == "holding":
+            print(f"    Finans Sek. Hasılatı:{fmt(fli.finance_sector_revenue_cari)}")
         if fli.operating_margin_pct is not None:
-            print(f"    ★ Op Margin:         {fli.operating_margin_pct:>21.2f}%")
-        print(f"  ── CASH FLOW ────────────────────────────────────────")
-        print(f"    Capex (absolute):    {fmt(fli.capex_cari)}")
-        print(f"    Depreciation:        {fmt(fli.depreciation_cari)}")
+            print(f"    Op Margin: {fli.operating_margin_pct:.2f}%")
         print(f"  ── BALANCE SHEET ────────────────────────────────────")
         print(f"    Total Assets:        {fmt(fli.total_assets)}")
-        print(f"    Total Liabilities:   {fmt(fli.total_liabilities)}")
         print(f"    Total Equity:        {fmt(fli.total_equity)}")
-        print(f"    Current Assets:      {fmt(fli.current_assets)}")
-        print(f"    Current Liab:        {fmt(fli.current_liabilities)}")
-        print(f"    Working Capital:     {fmt(fli.working_capital)}")
         print(f"    Cash:                {fmt(fli.cash)}")
-        print(f"    Short-term Debt:     {fmt(fli.short_term_debt)}")
-        print(f"    Long-term Debt:      {fmt(fli.long_term_debt)}")
         print(f"    Total Debt:          {fmt(fli.total_debt)}")
         print(f"    Paid-in Capital:     {fmt(fli.paid_in_capital)}")
+        if fli.notes:
+            print(f"  Notes: {'; '.join(fli.notes)[:120]}")
