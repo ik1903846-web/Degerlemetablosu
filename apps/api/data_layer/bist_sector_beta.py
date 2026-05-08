@@ -197,8 +197,8 @@ def _fetch_one_fundamental(ticker: str) -> Tuple[str, Dict]:
 def _build_fundamentals_cache(
     tickers: List[str],
     force_refresh: bool = False,
-    max_workers: int = 5,
-    throttle_sec: float = 0.3,
+    max_workers: int = 5,           # B mode (KAP cooldown reset confirmed)
+    throttle_sec: float = 0.5,      # B mode (0.5s — empirical limit)
 ) -> Dict[str, Dict]:
     """Per ticker: KAP'tan en yeni FR Excel → D/E + tax + dialect.
 
@@ -218,6 +218,14 @@ def _build_fundamentals_cache(
     pending = [t for t in tickers if t not in cache]
     if not pending:
         print(f"  All {len(tickers)} cached, skip fetch")
+        return cache
+
+    # Cache-only mode (env var SECTOR_BETA_CACHE_ONLY=1) → no KAP fetch
+    import os
+    if os.environ.get("SECTOR_BETA_CACHE_ONLY"):
+        print(f"  CACHE-ONLY mode: {len(pending)} pending → fallback flag (no fetch)")
+        for t in pending:
+            cache[t] = {"error": "cache_only_pending"}
         return cache
 
     print(f"  Fetching {len(pending)} ticker (paralel, max_workers={max_workers})…")
