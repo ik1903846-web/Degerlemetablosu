@@ -279,6 +279,46 @@ LESSONS = [
             "calibration, formula)."
         ),
     },
+    {
+        "id": 23, "faz": "Faz 11 prototype",
+        "title": "Spec-code gap: KAP primary yazılı, isyatirim primary çalışıyor",
+        "status": "EVIDENCE — Faz 11.x parking",
+        "category": "Methodology",
+        "summary": (
+            "**Audit bulgusu:** ADR-001 spec'inde 'KAP XBRL primary data source' "
+            "yazılı. Mevcut kod (apps/api/dcf_engine/orchestrator.py:392):\n"
+            "  → fetch_yearly_extended FROM data_layer.isyatirim_scraper\n"
+            "  → KAP modülü (kap_scraper.py) sadece /sirket-bilgileri/genel "
+            "HTML probe, XBRL disclosure listing YOK\n\n"
+            "**Mini prototype evidence (Faz 11 ADIM 1-3):**\n"
+            "- pip install kap-client 1.1.1 ✓\n"
+            "- pykap 0.2.0 PyPI'da mevcut ✓\n"
+            "- kap-client API surface keşfedildi:\n"
+            "  Kap.find_company / fetch_disclosures / fetch_attachments\n"
+            "- ⚠ kap-client OUTDATED — member_types listesinde 'IGS' yok\n"
+            "  (THYAO/TUPRS bile 'CompanyNotFoundError' fail)\n"
+            "- Direct httpx ile KAP API'sı ÇALIŞIYOR:\n"
+            "  GET /tr/api/company/items/IGS/A → 727 şirket (200 OK JSON)\n"
+            "  KUYAS bulundu: oid=33E5FED705E3, name=KUYAŞ YATIRIM A.Ş.\n"
+            "  TUPRS bulundu: oid=33E5FED70466, name=TÜPRAŞ\n"
+            "  Field `stockCode` (NOT `ticker`)\n\n"
+            "**Verdict:** KAP API erişilebilir ama kap-client kütüphanesi "
+            "güncel değil. Custom httpx wrapper gerekir (Faz 11.x ADIM 2-3).\n\n"
+            "**KUYAS bug (Lesson #22 referans):**\n"
+            "- isyatirim batch: avg_op_margin %16,027 (XBRL parse hatası)\n"
+            "- KAP disclosure fetch + XBRL parse: Faz 11.x parking\n"
+            "  (XBRL standard library + financial schema mapping multi-session)\n\n"
+            "**Generalization:** Spec-code drift methodology asset. ADR-001 "
+            "yazılı 'primary' iddiası kod gerçeği ile çelişebilir — periyodik "
+            "audit zorunlu. Üçüncü taraf data scraping bug üretir (KUYAS XBRL "
+            "corruption), KAP resmi API standartı ile validation kuralları.\n\n"
+            "**Production code DEĞİŞTİRİLMEDİ** (Lesson #21 prensibi: backend "
+            "dokunulmadı, anchor-safe). Mini prototype evidence-driven karar:\n"
+            "- Faz 11.x sprint: custom KAP httpx wrapper + XBRL parser\n"
+            "- TUPRS 187.10 anchor regression test zorunlu (orchestrator entegre)\n"
+            "- isyatirim fallback (Faz 11.x'te primary değişimi sırasında)"
+        ),
+    },
 ]
 
 
