@@ -37,9 +37,9 @@ _CYCLICAL_UPLIFT: Dict[str, float] = {
     # Sektör adı (sector_overrides.json + ticker_sectors.json mapping)
     "Petrol Rafinerisi (Türkiye)":         1.30,
     "Petrokimya (Türkiye)":                 1.40,
-    "ANA METAL SANAYİ":                     1.50,  # KAP raw
-    "Çelik (Türkiye)":                      1.50,
-    "ULAŞTIRMA VE DEPOLAMA":                1.50,  # THYAO/PGSUS havayolu
+    "ANA METAL SANAYİ":                     1.30,  # cap (Damodaran modest)
+    "Çelik (Türkiye)":                      1.30,
+    "ULAŞTIRMA VE DEPOLAMA":                1.30,  # cap (havayolu)
     "Otomotiv (Türkiye)":                   1.30,
     "Beyaz Eşya (Türkiye)":                 1.20,  # mild cyclical
     "TAŞ VE TOPRAĞA DAYALI":                1.30,  # KAP çimento+cam

@@ -464,6 +464,20 @@ def calculate_intrinsic_value(td: TickerDataV4) -> TickerDataV4:
         td.dcf_method = f"fcff_failed:{dcf.error[:30]}"
         return td
 
+    # Negative intrinsic guard (capital-intensive cyclical reinvestment > NOPAT)
+    if dcf.intrinsic_per_share is not None and dcf.intrinsic_per_share < 0:
+        td.flags.append(
+            f"dcf_negative_intrinsic={dcf.intrinsic_per_share:.2f} → NULL "
+            f"(reinvestment > NOPAT, capital-intensive cyclical)"
+        )
+        td.dcf_method = "fcff_negative_intrinsic_unsuitable"
+        return td
+
+    # High D/E distress (>3.0)
+    if td.de_ratio is not None and td.de_ratio > 3.0:
+        td.flags.append(f"high_leverage_warn: D/E={td.de_ratio:.2f}")
+        # DCF yine yapılır ama warning
+
     td.intrinsic_per_share_tl = dcf.intrinsic_per_share
     td.dcf_method = "industrial_fcff_2stage"
     if td.current_price_tl and dcf.intrinsic_per_share:

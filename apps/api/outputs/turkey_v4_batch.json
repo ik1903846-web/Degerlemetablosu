@@ -2,7 +2,7 @@
   "fetch_date": "2026-05-09",
   "total_count": 20,
   "complete_count": 20,
-  "dcf_count": 10,
+  "dcf_count": 5,
   "anchor_tuprs": 187.62725548109793,
   "tickers": [
     {
@@ -364,12 +364,13 @@
       "cost_of_equity": 0.1367862118547074,
       "cost_of_debt": 0.093225,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": -42.633072529557914,
-      "upside_pct": -203.9831037306291,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": null,
+      "upside_pct": null,
+      "dcf_method": "fcff_negative_intrinsic_unsuitable",
       "flags": [
         "unit_multiplier=1000",
-        "op_margin: cyclical_normalized:1.5x"
+        "op_margin: cyclical_normalized:1.3x",
+        "dcf_negative_intrinsic=-43.22 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
       ],
       "errors": []
     },
@@ -416,12 +417,13 @@
       "cost_of_equity": 0.1362299419649602,
       "cost_of_debt": 0.093225,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": -195.0449135143141,
-      "upside_pct": -476.1714821876838,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": null,
+      "upside_pct": null,
+      "dcf_method": "fcff_negative_intrinsic_unsuitable",
       "flags": [
         "unit_multiplier=1000",
-        "op_margin: raw_margin"
+        "op_margin: raw_margin",
+        "dcf_negative_intrinsic=-195.04 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
       ],
       "errors": []
     },
@@ -468,12 +470,13 @@
       "cost_of_equity": 0.12616726878266327,
       "cost_of_debt": 0.093225,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": -247.50205862493576,
-      "upside_pct": -131.27000108969497,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": null,
+      "upside_pct": null,
+      "dcf_method": "fcff_negative_intrinsic_unsuitable",
       "flags": [
         "unit_multiplier=1000",
-        "op_margin: raw_margin"
+        "op_margin: raw_margin",
+        "dcf_negative_intrinsic=-247.50 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
       ],
       "errors": []
     },
@@ -573,13 +576,14 @@
       "cost_of_equity": 0.14309441437604373,
       "cost_of_debt": 0.093225,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": -5.425131054267052,
-      "upside_pct": -101.26829481105015,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": null,
+      "upside_pct": null,
+      "dcf_method": "fcff_negative_intrinsic_unsuitable",
       "flags": [
         "beta: sector_override: SAVUNMA → Savunma (Türkiye)",
         "unit_multiplier=1000",
-        "op_margin: raw_margin"
+        "op_margin: raw_margin",
+        "dcf_negative_intrinsic=-5.43 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
       ],
       "errors": []
     },
@@ -942,12 +946,13 @@
       "cost_of_equity": 0.14009223165924378,
       "cost_of_debt": 0.093225,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": -28.64647386678912,
-      "upside_pct": -149.01022047354854,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": null,
+      "upside_pct": null,
+      "dcf_method": "fcff_negative_intrinsic_unsuitable",
       "flags": [
         "unit_multiplier=1000",
-        "op_margin: cyclical_normalized:1.3x"
+        "op_margin: cyclical_normalized:1.3x",
+        "dcf_negative_intrinsic=-28.65 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
       ],
       "errors": []
     },
