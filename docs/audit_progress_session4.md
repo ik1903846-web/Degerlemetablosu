@@ -68,14 +68,21 @@ Detay: `reports/tuprs_shadow_2026_05_09.md`
 - Streamlit Cloud auto-deploy → v4.1 anchor production'a yansır
 - Tarayıcı çıktıları otomatik update olur (TUPRS yeni 216.33'e yakın bekleniyor)
 
-### Adım 8 — ADR-040 post-mortem
-- Soru: Şubat 2026 Türkiye Ba3 upgrade neden otomatik fetch'lenmedi?
-- 4 hipotez (audit_decision §3.8):
-  1. Cron schedule yarıyıllık → ara update'leri kaçırıyor
-  2. Event trigger sadece downgrade kategorisinde
-  3. xlsx içi "updated [Month]" parser yok
-  4. Sayfa hash check yok
-- Çözüm: ADR-040 v2 (aylık fetch + günlük hash check + upgrade trigger)
+### Adım 8 — ADR-040 post-mortem ✓ TAMAMLANDI
+- 4 hipotez forensic analiz, fetch_damodaran.py read-only inspection
+- **Sonuç:** Triple failure (schedule + vintage parsing + change detection)
+- **H1 doğrulandı:** Cron yok, manuel rejim, kimse periyodik yapmadı
+- **H2 reddedildi:** Event trigger SİSTEMİ tamamen yok (downgrade/upgrade ayrımı değil)
+- **H3 doğrulandı:** CTRYPREM_VINTAGE/BETAS_VINTAGE hardcoded, smart parser TODO
+- **H4 doğrulandı:** Hash var ama duplicate detection için, page-change için değil
+- Bonus: ADR-040 docstring'de referans var, implement edilmemiş (kararı yazıp unutmak)
+- ADR-040 v2 spec hazır → Session 5+ implementation
+- Detay: `docs/adr_040_postmortem.md`
+
+Bekleyenler:
+- `audit_resolution_session4.md` (Faz B1 kapanış belgesi)
+- Push (Streamlit auto-deploy)
+- Spec v3.0 (REELDEĞER v4.1 dökümentasyonu)
 
 ---
 
