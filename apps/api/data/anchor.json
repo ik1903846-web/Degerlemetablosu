@@ -3,10 +3,13 @@
   "current_anchor": {
     "version": "v4.1",
     "ticker": "TUPRS",
-    "value_tl": 216.33,
+    "value_tl": 211.95,
+    "value_tl_shadow_proxy": 216.33,
+    "value_tl_shadow_delta_pct": -2.03,
     "computed_date": "2026-05-09",
-    "method": "WACC ratio (3 profil ortalamasi)",
-    "method_doc": "reports/tuprs_shadow_2026_05_09.md",
+    "method": "Full DCF orchestrator_v4 (kanonik)",
+    "method_doc": "apps/api/outputs/turkey_v4_batch.json",
+    "shadow_method_note": "Shadow proxy 216.33 TL (3 profil mean, reports/tuprs_shadow_2026_05_09.md). Profil D/E=0.40 idi, gerçek TUPRS D/E=0.0858 — düşük leverage gerçek WACC'i shadow'dan farklı yaptı (matematik doğru, profil tahmini approximate).",
     "tolerance_initial": 0.005,
     "tolerance_initial_pct": "0.50%",
     "tolerance_review_date": "2026-06-09",
@@ -51,7 +54,13 @@
     "shadow_mean_tl": 216.33,
     "shadow_range_tl": 1.47,
     "mean_delta_pct": 15.62,
-    "method_robustness": "3 profil arasi fark sadece %0.7, WACC ratio robust"
+    "method_robustness": "3 profil arasi fark sadece %0.7, WACC ratio robust",
+    "vs_canonical_full_dcf": {
+      "canonical_value_tl": 211.95,
+      "shadow_minus_canonical_tl": 4.38,
+      "shadow_minus_canonical_pct": 2.07,
+      "explanation": "Shadow profil D/E=0.40 (TUPRS_base) idi, gercek TUPRS D/E=0.0858. Dusuk leverage profil tahmininden farkli. Audit §3.5 beklenti banti (210-225 TL) ICERISINDE."
+    }
   },
   "audit_chain": {
     "findings": "docs/audit_findings_session4.md",
@@ -65,9 +74,10 @@
     ]
   },
   "production_status": {
-    "cost_of_capital_py_updated": false,
-    "streamlit_runtime_anchor": 187.10,
-    "expected_runtime_after_step_7": 216.33,
-    "warning": "Production runtime hala v4.0 anchor uretiyor. Adim 7 sonrasi v4.1'e gecis."
+    "cost_of_capital_py_updated": true,
+    "cost_of_capital_commit": "2b6e368",
+    "batch_json_regen_commit": "7e9fe02",
+    "streamlit_runtime_anchor": 211.95,
+    "warning_resolved": "Adim 7 + Adim 12 (batch regen) sonrasi production runtime v4.1 anchor (211.95 TL) uretiyor. H5 bulgusu: cost_of_capital.py update tek basina yeterli degildi, batch JSON regen sart."
   }
 }

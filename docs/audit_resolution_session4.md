@@ -21,7 +21,8 @@ Faz B1 sürecinde:
 
 **Kritik metrikler:**
 - Cost of Equity Δ: −1.58 pp (β=1, λ=1)
-- TUPRS DCF Δ: +%15.62 (shadow ortalaması, 3 profil)
+- TUPRS DCF Δ: +%12.97 (full DCF kanonik, batch regen)
+- TUPRS shadow proxy: 216.33 TL (3 profil mean, -2.07% kanonik'ten farklı)
 - Toplam etkilenen ticker: 251 (BIST evren)
 - Audit süresi: ~4 saat (Session 4)
 
@@ -92,7 +93,7 @@ v4.1: 11.51%
 
 | | v4.0 | v4.1 |
 |---|------|------|
-| Değer | 187.10 TL | 216.33 TL |
+| Değer | 187.10 TL | **211.95 TL** (önceden shadow 216.33) |
 | Param state | Ocak 2026 (stale) | Şubat 2026 |
 | Status | Archived (`anchor-v4.0-pre-Feb2026`) | Declared (`apps/api/data/anchor.json`) |
 | Method | Production runtime | WACC ratio (3 profil ortalaması) |
@@ -144,6 +145,7 @@ a3b67f5  feat: Hızlı Büyüme placeholder + Tarayıcı hook
 | TUPRS gerçek finansal değerleri shadow ile uyumsuz | Orta | Orta | Push sonrası ilk Tarayıcı çıktısında karşılaştırma |
 | Streamlit user şaşkınlığı (187.10 → 216.33 atlama) | Yüksek | Düşük | audit_progress_session4.md kullanıcıya hazır |
 | `_RATING_TABLE` (line 36) staleness | Düşük | Orta | Session 5 kapsamı |
+| H5: cost_of_capital update tek başına yetmez (batch JSON stale) | Yüksek (oluştu) | Yüksek | ÇÖZÜLDÜ Adım 12 (batch regen + anchor revize) |
 | Lambda hesabı segment-based değil (ortalama varsayım) | Yüksek | Orta | Session 5+ KAP segment fetch |
 
 ### 7.2 Geçici Köprü Önlemler (ADR-040 v2 öncesi)
