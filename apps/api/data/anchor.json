@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "current_anchor": {
+    "version": "v4.1",
+    "ticker": "TUPRS",
+    "value_tl": 216.33,
+    "computed_date": "2026-05-09",
+    "method": "WACC ratio (3 profil ortalamasi)",
+    "method_doc": "reports/tuprs_shadow_2026_05_09.md",
+    "tolerance_initial": 0.005,
+    "tolerance_initial_pct": "0.50%",
+    "tolerance_review_date": "2026-06-09",
+    "tolerance_post_review": 0.003,
+    "tolerance_post_review_pct": "0.30%",
+    "params_source": "apps/api/data/damodaran/2026_05_09/parameters.json"
+  },
+  "previous_anchor": {
+    "version": "v4.0",
+    "ticker": "TUPRS",
+    "value_tl": 187.10,
+    "computed_date": "Ocak 2026",
+    "param_state": "Damodaran Sub 2026 update kaçırıldı (production stale)",
+    "git_tag": "anchor-v4.0-pre-Feb2026",
+    "archived_date": "2026-05-09",
+    "archived_reason": "Audit Faz B1: Türkiye Ba3 upgrade ve US Aa1 upgrade kaçırılmış, parameter staleness 1.58 pp"
+  },
+  "shadow_calculations": {
+    "report": "reports/tuprs_shadow_2026_05_09.md",
+    "profiles": {
+      "TUPRS_defensive": {
+        "shadow_tl": 215.56,
+        "delta_pct": 15.21,
+        "beta_unlevered": 0.95,
+        "lambda_country": 0.85
+      },
+      "TUPRS_base": {
+        "shadow_tl": 216.41,
+        "delta_pct": 15.67,
+        "beta_unlevered": 1.05,
+        "lambda_country": 1.00
+      },
+      "TUPRS_aggressive": {
+        "shadow_tl": 217.03,
+        "delta_pct": 15.99,
+        "beta_unlevered": 1.15,
+        "lambda_country": 1.15
+      }
+    },
+    "shadow_min_tl": 215.56,
+    "shadow_max_tl": 217.03,
+    "shadow_mean_tl": 216.33,
+    "shadow_range_tl": 1.47,
+    "mean_delta_pct": 15.62,
+    "method_robustness": "3 profil arasi fark sadece %0.7, WACC ratio robust"
+  },
+  "audit_chain": {
+    "findings": "docs/audit_findings_session4.md",
+    "decision": "docs/audit_decision_v4.md",
+    "progress": "docs/audit_progress_session4.md",
+    "phase": "Faz B1 Adim 6 (yumusak gecis ilan edildi)",
+    "phase_complete": false,
+    "remaining_steps": [
+      "Adim 7: cost_of_capital.py constants atomic update",
+      "Adim 8: ADR-040 post-mortem (neden Sub 2026 update kacirildi)"
+    ]
+  },
+  "production_status": {
+    "cost_of_capital_py_updated": false,
+    "streamlit_runtime_anchor": 187.10,
+    "expected_runtime_after_step_7": 216.33,
+    "warning": "Production runtime hala v4.0 anchor uretiyor. Adim 7 sonrasi v4.1'e gecis."
+  }
+}
