@@ -2,25 +2,35 @@ name: Damodaran Daily Hash Check
 
 on:
   schedule:
-    # Daily 06:00 UTC (TR 09:00)
     - cron: '0 6 * * *'
   workflow_dispatch:
-    # Manuel trigger
     inputs:
       verbose:
         description: 'Verbose log'
         required: false
         default: 'false'
+      force_regen:
+        description: 'Force JSON regen (skip decision logic)'
+        required: false
+        default: 'false'
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
 
 jobs:
   check:
     name: HEAD check Damodaran URLs
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -33,20 +43,18 @@ jobs:
           pip install httpx openpyxl
 
       - name: Run hash state check
-        id: check
+        id: hash_check
         env:
           PYTHONUNBUFFERED: '1'
         run: |
           python apps/api/data_layer/damodaran_hash_state.py 2>&1 | tee check_output.txt
 
-          # Changed count parse
           CHANGED=$(grep -E "Changed:\s+[0-9]+" check_output.txt | tail -1 | grep -oE "[0-9]+" | head -1)
           ERROR=$(grep -E "Error:\s+[0-9]+" check_output.txt | tail -1 | grep -oE "[0-9]+" | head -1)
 
           echo "changed=${CHANGED:-0}" >> $GITHUB_OUTPUT
           echo "error=${ERROR:-0}" >> $GITHUB_OUTPUT
 
-          # Summary
           {
             echo "## Damodaran Hash Check Summary"
             echo ""
@@ -60,11 +68,9 @@ jobs:
           } >> $GITHUB_STEP_SUMMARY
 
       - name: Vintage cross-check (if changed)
-        if: steps.check.outputs.changed != '0'
+        if: steps.hash_check.outputs.changed != '0'
         run: |
-          echo "::notice::Hash change detected, running vintage parser"
           python apps/api/data_layer/damodaran_vintage_parser.py 2>&1 | tee vintage_output.txt
-
           {
             echo ""
             echo "## Vintage Parser Output"
@@ -73,14 +79,132 @@ jobs:
             echo '```'
           } >> $GITHUB_STEP_SUMMARY
 
+      - name: Run regen decision logic
+        id: regen_decide
+        run: |
+          python apps/api/data_layer/damodaran_regen_trigger.py \
+            --decide --output regen_decision.json 2>&1 | tee regen_output.txt
+
+          REASON=$(python -c "import json; print(json.load(open('regen_decision.json'))['reason'])")
+          ACTION=$(python -c "import json; print(json.load(open('regen_decision.json'))['action'])")
+
+          echo "reason=${REASON}" >> $GITHUB_OUTPUT
+          echo "action=${ACTION}" >> $GITHUB_OUTPUT
+
+          {
+            echo ""
+            echo "## Regen Decision"
+            echo ""
+            echo "- **Reason:** ${REASON}"
+            echo "- **Action:** ${ACTION}"
+            echo ""
+            echo "### Detail"
+            echo '```json'
+            cat regen_decision.json
+            echo '```'
+          } >> $GITHUB_STEP_SUMMARY
+
+      - name: Open issue if manual update needed
+        if: steps.regen_decide.outputs.action == 'alert_manual_update' || steps.regen_decide.outputs.action == 'regen_and_alert'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const decision = JSON.parse(fs.readFileSync('regen_decision.json', 'utf8'));
+            const date = new Date().toISOString().split('T')[0];
+
+            const title = `Damodaran update detected (${date}) - manual cost_of_capital review needed`;
+            const body = [
+              '## Otomatik Tespit',
+              '',
+              `Workflow run: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
+              '',
+              `**Reason:** \`${decision.reason}\``,
+              `**Action:** \`${decision.action}\``,
+              `**Timestamp:** ${decision.timestamp_utc}`,
+              `**Hash changed URLs:** ${decision.hash_changed_urls.join(', ') || '(yok)'}`,
+              '',
+              '## Yapilmasi Gereken (Audit Disiplin)',
+              '',
+              '1. Damodaran resmi sayfasini kontrol et:',
+              '   https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/ctryprem.html',
+              '',
+              '2. parameters.json fetch (Faz B1 Adim 1):',
+              '   `python apps/api/scripts/fetch_damodaran_v2_audit.py`',
+              '',
+              '3. xlsx verify (Faz B1 Adim 2B):',
+              '   `python apps/api/scripts/verify_damodaran_xlsx.py`',
+              '',
+              '4. Production diff (Faz B1 Adim 2C):',
+              '   `python apps/api/scripts/diff_production_vs_damodaran.py`',
+              '',
+              '5. cost_of_capital.py constants update (Faz B1 Adim 7)',
+              '',
+              '6. Sonra workflow_dispatch ile bu workflow tekrar calistir,',
+              '   action=regen_json olur, JSON otomatik regen + commit olur.',
+              '',
+              '## Audit Chain Reference',
+              '',
+              '- `docs/audit_findings_session4.md`',
+              '- `docs/audit_decision_v4.md`',
+              '- `docs/audit_resolution_session4.md`',
+              '- `docs/adr_040_postmortem.md`',
+              '',
+              '_This issue was auto-created by ADR-040 v2 daily check (Session 5.4b)._'
+            ].join('\n');
+
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: title,
+              body: body,
+              labels: ['damodaran-update', 'audit-required']
+            });
+
+            core.notice('Issue opened for manual cost_of_capital review');
+
+      - name: Run JSON regen
+        if: steps.regen_decide.outputs.action == 'regen_json' || steps.regen_decide.outputs.action == 'regen_and_alert' || github.event.inputs.force_regen == 'true'
+        id: regen_run
+        run: |
+          # parsed_financials cache GitHub Actions runner'da yok.
+          # Cache miss durumunda KAP fetch denemesi loop'a girebilir.
+          # Bu nedenle CI sadece DRY-RUN raporu yapar, gerçek regen
+          # local'de manual yapılır (cache hit garantili).
+
+          echo "::warning::CI runner'da parsed_financials cache YOK (251 ticker)."
+          echo "::warning::Gercek JSON regen local'de yapilmalidir:"
+          echo "::warning::  python -c 'from apps.api.orchestrator_v4 import run_pipeline_v4, save_v4_batch_json; ...'"
+          echo "::warning::Adim 12 brief'i (audit_resolution §8) referans olarak kullanilabilir."
+
+          {
+            echo ""
+            echo "## JSON Regen Notice"
+            echo ""
+            echo ":warning: CI runner cache miss riski nedeniyle JSON regen LOCAL yapilmalidir."
+            echo ""
+            echo "**Komut:**"
+            echo '```bash'
+            echo "python -c \""
+            echo "import json, sys; sys.path.insert(0, '.')"
+            echo "from apps.api.orchestrator_v4 import run_pipeline_v4, save_v4_batch_json"
+            echo "with open('apps/api/outputs/turkey_v4_batch.json', encoding='utf-8') as f:"
+            echo "    b = json.load(f)"
+            echo "universe = [t['ticker'] for t in b['tickers']]"
+            echo "results = run_pipeline_v4(universe=universe, progress=True, fetch_yfinance_live=False)"
+            echo "save_v4_batch_json(results)"
+            echo "\""
+            echo '```'
+            echo ""
+            echo "Sonra: \`git add ... && git commit ... && git push\`"
+          } >> $GITHUB_STEP_SUMMARY
+
+          # Bu Session 5.4b scope'unda CI commit YOK (bilinçli karar)
+          # Session 5.5+'a parking: artifact upload veya self-hosted runner
+
       - name: Fail on error
-        if: steps.check.outputs.error != '0'
+        if: steps.hash_check.outputs.error != '0'
         run: |
           echo "::error::HEAD check encountered errors"
           exit 1
-
-      - name: Notify on change
-        if: steps.check.outputs.changed != '0' && steps.check.outputs.error == '0'
-        run: |
-          echo "::warning::Damodaran update detected — Session 5.4 (auto regen) trigger needed"
-          echo "Changed URLs: ${{ steps.check.outputs.changed }}"

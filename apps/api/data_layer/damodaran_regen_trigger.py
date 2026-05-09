@@ -300,6 +300,61 @@ def _smoke_test() -> int:
     return 0
 
 
+def _cli_decide(output_path: Path) -> int:
+    """Workflow CLI mode: karar ver, JSON dosyasina yaz."""
+    repo_root = Path(__file__).resolve().parents[3]
+    hash_state = repo_root / "apps" / "api" / "data" / "damodaran" / "_hash_state.json"
+    cost_path = repo_root / "apps" / "api" / "dcf_engine_v4" / "cost_of_capital.py"
+    snapshot = repo_root / "apps" / "api" / "data" / "damodaran" / "_regen_state.json"
+
+    decision = decide_regen(hash_state, cost_path, snapshot)
+
+    output_path.write_text(
+        json.dumps(asdict(decision), indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+
+    print(f"reason={decision.reason}")
+    print(f"action={decision.action}")
+    print(f"hash_changed_count={len(decision.hash_changed_urls)}")
+    print(f"cost_of_capital_changed={decision.cost_of_capital_changed}")
+    print(f"output={output_path}")
+
+    return 0
+
+
 if __name__ == "__main__":
+    import argparse
     import sys
-    sys.exit(_smoke_test())
+
+    parser = argparse.ArgumentParser(
+        description="Damodaran regen trigger - decision logic"
+    )
+    parser.add_argument(
+        "--decide",
+        action="store_true",
+        help="CLI mode: karar ver, JSON output yaz",
+    )
+    parser.add_argument(
+        "--output",
+        type=Path,
+        default=Path("regen_decision.json"),
+        help="Karar JSON output path (default: regen_decision.json)",
+    )
+    parser.add_argument(
+        "--smoke-test",
+        action="store_true",
+        help="Smoke test calistir (3 senaryo)",
+    )
+
+    args = parser.parse_args()
+
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(levelname)s | %(name)s | %(message)s",
+    )
+
+    if args.decide:
+        sys.exit(_cli_decide(args.output))
+    else:
+        sys.exit(_smoke_test())
