@@ -13,6 +13,10 @@ on:
         description: 'Force JSON regen (skip decision logic)'
         required: false
         default: 'false'
+      reset_state:
+        description: 'Reset state (clear cache, fresh first_check)'
+        required: false
+        default: 'false'
 
 permissions:
   contents: write
@@ -42,6 +46,43 @@ jobs:
           python -m pip install --upgrade pip
           pip install httpx openpyxl
 
+      - name: Restore state cache
+        id: state_cache
+        if: github.event.inputs.reset_state != 'true'
+        uses: actions/cache@v4
+        with:
+          path: |
+            apps/api/data/damodaran/_hash_state.json
+            apps/api/data/damodaran/_regen_state.json
+          key: damodaran-state-${{ github.run_id }}
+          restore-keys: |
+            damodaran-state-
+
+      - name: Show state restore status
+        run: |
+          {
+            echo "## State Restore"
+            echo ""
+            if [ "${{ github.event.inputs.reset_state }}" = "true" ]; then
+              echo "- :recycle: **Reset state requested** (cache skip)"
+            elif [ "${{ steps.state_cache.outputs.cache-hit }}" = "true" ]; then
+              echo "- :white_check_mark: **Exact cache hit** (same run_id, unusual)"
+            else
+              echo "- :information_source: **Cache restore via fallback key**"
+            fi
+            echo ""
+            echo "### Restored files"
+            for f in _hash_state.json _regen_state.json; do
+              path="apps/api/data/damodaran/$f"
+              if [ -f "$path" ]; then
+                size=$(stat -c '%s' "$path" 2>/dev/null || stat -f '%z' "$path")
+                echo "- $f: ${size} bytes"
+              else
+                echo "- $f: (yok, ilk run)"
+              fi
+            done
+          } >> $GITHUB_STEP_SUMMARY
+
       - name: Run hash state check
         id: hash_check
         env:
@@ -56,6 +97,7 @@ jobs:
           echo "error=${ERROR:-0}" >> $GITHUB_OUTPUT
 
           {
+            echo ""
             echo "## Damodaran Hash Check Summary"
             echo ""
             echo "- **Changed URLs:** ${CHANGED:-0}"
@@ -168,15 +210,8 @@ jobs:
         if: steps.regen_decide.outputs.action == 'regen_json' || steps.regen_decide.outputs.action == 'regen_and_alert' || github.event.inputs.force_regen == 'true'
         id: regen_run
         run: |
-          # parsed_financials cache GitHub Actions runner'da yok.
-          # Cache miss durumunda KAP fetch denemesi loop'a girebilir.
-          # Bu nedenle CI sadece DRY-RUN raporu yapar, gerçek regen
-          # local'de manual yapılır (cache hit garantili).
-
           echo "::warning::CI runner'da parsed_financials cache YOK (251 ticker)."
-          echo "::warning::Gercek JSON regen local'de yapilmalidir:"
-          echo "::warning::  python -c 'from apps.api.orchestrator_v4 import run_pipeline_v4, save_v4_batch_json; ...'"
-          echo "::warning::Adim 12 brief'i (audit_resolution §8) referans olarak kullanilabilir."
+          echo "::warning::Gercek JSON regen local'de yapilmalidir."
 
           {
             echo ""
@@ -200,8 +235,14 @@ jobs:
             echo "Sonra: \`git add ... && git commit ... && git push\`"
           } >> $GITHUB_STEP_SUMMARY
 
-          # Bu Session 5.4b scope'unda CI commit YOK (bilinçli karar)
-          # Session 5.5+'a parking: artifact upload veya self-hosted runner
+      - name: Persist state cache (after run)
+        if: always() && github.event.inputs.reset_state != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            apps/api/data/damodaran/_hash_state.json
+            apps/api/data/damodaran/_regen_state.json
+          key: damodaran-state-${{ github.run_id }}
 
       - name: Fail on error
         if: steps.hash_check.outputs.error != '0'
