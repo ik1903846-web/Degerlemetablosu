@@ -51,6 +51,15 @@ from kap_subsidiaries_fetcher import (
     lookup_parent as subs_lookup_parent,
 )
 from yfinance_price_fetcher import fetch_one as yf_fetch_one
+from kap_excel_fetcher import fetch_excel_export
+from kap_excel_parser import parse_excel_html, FinancialLineItems
+
+# DCF Engine v4
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from dcf_engine_v4.lifecycle_classifier import classify_lifecycle, LifecycleResult
+from dcf_engine_v4.cost_of_capital import calculate_wacc, WACCResult, TURKEY_TAX_RATE
+from dcf_engine_v4.fcff_engine import calculate_fcff_dcf, DCFInputs, DCFResult
+from dcf_engine_v4.cyclical_normalize import normalize_op_income
 
 
 REPO_API = Path(__file__).resolve().parent
@@ -110,6 +119,26 @@ class TickerDataV4:
     beta_relevered: Optional[float] = None
     sector_unlevered_mean: Optional[float] = None
     r_squared: Optional[float] = None
+
+    # DCF inputs (Excel re-parse'tan)
+    revenue: Optional[float] = None
+    op_income: Optional[float] = None
+    capex: Optional[float] = None
+    depreciation: Optional[float] = None
+    working_capital: Optional[float] = None
+    cash: Optional[float] = None
+    tax_expense: Optional[float] = None
+
+    # DCF outputs
+    lifecycle_stage: Optional[str] = None
+    lifecycle_rationale: Optional[str] = None
+    wacc: Optional[float] = None
+    cost_of_equity: Optional[float] = None
+    cost_of_debt: Optional[float] = None
+    rating: Optional[str] = None
+    intrinsic_per_share_tl: Optional[float] = None
+    upside_pct: Optional[float] = None
+    dcf_method: Optional[str] = None  # "industrial_fcff" / "banking_skip" / vb.
 
     # Damodaran flags
     flags: List[str] = field(default_factory=list)
@@ -285,6 +314,161 @@ def assemble_ticker_data(
 
 
 # ============================================================================
+# DCF integration (Session 4B)
+# ============================================================================
+
+def enrich_full_financials(td: TickerDataV4) -> TickerDataV4:
+    """KAP Excel cache'den disclosure_index ile FULL financials re-parse.
+
+    fundamentals.json'da sadece D/E + dialect var (Session 3.6 minimum).
+    DCF için revenue, capex, D&A, cash gerek — Excel cache'den çıkar.
+    """
+    if td.disclosure_index is None:
+        td.errors.append("enrich: no disclosure_index for full re-parse")
+        return td
+    try:
+        dl = fetch_excel_export(td.disclosure_index)
+        if not dl.success:
+            td.errors.append(f"enrich: download fail {dl.error}")
+            return td
+        fli: FinancialLineItems = parse_excel_html(
+            dl.content_bytes, disclosure_index=td.disclosure_index,
+        )
+        if fli.error:
+            td.errors.append(f"enrich: parse {fli.error}")
+            return td
+        # Sunum birimi normalize: "1.000 TL" → ×1000, "1.000.000 TL" → ×1e6
+        unit_multiplier = 1.0
+        if fli.sunum_birimi:
+            txt = fli.sunum_birimi.lower().replace(" ", "")
+            if "1.000.000" in txt or "1000000" in txt:
+                unit_multiplier = 1_000_000.0
+            elif "1.000" in txt or "1000" in txt:
+                unit_multiplier = 1_000.0
+        td.revenue = (fli.revenue_cari or 0) * unit_multiplier or None
+        td.op_income = (fli.operating_income_cari or 0) * unit_multiplier or None
+        td.capex = (fli.capex_cari or 0) * unit_multiplier or None
+        td.depreciation = (fli.depreciation_cari or 0) * unit_multiplier or None
+        td.working_capital = (fli.working_capital or 0) * unit_multiplier or None
+        td.cash = (fli.cash or 0) * unit_multiplier or None
+        td.tax_expense = (fli.tax_expense_cari or 0) * unit_multiplier or None
+        # total_debt + equity zaten TL bazında fundamentals.json'dan geliyor
+        # ama unit consistency için yeniden uygula
+        if fli.total_debt is not None:
+            td.total_debt = fli.total_debt * unit_multiplier
+        if fli.total_equity is not None:
+            td.total_equity = fli.total_equity * unit_multiplier
+        td.flags.append(f"unit_multiplier={unit_multiplier:.0f}")
+    except Exception as e:
+        td.errors.append(f"enrich exc: {type(e).__name__}: {e}")
+    return td
+
+
+def calculate_intrinsic_value(td: TickerDataV4) -> TickerDataV4:
+    """Lifecycle → WACC → FCFF DCF → intrinsic per share.
+
+    Banking/Holding/Insurance: graceful skip (Session 4.5+).
+    """
+    # Lifecycle classification
+    lc: LifecycleResult = classify_lifecycle(
+        dialect=td.dialect,
+        market_cap_tl=td.market_cap_tl,
+        history_rows=td.history_rows,
+        year_change_pct=td.year_change_pct,
+        de_ratio=td.de_ratio,
+        revenue=td.revenue,
+    )
+    td.lifecycle_stage = lc.stage
+    td.lifecycle_rationale = lc.rationale
+
+    # Banking / Insurance / Unknown — DCF skip
+    if td.dialect in ("banking", "insurance", "unknown"):
+        td.dcf_method = f"{td.dialect}_skip"
+        td.flags.append(f"dcf_skip: {td.dialect} method_not_implemented_session_4_5")
+        return td
+
+    # Holding — SOTP gerek (Session 4.5+)
+    if td.dialect == "holding":
+        td.dcf_method = "holding_sotp_pending"
+        td.flags.append("dcf_skip: holding SOTP pending session_4_5")
+        return td
+
+    # Industrial DCF
+    if td.beta_relevered is None:
+        td.errors.append("dcf: beta_relevered missing")
+        return td
+    if td.market_cap_tl is None or td.total_debt is None:
+        td.errors.append("dcf: market_cap or total_debt missing")
+        return td
+
+    wacc_res: WACCResult = calculate_wacc(
+        beta_relevered=td.beta_relevered,
+        market_cap=td.market_cap_tl,
+        total_debt=td.total_debt,
+        op_income=td.op_income,
+        interest_expense=None,  # KAP parser yet to expose interest_expense
+        tax_rate=TURKEY_TAX_RATE,
+    )
+    td.wacc = wacc_res.wacc
+    td.cost_of_equity = wacc_res.cost_of_equity
+    td.cost_of_debt = wacc_res.cost_of_debt_aftertax
+    td.rating = wacc_res.rating
+
+    # FCFF DCF
+    if not all(v is not None and v > 0 for v in [
+        td.revenue, td.op_income, td.shares_outstanding,
+    ]):
+        td.errors.append("dcf: revenue/op_income/shares incomplete")
+        return td
+
+    # Damodaran ADR-011: cyclical sector op_margin normalize
+    op_income_normalized, cyclical_flag = normalize_op_income(
+        current_revenue=td.revenue,
+        current_op_income=td.op_income,
+        sector_name=td.sector_name,
+    )
+    td.flags.append(f"op_margin: {cyclical_flag}")
+
+    inputs = DCFInputs(
+        revenue=td.revenue,
+        op_income=op_income_normalized,
+        capex=td.capex or 0.0,
+        da=td.depreciation or 0.0,
+        working_capital=td.working_capital or 0.0,
+        tax_rate=TURKEY_TAX_RATE,
+        total_debt=td.total_debt,
+        cash=td.cash or 0.0,
+        shares_outstanding=td.shares_outstanding,
+        wacc=td.wacc,
+        lifecycle_stage=td.lifecycle_stage,
+    )
+    dcf: DCFResult = calculate_fcff_dcf(inputs)
+    if dcf.error:
+        td.errors.append(f"dcf: {dcf.error}")
+        td.dcf_method = f"fcff_failed:{dcf.error[:30]}"
+        return td
+
+    td.intrinsic_per_share_tl = dcf.intrinsic_per_share
+    td.dcf_method = "industrial_fcff_2stage"
+    if td.current_price_tl and dcf.intrinsic_per_share:
+        td.upside_pct = (dcf.intrinsic_per_share - td.current_price_tl) / td.current_price_tl * 100
+
+    return td
+
+
+def assemble_and_value(
+    ticker: str,
+    caches: Optional[_Caches] = None,
+    fetch_yfinance_live: bool = True,
+) -> TickerDataV4:
+    """Tek atımda assemble + enrich + intrinsic value."""
+    td = assemble_ticker_data(ticker, caches=caches, fetch_yfinance_live=fetch_yfinance_live)
+    td = enrich_full_financials(td)
+    td = calculate_intrinsic_value(td)
+    return td
+
+
+# ============================================================================
 # Universe pipeline (skeleton — DCF entegrasyon Session 4B'de)
 # ============================================================================
 
@@ -350,7 +534,7 @@ if __name__ == "__main__":
         print(f"{ticker}  ({note})")
         print('─'*78)
 
-        td = assemble_ticker_data(ticker, caches=caches, fetch_yfinance_live=True)
+        td = assemble_and_value(ticker, caches=caches, fetch_yfinance_live=True)
 
         print(f"  Effective ticker:    {td.ticker}")
         if td.name_change:
@@ -373,6 +557,24 @@ if __name__ == "__main__":
                 print(f"  R²:                  {td.r_squared:.4f}")
         if td.subsidiaries_count > 0:
             print(f"  Subsidiaries:        total={td.subsidiaries_count} listed={td.listed_subsidiaries_count}")
+
+        # DCF section
+        print(f"  ── DCF ─────────────────────────────────")
+        print(f"  Lifecycle:           {td.lifecycle_stage}  ({td.lifecycle_rationale})")
+        if td.revenue is not None:
+            print(f"  Revenue (cari):      {td.revenue:>20,.0f} TL")
+        if td.op_income is not None:
+            print(f"  Op Income (cari):    {td.op_income:>20,.0f} TL")
+        if td.wacc is not None:
+            print(f"  Cost of Equity:      {td.cost_of_equity*100:>6.2f}%")
+            print(f"  Cost of Debt (a/t):  {td.cost_of_debt*100:>6.2f}%")
+            print(f"  WACC:                {td.wacc*100:>6.2f}%  rating={td.rating}")
+        print(f"  DCF method:          {td.dcf_method}")
+        if td.intrinsic_per_share_tl is not None:
+            print(f"  Intrinsic /share:    {td.intrinsic_per_share_tl:>10.2f} TL")
+            if td.upside_pct is not None:
+                print(f"  Upside vs market:    {td.upside_pct:>+7.2f}%")
+
         if td.flags:
             print(f"  Flags:")
             for f in td.flags:
@@ -383,3 +585,17 @@ if __name__ == "__main__":
                 print(f"    ⚠ {e}")
         verdict = "✓ COMPLETE" if td.is_complete else "⚠ INCOMPLETE"
         print(f"  → DCF input ready: {verdict}")
+
+        # TUPRS anchor regression test
+        if td.ticker == "TUPRS" and td.intrinsic_per_share_tl is not None:
+            anchor = 187.10
+            tol_lower = anchor * 0.88   # 164.65
+            tol_upper = anchor * 1.12   # 209.55
+            in_band = tol_lower <= td.intrinsic_per_share_tl <= tol_upper
+            band_str = f"[{tol_lower:.2f}-{tol_upper:.2f}]"
+            verdict = "✓ IN BAND" if in_band else "✗ OUT OF BAND"
+            print(f"\n  ★ TUPRS ANCHOR REGRESSION:")
+            print(f"     Intrinsic:    {td.intrinsic_per_share_tl:.2f} TL")
+            print(f"     Anchor:       {anchor:.2f} TL")
+            print(f"     ±%12 band:    {band_str}")
+            print(f"     Verdict:      {verdict}")
