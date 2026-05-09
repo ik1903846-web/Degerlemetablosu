@@ -14,5 +14,8 @@
 # Session 5.2: Hash state runtime artifact (her check'te değişir)
 _hash_state.json
 
+# Session 5.4: Regen trigger snapshot (cost_of_capital baseline)
+_regen_state.json
+
 # Session 5.5+ (placeholder): fetch log audit trail
 _fetch_log.jsonl
