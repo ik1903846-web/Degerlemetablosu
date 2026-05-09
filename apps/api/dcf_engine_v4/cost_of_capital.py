@@ -36,24 +36,27 @@ TURKEY_SOVEREIGN_SPREAD = 0.0306  # was: 0.0446 (Turkey Ba3 upgrade Sub 2026)
 
 
 # Damodaran synthetic rating tablosu (interest_coverage → default_spread)
-# Kaynak: Damodaran "Synthetic Ratings" 2026 versiyon
+# Source: ctryprem.xlsx "Default Spreads for Ratings" sheet (1/1/26)
+# Updated: Session 6.b 2026-05-10 — 13 spread refresh + 2 preserve
+# NOT: Coverage thresholds + rating strings UNCHANGED ([II] Conservative)
+# NOT: C2/C, D2/D PRESERVED (Damodaran sheet'te yok)
 _RATING_TABLE = [
     # (min_coverage, max_coverage, rating, default_spread)
-    (8.50,  9999.0, "Aaa/AAA",  0.0069),
-    (6.50,   8.50,  "Aa2/AA",   0.0085),
-    (5.50,   6.50,  "A1/A+",    0.0107),
-    (4.25,   5.50,  "A2/A",     0.0122),
-    (3.00,   4.25,  "A3/A-",    0.0156),
-    (2.50,   3.00,  "Baa2/BBB", 0.0212),
-    (2.25,   2.50,  "Ba1/BB+",  0.0273),
-    (2.00,   2.25,  "Ba2/BB",   0.0337),
-    (1.75,   2.00,  "B1/B+",    0.0398),
-    (1.50,   1.75,  "B2/B",     0.0470),
-    (1.25,   1.50,  "B3/B-",    0.0552),
-    (0.80,   1.25,  "Caa/CCC",  0.0850),
-    (0.65,   0.80,  "Ca2/CC",   0.1135),
-    (0.20,   0.65,  "C2/C",     0.1469),
-    (-9999.0, 0.20, "D2/D",     0.1969),
+    (8.50,  9999.0, "Aaa/AAA",  0.0000),  # was: 0.0069
+    (6.50,   8.50,  "Aa2/AA",   0.0042),  # was: 0.0085
+    (5.50,   6.50,  "A1/A+",    0.0060),  # was: 0.0107
+    (4.25,   5.50,  "A2/A",     0.0072),  # was: 0.0122
+    (3.00,   4.25,  "A3/A-",    0.0102),  # was: 0.0156
+    (2.50,   3.00,  "Baa2/BBB", 0.0162),  # was: 0.0212
+    (2.25,   2.50,  "Ba1/BB+",  0.0213),  # was: 0.0273
+    (2.00,   2.25,  "Ba2/BB",   0.0256),  # was: 0.0337
+    (1.75,   2.00,  "B1/B+",    0.0383),  # was: 0.0398
+    (1.50,   1.75,  "B2/B",     0.0467),  # was: 0.0470
+    (1.25,   1.50,  "B3/B-",    0.0552),  # unchanged
+    (0.80,   1.25,  "Caa/CCC",  0.0765),  # was: 0.0850 (Caa2 mid)
+    (0.65,   0.80,  "Ca2/CC",   0.1020),  # was: 0.1135 (Ca)
+    (0.20,   0.65,  "C2/C",     0.1469),  # preserved (Dam yok)
+    (-9999.0, 0.20, "D2/D",     0.1969),  # preserved (Dam yok)
 ]
 
 
