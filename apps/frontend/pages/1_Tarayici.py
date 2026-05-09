@@ -34,6 +34,38 @@ REPO_APPS = Path(__file__).resolve().parents[2]              # apps/
 OUTPUTS_DIR = REPO_APPS / "api" / "outputs"
 
 
+# ─────────────────────────────────────────────────────────────────
+# HOOK[Audit Session 4]: Stage 2/3 Banner Integration
+# ─────────────────────────────────────────────────────────────────
+#
+# TODO: Lifecycle classifier sonucu Stage 2 (Young Growth) veya
+# Stage 3 (High Growth) ise, ticker seçildiğinde Mature DCF render
+# etmeden ÖNCE şu banner gösterilmeli:
+#
+#   if get_lifecycle(ticker) in ("Stage 2", "Stage 3"):
+#       st.error(
+#           f"⚠️ {ticker} bir {get_lifecycle(ticker)} şirketidir. "
+#           f"Mature DCF bu evre için yanlış model "
+#           f"(Damodaran §4.1). Lütfen 🚀 Hızlı Büyüme "
+#           f"sekmesinde değerleyin."
+#       )
+#       st.page_link(
+#           "pages/3_Hizli_Buyume.py",
+#           label="🚀 Hızlı Büyüme sekmesine git",
+#       )
+#       st.stop()  # Mature DCF render'ı durdur
+#
+# Implementation: docs/young_growth_tab_spec.md §2 + Hafta 1
+# Audit dependency: docs/audit_decision_v4.md Faz B1 Adım 1-4
+#                   (lifecycle classifier'ın Stage 2/3 doğru
+#                    sınıflandırması için Damodaran Şub 2026
+#                    parametrelerine bağlı)
+#
+# Status: HOOK READY — implementation Hafta 1 (3_Hizli_Buyume.py
+# placeholder dolulduktan sonra aktif edilir)
+# ─────────────────────────────────────────────────────────────────
+
+
 # ============================================================================
 # Page Config
 # ============================================================================
