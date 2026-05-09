@@ -199,14 +199,8 @@ def get_vintage(url: str,
 # Standalone smoke test
 # ────────────────────────────────────────────────────────────────────
 
-if __name__ == "__main__":
-    import sys
-
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(levelname)s | %(name)s | %(message)s",
-    )
-
+def _run_smoke_test() -> int:
+    """Standalone smoke test (default mode)."""
     DAMOD_DIR = Path(__file__).resolve().parents[3] / \
                 "apps" / "api" / "data" / "damodaran" / "2026_05_09"
 
@@ -232,10 +226,10 @@ if __name__ == "__main__":
         print(f"  http_last_modified:    {result.http_last_modified}")
         print(f"  xlsx_modified:         {result.xlsx_modified}")
         print(f"  cross_check_ok:        {result.cross_check_ok}")
-        print(f"  cross_check_delta:     "
-              f"{result.cross_check_delta_seconds:.0f}s"
-              if result.cross_check_delta_seconds is not None
-              else "  cross_check_delta:     None")
+        if result.cross_check_delta_seconds is not None:
+            print(f"  cross_check_delta:     {result.cross_check_delta_seconds:.0f}s")
+        else:
+            print(f"  cross_check_delta:     None")
         if result.warnings:
             print(f"  warnings:")
             for w in result.warnings:
@@ -246,7 +240,79 @@ if __name__ == "__main__":
     print("\n" + "=" * 60)
     if all_ok:
         print("PASS: Tum hedefler cross-check OK")
-        sys.exit(0)
+        return 0
     else:
         print("FAIL: Bir veya daha fazla hedefte issue var")
-        sys.exit(1)
+        return 1
+
+
+def _cli_json_output(output_path: Path) -> int:
+    """Workflow CLI: vintage'lari JSON output yaz."""
+    import json
+    from dataclasses import asdict
+
+    DAMOD_DIR = Path(__file__).resolve().parents[3] / \
+                "apps" / "api" / "data" / "damodaran" / "2026_05_09"
+
+    targets = [
+        ("ctryprem",
+         "https://pages.stern.nyu.edu/~adamodar/pc/datasets/ctryprem.xlsx",
+         DAMOD_DIR / "ctryprem.xlsx"),
+        ("ERPbymonth",
+         "https://pages.stern.nyu.edu/~adamodar/pc/implprem/ERPbymonth.xlsx",
+         DAMOD_DIR / "ERPbymonth.xlsx"),
+    ]
+
+    summary = {}
+    for name, url, xlsx_path in targets:
+        result = get_vintage(url, xlsx_path)
+        # datetime'lari ISO format string'e cevir
+        d = asdict(result)
+        for key in ["http_last_modified", "xlsx_modified"]:
+            if d.get(key) is not None:
+                d[key] = d[key].isoformat()
+        summary[name] = d
+
+    output_path.write_text(
+        json.dumps(summary, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+
+    # Console summary
+    for name, d in summary.items():
+        print(f"{name}: vintage={d['vintage']} cross_check_ok={d['cross_check_ok']}")
+    print(f"output={output_path}")
+
+    return 0
+
+
+if __name__ == "__main__":
+    import argparse
+    import sys
+
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(levelname)s | %(name)s | %(message)s",
+    )
+
+    parser = argparse.ArgumentParser(
+        description="Damodaran vintage parser"
+    )
+    parser.add_argument(
+        "--json",
+        action="store_true",
+        help="JSON output mode (CLI workflow)",
+    )
+    parser.add_argument(
+        "--output",
+        type=Path,
+        default=Path("vintage_summary.json"),
+        help="JSON output path (default: vintage_summary.json)",
+    )
+
+    args = parser.parse_args()
+
+    if args.json:
+        sys.exit(_cli_json_output(args.output))
+    else:
+        sys.exit(_run_smoke_test())

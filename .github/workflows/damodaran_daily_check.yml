@@ -111,12 +111,26 @@ jobs:
           } >> $GITHUB_STEP_SUMMARY
 
       - name: Vintage cross-check (if changed)
+        id: vintage
         if: steps.hash_check.outputs.changed != '0'
         run: |
-          python apps/api/data_layer/damodaran_vintage_parser.py 2>&1 | tee vintage_output.txt
+          python apps/api/data_layer/damodaran_vintage_parser.py \
+            --json --output vintage_summary.json 2>&1 | tee vintage_output.txt
+
+          # ctryprem vintage'ini extract (primary kaynak)
+          CTRYPREM_VINTAGE=$(python -c "
+          import json
+          data = json.load(open('vintage_summary.json'))
+          print(data.get('ctryprem', {}).get('vintage', 'unknown'))
+          ")
+          echo "ctryprem_vintage=${CTRYPREM_VINTAGE}" >> $GITHUB_OUTPUT
+
           {
             echo ""
             echo "## Vintage Parser Output"
+            echo "- **ctryprem vintage:** \`${CTRYPREM_VINTAGE}\`"
+            echo ""
+            echo "### Detail"
             echo '```'
             cat vintage_output.txt
             echo '```'
@@ -147,7 +161,7 @@ jobs:
             echo '```'
           } >> $GITHUB_STEP_SUMMARY
 
-      - name: Open issue if manual update needed
+      - name: Open issue if manual update needed (idempotent)
         if: steps.regen_decide.outputs.action == 'alert_manual_update' || steps.regen_decide.outputs.action == 'regen_and_alert'
         uses: actions/github-script@v7
         with:
@@ -155,57 +169,101 @@ jobs:
           script: |
             const fs = require('fs');
             const decision = JSON.parse(fs.readFileSync('regen_decision.json', 'utf8'));
+            const vintage = '${{ steps.vintage.outputs.ctryprem_vintage }}' || 'unknown';
+            const vintageLabel = `vintage:${vintage}`;
             const date = new Date().toISOString().split('T')[0];
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
 
-            const title = `Damodaran update detected (${date}) - manual cost_of_capital review needed`;
-            const body = [
-              '## Otomatik Tespit',
-              '',
-              `Workflow run: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
-              '',
-              `**Reason:** \`${decision.reason}\``,
-              `**Action:** \`${decision.action}\``,
-              `**Timestamp:** ${decision.timestamp_utc}`,
-              `**Hash changed URLs:** ${decision.hash_changed_urls.join(', ') || '(yok)'}`,
-              '',
-              '## Yapilmasi Gereken (Audit Disiplin)',
-              '',
-              '1. Damodaran resmi sayfasini kontrol et:',
-              '   https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/ctryprem.html',
-              '',
-              '2. parameters.json fetch (Faz B1 Adim 1):',
-              '   `python apps/api/scripts/fetch_damodaran_v2_audit.py`',
-              '',
-              '3. xlsx verify (Faz B1 Adim 2B):',
-              '   `python apps/api/scripts/verify_damodaran_xlsx.py`',
-              '',
-              '4. Production diff (Faz B1 Adim 2C):',
-              '   `python apps/api/scripts/diff_production_vs_damodaran.py`',
-              '',
-              '5. cost_of_capital.py constants update (Faz B1 Adim 7)',
-              '',
-              '6. Sonra workflow_dispatch ile bu workflow tekrar calistir,',
-              '   action=regen_json olur, JSON otomatik regen + commit olur.',
-              '',
-              '## Audit Chain Reference',
-              '',
-              '- `docs/audit_findings_session4.md`',
-              '- `docs/audit_decision_v4.md`',
-              '- `docs/audit_resolution_session4.md`',
-              '- `docs/adr_040_postmortem.md`',
-              '',
-              '_This issue was auto-created by ADR-040 v2 daily check (Session 5.4b)._'
-            ].join('\n');
-
-            await github.rest.issues.create({
+            // Idempotency check: aynı vintage label'i ile open issue var mi?
+            const { data: existingIssues } = await github.rest.issues.listForRepo({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              title: title,
-              body: body,
-              labels: ['damodaran-update', 'audit-required']
+              state: 'open',
+              labels: ['damodaran-update', vintageLabel],
             });
 
-            core.notice('Issue opened for manual cost_of_capital review');
+            if (existingIssues.length > 0) {
+              // Mevcut issue'ya comment ekle
+              const issueNumber = existingIssues[0].number;
+              const commentBody = [
+                `### Re-detection (${date})`,
+                '',
+                `Workflow run: ${runUrl}`,
+                '',
+                `Bu update vintage'i (\`${vintage}\`) icin issue hala acik.`,
+                `Audit checklist henuz tamamlanmamis.`,
+                '',
+                `**Reason:** \`${decision.reason}\``,
+                `**Action:** \`${decision.action}\``,
+                '',
+                `_Auto-comment by ADR-040 v2 idempotent check (Session 5.5c)._`
+              ].join('\n');
+
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+                body: commentBody,
+              });
+
+              core.notice(`Existing issue #${issueNumber} updated (vintage ${vintage})`);
+              core.setOutput('issue_action', 'commented');
+              core.setOutput('issue_number', String(issueNumber));
+            } else {
+              // Yeni issue ac
+              const title = `Damodaran update detected (${vintage}) - manual cost_of_capital review needed`;
+              const body = [
+                '## Otomatik Tespit',
+                '',
+                `Workflow run: ${runUrl}`,
+                '',
+                `**Vintage:** \`${vintage}\``,
+                `**Reason:** \`${decision.reason}\``,
+                `**Action:** \`${decision.action}\``,
+                `**Timestamp:** ${decision.timestamp_utc}`,
+                `**Hash changed URLs:** ${decision.hash_changed_urls.join(', ') || '(yok)'}`,
+                '',
+                '## Yapilmasi Gereken (Audit Disiplin)',
+                '',
+                '1. Damodaran resmi sayfasini kontrol et:',
+                '   https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/ctryprem.html',
+                '',
+                '2. parameters.json fetch (Faz B1 Adim 1):',
+                '   `python apps/api/scripts/fetch_damodaran_v2_audit.py`',
+                '',
+                '3. xlsx verify (Faz B1 Adim 2B):',
+                '   `python apps/api/scripts/verify_damodaran_xlsx.py`',
+                '',
+                '4. Production diff (Faz B1 Adim 2C):',
+                '   `python apps/api/scripts/diff_production_vs_damodaran.py`',
+                '',
+                '5. cost_of_capital.py constants update (Faz B1 Adim 7)',
+                '',
+                '6. Sonra workflow_dispatch ile bu workflow tekrar calistir,',
+                '   action=regen_json olur, JSON otomatik regen notice gelir.',
+                '',
+                '## Audit Chain Reference',
+                '',
+                '- `docs/audit_findings_session4.md`',
+                '- `docs/audit_decision_v4.md`',
+                '- `docs/audit_resolution_session4.md`',
+                '- `docs/adr_040_postmortem.md`',
+                '',
+                '_Auto-created by ADR-040 v2 daily check (Session 5.5c idempotent)._'
+              ].join('\n');
+
+              const { data: newIssue } = await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: title,
+                body: body,
+                labels: ['damodaran-update', 'audit-required', vintageLabel],
+              });
+
+              core.notice(`New issue #${newIssue.number} opened (vintage ${vintage})`);
+              core.setOutput('issue_action', 'created');
+              core.setOutput('issue_number', String(newIssue.number));
+            }
 
       - name: Run JSON regen
         if: steps.regen_decide.outputs.action == 'regen_json' || steps.regen_decide.outputs.action == 'regen_and_alert' || github.event.inputs.force_regen == 'true'
