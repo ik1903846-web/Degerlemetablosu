@@ -1,0 +1,86 @@
+name: Damodaran Daily Hash Check
+
+on:
+  schedule:
+    # Daily 06:00 UTC (TR 09:00)
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+    # Manuel trigger
+    inputs:
+      verbose:
+        description: 'Verbose log'
+        required: false
+        default: 'false'
+
+jobs:
+  check:
+    name: HEAD check Damodaran URLs
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install httpx openpyxl
+
+      - name: Run hash state check
+        id: check
+        env:
+          PYTHONUNBUFFERED: '1'
+        run: |
+          python apps/api/data_layer/damodaran_hash_state.py 2>&1 | tee check_output.txt
+
+          # Changed count parse
+          CHANGED=$(grep -E "Changed:\s+[0-9]+" check_output.txt | tail -1 | grep -oE "[0-9]+" | head -1)
+          ERROR=$(grep -E "Error:\s+[0-9]+" check_output.txt | tail -1 | grep -oE "[0-9]+" | head -1)
+
+          echo "changed=${CHANGED:-0}" >> $GITHUB_OUTPUT
+          echo "error=${ERROR:-0}" >> $GITHUB_OUTPUT
+
+          # Summary
+          {
+            echo "## Damodaran Hash Check Summary"
+            echo ""
+            echo "- **Changed URLs:** ${CHANGED:-0}"
+            echo "- **Errors:** ${ERROR:-0}"
+            echo ""
+            echo "### Detail"
+            echo '```'
+            cat check_output.txt
+            echo '```'
+          } >> $GITHUB_STEP_SUMMARY
+
+      - name: Vintage cross-check (if changed)
+        if: steps.check.outputs.changed != '0'
+        run: |
+          echo "::notice::Hash change detected, running vintage parser"
+          python apps/api/data_layer/damodaran_vintage_parser.py 2>&1 | tee vintage_output.txt
+
+          {
+            echo ""
+            echo "## Vintage Parser Output"
+            echo '```'
+            cat vintage_output.txt
+            echo '```'
+          } >> $GITHUB_STEP_SUMMARY
+
+      - name: Fail on error
+        if: steps.check.outputs.error != '0'
+        run: |
+          echo "::error::HEAD check encountered errors"
+          exit 1
+
+      - name: Notify on change
+        if: steps.check.outputs.changed != '0' && steps.check.outputs.error == '0'
+        run: |
+          echo "::warning::Damodaran update detected — Session 5.4 (auto regen) trigger needed"
+          echo "Changed URLs: ${{ steps.check.outputs.changed }}"
