@@ -1114,5 +1114,2890 @@
     "equity": 12627481.0,
     "total_debt": 2384394.0,
     "disclosure_index": 1560066
+  },
+  "BOBET": {
+    "dialect": "industrial",
+    "de_ratio": 0.1612614829491256,
+    "equity": 6454168410.0,
+    "total_debt": 1040808769.0,
+    "disclosure_index": 1479957
+  },
+  "BIENY": {
+    "dialect": "industrial",
+    "de_ratio": 0.38704776230055643,
+    "equity": 11476752284.0,
+    "total_debt": 4442051290.0,
+    "disclosure_index": 1480820
+  },
+  "BUCIM": {
+    "dialect": "industrial",
+    "de_ratio": 0.1480467532826688,
+    "equity": 17054717412.0,
+    "total_debt": 2524895541.0,
+    "disclosure_index": 1481751
+  },
+  "CGCAM": {
+    "dialect": "industrial",
+    "de_ratio": 0.035126362659000696,
+    "equity": 4151480027.0,
+    "total_debt": 145826393.0,
+    "disclosure_index": 1509294
+  },
+  "CMENT": {
+    "dialect": "industrial",
+    "de_ratio": 0.00579928137434412,
+    "equity": 20311827.0,
+    "total_debt": 117794.0,
+    "disclosure_index": 1571194
+  },
+  "CMBTN": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 455407812.0,
+    "total_debt": null,
+    "disclosure_index": 1509182
+  },
+  "CIMSA": {
+    "dialect": "industrial",
+    "de_ratio": 0.5822718746470166,
+    "equity": 41706993.0,
+    "total_debt": 24284809.0,
+    "disclosure_index": 1510181
+  },
+  "EGSER": {
+    "dialect": "industrial",
+    "de_ratio": 0.8152509007846233,
+    "equity": 2077382264.0,
+    "total_debt": 1693587762.0,
+    "disclosure_index": 1600006
+  },
+  "DOGUB": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 85922329.0,
+    "total_debt": null,
+    "disclosure_index": 1432159
+  },
+  "GOLTS": {
+    "dialect": "industrial",
+    "de_ratio": 0.156360783387668,
+    "equity": 9333872077.0,
+    "total_debt": 1459451550.0,
+    "disclosure_index": 1480219
+  },
+  "KLKIM": {
+    "dialect": "industrial",
+    "de_ratio": 0.07136467884831753,
+    "equity": 5663571777.0,
+    "total_debt": 404178981.0,
+    "disclosure_index": 1477914
+  },
+  "KLSER": {
+    "dialect": "industrial",
+    "de_ratio": 0.8584867143441189,
+    "equity": 7158007768.0,
+    "total_debt": 6145054570.0,
+    "disclosure_index": 1480995
+  },
+  "LMKDC": {
+    "error": "download"
+  },
+  "KONYA": {
+    "dialect": "industrial",
+    "de_ratio": 0.09605904151356151,
+    "equity": 3496046418.0,
+    "total_debt": 335826868.0,
+    "disclosure_index": 1437606
+  },
+  "KUTPO": {
+    "dialect": "industrial",
+    "de_ratio": 0.01186072683353971,
+    "equity": 3947727290.0,
+    "total_debt": 46822915.0,
+    "disclosure_index": 1481130
+  },
+  "NIBAS": {
+    "dialect": "holding",
+    "de_ratio": 0.013705461205301358,
+    "equity": 734342307.0,
+    "total_debt": 10064500.0,
+    "disclosure_index": 1470626
+  },
+  "NUHCM": {
+    "dialect": "industrial",
+    "de_ratio": 0.04274738113892124,
+    "equity": 24450175219.0,
+    "total_debt": 1045180959.0,
+    "disclosure_index": 1559422
+  },
+  "OYAKC": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 46361657889.0,
+    "total_debt": null,
+    "disclosure_index": 1432441
+  },
+  "QUAGR": {
+    "dialect": "industrial",
+    "de_ratio": 0.4619235394708129,
+    "equity": 8996849372.0,
+    "total_debt": 4155856506.0,
+    "disclosure_index": 1480835
+  },
+  "SERNT": {
+    "dialect": "industrial",
+    "de_ratio": 0.6415418232344768,
+    "equity": 4480717222.0,
+    "total_debt": 2874567496.0,
+    "disclosure_index": 1480812
+  },
+  "MARBL": {
+    "dialect": "industrial",
+    "de_ratio": 0.2811494484378997,
+    "equity": 2446157920.0,
+    "total_debt": 687735950.0,
+    "disclosure_index": 1480041
+  },
+  "USAK": {
+    "dialect": "industrial",
+    "de_ratio": 0.3415085901593447,
+    "equity": 4984594148.0,
+    "total_debt": 1702281720.0,
+    "disclosure_index": 1557863
+  },
+  "YBTAS": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 1485912957.0,
+    "total_debt": null,
+    "disclosure_index": 1468998
+  },
+  "AYES": {
+    "dialect": "industrial",
+    "de_ratio": 0.5854339147825633,
+    "equity": 1673497157.0,
+    "total_debt": 979721992.0,
+    "disclosure_index": 1480700
+  },
+  "BLUME": {
+    "dialect": "industrial",
+    "de_ratio": 0.02586848761087007,
+    "equity": 562620058.0,
+    "total_debt": 14554130.0,
+    "disclosure_index": 1559290
+  },
+  "BMSTL": {
+    "dialect": "industrial",
+    "de_ratio": 0.4242439594453334,
+    "equity": 1451767426.0,
+    "total_debt": 615903561.0,
+    "disclosure_index": 1569885
+  },
+  "BMSCH": {
+    "dialect": "industrial",
+    "de_ratio": 0.45139294670045366,
+    "equity": 1067028013.0,
+    "total_debt": 481648919.0,
+    "disclosure_index": 1479939
+  },
+  "BRSAN": {
+    "dialect": "industrial",
+    "de_ratio": 0.30364959990858326,
+    "equity": 37734876.0,
+    "total_debt": 11458180.0,
+    "disclosure_index": 1562310
+  },
+  "BURCE": {
+    "dialect": "industrial",
+    "de_ratio": 0.07264740060677691,
+    "equity": 1091193812.0,
+    "total_debt": 79272394.0,
+    "disclosure_index": 1480725
+  },
+  "BURVA": {
+    "dialect": "industrial",
+    "de_ratio": 0.00785893719131133,
+    "equity": 87232915.0,
+    "total_debt": 685558.0,
+    "disclosure_index": 1509303
+  },
+  "CEMAS": {
+    "error": "download"
+  },
+  "CELHA": {
+    "dialect": "industrial",
+    "de_ratio": 0.14833368782620468,
+    "equity": 3093169864.0,
+    "total_debt": 458821293.0,
+    "disclosure_index": 1480198
+  },
+  "CEMTS": {
+    "dialect": "industrial",
+    "de_ratio": 0.17435299751641303,
+    "equity": 6764257574.0,
+    "total_debt": 1179368584.0,
+    "disclosure_index": 1599842
+  },
+  "CUSAN": {
+    "dialect": "industrial",
+    "de_ratio": 2.24969115490263,
+    "equity": 753872255.0,
+    "total_debt": 1695979744.0,
+    "disclosure_index": 1448366
+  },
+  "DMSAS": {
+    "dialect": "industrial",
+    "de_ratio": 0.6530217902573061,
+    "equity": 1352249429.0,
+    "total_debt": 883048343.0,
+    "disclosure_index": 1509144
+  },
+  "DOFER": {
+    "dialect": "holding",
+    "de_ratio": 0.2457664766825497,
+    "equity": 1245424462.0,
+    "total_debt": 306083582.0,
+    "disclosure_index": 1509260
+  },
+  "DOKTA": {
+    "dialect": "holding",
+    "de_ratio": 0.9920206879889519,
+    "equity": 6541908366.0,
+    "total_debt": 6489708438.0,
+    "disclosure_index": 1480862
+  },
+  "ERBOS": {
+    "dialect": "holding",
+    "de_ratio": 0.23867783628169317,
+    "equity": 3511891255.0,
+    "total_debt": 838210606.0,
+    "disclosure_index": 1562976
+  },
+  "ERCB": {
+    "dialect": "industrial",
+    "de_ratio": 2.3851739894179946,
+    "equity": 1396343857.0,
+    "total_debt": 3330523048.0,
+    "disclosure_index": 1480070
+  },
+  "EREGL": {
+    "dialect": "industrial",
+    "de_ratio": 0.4448104603179374,
+    "equity": 260560952.0,
+    "total_debt": 115900237.0,
+    "disclosure_index": 1431038
+  },
+  "ISDMR": {
+    "dialect": "industrial",
+    "de_ratio": 0.26171698545008687,
+    "equity": 125158067.0,
+    "total_debt": 32755992.0,
+    "disclosure_index": 1431022
+  },
+  "IZMDC": {
+    "dialect": "industrial",
+    "de_ratio": 1.013901765417469,
+    "equity": 22414316214.0,
+    "total_debt": 22725914780.0,
+    "disclosure_index": 1479261
+  },
+  "KRDMA": {
+    "dialect": "industrial",
+    "de_ratio": 0.09947312097178293,
+    "equity": 84652621781.0,
+    "total_debt": 8420660487.0,
+    "disclosure_index": 1569931
+  },
+  "KRDMB": {
+    "dialect": "industrial",
+    "de_ratio": 0.09947312097178293,
+    "equity": 84652621781.0,
+    "total_debt": 8420660487.0,
+    "disclosure_index": 1569931
+  },
+  "KRDMD": {
+    "dialect": "industrial",
+    "de_ratio": 0.09947312097178293,
+    "equity": 84652621781.0,
+    "total_debt": 8420660487.0,
+    "disclosure_index": 1569931
+  },
+  "TCKRC": {
+    "dialect": "industrial",
+    "de_ratio": 0.043069274743492494,
+    "equity": 3740832646.0,
+    "total_debt": 161114949.0,
+    "disclosure_index": 1480682
+  },
+  "KCAER": {
+    "dialect": "industrial",
+    "de_ratio": 0.56756062270105,
+    "equity": 12331998155.0,
+    "total_debt": 6999156552.0,
+    "disclosure_index": 1562232
+  },
+  "KOCMT": {
+    "dialect": "industrial",
+    "de_ratio": 0.05795432871952308,
+    "equity": 11837983791.0,
+    "total_debt": 686062404.0,
+    "disclosure_index": 1509325
+  },
+  "MEGMT": {
+    "dialect": "industrial",
+    "de_ratio": 1.1892732305754945,
+    "equity": 3874544381.0,
+    "total_debt": 4607891913.0,
+    "disclosure_index": 1480352
+  },
+  "OZYSR": {
+    "dialect": "industrial",
+    "de_ratio": 0.604081789209397,
+    "equity": 3491655661.0,
+    "total_debt": 2109245599.0,
+    "disclosure_index": 1563075
+  },
+  "ALCAR": {
+    "dialect": "industrial",
+    "de_ratio": 0.594613828436767,
+    "equity": 2033187111.0,
+    "total_debt": 1208961172.0,
+    "disclosure_index": 1598918
+  },
+  "TUCLK": {
+    "dialect": "industrial",
+    "de_ratio": 0.6128594291898201,
+    "equity": 3259974901.0,
+    "total_debt": 1997906357.0,
+    "disclosure_index": 1509161
+  },
+  "SARKY": {
+    "dialect": "industrial",
+    "de_ratio": 0.7081315523558137,
+    "equity": 10594283678.0,
+    "total_debt": 7502146547.0,
+    "disclosure_index": 1480258
+  },
+  "YKSLN": {
+    "dialect": "industrial",
+    "de_ratio": 0.42485628980518864,
+    "equity": 538855473.0,
+    "total_debt": 228936137.0,
+    "disclosure_index": 1479249
+  },
+  "PNLSN": {
+    "dialect": "industrial",
+    "de_ratio": 0.0011425670323695915,
+    "equity": 2731648920.0,
+    "total_debt": 3121092.0,
+    "disclosure_index": 1509143
+  },
+  "ALVES": {
+    "dialect": "industrial",
+    "de_ratio": 0.4418296969726942,
+    "equity": 2716443714.0,
+    "total_debt": 1200205503.0,
+    "disclosure_index": 1560574
+  },
+  "ARCLK": {
+    "dialect": "industrial",
+    "de_ratio": 2.6741085549224834,
+    "equity": 75905153.0,
+    "total_debt": 202978619.0,
+    "disclosure_index": 1550376
+  },
+  "ASTOR": {
+    "dialect": "holding",
+    "de_ratio": 0.12303929498228389,
+    "equity": 23831200743.0,
+    "total_debt": 2932174138.0,
+    "disclosure_index": 1432433
+  },
+  "ASUZU": {
+    "dialect": "industrial",
+    "de_ratio": 0.4819176755673424,
+    "equity": 12343099408.0,
+    "total_debt": 5948357776.0,
+    "disclosure_index": 1476409
+  },
+  "BALAT": {
+    "dialect": "holding",
+    "de_ratio": null,
+    "equity": 50550037.0,
+    "total_debt": null,
+    "disclosure_index": 1482153
+  },
+  "BNTAS": {
+    "dialect": "industrial",
+    "de_ratio": 0.028211498525538697,
+    "equity": 1693692129.0,
+    "total_debt": 47781593.0,
+    "disclosure_index": 1598851
+  },
+  "DITAS": {
+    "dialect": "holding",
+    "de_ratio": 190.74650729344228,
+    "equity": 5752702.0,
+    "total_debt": 1097307814.0,
+    "disclosure_index": 1476473
+  },
+  "BVSAN": {
+    "dialect": "industrial",
+    "de_ratio": 0.13073467574375824,
+    "equity": 2365390997.0,
+    "total_debt": 309238625.0,
+    "disclosure_index": 1480237
+  },
+  "EGEEN": {
+    "dialect": "industrial",
+    "de_ratio": 0.18825012211107048,
+    "equity": 7143087.0,
+    "total_debt": 1344687.0,
+    "disclosure_index": 1481074
+  },
+  "FMIZP": {
+    "error": "download"
+  },
+  "BFREN": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 513856587.0,
+    "total_debt": null,
+    "disclosure_index": 1517474
+  },
+  "FORMT": {
+    "error": "download"
+  },
+  "EKOS": {
+    "dialect": "industrial",
+    "de_ratio": 0.22584195047784,
+    "equity": 3147818957.0,
+    "total_debt": 710909573.0,
+    "disclosure_index": 1480191
+  },
+  "EMKEL": {
+    "dialect": "industrial",
+    "de_ratio": 0.3375759397770018,
+    "equity": 979835640.0,
+    "total_debt": 330768937.0,
+    "disclosure_index": 1557927
+  },
+  "EUPWR": {
+    "dialect": "industrial",
+    "de_ratio": 0.11193808610062585,
+    "equity": 9707804.0,
+    "total_debt": 1086673.0,
+    "disclosure_index": 1479991
+  },
+  "FROTO": {
+    "dialect": "industrial",
+    "de_ratio": 0.8247293042848189,
+    "equity": 140459002.0,
+    "total_debt": 115840655.0,
+    "disclosure_index": 1469124
+  },
+  "GEREL": {
+    "dialect": "industrial",
+    "de_ratio": 1.3488053445320118,
+    "equity": 622322477.0,
+    "total_debt": 839391883.0,
+    "disclosure_index": 1481066
+  },
+  "HATSN": {
+    "dialect": "industrial",
+    "de_ratio": 0.0825046310618821,
+    "equity": 6314823305.0,
+    "total_debt": 521002167.0,
+    "disclosure_index": 1598936
+  },
+  "HKTM": {
+    "dialect": "industrial",
+    "de_ratio": 0.037151777607120365,
+    "equity": 980547940.0,
+    "total_debt": 36429099.0,
+    "disclosure_index": 1479937
+  },
+  "IMASM": {
+    "dialect": "holding",
+    "de_ratio": 0.04188596419612919,
+    "equity": 2755959.0,
+    "total_debt": 115436.0,
+    "disclosure_index": 1480777
+  },
+  "IHEVA": {
+    "dialect": "industrial",
+    "de_ratio": 0.0601405300254491,
+    "equity": 1742539498.0,
+    "total_debt": 104797249.0,
+    "disclosure_index": 1480141
+  },
+  "JANTS": {
+    "dialect": "industrial",
+    "de_ratio": 0.22946570023112103,
+    "equity": 7154261414.0,
+    "total_debt": 1641657605.0,
+    "disclosure_index": 1600067
+  },
+  "KARSN": {
+    "dialect": "holding",
+    "de_ratio": 1.0895393055235476,
+    "equity": 7233449.0,
+    "total_debt": 7881127.0,
+    "disclosure_index": 1561513
+  },
+  "KATMR": {
+    "dialect": "industrial",
+    "de_ratio": 0.17663093258927967,
+    "equity": 8645522778.0,
+    "total_debt": 1527066751.0,
+    "disclosure_index": 1557851
+  },
+  "KLMSN": {
+    "dialect": "industrial",
+    "de_ratio": 0.5432096082155793,
+    "equity": 4262110364.0,
+    "total_debt": 2315219301.0,
+    "disclosure_index": 1477607
+  },
+  "MAKIM": {
+    "dialect": "industrial",
+    "de_ratio": 0.28250861788411463,
+    "equity": 1033484540.0,
+    "total_debt": 291968289.0,
+    "disclosure_index": 1509167
+  },
+  "MAKTK": {
+    "dialect": "industrial",
+    "de_ratio": 0.06053449066841808,
+    "equity": 1542358265.0,
+    "total_debt": 93365872.0,
+    "disclosure_index": 1479481
+  },
+  "MEKAG": {
+    "dialect": "industrial",
+    "de_ratio": 0.003523534845854416,
+    "equity": 1287008132.0,
+    "total_debt": 4534818.0,
+    "disclosure_index": 1480622
+  },
+  "OTKAR": {
+    "dialect": "industrial",
+    "de_ratio": 1.2922875261885323,
+    "equity": 8934254.0,
+    "total_debt": 11545625.0,
+    "disclosure_index": 1467999
+  },
+  "OZATD": {
+    "dialect": "industrial",
+    "de_ratio": 0.23053348236229212,
+    "equity": 4228768277.0,
+    "total_debt": 974872677.0,
+    "disclosure_index": 1509451
+  },
+  "PARSN": {
+    "dialect": "industrial",
+    "de_ratio": 0.17377355502123237,
+    "equity": 12923061531.0,
+    "total_debt": 2245686344.0,
+    "disclosure_index": 1509507
+  },
+  "SAFKR": {
+    "dialect": "industrial",
+    "de_ratio": 0.05269243283005586,
+    "equity": 943689299.0,
+    "total_debt": 49725285.0,
+    "disclosure_index": 1478884
+  },
+  "SNICA": {
+    "dialect": "industrial",
+    "de_ratio": 0.0843064495103713,
+    "equity": 4738610893.0,
+    "total_debt": 399495460.0,
+    "disclosure_index": 1509220
+  },
+  "SAYAS": {
+    "dialect": "industrial",
+    "de_ratio": 0.14124357053622918,
+    "equity": 1031808637.0,
+    "total_debt": 145736336.0,
+    "disclosure_index": 1477724
+  },
+  "SILVR": {
+    "dialect": "industrial",
+    "de_ratio": 0.05340403302646051,
+    "equity": 1613446890.0,
+    "total_debt": 86164571.0,
+    "disclosure_index": 1509487
+  },
+  "TOASO": {
+    "dialect": "holding",
+    "de_ratio": 0.49065501689142094,
+    "equity": 48238985.0,
+    "total_debt": 23668700.0,
+    "disclosure_index": 1467464
+  },
+  "TMSN": {
+    "dialect": "industrial",
+    "de_ratio": 0.2500236580825232,
+    "equity": 15421727422.0,
+    "total_debt": 3855796704.0,
+    "disclosure_index": 1440369
+  },
+  "PRKAB": {
+    "dialect": "industrial",
+    "de_ratio": 0.04887982721855597,
+    "equity": 874539282.0,
+    "total_debt": 42747329.0,
+    "disclosure_index": 1476477
+  },
+  "TTRAK": {
+    "dialect": "industrial",
+    "de_ratio": 0.9051486174437435,
+    "equity": 15158613910.0,
+    "total_debt": 13720798423.0,
+    "disclosure_index": 1467469
+  },
+  "ULUSE": {
+    "dialect": "industrial",
+    "de_ratio": 7.159252435014529,
+    "equity": 122542390.0,
+    "total_debt": 877311904.0,
+    "disclosure_index": 1480753
+  },
+  "VESBE": {
+    "dialect": "industrial",
+    "de_ratio": 0.4458109093842098,
+    "equity": 38310045.0,
+    "total_debt": 17079036.0,
+    "disclosure_index": 1509466
+  },
+  "VESTL": {
+    "dialect": "industrial",
+    "de_ratio": 1.4567110477271896,
+    "equity": 47005261.0,
+    "total_debt": 68473083.0,
+    "disclosure_index": 1481088
+  },
+  "YIGIT": {
+    "dialect": "industrial",
+    "de_ratio": 0.046425505010953334,
+    "equity": 6525786180.0,
+    "total_debt": 302962919.0,
+    "disclosure_index": 1509546
+  },
+  "ADEL": {
+    "dialect": "industrial",
+    "de_ratio": 1.1263470410117886,
+    "equity": 1438245.0,
+    "total_debt": 1619963.0,
+    "disclosure_index": 1509381
+  },
+  "A1YEN": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 2847683482.0,
+    "total_debt": null,
+    "disclosure_index": 1477631
+  },
+  "AHGAZ": {
+    "dialect": "holding",
+    "de_ratio": 0.10554100850134317,
+    "equity": 75106729181.0,
+    "total_debt": 7926839943.0,
+    "disclosure_index": 1597849
+  },
+  "AKENR": {
+    "dialect": "industrial",
+    "de_ratio": 0.7138527676858059,
+    "equity": 15378010.0,
+    "total_debt": 10977635.0,
+    "disclosure_index": 1477898
+  },
+  "AKSEN": {
+    "dialect": "industrial",
+    "de_ratio": 0.4855796146060374,
+    "equity": 49376980923.0,
+    "total_debt": 23976455367.0,
+    "disclosure_index": 1437983
+  },
+  "AKFYE": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 43820582.0,
+    "total_debt": null,
+    "disclosure_index": 1480173
+  },
+  "AKSUE": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 743764365.0,
+    "total_debt": null,
+    "disclosure_index": 1509567
+  },
+  "ALFAS": {
+    "dialect": "industrial",
+    "de_ratio": 0.6198535637159652,
+    "equity": 5291992385.0,
+    "total_debt": 3280260339.0,
+    "disclosure_index": 1563291
+  },
+  "ARFYE": {
+    "dialect": "industrial",
+    "de_ratio": 0.09901376241006764,
+    "equity": 2062053729.0,
+    "total_debt": 204171698.0,
+    "disclosure_index": 1597761
+  },
+  "AYDEM": {
+    "dialect": "industrial",
+    "de_ratio": 0.5450506167932204,
+    "equity": 32679204366.0,
+    "total_debt": 17811820496.0,
+    "disclosure_index": 1481052
+  },
+  "AYEN": {
+    "dialect": "industrial",
+    "de_ratio": 0.396850883561945,
+    "equity": 16201495754.0,
+    "total_debt": 6429577905.0,
+    "disclosure_index": 1479457
+  },
+  "BESTE": {
+    "dialect": "industrial",
+    "de_ratio": 0.052947732864827034,
+    "equity": 3640460480.0,
+    "total_debt": 192754129.0,
+    "disclosure_index": 1559412
+  },
+  "BIOEN": {
+    "dialect": "industrial",
+    "de_ratio": 0.9278701213949506,
+    "equity": 4145391366.0,
+    "total_debt": 3846384790.0,
+    "disclosure_index": 1479536
+  },
+  "BIGEN": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 3145712439.0,
+    "total_debt": null,
+    "disclosure_index": 1480979
+  },
+  "CONSE": {
+    "dialect": "industrial",
+    "de_ratio": 1.694886242603034,
+    "equity": 2873504130.0,
+    "total_debt": 4870262618.0,
+    "disclosure_index": 1560659
+  },
+  "CWENE": {
+    "dialect": "industrial",
+    "de_ratio": 0.41345548093408185,
+    "equity": 12850924322.0,
+    "total_debt": 5313285096.0,
+    "disclosure_index": 1510233
+  },
+  "CANTE": {
+    "dialect": "industrial",
+    "de_ratio": 0.017200947101698786,
+    "equity": 26259198597.0,
+    "total_debt": 451683086.0,
+    "disclosure_index": 1437772
+  },
+  "CATES": {
+    "dialect": "holding",
+    "de_ratio": 0.007476876213026535,
+    "equity": 10452166757.0,
+    "total_debt": 78149557.0,
+    "disclosure_index": 1509394
+  },
+  "ARASE": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 17309074112.0,
+    "total_debt": null,
+    "disclosure_index": 1477977
+  },
+  "ECOGR": {
+    "dialect": "holding",
+    "de_ratio": 0.5315175159658428,
+    "equity": 15024123840.0,
+    "total_debt": 7985584983.0,
+    "disclosure_index": 1514843
+  },
+  "ENDAE": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 12560065694.0,
+    "total_debt": null,
+    "disclosure_index": 1481062
+  },
+  "ENJSA": {
+    "dialect": "industrial",
+    "de_ratio": 0.4644030972766673,
+    "equity": 89632419.0,
+    "total_debt": 41625573.0,
+    "disclosure_index": 1509205
+  },
+  "ENERY": {
+    "dialect": "industrial",
+    "de_ratio": 0.057479294080745195,
+    "equity": 64773431138.0,
+    "total_debt": 3723131097.0,
+    "disclosure_index": 1597840
+  },
+  "ESEN": {
+    "dialect": "industrial",
+    "de_ratio": 0.23197542043920705,
+    "equity": 13932613804.0,
+    "total_debt": 3232023945.0,
+    "disclosure_index": 1481022
+  },
+  "GWIND": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 15688842293.0,
+    "total_debt": null,
+    "disclosure_index": 1599805
+  },
+  "HUNER": {
+    "dialect": "industrial",
+    "de_ratio": 0.37060928878567123,
+    "equity": 4676254113.0,
+    "total_debt": 1733063211.0,
+    "disclosure_index": 1442059
+  },
+  "ENTRA": {
+    "dialect": "industrial",
+    "de_ratio": 0.351452625237749,
+    "equity": 26068458.0,
+    "total_debt": 9161828.0,
+    "disclosure_index": 1441238
+  },
+  "IZENR": {
+    "dialect": "industrial",
+    "de_ratio": 0.05096323004571919,
+    "equity": 15826865885.0,
+    "total_debt": 806588207.0,
+    "disclosure_index": 1509180
+  },
+  "KLYPV": {
+    "dialect": "industrial",
+    "de_ratio": 1.0239561960524004,
+    "equity": 14144376522.0,
+    "total_debt": 14483221979.0,
+    "disclosure_index": 1509594
+  },
+  "LYDYE": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 3279541734.0,
+    "total_debt": null,
+    "disclosure_index": 1598361
+  },
+  "MOGAN": {
+    "dialect": "industrial",
+    "de_ratio": 0.32161865483489815,
+    "equity": 75508791822.0,
+    "total_debt": 24285036054.0,
+    "disclosure_index": 1480175
+  },
+  "MAGEN": {
+    "dialect": "industrial",
+    "de_ratio": 0.23371898386142184,
+    "equity": 13786183205.0,
+    "total_debt": 3222092730.0,
+    "disclosure_index": 1481016
+  },
+  "NTGAZ": {
+    "dialect": "industrial",
+    "de_ratio": 0.05903352400660892,
+    "equity": 4283830709.0,
+    "total_debt": 252889623.0,
+    "disclosure_index": 1431062
+  },
+  "NATEN": {
+    "dialect": "industrial",
+    "de_ratio": 0.22649588323983416,
+    "equity": 14402209896.0,
+    "total_debt": 3262041251.0,
+    "disclosure_index": 1481029
+  },
+  "ODAS": {
+    "dialect": "holding",
+    "de_ratio": 0.040601859254286984,
+    "equity": 31191650118.0,
+    "total_debt": 1266438988.0,
+    "disclosure_index": 1480129
+  },
+  "PAMEL": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 898643936.0,
+    "total_debt": null,
+    "disclosure_index": 1521436
+  },
+  "SMRTG": {
+    "dialect": "industrial",
+    "de_ratio": 2.116543162592948,
+    "equity": 3637562604.0,
+    "total_debt": 7699058258.0,
+    "disclosure_index": 1479448
+  },
+  "ZEDUR": {
+    "dialect": "industrial",
+    "de_ratio": 0.14095350706789508,
+    "equity": 2065377223.0,
+    "total_debt": 291122163.0,
+    "disclosure_index": 1478463
+  },
+  "TATEN": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 6954047984.0,
+    "total_debt": null,
+    "disclosure_index": 1479406
+  },
+  "ZOREN": {
+    "dialect": "industrial",
+    "de_ratio": 0.6513225086740779,
+    "equity": 70696852.0,
+    "total_debt": 46046451.0,
+    "disclosure_index": 1510238
+  },
+  "AKFIS": {
+    "dialect": "industrial",
+    "de_ratio": 0.5328176333674851,
+    "equity": 31696725.0,
+    "total_debt": 16888574.0,
+    "disclosure_index": 1562042
+  },
+  "ANELE": {
+    "dialect": "industrial",
+    "de_ratio": 0.5423658768371111,
+    "equity": 2711733713.0,
+    "total_debt": 1470751833.0,
+    "disclosure_index": 1442608
+  },
+  "BRLSM": {
+    "dialect": "industrial",
+    "de_ratio": 0.5981341729624813,
+    "equity": 1598120158.0,
+    "total_debt": 955890279.0,
+    "disclosure_index": 1574196
+  },
+  "DAPGM": {
+    "dialect": "industrial",
+    "de_ratio": 0.10460990106853191,
+    "equity": 14074514276.0,
+    "total_debt": 1472333546.0,
+    "disclosure_index": 1509440
+  },
+  "EDIP": {
+    "dialect": "industrial",
+    "de_ratio": 0.19188508098532162,
+    "equity": 5941073215.0,
+    "total_debt": 1140003315.0,
+    "disclosure_index": 1479358
+  },
+  "ENKAI": {
+    "dialect": "industrial",
+    "de_ratio": 0.016301911882903277,
+    "equity": 332665091.0,
+    "total_debt": 5423077.0,
+    "disclosure_index": 1479432
+  },
+  "KUYAS": {
+    "dialect": "industrial",
+    "de_ratio": 0.3658233259177144,
+    "equity": 2383854058.0,
+    "total_debt": 872069420.0,
+    "disclosure_index": 1441749
+  },
+  "GLRMK": {
+    "dialect": "industrial",
+    "de_ratio": 0.6658260762702517,
+    "equity": 12610663543.0,
+    "total_debt": 8396508626.0,
+    "disclosure_index": 1442076
+  },
+  "GESAN": {
+    "dialect": "industrial",
+    "de_ratio": 0.12364188487881565,
+    "equity": 16467308.0,
+    "total_debt": 2036049.0,
+    "disclosure_index": 1479994
+  },
+  "ORGE": {
+    "dialect": "industrial",
+    "de_ratio": 0.015887571346557966,
+    "equity": 3964498892.0,
+    "total_debt": 62986259.0,
+    "disclosure_index": 1557898
+  },
+  "SANEL": {
+    "dialect": "industrial",
+    "de_ratio": 0.014515549985257122,
+    "equity": 165171282.0,
+    "total_debt": 2397552.0,
+    "disclosure_index": 1481084
+  },
+  "UCAYM": {
+    "dialect": "industrial",
+    "de_ratio": 0.08624675355999473,
+    "equity": 1087829282.0,
+    "total_debt": 93821744.0,
+    "disclosure_index": 1571027
+  },
+  "TURGG": {
+    "dialect": "unknown",
+    "de_ratio": 0.00045902085390791435,
+    "equity": 2433900313.0,
+    "total_debt": 1117211.0,
+    "disclosure_index": 1599871
+  },
+  "ARZUM": {
+    "dialect": "industrial",
+    "de_ratio": 23.172750444465976,
+    "equity": 102688963.0,
+    "total_debt": 2379585713.0,
+    "disclosure_index": 1481026
+  },
+  "YYAPI": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 5220132588.0,
+    "total_debt": null,
+    "disclosure_index": 1576861
+  },
+  "YAYLA": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 715937263.0,
+    "total_debt": null,
+    "disclosure_index": 1437866
+  },
+  "DCTTR": {
+    "dialect": "industrial",
+    "de_ratio": 0.44445879880553,
+    "equity": 1024202867.0,
+    "total_debt": 455215976.0,
+    "disclosure_index": 1514495
+  },
+  "DOAS": {
+    "dialect": "industrial",
+    "de_ratio": 0.3466251489124369,
+    "equity": 68109657.0,
+    "total_debt": 23608520.0,
+    "disclosure_index": 1563087
+  },
+  "GENIL": {
+    "dialect": "industrial",
+    "de_ratio": 0.1687416172053434,
+    "equity": 8923292060.0,
+    "total_debt": 1505730733.0,
+    "disclosure_index": 1477971
+  },
+  "INTEM": {
+    "dialect": "industrial",
+    "de_ratio": 0.09080903207013989,
+    "equity": 919757915.0,
+    "total_debt": 83522326.0,
+    "disclosure_index": 1599962
+  },
+  "KUVVA": {
+    "dialect": "industrial",
+    "de_ratio": 1.0531897385340334,
+    "equity": 422869911.0,
+    "total_debt": 445362251.0,
+    "disclosure_index": 1578860
+  },
+  "PSDTC": {
+    "dialect": "industrial",
+    "de_ratio": 0.6675340299718975,
+    "equity": 215435676.0,
+    "total_debt": 143810645.0,
+    "disclosure_index": 1509105
+  },
+  "SELEC": {
+    "dialect": "industrial",
+    "de_ratio": 0.07136710422159619,
+    "equity": 26803173519.0,
+    "total_debt": 1912864878.0,
+    "disclosure_index": 1480116
+  },
+  "SANKO": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 2454857833.0,
+    "total_debt": null,
+    "disclosure_index": 1599720
+  },
+  "BIMAS": {
+    "dialect": "industrial",
+    "de_ratio": 0.3398683527952087,
+    "equity": 136703852.0,
+    "total_debt": 46461313.0,
+    "disclosure_index": 1478794
+  },
+  "TGSAS": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 256142218.0,
+    "total_debt": null,
+    "disclosure_index": 1480971
+  },
+  "BIZIM": {
+    "dialect": "industrial",
+    "de_ratio": 5.564603807771206,
+    "equity": 317351000.0,
+    "total_debt": 1765932583.0,
+    "disclosure_index": 1478639
+  },
+  "CRFSA": {
+    "dialect": "industrial",
+    "de_ratio": 29.515027963070548,
+    "equity": 571468.0,
+    "total_debt": 16866894.0,
+    "disclosure_index": 1509518
+  },
+  "EBEBK": {
+    "dialect": "industrial",
+    "de_ratio": 0.6579328555092445,
+    "equity": 5083033115.0,
+    "total_debt": 3344294492.0,
+    "disclosure_index": 1599099
+  },
+  "KIMMR": {
+    "dialect": "industrial",
+    "de_ratio": 0.4782007425171346,
+    "equity": 3883118201.0,
+    "total_debt": 1856910007.0,
+    "disclosure_index": 1509412
+  },
+  "CASA": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 380172396.0,
+    "total_debt": null,
+    "disclosure_index": 1432097
+  },
+  "GMTAS": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 3329316677.0,
+    "total_debt": null,
+    "disclosure_index": 1431846
+  },
+  "KOTON": {
+    "dialect": "industrial",
+    "de_ratio": 1.2764543661888836,
+    "equity": 6879350745.0,
+    "total_debt": 8781177295.0,
+    "disclosure_index": 1478816
+  },
+  "MAVI": {
+    "dialect": "industrial",
+    "de_ratio": 0.21213755335530365,
+    "equity": 11869954.0,
+    "total_debt": 2518063.0,
+    "disclosure_index": 1490659
+  },
+  "MEPET": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 2082680292.0,
+    "total_debt": null,
+    "disclosure_index": 1480078
+  },
+  "MGROS": {
+    "dialect": "industrial",
+    "de_ratio": 0.3287002900501179,
+    "equity": 67409040.0,
+    "total_debt": 22157371.0,
+    "disclosure_index": 1477134
+  },
+  "MOPAS": {
+    "dialect": "industrial",
+    "de_ratio": 0.3090836550570114,
+    "equity": 4297145120.0,
+    "total_debt": 1328177320.0,
+    "disclosure_index": 1479450
+  },
+  "SUWEN": {
+    "dialect": "industrial",
+    "de_ratio": 0.8849167521586946,
+    "equity": 1647434310.0,
+    "total_debt": 1457842219.0,
+    "disclosure_index": 1563292
+  },
+  "SOKM": {
+    "dialect": "industrial",
+    "de_ratio": 0.3407451536314942,
+    "equity": 32689461462.0,
+    "total_debt": 11138775568.0,
+    "disclosure_index": 1478571
+  },
+  "TKNSA": {
+    "dialect": "industrial",
+    "de_ratio": 1.8650349641378656,
+    "equity": 1559026.0,
+    "total_debt": 2907638.0,
+    "disclosure_index": 1509524
+  },
+  "VAKKO": {
+    "dialect": "industrial",
+    "de_ratio": 0.16235030334885,
+    "equity": 8552816831.0,
+    "total_debt": 1388552407.0,
+    "disclosure_index": 1480197
+  },
+  "CLEBI": {
+    "dialect": "industrial",
+    "de_ratio": 1.3295882237193297,
+    "equity": 6289857288.0,
+    "total_debt": 8362920179.0,
+    "disclosure_index": 1481105
+  },
+  "BEYAZ": {
+    "dialect": "industrial",
+    "de_ratio": 0.0,
+    "equity": 1277298438.0,
+    "total_debt": 0.0,
+    "disclosure_index": 1509553
+  },
+  "GSDDE": {
+    "dialect": "holding",
+    "de_ratio": 0.37647812724566265,
+    "equity": 2493696.0,
+    "total_debt": 938822.0,
+    "disclosure_index": 1480149
+  },
+  "GRSEL": {
+    "dialect": "holding",
+    "de_ratio": 0.009634261848814059,
+    "equity": 8002208494.0,
+    "total_debt": 77095372.0,
+    "disclosure_index": 1479917
+  },
+  "HOROZ": {
+    "dialect": "industrial",
+    "de_ratio": 0.817336314059725,
+    "equity": 3423322593.0,
+    "total_debt": 2798005870.0,
+    "disclosure_index": 1479311
+  },
+  "HRKET": {
+    "dialect": "industrial",
+    "de_ratio": 0.506194592857974,
+    "equity": 7559882800.0,
+    "total_debt": 3826771796.0,
+    "disclosure_index": 1481059
+  },
+  "PASEU": {
+    "dialect": "industrial",
+    "de_ratio": 0.2123137543439892,
+    "equity": 3502855457.0,
+    "total_debt": 743704393.0,
+    "disclosure_index": 1560690
+  },
+  "RYSAS": {
+    "dialect": "industrial",
+    "de_ratio": 0.22063586504147803,
+    "equity": 32548388054.0,
+    "total_debt": 7181341754.0,
+    "disclosure_index": 1579841
+  },
+  "PGSUS": {
+    "dialect": "industrial",
+    "de_ratio": 1.7330355369665948,
+    "equity": 97122362450.0,
+    "total_debt": 168316505560.0,
+    "disclosure_index": 1477669
+  },
+  "THYAO": {
+    "dialect": "holding",
+    "de_ratio": 0.7441706687859531,
+    "equity": 966363.0,
+    "total_debt": 719139.0,
+    "disclosure_index": 1598897
+  },
+  "TLMAN": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 1370153043.0,
+    "total_debt": null,
+    "disclosure_index": 1432500
+  },
+  "TUREX": {
+    "dialect": "industrial",
+    "de_ratio": 0.041581109654294034,
+    "equity": 5602015.0,
+    "total_debt": 232938.0,
+    "disclosure_index": 1438181
+  },
+  "AKBNK": {
+    "dialect": "banking",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1467850
+  },
+  "ALBRK": {
+    "dialect": "unknown",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1556746
+  },
+  "ENPRA": {
+    "dialect": "banking",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1598827
+  },
+  "ICB": {
+    "dialect": "banking",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1598948
+  },
+  "ICBCT": {
+    "dialect": "banking",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1598948
+  },
+  "ALK": {
+    "dialect": "unknown",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1556746
+  },
+  "FIN": {
+    "dialect": "banking",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1467845
+  },
+  "QNBTR": {
+    "dialect": "banking",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1467845
+  },
+  "SEK": {
+    "dialect": "banking",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1559455
+  },
+  "SKBNK": {
+    "dialect": "banking",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1559455
+  },
+  "GARAN": {
+    "dialect": "banking",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1508775
+  },
+  "TGB": {
+    "dialect": "banking",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1508775
+  },
+  "HALKB": {
+    "dialect": "banking",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1560031
+  },
+  "THL": {
+    "dialect": "banking",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1560031
+  },
+  "ISATR": {
+    "dialect": "banking",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1510126
+  },
+  "ISBTR": {
+    "dialect": "banking",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1510126
+  },
+  "ISCTR": {
+    "dialect": "banking",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1510126
+  },
+  "ISKUR": {
+    "dialect": "banking",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1510126
+  },
+  "TIB": {
+    "dialect": "banking",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1510126
+  },
+  "KLN": {
+    "dialect": "banking",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1599791
+  },
+  "KLNMA": {
+    "dialect": "banking",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1599791
+  },
+  "TSK": {
+    "dialect": "banking",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1468849
+  },
+  "TSKB": {
+    "dialect": "banking",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1468849
+  },
+  "VAKBN": {
+    "dialect": "banking",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1557008
+  },
+  "TVB": {
+    "dialect": "banking",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1557008
+  },
+  "YKB": {
+    "dialect": "banking",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1509642
+  },
+  "YKBNK": {
+    "dialect": "banking",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1509642
+  },
+  "AGESA": {
+    "dialect": "unknown",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1510291
+  },
+  "AKGRT": {
+    "dialect": "unknown",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1430504
+  },
+  "ANSGR": {
+    "dialect": "unknown",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1599078
+  },
+  "ANHYT": {
+    "dialect": "unknown",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1470777
+  },
+  "RAYSG": {
+    "dialect": "unknown",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1509188
+  },
+  "CRDFA": {
+    "dialect": "unknown",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1599659
+  },
+  "DSTKF": {
+    "dialect": "unknown",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1480799
+  },
+  "GARFA": {
+    "dialect": "unknown",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1550445
+  },
+  "TURSG": {
+    "dialect": "unknown",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1546393
+  },
+  "ISFIN": {
+    "dialect": "unknown",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1467974
+  },
+  "LIDFA": {
+    "dialect": "unknown",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1563254
+  },
+  "QNBFK": {
+    "dialect": "unknown",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1550745
+  },
+  "SEKFK": {
+    "dialect": "unknown",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1558666
+  },
+  "ULUFA": {
+    "dialect": "unknown",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1550705
+  },
+  "VAKFA": {
+    "dialect": "unknown",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1598865
+  },
+  "VAKFN": {
+    "dialect": "unknown",
+    "de_ratio": null,
+    "equity": null,
+    "total_debt": null,
+    "disclosure_index": 1598329
+  },
+  "BINHO": {
+    "dialect": "unknown",
+    "de_ratio": null,
+    "equity": 14791531224.0,
+    "total_debt": null,
+    "disclosure_index": 1509579
+  },
+  "AGHOL": {
+    "dialect": "industrial",
+    "de_ratio": 0.46719296681213474,
+    "equity": 280035517.0,
+    "total_debt": 130830624.0,
+    "disclosure_index": 1478833
+  },
+  "AKYHO": {
+    "dialect": "industrial",
+    "de_ratio": 0.007778287347984113,
+    "equity": 687276358.0,
+    "total_debt": 5345833.0,
+    "disclosure_index": 1559398
+  },
+  "ALARK": {
+    "dialect": "industrial",
+    "de_ratio": 0.2817346665874837,
+    "equity": 69981356.0,
+    "total_debt": 19716174.0,
+    "disclosure_index": 1480267
+  },
+  "ARSAN": {
+    "dialect": "holding",
+    "de_ratio": 0.004334366199196948,
+    "equity": 9564334229.0,
+    "total_debt": 41455327.0,
+    "disclosure_index": 1481005
+  },
+  "AVHOL": {
+    "dialect": "industrial",
+    "de_ratio": 0.0827813754741998,
+    "equity": 1992336127.0,
+    "total_debt": 164928325.0,
+    "disclosure_index": 1480688
+  },
+  "ATSYH": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 132167227.0,
+    "total_debt": null,
+    "disclosure_index": 1576589
+  },
+  "BERA": {
+    "dialect": "industrial",
+    "de_ratio": 0.06614918536345292,
+    "equity": 29087618380.0,
+    "total_debt": 1924122260.0,
+    "disclosure_index": 1480696
+  },
+  "COSMO": {
+    "dialect": "industrial",
+    "de_ratio": 0.16524536854589728,
+    "equity": 122161094.0,
+    "total_debt": 20186555.0,
+    "disclosure_index": 1480743
+  },
+  "DENGE": {
+    "dialect": "industrial",
+    "de_ratio": 0.07078979173198012,
+    "equity": 1366400997.0,
+    "total_debt": 96727242.0,
+    "disclosure_index": 1479984
+  },
+  "BRYAT": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 26949021347.0,
+    "total_debt": null,
+    "disclosure_index": 1479562
+  },
+  "DERHL": {
+    "dialect": "industrial",
+    "de_ratio": 0.797580943622359,
+    "equity": 2389272550.0,
+    "total_debt": 1905638255.0,
+    "disclosure_index": 1559851
+  },
+  "DOHOL": {
+    "dialect": "holding",
+    "de_ratio": 0.3326586052323526,
+    "equity": 85073281.0,
+    "total_debt": 28300359.0,
+    "disclosure_index": 1477077
+  },
+  "DUNYH": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 1078751625.0,
+    "total_debt": null,
+    "disclosure_index": 1509399
+  },
+  "ECILC": {
+    "dialect": "industrial",
+    "de_ratio": 0.044301254676566634,
+    "equity": 57414717.0,
+    "total_debt": 2543544.0,
+    "disclosure_index": 1509538
+  },
+  "ECZYT": {
+    "dialect": "unknown",
+    "de_ratio": 1.897817430137848e-06,
+    "equity": 25906601562.0,
+    "total_debt": 49166.0,
+    "disclosure_index": 1509540
+  },
+  "GLYHO": {
+    "dialect": "holding",
+    "de_ratio": 3.3364121156248427,
+    "equity": 15260693856.0,
+    "total_debt": 50915963874.0,
+    "disclosure_index": 1437678
+  },
+  "EUHOL": {
+    "dialect": "unknown",
+    "de_ratio": null,
+    "equity": 1364359941.0,
+    "total_debt": null,
+    "disclosure_index": 1509131
+  },
+  "GRTHO": {
+    "dialect": "industrial",
+    "de_ratio": 0.04201222920676691,
+    "equity": 6281181884.0,
+    "total_debt": 263886453.0,
+    "disclosure_index": 1477881
+  },
+  "GSDHO": {
+    "dialect": "holding",
+    "de_ratio": 0.23732850893152957,
+    "equity": 11665695.0,
+    "total_debt": 2768602.0,
+    "disclosure_index": 1480155
+  },
+  "GLRYH": {
+    "dialect": "holding",
+    "de_ratio": 0.2556824528380707,
+    "equity": 12694962775.0,
+    "total_debt": 3245879221.0,
+    "disclosure_index": 1480321
+  },
+  "SAHOL": {
+    "dialect": "holding",
+    "de_ratio": 0.6768138277292257,
+    "equity": 526423036.0,
+    "total_debt": 356290390.0,
+    "disclosure_index": 1477828
+  },
+  "HEDEF": {
+    "dialect": "industrial",
+    "de_ratio": 0.004139594248882911,
+    "equity": 4434183134.0,
+    "total_debt": 18355719.0,
+    "disclosure_index": 1509448
+  },
+  "INVEO": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 12604944332.0,
+    "total_debt": null,
+    "disclosure_index": 1509245
+  },
+  "IEYHO": {
+    "dialect": "industrial",
+    "de_ratio": 0.15296552509052755,
+    "equity": 2874267504.0,
+    "total_debt": 439663838.0,
+    "disclosure_index": 1441200
+  },
+  "IHLAS": {
+    "dialect": "industrial",
+    "de_ratio": 0.09057771441618581,
+    "equity": 12489371942.0,
+    "total_debt": 1131258765.0,
+    "disclosure_index": 1480974
+  },
+  "INVES": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 23306850520.0,
+    "total_debt": null,
+    "disclosure_index": 1509374
+  },
+  "IHYAY": {
+    "dialect": "industrial",
+    "de_ratio": 0.05539897055262991,
+    "equity": 3242012265.0,
+    "total_debt": 179604142.0,
+    "disclosure_index": 1480195
+  },
+  "ISBIR": {
+    "dialect": "industrial",
+    "de_ratio": 0.4759867221675823,
+    "equity": 6967439646.0,
+    "total_debt": 3316408759.0,
+    "disclosure_index": 1474999
+  },
+  "KERVN": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 1500660097.0,
+    "total_debt": null,
+    "disclosure_index": 1437483
+  },
+  "KCHOL": {
+    "dialect": "holding",
+    "de_ratio": 0.6734752376276737,
+    "equity": 959379.0,
+    "total_debt": 646118.0,
+    "disclosure_index": 1470523
+  },
+  "KLRHO": {
+    "dialect": "holding",
+    "de_ratio": null,
+    "equity": 39798256.0,
+    "total_debt": null,
+    "disclosure_index": 1482577
+  },
+  "LRSHO": {
+    "dialect": "holding",
+    "de_ratio": 0.029632098629950508,
+    "equity": 21979206.0,
+    "total_debt": 651290.0,
+    "disclosure_index": 1480791
+  },
+  "LYDHO": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 3574325130.0,
+    "total_debt": null,
+    "disclosure_index": 1480306
+  },
+  "MARKA": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 184339054.0,
+    "total_debt": null,
+    "disclosure_index": 1597844
+  },
+  "MZHLD": {
+    "dialect": "industrial",
+    "de_ratio": 0.031884983955563294,
+    "equity": 3339314492.0,
+    "total_debt": 106473989.0,
+    "disclosure_index": 1480344
+  },
+  "METRO": {
+    "dialect": "holding",
+    "de_ratio": null,
+    "equity": 3679395281.0,
+    "total_debt": null,
+    "disclosure_index": 1429265
+  },
+  "MMCAS": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": -2302780.0,
+    "total_debt": null,
+    "disclosure_index": 1575795
+  },
+  "NTHOL": {
+    "dialect": "industrial",
+    "de_ratio": 0.07729960434037644,
+    "equity": 65407230.0,
+    "total_debt": 5055953.0,
+    "disclosure_index": 1481043
+  },
+  "OSTIM": {
+    "dialect": "industrial",
+    "de_ratio": 0.03136463199999657,
+    "equity": 2547423767.0,
+    "total_debt": 79899009.0,
+    "disclosure_index": 1476380
+  },
+  "OTTO": {
+    "dialect": "industrial",
+    "de_ratio": 0.01271032109814235,
+    "equity": 576477175.0,
+    "total_debt": 7327210.0,
+    "disclosure_index": 1480850
+  },
+  "POLHO": {
+    "dialect": "industrial",
+    "de_ratio": 0.1056567581779687,
+    "equity": 17498995217.0,
+    "total_debt": 1848887106.0,
+    "disclosure_index": 1478872
+  },
+  "RALYH": {
+    "dialect": "industrial",
+    "de_ratio": 0.42741794204113587,
+    "equity": 5136525644.0,
+    "total_debt": 2195443220.0,
+    "disclosure_index": 1480277
+  },
+  "PAHOL": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 43272614597.0,
+    "total_debt": null,
+    "disclosure_index": 1599861
+  },
+  "TAVHL": {
+    "dialect": "industrial",
+    "de_ratio": 1.0804650366377297,
+    "equity": 71226302.0,
+    "total_debt": 76957529.0,
+    "disclosure_index": 1468001
+  },
+  "TKFEN": {
+    "dialect": "industrial",
+    "de_ratio": 0.3770972129162732,
+    "equity": 32376243.0,
+    "total_debt": 12208991.0,
+    "disclosure_index": 1517137
+  },
+  "TEHOL": {
+    "dialect": "industrial",
+    "de_ratio": 0.1416271492319603,
+    "equity": 2839025167.0,
+    "total_debt": 402083041.0,
+    "disclosure_index": 1432202
+  },
+  "UMPAS": {
+    "error": "no_FR"
+  },
+  "TRHOL": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 134607957.0,
+    "total_debt": null,
+    "disclosure_index": 1509456
+  },
+  "TRCAS": {
+    "dialect": "unknown",
+    "de_ratio": null,
+    "equity": 13987018535.0,
+    "total_debt": null,
+    "disclosure_index": 1509302
+  },
+  "YESIL": {
+    "error": "download"
+  },
+  "SISE": {
+    "dialect": "industrial",
+    "de_ratio": 0.44355689536047954,
+    "equity": 269259099.0,
+    "total_debt": 119431730.0,
+    "disclosure_index": 1557053
+  },
+  "UNLU": {
+    "dialect": "unknown",
+    "de_ratio": 0.5231926282007012,
+    "equity": 2551250358.0,
+    "total_debt": 1334795380.0,
+    "disclosure_index": 1478804
+  },
+  "UFUK": {
+    "dialect": "unknown",
+    "de_ratio": null,
+    "equity": 2686991410.0,
+    "total_debt": null,
+    "disclosure_index": 1598356
+  },
+  "VERUS": {
+    "dialect": "industrial",
+    "de_ratio": 0.12886596012770288,
+    "equity": 7634612399.0,
+    "total_debt": 983841657.0,
+    "disclosure_index": 1521439
+  },
+  "A1CAP": {
+    "dialect": "industrial",
+    "de_ratio": 0.3753428471313429,
+    "equity": 6483009618.0,
+    "total_debt": 2433351288.0,
+    "disclosure_index": 1509124
+  },
+  "ACP": {
+    "dialect": "industrial",
+    "de_ratio": 0.3753428471313429,
+    "equity": 6483009618.0,
+    "total_debt": 2433351288.0,
+    "disclosure_index": 1509124
+  },
+  "GEDIK": {
+    "dialect": "industrial",
+    "de_ratio": 2.1133094055152046,
+    "equity": 5234494818.0,
+    "total_debt": 11062107132.0,
+    "disclosure_index": 1557827
+  },
+  "GLB": {
+    "dialect": "industrial",
+    "de_ratio": 1.0065852823514196,
+    "equity": 599344233.0,
+    "total_debt": 603291084.0,
+    "disclosure_index": 1599690
+  },
+  "GLBMD": {
+    "dialect": "industrial",
+    "de_ratio": 1.0065852823514196,
+    "equity": 599344233.0,
+    "total_debt": 603291084.0,
+    "disclosure_index": 1599690
+  },
+  "INFO": {
+    "dialect": "industrial",
+    "de_ratio": 1.3785761217397083,
+    "equity": 2229188582.0,
+    "total_debt": 3073106150.0,
+    "disclosure_index": 1475884
+  },
+  "IYF": {
+    "dialect": "industrial",
+    "de_ratio": 1.3785761217397083,
+    "equity": 2229188582.0,
+    "total_debt": 3073106150.0,
+    "disclosure_index": 1475884
+  },
+  "ISMEN": {
+    "dialect": "holding",
+    "de_ratio": 0.22595406468876325,
+    "equity": 29682002.0,
+    "total_debt": 6706769.0,
+    "disclosure_index": 1478844
+  },
+  "IYM": {
+    "dialect": "holding",
+    "de_ratio": 0.22595406468876325,
+    "equity": 29682002.0,
+    "total_debt": 6706769.0,
+    "disclosure_index": 1478844
+  },
+  "OMD": {
+    "dialect": "holding",
+    "de_ratio": 0.3768387266942966,
+    "equity": 2304429480.0,
+    "total_debt": 868398271.0,
+    "disclosure_index": 1479527
+  },
+  "OSMEN": {
+    "dialect": "holding",
+    "de_ratio": 0.3768387266942966,
+    "equity": 2304429480.0,
+    "total_debt": 868398271.0,
+    "disclosure_index": 1479527
+  },
+  "OYA": {
+    "dialect": "holding",
+    "de_ratio": 0.6924554590322732,
+    "equity": 9738390568.0,
+    "total_debt": 6743401711.0,
+    "disclosure_index": 1509355
+  },
+  "OYYAT": {
+    "dialect": "holding",
+    "de_ratio": 0.6924554590322732,
+    "equity": 9738390568.0,
+    "total_debt": 6743401711.0,
+    "disclosure_index": 1509355
+  },
+  "SKYMD": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 1098707194.0,
+    "total_debt": null,
+    "disclosure_index": 1509385
+  },
+  "SKY": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 1098707194.0,
+    "total_debt": null,
+    "disclosure_index": 1509385
+  },
+  "TRA": {
+    "dialect": "industrial",
+    "de_ratio": 1.7207213735938662,
+    "equity": 19248596730.0,
+    "total_debt": 33121471805.0,
+    "disclosure_index": 1477902
+  },
+  "TERA": {
+    "dialect": "industrial",
+    "de_ratio": 1.7207213735938662,
+    "equity": 19248596730.0,
+    "total_debt": 33121471805.0,
+    "disclosure_index": 1477902
+  },
+  "ADGYO": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 6247635722.0,
+    "total_debt": null,
+    "disclosure_index": 1429861
+  },
+  "AHSGY": {
+    "dialect": "industrial",
+    "de_ratio": 3.885338796642981e-05,
+    "equity": 6947836833.0,
+    "total_debt": 269947.0,
+    "disclosure_index": 1509577
+  },
+  "AAGYO": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 13661644947.0,
+    "total_debt": null,
+    "disclosure_index": 1599616
+  },
+  "AKSGY": {
+    "dialect": "industrial",
+    "de_ratio": 0.03317914216136483,
+    "equity": 37712490664.0,
+    "total_debt": 1251268089.0,
+    "disclosure_index": 1480207
+  },
+  "AKFGY": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 27031833204.0,
+    "total_debt": null,
+    "disclosure_index": 1509241
+  },
+  "AGYO": {
+    "error": "download"
+  },
+  "AVGYO": {
+    "error": "download"
+  },
+  "AVPGY": {
+    "error": "download"
+  },
+  "BASGZ": {
+    "error": "download"
+  },
+  "BEGYO": {
+    "error": "download"
+  },
+  "DZGYO": {
+    "error": "download"
+  },
+  "AKMGY": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 9589798623.0,
+    "total_debt": null,
+    "disclosure_index": 1563047
+  },
+  "ALGYO": {
+    "dialect": "industrial",
+    "de_ratio": 0.12777039683084665,
+    "equity": 17263525650.0,
+    "total_debt": 2205767523.0,
+    "disclosure_index": 1510220
+  },
+  "ATAGY": {
+    "dialect": "industrial",
+    "de_ratio": 6.843046458043655e-05,
+    "equity": 706527426.0,
+    "total_debt": 48348.0,
+    "disclosure_index": 1509495
+  },
+  "ASGYO": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 15767060718.0,
+    "total_debt": null,
+    "disclosure_index": 1432532
+  },
+  "DGGYO": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 13783698042.0,
+    "total_debt": null,
+    "disclosure_index": 1562193
+  },
+  "EGEGY": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 1256267298.0,
+    "total_debt": null,
+    "disclosure_index": 1509307
+  },
+  "EKGYO": {
+    "dialect": "industrial",
+    "de_ratio": 0.1763895712627803,
+    "equity": 119672092.0,
+    "total_debt": 21108909.0,
+    "disclosure_index": 1480229
+  },
+  "FZLGY": {
+    "dialect": "industrial",
+    "de_ratio": 0.15986982889093196,
+    "equity": 3795916648.0,
+    "total_debt": 606852545.0,
+    "disclosure_index": 1480303
+  },
+  "EYGYO": {
+    "dialect": "industrial",
+    "de_ratio": 0.46732791861738426,
+    "equity": 2084490385.0,
+    "total_debt": 974140553.0,
+    "disclosure_index": 1480718
+  },
+  "HLGYO": {
+    "dialect": "industrial",
+    "de_ratio": 0.18660973782774937,
+    "equity": 40684932348.0,
+    "total_debt": 7592204559.0,
+    "disclosure_index": 1481134
+  },
+  "KGYO": {
+    "error": "download"
+  },
+  "IDGYO": {
+    "dialect": "industrial",
+    "de_ratio": 0.37000910066392423,
+    "equity": 297658503.0,
+    "total_debt": 110136355.0,
+    "disclosure_index": 1509523
+  },
+  "ISGYO": {
+    "dialect": "industrial",
+    "de_ratio": 0.00965028353020349,
+    "equity": 48809511402.0,
+    "total_debt": 471025624.0,
+    "disclosure_index": 1509214
+  },
+  "LXGYO": {
+    "error": "no_FR"
+  },
+  "MRGYO": {
+    "error": "no_FR"
+  },
+  "KZBGY": {
+    "dialect": "industrial",
+    "de_ratio": 0.045922707509190974,
+    "equity": 19805202161.0,
+    "total_debt": 909508506.0,
+    "disclosure_index": 1477564
+  },
+  "KLGYO": {
+    "dialect": "industrial",
+    "de_ratio": 0.0,
+    "equity": 22575938.0,
+    "total_debt": 0.0,
+    "disclosure_index": 1508752
+  },
+  "KRGYO": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 2337662150.0,
+    "total_debt": null,
+    "disclosure_index": 1509479
+  },
+  "KZGYO": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 11519901362.0,
+    "total_debt": null,
+    "disclosure_index": 1480106
+  },
+  "MHRGY": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 8948062095.0,
+    "total_debt": null,
+    "disclosure_index": 1598905
+  },
+  "MSGYO": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 5228066628.0,
+    "total_debt": null,
+    "disclosure_index": 1599708
+  },
+  "OZKGY": {
+    "dialect": "industrial",
+    "de_ratio": 0.005212883958968967,
+    "equity": 66176376784.0,
+    "total_debt": 344969773.0,
+    "disclosure_index": 1577032
+  },
+  "OZGYO": {
+    "dialect": "holding",
+    "de_ratio": 0.0008327880045000362,
+    "equity": 5380978083.0,
+    "total_debt": 4481214.0,
+    "disclosure_index": 1479243
+  },
+  "NUGYO": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 6825401407.0,
+    "total_debt": null,
+    "disclosure_index": 1598933
+  },
+  "PAGYO": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 12460824320.0,
+    "total_debt": null,
+    "disclosure_index": 1480861
+  },
+  "PSGYO": {
+    "dialect": "industrial",
+    "de_ratio": 0.5188499621670147,
+    "equity": 26980506406.0,
+    "total_debt": 13998834728.0,
+    "disclosure_index": 1478722
+  },
+  "PEKGY": {
+    "dialect": "industrial",
+    "de_ratio": 0.009259553456712304,
+    "equity": 8754576382.0,
+    "total_debt": 81063468.0,
+    "disclosure_index": 1517488
+  },
+  "RYGYO": {
+    "dialect": "industrial",
+    "de_ratio": 0.05440809621777641,
+    "equity": 86185222788.0,
+    "total_debt": 4689173894.0,
+    "disclosure_index": 1579844
+  },
+  "SVGYO": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 4233251169.0,
+    "total_debt": null,
+    "disclosure_index": 1598974
+  },
+  "SRVGY": {
+    "dialect": "industrial",
+    "de_ratio": 0.004568578117767222,
+    "equity": 16006147890.0,
+    "total_debt": 73125337.0,
+    "disclosure_index": 1480125
+  },
+  "TDGYO": {
+    "error": "download"
+  },
+  "TSGYO": {
+    "error": "download"
+  },
+  "VKGYO": {
+    "error": "download"
+  },
+  "VRGYO": {
+    "error": "download"
+  },
+  "SNGYO": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 42507627439.0,
+    "total_debt": null,
+    "disclosure_index": 1478032
+  },
+  "SEGYO": {
+    "dialect": "industrial",
+    "de_ratio": 0.02137003355490901,
+    "equity": 6495488631.0,
+    "total_debt": 138808810.0,
+    "disclosure_index": 1559397
+  },
+  "TRGYO": {
+    "dialect": "industrial",
+    "de_ratio": 0.005517917181684059,
+    "equity": 113946799.0,
+    "total_debt": 628749.0,
+    "disclosure_index": 1479501
+  },
+  "SURGY": {
+    "dialect": "unknown",
+    "de_ratio": null,
+    "equity": 9093018625.0,
+    "total_debt": null,
+    "disclosure_index": 1509141
+  },
+  "YGGYO": {
+    "dialect": "holding",
+    "de_ratio": 8.967670137563722e-05,
+    "equity": 16609988739.0,
+    "total_debt": 1489529.0,
+    "disclosure_index": 1478560
+  },
+  "ZERGY": {
+    "dialect": "industrial",
+    "de_ratio": 0.22734741412868242,
+    "equity": 2839775572.0,
+    "total_debt": 645615633.0,
+    "disclosure_index": 1600146
+  },
+  "ZGYO": {
+    "dialect": "industrial",
+    "de_ratio": 0.032567924560647575,
+    "equity": 3157167716.0,
+    "total_debt": 102822400.0,
+    "disclosure_index": 1600141
+  },
+  "ZRGYO": {
+    "dialect": "industrial",
+    "de_ratio": 0.045638484769976326,
+    "equity": 79244313724.0,
+    "total_debt": 3616590405.0,
+    "disclosure_index": 1557099
+  },
+  "EUKYO": {
+    "dialect": "industrial",
+    "de_ratio": 0.03815788519311751,
+    "equity": 82997498.0,
+    "total_debt": 3167009.0,
+    "disclosure_index": 1598852
+  },
+  "ATLAS": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 575417363.0,
+    "total_debt": null,
+    "disclosure_index": 1600126
+  },
+  "EUYO": {
+    "dialect": "industrial",
+    "de_ratio": 0.03786792268083278,
+    "equity": 83633027.0,
+    "total_debt": 3167009.0,
+    "disclosure_index": 1598820
+  },
+  "ETYAT": {
+    "dialect": "industrial",
+    "de_ratio": 0.0881772447486746,
+    "equity": 69325879.0,
+    "total_debt": 6112965.0,
+    "disclosure_index": 1598835
+  },
+  "GRNYO": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 87906342.0,
+    "total_debt": null,
+    "disclosure_index": 1432001
+  },
+  "ISYAT": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 582285399.0,
+    "total_debt": null,
+    "disclosure_index": 1470571
+  },
+  "VKFYO": {
+    "dialect": "unknown",
+    "de_ratio": 0.01493681005879789,
+    "equity": 53961120.0,
+    "total_debt": 806007.0,
+    "disclosure_index": 1509638
+  },
+  "MTRYO": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 583507211.0,
+    "total_debt": null,
+    "disclosure_index": 1600130
+  },
+  "OYAYO": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 143065598.0,
+    "total_debt": null,
+    "disclosure_index": 1509293
+  },
+  "ALCTL": {
+    "dialect": "industrial",
+    "de_ratio": 0.03915509127462392,
+    "equity": 3337733172.0,
+    "total_debt": 130689247.0,
+    "disclosure_index": 1599603
+  },
+  "MACKO": {
+    "dialect": "industrial",
+    "de_ratio": 0.14129048069954256,
+    "equity": 643521457.0,
+    "total_debt": 90923456.0,
+    "disclosure_index": 1509602
+  },
+  "ARDYZ": {
+    "dialect": "industrial",
+    "de_ratio": 0.29541397184827894,
+    "equity": 5103036991.0,
+    "total_debt": 1507508426.0,
+    "disclosure_index": 1558031
+  },
+  "ARENA": {
+    "dialect": "industrial",
+    "de_ratio": 1.4542454303298922,
+    "equity": 3169180249.0,
+    "total_debt": 4608765895.0,
+    "disclosure_index": 1436967
+  },
+  "ATATP": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 4633341599.0,
+    "total_debt": null,
+    "disclosure_index": 1480213
+  },
+  "AZTEK": {
+    "dialect": "industrial",
+    "de_ratio": 0.7636264590563102,
+    "equity": 2065494391.0,
+    "total_debt": 1577266168.0,
+    "disclosure_index": 1478583
+  },
+  "BINBN": {
+    "dialect": "industrial",
+    "de_ratio": 0.0281197156313305,
+    "equity": 1995545856.0,
+    "total_debt": 56114182.0,
+    "disclosure_index": 1509573
+  },
+  "DGATE": {
+    "dialect": "industrial",
+    "de_ratio": 0.044367638909506985,
+    "equity": 443279685.0,
+    "total_debt": 19667273.0,
+    "disclosure_index": 1479310
+  },
+  "DESPC": {
+    "dialect": "industrial",
+    "de_ratio": 0.01994657567389911,
+    "equity": 444197648.0,
+    "total_debt": 8860222.0,
+    "disclosure_index": 1509283
+  },
+  "DOFRB": {
+    "dialect": "industrial",
+    "de_ratio": 0.1791292272674251,
+    "equity": 1802054935.0,
+    "total_debt": 322800708.0,
+    "disclosure_index": 1513693
+  },
+  "EDATA": {
+    "dialect": "industrial",
+    "de_ratio": 0.006683590902651983,
+    "equity": 761850639.0,
+    "total_debt": 5091898.0,
+    "disclosure_index": 1431884
+  },
+  "EMPAE": {
+    "dialect": "industrial",
+    "de_ratio": 0.1557275516935442,
+    "equity": 1065773026.0,
+    "total_debt": 165970224.0,
+    "disclosure_index": 1570052
+  },
+  "FONET": {
+    "dialect": "industrial",
+    "de_ratio": 0.028865178091293128,
+    "equity": 1691187591.0,
+    "total_debt": 48816431.0,
+    "disclosure_index": 1561153
+  },
+  "FORTE": {
+    "dialect": "industrial",
+    "de_ratio": 0.5596697867509447,
+    "equity": 2478402070.0,
+    "total_debt": 1387086758.0,
+    "disclosure_index": 1562943
+  },
+  "ESCOM": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 2087160674.0,
+    "total_debt": null,
+    "disclosure_index": 1509301
+  },
+  "HTTBT": {
+    "dialect": "industrial",
+    "de_ratio": 0.15855792121721757,
+    "equity": 2546900602.0,
+    "total_debt": 403831265.0,
+    "disclosure_index": 1476359
+  },
+  "INGRM": {
+    "dialect": "industrial",
+    "de_ratio": 1.4002034960295118,
+    "equity": 1994463484.0,
+    "total_debt": 2792654743.0,
+    "disclosure_index": 1480986
+  },
+  "INDES": {
+    "dialect": "industrial",
+    "de_ratio": 0.5581457506132845,
+    "equity": 6138911541.0,
+    "total_debt": 3426407390.0,
+    "disclosure_index": 1481092
+  },
+  "INTEK": {
+    "dialect": "industrial",
+    "de_ratio": 0.023208442119384203,
+    "equity": 564675644.0,
+    "total_debt": 13105242.0,
+    "disclosure_index": 1476341
+  },
+  "KFEIN": {
+    "dialect": "industrial",
+    "de_ratio": 0.0018176514562118333,
+    "equity": 1069897088.0,
+    "total_debt": 1944700.0,
+    "disclosure_index": 1480892
+  },
+  "KAREL": {
+    "dialect": "industrial",
+    "de_ratio": 2.8497258180774643,
+    "equity": 2090804874.0,
+    "total_debt": 5958220630.0,
+    "disclosure_index": 1475343
+  },
+  "KRONT": {
+    "dialect": "industrial",
+    "de_ratio": 0.1632378750719451,
+    "equity": 577999842.0,
+    "total_debt": 94351466.0,
+    "disclosure_index": 1480232
+  },
+  "MCARD": {
+    "error": "no_FR"
+  },
+  "LOGO": {
+    "dialect": "industrial",
+    "de_ratio": 0.0038278423871174632,
+    "equity": 3735786.0,
+    "total_debt": 14300.0,
+    "disclosure_index": 1557965
+  },
+  "LINK": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 1395482892.0,
+    "total_debt": null,
+    "disclosure_index": 1509580
+  },
+  "MANAS": {
+    "dialect": "industrial",
+    "de_ratio": 0.5609206162890653,
+    "equity": 792972239.0,
+    "total_debt": 444794477.0,
+    "disclosure_index": 1509348
+  },
+  "MTRKS": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 700536014.0,
+    "total_debt": null,
+    "disclosure_index": 1479965
+  },
+  "MIATK": {
+    "dialect": "industrial",
+    "de_ratio": 0.1443047495014337,
+    "equity": 5969598977.0,
+    "total_debt": 861441485.0,
+    "disclosure_index": 1480865
+  },
+  "MOBTL": {
+    "dialect": "industrial",
+    "de_ratio": 0.06215301781612852,
+    "equity": 8821722569.0,
+    "total_debt": 548296680.0,
+    "disclosure_index": 1579089
+  },
+  "NETAS": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": -64046970.0,
+    "total_debt": 2616062895.0,
+    "disclosure_index": 1477884
+  },
+  "NETCD": {
+    "dialect": "industrial",
+    "de_ratio": 0.011866324457661285,
+    "equity": 3756403776.0,
+    "total_debt": 44574706.0,
+    "disclosure_index": 1598896
+  },
+  "OBASE": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 711265688.0,
+    "total_debt": null,
+    "disclosure_index": 1562201
+  },
+  "ODINE": {
+    "dialect": "industrial",
+    "de_ratio": 0.029855408575502607,
+    "equity": 2020414219.0,
+    "total_debt": 60320292.0,
+    "disclosure_index": 1480273
+  },
+  "PAPIL": {
+    "dialect": "industrial",
+    "de_ratio": 0.07450679732475277,
+    "equity": 511754422.0,
+    "total_debt": 38129183.0,
+    "disclosure_index": 1508737
+  },
+  "PATEK": {
+    "dialect": "industrial",
+    "de_ratio": 0.030821452120226366,
+    "equity": 6013594826.0,
+    "total_debt": 185347725.0,
+    "disclosure_index": 1599587
+  },
+  "PENTA": {
+    "dialect": "industrial",
+    "de_ratio": 0.09993224692065622,
+    "equity": 3897338727.0,
+    "total_debt": 389469816.0,
+    "disclosure_index": 1479966
+  },
+  "REEDR": {
+    "dialect": "industrial",
+    "de_ratio": 0.06494071464779759,
+    "equity": 7278871407.0,
+    "total_debt": 472695111.0,
+    "disclosure_index": 1481111
+  },
+  "PKART": {
+    "dialect": "industrial",
+    "de_ratio": null,
+    "equity": 433921046.0,
+    "total_debt": null,
+    "disclosure_index": 1509422
+  },
+  "VBTYZ": {
+    "dialect": "industrial",
+    "de_ratio": 0.6528788843644406,
+    "equity": 954268113.0,
+    "total_debt": 623021501.0,
+    "disclosure_index": 1479958
+  },
+  "SMART": {
+    "dialect": "industrial",
+    "de_ratio": 0.17148098979540338,
+    "equity": 422054900.0,
+    "total_debt": 72374392.0,
+    "disclosure_index": 1480017
+  },
+  "ALTNY": {
+    "dialect": "industrial",
+    "de_ratio": 0.18833441015460478,
+    "equity": 3783222999.0,
+    "total_debt": 712511072.0,
+    "disclosure_index": 1429196
+  },
+  "ASELS": {
+    "dialect": "industrial",
+    "de_ratio": 0.039363868931234544,
+    "equity": 157722276.0,
+    "total_debt": 6208559.0,
+    "disclosure_index": 1431115
+  },
+  "ONRYT": {
+    "dialect": "industrial",
+    "de_ratio": 0.031045739779515504,
+    "equity": 2276518888.0,
+    "total_debt": 70676213.0,
+    "disclosure_index": 1432334
+  },
+  "SDTTR": {
+    "dialect": "industrial",
+    "de_ratio": 0.08686358925670051,
+    "equity": 2079301990.0,
+    "total_debt": 180615634.0,
+    "disclosure_index": 1481069
+  },
+  "SKYLP": {
+    "dialect": "industrial",
+    "de_ratio": 0.04285923954230826,
+    "equity": 243425061.0,
+    "total_debt": 10433013.0,
+    "disclosure_index": 1480662
+  },
+  "KONTR": {
+    "dialect": "industrial",
+    "de_ratio": 1.5547626040911495,
+    "equity": 7307236647.0,
+    "total_debt": 11361018278.0,
+    "disclosure_index": 1557945
+  },
+  "PCILT": {
+    "dialect": "industrial",
+    "de_ratio": 0.010337164213366147,
+    "equity": 1418943503.0,
+    "total_debt": 14667852.0,
+    "disclosure_index": 1441717
+  },
+  "YEOTK": {
+    "dialect": "industrial",
+    "de_ratio": 1.8435267404556093,
+    "equity": 2757023649.0,
+    "total_debt": 5082646821.0,
+    "disclosure_index": 1480983
+  },
+  "ESCAR": {
+    "dialect": "holding",
+    "de_ratio": 0.3117725707234158,
+    "equity": 6659812979.0,
+    "total_debt": 2076347013.0,
+    "disclosure_index": 1480337
+  },
+  "BORLS": {
+    "dialect": "industrial",
+    "de_ratio": 5.064625458844681,
+    "equity": 1488119028.0,
+    "total_debt": 7536765515.0,
+    "disclosure_index": 1480987
+  },
+  "CEOEM": {
+    "error": "download"
+  },
+  "FLAP": {
+    "error": "download"
+  },
+  "ADESE": {
+    "error": "download"
+  },
+  "IHLGM": {
+    "error": "download"
+  },
+  "RGYAS": {
+    "error": "download"
+  },
+  "SONME": {
+    "error": "download"
+  },
+  "LIDER": {
+    "dialect": "industrial",
+    "de_ratio": 0.1156064463708122,
+    "equity": 8864343747.0,
+    "total_debt": 1024775280.0,
+    "disclosure_index": 1509215
+  },
+  "GZNMI": {
+    "dialect": "holding",
+    "de_ratio": 0.9106316111936292,
+    "equity": 1226378012.0,
+    "total_debt": 1116778585.0,
+    "disclosure_index": 1480807
+  },
+  "PLTUR": {
+    "dialect": "industrial",
+    "de_ratio": 0.1341154034032723,
+    "equity": 7420435444.0,
+    "total_debt": 995194693.0,
+    "disclosure_index": 1480263
   }
 }

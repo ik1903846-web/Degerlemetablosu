@@ -1,0 +1,98 @@
+{
+  "_meta": {
+    "purpose": "Damodaran-granular sector override (Session 3.7 Phase 3)",
+    "rationale": "KAP /tr/Sektorler '003000.005000' (49 ticker) gibi geniş bucket'ları Damodaran 'industry granularity' kuralına göre ayırır. Tek-firma sektörler için single_firm_sector flag.",
+    "kap_kept_as_is": "Banking, Holding, GYO, Bilişim — KAP grouping zaten granular. Override gereksiz.",
+    "kap_split_required": "003000.005000 (Kimya+İlaç+Petrol+Plastik), 003000.008000 (Otomotiv+Makine+Beyaz Eşya+Savunma)"
+  },
+  "overrides": {
+    "TUPRS": {
+      "kap_sector_oid": "33E5FED8039E00EAE0530A4A622B2AEA",
+      "kap_sector_name": "KİMYA İLAÇ PETROL LASTİK VE PLASTİK ÜRÜNLER",
+      "override_sector_oid": "DAMODARAN_REFINING_TR",
+      "override_sector_name": "Petrol Rafinerisi (Türkiye)",
+      "single_firm_sector": true,
+      "rationale": "BIST tek halka açık petrol rafinerisi. Kimya/İlaç/Plastik bucket'ından ayrılmalı."
+    },
+    "PETKM": {
+      "kap_sector_oid": "33E5FED8039E00EAE0530A4A622B2AEA",
+      "kap_sector_name": "KİMYA İLAÇ PETROL LASTİK VE PLASTİK ÜRÜNLER",
+      "override_sector_oid": "DAMODARAN_PETROCHEM_TR",
+      "override_sector_name": "Petrokimya (Türkiye)",
+      "single_firm_sector": true,
+      "rationale": "Tek halka açık petrokimya. Damodaran 'Chemicals (Specialty)' analoğu."
+    },
+    "BRISA": {
+      "kap_sector_oid": "33E5FED8039E00EAE0530A4A622B2AEA",
+      "kap_sector_name": "KİMYA İLAÇ PETROL LASTİK VE PLASTİK ÜRÜNLER",
+      "override_sector_oid": "DAMODARAN_TIRES_TR",
+      "override_sector_name": "Lastik (Türkiye)",
+      "single_firm_sector": true,
+      "rationale": "Tek halka açık lastik üreticisi (Bridgestone JV)."
+    },
+    "DEVA": {
+      "kap_sector_oid": "33E5FED8039E00EAE0530A4A622B2AEA",
+      "kap_sector_name": "KİMYA İLAÇ PETROL LASTİK VE PLASTİK ÜRÜNLER",
+      "override_sector_oid": "DAMODARAN_PHARMA_TR",
+      "override_sector_name": "İlaç (Türkiye)",
+      "single_firm_sector": false,
+      "rationale": "İlaç sektörü Türkiye (DEVA + ATABY parking)."
+    },
+    "ATABY": {
+      "kap_sector_oid": "33E5FED8039E00EAE0530A4A622B2AEA",
+      "kap_sector_name": "KİMYA İLAÇ PETROL LASTİK VE PLASTİK ÜRÜNLER",
+      "override_sector_oid": "DAMODARAN_PHARMA_TR",
+      "override_sector_name": "İlaç (Türkiye)",
+      "single_firm_sector": false,
+      "rationale": "İlaç sektörü Türkiye."
+    },
+    "ARCLK": {
+      "kap_sector_oid": "33E5FED8039F00EAE0530A4A622B2AEA",
+      "kap_sector_name": "METAL EŞYA MAKİNE ELEKTRİKLİ CİHAZLAR VE ULAŞIM ARAÇLARI",
+      "override_sector_oid": "DAMODARAN_HOUSEHOLD_DURABLES_TR",
+      "override_sector_name": "Beyaz Eşya (Türkiye)",
+      "single_firm_sector": false,
+      "rationale": "Beyaz eşya/dayanıklı tüketim — VESTL ile birlikte."
+    },
+    "VESTL": {
+      "kap_sector_oid": "33E5FED8039F00EAE0530A4A622B2AEA",
+      "kap_sector_name": "METAL EŞYA MAKİNE ELEKTRİKLİ CİHAZLAR VE ULAŞIM ARAÇLARI",
+      "override_sector_oid": "DAMODARAN_HOUSEHOLD_DURABLES_TR",
+      "override_sector_name": "Beyaz Eşya (Türkiye)",
+      "single_firm_sector": false,
+      "rationale": "Beyaz eşya/dayanıklı tüketim."
+    },
+    "FROTO": {
+      "kap_sector_oid": "33E5FED8039F00EAE0530A4A622B2AEA",
+      "kap_sector_name": "METAL EŞYA MAKİNE ELEKTRİKLİ CİHAZLAR VE ULAŞIM ARAÇLARI",
+      "override_sector_oid": "DAMODARAN_AUTO_TR",
+      "override_sector_name": "Otomotiv (Türkiye)",
+      "single_firm_sector": false,
+      "rationale": "Otomotiv (FROTO + TOASO + OTKAR + DOAS)."
+    },
+    "TOASO": {
+      "kap_sector_oid": "33E5FED8039F00EAE0530A4A622B2AEA",
+      "kap_sector_name": "METAL EŞYA MAKİNE ELEKTRİKLİ CİHAZLAR VE ULAŞIM ARAÇLARI",
+      "override_sector_oid": "DAMODARAN_AUTO_TR",
+      "override_sector_name": "Otomotiv (Türkiye)",
+      "single_firm_sector": false,
+      "rationale": "Otomotiv."
+    },
+    "OTKAR": {
+      "kap_sector_oid": "33E5FED8039F00EAE0530A4A622B2AEA",
+      "kap_sector_name": "METAL EŞYA MAKİNE ELEKTRİKLİ CİHAZLAR VE ULAŞIM ARAÇLARI",
+      "override_sector_oid": "DAMODARAN_AUTO_TR",
+      "override_sector_name": "Otomotiv (Türkiye)",
+      "single_firm_sector": false,
+      "rationale": "Otomotiv (savunma + ticari araç)."
+    },
+    "ASELS": {
+      "kap_sector_oid": "33E5FED8039F00EAE0530A4A622B2AEA",
+      "kap_sector_name": "METAL EŞYA MAKİNE ELEKTRİKLİ CİHAZLAR VE ULAŞIM ARAÇLARI",
+      "override_sector_oid": "DAMODARAN_DEFENSE_TR",
+      "override_sector_name": "Savunma (Türkiye)",
+      "single_firm_sector": true,
+      "rationale": "Tek halka açık büyük savunma sanayi firması."
+    }
+  }
+}

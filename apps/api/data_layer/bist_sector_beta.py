@@ -67,6 +67,7 @@ BIST100_CACHE = YFINANCE_CACHE / "_BIST100.csv"
 OUTPUT_JSON = Path(__file__).resolve().parents[1] / "outputs" / "turkey_sector_beta.json"
 OUTPUT_MD = Path(__file__).resolve().parents[1] / "outputs" / "sector_beta_report.md"
 FUNDAMENTALS_CACHE = Path(__file__).resolve().parents[1] / "_cache" / "fundamentals.json"
+SECTOR_OVERRIDES_PATH = Path(__file__).resolve().parents[1] / "config" / "sector_overrides.json"
 
 # Damodaran corporate tax rate Türkiye (2025 ~%25)
 DEFAULT_TAX_RATE_TR = 0.25
@@ -197,8 +198,8 @@ def _fetch_one_fundamental(ticker: str) -> Tuple[str, Dict]:
 def _build_fundamentals_cache(
     tickers: List[str],
     force_refresh: bool = False,
-    max_workers: int = 5,           # B mode (KAP cooldown reset confirmed)
-    throttle_sec: float = 0.5,      # B mode (0.5s — empirical limit)
+    max_workers: int = 5,           # B mode aggressive (Session 3.7 retry)
+    throttle_sec: float = 0.5,      # B mode aggressive
 ) -> Dict[str, Dict]:
     """Per ticker: KAP'tan en yeni FR Excel → D/E + tax + dialect.
 
@@ -301,20 +302,40 @@ def _build_fundamentals_cache(
 # 3) Pipeline orchestration
 # ============================================================================
 
+def _load_sector_overrides() -> Dict[str, Dict]:
+    """sector_overrides.json → ticker → override mapping."""
+    if not SECTOR_OVERRIDES_PATH.exists():
+        return {}
+    try:
+        data = json.loads(SECTOR_OVERRIDES_PATH.read_text(encoding="utf-8"))
+        return data.get("overrides", {})
+    except Exception:
+        return {}
+
+
 def compute_beta_per_ticker(
     sector_snap,
     market_returns: pd.Series,
     fundamentals: Dict[str, Dict],
     market_caps: Dict[str, float],
 ) -> List[TickerBeta]:
+    overrides = _load_sector_overrides()
     results: List[TickerBeta] = []
     for r in sector_snap.records:
+        # Damodaran-granular override apply
+        ov = overrides.get(r.ticker)
+        sector_oid = ov["override_sector_oid"] if ov else r.sector_oid
+        sector_name = ov["override_sector_name"] if ov else r.sector_name
+        sector_no = "OVERRIDE" if ov else r.sector_no
+
         tb = TickerBeta(
             ticker=r.ticker,
-            sector_oid=r.sector_oid,
-            sector_name=r.sector_name,
-            sector_no=r.sector_no,
+            sector_oid=sector_oid,
+            sector_name=sector_name,
+            sector_no=sector_no,
         )
+        if ov:
+            tb.flags.append(f"sector_override: {r.sector_name[:30]} → {sector_name[:30]}")
         # Fundamentals
         f = fundamentals.get(r.ticker, {})
         tb.dialect = f.get("dialect")
