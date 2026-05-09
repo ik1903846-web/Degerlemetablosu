@@ -1,0 +1,12 @@
+# Damodaran raw data files — telifli, repo'da saklanmaz
+# Sadece türetilmiş parameters.json commit'lenir (audit trail)
+
+*.xlsx
+*.xls
+*.csv
+*.tmp
+
+# parameters.json istisna: türetilmiş özet, audit için commit'lenir
+!parameters.json
+!**/parameters.json
+!**/.gitkeep
