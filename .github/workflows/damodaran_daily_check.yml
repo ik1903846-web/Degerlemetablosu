@@ -54,6 +54,7 @@ jobs:
           path: |
             apps/api/data/damodaran/_hash_state.json
             apps/api/data/damodaran/_regen_state.json
+            apps/api/data/damodaran/_fetch_log.jsonl
           key: damodaran-state-${{ github.run_id }}
           restore-keys: |
             damodaran-state-
@@ -235,6 +236,34 @@ jobs:
             echo "Sonra: \`git add ... && git commit ... && git push\`"
           } >> $GITHUB_STEP_SUMMARY
 
+      - name: Append audit log
+        if: always()
+        env:
+          ISSUE_CREATED: ${{ steps.regen_decide.outputs.action == 'alert_manual_update' || steps.regen_decide.outputs.action == 'regen_and_alert' }}
+        run: |
+          ARGS=(
+            --run-id "${{ github.run_id }}"
+            --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            --conclusion "${{ job.status }}"
+            --trigger "${{ github.event_name }}"
+            --hash-output check_output.txt
+            --decision regen_decision.json
+          )
+          if [ "$ISSUE_CREATED" = "true" ]; then
+            ARGS+=(--issue-created)
+          fi
+
+          python apps/api/data_layer/damodaran_audit_log.py record "${ARGS[@]}"
+
+          # Son 5 record summary
+          {
+            echo ""
+            echo "## Audit Log Recent"
+            echo '```'
+            python apps/api/data_layer/damodaran_audit_log.py recent --limit 5
+            echo '```'
+          } >> $GITHUB_STEP_SUMMARY
+
       - name: Persist state cache (after run)
         if: always() && github.event.inputs.reset_state != 'true'
         uses: actions/cache/save@v4
@@ -242,6 +271,7 @@ jobs:
           path: |
             apps/api/data/damodaran/_hash_state.json
             apps/api/data/damodaran/_regen_state.json
+            apps/api/data/damodaran/_fetch_log.jsonl
           key: damodaran-state-${{ github.run_id }}
 
       - name: Fail on error
