@@ -24,11 +24,15 @@ from typing import Optional
 # ---------------------------------------------------------------------------
 # Damodaran market params (2026-Q1 — manuel maintained)
 # ---------------------------------------------------------------------------
-RF_USD_10Y = 0.0397
-MATURE_ERP_US = 0.0444
-TURKEY_CRP = 0.0601
-TURKEY_TAX_RATE = 0.25
-TURKEY_SOVEREIGN_SPREAD = 0.0446
+# Updated 2026-05-09 via Faz B1 audit Adim 7 (anchor v4.0 -> v4.1 transition)
+# Source: apps/api/data/damodaran/2026_05_09/parameters.json
+# Audit chain: docs/audit_findings_session4.md, audit_decision_v4.md
+# Anchor declaration: apps/api/data/anchor.json (v4.1 = 216.33 TL TUPRS)
+RF_USD_10Y = 0.0395  # was: 0.0397 (Damodaran 10Y UST - US default Aa1)
+MATURE_ERP_US = 0.0423  # was: 0.0444 (S&P implied - US default Aa1)
+TURKEY_CRP = 0.0466  # was: 0.0601 (Damodaran ctryprem Sub 2026 update)
+TURKEY_TAX_RATE = 0.25  # unchanged
+TURKEY_SOVEREIGN_SPREAD = 0.0306  # was: 0.0446 (Turkey Ba3 upgrade Sub 2026)
 
 
 # Damodaran synthetic rating tablosu (interest_coverage → default_spread)
