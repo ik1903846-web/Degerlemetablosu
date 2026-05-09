@@ -159,14 +159,120 @@ def _load_scanner_df() -> tuple[pd.DataFrame, str]:
     )
 
 
-df, debug_msg = _load_scanner_df()
+# ============================================================================
+# v4 KAP-Only Loader (Faz 11 v4.0 — Session 4C)
+# ============================================================================
+
+@st.cache_data(ttl=300)
+def _load_scanner_df_v4() -> tuple[pd.DataFrame, str]:
+    """KAP-only v4 batch JSON → 5-column DataFrame.
+
+    apps/api/outputs/turkey_v4_batch.json (orchestrator_v4 output).
+    """
+    v4_path = OUTPUTS_DIR / "turkey_v4_batch.json"
+    if not v4_path.exists():
+        return pd.DataFrame(), f"❌ v4 batch yok: `{v4_path}`"
+    try:
+        batch = json.loads(v4_path.read_text(encoding="utf-8"))
+    except Exception as e:
+        return pd.DataFrame(), f"❌ v4 parse fail: {e}"
+
+    rows = []
+    for r in batch.get("tickers", []):
+        intrinsic = r.get("intrinsic_per_share_tl")
+        price = r.get("current_price_tl")
+        upside = r.get("upside_pct")
+        stage = (r.get("lifecycle_stage") or "unknown").lower()
+        method = r.get("dcf_method") or "unknown"
+        if intrinsic is None or price is None:
+            continue
+        rows.append({
+            "ticker": r.get("ticker", ""),
+            "current_price_tl": float(price),
+            "intrinsic_value_tl": float(intrinsic),
+            "upside_pct": float(upside) if upside is not None else 0.0,
+            "lifecycle_stage": stage,
+            "lifecycle_label": f"{STAGE_STARS.get(stage, '—')} {STAGE_LABELS.get(stage, '?')}",
+        })
+    df = pd.DataFrame(rows)
+    debug = (
+        f"✓ v4 KAP-Only: {batch.get('total_count',0)} ticker, "
+        f"{batch.get('dcf_count',0)} DCF, "
+        f"anchor TUPRS={batch.get('anchor_tuprs','?')}"
+    )
+    if df.empty:
+        return df, debug
+    return df.sort_values("upside_pct", ascending=False).reset_index(drop=True), debug
+
+
+# ============================================================================
+# A/B Switch — Sidebar
+# ============================================================================
+
+st.sidebar.markdown("### 🔀 Sistem Seçimi")
+v4_path = OUTPUTS_DIR / "turkey_v4_batch.json"
+v4_available = v4_path.exists()
+
+use_v4 = st.sidebar.checkbox(
+    "🆕 KAP-Only Sistem (BETA)",
+    value=v4_available,
+    disabled=not v4_available,
+    help=(
+        "**Yeni:** KAP financials + yfinance fiyat + Türkiye-pure beta.\n"
+        "**Eski:** İş Yatırım scrape (legacy fallback).\n\n"
+        f"v4 batch: {'✓ mevcut' if v4_available else '✗ yok (eski sistem aktif)'}"
+    ),
+)
+
+if use_v4:
+    df, debug_msg = _load_scanner_df_v4()
+    source_label = "🆕 KAP-Only v4 (BETA)"
+else:
+    df, debug_msg = _load_scanner_df()
+    source_label = "📋 İş Yatırım v1 (legacy)"
+
+st.sidebar.markdown("---")
+st.sidebar.markdown("### 📊 Veri Kaynakları")
+if use_v4:
+    st.sidebar.markdown(
+        """
+        - 💼 Finansallar: **KAP** (resmi)
+        - 📈 Fiyat: **Yahoo Finance** (BIST lisanslı)
+        - 📐 Beta: **Türkiye-pure** bottom-up
+        - 🎯 DCF: **Damodaran 2-stage FCFF**
+        - 🌀 Cyclical: **ADR-011 normalize**
+        """
+    )
+else:
+    st.sidebar.markdown(
+        """
+        - 📋 İş Yatırım scrape (legacy)
+        - Damodaran Global EM beta
+        """
+    )
+
+with st.sidebar.expander("ℹ️ Metodoloji"):
+    st.markdown(
+        """
+        **Damodaran ADR-011 (Cyclical):**
+        Petrol/Çelik/Otomotiv için Q-snapshot
+        margin yerine sektör uplift normalize.
+
+        **Türkiye-spesifik beta:**
+        BIST sektör ortalaması (587 ticker × 44 sektör).
+
+        **Anchor TUPRS = 187.10 TL** ✓
+        """
+    )
+
+st.caption(f"Aktif kaynak: **{source_label}**")
 
 if df.empty:
     st.error("Tarayıcı verisi bulunamadı.")
     st.code(debug_msg, language="text")
     st.caption(
         "DEBUG: Streamlit Cloud working dir vs path resolution analizi yukarıda. "
-        "Beklenen path: `apps/api/outputs/bist_batch_LIVE_*.json` (repo-relative)."
+        "Beklenen path: `apps/api/outputs/bist_batch_LIVE_*.json` veya `turkey_v4_batch.json`."
     )
     st.stop()
 

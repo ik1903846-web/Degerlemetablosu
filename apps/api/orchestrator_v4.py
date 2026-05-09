@@ -294,6 +294,22 @@ def assemble_ticker_data(
                 td.errors.append(f"yfinance: {price.error}")
         except Exception as e:
             td.errors.append(f"yfinance exc: {type(e).__name__}: {e}")
+    else:
+        # File-only mode: CSV cache son satır close = current_price proxy
+        try:
+            from yfinance_price_fetcher import CACHE_DIR as YF_CACHE_DIR
+            csv_path = YF_CACHE_DIR / f"{eff_ticker}.csv"
+            if csv_path.exists():
+                import pandas as pd
+                df = pd.read_csv(csv_path, parse_dates=["date"])
+                if not df.empty:
+                    last_close = float(df["close"].iloc[-1])
+                    td.current_price_tl = last_close
+                    td.history_rows = len(df)
+                    if td.shares_outstanding:
+                        td.market_cap_tl = last_close * td.shares_outstanding
+        except Exception as e:
+            td.errors.append(f"yf_csv: {type(e).__name__}: {e}")
 
     # 6) Sektör beta (Session 3.7)
     sb = caches.sector_beta.get(eff_ticker)
@@ -492,6 +508,61 @@ def run_pipeline_v4_data_only(
             n_complete = sum(1 for r in results if r.is_complete)
             print(f"  [{i:3d}/{len(universe)}] complete={n_complete}/{i}")
     return results
+
+
+def run_pipeline_v4(
+    universe: Optional[List[str]] = None,
+    progress: bool = True,
+    fetch_yfinance_live: bool = False,
+) -> List[TickerDataV4]:
+    """Full v4 pipeline: assemble + enrich + DCF intrinsic.
+
+    Returns TickerDataV4 list. Banking/Holding/Insurance graceful skip.
+
+    fetch_yfinance_live=False (default): yfinance cache CSV'den oku (hızlı).
+    fetch_yfinance_live=True: anlık fetch (yavaş, 605 ticker × ~30 dk).
+    """
+    caches = _Caches()
+    if universe is None:
+        universe = [r.ticker for r in caches.float_snap.records]
+
+    results: List[TickerDataV4] = []
+    for i, t in enumerate(universe, 1):
+        td = assemble_and_value(
+            t, caches=caches, fetch_yfinance_live=fetch_yfinance_live,
+        )
+        results.append(td)
+        if progress and i % 50 == 0:
+            n_complete = sum(1 for r in results if r.is_complete)
+            n_dcf = sum(1 for r in results if r.intrinsic_per_share_tl is not None)
+            print(f"  [{i:3d}/{len(universe)}] complete={n_complete}/{i}  dcf={n_dcf}")
+    return results
+
+
+def save_v4_batch_json(
+    results: List[TickerDataV4],
+    output_path: Optional[Path] = None,
+) -> Path:
+    """v4 results → JSON for Tarayıcı sayfası."""
+    if output_path is None:
+        output_path = OUTPUTS_DIR / "turkey_v4_batch.json"
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    payload = {
+        "fetch_date": date.today().isoformat(),
+        "total_count": len(results),
+        "complete_count": sum(1 for r in results if r.is_complete),
+        "dcf_count": sum(1 for r in results if r.intrinsic_per_share_tl is not None),
+        "anchor_tuprs": next(
+            (r.intrinsic_per_share_tl for r in results if r.ticker == "TUPRS"),
+            None,
+        ),
+        "tickers": [asdict(r) for r in results],
+    }
+    output_path.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2, default=str),
+        encoding="utf-8",
+    )
+    return output_path
 
 
 # ============================================================================
