@@ -70,6 +70,7 @@ FUNDAMENTALS_CACHE = CACHE_DIR / "fundamentals.json"
 SECTOR_BETA_OUTPUT = OUTPUTS_DIR / "turkey_sector_beta.json"
 TICKER_SECTORS_CACHE = CACHE_DIR / "ticker_sectors.json"
 SUBS_CACHE_DIR = CACHE_DIR / "kap_subsidiaries"
+PARSED_FIN_CACHE_DIR = CACHE_DIR / "parsed_financials"
 
 
 # ============================================================================
@@ -333,50 +334,84 @@ def assemble_ticker_data(
 # DCF integration (Session 4B)
 # ============================================================================
 
-def enrich_full_financials(td: TickerDataV4) -> TickerDataV4:
-    """KAP Excel cache'den disclosure_index ile FULL financials re-parse.
+def enrich_full_financials(td: TickerDataV4, force_refresh: bool = False) -> TickerDataV4:
+    """KAP Excel cache → disk-cached parsed financials.
 
-    fundamentals.json'da sadece D/E + dialect var (Session 3.6 minimum).
-    DCF için revenue, capex, D&A, cash gerek — Excel cache'den çıkar.
+    parsed_financials/{ticker}.json disk cache.
+    İlk run yavaş (Excel parse 1-4 sec), sonraki run instant.
     """
     if td.disclosure_index is None:
         td.errors.append("enrich: no disclosure_index for full re-parse")
         return td
-    try:
-        dl = fetch_excel_export(td.disclosure_index)
-        if not dl.success:
-            td.errors.append(f"enrich: download fail {dl.error}")
+
+    cache_path = PARSED_FIN_CACHE_DIR / f"{td.ticker}.json"
+    parsed = None
+    if not force_refresh and cache_path.exists():
+        try:
+            parsed = json.loads(cache_path.read_text(encoding="utf-8"))
+            if parsed.get("disclosure_index") != td.disclosure_index:
+                # Stale (yeni FR var) → refresh
+                parsed = None
+        except Exception:
+            parsed = None
+
+    if parsed is None:
+        try:
+            dl = fetch_excel_export(td.disclosure_index)
+            if not dl.success:
+                td.errors.append(f"enrich: download fail {dl.error}")
+                return td
+            fli: FinancialLineItems = parse_excel_html(
+                dl.content_bytes, disclosure_index=td.disclosure_index,
+            )
+            if fli.error:
+                td.errors.append(f"enrich: parse {fli.error}")
+                return td
+            # Sunum birimi normalize
+            unit_multiplier = 1.0
+            if fli.sunum_birimi:
+                txt = fli.sunum_birimi.lower().replace(" ", "")
+                if "1.000.000" in txt or "1000000" in txt:
+                    unit_multiplier = 1_000_000.0
+                elif "1.000" in txt or "1000" in txt:
+                    unit_multiplier = 1_000.0
+
+            parsed = {
+                "ticker": td.ticker,
+                "disclosure_index": td.disclosure_index,
+                "unit_multiplier": unit_multiplier,
+                "revenue":         (fli.revenue_cari or 0) * unit_multiplier or None,
+                "op_income":       (fli.operating_income_cari or 0) * unit_multiplier or None,
+                "capex":           (fli.capex_cari or 0) * unit_multiplier or None,
+                "depreciation":    (fli.depreciation_cari or 0) * unit_multiplier or None,
+                "working_capital": (fli.working_capital or 0) * unit_multiplier or None,
+                "cash":            (fli.cash or 0) * unit_multiplier or None,
+                "tax_expense":     (fli.tax_expense_cari or 0) * unit_multiplier or None,
+                "total_debt":      (fli.total_debt or 0) * unit_multiplier or None,
+                "total_equity":    (fli.total_equity or 0) * unit_multiplier or None,
+            }
+            # Atomic cache write
+            PARSED_FIN_CACHE_DIR.mkdir(parents=True, exist_ok=True)
+            tmp = cache_path.with_suffix(".tmp")
+            tmp.write_text(json.dumps(parsed, ensure_ascii=False, indent=2), encoding="utf-8")
+            tmp.replace(cache_path)
+        except Exception as e:
+            td.errors.append(f"enrich exc: {type(e).__name__}: {e}")
             return td
-        fli: FinancialLineItems = parse_excel_html(
-            dl.content_bytes, disclosure_index=td.disclosure_index,
-        )
-        if fli.error:
-            td.errors.append(f"enrich: parse {fli.error}")
-            return td
-        # Sunum birimi normalize: "1.000 TL" → ×1000, "1.000.000 TL" → ×1e6
-        unit_multiplier = 1.0
-        if fli.sunum_birimi:
-            txt = fli.sunum_birimi.lower().replace(" ", "")
-            if "1.000.000" in txt or "1000000" in txt:
-                unit_multiplier = 1_000_000.0
-            elif "1.000" in txt or "1000" in txt:
-                unit_multiplier = 1_000.0
-        td.revenue = (fli.revenue_cari or 0) * unit_multiplier or None
-        td.op_income = (fli.operating_income_cari or 0) * unit_multiplier or None
-        td.capex = (fli.capex_cari or 0) * unit_multiplier or None
-        td.depreciation = (fli.depreciation_cari or 0) * unit_multiplier or None
-        td.working_capital = (fli.working_capital or 0) * unit_multiplier or None
-        td.cash = (fli.cash or 0) * unit_multiplier or None
-        td.tax_expense = (fli.tax_expense_cari or 0) * unit_multiplier or None
-        # total_debt + equity zaten TL bazında fundamentals.json'dan geliyor
-        # ama unit consistency için yeniden uygula
-        if fli.total_debt is not None:
-            td.total_debt = fli.total_debt * unit_multiplier
-        if fli.total_equity is not None:
-            td.total_equity = fli.total_equity * unit_multiplier
-        td.flags.append(f"unit_multiplier={unit_multiplier:.0f}")
-    except Exception as e:
-        td.errors.append(f"enrich exc: {type(e).__name__}: {e}")
+
+    # Apply parsed → ticker data
+    td.revenue = parsed.get("revenue")
+    td.op_income = parsed.get("op_income")
+    td.capex = parsed.get("capex")
+    td.depreciation = parsed.get("depreciation")
+    td.working_capital = parsed.get("working_capital")
+    td.cash = parsed.get("cash")
+    td.tax_expense = parsed.get("tax_expense")
+    if parsed.get("total_debt") is not None:
+        td.total_debt = parsed["total_debt"]
+    if parsed.get("total_equity") is not None:
+        td.total_equity = parsed["total_equity"]
+    td.flags.append(f"unit_multiplier={parsed.get('unit_multiplier', 1):.0f}")
     return td
 
 

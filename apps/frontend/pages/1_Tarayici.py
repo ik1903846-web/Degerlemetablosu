@@ -184,7 +184,27 @@ def _load_scanner_df_v4() -> tuple[pd.DataFrame, str]:
         upside = r.get("upside_pct")
         stage = (r.get("lifecycle_stage") or "unknown").lower()
         method = r.get("dcf_method") or "unknown"
-        if intrinsic is None or price is None:
+        # Price yoksa skip (delisted/no_data)
+        if price is None:
+            continue
+        # Intrinsic yoksa method'a göre tabloda göster
+        if intrinsic is None:
+            method_label = {
+                "banking_skip":                       "Banking (4.5+)",
+                "holding_sotp_pending":               "Holding SOTP (4.5+)",
+                "fcff_negative_intrinsic_unsuitable": "Cyclical capex",
+                "insurance_skip":                     "Insurance (parking)",
+                "unknown_skip":                       "Insurance/unknown",
+            }.get(method, f"Skip ({method[:20]})")
+            rows.append({
+                "ticker": r.get("ticker", ""),
+                "current_price_tl": float(price),
+                "intrinsic_value_tl": None,
+                "upside_pct": None,
+                "lifecycle_stage": stage,
+                "lifecycle_label": f"{STAGE_STARS.get(stage, '—')} {STAGE_LABELS.get(stage, '?')}",
+                "method": method_label,
+            })
             continue
         rows.append({
             "ticker": r.get("ticker", ""),
@@ -193,6 +213,7 @@ def _load_scanner_df_v4() -> tuple[pd.DataFrame, str]:
             "upside_pct": float(upside) if upside is not None else 0.0,
             "lifecycle_stage": stage,
             "lifecycle_label": f"{STAGE_STARS.get(stage, '—')} {STAGE_LABELS.get(stage, '?')}",
+            "method": "DCF",
         })
     df = pd.DataFrame(rows)
     debug = (
@@ -289,8 +310,13 @@ if df.empty:
 SANITY_LOWER_BOUND = -50.0
 SANITY_UPPER_BOUND = 500.0
 
-extreme_count = ((df["upside_pct"] > SANITY_UPPER_BOUND) |
-                 (df["upside_pct"] < SANITY_LOWER_BOUND)).sum()
+# DCF olmayan satırlar (intrinsic NULL) sanity filter'a tabi değil
+# (banking/holding/cyclical_capex method flag ile gösteriliyor)
+df_dcf = df[df["upside_pct"].notna()]
+df_skip = df[df["upside_pct"].isna()]
+
+extreme_count = ((df_dcf["upside_pct"] > SANITY_UPPER_BOUND) |
+                 (df_dcf["upside_pct"] < SANITY_LOWER_BOUND)).sum()
 
 show_extreme = st.checkbox(
     f"⚠️ Şüpheli upside göster (debug, {extreme_count} hisse)",
@@ -302,10 +328,16 @@ show_extreme = st.checkbox(
     ),
 )
 
+show_skip = st.checkbox(
+    f"📋 Method skip ticker'ları göster ({len(df_skip)} hisse: banking/holding/cyclical)",
+    value=False,
+    help="Banking (4.5+ Excess Return), Holding (4.5+ SOTP), Cyclical (capex unsuitable) ticker'ları."
+)
+
 if not show_extreme:
-    df = df[
-        (df["upside_pct"] >= SANITY_LOWER_BOUND)
-        & (df["upside_pct"] <= SANITY_UPPER_BOUND)
+    df_dcf = df_dcf[
+        (df_dcf["upside_pct"] >= SANITY_LOWER_BOUND)
+        & (df_dcf["upside_pct"] <= SANITY_UPPER_BOUND)
     ].reset_index(drop=True)
     if extreme_count > 0:
         st.caption(
@@ -313,6 +345,12 @@ if not show_extreme:
             f"(upside <{SANITY_LOWER_BOUND:.0f}% veya >{SANITY_UPPER_BOUND:.0f}%). "
             "Lesson #22 — DCF sanity bounds. Detay için ☑️ checkbox aktive et."
         )
+
+# Method skip ticker'ları opsiyonel
+if show_skip:
+    df = pd.concat([df_dcf, df_skip], ignore_index=True)
+else:
+    df = df_dcf
 
 
 # ============================================================================

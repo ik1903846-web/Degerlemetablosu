@@ -72,3 +72,6 @@ temp/
 # Streamlit secrets (Faz 10 — never commit)
 .streamlit/secrets.toml
 apps/frontend/.streamlit/secrets.toml
+
+# Runtime cache (Faz 11 v4.0 — KAP/yfinance fetch artifacts, do NOT commit)
+apps/api/_cache/
