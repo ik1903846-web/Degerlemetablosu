@@ -559,3 +559,35 @@ Doğrulanması gereken:
 - sector_premium hangi kaynaktan? Damodaran sector data?
 - 0.0094 hangi sektör için? "Average" mi, "BIST aggregate" mi?
 - Per-sector fallback (industry, banking, holding ayrı) gerekli mi?
+
+---
+
+## 13. Cross-Holdings Gap (Session 7.x — 10 Mayıs 2026)
+
+### 13.1 Tespit
+
+DCF firm value formülü Damodaran metodolojisini tam yansıtmıyor:
+
+  Damodaran:  EV + Cash + Cross-Holdings + Non-Op Assets - Debt
+  Mevcut:     EV + Cash - Debt (cross-holdings YOK)
+
+### 13.2 Etki Boyutu
+
+  Subsidiary cache: 3511 record (kpy41_acc7, >%50)
+  Listed subsidiary: tahmini 200-400 cross-holding
+  Etkilenen ticker: 20-30 (ARCLK, TKFEN, ENKAI, holdingler)
+
+### 13.3 Karar
+
+  ADR-078 PROPOSED → Cross-Holdings Valuation Protocol
+  Faz B2 PLAN → 3-phase implementation (~24 iş günü)
+
+  Phase 1: Listed subsidiary (~3 gün, Mayıs ortası)
+  Phase 2: İştirak kpy41_acc8 (~7 gün, Haziran başı)
+  Phase 3: IFRS bilanço parse (~14 gün, Haziran)
+
+### 13.4 Referans
+
+  - docs/adr_078_cross_holdings.md
+  - docs/faz_b2_plan.md
+  - Damodaran, Investment Valuation, Ch. 26 (cross holdings)
