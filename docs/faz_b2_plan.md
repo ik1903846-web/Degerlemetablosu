@@ -36,12 +36,63 @@ Faz B2'ye uyarlanmış protokol:
 
 Hedef: Cache'deki 3511 subsidiary'den listed olanları (subsidiary_ticker dolu) DCF'ye ekle.
 
-### 2.1 Adım 1 — Veri Hazırlık (~3 saat)
+### 2.1 Adım 1 — Veri Hazırlık ✓ TAMAMLANDI (10 Mayıs 2026)
 
-  - kap_subs_2026-05-10.csv parse
-  - subsidiary_ticker NULL olmayanları filtrele
-  - Beklenti: 200-400 listed cross-holding
-  - Per parent breakdown rapor
+Phase 1 Adım 1 sonuçları:
+
+  Total subsidiary record:    3511
+  Listed (subsidiary_ticker): 124 record (3.5%)
+  Unique listed sub ticker:   100
+  Parent ticker (en az 1):    68
+
+Damodaran kategori dağılımı (124 listed):
+
+  Majority (>50%):           42 (34.1%)  → Konsolide, SKIP (double-count)
+  Active minority (20-50%):  49 (39.8%)  → Equity method, EKLE
+  Passive minority (<20%):   32 (26.0%)  → Mark-to-market, EKLE
+
+relationship_type segmentation (KAP raw):
+
+  "full" (Bağlı Ortaklık):    56 → SKIP (konsolide bilanço)
+  "equity" (İştirak):         35 → EKLE
+  "financial":                 9 → EKLE
+  "joint" (Müşterek):          6 → EKLE
+  null/manuel:                18 → review
+
+**Phase 1 EFFECTIVE SCOPE:** ~50 listed record, ~30-40 parent ticker.
+
+TOP 10 etkilenen parent:
+
+  SAHOL  | 10 | AGESA, AKBNK, AKCNS, AKGRT, BRISA
+  KCHOL  |  6 | ARCLK, AYGAZ, FROTO, OTKAR, TOASO
+  ISATR  |  5 | ANHYT, ISFIN, ISGYO, ISMEN, TSKB
+  INVES  |  5 | ACSEL, INTEK, PAMEL, VERTU, VERUS
+  VAKBN  |  4 | TSKB, VAKFA, VAKFN, VKGYO
+  IHLAS  |  4 | IHEVA, IHGZT, IHLGM, IHYAY
+  TERA   |  3 | MANAS, TEHOL, TRHOL
+  TSKB   |  3 | ISFIN, ISGSY, TSGYO
+  TKFEN  |  3 | AKCNS, AKMGY, TSKB
+  AGHOL  |  3 | ADEL, ASUZU, ...
+
+Industrial firmalar (TUPRS, ARCLK, EREGL, vs):
+  TUPRS top 25'te YOK → 0 listed sub → Phase 1 etki SIFIR
+  ARCLK 122 toplam sub'dan çoğu non-listed (Beko Romania, Arch R&D)
+
+→ Phase 1 ana hedefi: HOLDINGS finalize ("holding_sotp_pending" → "holding_sotp")
+
+### 2.1.1 Critical Technical Detail
+
+`ownership_pct` field decimal format (0-1), yüzde DEĞİL:
+
+  AGHOL → ADEL  : 0.5689 (yani %56.89)
+  AKCNS → CIMSA : 0.0898 (yani %8.98)
+
+Cross-holding hesabı:
+
+  contribution = market_cap × ownership_pct
+  (×100 GEREK YOK)
+
+Outlier: 1 record ownership_pct=94.43 → muhtemelen parse hatası, manuel review (Adım 2 öncesi).
 
 ### 2.2 Adım 2 — Market Cap Fetcher (~3 saat)
 
@@ -122,13 +173,15 @@ Ana adımlar:
   - Multi-tier holding zinciri (circular reference önleme)
   - Damodaran iterative valuation pattern
 
-## 5. Faz B2 Toplam Tahmin
+## 5. Faz B2 Toplam Tahmin (Adım 1 sonrası kalibrasyon)
 
-  Phase 1: ~3 gün (Mayıs ortası)
-  Phase 2: ~7 gün (Haziran başı)
-  Phase 3: ~14 gün (Haziran ortası-sonu)
+  Phase 1: ~2 gün (scope küçüldü, ~50 record effective)
+  Phase 2: ~7 gün (kpy41_acc8 fetcher + equity method)
+  Phase 3: ~14 gün (IFRS bilanço parse + multi-tier holding)
   ────────────────────────────────────
-  Toplam:  ~24 iş günü (Mayıs-Haziran 2026)
+  Toplam:  ~23 iş günü (Mayıs-Haziran 2026)
+
+Adım 1 keşif Phase 1 zaman tahminini -1 gün düşürdü. Industrial firmalar minimal etkilendiği için sensitivity test (Adım 5) basitleşti — odak holdings.
 
 ## 6. Implementation Önceliklendirme
 

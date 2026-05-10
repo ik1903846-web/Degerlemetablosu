@@ -571,11 +571,19 @@ DCF firm value formülü Damodaran metodolojisini tam yansıtmıyor:
   Damodaran:  EV + Cash + Cross-Holdings + Non-Op Assets - Debt
   Mevcut:     EV + Cash - Debt (cross-holdings YOK)
 
-### 13.2 Etki Boyutu
+### 13.2 Etki Boyutu (Phase 1 Adım 1 — 10 Mayıs 2026)
 
-  Subsidiary cache: 3511 record (kpy41_acc7, >%50)
-  Listed subsidiary: tahmini 200-400 cross-holding
-  Etkilenen ticker: 20-30 (ARCLK, TKFEN, ENKAI, holdingler)
+  Subsidiary cache: 3511 record (kpy41_acc7)
+  Listed subsidiary: 124 record (100 unique ticker)
+
+  Damodaran kategori:
+    Majority >50% (konsolide, SKIP): 42 record
+    Active 20-50% (equity, EKLE):    49 record
+    Passive <20% (market, EKLE):     32 record
+
+  Phase 1 effective scope: ~50 record, ~30-40 parent
+  Etki yoğunluğu: HOLDINGS (SAHOL, KCHOL, AGHOL, ALARK, IHLAS, vs)
+  Industrial firmalar (TUPRS, EREGL, ARCLK): MINIMAL etki
 
 ### 13.3 Karar
 
