@@ -85,7 +85,7 @@
     "phase2_resolution": "docs/faz_b2_resolution.md",
     "phase2_adr": "docs/adr_078_cross_holdings.md",
     "remaining_steps": [
-      "Faz B2 Phase 2 (PARKING): kpy41_acc8 equity method",
+      "Faz B2 Phase 2 (PARKING): kpy41_acc7 parser improvement (REVIZE — kpy41_acc8 endpoint yok)",
       "Faz B2 Phase 3 (PARKING): IFRS financial_investments parse"
     ]
   },

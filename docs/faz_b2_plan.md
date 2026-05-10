@@ -151,16 +151,22 @@ Outlier: 1 record ownership_pct=94.43 → muhtemelen parse hatası, manuel revie
 
 **Phase 1 toplam: ~21 saat ≈ 3 iş günü** (Faz B1 ile karşılaştırılabilir)
 
-## 3. Phase 2 — İştirak Coverage (kpy41_acc8)
+## 3. Phase 2 — kpy41_acc7 Parser Improvement (REVIZE 2026-05-10)
 
-Süre tahmin: ~5-7 iş günü
-Detay: Phase 1 sonrası, ayrı plan dosyası
+Süre tahmin: ~3-5 iş günü
+Detay: Phase 1 sonrası keşif, scope revize
+
+Keşif: kpy41_acc8 endpoint KAP'ta YOK. kpy41_acc7 zaten Damodaran 4 kategori
+(full/equity/joint/financial) içeriyor ama 616 record NaN relationship_type
+(parser bug, raw_text dolu).
 
 Ana adımlar:
-  - kap_affiliates_fetcher.py YENI modül
-  - kpy41_acc8 endpoint scrape
-  - Equity method valuation
-  - Phase 1 entegrasyonu (consistent fallback)
+  - Adım 1: relationship_raw → relationship_type kategorizer (regex/keyword)
+  - Adım 2: ownership_pct fallback parse (raw_text içinde % varsa çek)
+  - Adım 3: Holdings SOTP başlangıcı (KCHOL/SAHOL NaN problemi)
+  - Adım 4: Regen + sensitivity + audit chain
+
+Ref: docs/faz_b2_phase2_findings.md
 
 ## 4. Phase 3 — IFRS Bilanço Parse
 
@@ -175,11 +181,11 @@ Ana adımlar:
 
 ## 5. Faz B2 Toplam Tahmin (Adım 1 sonrası kalibrasyon)
 
-  Phase 1: ~2 gün (scope küçüldü, ~50 record effective)
-  Phase 2: ~7 gün (kpy41_acc8 fetcher + equity method)
+  Phase 1: ~2 gün (SEALED 2026-05-10, anchor v4.2)
+  Phase 2: ~3-5 gün (kpy41_acc7 parser improvement, REVIZE)
   Phase 3: ~14 gün (IFRS bilanço parse + multi-tier holding)
   ────────────────────────────────────
-  Toplam:  ~23 iş günü (Mayıs-Haziran 2026)
+  Toplam:  ~19-21 iş günü (Mayıs-Haziran 2026)
 
 Adım 1 keşif Phase 1 zaman tahminini -1 gün düşürdü. Industrial firmalar minimal etkilendiği için sensitivity test (Adım 5) basitleşti — odak holdings.
 

@@ -97,10 +97,14 @@ Cross-holdings entegrasyonu **Faz B2** olarak yapılandırılır.
     - DCF firm value'ya eklenir (NON-CONSOLIDATED ise)
     - Etki: ARCLK, TKFEN, ENKAI gibi 20-30 ticker
 
-  Phase 2 — Iştirak Coverage (kpy41_acc8) (~1 hafta)
-    - kap_affiliates_fetcher.py yeni modül
-    - Equity method handling
-    - %20-50 sahiplik için intrinsic vs market karar
+  Phase 2 — kpy41_acc7 Parser Improvement (~3-5 gün, REVIZE 2026-05-10)
+    - Keşif bulgusu: kpy41_acc8 endpoint'i KAP'ta YOK
+    - Asıl problem: kpy41_acc7'de 616 NaN relationship_type (raw_text dolu)
+    - Adım 1: relationship_raw → relationship_type kategorizer (regex/keyword)
+    - Adım 2: ownership_pct fallback parse (raw_text içinde % varsa çek)
+    - Adım 3: Holdings SOTP başlangıcı (KCHOL/SAHOL NaN problemi)
+    - Adım 4: Regen + sensitivity + audit chain
+    - Ref: docs/faz_b2_phase2_findings.md
 
   Phase 3 — IFRS Bilanço Parse (~2 hafta)
     - financial_investments parser
@@ -127,7 +131,7 @@ Cross-holdings entegrasyonu **Faz B2** olarak yapılandırılır.
 
   - fcff_engine.py firm_value formülü (Phase 1'de patch)
   - kap_subsidiaries_fetcher mevcut (Phase 1)
-  - kap_affiliates_fetcher YENI (Phase 2)
+  - kpy41_acc7 parser improvement (Phase 2 REVIZE — endpoint zaten mevcut)
   - IFRS parser augmentation (Phase 3)
   - Anchor v4.1 → v4.2 transition (Phase 1 sonrası)
 
