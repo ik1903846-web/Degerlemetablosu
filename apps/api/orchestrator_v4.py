@@ -146,6 +146,10 @@ class TickerDataV4:
     flags: List[str] = field(default_factory=list)
     errors: List[str] = field(default_factory=list)
 
+    # Faz B2 Phase 1 Adim 4 tamamlama: cross-holdings audit echo
+    cross_holdings_value_tl: Optional[float] = None
+    cross_holdings_added_tl: Optional[float] = None
+
     @property
     def is_complete(self) -> bool:
         """DCF için minimum gereksinim kontrolü."""
@@ -527,6 +531,10 @@ def calculate_intrinsic_value(td: TickerDataV4) -> TickerDataV4:
     td.dcf_method = "industrial_fcff_2stage"
     if td.current_price_tl and dcf.intrinsic_per_share:
         td.upside_pct = (dcf.intrinsic_per_share - td.current_price_tl) / td.current_price_tl * 100
+
+    # Faz B2 Phase 1 Adim 4 tamamlama: cross-holdings audit echo
+    td.cross_holdings_value_tl = cross_holdings_tl if cross_holdings_tl > 0 else None
+    td.cross_holdings_added_tl = dcf.cross_holdings_added_tl
 
     return td
 
