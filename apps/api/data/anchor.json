@@ -1,13 +1,16 @@
 {
   "schema_version": "1.0",
   "current_anchor": {
-    "version": "v4.1",
+    "version": "v4.2",
+    "previous_version": "v4.1",
     "ticker": "TUPRS",
     "value_tl": 211.95,
     "value_tl_shadow_proxy": 216.33,
     "value_tl_shadow_delta_pct": -2.03,
     "computed_date": "2026-05-09",
-    "method": "Full DCF orchestrator_v4 (kanonik)",
+    "transition_date": "2026-05-10",
+    "transition_commit": "c9a3394",
+    "method": "Full DCF orchestrator_v4 (kanonik) + cross-holdings (Damodaran)",
     "method_doc": "apps/api/outputs/turkey_v4_batch.json",
     "shadow_method_note": "Shadow proxy 216.33 TL (3 profil mean, reports/tuprs_shadow_2026_05_09.md). Profil D/E=0.40 idi, gerçek TUPRS D/E=0.0858 — düşük leverage gerçek WACC'i shadow'dan farklı yaptı (matematik doğru, profil tahmini approximate).",
     "tolerance_initial": 0.005,
@@ -15,7 +18,15 @@
     "tolerance_review_date": "2026-06-09",
     "tolerance_post_review": 0.003,
     "tolerance_post_review_pct": "0.30%",
-    "params_source": "apps/api/data/damodaran/2026_05_09/parameters.json"
+    "params_source": "apps/api/data/damodaran/2026_05_09/parameters.json",
+    "phase1_status": "SEALED",
+    "phase1_effect": {
+      "tuprs_intact": true,
+      "delta_count": 4,
+      "delta_top": ["ESEN +481%", "GOLTS +367%", "ALGYO +173%", "AKCNS +68%"],
+      "audit_populate": 9,
+      "anomaly": 0
+    }
   },
   "previous_anchor": {
     "version": "v4.0",
@@ -66,11 +77,16 @@
     "findings": "docs/audit_findings_session4.md",
     "decision": "docs/audit_decision_v4.md",
     "progress": "docs/audit_progress_session4.md",
-    "phase": "Faz B1 Adim 6 (yumusak gecis ilan edildi)",
-    "phase_complete": false,
+    "phase": "Faz B2 Phase 1 SEALED (cross-holdings PRODUCTION)",
+    "phase_complete": true,
+    "phase2_findings": "docs/faz_b2_findings.md",
+    "phase2_decision": "docs/faz_b2_decision.md",
+    "phase2_progress": "docs/faz_b2_progress.md",
+    "phase2_resolution": "docs/faz_b2_resolution.md",
+    "phase2_adr": "docs/adr_078_cross_holdings.md",
     "remaining_steps": [
-      "Adim 7: cost_of_capital.py constants atomic update",
-      "Adim 8: ADR-040 post-mortem (neden Sub 2026 update kacirildi)"
+      "Faz B2 Phase 2 (PARKING): kpy41_acc8 equity method",
+      "Faz B2 Phase 3 (PARKING): IFRS financial_investments parse"
     ]
   },
   "production_status": {
