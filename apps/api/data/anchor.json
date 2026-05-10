@@ -1,16 +1,16 @@
 {
   "schema_version": "1.0",
   "current_anchor": {
-    "version": "v4.2",
-    "previous_version": "v4.1",
+    "version": "v4.3",
+    "previous_version": "v4.2",
     "ticker": "TUPRS",
     "value_tl": 211.95,
     "value_tl_shadow_proxy": 216.33,
     "value_tl_shadow_delta_pct": -2.03,
     "computed_date": "2026-05-09",
     "transition_date": "2026-05-10",
-    "transition_commit": "c9a3394",
-    "method": "Full DCF orchestrator_v4 (kanonik) + cross-holdings (Damodaran)",
+    "transition_commit": "0d1a324",
+    "method": "Full DCF orchestrator_v4 (kanonik) + cross-holdings (Damodaran) + parser improvement (Phase 2)",
     "method_doc": "apps/api/outputs/turkey_v4_batch.json",
     "shadow_method_note": "Shadow proxy 216.33 TL (3 profil mean, reports/tuprs_shadow_2026_05_09.md). Profil D/E=0.40 idi, gerçek TUPRS D/E=0.0858 — düşük leverage gerçek WACC'i shadow'dan farklı yaptı (matematik doğru, profil tahmini approximate).",
     "tolerance_initial": 0.005,
@@ -23,15 +23,31 @@
     "phase1_effect": {
       "tuprs_intact": true,
       "delta_count": 4,
-      "delta_top": ["ESEN +481%", "GOLTS +367%", "ALGYO +173%", "AKCNS +68%"],
+      "delta_top": [
+        "ESEN +481%",
+        "GOLTS +367%",
+        "ALGYO +173%",
+        "AKCNS +68%"
+      ],
       "audit_populate": 9,
       "anomaly": 0
+    },
+    "phase2_status": "SEALED",
+    "phase2_effect": {
+      "tuprs_intact": true,
+      "new_delta_count": 1,
+      "top_new_delta": "VERUS +30.64%",
+      "audit_populate_added": 4,
+      "holdings_audit": 3,
+      "type_recovered": 373,
+      "ownership_recovered": 7,
+      "listed_eligible_coverage": "61/61"
     }
   },
   "previous_anchor": {
     "version": "v4.0",
     "ticker": "TUPRS",
-    "value_tl": 187.10,
+    "value_tl": 187.1,
     "computed_date": "Ocak 2026",
     "param_state": "Damodaran Sub 2026 update kaçırıldı (production stale)",
     "git_tag": "anchor-v4.0-pre-Feb2026",
@@ -51,7 +67,7 @@
         "shadow_tl": 216.41,
         "delta_pct": 15.67,
         "beta_unlevered": 1.05,
-        "lambda_country": 1.00
+        "lambda_country": 1.0
       },
       "TUPRS_aggressive": {
         "shadow_tl": 217.03,
@@ -77,17 +93,20 @@
     "findings": "docs/audit_findings_session4.md",
     "decision": "docs/audit_decision_v4.md",
     "progress": "docs/audit_progress_session4.md",
-    "phase": "Faz B2 Phase 1 SEALED (cross-holdings PRODUCTION)",
+    "phase": "Faz B2 Phase 2 SEALED (parser improvement + holdings minimal SOTP)",
     "phase_complete": true,
-    "phase2_findings": "docs/faz_b2_findings.md",
+    "phase2_findings": "docs/faz_b2_phase2_findings.md",
     "phase2_decision": "docs/faz_b2_decision.md",
     "phase2_progress": "docs/faz_b2_progress.md",
     "phase2_resolution": "docs/faz_b2_resolution.md",
     "phase2_adr": "docs/adr_078_cross_holdings.md",
     "remaining_steps": [
-      "Faz B2 Phase 2 (PARKING): kpy41_acc7 parser improvement (REVIZE — kpy41_acc8 endpoint yok)",
-      "Faz B2 Phase 3 (PARKING): IFRS financial_investments parse"
-    ]
+      "Faz B2 Phase 3 (PARKING): full sub valuation + sector regression + IFRS parse (~14 gun)"
+    ],
+    "phase2_decision_2": "docs/faz_b2_phase2_decision.md",
+    "phase2_progress_2": "docs/faz_b2_phase2_progress.md",
+    "phase2_resolution_2": "docs/faz_b2_phase2_resolution.md",
+    "phase2_adr_status": "PRODUCTION SEALED (ADR-078 update)"
   },
   "production_status": {
     "cost_of_capital_py_updated": true,
