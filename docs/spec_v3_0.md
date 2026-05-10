@@ -633,3 +633,34 @@ Cross-holdings entegrasyonu tamamlandi. Damodaran formula production'a girdi.
 
 **Git tag:** anchor-v4.2-phase1
 
+## §15 Phase 2 PRODUCTION SEALED (2026-05-10)
+
+**Anchor transition:** v4.2 -> v4.3 (TUPRS 211.95 INTACT)
+
+**Phase 2 commits:**
+- f8b3d65 Adim 1 relationship_categorizer (373 type recovered)
+- 784702b Adim 2 ownership_pct fallback (7 recovered)
+- 90e1dd0 Adim 3 holdings minimal SOTP + guard
+- TBD Adim 4 audit chain (5-doc) + anchor v4.3
+
+**Production etki:**
+- VERUS +30.64% (yeni delta, CH 2.18B)
+- KCHOL/SAHOL/OYYAT audit dolu (negative_equity transparent guard)
+- 61/61 listed eligible ownership coverage
+- 0 anomali
+
+**Phase 3 PARKING:**
+- Full sub valuation x ownership (KCHOL FROTO/AKBNK gibi)
+- Sector regression (Damodaran Level 2 SOTP)
+- IFRS bilanco financial_investments parse
+- Tahmini scope: ~14 gun
+
+**Audit referans:**
+- docs/faz_b2_phase2_findings.md
+- docs/faz_b2_phase2_decision.md
+- docs/faz_b2_phase2_progress.md
+- docs/faz_b2_phase2_resolution.md
+- docs/adr_078_cross_holdings.md (Phase 2 SEALED)
+
+**Git tag:** anchor-v4.3-phase2
+

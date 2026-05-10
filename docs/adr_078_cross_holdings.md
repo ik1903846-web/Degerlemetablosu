@@ -97,14 +97,26 @@ Cross-holdings entegrasyonu **Faz B2** olarak yapılandırılır.
     - DCF firm value'ya eklenir (NON-CONSOLIDATED ise)
     - Etki: ARCLK, TKFEN, ENKAI gibi 20-30 ticker
 
-  Phase 2 — kpy41_acc7 Parser Improvement (~3-5 gün, REVIZE 2026-05-10)
-    - Keşif bulgusu: kpy41_acc8 endpoint'i KAP'ta YOK
-    - Asıl problem: kpy41_acc7'de 616 NaN relationship_type (raw_text dolu)
-    - Adım 1: relationship_raw → relationship_type kategorizer (regex/keyword)
-    - Adım 2: ownership_pct fallback parse (raw_text içinde % varsa çek)
-    - Adım 3: Holdings SOTP başlangıcı (KCHOL/SAHOL NaN problemi)
-    - Adım 4: Regen + sensitivity + audit chain
-    - Ref: docs/faz_b2_phase2_findings.md
+  Phase 2 — kpy41_acc7 Parser Improvement (PRODUCTION 2026-05-10) SEALED
+
+    Commits:
+    - f8b3d65 Adım 1 relationship_categorizer (373 type recovered, 60.6%)
+    - 784702b Adım 2 ownership_pct fallback (7 recovered, 25/25 smoke)
+    - 90e1dd0 Adım 3 holdings minimal SOTP + negative equity guard
+    - TBD Adım 4 audit chain (5-doc) + anchor v4.3
+
+    Production etki:
+    - 373 type recovered, 7 ownership recovered
+    - 61/61 listed eligible ownership coverage (önceden 50)
+    - VERUS yeni delta +30.64% (CH 2.18B, equity %76,07 PAMEL)
+    - KCHOL/SAHOL/OYYAT audit populate (negative_equity guard transparent)
+    - TUPRS INTACT 211.95
+
+    Limitasyon: Konsolide debt asimetri (KCHOL/SAHOL minimal SOTP
+    negatif equity dönüyor) → Phase 3 scope (full sub valuation).
+
+    Ref: docs/faz_b2_phase2_findings.md, faz_b2_phase2_decision.md,
+         faz_b2_phase2_progress.md, faz_b2_phase2_resolution.md
 
   Phase 3 — IFRS Bilanço Parse (~2 hafta)
     - financial_investments parser
