@@ -443,10 +443,50 @@ def calculate_intrinsic_value(td: TickerDataV4) -> TickerDataV4:
         td.flags.append(f"dcf_skip: {td.dialect} method_not_implemented_session_4_5")
         return td
 
-    # Holding — SOTP gerek (Session 4.5+)
+    # Holding — Faz B2 Phase 2 Adim 3: minimal SOTP + negative equity guard
     if td.dialect == "holding":
+        try:
+            ch_result = compute_cross_holdings_value(td.ticker)
+            ch_tl = ch_result.total_value_tl
+        except Exception as _ch_e:
+            ch_tl = 0.0
+            td.flags.append(f"holding_sotp_cross_fail: {type(_ch_e).__name__}")
+
+        # Audit echo (her durumda populate)
+        if ch_tl > 0:
+            td.cross_holdings_value_tl = ch_tl
+            td.cross_holdings_added_tl = ch_tl
+
+        # Minimal SOTP attempt
+        if ch_tl > 0 and td.shares_outstanding and td.shares_outstanding > 0:
+            equity_minimal = ch_tl + (td.cash or 0) - (td.total_debt or 0)
+
+            if equity_minimal > 0:
+                td.intrinsic_per_share_tl = equity_minimal / td.shares_outstanding
+                td.dcf_method = "holding_sotp_minimal"
+                if td.current_price_tl:
+                    td.upside_pct = (
+                        td.intrinsic_per_share_tl - td.current_price_tl
+                    ) / td.current_price_tl * 100
+                td.flags.append(
+                    f"holding_sotp_minimal: cross={ch_tl:.0f} "
+                    f"+ cash={td.cash or 0:.0f} - debt={td.total_debt or 0:.0f} "
+                    f"= {equity_minimal:.0f}"
+                )
+                return td
+            else:
+                td.dcf_method = "holding_sotp_minimal_negative_equity"
+                td.flags.append(
+                    f"holding_sotp_minimal_negative: cross={ch_tl:.0f} "
+                    f"+ cash={td.cash or 0:.0f} - debt={td.total_debt or 0:.0f} "
+                    f"= {equity_minimal:.0f}"
+                )
+                td.flags.append("holding_sotp_full_pending: full sub valuation Phase 3 scope")
+                return td
+
+        # Cross-holdings yok veya shares yok → eski davranis
         td.dcf_method = "holding_sotp_pending"
-        td.flags.append("dcf_skip: holding SOTP pending session_4_5")
+        td.flags.append("dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)")
         return td
 
     # Industrial DCF
