@@ -517,3 +517,45 @@ Faz 2 (Lifecycle Classifier) implementation tamamlandığında **Spec v4.0** yaz
 ---
 
 *Doküman sonu. Spec v3.0 ✓ — production state Mayıs 2026 mühürlü.*
+
+---
+
+## 12. Addendum — Session 7.a Findings (10 Mayıs 2026)
+
+### 12.1 _RATING_TABLE Effective Coverage
+
+LOCAL regen + diff raporu (66 DCF ticker, 251 universe):
+
+| Metrik | Değer |
+|--------|-------|
+| Toplam DCF ticker | 66 |
+| _RATING_TABLE okuyan | 0 |
+| BB+_sovereign_sector fallback hit | 66 (100%) |
+| Anchor değişimi (max abs) | 0.04% (float noise) |
+| Production etki | SIFIR |
+
+### 12.2 Root Cause
+
+Türkiye BIST şirketleri için `interest_coverage_ratio` hesaplanmıyor (KAP'ta interest expense ayrı satır parse edilmiyor veya `assemble_ticker_data` bypass ediyor). 66 ticker'ın tümü `interest_coverage=None` ile `compute_cost_of_capital()` çağırıyor → BB+_sovereign_sector fallback path.
+
+### 12.3 Implication
+
+Session 6.b _RATING_TABLE update **preventive** — gelecekte `interest_coverage` hesabı eklendiğinde anında güncel değerler kullanılır. Mevcut production'da etki sıfır, ama dead code kalitesi temiz.
+
+### 12.4 Critical Risk Identified
+
+**TÜM 66 DCF ticker'ın anchor değeri tek bir hardcoded fallback'e bağlı: 0.0400.**
+
+Eğer fallback yanlış kalibre edilmişse, BIST DCF universe'inin tamamı sistematik bias taşır. Bu Session 7.b'nin (BB+_sovereign_sector ADR) öncelik sebebi.
+
+### 12.5 Sonraki Adım
+
+Session 7.b: BB+_sovereign_sector decomposition + kalibrasyon kararı.
+
+Önceki kalibrasyon analizi:
+  0.0400 ≈ sovereign_spread (0.0306) + sector_premium (~0.0094)
+
+Doğrulanması gereken:
+- sector_premium hangi kaynaktan? Damodaran sector data?
+- 0.0094 hangi sektör için? "Average" mi, "BIST aggregate" mi?
+- Per-sector fallback (industry, banking, holding ayrı) gerekli mi?
