@@ -116,12 +116,55 @@ def categorize_relationship(raw_text: Optional[str]) -> Optional[str]:
     return None
 
 
+_PCT_PATTERN = re.compile(r'%\s*(\d+(?:[.,]\d+)?)|(\d+(?:[.,]\d+)?)\s*%')
+_DEC_PATTERN = re.compile(r'oran[i]?\s+(\d+[.,]\d+)')
+
+
+def parse_ownership_pct(raw_text: Optional[str]) -> Optional[float]:
+    """relationship_raw'dan ownership_pct fallback parse.
+
+    Returns 0.0 - 1.0 decimal (NOT percentage). None: parse edilemez.
+    """
+    if raw_text is None:
+        return None
+
+    text = str(raw_text).strip()
+    if not text or text == "-":
+        return None
+
+    # Pattern 1: % isareti
+    m = _PCT_PATTERN.search(text)
+    if m:
+        num_str = m.group(1) if m.group(1) else m.group(2)
+        try:
+            num = float(num_str.replace(',', '.'))
+            if num > 1.0:
+                num = num / 100.0
+            if 0.0 < num <= 1.0:
+                return round(num, 6)
+        except (ValueError, TypeError):
+            pass
+
+    # Pattern 2: "oran X,XX" decimal (Turkce normalize sonrasi)
+    norm = _normalize_tr(text)
+    m = _DEC_PATTERN.search(norm)
+    if m:
+        try:
+            num = float(m.group(1).replace(',', '.'))
+            if 0.0 < num <= 1.0:
+                return round(num, 6)
+        except (ValueError, TypeError):
+            pass
+
+    return None
+
+
 def categorize_csv(
     csv_path,
     output_path=None,
     dry_run: bool = False,
 ) -> dict:
-    """CSV'deki NaN relationship_type'lari kategorize et."""
+    """CSV'deki NaN relationship_type + ownership_pct'lari kurtar."""
     import pandas as pd
 
     csv_path = Path(csv_path)
@@ -133,24 +176,37 @@ def categorize_csv(
     before_null = df['relationship_type'].isna().sum()
     before_breakdown = df['relationship_type'].value_counts(dropna=False).to_dict()
 
-    null_mask = df['relationship_type'].isna()
+    type_null_mask = df['relationship_type'].isna()
+    own_null_mask = df['ownership_pct'].isna()
+    own_before_null = int(own_null_mask.sum())
 
     recovered = 0
     by_category = {"full": 0, "equity": 0, "joint": 0, "financial": 0}
+    own_recovered = 0
 
-    for idx in df[null_mask].index:
+    for idx in df.index:
         raw = df.at[idx, 'relationship_raw']
         if pd.isna(raw):
             continue
 
-        category = categorize_relationship(raw)
-        if category:
-            df.at[idx, 'relationship_type'] = category
-            recovered += 1
-            by_category[category] += 1
+        # Type kurtarma (eger NaN ise)
+        if type_null_mask.at[idx]:
+            category = categorize_relationship(raw)
+            if category:
+                df.at[idx, 'relationship_type'] = category
+                recovered += 1
+                by_category[category] += 1
+
+        # Ownership kurtarma (eger NaN ise)
+        if own_null_mask.at[idx]:
+            ownership = parse_ownership_pct(raw)
+            if ownership is not None:
+                df.at[idx, 'ownership_pct'] = ownership
+                own_recovered += 1
 
     after_null = df['relationship_type'].isna().sum()
     after_breakdown = df['relationship_type'].value_counts(dropna=False).to_dict()
+    own_after_null = int(df['ownership_pct'].isna().sum())
 
     stats = {
         "total_records": total,
@@ -161,6 +217,12 @@ def categorize_csv(
         "recovered_breakdown": by_category,
         "before_breakdown": {str(k): int(v) for k, v in before_breakdown.items()},
         "after_breakdown": {str(k): int(v) for k, v in after_breakdown.items()},
+        "ownership_before_null": own_before_null,
+        "ownership_recovered": own_recovered,
+        "ownership_after_null": own_after_null,
+        "ownership_recovery_rate_pct": (
+            round(own_recovered / own_before_null * 100, 1) if own_before_null else 0.0
+        ),
     }
 
     if not dry_run:
@@ -213,7 +275,46 @@ def _smoke_test() -> int:
     print()
     print(f"Pass: {pass_count}/{len(test_cases)}")
 
-    return 0 if pass_count == len(test_cases) else 1
+    print()
+    print("=" * 70)
+    print("Ownership Parse Tests")
+    print("=" * 70)
+
+    own_test_cases = [
+        ("BAGLI ORTAKLIK (PAY %51,23)", 0.5123),
+        ("%42,03", 0.4203),
+        ("Bagli Ortaklik (... %100)", 1.0),
+        ("MUSTEREK YONETIME TABI (... %50)", 0.5),
+        ("Finansal Duran Varlik (... %33,34 sahiplik)", 0.3334),
+        ("%8,24742", 0.0824742),
+        ("Istirak", None),
+        ("-", None),
+        ("", None),
+        ("orani 0,15", 0.15),
+    ]
+
+    print(f'{"Input":50} | {"Expected":12} | {"Got":12} | OK?')
+    print("-" * 90)
+    own_pass = 0
+    for raw, expected in own_test_cases:
+        got = parse_ownership_pct(raw)
+        if expected is None:
+            ok = "OK" if got is None else "FAIL"
+        elif got is None:
+            ok = "FAIL"
+        else:
+            ok = "OK" if abs(got - expected) < 0.0001 else "FAIL"
+        if ok == "OK":
+            own_pass += 1
+        raw_short = raw[:48] if len(raw) > 48 else raw
+        print(f'{raw_short:50} | {str(expected):12} | {str(got):12} | {ok}')
+
+    print()
+    print(f"Ownership pass: {own_pass}/{len(own_test_cases)}")
+
+    total_pass = pass_count + own_pass
+    total_cases = len(test_cases) + len(own_test_cases)
+    return 0 if total_pass == total_cases else 1
 
 
 if __name__ == "__main__":
