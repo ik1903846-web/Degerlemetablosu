@@ -60,6 +60,7 @@ from dcf_engine_v4.lifecycle_classifier import classify_lifecycle, LifecycleResu
 from dcf_engine_v4.cost_of_capital import calculate_wacc, WACCResult, TURKEY_TAX_RATE
 from dcf_engine_v4.fcff_engine import calculate_fcff_dcf, DCFInputs, DCFResult
 from dcf_engine_v4.cyclical_normalize import normalize_op_income
+from dcf_engine_v4.cross_holdings import compute_cross_holdings_value
 
 
 REPO_API = Path(__file__).resolve().parent
@@ -480,6 +481,14 @@ def calculate_intrinsic_value(td: TickerDataV4) -> TickerDataV4:
     )
     td.flags.append(f"op_margin: {cyclical_flag}")
 
+    # Faz B2 Phase 1: cross-holdings (Damodaran)
+    try:
+        ch_result = compute_cross_holdings_value(td.ticker)
+        cross_holdings_tl = ch_result.total_value_tl
+    except Exception as _ch_e:
+        cross_holdings_tl = 0.0
+        td.flags.append(f"cross_holdings_fail: {type(_ch_e).__name__}")
+
     inputs = DCFInputs(
         revenue=td.revenue,
         op_income=op_income_normalized,
@@ -492,6 +501,7 @@ def calculate_intrinsic_value(td: TickerDataV4) -> TickerDataV4:
         shares_outstanding=td.shares_outstanding,
         wacc=td.wacc,
         lifecycle_stage=td.lifecycle_stage,
+        cross_holdings_value=cross_holdings_tl,
     )
     dcf: DCFResult = calculate_fcff_dcf(inputs)
     if dcf.error:

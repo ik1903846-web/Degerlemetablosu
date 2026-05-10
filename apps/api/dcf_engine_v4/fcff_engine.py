@@ -47,6 +47,8 @@ class DCFInputs:
     shares_outstanding: float
     wacc: float
     lifecycle_stage: str
+    # Faz B2 Phase 1: cross-holdings (Damodaran)
+    cross_holdings_value: float = 0.0
 
 
 @dataclass
@@ -59,6 +61,8 @@ class DCFResult:
     fcff_year1: Optional[float]
     explicit_g: Optional[float]
     terminal_g: Optional[float]
+    # Faz B2 Phase 1: cross-holdings audit trail
+    cross_holdings_added_tl: Optional[float] = None
     error: Optional[str] = None
     notes: List[str] = None
 
@@ -149,7 +153,8 @@ def calculate_fcff_dcf(inputs: DCFInputs) -> DCFResult:
 
     # Enterprise + equity
     ev = pv_explicit + pv_tv
-    equity_value = ev - inputs.total_debt + inputs.cash
+    # Faz B2 Phase 1: + cross-holdings (equity method, joint, financial)
+    equity_value = ev - inputs.total_debt + inputs.cash + inputs.cross_holdings_value
 
     if inputs.shares_outstanding <= 0:
         return DCFResult(
@@ -175,4 +180,8 @@ def calculate_fcff_dcf(inputs: DCFInputs) -> DCFResult:
         fcff_year1=fcff_projections[0],
         explicit_g=explicit_g,
         terminal_g=terminal_g,
+        cross_holdings_added_tl=(
+            inputs.cross_holdings_value
+            if inputs.cross_holdings_value > 0 else None
+        ),
     )
