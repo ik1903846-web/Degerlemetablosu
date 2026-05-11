@@ -96,6 +96,7 @@ jobs:
         env:
           PYTHONUNBUFFERED: '1'
         run: |
+          set -eo pipefail
           python -u apps/api/_regen_phase1.py 2>&1 | tee regen_output.txt
 
           # Stats extract
