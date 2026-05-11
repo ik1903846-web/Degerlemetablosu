@@ -81,6 +81,48 @@ jobs:
             done
           } >> $GITHUB_STEP_SUMMARY
 
+      - name: KAP CI connectivity diagnostic
+        continue-on-error: true
+        run: |
+          echo "=========================================="
+          echo "KAP CI Connectivity Test (Adim 1.6)"
+          echo "=========================================="
+          echo ""
+
+          echo "--- KAP main page (HEAD) ---"
+          curl -I -s --max-time 10 https://www.kap.org.tr 2>&1 | head -5 || echo "MAIN PAGE FAIL"
+          echo ""
+
+          echo "--- KAP float page (HEAD) ---"
+          curl -I -s --max-time 10 'https://www.kap.org.tr/tr/tumKalemler/kpy41_acc5_fiili_dolasimdaki_pay' 2>&1 | head -5 || echo "FLOAT HEAD FAIL"
+          echo ""
+
+          echo "--- KAP float (GET stats) ---"
+          curl -s --max-time 15 -o /tmp/kap_float.html \
+            -w "HTTP: %{http_code} | Size: %{size_download} bytes | Time: %{time_total}s\n" \
+            'https://www.kap.org.tr/tr/tumKalemler/kpy41_acc5_fiili_dolasimdaki_pay' \
+            2>&1 || echo "FLOAT GET FAIL"
+
+          if [ -f /tmp/kap_float.html ]; then
+            echo ""
+            echo "--- HTML first 500 chars ---"
+            head -c 500 /tmp/kap_float.html
+            echo ""
+          fi
+
+          echo ""
+          echo "--- Yahoo Finance test (yfinance dependency) ---"
+          curl -I -s --max-time 10 'https://finance.yahoo.com' 2>&1 | head -3 || echo "YAHOO FAIL"
+          echo ""
+
+          echo "--- Damodaran test (control - bilinen calisan) ---"
+          curl -I -s --max-time 10 'https://pages.stern.nyu.edu/~adamodar/' 2>&1 | head -3 || echo "DAMODARAN FAIL"
+
+          echo ""
+          echo "=========================================="
+          echo "Diagnostic complete (informational only)"
+          echo "=========================================="
+
       - name: Backup mevcut batch
         run: |
           if [ -f "apps/api/outputs/turkey_v4_batch.json" ]; then
