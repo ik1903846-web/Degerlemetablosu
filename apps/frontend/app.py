@@ -18,6 +18,7 @@ from utils.data_loader import (
     load_latest_batch,
     universe_stats,
 )
+from utils.freshness import render_freshness_banner
 
 
 # ============================================================================
@@ -98,6 +99,8 @@ st.caption(
     "classification. **Yatırım otomasyonu DEĞİL — hedef fiyat hesaplayıcısı.** "
     "Asıl ürün: 🔍 Tarayıcı sayfası."
 )
+
+render_freshness_banner()
 
 st.divider()
 

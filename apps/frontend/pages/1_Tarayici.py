@@ -33,6 +33,12 @@ import streamlit as st
 REPO_APPS = Path(__file__).resolve().parents[2]              # apps/
 OUTPUTS_DIR = REPO_APPS / "api" / "outputs"
 
+# Frontend utils (multi-page pages/ -> utils/ icin sys.path open)
+_FRONTEND_DIR = Path(__file__).resolve().parents[1]
+if str(_FRONTEND_DIR) not in sys.path:
+    sys.path.insert(0, str(_FRONTEND_DIR))
+from utils.freshness import render_freshness_banner  # noqa: E402
+
 
 # ─────────────────────────────────────────────────────────────────
 # HOOK[Audit Session 4]: Stage 2/3 Banner Integration
@@ -84,6 +90,8 @@ st.caption(
     "Tek tablo, 5 sütun. DCF intrinsic value × güncel fiyat → upside %. "
     "Default sıralama: en ucuz hisseler üstte."
 )
+
+render_freshness_banner()
 
 st.divider()
 
