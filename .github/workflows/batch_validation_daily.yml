@@ -1,0 +1,179 @@
+name: Batch Validation Daily (turkey_v4_batch.json)
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'apps/api/outputs/turkey_v4_batch.json'
+  schedule:
+    - cron: '0 17 * * 1-5'
+  workflow_dispatch:
+    inputs:
+      skip_issue:
+        description: 'Issue acma (debug)'
+        required: false
+        default: 'false'
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Validate batch.json exists
+        run: |
+          set -eo pipefail
+          if [ ! -f apps/api/outputs/turkey_v4_batch.json ]; then
+            echo "FATAL: turkey_v4_batch.json yok"
+            exit 1
+          fi
+          SIZE=$(stat -c%s apps/api/outputs/turkey_v4_batch.json)
+          echo "batch.json size: ${SIZE} bytes"
+          if [ $SIZE -lt 10000 ]; then
+            echo "FATAL: batch.json cok kucuk (${SIZE} < 10KB)"
+            exit 1
+          fi
+
+      - name: Sanity gates
+        id: sanity
+        run: |
+          set -eo pipefail
+          python -u <<'PY' 2>&1 | tee sanity_output.txt
+          import json, sys
+          from pathlib import Path
+          from datetime import date
+
+          TUPRS_ANCHOR_TL = 211.95
+          TUPRS_TOLERANCE_PCT = 0.50
+          MIN_TICKER_COUNT = 500
+          MIN_DCF_COUNT = 50
+
+          path = Path("apps/api/outputs/turkey_v4_batch.json")
+          d = json.loads(path.read_text(encoding="utf-8"))
+          errors = []
+
+          tickers = d.get('tickers', [])
+          tuprs_t = next((t for t in tickers if t.get('ticker') == 'TUPRS'), None)
+          if not tuprs_t:
+              errors.append("Gate A FAIL: TUPRS ticker yok")
+          else:
+              tuprs_val = tuprs_t.get('intrinsic_per_share_tl') or tuprs_t.get('target_value_tl')
+              if tuprs_val is None:
+                  errors.append("Gate A FAIL: TUPRS intrinsic None")
+              else:
+                  drift = abs(tuprs_val - TUPRS_ANCHOR_TL) / TUPRS_ANCHOR_TL * 100
+                  if drift > TUPRS_TOLERANCE_PCT:
+                      errors.append(f"Gate A FAIL: TUPRS drift {tuprs_val:.2f} vs {TUPRS_ANCHOR_TL} ({drift:.2f}%)")
+                  else:
+                      print(f"Gate A PASS: TUPRS {tuprs_val:.2f} (drift {drift:.4f}%)")
+
+          tc = d.get('total_count', 0)
+          if tc < MIN_TICKER_COUNT:
+              errors.append(f"Gate B FAIL: total_count {tc} < {MIN_TICKER_COUNT}")
+          else:
+              print(f"Gate B PASS: total_count {tc}")
+
+          dcf = d.get('dcf_count', 0)
+          if dcf < MIN_DCF_COUNT:
+              errors.append(f"Gate C FAIL: dcf_count {dcf} < {MIN_DCF_COUNT}")
+          else:
+              print(f"Gate C PASS: dcf_count {dcf}")
+
+          fetch_date_str = d.get('fetch_date')
+          if fetch_date_str:
+              try:
+                  fetch_date = date.fromisoformat(fetch_date_str)
+                  stale_days = (date.today() - fetch_date).days
+                  if stale_days > 14:
+                      errors.append(f"Gate D FAIL: fetch_date {fetch_date_str} ({stale_days}d, >14d)")
+                  elif stale_days > 7:
+                      print(f"Gate D WARN: fetch_date {fetch_date_str} ({stale_days}d eski, >7d)")
+                  else:
+                      print(f"Gate D PASS: fetch_date {fetch_date_str} ({stale_days}d)")
+              except Exception as e:
+                  print(f"Gate D SKIP: parse error: {e}")
+
+          print()
+          if errors:
+              print("VALIDATION FAIL:")
+              for e in errors:
+                  print(f"  {e}")
+              sys.exit(2)
+          else:
+              print("VALIDATION PASS")
+          PY
+
+      - name: Diff summary
+        if: always()
+        run: |
+          set -eo pipefail
+          {
+            echo "## Daily Validation Run"
+            echo ""
+            echo "**Tarih:** $(date -u +%Y-%m-%d\ %H:%M\ UTC)"
+            echo "**Trigger:** ${{ github.event_name }}"
+            echo "**Commit:** ${{ github.sha }}"
+            echo ""
+            echo "### Sanity Gates Output"
+            echo '```'
+            tail -50 sanity_output.txt 2>/dev/null || echo "log yok"
+            echo '```'
+          } >> $GITHUB_STEP_SUMMARY
+
+      - name: Open issue on validation fail
+        if: failure() && inputs.skip_issue != 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const date = new Date().toISOString().split('T')[0];
+            const title = `Batch Validation FAIL ${date}`;
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: ['batch-validation-fail']
+            });
+            const existing = issues.data.find(i => i.title === title);
+            const body = `**Daily Validation FAIL**\n\n` +
+                         `**Run:** ${context.runId}\n` +
+                         `**Trigger:** ${context.eventName}\n` +
+                         `**Commit:** ${context.sha}\n\n` +
+                         `[Logs](${context.payload.repository.html_url}/actions/runs/${context.runId})\n\n` +
+                         `Olasi nedenler:\n` +
+                         `- TUPRS anchor drift (>0.50%)\n` +
+                         `- Total count < 500 (universe corruption)\n` +
+                         `- DCF count < 50 (regen bug)\n` +
+                         `- Fetch date >14 gun eski\n\n` +
+                         `Lokal'de _regen_phase1.py calistir + commit + push.\n` +
+                         `Detay: docs/operasyonel_evre2_local_regen_pattern.md`;
+            if (existing) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.number,
+                body: body
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: title,
+                body: body,
+                labels: ['batch-validation-fail', 'operational']
+              });
+            }
