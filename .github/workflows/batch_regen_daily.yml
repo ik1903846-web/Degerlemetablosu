@@ -112,6 +112,7 @@ jobs:
         id: sanity
         if: github.event.inputs.skip_sanity != 'true'
         run: |
+          set -eo pipefail
           python -u <<'PY' 2>&1 | tee sanity_output.txt
           import json, sys
           from pathlib import Path

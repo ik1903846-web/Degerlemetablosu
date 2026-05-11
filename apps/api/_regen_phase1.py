@@ -17,6 +17,42 @@ print()
 
 caches = _Caches()
 universe = [r.ticker for r in caches.float_snap.records]
+
+# CI fallback: KAP fetch fail durumunda en yeni cache CSV kullan
+if not universe:
+    print("WARN: float_snap empty (universe count: 0)", flush=True)
+    print("  Possible cause: KAP HTTP fetch failed (region-block / 5xx / rate limit)", flush=True)
+    print("  Fallback: en yeni kap_float_*.csv ariyorum...", flush=True)
+
+    from apps.api.data_layer.kap_float_fetcher import CACHE_DIR as KAP_FLOAT_DIR
+    csvs = sorted(KAP_FLOAT_DIR.glob("kap_float_*.csv"))
+
+    if csvs:
+        import pandas as pd
+        from datetime import date
+        latest = csvs[-1]
+        df = pd.read_csv(latest)
+        if 'ticker' in df.columns:
+            universe = df['ticker'].dropna().astype(str).str.strip().tolist()
+            universe = [t for t in universe if t]
+        else:
+            universe = df.iloc[:, 0].dropna().astype(str).str.strip().tolist()
+            universe = [t for t in universe if t]
+
+        try:
+            csv_date_str = latest.stem.replace("kap_float_", "")
+            csv_date = date.fromisoformat(csv_date_str)
+            stale_days = (date.today() - csv_date).days
+        except Exception:
+            stale_days = -1
+
+        print(f"  Fallback CSV: {latest.name} ({len(universe)} ticker, stale={stale_days}d)", flush=True)
+        if stale_days > 3:
+            print(f"  WARNING: CSV {stale_days} gun eski (3 gun ustu)", flush=True)
+    else:
+        print("FATAL: no cached CSV available, exiting", flush=True)
+        sys.exit(1)
+
 print(f"  universe count: {len(universe)}", flush=True)
 print(f"  fetch_yfinance_live=False (cache hit)", flush=True)
 print(f"  cross_holdings entegre (Adim 4 + 31)", flush=True)
