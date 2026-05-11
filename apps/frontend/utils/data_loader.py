@@ -11,6 +11,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 import pandas as pd
+import streamlit as st
 
 
 # ============================================================================
@@ -154,4 +155,41 @@ def universe_stats() -> Dict[str, Any]:
         "successful": successful,
         "failed": total - successful,
         "timestamp": batch.get("timestamp"),
+    }
+
+
+# ============================================================================
+# v4 Batch Loader (Phase 2 SEALED format — turkey_v4_batch.json)
+# ============================================================================
+
+@st.cache_data(ttl=300)
+def load_latest_v4_batch() -> Optional[Dict[str, Any]]:
+    """turkey_v4_batch.json oku (Phase 2 SEALED format)."""
+    path = _outputs_dir() / "turkey_v4_batch.json"
+    if not path.exists():
+        return None
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return None
+
+
+@st.cache_data(ttl=300)
+def universe_stats_v4() -> Dict[str, Any]:
+    """turkey_v4_batch.json'dan ozet stats (Phase 2)."""
+    batch = load_latest_v4_batch()
+    if not batch:
+        return {
+            "total_count": 0,
+            "dcf_count": 0,
+            "complete_count": 0,
+            "anchor_tuprs": None,
+            "fetch_date": None,
+        }
+    return {
+        "total_count": batch.get("total_count", 0),
+        "dcf_count": batch.get("dcf_count", 0),
+        "complete_count": batch.get("complete_count", 0),
+        "anchor_tuprs": batch.get("anchor_tuprs"),
+        "fetch_date": batch.get("fetch_date"),
     }

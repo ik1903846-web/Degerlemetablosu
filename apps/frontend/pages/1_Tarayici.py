@@ -38,6 +38,11 @@ _FRONTEND_DIR = Path(__file__).resolve().parents[1]
 if str(_FRONTEND_DIR) not in sys.path:
     sys.path.insert(0, str(_FRONTEND_DIR))
 from utils.freshness import render_freshness_banner  # noqa: E402
+from utils.data_loader import universe_stats_v4  # noqa: E402
+
+_V4_STATS = universe_stats_v4()
+_TOTAL_COUNT = _V4_STATS.get("total_count", 0)
+_ANCHOR_TUPRS = _V4_STATS.get("anchor_tuprs")
 
 
 # ─────────────────────────────────────────────────────────────────
@@ -84,7 +89,7 @@ st.set_page_config(
 
 st.title("🔍 Hisse Tarayıcı")
 st.markdown(
-    "**Damodaran Hedef Fiyat Hesaplayıcısı — BIST 559 hisse**"
+    f"**Damodaran Hedef Fiyat Hesaplayıcısı — BIST {_TOTAL_COUNT} hisse**"
 )
 st.caption(
     "Tek tablo, 5 sütun. DCF intrinsic value × güncel fiyat → upside %. "
@@ -313,8 +318,9 @@ else:
     )
 
 with st.sidebar.expander("ℹ️ Metodoloji"):
+    _anchor_tx = f"{_ANCHOR_TUPRS:.2f}" if _ANCHOR_TUPRS else "N/A"
     st.markdown(
-        """
+        f"""
         **Damodaran ADR-011 (Cyclical):**
         Petrol/Çelik/Otomotiv için Q-snapshot
         margin yerine sektör uplift normalize.
@@ -322,7 +328,7 @@ with st.sidebar.expander("ℹ️ Metodoloji"):
         **Türkiye-spesifik beta:**
         BIST sektör ortalaması (587 ticker × 44 sektör).
 
-        **Anchor TUPRS = 187.10 TL** ✓
+        **Anchor TUPRS = {_anchor_tx} TL (Phase 2)** ✓
         """
     )
 
@@ -474,7 +480,7 @@ with col1:
     st.metric(
         "Toplam Değerlenen",
         f"{total_rows} hisse",
-        f"BIST Tüm 559 universe içinden",
+        f"BIST Tüm {_TOTAL_COUNT} universe içinden",
     )
 
 with col2:

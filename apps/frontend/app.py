@@ -17,6 +17,8 @@ import streamlit as st
 from utils.data_loader import (
     load_latest_batch,
     universe_stats,
+    load_latest_v4_batch,
+    universe_stats_v4,
 )
 from utils.freshness import render_freshness_banner
 
@@ -90,9 +92,14 @@ if not _check_password():
 # Header
 # ============================================================================
 
+v4_stats = universe_stats_v4()
+TOTAL_COUNT = v4_stats.get("total_count", 0)
+DCF_COUNT = v4_stats.get("dcf_count", 0)
+ANCHOR_TUPRS = v4_stats.get("anchor_tuprs")
+
 st.title("REELDEĞER")
 st.markdown(
-    "## 📊 Damodaran Hedef Fiyat Hesaplayıcısı — BIST 559 hisse"
+    f"## 📊 Damodaran Hedef Fiyat Hesaplayıcısı — BIST {TOTAL_COUNT} hisse"
 )
 st.caption(
     "Aswath Damodaran metodolojisiyle 5-stage DCF + Pentagon scoring + lifecycle "
@@ -109,22 +116,20 @@ st.divider()
 # 3 KPI (Hesaplayıcı Odaklı)
 # ============================================================================
 
-stats = universe_stats()
-
 col1, col2, col3 = st.columns(3)
 
 with col1:
     st.metric(
         "📈 BIST Universe",
-        f"{stats.get('successful', 0)} / {stats.get('total_tickers', 0)} hisse",
-        f"{stats.get('successful', 0) / max(stats.get('total_tickers', 1), 1) * 100:.0f}% DCF runnable",
+        f"{DCF_COUNT} / {TOTAL_COUNT} hisse",
+        f"{DCF_COUNT / max(TOTAL_COUNT, 1) * 100:.0f}% DCF runnable",
     )
 
 with col2:
     st.metric(
         "✅ Damodaran Validation",
         "20 / 20 case ±%5",
-        "Heineken, Toyota, ABN Amro, Tube, TUPRS anchor",
+        "Heineken, Toyota, ABN Amro, Tube, Eurotunnel",
     )
 
 with col3:
@@ -148,7 +153,6 @@ VALIDATION_CASES = [
     ("Toyota 2009","¥4,737",   "Cyclical asymmetric cap",    "Faz 2.6"),
     ("ABN Amro",   "€30.87",   "Banking DDM 2-stage",        "Faz 1.4"),
     ("Tube India", "₹61.55",   "Emerging market DCF",        "Faz 1.5"),
-    ("TUPRS",      "187.10 TL","BIST cyclical anchor (50+)", "Faz 2.4.5"),
     ("Eurotunnel", "£122M",    "Distress equity-as-call BS", "Faz 7.2 (±0.06%)"),
     ("LVS 2009",   "$1.92/sh", "Distress sanity (post-crisis)","Faz 7"),
     ("Damodaran sector betas", "210+", "Unlevered β fetch", "Faz 2.4.5 DB"),
@@ -174,18 +178,17 @@ st.divider()
 # Lifecycle Distribution (Mevcut Universe)
 # ============================================================================
 
-st.subheader("📈 Lifecycle Stage Dağılımı (BIST Tüm 559 universe)")
+st.subheader(f"📈 Lifecycle Stage Dağılımı (BIST Tüm {TOTAL_COUNT} universe)")
 
-batch = load_latest_batch()
+batch = load_latest_v4_batch()
 if batch:
     from collections import Counter
 
     stages = Counter()
-    for r in batch.get("reports", []):
-        if not r.get("success"):
+    for r in batch.get("tickers", []):
+        if not r.get("intrinsic_per_share_tl"):
             continue
-        lc = r.get("lifecycle") or {}
-        stages[lc.get("stage", "unknown")] += 1
+        stages[r.get("lifecycle_stage") or "unknown"] += 1
 
     if stages:
         STAGE_DISPLAY = {
@@ -221,7 +224,7 @@ st.divider()
 
 st.subheader("🔍 Asıl Ürün: Tarayıcı")
 st.markdown(
-    "Sol kenar çubuğundan **Tarayıcı** sayfasına geç → 559 hisseyi tek tabloda "
+    f"Sol kenar çubuğundan **Tarayıcı** sayfasına geç → {TOTAL_COUNT} hisseyi tek tabloda "
     "DCF intrinsic value + güncel fiyat + upside %, en ucuz hisseler üstte."
 )
 st.info(
@@ -244,6 +247,7 @@ with st.sidebar:
     st.markdown("- 🔍 **Tarayıcı** ← asıl ürün")
     st.markdown("- 📚 Lessons")
     st.divider()
-    st.caption(f"BIST Universe: {stats.get('successful', 0)} hisse DCF runnable")
-    st.caption("TUPRS anchor: 187.10 TL (50+ commit INTACT)")
-    st.caption("v3.0 · Damodaran replication odaklı")
+    st.caption(f"BIST Universe: {DCF_COUNT} hisse DCF runnable")
+    _anchor_text = f"{ANCHOR_TUPRS:.2f}" if ANCHOR_TUPRS else "N/A"
+    st.caption(f"TUPRS anchor: {_anchor_text} TL (Phase 2 SEALED)")
+    st.caption("v4.3.1 anchor SEALED · Damodaran replication")
