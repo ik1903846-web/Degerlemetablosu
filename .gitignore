@@ -74,4 +74,8 @@ temp/
 apps/frontend/.streamlit/secrets.toml
 
 # Runtime cache (Faz 11 v4.0 — KAP/yfinance fetch artifacts, do NOT commit)
-apps/api/_cache/
+apps/api/_cache/*
+# Evre 2 Adim 1.5 istisna: KAP float universe seed (CI cache prim)
+!apps/api/_cache/kap_float/
+apps/api/_cache/kap_float/*
+!apps/api/_cache/kap_float/*.csv
