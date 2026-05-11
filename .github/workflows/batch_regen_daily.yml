@@ -248,6 +248,24 @@ jobs:
       - name: Auto-commit batch.json
         if: success() && github.event.inputs.skip_commit != 'true'
         run: |
+          set -eo pipefail
+          # Defense in depth: batch.json icerik validation
+          # Bug B post-mortem (Evre 2 Adim 1.5) sonrasi ek savunma
+          python3 -c "
+          import json, sys
+          with open('apps/api/outputs/turkey_v4_batch.json') as f:
+              d = json.load(f)
+          tc = d.get('total_count', 0)
+          tuprs = d.get('anchor_tuprs')
+          if tc < 100:
+              print(f'GUARD FAIL: total_count={tc} < 100')
+              sys.exit(1)
+          if tuprs is None:
+              print(f'GUARD FAIL: anchor_tuprs is None')
+              sys.exit(1)
+          print(f'GUARD PASS: total_count={tc}, TUPRS={tuprs:.2f}')
+          "
+
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
