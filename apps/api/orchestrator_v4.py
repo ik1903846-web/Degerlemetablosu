@@ -133,6 +133,8 @@ class TickerDataV4:
     # Phase 3a: holding sub valuation icin (konsolide bilanco DISI)
     equity_method_investments: Optional[float] = None
     investment_properties: Optional[float] = None
+    # Phase 4a Adim 1: sales_to_capital ratio icin
+    total_assets: Optional[float] = None
 
     # DCF outputs
     lifecycle_stage: Optional[str] = None
@@ -400,6 +402,8 @@ def enrich_full_financials(td: TickerDataV4, force_refresh: bool = False) -> Tic
                 # Phase 3a: holding sub valuation icin
                 "equity_method_investments": (fli.equity_method_investments or 0) * unit_multiplier or None,
                 "investment_properties":     (fli.investment_properties or 0) * unit_multiplier or None,
+                # Phase 4a Adim 1: sales_to_capital ratio icin
+                "total_assets":    (fli.total_assets or 0) * unit_multiplier or None,
             }
             # Atomic cache write
             PARSED_FIN_CACHE_DIR.mkdir(parents=True, exist_ok=True)
@@ -425,6 +429,8 @@ def enrich_full_financials(td: TickerDataV4, force_refresh: bool = False) -> Tic
     # Phase 3a: holding sub valuation icin
     td.equity_method_investments = parsed.get("equity_method_investments")
     td.investment_properties = parsed.get("investment_properties")
+    # Phase 4a Adim 1: sales_to_capital ratio icin
+    td.total_assets = parsed.get("total_assets")
     td.flags.append(f"unit_multiplier={parsed.get('unit_multiplier', 1):.0f}")
     return td
 
