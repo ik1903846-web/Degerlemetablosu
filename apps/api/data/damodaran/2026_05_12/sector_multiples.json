@@ -1,0 +1,278 @@
+{
+  "Advertising": {
+    "ev_ebitda": 10.209563566636072
+  },
+  "Aerospace/Defense": {
+    "ev_ebitda": 16.774963825050364
+  },
+  "Air Transport": {
+    "ev_ebitda": 7.349105783188291
+  },
+  "Apparel": {
+    "ev_ebitda": 10.295628321706648
+  },
+  "Auto & Truck": {
+    "ev_ebitda": 28.717007689023866
+  },
+  "Auto Parts": {
+    "ev_ebitda": 4.45564773163195
+  },
+  "Beverage (Alcoholic)": {
+    "ev_ebitda": 8.605289811182352
+  },
+  "Beverage (Soft)": {
+    "ev_ebitda": 16.57636591165966
+  },
+  "Broadcasting": {
+    "ev_ebitda": 7.843762527764077
+  },
+  "Building Materials": {
+    "ev_ebitda": 10.829882831183713
+  },
+  "Business & Consumer Services": {
+    "ev_ebitda": 13.350050838399527
+  },
+  "Cable TV": {
+    "ev_ebitda": 6.183277462658283
+  },
+  "Chemical (Basic)": {
+    "ev_ebitda": 7.765953681923204
+  },
+  "Chemical (Diversified)": {
+    "ev_ebitda": 7.047447925232237
+  },
+  "Chemical (Specialty)": {
+    "ev_ebitda": 11.800762392890713
+  },
+  "Coal & Related Energy": {
+    "ev_ebitda": 10.155736972610397
+  },
+  "Computer Services": {
+    "ev_ebitda": 11.345329461607312
+  },
+  "Computers/Peripherals": {
+    "ev_ebitda": 19.97657320040801
+  },
+  "Construction Supplies": {
+    "ev_ebitda": 14.929514342038276
+  },
+  "Diversified": {
+    "ev_ebitda": 11.144195599037996
+  },
+  "Drugs (Biotechnology)": {
+    "ev_ebitda": 7.443030078732897
+  },
+  "Drugs (Pharmaceutical)": {
+    "ev_ebitda": 9.955118858194218
+  },
+  "Education": {
+    "ev_ebitda": 7.797852662521094
+  },
+  "Electrical Equipment": {
+    "ev_ebitda": 19.98065654274896
+  },
+  "Electronics (Consumer & Office)": {
+    "ev_ebitda": 3.899337155880366
+  },
+  "Electronics (General)": {
+    "ev_ebitda": 15.742553822255317
+  },
+  "Engineering/Construction": {
+    "ev_ebitda": 17.10665390148124
+  },
+  "Entertainment": {
+    "ev_ebitda": 16.4960213008331
+  },
+  "Environmental & Waste Services": {
+    "ev_ebitda": 15.335555354398492
+  },
+  "Farming/Agriculture": {
+    "ev_ebitda": 13.552843522054928
+  },
+  "Financial Svcs. (Non-bank & Insurance)": {
+    "ev_ebitda": 52.23762600254185
+  },
+  "Food Processing": {
+    "ev_ebitda": 9.615679866581589
+  },
+  "Food Wholesalers": {
+    "ev_ebitda": 11.075252232041779
+  },
+  "Furn/Home Furnishings": {
+    "ev_ebitda": 9.696795783300631
+  },
+  "Green & Renewable Energy": {
+    "ev_ebitda": 13.419890415015413
+  },
+  "Healthcare Products": {
+    "ev_ebitda": 15.134273472562674
+  },
+  "Healthcare Support Services": {
+    "ev_ebitda": 10.984916505820475
+  },
+  "Heathcare Information and Technology": {
+    "ev_ebitda": 16.541371678969373
+  },
+  "Homebuilding": {
+    "ev_ebitda": 8.918125636141264
+  },
+  "Hospitals/Healthcare Facilities": {
+    "ev_ebitda": 8.841430038967413
+  },
+  "Hotel/Gaming": {
+    "ev_ebitda": 13.5716535459462
+  },
+  "Household Products": {
+    "ev_ebitda": 12.131944138270073
+  },
+  "Information Services": {
+    "ev_ebitda": 10.377375581782342
+  },
+  "Insurance (General)": {
+    "ev_ebitda": 15.65183990678602
+  },
+  "Insurance (Life)": {
+    "ev_ebitda": 12.522466672718679
+  },
+  "Insurance (Prop/Cas.)": {
+    "ev_ebitda": 8.435352471682522
+  },
+  "Investments & Asset Management": {
+    "ev_ebitda": 36.761764383842234
+  },
+  "Machinery": {
+    "ev_ebitda": 14.77554492860966
+  },
+  "Metals & Mining": {
+    "ev_ebitda": 11.328682662360462
+  },
+  "Office Equipment & Services": {
+    "ev_ebitda": 7.617452418856224
+  },
+  "Oil/Gas (Integrated)": {
+    "ev_ebitda": 8.070085304963238
+  },
+  "Oil/Gas (Production and Exploration)": {
+    "ev_ebitda": 5.124058240968574
+  },
+  "Oil/Gas Distribution": {
+    "ev_ebitda": 11.560581964533533
+  },
+  "Oilfield Svcs/Equip.": {
+    "ev_ebitda": 8.31426474236341
+  },
+  "Packaging & Container": {
+    "ev_ebitda": 9.460858278733866
+  },
+  "Paper/Forest Products": {
+    "ev_ebitda": 8.048467462927075
+  },
+  "Power": {
+    "ev_ebitda": 12.343229147337972
+  },
+  "Precious Metals": {
+    "ev_ebitda": 10.584208480791197
+  },
+  "Publishing & Newspapers": {
+    "ev_ebitda": 10.212173670393463
+  },
+  "R.E.I.T.": {
+    "ev_ebitda": 19.866834806951587
+  },
+  "Real Estate (Development)": {
+    "ev_ebitda": 10.23049851021993
+  },
+  "Real Estate (General/Diversified)": {
+    "ev_ebitda": 17.286870078907647
+  },
+  "Real Estate (Operations & Services)": {
+    "ev_ebitda": 17.857022268817257
+  },
+  "Recreation": {
+    "ev_ebitda": 9.008735727795665
+  },
+  "Reinsurance": {
+    "ev_ebitda": 8.670902949469651
+  },
+  "Restaurant/Dining": {
+    "ev_ebitda": 16.966928100060795
+  },
+  "Retail (Automotive)": {
+    "ev_ebitda": 14.77662143299601
+  },
+  "Retail (Building Supply)": {
+    "ev_ebitda": 14.293196464323055
+  },
+  "Retail (Distributors)": {
+    "ev_ebitda": 13.68249688107587
+  },
+  "Retail (General)": {
+    "ev_ebitda": 12.145033753347034
+  },
+  "Retail (Grocery and Food)": {
+    "ev_ebitda": 8.576120989894022
+  },
+  "Retail (REITs)": {
+    "ev_ebitda": 16.722927808471763
+  },
+  "Retail (Special Lines)": {
+    "ev_ebitda": 11.399706813271033
+  },
+  "Rubber& Tires": {
+    "ev_ebitda": 5.322473737559048
+  },
+  "Semiconductor": {
+    "ev_ebitda": 25.91059488798269
+  },
+  "Semiconductor Equip": {
+    "ev_ebitda": 18.325108978585973
+  },
+  "Shipbuilding & Marine": {
+    "ev_ebitda": 7.953007498779779
+  },
+  "Shoe": {
+    "ev_ebitda": 16.67805736149319
+  },
+  "Software (Entertainment)": {
+    "ev_ebitda": 15.171834136907565
+  },
+  "Software (Internet)": {
+    "ev_ebitda": 15.725614147670882
+  },
+  "Software (System & Application)": {
+    "ev_ebitda": 17.95685777948146
+  },
+  "Steel": {
+    "ev_ebitda": 11.59043510860728
+  },
+  "Telecom (Wireless)": {
+    "ev_ebitda": 8.958527376759566
+  },
+  "Telecom. Equipment": {
+    "ev_ebitda": 15.679833332145373
+  },
+  "Telecom. Services": {
+    "ev_ebitda": 6.459410942080079
+  },
+  "Tobacco": {
+    "ev_ebitda": 13.054755151157137
+  },
+  "Transportation": {
+    "ev_ebitda": 11.457349199145453
+  },
+  "Transportation (Railroads)": {
+    "ev_ebitda": 13.48817865261892
+  },
+  "Trucking": {
+    "ev_ebitda": 10.326347477222884
+  },
+  "Utility (General)": {
+    "ev_ebitda": 13.72701503876966
+  },
+  "Utility (Water)": {
+    "ev_ebitda": 14.132446057827247
+  },
+  "Total Market (without financials)": {
+    "ev_ebitda": 14.02336899411817
+  }
+}
