@@ -39,6 +39,8 @@ logger = logging.getLogger(__name__)
 DAMODARAN_VEBITDA_URL = "https://pages.stern.nyu.edu/~adamodar/pc/datasets/vebitda.xls"
 DAMODARAN_PE_URL = "https://pages.stern.nyu.edu/~adamodar/pc/datasets/pedata.xls"
 DAMODARAN_PBV_URL = "https://pages.stern.nyu.edu/~adamodar/pc/datasets/pbvdata.xls"
+# Phase 4a Adim 3: Damodaran Pre-tax Unadjusted Operating Margin
+DAMODARAN_MARGIN_URL = "https://pages.stern.nyu.edu/~adamodar/pc/datasets/margin.xls"
 
 # Damodaran format: "Industry Averages" sheet, header row 9 (skiprows=8)
 DAMODARAN_SHEET = "Industry Averages"
@@ -117,6 +119,9 @@ def fetch_sector_multiples() -> dict:
          ["PE Ratio", "Current PE", "Trailing PE"]),
         (DAMODARAN_PBV_URL, "pbvData.xls", "pbv",
          ["PBV", "Price/Book", "Price / BV"]),
+        # Phase 4a Adim 3: Pre-tax Unadjusted Operating Margin (col 5)
+        (DAMODARAN_MARGIN_URL, "margin.xls", "op_margin_pretax",
+         ["Pre-tax Unadjusted Operating Margin"]),
     ]:
         logger.info(f"Fetching {fname}...")
         try:
