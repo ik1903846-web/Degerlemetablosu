@@ -270,4 +270,15 @@ with st.sidebar:
             f"⚠️ {TS_UNSUSTAINABLE} ticker terminal sustainability uyari "
             f"(TR fiat regime Damodaran insight, ADR-080 §7.2)"
         )
-    st.caption("v4.9 anchor SEALED · Damodaran-faithful + TR fiat insight")
+    # Phase 6.2: Multi-multiple consensus dispersion stats
+    _hi_disp = v4_stats.get("high_dispersion_count", 0)
+    _ext_disp = v4_stats.get("extreme_dispersion_count", 0)
+    _val_disp = v4_stats.get("multi_multiple_validated_count", 0)
+    if _hi_disp or _val_disp:
+        st.caption(
+            f"📊 Multi-multiple consensus (Phase 4d): "
+            f"validated {_val_disp} (<%30 disp) · "
+            f"high {_hi_disp} (>%50) · "
+            f"extreme {_ext_disp} (>%100)"
+        )
+    st.caption("v4.11 anchor SEALED · Damodaran multi-multiple + TR fiat insight")

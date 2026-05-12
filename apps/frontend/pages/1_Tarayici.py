@@ -266,26 +266,44 @@ def _load_scanner_df_v4() -> tuple[pd.DataFrame, str]:
         if ts_sustain is False:
             warning_badge = " ⚠️ TR-fiat"
 
+        # Phase 4d/6.2: Multi-multiple consensus
+        consensus = r.get("consensus_intrinsic")
+        dispersion = r.get("consensus_dispersion")
+        dispersion_pct = float(dispersion) * 100 if dispersion is not None else None
+        # Dispersion badge (Damodaran consensus quality)
+        disp_badge = ""
+        if dispersion_pct is not None:
+            if dispersion_pct > 100:
+                disp_badge = " 🔴 Extreme-Disp"
+            elif dispersion_pct > 50:
+                disp_badge = " 🟡 High-Disp"
+            elif dispersion_pct <= 30:
+                disp_badge = " 🟢 Validated"
+
         # Intrinsic yoksa method goster
         if intrinsic is None:
             rows.append({
                 "ticker": r.get("ticker", ""),
                 "current_price_tl": float(price),
                 "intrinsic_value_tl": None,
+                "consensus_tl": float(consensus) if consensus is not None else None,
+                "dispersion_pct": dispersion_pct,
                 "upside_pct": None,
                 "lifecycle_stage": stage,
                 "lifecycle_label": f"{STAGE_STARS.get(stage, '—')} {STAGE_LABELS.get(stage, '?')}",
-                "method": method_label + warning_badge,
+                "method": method_label + warning_badge + disp_badge,
             })
             continue
         rows.append({
             "ticker": r.get("ticker", ""),
             "current_price_tl": float(price),
             "intrinsic_value_tl": float(intrinsic),
+            "consensus_tl": float(consensus) if consensus is not None else None,
+            "dispersion_pct": dispersion_pct,
             "upside_pct": float(upside) if upside is not None else 0.0,
             "lifecycle_stage": stage,
             "lifecycle_label": f"{STAGE_STARS.get(stage, '—')} {STAGE_LABELS.get(stage, '?')}",
-            "method": method_label + warning_badge,
+            "method": method_label + warning_badge + disp_badge,
         })
     df = pd.DataFrame(rows)
     debug = (
@@ -462,20 +480,26 @@ def _upside_color(val: float) -> str:
     return "background-color: #b71c1c; color: #ffffff;"       # red
 
 
-# Display columns (lifecycle_label tek görünür sütun)
+# Display columns (Phase 6.2: consensus + dispersion eklenmis)
 display_df = df[[
     "ticker",
     "current_price_tl",
     "intrinsic_value_tl",
+    "consensus_tl",
+    "dispersion_pct",
     "upside_pct",
     "lifecycle_label",
+    "method",
 ]].copy()
 display_df.columns = [
     "Ticker",
     "Anlık Fiyat (TL)",
     "Hedef Fiyat (TL)",
+    "Consensus (3-way)",
+    "Disp %",
     "Upside %",
     "Yaşam Döngüsü",
+    "Method (Damodaran)",
 ]
 
 styled = (
@@ -483,8 +507,10 @@ styled = (
     .format({
         "Anlık Fiyat (TL)": "{:,.2f}",
         "Hedef Fiyat (TL)": "{:,.2f}",
+        "Consensus (3-way)": "{:,.2f}",
+        "Disp %": "{:.0f}%",
         "Upside %": "{:+.1f}%",
-    })
+    }, na_rep="—")
     .map(_upside_color, subset=["Upside %"])
 )
 

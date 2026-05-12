@@ -205,6 +205,19 @@ def universe_stats_v4() -> Dict[str, Any]:
     banking_ddm_count = _count_by_method(exact="banking_ddm_2stage_usd") + _count_by_method(exact="banking_ddm_3stage_tr_tune")
     # Phase 5c terminal sanity
     ts_unsustainable_count = sum(1 for t in tickers if t.get("terminal_value_sustainable") is False)
+    # Phase 4d multi-multiple dispersion
+    high_dispersion_count = sum(
+        1 for t in tickers
+        if t.get("consensus_dispersion") is not None and t["consensus_dispersion"] > 0.50
+    )
+    extreme_dispersion_count = sum(
+        1 for t in tickers
+        if t.get("consensus_dispersion") is not None and t["consensus_dispersion"] > 1.00
+    )
+    multi_multiple_validated_count = sum(
+        1 for t in tickers
+        if t.get("consensus_dispersion") is not None and t["consensus_dispersion"] <= 0.30
+    )
 
     return {
         "total_count": batch.get("total_count", 0),
@@ -218,6 +231,9 @@ def universe_stats_v4() -> Dict[str, Any]:
         "industrial_book_fallback_count": industrial_book_fallback_count,
         "banking_ddm_count": banking_ddm_count,
         "ts_unsustainable_count": ts_unsustainable_count,
+        "high_dispersion_count": high_dispersion_count,
+        "extreme_dispersion_count": extreme_dispersion_count,
+        "multi_multiple_validated_count": multi_multiple_validated_count,
         "anchor_tuprs": batch.get("anchor_tuprs"),
         "fetch_date": batch.get("fetch_date"),
     }
