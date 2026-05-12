@@ -598,8 +598,87 @@ def calculate_intrinsic_value(td: TickerDataV4) -> TickerDataV4:
     td.lifecycle_stage = lc.stage
     td.lifecycle_rationale = lc.rationale
 
-    # Banking / Insurance / Unknown — DCF skip
-    if td.dialect in ("banking", "insurance", "unknown"):
+    # Banking — Phase 4b Engine A DDM 2-stage (USD MANDATORY, ADR-080 doctrine)
+    if td.dialect == "banking":
+        try:
+            from data_layer.banking_data import get_banking_data
+            from dcf_engine.banking_ddm import dcf_ddm
+            cfg = get_banking_data(td.ticker)
+        except Exception as _e_imp:
+            cfg = None
+            td.flags.append(f"banking_ddm_import_fail: {type(_e_imp).__name__}")
+
+        if cfg and cfg.yearly:
+            try:
+                bd = max(cfg.yearly, key=lambda d: d.year)
+                # Damodaran USD parameters (parameters.json 2026-05-09)
+                FX_TL_USD = 40.0       # May 2026 (fx_converter 2025 placeholder 39.50)
+                RF_USD = 0.0397
+                MATURE_ERP = 0.0423
+                CRP_TR = 0.0466
+                BETA = 0.85            # banking_money_center relevered
+                STABLE_ROE = 0.14
+                STABLE_G_USD = 0.025
+
+                eps_usd = bd.eps_tl / FX_TL_USD
+                payout = bd.payout_pct / 100.0
+                roe = bd.roe_pct / 100.0
+                high_growth = roe * (1.0 - payout)
+                coe_high = RF_USD + BETA * (MATURE_ERP + CRP_TR)
+                coe_stable = RF_USD + 0.80 * (MATURE_ERP + CRP_TR * 0.5)
+                stable_payout = 1.0 - STABLE_G_USD / STABLE_ROE
+
+                result = dcf_ddm(
+                    starting_eps=eps_usd,
+                    high_growth_rate=high_growth,
+                    high_growth_payout=payout,
+                    high_growth_coe=coe_high,
+                    high_growth_duration=5,
+                    stable_growth=STABLE_G_USD,
+                    stable_payout=stable_payout,
+                    stable_coe=coe_stable,
+                )
+                intrinsic_tl = result.value_per_share * FX_TL_USD
+
+                # Sanity: negative or >10000 TL -> book_value fallback (Damodaran rule)
+                if intrinsic_tl <= 0 or intrinsic_tl > 10000:
+                    if bd.shares_outstanding and bd.shares_outstanding > 0:
+                        bvps = (bd.book_equity_tl * 1e6) / bd.shares_outstanding
+                        td.intrinsic_per_share_tl = bvps
+                        td.dcf_method = "banking_book_value_fallback"
+                        td.flags.append(f"banking_ddm_outlier_capped: ddm={intrinsic_tl:.0f}TL -> book {bvps:.2f}TL")
+                    else:
+                        td.dcf_method = "banking_skip"
+                        td.flags.append(f"banking_ddm_outlier_no_bvps: {intrinsic_tl:.0f}TL")
+                else:
+                    td.intrinsic_per_share_tl = intrinsic_tl
+                    td.dcf_method = "banking_ddm_2stage_usd"
+
+                if td.current_price_tl and td.current_price_tl > 0 and td.intrinsic_per_share_tl:
+                    td.upside_pct = (td.intrinsic_per_share_tl / td.current_price_tl - 1) * 100
+
+                return td
+            except Exception as _e:
+                td.errors.append(f"banking_ddm: {type(_e).__name__}: {_e}")
+                td.flags.append(f"banking_ddm_exception_fallback")
+
+        # No banking_data config OR exception -> book_value fallback (Damodaran Dark Side)
+        if td.total_equity and td.shares_outstanding and td.total_equity > 0:
+            bvps = td.total_equity / td.shares_outstanding
+            td.intrinsic_per_share_tl = bvps
+            td.dcf_method = "banking_book_value_fallback"
+            td.flags.append("banking_no_config_book_fallback")
+            if td.current_price_tl and td.current_price_tl > 0:
+                td.upside_pct = (bvps / td.current_price_tl - 1) * 100
+            return td
+
+        # No config + no book_value -> keep skip
+        td.dcf_method = "banking_skip"
+        td.flags.append("dcf_skip: banking no_config_no_book")
+        return td
+
+    # Insurance / Unknown — DCF skip (Phase 4b sonrasi banking ayri branch)
+    if td.dialect in ("insurance", "unknown"):
         td.dcf_method = f"{td.dialect}_skip"
         td.flags.append(f"dcf_skip: {td.dialect} method_not_implemented_session_4_5")
         return td
