@@ -39,6 +39,56 @@ logger = logging.getLogger(__name__)
 # Lifecycle Stages
 # ============================================================================
 
+# ============================================================================
+# Phase 4a Adim 2 + Adim 4: Damodaran "Act Your Age" framework
+# Lifecycle stage'e gore explicit_growth_rate bound + margin taper config
+# ============================================================================
+
+DEFAULT_TAPER_CONFIG: Dict[str, Dict[str, float]] = {
+    "young": {
+        "growth_min": 0.15, "growth_max": 0.50, "growth_default": 0.30,
+        "margin_taper_start": 5, "margin_taper_end": 15,
+        "explicit_period_years": 10, "transition_period_years": 5,
+    },
+    "high_growth": {
+        "growth_min": 0.08, "growth_max": 0.30, "growth_default": 0.18,
+        "margin_taper_start": 3, "margin_taper_end": 10,
+        "explicit_period_years": 10, "transition_period_years": 5,
+    },
+    "mature_growth": {
+        "growth_min": 0.05, "growth_max": 0.15, "growth_default": 0.10,
+        "margin_taper_start": 2, "margin_taper_end": 10,
+        "explicit_period_years": 10, "transition_period_years": 5,
+    },
+    "mature_stable": {
+        "growth_min": 0.02, "growth_max": 0.08, "growth_default": 0.05,
+        "margin_taper_start": 1, "margin_taper_end": 10,
+        "explicit_period_years": 5, "transition_period_years": 5,
+    },
+    "decline": {
+        "growth_min": -0.10, "growth_max": 0.03, "growth_default": -0.02,
+        "margin_taper_start": 1, "margin_taper_end": 10,
+        "explicit_period_years": 5, "transition_period_years": 5,
+    },
+    "distress": {
+        "growth_min": -0.20, "growth_max": 0.00, "growth_default": -0.10,
+        "margin_taper_start": 1, "margin_taper_end": 10,
+        "explicit_period_years": 5, "transition_period_years": 5,
+    },
+}
+
+
+def get_lifecycle_defaults(stage: Optional[str]) -> Dict[str, float]:
+    """Phase 4a: Damodaran 'Act Your Age' framework defaults.
+
+    Returns lifecycle config dict (growth_min/max/default, taper years).
+    Unknown stage -> mature_stable conservative.
+    """
+    if not stage:
+        return DEFAULT_TAPER_CONFIG["mature_stable"]
+    return DEFAULT_TAPER_CONFIG.get(stage, DEFAULT_TAPER_CONFIG["mature_stable"])
+
+
 class LifecycleStage(str, Enum):
     """Damodaran 6-stage lifecycle."""
     YOUNG = "young"

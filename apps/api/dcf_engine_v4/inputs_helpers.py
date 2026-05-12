@@ -40,3 +40,46 @@ def compute_sales_to_capital(
         return None
 
     return revenue / invested_capital
+
+
+def compute_explicit_growth_rate(
+    revenue_current: Optional[float],
+    revenue_previous: Optional[float],
+    lifecycle_stage: Optional[str] = None,
+) -> Optional[float]:
+    """Phase 4a Adim 2: Composite explicit_growth_rate (Damodaran).
+
+    Composite formula:
+        raw_growth = (revenue_current / revenue_previous) - 1
+        bounded    = clamp(raw_growth, lifecycle_min, lifecycle_max)
+
+    Fallback chain:
+        Tier 1: KAP 2y growth clamped to lifecycle bound
+        Tier 2: lifecycle_default (KAP data missing)
+
+    Damodaran "Act Your Age" framework alignment.
+
+    ADR-080 v2 doctrine: 5y CAGR yerine composite (yfinance 4y data
+    eksik + TRY currency mismatch + KAP Excel 2 period limit).
+
+    Args:
+        revenue_current:  KAP cari period revenue (TickerDataV4.revenue)
+        revenue_previous: KAP onceki period revenue (yeni transfer Adim 5'te)
+        lifecycle_stage:  TickerDataV4.lifecycle_stage
+
+    Returns:
+        Composite explicit growth rate (decimal, e.g. 0.10 = 10%) or
+        lifecycle_default if KAP data missing.
+    """
+    from dcf_engine.lifecycle_classifier import get_lifecycle_defaults
+
+    config = get_lifecycle_defaults(lifecycle_stage)
+    growth_min = config["growth_min"]
+    growth_max = config["growth_max"]
+    growth_default = config["growth_default"]
+
+    if revenue_current and revenue_previous and revenue_previous > 0:
+        raw_growth = (revenue_current / revenue_previous) - 1.0
+        return max(growth_min, min(growth_max, raw_growth))
+
+    return growth_default
