@@ -474,6 +474,87 @@ def _compute_consolidation_ratio(parent_ticker: str) -> float:
     return min(ratio, 0.85)
 
 
+# Phase 3c helpers (Damodaran Level 2/3 fallback)
+_SECTOR_MULTIPLES_CACHE: Optional[dict] = None
+_SECTOR_MAP_CACHE: Optional[dict] = None
+
+
+def _load_sector_multiples() -> dict:
+    """Damodaran sector_multiples.json memoized loader."""
+    global _SECTOR_MULTIPLES_CACHE
+    if _SECTOR_MULTIPLES_CACHE is not None:
+        return _SECTOR_MULTIPLES_CACHE
+    damo_root = REPO_API.parent / "api/data/damodaran"
+    if not damo_root.exists():
+        _SECTOR_MULTIPLES_CACHE = {}
+        return {}
+    candidates = [d for d in damo_root.iterdir() if d.is_dir()]
+    if not candidates:
+        _SECTOR_MULTIPLES_CACHE = {}
+        return {}
+    latest = sorted(candidates)[-1]
+    sm_path = latest / "sector_multiples.json"
+    if not sm_path.exists():
+        _SECTOR_MULTIPLES_CACHE = {}
+        return {}
+    _SECTOR_MULTIPLES_CACHE = json.loads(sm_path.read_text(encoding="utf-8"))
+    return _SECTOR_MULTIPLES_CACHE
+
+
+def _load_sector_map() -> dict:
+    """BIST -> Damodaran sector mapping memoized loader."""
+    global _SECTOR_MAP_CACHE
+    if _SECTOR_MAP_CACHE is not None:
+        return _SECTOR_MAP_CACHE
+    sm_path = REPO_API.parent / "api/config/damodaran_sector_map.json"
+    if not sm_path.exists():
+        _SECTOR_MAP_CACHE = {}
+        return {}
+    data = json.loads(sm_path.read_text(encoding="utf-8"))
+    _SECTOR_MAP_CACHE = data.get("mapping", {})
+    return _SECTOR_MAP_CACHE
+
+
+def _phase3c_sector_intrinsic(td: "TickerDataV4"):
+    """Phase 3c Level 2: Sector EV/EBITDA fallback."""
+    if not td.sector_name:
+        return None, "sector_unmapped_no_fallback"
+    sector_map = _load_sector_map()
+    damo_sector = sector_map.get(td.sector_name)
+    if not damo_sector:
+        return None, "sector_unmapped_no_fallback"
+    multiples = _load_sector_multiples()
+    sector_data = multiples.get(damo_sector)
+    if not sector_data or not sector_data.get("ev_ebitda"):
+        return None, "damodaran_sector_no_evebitda"
+
+    ev_ebitda = float(sector_data["ev_ebitda"])
+    op_income = td.op_income or 0
+    depreciation = td.depreciation or 0
+    ebitda = op_income + depreciation
+    if ebitda <= 0:
+        return None, "negative_or_zero_ebitda"
+
+    debt = td.total_debt or 0
+    cash = td.cash or 0
+    enterprise_value = ev_ebitda * ebitda
+    equity_value = enterprise_value - debt + cash
+    if equity_value <= 0 or not td.shares_outstanding:
+        return None, "negative_equity_sector_multiple"
+
+    intrinsic = equity_value / td.shares_outstanding
+    return intrinsic, f"sector_multiple_regression({damo_sector}@{ev_ebitda:.2f}x)"
+
+
+def _phase3c_book_value_fallback(td: "TickerDataV4"):
+    """Phase 3c Level 3: Book value fallback (Damodaran Dark Side)."""
+    if not td.total_equity or not td.shares_outstanding:
+        return None, "no_book_value_data"
+    if td.total_equity <= 0:
+        return None, "negative_book_value"
+    return td.total_equity / td.shares_outstanding, "book_value_fallback"
+
+
 def calculate_intrinsic_value(td: TickerDataV4) -> TickerDataV4:
     """Lifecycle → WACC → FCFF DCF → intrinsic per share.
 
@@ -513,8 +594,26 @@ def calculate_intrinsic_value(td: TickerDataV4) -> TickerDataV4:
             td.cross_holdings_added_tl = ch_tl
 
         if not (ch_tl > 0 and td.shares_outstanding and td.shares_outstanding > 0):
+            # Phase 3c Level 2 fallback (sector multiple)
+            sec_intrinsic, sec_flag = _phase3c_sector_intrinsic(td)
+            if sec_intrinsic:
+                td.intrinsic_per_share_tl = sec_intrinsic
+                td.dcf_method = sec_flag
+                if td.current_price_tl:
+                    td.upside_pct = (sec_intrinsic - td.current_price_tl) / td.current_price_tl * 100
+                td.flags.append(f"phase3c_level2: {sec_flag}, intrinsic={sec_intrinsic:.2f}")
+                return td
+            # Phase 3c Level 3 fallback (book value)
+            bv_intrinsic, bv_flag = _phase3c_book_value_fallback(td)
+            if bv_intrinsic:
+                td.intrinsic_per_share_tl = bv_intrinsic
+                td.dcf_method = bv_flag
+                if td.current_price_tl:
+                    td.upside_pct = (bv_intrinsic - td.current_price_tl) / td.current_price_tl * 100
+                td.flags.append(f"phase3c_level3: book_value={bv_intrinsic:.2f}")
+                return td
             td.dcf_method = "holding_sotp_pending"
-            td.flags.append("dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)")
+            td.flags.append(f"dcf_skip: holding SOTP pending (ch=0, sec_fail={sec_flag}, bv_fail={bv_flag})")
             return td
 
         # Phase 3b 5-component formula
@@ -548,8 +647,6 @@ def calculate_intrinsic_value(td: TickerDataV4) -> TickerDataV4:
             if ch_result and ch_result.unknown_proxy_subs:
                 td.flags.append(f"unknown_proxy_subs: {ch_result.unknown_proxy_subs}")
         else:
-            td.dcf_method = "holding_sotp_phase3b_negative"
-            td.intrinsic_per_share_tl = None
             td.flags.append(
                 f"holding_sotp_phase3b_negative: ch={ch_tl/1e9:.1f}B "
                 f"+ emi={emi/1e9:.1f}B + ip={ip/1e9:.1f}B "
@@ -557,6 +654,26 @@ def calculate_intrinsic_value(td: TickerDataV4) -> TickerDataV4:
                 f"- debt_only={parent_only_debt/1e9:.1f}B "
                 f"= {parent_equity/1e9:.1f}B (cons_ratio={cons_ratio:.3f})"
             )
+            # Phase 3c Level 2 fallback (sector multiple)
+            sec_intrinsic, sec_flag = _phase3c_sector_intrinsic(td)
+            if sec_intrinsic:
+                td.intrinsic_per_share_tl = sec_intrinsic
+                td.dcf_method = sec_flag
+                if td.current_price_tl:
+                    td.upside_pct = (sec_intrinsic - td.current_price_tl) / td.current_price_tl * 100
+                td.flags.append(f"phase3c_level2: {sec_flag}, intrinsic={sec_intrinsic:.2f}")
+                return td
+            # Phase 3c Level 3 fallback (book value)
+            bv_intrinsic, bv_flag = _phase3c_book_value_fallback(td)
+            if bv_intrinsic:
+                td.intrinsic_per_share_tl = bv_intrinsic
+                td.dcf_method = bv_flag
+                if td.current_price_tl:
+                    td.upside_pct = (bv_intrinsic - td.current_price_tl) / td.current_price_tl * 100
+                td.flags.append(f"phase3c_level3: book_value={bv_intrinsic:.2f}")
+                return td
+            td.dcf_method = "holding_sotp_phase3b_negative"
+            td.intrinsic_per_share_tl = None
         return td
 
     # Industrial DCF
