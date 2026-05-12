@@ -129,6 +129,76 @@ def compute_implied_roc(
     return implied_roc
 
 
+def compute_pe_implied_intrinsic(
+    op_income: Optional[float],
+    shares_outstanding: Optional[float],
+    sector_pe: Optional[float],
+    tax_rate: float = 0.25,
+) -> Optional[float]:
+    """Phase 4d: Multi-multiple PE-implied intrinsic.
+
+    Net Income proxy = Op_Income x (1 - tax_rate)  (interest expense ihmal)
+    EPS = Net_Income / shares
+    PE_implied = EPS x sector_PE
+
+    Currency-invariant: shares/op_income same currency -> output same currency.
+    """
+    if op_income is None or op_income <= 0:
+        return None
+    if shares_outstanding is None or shares_outstanding <= 0:
+        return None
+    if sector_pe is None or sector_pe <= 0 or sector_pe > 100:
+        return None
+    net_income = op_income * (1 - tax_rate)
+    eps = net_income / shares_outstanding
+    return eps * sector_pe
+
+
+def compute_pbv_implied_intrinsic(
+    total_equity: Optional[float],
+    shares_outstanding: Optional[float],
+    sector_pbv: Optional[float],
+) -> Optional[float]:
+    """Phase 4d: Multi-multiple PBV-implied intrinsic.
+
+    BVPS = book_equity / shares
+    PBV_implied = BVPS x sector_PBV
+    """
+    if total_equity is None or total_equity <= 0:
+        return None
+    if shares_outstanding is None or shares_outstanding <= 0:
+        return None
+    if sector_pbv is None or sector_pbv <= 0 or sector_pbv > 20:
+        return None
+    bvps = total_equity / shares_outstanding
+    return bvps * sector_pbv
+
+
+def compute_consensus(
+    intrinsic: Optional[float],
+    pe_implied: Optional[float],
+    pbv_implied: Optional[float],
+) -> tuple:
+    """Phase 4d: 3-way consensus median + dispersion.
+
+    Returns (consensus_median, dispersion).
+    dispersion = stdev / median (>0.5 -> high dispersion warning)
+    """
+    import statistics as _stat
+    valid = [v for v in [intrinsic, pe_implied, pbv_implied] if v is not None and v > 0]
+    if not valid:
+        return None, None
+    median_val = _stat.median(valid)
+    if len(valid) > 1 and median_val > 0:
+        try:
+            disp = _stat.stdev(valid) / median_val
+        except _stat.StatisticsError:
+            disp = None
+    else:
+        disp = None
+    return median_val, disp
+
+
 def compute_taper_config(lifecycle_stage: Optional[str] = None) -> dict:
     """Phase 4a Adim 4: Damodaran 'Act Your Age' taper config builder.
 

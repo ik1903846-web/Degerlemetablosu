@@ -163,6 +163,12 @@ class TickerDataV4:
     implied_roc: Optional[float] = None
     terminal_value_sustainable: Optional[bool] = None
 
+    # Phase 4d: Multi-multiple PE/PBV consensus (Damodaran cross-check)
+    pe_implied: Optional[float] = None
+    pbv_implied: Optional[float] = None
+    consensus_intrinsic: Optional[float] = None
+    consensus_dispersion: Optional[float] = None
+
     @property
     def is_complete(self) -> bool:
         """DCF için minimum gereksinim kontrolü."""
@@ -883,7 +889,16 @@ def calculate_intrinsic_value(td: TickerDataV4) -> TickerDataV4:
         damo_sector_override = _TICKER_DAMO_OVERRIDE.get(td.ticker)
 
         # Phase 5a EM data + Phase 3c global sector multiples (lazy load, cached)
-        _today_dir = _Path(__file__).resolve().parent / "data" / "damodaran" / _date.today().strftime("%Y_%m_%d")
+        # Today dir oncelik, yoksa en guncel mevcut date dir fallback (idempotent)
+        _damodaran_root = _Path(__file__).resolve().parent / "data" / "damodaran"
+        _today_dir = _damodaran_root / _date.today().strftime("%Y_%m_%d")
+        if not _today_dir.exists():
+            _dated_dirs = sorted(
+                [d for d in _damodaran_root.iterdir() if d.is_dir() and d.name.startswith("2026")],
+                reverse=True,
+            )
+            if _dated_dirs:
+                _today_dir = _dated_dirs[0]
         _em_margin_data = None
         _global_sm_data = None
         _em_path = _today_dir / "emerging_markets" / "margin_emerg.json"
@@ -1025,6 +1040,38 @@ def calculate_intrinsic_value(td: TickerDataV4) -> TickerDataV4:
                             td.flags.append(f"implied_roc_below_wacc: {implied_roc_val*100:.2f}% < {td.wacc*100:.2f}%")
         except Exception as _ic_e:
             td.flags.append(f"implied_roc_compute_fail: {type(_ic_e).__name__}")
+
+        # Phase 4d: Multi-multiple PE/PBV consensus (Damodaran cross-check)
+        try:
+            from dcf_engine_v4.inputs_helpers import (
+                compute_pe_implied_intrinsic as _pe_imp,
+                compute_pbv_implied_intrinsic as _pbv_imp,
+                compute_consensus as _consensus,
+            )
+            em_pe_path = _today_dir / "emerging_markets" / "pe_emerg.json"
+            em_pbv_path = _today_dir / "emerging_markets" / "pbv_emerg.json"
+            em_pe_data = _json.loads(em_pe_path.read_text(encoding="utf-8")) if em_pe_path.exists() else {}
+            em_pbv_data = _json.loads(em_pbv_path.read_text(encoding="utf-8")) if em_pbv_path.exists() else {}
+
+            damo_s_consensus = damo_sector_override or _load_bist_to_damodaran_sector_map().get(td.sector_name)
+            sector_pe = None
+            sector_pbv = None
+            if damo_s_consensus:
+                sector_pe = (em_pe_data.get(damo_s_consensus) or {}).get("Trailing PE")
+                sector_pbv = (em_pbv_data.get(damo_s_consensus) or {}).get("PBV")
+
+            pe_implied = _pe_imp(td.op_income, td.shares_outstanding, sector_pe, tax_rate=0.25)
+            pbv_implied = _pbv_imp(td.total_equity, td.shares_outstanding, sector_pbv)
+
+            consensus, dispersion = _consensus(td.intrinsic_per_share_tl, pe_implied, pbv_implied)
+            td.pe_implied = pe_implied
+            td.pbv_implied = pbv_implied
+            td.consensus_intrinsic = consensus
+            td.consensus_dispersion = dispersion
+            if dispersion is not None and dispersion > 0.5:
+                td.flags.append(f"high_multi_multiple_dispersion: {dispersion:.2f}")
+        except Exception as _mm_e:
+            td.flags.append(f"multi_multiple_fail: {type(_mm_e).__name__}")
 
         return td
 
