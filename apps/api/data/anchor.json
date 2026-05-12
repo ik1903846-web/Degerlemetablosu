@@ -1,16 +1,16 @@
 {
   "schema_version": "1.0",
   "current_anchor": {
-    "version": "v4.3",
-    "previous_version": "v4.2",
+    "version": "v4.3.3",
+    "previous_version": "v4.3",
     "ticker": "TUPRS",
     "value_tl": 211.95,
     "value_tl_shadow_proxy": 216.33,
     "value_tl_shadow_delta_pct": -2.03,
     "computed_date": "2026-05-09",
-    "transition_date": "2026-05-10",
-    "transition_commit": "0d1a324",
-    "method": "Full DCF orchestrator_v4 (kanonik) + cross-holdings (Damodaran) + parser improvement (Phase 2)",
+    "transition_date": "2026-05-12",
+    "transition_commit": "c321da1",
+    "method": "Full DCF orchestrator_v4 (kanonik) + cross-holdings (Damodaran) + parser improvement (Phase 2) + phase 3a parse (financial_investments)",
     "method_doc": "apps/api/outputs/turkey_v4_batch.json",
     "shadow_method_note": "Shadow proxy 216.33 TL (3 profil mean, reports/tuprs_shadow_2026_05_09.md). Profil D/E=0.40 idi, gerçek TUPRS D/E=0.0858 — düşük leverage gerçek WACC'i shadow'dan farklı yaptı (matematik doğru, profil tahmini approximate).",
     "tolerance_initial": 0.005,
@@ -42,6 +42,31 @@
       "type_recovered": 373,
       "ownership_recovered": 7,
       "listed_eligible_coverage": "61/61"
+    },
+    "phase3a_status": "SEALED",
+    "phase3a_effect": {
+      "tuprs_intact": true,
+      "tuprs_drift_pct": 0.0019,
+      "equity_method_coverage": "109/615 (17.7%)",
+      "investment_properties_coverage": "271/615 (44.1%)",
+      "top10_emi_ticker": [
+        "SAHOL 124.9B",
+        "KCHOL 113.6B",
+        "ALARK 48.3B",
+        "AYGAZ 46.7B",
+        "THYAO 35.5B",
+        "PETKM 32.0B",
+        "TAVHL 31.0B",
+        "ECZYT 18.0B",
+        "BRYAT 17.7B",
+        "TUPRS 16.5B"
+      ],
+      "phase3a_commits": [
+        "e81b0d2",
+        "5994da5",
+        "20e4b79",
+        "c321da1"
+      ]
     }
   },
   "previous_anchor": {
@@ -93,7 +118,7 @@
     "findings": "docs/audit_findings_session4.md",
     "decision": "docs/audit_decision_v4.md",
     "progress": "docs/audit_progress_session4.md",
-    "phase": "Faz B2 Phase 2 SEALED (parser improvement + holdings minimal SOTP)",
+    "phase": "Faz B2 Phase 3a SEALED (KAP XBRL +2 field parse)",
     "phase_complete": true,
     "phase2_findings": "docs/faz_b2_phase2_findings.md",
     "phase2_decision": "docs/faz_b2_decision.md",
@@ -101,12 +126,19 @@
     "phase2_resolution": "docs/faz_b2_resolution.md",
     "phase2_adr": "docs/adr_078_cross_holdings.md",
     "remaining_steps": [
-      "Faz B2 Phase 3 (PARKING): full sub valuation + sector regression + IFRS parse (~14 gun)"
+      "Faz B2 Phase 3b: Per-sub DCF + multi-tier holding (ANA IS)",
+      "Faz B2 Phase 3c: Damodaran sector regression (fallback)",
+      "Faz B2 Phase 3d: Audit + UI sync + anchor v4.4"
     ],
     "phase2_decision_2": "docs/faz_b2_phase2_decision.md",
     "phase2_progress_2": "docs/faz_b2_phase2_progress.md",
     "phase2_resolution_2": "docs/faz_b2_phase2_resolution.md",
-    "phase2_adr_status": "PRODUCTION SEALED (ADR-078 update)"
+    "phase2_adr_status": "PRODUCTION SEALED (ADR-078 update)",
+    "phase3a_findings": "docs/faz_b2_phase3a_findings.md",
+    "phase3a_decision": "docs/faz_b2_phase3a_decision.md",
+    "phase3a_progress": "docs/faz_b2_phase3a_progress.md",
+    "phase3a_resolution": "docs/faz_b2_phase3a_resolution.md",
+    "phase3a_adr": "docs/adr_079_phase3_sub_valuation.md"
   },
   "production_status": {
     "cost_of_capital_py_updated": true,
