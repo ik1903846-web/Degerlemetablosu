@@ -113,3 +113,27 @@ def compute_taper_config(lifecycle_stage: Optional[str] = None) -> dict:
         "explicit_period_years": int(config["explicit_period_years"]),
         "transition_period_years": int(config["transition_period_years"]),
     }
+
+
+def compute_non_operating_assets(
+    financial_investments: Optional[float],
+    investment_properties: Optional[float],
+    equity_method_investments: Optional[float],
+) -> float:
+    """Phase 4a Adim 5: Damodaran non_operating_assets aggregate.
+
+    Damodaran formal equity bridge convention:
+      non_op_assets = financial_investments
+                    + investment_properties (Phase 3a)
+                    + equity_method_investments (Phase 3a)
+
+    Equity bridge (Engine A industrial_fcff dcf_valuation):
+      equity = operating_value - debt - minority + cash + non_op_assets
+
+    Graceful degradation: None inputs -> 0.0.
+    """
+    total = 0.0
+    total += financial_investments or 0.0
+    total += investment_properties or 0.0
+    total += equity_method_investments or 0.0
+    return total

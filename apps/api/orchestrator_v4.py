@@ -135,6 +135,10 @@ class TickerDataV4:
     investment_properties: Optional[float] = None
     # Phase 4a Adim 1: sales_to_capital ratio icin
     total_assets: Optional[float] = None
+    # Phase 4a Adim 5: Damodaran formal equity bridge + Adim 2 entegrasyon
+    minority_interests: Optional[float] = None
+    financial_investments: Optional[float] = None
+    revenue_onceki: Optional[float] = None
 
     # DCF outputs
     lifecycle_stage: Optional[str] = None
@@ -404,6 +408,10 @@ def enrich_full_financials(td: TickerDataV4, force_refresh: bool = False) -> Tic
                 "investment_properties":     (fli.investment_properties or 0) * unit_multiplier or None,
                 # Phase 4a Adim 1: sales_to_capital ratio icin
                 "total_assets":    (fli.total_assets or 0) * unit_multiplier or None,
+                # Phase 4a Adim 5: Damodaran formal equity bridge + Adim 2 entegrasyon
+                "minority_interests":    (fli.minority_interests or 0) * unit_multiplier or None,
+                "financial_investments": (fli.financial_investments or 0) * unit_multiplier or None,
+                "revenue_onceki":        (fli.revenue_onceki or 0) * unit_multiplier or None,
             }
             # Atomic cache write
             PARSED_FIN_CACHE_DIR.mkdir(parents=True, exist_ok=True)
@@ -431,6 +439,10 @@ def enrich_full_financials(td: TickerDataV4, force_refresh: bool = False) -> Tic
     td.investment_properties = parsed.get("investment_properties")
     # Phase 4a Adim 1: sales_to_capital ratio icin
     td.total_assets = parsed.get("total_assets")
+    # Phase 4a Adim 5: Damodaran formal equity bridge + Adim 2 entegrasyon
+    td.minority_interests = parsed.get("minority_interests")
+    td.financial_investments = parsed.get("financial_investments")
+    td.revenue_onceki = parsed.get("revenue_onceki")
     td.flags.append(f"unit_multiplier={parsed.get('unit_multiplier', 1):.0f}")
     return td
 
