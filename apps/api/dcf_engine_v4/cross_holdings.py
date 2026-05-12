@@ -69,6 +69,10 @@ class CrossHoldingsResult:
     full_consolidated_count: int = 0  # Skip edilen "full" sayisi
     null_relationship_count: int = 0  # Manuel review gereken
     computed_at: str = ""
+    # Phase 3b: 3-tier valuation audit
+    banking_proxy_subs: list[str] = field(default_factory=list)
+    unknown_proxy_subs: list[str] = field(default_factory=list)
+    private_subs: list[str] = field(default_factory=list)
 
 
 def _load_market_caps(date_str: Optional[str] = None) -> dict:
@@ -98,10 +102,28 @@ def _load_subs_df():
     return pd.read_csv(DEFAULT_SUBS_CSV)
 
 
+def _load_dialect_map() -> dict:
+    """Phase 3b: turkey_v4_batch.json'dan ticker -> dialect mapping."""
+    batch_path = REPO_ROOT / "apps/api/outputs/turkey_v4_batch.json"
+    if not batch_path.exists():
+        return {}
+    try:
+        d = json.loads(batch_path.read_text(encoding="utf-8"))
+        return {t['ticker']: t.get('dialect') for t in d.get('tickers', [])}
+    except Exception:
+        return {}
+
+
+# Phase 3b: full consolidated SKIP exception (banking/insurance/unknown
+# DCF yapilmadigi icin double-count YOK, dahil edilir)
+NON_CONSOLIDATED_DIALECTS = {"banking", "insurance", "unknown", None}
+
+
 def compute_cross_holdings_value(
     parent_ticker: str,
     subs_df=None,
     market_caps: Optional[dict] = None,
+    dialect_map: Optional[dict] = None,
 ) -> CrossHoldingsResult:
     """Tek parent ticker icin cross-holdings hesapla."""
     parent_ticker = parent_ticker.upper().strip()
@@ -111,6 +133,8 @@ def compute_cross_holdings_value(
         subs_df = _load_subs_df()
     if market_caps is None:
         market_caps = _load_market_caps()
+    if dialect_map is None:
+        dialect_map = _load_dialect_map()
 
     # Parent'in tum sub'lari
     parent_subs = subs_df[subs_df['parent_ticker'].str.upper() == parent_ticker]
@@ -135,6 +159,10 @@ def compute_cross_holdings_value(
     errors = []
     full_count = 0
     null_rel_count = 0
+    # Phase 3b: 3-tier flags
+    banking_proxy_subs: list[str] = []
+    unknown_proxy_subs: list[str] = []
+    private_subs: list[str] = []
 
     for _, row in listed.iterrows():
         sub_ticker = str(row['subsidiary_ticker']).upper().strip()
@@ -148,14 +176,20 @@ def compute_cross_holdings_value(
             continue
 
         rel_type = str(rel_type).strip().lower()
+        sub_dialect = dialect_map.get(sub_ticker)
 
-        # Konsolide -> SKIP (double-counting)
+        # Konsolide "full" -> DCF zaten konsolide bilancoda
+        # EXCEPTION (Phase 3b): banking/insurance/unknown sub'lar konsolide DCF
+        # yapmadiklari icin double-count YOK -> market_cap proxy ile dahil
         if rel_type in SKIP_RELATIONSHIPS:
-            full_count += 1
-            continue
+            if sub_dialect not in NON_CONSOLIDATED_DIALECTS:
+                full_count += 1
+                continue
+            # banking/insurance/unknown full -> dahil, asagidaki proxy logic
 
-        # Eligible degil -> SKIP
-        if rel_type not in ELIGIBLE_RELATIONSHIPS:
+        # Eligible degil + dialect normal -> SKIP
+        # (banking/insurance/unknown rel_type'i full degil de equity/joint vs ise zaten dahil)
+        elif rel_type not in ELIGIBLE_RELATIONSHIPS:
             skipped.append(f"{sub_ticker}: unknown relationship_type='{rel_type}'")
             continue
 
@@ -190,6 +224,12 @@ def compute_cross_holdings_value(
         # Contribution = market_cap × ownership
         contribution = float(mc_tl) * ownership
 
+        # Phase 3b: proxy flag tracking
+        if sub_dialect == "banking":
+            banking_proxy_subs.append(sub_ticker)
+        elif sub_dialect in ("unknown", None) or sub_dialect == "insurance":
+            unknown_proxy_subs.append(sub_ticker)
+
         contributions.append(CrossHoldingContribution(
             sub_ticker=sub_ticker,
             sub_name=str(row.get('subsidiary_name', '')),
@@ -211,6 +251,9 @@ def compute_cross_holdings_value(
         full_consolidated_count=full_count,
         null_relationship_count=null_rel_count,
         computed_at=now,
+        banking_proxy_subs=banking_proxy_subs,
+        unknown_proxy_subs=unknown_proxy_subs,
+        private_subs=private_subs,
     )
 
 
