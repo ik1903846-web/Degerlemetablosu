@@ -94,6 +94,9 @@ class FinancialLineItems:
     # Phase 3a: holding sub valuation icin (konsolide bilanco DISI)
     equity_method_investments: Optional[float] = None
     investment_properties: Optional[float] = None
+    # Phase 4a Adim 5: Damodaran formal equity bridge SOTP
+    minority_interests: Optional[float] = None
+    financial_investments: Optional[float] = None
 
     # Computed
     operating_margin_pct: Optional[float] = None   # op_income / revenue × 100
@@ -532,6 +535,13 @@ def _parse_balance_sheet(fli: FinancialLineItems, all_tables: List[pd.DataFrame]
     )
     fli.investment_properties = _find_value_in_tables(
         all_tables, ["Yatırım Amaçlı Gayrimenkuller"], "cari", require_exact=True,
+    )
+    # Phase 4a Adim 5: Damodaran formal equity bridge SOTP
+    fli.minority_interests = _find_value_in_tables(
+        all_tables, ["Kontrol Gücü Olmayan Paylar"], "cari", require_exact=True,
+    )
+    fli.financial_investments = _find_value_in_tables(
+        all_tables, ["Finansal Yatırımlar"], "cari", require_exact=True,
     )
 
 
