@@ -91,6 +91,9 @@ class FinancialLineItems:
     current_assets: Optional[float] = None
     current_liabilities: Optional[float] = None
     paid_in_capital: Optional[float] = None        # Ödenmiş Sermaye (shares proxy)
+    # Phase 3a: holding sub valuation icin (konsolide bilanco DISI)
+    equity_method_investments: Optional[float] = None
+    investment_properties: Optional[float] = None
 
     # Computed
     operating_margin_pct: Optional[float] = None   # op_income / revenue × 100
