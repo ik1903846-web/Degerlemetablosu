@@ -159,6 +159,10 @@ class TickerDataV4:
     cross_holdings_value_tl: Optional[float] = None
     cross_holdings_added_tl: Optional[float] = None
 
+    # Phase 5c: Terminal value sanity (Damodaran ImpliedROCROE.xls)
+    implied_roc: Optional[float] = None
+    terminal_value_sustainable: Optional[bool] = None
+
     @property
     def is_complete(self) -> bool:
         """DCF için minimum gereksinim kontrolü."""
@@ -997,6 +1001,30 @@ def calculate_intrinsic_value(td: TickerDataV4) -> TickerDataV4:
         # Phase 1 cross_holdings audit echo
         td.cross_holdings_value_tl = cross_holdings_tl if cross_holdings_tl > 0 else None
         td.cross_holdings_added_tl = cross_holdings_tl if cross_holdings_tl > 0 else None
+
+        # Phase 5c: Damodaran ImpliedROCROE terminal value sanity
+        try:
+            from dcf_engine_v4.inputs_helpers import compute_implied_roc as _imp_roc
+            em_capex_path = _today_dir / "emerging_markets" / "capex_emerg.json"
+            if em_capex_path.exists():
+                em_capex = _json.loads(em_capex_path.read_text(encoding="utf-8"))
+                damo_s = damo_sector_override or _load_bist_to_damodaran_sector_map().get(td.sector_name)
+                if damo_s and damo_s in em_capex:
+                    nce_sales = em_capex[damo_s].get("Net Cap Ex/Sales")
+                    implied_roc_val = _imp_roc(
+                        stable_growth=0.025,
+                        net_cap_ex_sales=nce_sales,
+                        stable_op_margin=terminal_margin,
+                        tax_rate=0.25,
+                    )
+                    td.implied_roc = implied_roc_val
+                    if implied_roc_val is not None and td.wacc:
+                        sustainable = implied_roc_val >= td.wacc
+                        td.terminal_value_sustainable = sustainable
+                        if not sustainable:
+                            td.flags.append(f"implied_roc_below_wacc: {implied_roc_val*100:.2f}% < {td.wacc*100:.2f}%")
+        except Exception as _ic_e:
+            td.flags.append(f"implied_roc_compute_fail: {type(_ic_e).__name__}")
 
         return td
 

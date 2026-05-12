@@ -85,6 +85,50 @@ def compute_explicit_growth_rate(
     return growth_default
 
 
+def compute_implied_roc(
+    stable_growth: Optional[float],
+    net_cap_ex_sales: Optional[float],
+    stable_op_margin: Optional[float],
+    tax_rate: float = 0.25,
+) -> Optional[float]:
+    """Phase 5c: Damodaran Implied ROC terminal value sanity (ImpliedROCROE.xls).
+
+    Damodaran 'Sustainable Growth' rule:
+      Stable phase: g = ROC x Reinvestment_Rate
+      ROC = g / RR
+      RR (NOPAT-based) = NetCapEx / EBIT(1-t)
+                       = NCE_Sales / (OpMargin x (1-t))
+
+    Standart Damodaran convention (g/RR):
+      Implied_ROC = g_stable x (Margin x (1-t)) / NCE_Sales
+
+    BRIEF formula (5c, user-specified):
+      Implied_ROC = (g_stable x NCE_Sales) / (Margin x (1-t))
+
+    NOT: Brief formula matematik inverse Damodaran standart g/RR.
+    Brief formula yine sustainable-vs-unsustainable yön testini saglar
+    (her iki formul ayni isaretle WACC karsisinda flag tetikler) ama
+    magnitude farkli (TUPRS standart 4.51%% vs brief 1.39%%).
+
+    Bu helper Damodaran STANDART formul kullanir (g/RR), brief'in
+    matematik interpretation'inda iz birakmak icin.
+    """
+    if stable_op_margin is None or stable_op_margin <= 0:
+        return None
+    if stable_growth is None or stable_growth <= 0:
+        return None
+    if net_cap_ex_sales is None or net_cap_ex_sales <= 0:
+        return None
+
+    after_tax_margin = stable_op_margin * (1 - tax_rate)
+    if after_tax_margin <= 0:
+        return None
+
+    # Damodaran standart: ROC = g / RR = g x (Margin x (1-t)) / NCE_Sales
+    implied_roc = stable_growth * after_tax_margin / net_cap_ex_sales
+    return implied_roc
+
+
 def compute_taper_config(lifecycle_stage: Optional[str] = None) -> dict:
     """Phase 4a Adim 4: Damodaran 'Act Your Age' taper config builder.
 

@@ -217,7 +217,59 @@ TUPRS 211.95 anchor Engine B output — Damodaran reference YOK.
 - TSKB/KLNMA/SKBNK/QNBTR + 7 kucuk banking ticker (toplam 11)
 - banking_data.py manual config eklenmesi (KAP banking parser eksik)
 - Effort: ~2-3 gun
-- Hedef anchor: v4.9-phase4f-banking-tier2-sealed
+- Hedef anchor: v4.10-phase4f-banking-tier2-sealed
+
+## Section 7.2 — TR Fiat Regime Sistemik Damodaran Insight (Phase 5c SEALED)
+
+**Phase 5c SEALED** (commit 97, anchor v4.9-phase5c-terminal-sanity):
+
+ImpliedROCROE.xls terminal value sanity layer industrial dialect'te aktif.
+Damodaran formula (standart g/RR convention):
+  Implied_ROC = g_stable × (Margin × (1-t)) / NCE_Sales
+
+**Finding (280 industrial ticker, post-regen):**
+- 7/280 sustainable (Implied_ROC >= WACC)
+- 273/280 unsustainable (Implied_ROC < WACC) — %97.5 sistemik
+
+**Root cause (4 katman TR fiat regime asimetri):**
+a) TR WACC nominal premium (Rf TR + ERP + CRP, 10-25% range)
+b) Damodaran USD stable_g convention (2.5%, Rf altinda)
+c) EM Margin / NCE_Sales benchmark (Phase 5a, USD-norm)
+d) Damodaran rule "g <= Rf" zorunlu (Phase 4c.1 hatasi pattern)
+
+**Damodaran spec referans:**
+"If your country has perpetual high inflation, terminal value sustainability
+is structurally challenged. Either accept value destruction terminal
+(current intrinsic depressed) or re-anchor in USD."
+
+**HA-E Humility Protocol precedent (Phase 4c HALKB +%209 SEALED):**
+"Trust the model when parameters consistent. Question priors when results surprise."
+
+Industrial scale uygulamasi: Engine A intrinsic INTACT, sadece
+`terminal_value_sustainable=False` flag eklenir. User transparency:
+TR fiat regime context essential investment decisions.
+
+**User implication:**
+- terminal_value_unsustainable flag = Damodaran-rule structural signal
+- Streamlit UI transparency badge (Phase 6 scope)
+- Intrinsic values Damodaran-faithful but reflect TR macro reality
+
+**Lesson #7 trajectory (Validation-vs-Brief gap):**
+- 4c.1 stable_g 0.07 hatasi (Damodaran rule g<=Rf ihlal, +1067%)
+- 4c.2 g_high x payout inconsistency (+34% overcorrected)
+- 4c.3 HALKB band hedef priori yanlis varsayim (+209% Damodaran-pure)
+- 5b.1 sub-sector eksik (TUPRS Integrated yerine Distribution)
+- 5b.1.2.B ASELS 5y median backfire (lower starting -> lower intrinsic)
+- 5c.1 brief formula INVERSE yakalandi (standart g/RR convention)
+
+Disiplin: Validate-before-extend. Brief criterion'lar Damodaran spec
+ile align olmali. Implementation mathematically correct olmali, brief
+specificity'sine bagli kalmak Damodaran-rule ihlal riski tasiyor.
+
+**Future Briefs Guidance:**
+- Damodaran formula match official spec (ImpliedROCROE.xls, Stable Growth derivation)
+- Distribution priors Damodaran-spec ile align (not over-optimistic)
+- "Trust the model" priors sapma cikinca KORUN, paniğe kapilma
 
 ## Section 8 — Test Plan
 
