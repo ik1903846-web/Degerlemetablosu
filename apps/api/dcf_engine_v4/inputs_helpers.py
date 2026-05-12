@@ -165,37 +165,48 @@ def compute_terminal_ebit_margin(
     ticker_sector_tr: Optional[str],
     starting_margin: Optional[float],
     sector_multiples_data: Optional[dict] = None,
+    em_margin_data: Optional[dict] = None,
+    damodaran_sector_override: Optional[str] = None,
 ) -> Optional[float]:
-    """Phase 4a Adim 3: Damodaran sector-based terminal_ebit_margin.
+    """Phase 4a Adim 3 + Phase 5b.2: Damodaran terminal_ebit_margin.
 
-    3-tier fallback chain:
-      Tier 1: Damodaran sector op_margin_pretax (via BIST->Damodaran map)
-      Tier 2: 0.5 x starting_margin (Damodaran "margin compression" convention)
+    4-tier fallback chain (Phase 5b.2 EM_FIRST):
+      Tier 0: EM-first lookup (margin_emerg.json, Phase 5a) if em_margin_data
+      Tier 1: Global sector op_margin_pretax (sector_multiples.json)
+      Tier 2: 0.5 x starting_margin (Damodaran compression)
       Tier 3: 0.10 (mature_stable conservative default)
 
     Sanity cap: [0.05, 0.40]
 
     Args:
-        ticker_sector_tr: TickerDataV4.sector_name (e.g., 'KIMYA ILAC PETROL...')
+        ticker_sector_tr: TickerDataV4.sector_name (BIST TR)
         starting_margin: td.op_income / td.revenue
-        sector_multiples_data: Pre-loaded sector multiples dict
-                               (sector_multiples.json content)
-
-    Returns:
-        Damodaran terminal operating margin (decimal) or None.
+        sector_multiples_data: Global sector_multiples.json content
+        em_margin_data: Phase 5a margin_emerg.json content (EM-first lookup)
+        damodaran_sector_override: Ticker-level Damodaran sector override
+                                   (Phase 5b.1.2.A: TUPRS Distribution, EREGL Steel, etc)
     """
     SANITY_LOW = 0.05
     SANITY_HIGH = 0.40
 
-    # Tier 1: Damodaran sector lookup
-    if ticker_sector_tr and sector_multiples_data:
+    damodaran_sector = damodaran_sector_override
+    if not damodaran_sector and ticker_sector_tr:
         sector_map = _load_bist_to_damodaran_sector_map()
         damodaran_sector = sector_map.get(ticker_sector_tr)
-        if damodaran_sector:
-            sector_data = sector_multiples_data.get(damodaran_sector, {})
-            margin = sector_data.get("op_margin_pretax")
-            if margin is not None and margin > 0:
-                return max(SANITY_LOW, min(SANITY_HIGH, float(margin)))
+
+    # Tier 0 (Phase 5b.2): EM-first lookup
+    if damodaran_sector and em_margin_data:
+        sd = em_margin_data.get(damodaran_sector, {})
+        m = sd.get("Pre-tax Unadjusted Operating Margin")
+        if m is not None and m > 0:
+            return max(SANITY_LOW, min(SANITY_HIGH, float(m)))
+
+    # Tier 1: Global sector lookup
+    if damodaran_sector and sector_multiples_data:
+        sd = sector_multiples_data.get(damodaran_sector, {})
+        m = sd.get("op_margin_pretax")
+        if m is not None and m > 0:
+            return max(SANITY_LOW, min(SANITY_HIGH, float(m)))
 
     # Tier 2: Compression heuristic (Damodaran convention)
     if starting_margin is not None and starting_margin > 0:

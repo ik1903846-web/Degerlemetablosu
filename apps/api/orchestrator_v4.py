@@ -845,50 +845,195 @@ def calculate_intrinsic_value(td: TickerDataV4) -> TickerDataV4:
         cross_holdings_tl = 0.0
         td.flags.append(f"cross_holdings_fail: {type(_ch_e).__name__}")
 
-    inputs = DCFInputs(
-        revenue=td.revenue,
-        op_income=op_income_normalized,
-        capex=td.capex or 0.0,
-        da=td.depreciation or 0.0,
-        working_capital=td.working_capital or 0.0,
-        tax_rate=TURKEY_TAX_RATE,
-        total_debt=td.total_debt,
-        cash=td.cash or 0.0,
-        shares_outstanding=td.shares_outstanding,
-        wacc=td.wacc,
-        lifecycle_stage=td.lifecycle_stage,
-        cross_holdings_value=cross_holdings_tl,
-    )
-    dcf: DCFResult = calculate_fcff_dcf(inputs)
-    if dcf.error:
-        td.errors.append(f"dcf: {dcf.error}")
-        td.dcf_method = f"fcff_failed:{dcf.error[:30]}"
-        return td
-
-    # Negative intrinsic guard (capital-intensive cyclical reinvestment > NOPAT)
-    if dcf.intrinsic_per_share is not None and dcf.intrinsic_per_share < 0:
-        td.flags.append(
-            f"dcf_negative_intrinsic={dcf.intrinsic_per_share:.2f} → NULL "
-            f"(reinvestment > NOPAT, capital-intensive cyclical)"
+    # ========================================================================
+    # Phase 5b.2: Industrial dialect Engine A swap (Damodaran-faithful, EM benchmark)
+    # ESKI: Engine B (calculate_fcff_dcf) — drift +%100-220 (commits 73-74)
+    # YENI: Engine A (industrial_fcff.py project_multi_year + dcf_valuation)
+    #       + EM_FIRST terminal_margin (Phase 5a margin_emerg.json)
+    #       + 3 ticker_override (Phase 5b.1.2.A audit: TUPRS/EREGL/BIMAS)
+    #       + 4 sanity guard (negative -> book_value, extreme cap)
+    # ========================================================================
+    try:
+        import json as _json
+        from pathlib import Path as _Path
+        from datetime import date as _date
+        from dcf_engine.industrial_fcff import (
+            ProjectionInputs as _ProjInp,
+            project_multi_year as _proj_multi,
+            dcf_valuation as _dcf_val,
         )
-        td.dcf_method = "fcff_negative_intrinsic_unsuitable"
+        from dcf_engine_v4.inputs_helpers import (
+            compute_sales_to_capital as _s2c,
+            compute_explicit_growth_rate as _gexp,
+            compute_taper_config as _taper,
+            compute_non_operating_assets as _nonop,
+            compute_terminal_ebit_margin as _tmargin,
+        )
+
+        # Phase 5b.1.2.A: ticker-level Damodaran sector override (audit specific sub-sector)
+        _TICKER_DAMO_OVERRIDE = {
+            "TUPRS": "Oil/Gas Distribution",         # refinery downstream (not Integrated)
+            "EREGL": "Steel",                         # pure steel (not Metals & Mining)
+            "BIMAS": "Retail (Grocery and Food)",    # grocery chain (not Retail General)
+        }
+        damo_sector_override = _TICKER_DAMO_OVERRIDE.get(td.ticker)
+
+        # Phase 5a EM data + Phase 3c global sector multiples (lazy load, cached)
+        _today_dir = _Path(__file__).resolve().parent / "data" / "damodaran" / _date.today().strftime("%Y_%m_%d")
+        _em_margin_data = None
+        _global_sm_data = None
+        _em_path = _today_dir / "emerging_markets" / "margin_emerg.json"
+        _g_path = _today_dir / "sector_multiples.json"
+        if _em_path.exists():
+            _em_margin_data = _json.loads(_em_path.read_text(encoding="utf-8"))
+        if _g_path.exists():
+            _global_sm_data = _json.loads(_g_path.read_text(encoding="utf-8"))
+
+        # Engine A inputs (Phase 4a Adim 1-5 helpers)
+        starting_margin = (op_income_normalized / td.revenue) if td.revenue and op_income_normalized else 0.05
+        if starting_margin <= 0:
+            starting_margin = 0.05
+        terminal_margin = _tmargin(
+            ticker_sector_tr=td.sector_name,
+            starting_margin=starting_margin,
+            sector_multiples_data=_global_sm_data,
+            em_margin_data=_em_margin_data,
+            damodaran_sector_override=damo_sector_override,
+        ) or 0.10
+
+        kap_s2c = _s2c(td.revenue, td.total_assets, td.cash) or 1.0
+        explicit_g = _gexp(td.revenue, td.revenue_onceki, td.lifecycle_stage) or 0.05
+
+        # EM Net Cap Ex/Sales floor (Phase 5b.1 ASELS fix pattern)
+        em_capex_path = _today_dir / "emerging_markets" / "capex_emerg.json"
+        sales_to_capital_final = kap_s2c
+        if em_capex_path.exists():
+            em_capex_data = _json.loads(em_capex_path.read_text(encoding="utf-8"))
+            damo_s = damo_sector_override or _Path  # placeholder
+            from dcf_engine_v4.inputs_helpers import _load_bist_to_damodaran_sector_map
+            damo_s = damo_sector_override or _load_bist_to_damodaran_sector_map().get(td.sector_name)
+            if damo_s and damo_s in em_capex_data:
+                nce = em_capex_data[damo_s].get("Net Cap Ex/Sales")
+                if nce and nce > 0 and explicit_g > 0:
+                    em_implied_s2c = explicit_g / nce
+                    sales_to_capital_final = max(kap_s2c, em_implied_s2c)
+
+        taper = _taper(td.lifecycle_stage or "mature_stable")
+        non_op = _nonop(td.financial_investments, td.investment_properties, td.equity_method_investments)
+        minority = td.minority_interests or 0
+        starting_tax_rate = 0.25  # Damodaran TR convention
+
+        proj_inputs = _ProjInp(
+            starting_revenues=td.revenue,
+            sales_to_capital=sales_to_capital_final,
+            starting_ebit_margin=starting_margin,
+            terminal_ebit_margin=terminal_margin,
+            margin_taper_start_year=taper["margin_taper_start_year"],
+            margin_taper_end_year=taper["margin_taper_end_year"],
+            starting_tax_rate=starting_tax_rate,
+            terminal_tax_rate=0.25,
+            tax_taper_start_year=taper["tax_taper_start_year"],
+            tax_taper_end_year=taper["tax_taper_end_year"],
+            explicit_growth_rate=explicit_g,
+            terminal_growth_rate=0.025,
+            explicit_period_years=taper["explicit_period_years"],
+            transition_period_years=taper["transition_period_years"],
+        )
+        projections = _proj_multi(proj_inputs, total_years=10)
+        result = _dcf_val(
+            projections=projections,
+            wacc=td.wacc or 0.12,
+            stable_cost_of_capital=(td.wacc or 0.12) * 0.9,
+            stable_growth=0.025,
+            stable_reinvestment_rate=0.025 / 0.12,
+            debt=td.total_debt or 0,
+            minority_interests=minority,
+            cash=td.cash or 0,
+            non_operating_assets=non_op + cross_holdings_tl,  # Phase 1+2+3 cross_holdings dahil
+            shares_outstanding=td.shares_outstanding,
+        )
+        intrinsic_tl = result.value_per_share
+
+        # 4 Sanity Guard
+        bvps = (td.total_equity / td.shares_outstanding) if (td.total_equity and td.shares_outstanding and td.total_equity > 0) else None
+        market = td.current_price_tl
+
+        if intrinsic_tl is None:
+            td.dcf_method = "industrial_engine_a_skip"
+            td.flags.append("engine_a_intrinsic_none")
+            return td
+
+        # Guard A: negative intrinsic -> book_value fallback (Damodaran "value destruction")
+        if intrinsic_tl < 0:
+            if bvps is not None:
+                td.intrinsic_per_share_tl = bvps
+                td.dcf_method = "industrial_engine_a_book_fallback"
+                td.flags.append(f"negative_fcff_value_destruction: dcf={intrinsic_tl:.2f} -> bvps {bvps:.2f}")
+            else:
+                td.dcf_method = "industrial_engine_a_skip"
+                td.flags.append(f"negative_fcff_no_bvps: {intrinsic_tl:.2f}")
+        # Guard C: extreme overpriced (intrinsic > market * 20) -> book_value
+        elif market and market > 0 and intrinsic_tl > market * 20:
+            if bvps is not None:
+                td.intrinsic_per_share_tl = bvps
+                td.dcf_method = "industrial_engine_a_book_fallback"
+                td.flags.append(f"extreme_undervalued_review: dcf={intrinsic_tl:.2f} -> bvps {bvps:.2f}")
+            else:
+                td.intrinsic_per_share_tl = intrinsic_tl
+                td.dcf_method = "industrial_engine_a_em"
+        # Guard B: extreme underpriced (intrinsic < market * 0.10) -> KEEP (Damodaran "overvalued")
+        elif market and market > 0 and intrinsic_tl < market * 0.10:
+            td.intrinsic_per_share_tl = intrinsic_tl
+            td.dcf_method = "industrial_engine_a_em"
+            td.flags.append(f"extreme_overvalued_market_premium: dcf={intrinsic_tl:.2f} market {market:.2f}")
+        else:
+            # Normal case
+            td.intrinsic_per_share_tl = intrinsic_tl
+            td.dcf_method = "industrial_engine_a_em"
+
+        if td.current_price_tl and td.current_price_tl > 0 and td.intrinsic_per_share_tl:
+            td.upside_pct = (td.intrinsic_per_share_tl - td.current_price_tl) / td.current_price_tl * 100
+
+        # Phase 1 cross_holdings audit echo
+        td.cross_holdings_value_tl = cross_holdings_tl if cross_holdings_tl > 0 else None
+        td.cross_holdings_added_tl = cross_holdings_tl if cross_holdings_tl > 0 else None
+
         return td
 
-    # High D/E distress (>3.0)
-    if td.de_ratio is not None and td.de_ratio > 3.0:
-        td.flags.append(f"high_leverage_warn: D/E={td.de_ratio:.2f}")
-        # DCF yine yapılır ama warning
-
-    td.intrinsic_per_share_tl = dcf.intrinsic_per_share
-    td.dcf_method = "industrial_fcff_2stage"
-    if td.current_price_tl and dcf.intrinsic_per_share:
-        td.upside_pct = (dcf.intrinsic_per_share - td.current_price_tl) / td.current_price_tl * 100
-
-    # Faz B2 Phase 1 Adim 4 tamamlama: cross-holdings audit echo
-    td.cross_holdings_value_tl = cross_holdings_tl if cross_holdings_tl > 0 else None
-    td.cross_holdings_added_tl = dcf.cross_holdings_added_tl
-
-    return td
+    except Exception as _ea_e:
+        # Engine A swap exception -> fallback to Engine B legacy (defensive)
+        td.errors.append(f"engine_a_exception: {type(_ea_e).__name__}: {_ea_e}")
+        td.flags.append("engine_a_fallback_to_b")
+        # Engine B legacy path (kept for safety)
+        inputs = DCFInputs(
+            revenue=td.revenue,
+            op_income=op_income_normalized,
+            capex=td.capex or 0.0,
+            da=td.depreciation or 0.0,
+            working_capital=td.working_capital or 0.0,
+            tax_rate=TURKEY_TAX_RATE,
+            total_debt=td.total_debt,
+            cash=td.cash or 0.0,
+            shares_outstanding=td.shares_outstanding,
+            wacc=td.wacc,
+            lifecycle_stage=td.lifecycle_stage,
+            cross_holdings_value=cross_holdings_tl,
+        )
+        dcf: DCFResult = calculate_fcff_dcf(inputs)
+        if dcf.error:
+            td.errors.append(f"dcf: {dcf.error}")
+            td.dcf_method = f"engine_b_legacy_fcff_failed:{dcf.error[:30]}"
+            return td
+        if dcf.intrinsic_per_share is not None and dcf.intrinsic_per_share < 0:
+            td.dcf_method = "engine_b_legacy_fcff_negative"
+            return td
+        td.intrinsic_per_share_tl = dcf.intrinsic_per_share
+        td.dcf_method = "engine_b_legacy_fcff_2stage"
+        if td.current_price_tl and dcf.intrinsic_per_share:
+            td.upside_pct = (dcf.intrinsic_per_share - td.current_price_tl) / td.current_price_tl * 100
+        td.cross_holdings_value_tl = cross_holdings_tl if cross_holdings_tl > 0 else None
+        td.cross_holdings_added_tl = dcf.cross_holdings_added_tl
+        return td
 
 
 def assemble_and_value(

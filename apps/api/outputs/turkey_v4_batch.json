@@ -2,8 +2,8 @@
   "fetch_date": "2026-05-12",
   "total_count": 615,
   "complete_count": 570,
-  "dcf_count": 191,
-  "anchor_tuprs": 211.95412760984857,
+  "dcf_count": 325,
+  "anchor_tuprs": 164.7788700172658,
   "tickers": [
     {
       "ticker": "ACSEL",
@@ -301,9 +301,9 @@
       "cost_of_equity": 0.11283619600164968,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 7.0850224521992375,
-      "upside_pct": -48.3975058106392,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 5.380495136456509,
+      "upside_pct": -60.8121257359322,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: cyclical_normalized:1.3x"
@@ -361,17 +361,16 @@
       "cost_of_equity": 0.12126857301839414,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 164.40151944324037,
+      "upside_pct": 366.2550182735122,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1000",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-11.01 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
-      "cross_holdings_value_tl": null,
-      "cross_holdings_added_tl": null
+      "cross_holdings_value_tl": 16511874483.6096,
+      "cross_holdings_added_tl": 16511874483.6096
     },
     {
       "ticker": "AGESA",
@@ -605,9 +604,9 @@
       "cost_of_equity": 0.11529255058171896,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 4.084217806423081,
-      "upside_pct": -81.99198498049788,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 14.300805085719821,
+      "upside_pct": -36.94530385485088,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -785,9 +784,9 @@
       "cost_of_equity": 0.11645940954779105,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 63.91128298736334,
-      "upside_pct": -68.68628957013065,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 100.05704266408857,
+      "upside_pct": -50.97646121308742,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1000",
         "op_margin: cyclical_normalized:1.3x"
@@ -1028,9 +1027,9 @@
       "cost_of_equity": 0.12378299984198772,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 856.584292298398,
-      "upside_pct": 1460.262827501636,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 72.01737180124567,
+      "upside_pct": 31.179183608826367,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1000",
         "op_margin: raw_margin"
@@ -1149,13 +1148,13 @@
       "cost_of_equity": 0.11959359276783785,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 0.11379118200331338,
+      "upside_pct": -99.60571316007167,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-2.52 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "extreme_overvalued_market_premium: dcf=0.11 market 28.86"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -1271,9 +1270,9 @@
       "cost_of_equity": 0.11601811660592794,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 6.660763043368336,
-      "upside_pct": -29.140818687570896,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 21.76001657095644,
+      "upside_pct": 131.48953798889832,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -1392,9 +1391,9 @@
       "cost_of_equity": 0.12481489495993874,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 14.743251222524147,
-      "upside_pct": 31.753808959107673,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 5.8779745642886425,
+      "upside_pct": -47.47118351842142,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1000",
         "op_margin: raw_margin"
@@ -1452,13 +1451,13 @@
       "cost_of_equity": 0.12203060445416827,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 40.2606149769942,
+      "upside_pct": -53.61680302189609,
+      "dcf_method": "industrial_engine_a_book_fallback",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-24.93 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "negative_fcff_value_destruction: dcf=-1.70 -> bvps 40.26"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -1697,9 +1696,9 @@
       "cost_of_equity": 0.11808907624797443,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 9.043522316755489,
-      "upside_pct": 24.738238851799846,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 18.177346154549937,
+      "upside_pct": 150.72201592482674,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -1940,13 +1939,12 @@
       "cost_of_equity": 0.12468303713899447,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 26.89178756336467,
+      "upside_pct": -42.193061987608196,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-2.39 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -2001,13 +1999,12 @@
       "cost_of_equity": 0.11261902030444007,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 6.275950561272057,
+      "upside_pct": -69.44522608923049,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-17.82 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -2062,13 +2059,13 @@
       "cost_of_equity": 0.11500985484396403,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 0.20929771794716473,
+      "upside_pct": -98.1972634113078,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-10.89 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "extreme_overvalued_market_premium: dcf=0.21 market 11.61"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -2184,14 +2181,13 @@
       "cost_of_equity": 0.10873770202504691,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 3.2812175752779416,
+      "upside_pct": -83.15596727270051,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "beta: low_r2=0.015",
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-6.77 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -2246,12 +2242,13 @@
       "cost_of_equity": 0.1237573368080355,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 1.7036895562940784,
-      "upside_pct": -99.5007503131739,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 1.372414506170994,
+      "upside_pct": -99.5978272509389,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin"
+        "op_margin: raw_margin",
+        "extreme_overvalued_market_premium: dcf=1.37 market 341.25"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -2306,9 +2303,9 @@
       "cost_of_equity": 0.1220422250157118,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 7.884142116050355,
-      "upside_pct": 131.20651366716584,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 6.019356957591904,
+      "upside_pct": 76.52073189419072,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -2427,9 +2424,9 @@
       "cost_of_equity": 0.11979440083815665,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 1.9950928500886769,
-      "upside_pct": -90.22971180172048,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 13.070313425530578,
+      "upside_pct": -35.99258851356231,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1000",
         "op_margin: raw_margin"
@@ -2548,13 +2545,13 @@
       "cost_of_equity": 0.12285389759027274,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 48.97902031844846,
+      "upside_pct": -31.015464340213434,
+      "dcf_method": "industrial_engine_a_book_fallback",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-13.64 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "negative_fcff_value_destruction: dcf=-1.52 -> bvps 48.98"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -2609,13 +2606,12 @@
       "cost_of_equity": 0.11263887517630025,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 1.6309640998755286,
+      "upside_pct": -87.80131563294294,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-9.61 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -2670,13 +2666,12 @@
       "cost_of_equity": 0.12397580656747643,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 7.26832096394323,
+      "upside_pct": -86.86843547616398,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-4.98 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -2731,9 +2726,9 @@
       "cost_of_equity": 0.13979150847123992,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 302.3112954170851,
-      "upside_pct": 164.72092418308677,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 828.8904369173908,
+      "upside_pct": 625.8234999276626,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "beta: sector_override: METAL EŞYA MAKİNE ELEKTRİKLİ C → Beyaz Eşya (Türkiye)",
         "unit_multiplier=1000",
@@ -2792,13 +2787,12 @@
       "cost_of_equity": 0.11903611529434442,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 9.0998829874347,
+      "upside_pct": -84.06325221114763,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-21.90 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -2853,13 +2847,13 @@
       "cost_of_equity": 0.14246971140949372,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 31.68826426572863,
+      "upside_pct": -7.506525785964296,
+      "dcf_method": "industrial_engine_a_book_fallback",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-73.40 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "negative_fcff_value_destruction: dcf=-50.64 -> bvps 31.69"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -2914,13 +2908,13 @@
       "cost_of_equity": 0.11439442552296808,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 0.20607095270254774,
+      "upside_pct": -99.36397854104152,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-5.80 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "extreme_overvalued_market_premium: dcf=0.21 market 32.40"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -2975,13 +2969,13 @@
       "cost_of_equity": 0.12704485276573133,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 0.3939937770948042,
+      "upside_pct": -99.70038496038418,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-169.71 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "extreme_overvalued_market_premium: dcf=0.39 market 131.50"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -3096,14 +3090,13 @@
       "cost_of_equity": 0.11118260477649117,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 6.3038589240936185,
+      "upside_pct": -85.57469353754321,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "beta: low_r2=0.042",
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-49.82 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -3158,13 +3151,13 @@
       "cost_of_equity": 0.4827783554575652,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 0.17112818711545694,
+      "upside_pct": -93.73156823752905,
+      "dcf_method": "industrial_engine_a_book_fallback",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-1.65 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "negative_fcff_value_destruction: dcf=-1.81 -> bvps 0.17"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -3280,14 +3273,14 @@
       "cost_of_equity": 0.1273467055879876,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 10.026939277223265,
+      "upside_pct": -97.65588795389286,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "beta: sector_override: SAVUNMA → Savunma (Türkiye)",
         "unit_multiplier=1000",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-6.59 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "extreme_overvalued_market_premium: dcf=10.03 market 427.75"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -3402,9 +3395,9 @@
       "cost_of_equity": 0.11529319813557805,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 4.798896353346793,
-      "upside_pct": -64.39987868437098,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 22.74775368422597,
+      "upside_pct": 68.75188193045972,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -3523,13 +3516,12 @@
       "cost_of_equity": 0.11150827453561987,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 18.34679398484015,
+      "upside_pct": -65.64270789355776,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-10.86 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -3831,13 +3823,12 @@
       "cost_of_equity": 0.12176424461564513,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 1.522300221999689,
+      "upside_pct": -69.85544114852101,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-2.28 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -4016,18 +4007,17 @@
       "cost_of_equity": 0.11376009779201561,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 19.12151632146093,
+      "upside_pct": -53.13353842779184,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "beta: low_r2=0.027",
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-52.35 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
-      "cross_holdings_value_tl": null,
-      "cross_holdings_added_tl": null
+      "cross_holdings_value_tl": 94376155.3152,
+      "cross_holdings_added_tl": 94376155.3152
     },
     {
       "ticker": "AVPGY",
@@ -4141,12 +4131,13 @@
       "cost_of_equity": 0.12320538802943584,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 35.00604789913247,
-      "upside_pct": 25.110964614483443,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 46.329676794045845,
+      "upside_pct": 65.58140383861989,
+      "dcf_method": "industrial_engine_a_book_fallback",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin"
+        "op_margin: raw_margin",
+        "negative_fcff_value_destruction: dcf=-3.83 -> bvps 46.33"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -4201,9 +4192,9 @@
       "cost_of_equity": 0.12027786695099238,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 39.473778684802745,
-      "upside_pct": 9.043587527079398,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 12.409687855556095,
+      "upside_pct": -65.71909432166825,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -4261,13 +4252,13 @@
       "cost_of_equity": 0.12412355062881372,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 1.6555918783633083,
+      "upside_pct": -94.48136040545563,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: cyclical_normalized:1.3x",
-        "dcf_negative_intrinsic=-0.73 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "extreme_overvalued_market_premium: dcf=1.66 market 30.00"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -4322,9 +4313,9 @@
       "cost_of_equity": 0.11237537415031842,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 70.42181477953619,
-      "upside_pct": -75.37698783932301,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 447.2040981192527,
+      "upside_pct": 56.36506927246599,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1000",
         "op_margin: raw_margin"
@@ -4382,12 +4373,13 @@
       "cost_of_equity": 0.12850418956951015,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 1.5502329026375619,
-      "upside_pct": -68.23293232300078,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 0.037957629554197035,
+      "upside_pct": -99.22217972225008,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin"
+        "op_margin: raw_margin",
+        "extreme_overvalued_market_premium: dcf=0.04 market 4.88"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -4442,9 +4434,9 @@
       "cost_of_equity": 0.11509988888372791,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 80.48914843528085,
-      "upside_pct": 598.084548441291,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 95.15368213206143,
+      "upside_pct": 725.2704434697436,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -4564,9 +4556,9 @@
       "cost_of_equity": 0.120168264952032,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 26.73938110207627,
-      "upside_pct": -25.225444345424297,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 8.268892530405703,
+      "upside_pct": -76.87669874047623,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -4624,9 +4616,9 @@
       "cost_of_equity": 0.120168264952032,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 26.73938110207627,
-      "upside_pct": -25.225444345424297,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 8.268892530405703,
+      "upside_pct": -76.87669874047623,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -4866,13 +4858,12 @@
       "cost_of_equity": 0.14017527215512954,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 5.1432530573071125,
+      "upside_pct": -65.4351273030436,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-2.61 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -4927,13 +4918,12 @@
       "cost_of_equity": 0.11366758105040901,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 2.268790111724695,
+      "upside_pct": -67.44920930093694,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-0.74 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -5049,13 +5039,13 @@
       "cost_of_equity": 0.13369889226441026,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 14.658556058324338,
+      "upside_pct": -75.32229619810718,
+      "dcf_method": "industrial_engine_a_book_fallback",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-89.35 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "negative_fcff_value_destruction: dcf=-13.15 -> bvps 14.66"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -5173,9 +5163,9 @@
       "cost_of_equity": 0.11312776554951078,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 4.732445258497573,
-      "upside_pct": -65.95363123383042,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 17.21277980719558,
+      "upside_pct": 23.832948253205615,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: cyclical_normalized:1.3x"
@@ -5233,9 +5223,9 @@
       "cost_of_equity": 0.11312776554951078,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 4.732445258497573,
-      "upside_pct": -65.95363123383042,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 17.21277980719558,
+      "upside_pct": 23.832948253205615,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: cyclical_normalized:1.3x"
@@ -5293,9 +5283,9 @@
       "cost_of_equity": 0.11312776554951078,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 4.732445258497573,
-      "upside_pct": -65.95363123383042,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 17.21277980719558,
+      "upside_pct": 23.832948253205615,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: cyclical_normalized:1.3x"
@@ -5663,13 +5653,12 @@
       "cost_of_equity": 0.11343523145025855,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 28.330387028475027,
+      "upside_pct": 59.33850972145683,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-5.03 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -5724,9 +5713,9 @@
       "cost_of_equity": 0.11223067772406886,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 4.447106672725171,
-      "upside_pct": -52.0268967343563,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 9.478995566525168,
+      "upside_pct": 2.2545368557191794,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -5784,13 +5773,13 @@
       "cost_of_equity": 0.12005309316711868,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 0.05623809490181228,
+      "upside_pct": -99.64563267232633,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-0.69 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "extreme_overvalued_market_premium: dcf=0.06 market 15.87"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -5845,9 +5834,9 @@
       "cost_of_equity": 0.11348444228916946,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 47.20002068523248,
-      "upside_pct": 49.367154067191386,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 3.295932803183311,
+      "upside_pct": -89.56983290131863,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -5966,13 +5955,12 @@
       "cost_of_equity": 0.10955329569251247,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 99.96981008511017,
+      "upside_pct": 228.848059490494,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: cyclical_normalized:1.3x",
-        "dcf_negative_intrinsic=-33.26 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: cyclical_normalized:1.3x"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -6027,13 +6015,13 @@
       "cost_of_equity": 0.12057445205241135,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 1.7333821518291312,
+      "upside_pct": -93.11056378446293,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: cyclical_normalized:1.3x",
-        "dcf_negative_intrinsic=-84.90 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "extreme_overvalued_market_premium: dcf=1.73 market 25.16"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -6210,13 +6198,12 @@
       "cost_of_equity": 0.1112201682321319,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 196.86346154715505,
+      "upside_pct": -75.12780018355589,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1000",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-281.23 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -6271,13 +6258,14 @@
       "cost_of_equity": 0.11363095857526957,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 1.9438221490886753,
-      "upside_pct": -98.9152778185889,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 5.450245332254479,
+      "upside_pct": -96.958568452983,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "beta: low_r2=0.001",
         "unit_multiplier=1",
-        "op_margin: raw_margin"
+        "op_margin: raw_margin",
+        "extreme_overvalued_market_premium: dcf=5.45 market 179.20"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -6577,9 +6565,9 @@
       "cost_of_equity": 0.12510193019390284,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 25.170373250871975,
-      "upside_pct": 51.17341291815002,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 14.783048700557627,
+      "upside_pct": -11.212920717371603,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -6759,13 +6747,14 @@
       "cost_of_equity": 0.11303483501148757,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 0.16004419776774817,
-      "upside_pct": -99.62324812201567,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 1.9326348446595827,
+      "upside_pct": -95.45048294571662,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "beta: low_r2=0.020",
         "unit_multiplier=1",
-        "op_margin: cyclical_normalized:1.3x"
+        "op_margin: cyclical_normalized:1.3x",
+        "extreme_overvalued_market_premium: dcf=1.93 market 42.48"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -6820,9 +6809,9 @@
       "cost_of_equity": 0.12092930472241747,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 12.712944324929921,
-      "upside_pct": -84.13855979422344,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 13.225792761317305,
+      "upside_pct": -83.49869898775133,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "beta: low_r2=0.034",
         "unit_multiplier=1",
@@ -6881,9 +6870,9 @@
       "cost_of_equity": 0.12146730686542348,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 0.8260097792845027,
-      "upside_pct": -95.59226371779882,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 5.3975696757812175,
+      "upside_pct": -71.19760044940652,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "beta: low_r2=0.025",
         "unit_multiplier=1",
@@ -7003,13 +6992,12 @@
       "cost_of_equity": 0.11152805942976265,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 4.356440718147385,
+      "upside_pct": -40.48578253897015,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-18.15 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -7064,14 +7052,14 @@
       "cost_of_equity": 0.15151346095831075,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 2.125876134522333,
+      "upside_pct": -69.71686418059355,
+      "dcf_method": "industrial_engine_a_book_fallback",
       "flags": [
         "beta: low_r2=0.011",
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-50.47 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "negative_fcff_value_destruction: dcf=-6.07 -> bvps 2.13"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -7126,9 +7114,9 @@
       "cost_of_equity": 0.11853952777584015,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 158.64960506038977,
-      "upside_pct": -73.68994940955393,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 469.0640634958538,
+      "upside_pct": -22.21159809355658,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1000",
         "op_margin: cyclical_normalized:1.3x"
@@ -7308,13 +7296,12 @@
       "cost_of_equity": 0.11285595545748062,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 1.868807726543276,
+      "upside_pct": -72.10734736502572,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-2.35 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -7369,9 +7356,9 @@
       "cost_of_equity": 0.12345635301225752,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 106.11030985417395,
-      "upside_pct": 11.69506300439363,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 60.03306374524936,
+      "upside_pct": -36.807301320790145,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "beta: sector_override: KİMYA İLAÇ PETROL LASTİK VE PL → Lastik (Türkiye)",
         "unit_multiplier=1000",
@@ -7613,13 +7600,12 @@
       "cost_of_equity": 0.11578514760889257,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 3.224384261678588,
+      "upside_pct": -49.77594607977277,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: cyclical_normalized:1.3x",
-        "dcf_negative_intrinsic=-18.37 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: cyclical_normalized:1.3x"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -7674,13 +7660,12 @@
       "cost_of_equity": 0.11574339664705743,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 21.333888140521108,
+      "upside_pct": -85.82465904284311,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-28.19 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -7918,9 +7903,9 @@
       "cost_of_equity": 0.11461928876720384,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 1.379597396623052,
-      "upside_pct": -88.84723204023402,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 1.7220853925471304,
+      "upside_pct": -86.0785336091582,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -8102,13 +8087,12 @@
       "cost_of_equity": 0.14591911333722918,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 1.6882807825442088,
+      "upside_pct": -50.77898593165572,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-15.33 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -8163,14 +8147,13 @@
       "cost_of_equity": 0.11537081625888611,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 37.11467554311275,
+      "upside_pct": -81.30243045687014,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "beta: low_r2=0.039",
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-1.38 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -8286,13 +8269,13 @@
       "cost_of_equity": 0.12081268407425039,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 2.8223898030300085,
+      "upside_pct": -93.08237793374998,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-11.16 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "extreme_overvalued_market_premium: dcf=2.82 market 40.80"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -8347,13 +8330,12 @@
       "cost_of_equity": 0.12060587232418787,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 14.055469220811363,
+      "upside_pct": -62.75710328348871,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-84.80 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -8408,13 +8390,12 @@
       "cost_of_equity": 0.11352235327676766,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 11.304730291084581,
+      "upside_pct": -74.78873708500316,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: cyclical_normalized:1.3x",
-        "dcf_negative_intrinsic=-54.39 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: cyclical_normalized:1.3x"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -8591,9 +8572,9 @@
       "cost_of_equity": 0.13294071501264138,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 310.43100359776855,
-      "upside_pct": -82.89636343813947,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 320.44557282721655,
+      "upside_pct": -82.34459653844539,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: cyclical_normalized:1.3x"
@@ -8775,13 +8756,12 @@
       "cost_of_equity": 0.11597730147558422,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 3.9570822294754313,
+      "upside_pct": -65.47048665379205,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: cyclical_normalized:1.3x",
-        "dcf_negative_intrinsic=-7.02 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: cyclical_normalized:1.3x"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -8897,9 +8877,9 @@
       "cost_of_equity": 0.11293467240759807,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 28.375806432686712,
-      "upside_pct": -91.0697698087532,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 33.27071942949409,
+      "upside_pct": -89.52927791361319,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1000",
         "op_margin: cyclical_normalized:1.3x"
@@ -8957,13 +8937,12 @@
       "cost_of_equity": 0.12448651799968496,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 23.55838873279112,
+      "upside_pct": -59.69480114150365,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1000",
-        "op_margin: cyclical_normalized:1.3x",
-        "dcf_negative_intrinsic=-30.21 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: cyclical_normalized:1.3x"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -9140,9 +9119,9 @@
       "cost_of_equity": 0.11513624392754711,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 15.084347726177487,
-      "upside_pct": 44.90247575578758,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 6.947067020772656,
+      "upside_pct": -33.26544648633376,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -9200,13 +9179,12 @@
       "cost_of_equity": 0.12115057515304134,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 1.0238508760000804,
+      "upside_pct": -56.799541097043026,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-1.77 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -9261,9 +9239,9 @@
       "cost_of_equity": 0.11395951996271206,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 163.54815870667332,
-      "upside_pct": 50.04418229970029,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 27.891278108056035,
+      "upside_pct": -74.41167146049904,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -9321,9 +9299,9 @@
       "cost_of_equity": 0.11487700352763472,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 2.768263699575724,
-      "upside_pct": -78.6564094095935,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 3.467319422712293,
+      "upside_pct": -73.26661971694453,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -9381,12 +9359,13 @@
       "cost_of_equity": 0.1254629163114057,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 1.395016593391988,
-      "upside_pct": -85.03201080051514,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 0.6074124937994756,
+      "upside_pct": -93.4826985643833,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: cyclical_normalized:1.3x"
+        "op_margin: cyclical_normalized:1.3x",
+        "extreme_overvalued_market_premium: dcf=0.61 market 9.32"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -9626,9 +9605,9 @@
       "cost_of_equity": 0.1277218382030855,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 2.580942986209954,
-      "upside_pct": -83.27321460654599,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 2.5148721678532344,
+      "upside_pct": -83.70141174430827,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -9686,9 +9665,9 @@
       "cost_of_equity": 0.11090463616206925,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 6.553177602771652,
-      "upside_pct": -53.158130073111856,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 5.639618893930735,
+      "upside_pct": -59.68821376747151,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -9746,9 +9725,9 @@
       "cost_of_equity": 0.11346568341005617,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 455.45183373887744,
-      "upside_pct": 904.9687417009652,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 108.85932168162756,
+      "upside_pct": 140.20150415187018,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -9867,9 +9846,9 @@
       "cost_of_equity": 0.11917476485372946,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 992.1533412565586,
-      "upside_pct": 1282.7921132495592,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 29.553897787153176,
+      "upside_pct": -58.809898554490346,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "beta: sector_override: KİMYA İLAÇ PETROL LASTİK VE PL → İlaç (Türkiye)",
         "unit_multiplier=1",
@@ -9928,13 +9907,12 @@
       "cost_of_equity": 0.11239845105516996,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 2.2089755543865595,
+      "upside_pct": -89.57046480459604,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-3.54 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -10110,13 +10088,13 @@
       "cost_of_equity": 0.11123129045135195,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 0.3776498411047746,
+      "upside_pct": -95.21356348409665,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-0.04 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "extreme_overvalued_market_premium: dcf=0.38 market 7.89"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -10232,13 +10210,13 @@
       "cost_of_equity": 0.11668463465501877,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 3.157860951296044,
+      "upside_pct": -98.30949627874944,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-103.94 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "extreme_overvalued_market_premium: dcf=3.16 market 186.80"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -10658,9 +10636,9 @@
       "cost_of_equity": 0.11329337671480383,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 398.049552006145,
-      "upside_pct": 114.12025390325175,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 760.3871797611424,
+      "upside_pct": 309.03022042019495,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1000",
         "op_margin: raw_margin"
@@ -10839,13 +10817,12 @@
       "cost_of_equity": 0.116592636992872,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 6.710366455946109,
+      "upside_pct": -69.13354896068947,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-7.98 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -10961,9 +10938,9 @@
       "cost_of_equity": 0.12538370143491634,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 2.788649246230766,
-      "upside_pct": -84.00086490974891,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 6.877301459911954,
+      "upside_pct": -60.54330774577191,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -11203,13 +11180,13 @@
       "cost_of_equity": 0.11319748269274219,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 0.7297492119667137,
+      "upside_pct": -97.11104825032973,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-1.06 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "extreme_overvalued_market_premium: dcf=0.73 market 25.26"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -11264,9 +11241,9 @@
       "cost_of_equity": 0.11689858290745725,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 19.439495846299728,
-      "upside_pct": -52.60971271014206,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 92.93137900832016,
+      "upside_pct": 126.5513871485133,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -11324,14 +11301,14 @@
       "cost_of_equity": 0.11800777154809963,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 0.7123352093524777,
+      "upside_pct": -94.75066168494858,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "beta: low_r2=0.005",
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-0.85 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "extreme_overvalued_market_premium: dcf=0.71 market 13.57"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -11386,13 +11363,12 @@
       "cost_of_equity": 0.11690792806187439,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 1082.059333405775,
+      "upside_pct": -83.58028325636153,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1000",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-779.03 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -11447,13 +11423,12 @@
       "cost_of_equity": 0.1147664426810388,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 28.390491650262515,
+      "upside_pct": -78.09375644269866,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-16.22 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -11508,9 +11483,9 @@
       "cost_of_equity": 0.11204817139058497,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 50.72164400700514,
-      "upside_pct": 21.809903955343753,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 30.226828586786567,
+      "upside_pct": -27.409153249792105,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -11751,9 +11726,9 @@
       "cost_of_equity": 0.11300848925515677,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 6.854480384103959,
-      "upside_pct": -92.49646372840289,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 46.01975246576719,
+      "upside_pct": -49.622602664732135,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1000",
         "op_margin: raw_margin"
@@ -11933,13 +11908,12 @@
       "cost_of_equity": 0.12497775489223878,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 4.6412552598783225,
+      "upside_pct": -28.596072924948885,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-10.14 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -12055,13 +12029,13 @@
       "cost_of_equity": 0.11993136987965425,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 1.8874386980366806,
+      "upside_pct": -92.44420056830792,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-0.10 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "extreme_overvalued_market_premium: dcf=1.89 market 24.98"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -12178,9 +12152,9 @@
       "cost_of_equity": 0.1191535335112804,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 40184.21761565772,
-      "upside_pct": 181729.03898487653,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 54.252985587874925,
+      "upside_pct": 145.48862256956977,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1000",
         "op_margin: raw_margin"
@@ -12238,9 +12212,9 @@
       "cost_of_equity": 0.11621141190135396,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 19.273038852256693,
-      "upside_pct": -63.77248336041976,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 8.196665707003275,
+      "upside_pct": -84.59273363345248,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -12359,9 +12333,9 @@
       "cost_of_equity": 0.12161228588167121,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 311.7026699430368,
-      "upside_pct": 159.32002491101233,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 232.09342891285635,
+      "upside_pct": 93.08937513548781,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1000",
         "op_margin: raw_margin"
@@ -12419,9 +12393,9 @@
       "cost_of_equity": 0.11357395824637535,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 0.34508477821727834,
-      "upside_pct": -96.16572468647468,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 7.666616710397556,
+      "upside_pct": -14.815369884471597,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -12479,13 +12453,12 @@
       "cost_of_equity": 0.1133530495333597,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 32.1886399639899,
+      "upside_pct": -71.13126460628708,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1000",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-0.06 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -12722,9 +12695,9 @@
       "cost_of_equity": 0.15978838069812074,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 39.426411315299106,
-      "upside_pct": -34.179613830886304,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 7.1906396026148185,
+      "upside_pct": -87.99559331783837,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: cyclical_normalized:1.3x"
@@ -12782,17 +12755,16 @@
       "cost_of_equity": 0.12133686399671449,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 20.647642664104787,
+      "upside_pct": -49.63989594120784,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1000",
-        "op_margin: cyclical_normalized:1.3x",
-        "dcf_negative_intrinsic=-27.04 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: cyclical_normalized:1.3x"
       ],
       "errors": [],
-      "cross_holdings_value_tl": null,
-      "cross_holdings_added_tl": null
+      "cross_holdings_value_tl": 160259151082.2912,
+      "cross_holdings_added_tl": 160259151082.2912
     },
     {
       "ticker": "KIMMR",
@@ -12843,9 +12815,9 @@
       "cost_of_equity": 0.11329698475136929,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 26.198410277099246,
-      "upside_pct": 45.54672376166248,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 37.52222999653614,
+      "upside_pct": 108.45683331408966,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "beta: low_r2=0.034",
         "unit_multiplier=1",
@@ -13087,9 +13059,9 @@
       "cost_of_equity": 0.11702093535546318,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 0.8620302389451732,
-      "upside_pct": -77.60960418324225,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 1.2191166513613554,
+      "upside_pct": -68.3346324321726,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "beta: low_r2=0.025",
         "unit_multiplier=1",
@@ -13332,13 +13304,13 @@
       "cost_of_equity": 0.11444463649033482,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 0.05844760289859268,
+      "upside_pct": -99.2694049637676,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-0.10 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "extreme_overvalued_market_premium: dcf=0.06 market 8.00"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -13516,13 +13488,12 @@
       "cost_of_equity": 0.1144246746051761,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 2.9802987447737865,
+      "upside_pct": -42.017534148369904,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-0.96 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -13577,13 +13548,13 @@
       "cost_of_equity": 0.11536281681131977,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 4.4679445099873325,
+      "upside_pct": -92.49715447525216,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1000",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-12.69 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "extreme_overvalued_market_premium: dcf=4.47 market 59.55"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -13947,9 +13918,9 @@
       "cost_of_equity": 0.11364603312824094,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 1.621095848100916,
-      "upside_pct": -73.16066476654113,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 1.122303478859084,
+      "upside_pct": -81.41881657518074,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -14007,9 +13978,9 @@
       "cost_of_equity": 0.12835914898152012,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 29.863998379338344,
-      "upside_pct": -69.33881069883128,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 37.6500109636331,
+      "upside_pct": -61.34495794288183,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "beta: sector_override: METAL EŞYA MAKİNE ELEKTRİKLİ C → Otomotiv (Türkiye)",
         "unit_multiplier=1000",
@@ -14131,13 +14102,12 @@
       "cost_of_equity": 0.11418703467137868,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 9.669593346116889,
+      "upside_pct": -73.72393112468237,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-125.81 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -14192,9 +14162,9 @@
       "cost_of_equity": 0.12437982942307765,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 41.96501877091696,
-      "upside_pct": -57.28751270135678,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 19.6752713189929,
+      "upside_pct": -79.97427855573241,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -14679,12 +14649,13 @@
       "cost_of_equity": 0.14459689811988433,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 10.891407938814979,
-      "upside_pct": 87.45968913623028,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 2.6154020085784695,
+      "upside_pct": -54.98447489537918,
+      "dcf_method": "industrial_engine_a_book_fallback",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin"
+        "op_margin: raw_margin",
+        "extreme_undervalued_review: dcf=379.88 -> bvps 2.62"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -14861,9 +14832,9 @@
       "cost_of_equity": 0.11041398776549818,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 2.672415864073883,
-      "upside_pct": -69.97285545984401,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 1.3660409760953511,
+      "upside_pct": -84.65122498769269,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "beta: low_r2=0.048",
         "unit_multiplier=1",
@@ -14922,9 +14893,9 @@
       "cost_of_equity": 0.10717490565372872,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 2.7119729593976856,
-      "upside_pct": -68.68391501850247,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 2.641923825842599,
+      "upside_pct": -69.49279646833027,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -15165,14 +15136,13 @@
       "cost_of_equity": 0.11285290245474044,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 13.186258520681744,
+      "upside_pct": -84.01665633856757,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "beta: low_r2=0.044",
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-12.69 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -15289,13 +15259,13 @@
       "cost_of_equity": 0.11552055487329205,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 1.6615476224439316,
+      "upside_pct": -97.30049127141521,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1000",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-0.60 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "extreme_overvalued_market_premium: dcf=1.66 market 61.55"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -15350,9 +15320,9 @@
       "cost_of_equity": 0.1258134229572805,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 1.4413848310382151,
-      "upside_pct": -88.2431906114338,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 129.70334170818353,
+      "upside_pct": 957.9391656458689,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -15470,9 +15440,9 @@
       "cost_of_equity": 0.12722349213418477,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 23.202171032621123,
-      "upside_pct": 38.52042407534999,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 16.223347641021608,
+      "upside_pct": -3.1441931879307004,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -15530,9 +15500,9 @@
       "cost_of_equity": 0.11845708755611367,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 21.14456462108821,
-      "upside_pct": -5.1813245691111645,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 20.37312941865728,
+      "upside_pct": -8.640675252657932,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -15590,9 +15560,9 @@
       "cost_of_equity": 0.11595175117884837,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 70.9880667479161,
-      "upside_pct": -80.96834671637639,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 282.75695899663486,
+      "upside_pct": -24.193844773020142,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: cyclical_normalized:1.3x"
@@ -15711,9 +15681,9 @@
       "cost_of_equity": 0.11296377912825159,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 26.164037160249592,
-      "upside_pct": -89.63800508504967,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 67.43059052620539,
+      "upside_pct": -73.29481563318598,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "beta: low_r2=0.009",
         "unit_multiplier=1",
@@ -15892,12 +15862,13 @@
       "cost_of_equity": 0.11917741941309276,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 50.47372129285151,
-      "upside_pct": -91.63650020002461,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 43.67721043891544,
+      "upside_pct": -92.76268261161303,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin"
+        "op_margin: raw_margin",
+        "extreme_overvalued_market_premium: dcf=43.68 market 603.50"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -16012,13 +15983,13 @@
       "cost_of_equity": 0.12646882602771642,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 10.94827964014518,
+      "upside_pct": -94.582741395277,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-611.23 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "extreme_overvalued_market_premium: dcf=10.95 market 202.10"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -16257,9 +16228,9 @@
       "cost_of_equity": 0.11937729153801342,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 24.91400954011245,
-      "upside_pct": 307.7579302800728,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 24.15105685211908,
+      "upside_pct": 295.270979576417,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -16317,13 +16288,13 @@
       "cost_of_equity": 0.11845724429069925,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 65.61603248686035,
+      "upside_pct": -14.673559835032062,
+      "dcf_method": "industrial_engine_a_book_fallback",
       "flags": [
         "unit_multiplier=1",
         "op_margin: cyclical_normalized:1.3x",
-        "dcf_negative_intrinsic=-155.91 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "negative_fcff_value_destruction: dcf=-15.64 -> bvps 65.62"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -16378,9 +16349,9 @@
       "cost_of_equity": 0.11492850745295637,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 15.082540833286627,
-      "upside_pct": -9.631271220571444,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 1.6865160851408203,
+      "upside_pct": -89.89505041856908,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -16560,13 +16531,14 @@
       "cost_of_equity": 0.11222403623873772,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 5.713676431902012,
-      "upside_pct": -96.27044619327546,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 2.95891783315581,
+      "upside_pct": -98.06859149271813,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "beta: low_r2=0.048",
         "unit_multiplier=1",
-        "op_margin: raw_margin"
+        "op_margin: raw_margin",
+        "extreme_overvalued_market_premium: dcf=2.96 market 153.20"
       ],
       "errors": [],
       "cross_holdings_value_tl": 2198823930.4384003,
@@ -16682,9 +16654,9 @@
       "cost_of_equity": 0.11384859739480532,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 2.3368919103344266,
-      "upside_pct": -83.91677969487662,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 2.092994407499397,
+      "upside_pct": -85.59535851686582,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -16742,13 +16714,13 @@
       "cost_of_equity": 0.11626864691666955,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 0.18240344782763912,
+      "upside_pct": -99.57874492418559,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-0.71 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "extreme_overvalued_market_premium: dcf=0.18 market 43.30"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -16803,9 +16775,9 @@
       "cost_of_equity": 0.12393021838291571,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 79.49315930183676,
-      "upside_pct": -14.385396551602843,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 14.770462254219508,
+      "upside_pct": -84.09212465889121,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: cyclical_normalized:1.3x"
@@ -16924,13 +16896,13 @@
       "cost_of_equity": 0.11975949340088872,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 4.6758730669782445,
+      "upside_pct": 32.08680980164532,
+      "dcf_method": "industrial_engine_a_book_fallback",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-5.28 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "negative_fcff_value_destruction: dcf=-1.24 -> bvps 4.68"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -17046,12 +17018,13 @@
       "cost_of_equity": 0.11938107479576429,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 0.11001604608391076,
-      "upside_pct": -99.04499959996606,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 0.14128409651537507,
+      "upside_pct": -98.7735755510818,
+      "dcf_method": "industrial_engine_a_book_fallback",
       "flags": [
         "unit_multiplier=1000",
-        "op_margin: raw_margin"
+        "op_margin: raw_margin",
+        "negative_fcff_value_destruction: dcf=-0.04 -> bvps 0.14"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -17289,14 +17262,14 @@
       "cost_of_equity": 0.1413768891078487,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 8.307165358860091,
+      "upside_pct": -98.31155175632924,
+      "dcf_method": "industrial_engine_a_book_fallback",
       "flags": [
         "beta: low_r2=0.030",
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-16.59 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "negative_fcff_value_destruction: dcf=-18.92 -> bvps 8.31"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -17474,13 +17447,13 @@
       "cost_of_equity": 0.12098139696995686,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 1.209639720192984,
+      "upside_pct": -94.76799428982274,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-2.49 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "extreme_overvalued_market_premium: dcf=1.21 market 23.12"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -17657,17 +17630,16 @@
       "cost_of_equity": 0.11431405712900652,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 6.678060463245916,
+      "upside_pct": 191.618360840433,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-7.08 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
-      "cross_holdings_value_tl": null,
-      "cross_holdings_added_tl": null
+      "cross_holdings_value_tl": 91718995.0464,
+      "cross_holdings_added_tl": 91718995.0464
     },
     {
       "ticker": "IHLGM",
@@ -18085,9 +18057,9 @@
       "cost_of_equity": 0.12434901075047998,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 12.938821789583422,
-      "upside_pct": 12.31616136791165,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 2.4029871219062,
+      "upside_pct": -79.14073678900868,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -18145,9 +18117,9 @@
       "cost_of_equity": 0.13212690302527758,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 5.044622533174157,
-      "upside_pct": 36.341149545247475,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 45.730836909086975,
+      "upside_pct": 1135.9685651104587,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -18205,9 +18177,9 @@
       "cost_of_equity": 0.11353164404678691,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 67.78073422842556,
-      "upside_pct": -73.98052428851226,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 32.21805507133648,
+      "upside_pct": -87.63222454075374,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -18265,12 +18237,13 @@
       "cost_of_equity": 0.10915249817016777,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 31.961659777529594,
-      "upside_pct": -89.13792361001543,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 25.004294156156803,
+      "upside_pct": -91.50236392314129,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin"
+        "op_margin: raw_margin",
+        "extreme_overvalued_market_premium: dcf=25.00 market 294.25"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -18325,13 +18298,12 @@
       "cost_of_equity": 0.11770856357711998,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 8.159786323753188,
+      "upside_pct": -86.01579036203395,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1000",
-        "op_margin: cyclical_normalized:1.3x",
-        "dcf_negative_intrinsic=-29.00 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: cyclical_normalized:1.3x"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -18447,9 +18419,9 @@
       "cost_of_equity": 0.11550298107020833,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 13.156923671404094,
-      "upside_pct": -35.44198394796813,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 56.87774023050927,
+      "upside_pct": 179.086065900438,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -18689,9 +18661,9 @@
       "cost_of_equity": 0.12144033603418511,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 45.14258753395092,
-      "upside_pct": -45.148739326912604,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 158.3871553224579,
+      "upside_pct": 92.45097852060498,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -18749,13 +18721,12 @@
       "cost_of_equity": 0.11886471344742483,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 1.9043313117088378,
+      "upside_pct": -78.28584593262443,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-0.96 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -18871,9 +18842,9 @@
       "cost_of_equity": 0.11344524064078253,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 1.610240939247521,
-      "upside_pct": -84.72257173389448,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 4.552850759528456,
+      "upside_pct": -56.80407249024234,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -18931,9 +18902,9 @@
       "cost_of_equity": 0.13261435066067423,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 7.512197994606568,
-      "upside_pct": -15.307801639159313,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 15.236462543032381,
+      "upside_pct": 71.77522596428841,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: cyclical_normalized:1.3x"
@@ -19053,13 +19024,13 @@
       "cost_of_equity": 0.11774243146108507,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 1.166440393518818,
+      "upside_pct": -93.50534302049655,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-4.05 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "extreme_overvalued_market_premium: dcf=1.17 market 17.96"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -19175,9 +19146,9 @@
       "cost_of_equity": 0.11424852731872806,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 10.847243679951577,
-      "upside_pct": -68.28291321651587,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 17.584198157430748,
+      "upside_pct": -48.58421591394519,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: cyclical_normalized:1.3x"
@@ -19296,13 +19267,13 @@
       "cost_of_equity": 0.13266563567831313,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 34.3751168740558,
+      "upside_pct": -45.52279417740761,
+      "dcf_method": "industrial_engine_a_book_fallback",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-444.89 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "negative_fcff_value_destruction: dcf=-7.86 -> bvps 34.38"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -19418,13 +19389,12 @@
       "cost_of_equity": 0.11449343271574904,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 604.6971562002882,
+      "upside_pct": 566.700282469998,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: cyclical_normalized:1.3x",
-        "dcf_negative_intrinsic=-297.93 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: cyclical_normalized:1.3x"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -19479,13 +19449,12 @@
       "cost_of_equity": 0.11449343271574904,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 23.55800918092473,
+      "upside_pct": -40.51007782594765,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: cyclical_normalized:1.3x",
-        "dcf_negative_intrinsic=-13.03 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: cyclical_normalized:1.3x"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -19540,13 +19509,12 @@
       "cost_of_equity": 0.11449343271574904,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 79.09868082707187,
+      "upside_pct": 95.4018795135175,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: cyclical_normalized:1.3x",
-        "dcf_negative_intrinsic=-41.95 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: cyclical_normalized:1.3x"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -19722,9 +19690,9 @@
       "cost_of_equity": 0.12006735821586677,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 22.933899167256296,
-      "upside_pct": -11.995782167090187,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 53.85759527347361,
+      "upside_pct": 106.66767180918501,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -19903,13 +19871,12 @@
       "cost_of_equity": 0.11667267106453798,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 1.5279021430605975,
+      "upside_pct": -51.49517006156833,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-0.77 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -20086,13 +20053,12 @@
       "cost_of_equity": 0.12334020959994124,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 1.9359081877080875,
+      "upside_pct": -38.54259721561627,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1000",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-0.54 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -20208,13 +20174,12 @@
       "cost_of_equity": 0.11337569709417891,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 15.547105356354905,
+      "upside_pct": -86.08137389762318,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: cyclical_normalized:1.3x",
-        "dcf_negative_intrinsic=-40.49 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: cyclical_normalized:1.3x"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -20269,9 +20234,9 @@
       "cost_of_equity": 0.11629712135772392,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 0.499317036933514,
-      "upside_pct": -85.48496985658389,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 6.657500495930189,
+      "upside_pct": 93.53199116076132,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -20451,12 +20416,13 @@
       "cost_of_equity": 0.1497301419880747,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 1.4340456913303727,
-      "upside_pct": -93.42180875536526,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 0.6867179441462389,
+      "upside_pct": -96.84991768740258,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin"
+        "op_margin: raw_margin",
+        "extreme_overvalued_market_premium: dcf=0.69 market 21.80"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -20511,13 +20477,12 @@
       "cost_of_equity": 0.12409489258469361,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 6.197828709591851,
+      "upside_pct": -82.21059497820939,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-28.03 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -20572,9 +20537,9 @@
       "cost_of_equity": 0.12376936174684676,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 9.017409997822195,
-      "upside_pct": -32.40322340463122,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 14.979281465081145,
+      "upside_pct": 12.288466754731227,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: cyclical_normalized:1.3x"
@@ -20754,9 +20719,9 @@
       "cost_of_equity": 0.10683666977536568,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 1.2330402330127859,
-      "upside_pct": -90.2372111400413,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 1.5823567558100917,
+      "upside_pct": -87.4714429468718,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -20875,13 +20840,13 @@
       "cost_of_equity": 0.12338681898858384,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 5.620364680936252,
+      "upside_pct": -46.009945428085956,
+      "dcf_method": "industrial_engine_a_book_fallback",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-67.46 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "negative_fcff_value_destruction: dcf=-0.39 -> bvps 5.62"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -20997,9 +20962,9 @@
       "cost_of_equity": 0.11247160858125439,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 3.320463393374343,
-      "upside_pct": -80.04529210712535,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 14.20221235625205,
+      "upside_pct": -14.650166128292973,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -21121,12 +21086,13 @@
       "cost_of_equity": 0.12239333360802393,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 1.8943903777131788,
-      "upside_pct": -97.09671972764264,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 92.91569562730267,
+      "upside_pct": 42.39953352843321,
+      "dcf_method": "industrial_engine_a_book_fallback",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin"
+        "op_margin: raw_margin",
+        "negative_fcff_value_destruction: dcf=-10.88 -> bvps 92.92"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -21181,9 +21147,9 @@
       "cost_of_equity": 0.11788071339257888,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 8.395026466998626,
-      "upside_pct": -14.336464622463005,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 4.605081489656918,
+      "upside_pct": -53.00937255452125,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -21241,9 +21207,9 @@
       "cost_of_equity": 0.1252813530942797,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 29.502862780277848,
-      "upside_pct": 84.97092652211818,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 4.51716229955516,
+      "upside_pct": -71.6792332316291,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -21301,9 +21267,9 @@
       "cost_of_equity": 0.12236095393898411,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 3.5078729928322367,
-      "upside_pct": -43.330000115795855,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 2.0267687760182955,
+      "upside_pct": -67.2573703389613,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -21423,13 +21389,12 @@
       "cost_of_equity": 0.1123430627745096,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 8.563453458439403,
+      "upside_pct": -19.059986215128518,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-41.33 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -21484,13 +21449,12 @@
       "cost_of_equity": 0.11636328375765842,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 2.312168087032922,
+      "upside_pct": -89.36445222155969,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-3.15 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -21606,13 +21570,14 @@
       "cost_of_equity": 0.12473049094231478,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 167.51257073014446,
-      "upside_pct": 10.93547730473143,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 0.8923274270317698,
+      "upside_pct": -99.40905468408492,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "beta: low_r2=0.039",
         "unit_multiplier=1",
-        "op_margin: raw_margin"
+        "op_margin: raw_margin",
+        "extreme_overvalued_market_premium: dcf=0.89 market 151.00"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -21728,13 +21693,12 @@
       "cost_of_equity": 0.11672864622177903,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 5.078009794292652,
+      "upside_pct": -81.6545888934514,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-3.07 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -21850,9 +21814,9 @@
       "cost_of_equity": 0.11305613678045223,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 73.2414097972893,
-      "upside_pct": -27.483752675951195,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 67.51577396842033,
+      "upside_pct": -33.152699041167985,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: cyclical_normalized:1.3x"
@@ -22094,13 +22058,12 @@
       "cost_of_equity": 0.11369176702797425,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 11.101361302485353,
+      "upside_pct": -69.19711070342576,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1000",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-8.65 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -22279,9 +22242,9 @@
       "cost_of_equity": 0.113139734469884,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 214.3264847331968,
-      "upside_pct": 31.974436412066986,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 68.42407406869154,
+      "upside_pct": -57.86694946509142,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1000",
         "op_margin: raw_margin"
@@ -22523,13 +22486,12 @@
       "cost_of_equity": 0.11060119152288392,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 31.57729426083762,
+      "upside_pct": -71.67955671673755,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-2.20 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -22707,9 +22669,9 @@
       "cost_of_equity": 0.10100431032297912,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 51.25227705438211,
-      "upside_pct": 14.761032365387633,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 21.5618385859385,
+      "upside_pct": -51.72002107940327,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "beta: low_r2=0.028",
         "unit_multiplier=1",
@@ -22768,13 +22730,12 @@
       "cost_of_equity": 0.11881640632943567,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 4.320360179177943,
+      "upside_pct": -75.34040993619897,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-6.00 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -22829,9 +22790,9 @@
       "cost_of_equity": 0.11432203376091875,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 3.353310286022215,
-      "upside_pct": -77.18836540120942,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 2.7348282865726525,
+      "upside_pct": -81.39572594168264,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -22951,12 +22912,13 @@
       "cost_of_equity": 0.11705537751375081,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 0.6345419412613694,
-      "upside_pct": -98.9887777828504,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 0.7184964229565528,
+      "upside_pct": -98.85498578014892,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin"
+        "op_margin: raw_margin",
+        "extreme_overvalued_market_premium: dcf=0.72 market 62.75"
       ],
       "errors": [],
       "cross_holdings_value_tl": 1718356826.112,
@@ -23194,9 +23156,9 @@
       "cost_of_equity": 0.12538992776975552,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 315.014733233485,
-      "upside_pct": -80.62640017014238,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 173.69983548372963,
+      "upside_pct": -89.31735329128354,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -23439,9 +23401,9 @@
       "cost_of_equity": 0.10930251586723426,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 34.93971761298614,
-      "upside_pct": -22.287104953322636,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 30.282193661393904,
+      "upside_pct": -32.646366411490426,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1000",
         "op_margin: raw_margin"
@@ -23560,13 +23522,12 @@
       "cost_of_equity": 0.11170972224680978,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 12.59817429721903,
+      "upside_pct": -60.20791441181609,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-10.02 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -23621,9 +23582,9 @@
       "cost_of_equity": 0.13608962666970198,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 9.410236952485995,
-      "upside_pct": -89.08325179525988,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 21.153368750509166,
+      "upside_pct": -75.46012905973416,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: cyclical_normalized:1.3x"
@@ -23681,13 +23642,12 @@
       "cost_of_equity": 0.11501061812361409,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 26.155102825181437,
+      "upside_pct": 917.7082811354646,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-26.03 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -23804,9 +23764,9 @@
       "cost_of_equity": 0.1133101852709013,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 1.2216190536653693,
-      "upside_pct": -90.63175572342507,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 12.297824724514445,
+      "upside_pct": -5.691528186238911,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -23925,13 +23885,14 @@
       "cost_of_equity": 0.11856692597964008,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 0.0049075695277884576,
-      "upside_pct": -99.98060249198502,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 0.07829603196106945,
+      "upside_pct": -99.69052951794043,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "beta: low_r2=0.035",
         "unit_multiplier=1",
-        "op_margin: raw_margin"
+        "op_margin: raw_margin",
+        "extreme_overvalued_market_premium: dcf=0.08 market 25.30"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -24047,18 +24008,18 @@
       "cost_of_equity": 0.11447293973786872,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 0.08323624761277008,
+      "upside_pct": -96.38103271248826,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "beta: low_r2=0.033",
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-0.38 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "extreme_overvalued_market_premium: dcf=0.08 market 2.30"
       ],
       "errors": [],
-      "cross_holdings_value_tl": null,
-      "cross_holdings_added_tl": null
+      "cross_holdings_value_tl": 89497141.76,
+      "cross_holdings_added_tl": 89497141.76
     },
     {
       "ticker": "METRO",
@@ -24291,13 +24252,12 @@
       "cost_of_equity": 0.11822531530466535,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 3.1884007703767145,
+      "upside_pct": -85.30690889227321,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-29.00 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -24413,17 +24373,17 @@
       "cost_of_equity": 0.11598042288986829,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 2.678191907172214,
+      "upside_pct": -94.62426353437934,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-7.81 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "extreme_overvalued_market_premium: dcf=2.68 market 49.82"
       ],
       "errors": [],
-      "cross_holdings_value_tl": null,
-      "cross_holdings_added_tl": null
+      "cross_holdings_value_tl": 625851459.7888,
+      "cross_holdings_added_tl": 625851459.7888
     },
     {
       "ticker": "MGROS",
@@ -24718,9 +24678,9 @@
       "cost_of_equity": 0.11431917138829448,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 9.415630285199406,
-      "upside_pct": -28.070051297177955,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 9.091003213134481,
+      "upside_pct": -30.550013650615114,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -24839,12 +24799,13 @@
       "cost_of_equity": 0.11421464318702061,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 0.1150397999412267,
-      "upside_pct": -98.18262559334555,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 0.7180559919614551,
+      "upside_pct": -88.65630344452678,
+      "dcf_method": "industrial_engine_a_book_fallback",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin"
+        "op_margin: raw_margin",
+        "negative_fcff_value_destruction: dcf=-0.04 -> bvps 0.72"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -24899,13 +24860,12 @@
       "cost_of_equity": 0.11075799036524955,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 9.340984265454154,
+      "upside_pct": -77.2614793927601,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-113.09 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -25021,9 +24981,9 @@
       "cost_of_equity": 0.1169126931859159,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 5.21484160014332,
-      "upside_pct": -26.86056661790575,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 7.565306883283585,
+      "upside_pct": 6.105285880555185,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -25081,9 +25041,9 @@
       "cost_of_equity": 0.11360466033179417,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 7.8692363910147725,
-      "upside_pct": -35.970411789953026,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 7.641993325774334,
+      "upside_pct": -37.819419643821526,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -25141,9 +25101,9 @@
       "cost_of_equity": 0.1136530257273785,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 32.37480337606712,
-      "upside_pct": -19.505710153985277,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 88.78185604451137,
+      "upside_pct": 120.74056699281795,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1000",
         "op_margin: raw_margin"
@@ -25201,12 +25161,13 @@
       "cost_of_equity": 0.11306232881107518,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 3.953781351585374,
-      "upside_pct": -94.20266663990414,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": null,
+      "upside_pct": null,
+      "dcf_method": "industrial_engine_a_skip",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin"
+        "op_margin: raw_margin",
+        "negative_fcff_no_bvps: -4.30"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -25261,13 +25222,13 @@
       "cost_of_equity": 0.11330228661742996,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 13.383576480870124,
+      "upside_pct": -91.38765992222,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-88.56 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "extreme_overvalued_market_premium: dcf=13.38 market 155.40"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -25382,9 +25343,9 @@
       "cost_of_equity": 0.11367506969340543,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 221.67720770510675,
-      "upside_pct": -8.284150721925212,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 230.68596911796945,
+      "upside_pct": -4.556901482015118,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: cyclical_normalized:1.3x"
@@ -25747,9 +25708,9 @@
       "cost_of_equity": 0.11907388819800895,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 49.50336499135929,
-      "upside_pct": -26.443737011353203,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 58.1004481656885,
+      "upside_pct": -13.66946780729792,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -25807,9 +25768,9 @@
       "cost_of_equity": 0.11395587830792582,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 22.699949155877135,
-      "upside_pct": -92.3633476346923,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 43.2350162068683,
+      "upside_pct": -85.45499875294591,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "beta: low_r2=0.028",
         "unit_multiplier=1",
@@ -25868,9 +25829,9 @@
       "cost_of_equity": 0.10639773387687192,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 3.4896745505615674,
-      "upside_pct": -95.15322979088671,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 14.798568812230927,
+      "upside_pct": -79.44643220523483,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -25988,9 +25949,9 @@
       "cost_of_equity": 0.11334468279634634,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 175.76801747159223,
-      "upside_pct": 105.81735066931172,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 105.23411192274581,
+      "upside_pct": 23.224955413051294,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -26048,13 +26009,13 @@
       "cost_of_equity": 0.10910595780461427,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 237.15013723886065,
+      "upside_pct": 30.302273208165193,
+      "dcf_method": "industrial_engine_a_book_fallback",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-52.12 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "negative_fcff_value_destruction: dcf=-3.12 -> bvps 237.15"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -26230,14 +26191,14 @@
       "cost_of_equity": 0.1375148668057123,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 3.595977280326578,
+      "upside_pct": -99.08615571020925,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "beta: sector_override: METAL EŞYA MAKİNE ELEKTRİKLİ C → Otomotiv (Türkiye)",
         "unit_multiplier=1000",
         "op_margin: cyclical_normalized:1.3x",
-        "dcf_negative_intrinsic=-3.59 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "extreme_overvalued_market_premium: dcf=3.60 market 393.50"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -26292,9 +26253,9 @@
       "cost_of_equity": 0.11239144297586483,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 64.59567142674022,
-      "upside_pct": -78.6107048255827,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 80.89268785839626,
+      "upside_pct": -73.21434176874297,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "beta: low_r2=0.024",
         "unit_multiplier=1",
@@ -26536,14 +26497,14 @@
       "cost_of_equity": 0.1131068764446763,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 0.48687095202007774,
+      "upside_pct": -94.3844180851202,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "beta: low_r2=0.024",
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-0.02 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "extreme_overvalued_market_premium: dcf=0.49 market 8.67"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -26598,13 +26559,12 @@
       "cost_of_equity": 0.115405829642629,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 48.92799393775362,
+      "upside_pct": 267.0517174625178,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-13.94 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -26659,12 +26619,13 @@
       "cost_of_equity": 0.11776405114613434,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 39.61572977788598,
-      "upside_pct": -93.40287597370757,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 10.056572726178137,
+      "upside_pct": -98.32530012886292,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin"
+        "op_margin: raw_margin",
+        "extreme_overvalued_market_premium: dcf=10.06 market 600.50"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -26840,9 +26801,9 @@
       "cost_of_equity": 0.11120507127519122,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 20.245382860264233,
-      "upside_pct": -30.80867101755218,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 12.078756906876704,
+      "upside_pct": -58.719217679847226,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -26900,9 +26861,9 @@
       "cost_of_equity": 0.12449308914271358,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 0.6600068958692001,
-      "upside_pct": -94.89948303037711,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 15.24765833551694,
+      "upside_pct": 17.833526549589955,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: cyclical_normalized:1.3x"
@@ -27021,13 +26982,12 @@
       "cost_of_equity": 0.1125448499474399,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 36.26809424769263,
+      "upside_pct": -25.09687268134525,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: cyclical_normalized:1.3x",
-        "dcf_negative_intrinsic=-27.04 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: cyclical_normalized:1.3x"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -27143,13 +27103,13 @@
       "cost_of_equity": 0.11456898638717276,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 1.3973862590002029,
+      "upside_pct": -91.8233688765348,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-1.47 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "extreme_overvalued_market_premium: dcf=1.40 market 17.09"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -27387,14 +27347,14 @@
       "cost_of_equity": 0.11328788863767525,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 6.480113813503891,
+      "upside_pct": -93.94947356348843,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "beta: low_r2=0.015",
         "unit_multiplier=1",
         "op_margin: cyclical_normalized:1.3x",
-        "dcf_negative_intrinsic=-0.28 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "extreme_overvalued_market_premium: dcf=6.48 market 107.10"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -27449,13 +27409,13 @@
       "cost_of_equity": 0.12665128423929728,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 3.9096653700684234,
+      "upside_pct": 22.5600429488534,
+      "dcf_method": "industrial_engine_a_book_fallback",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-4.22 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "negative_fcff_value_destruction: dcf=-1.63 -> bvps 3.91"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -27633,12 +27593,13 @@
       "cost_of_equity": 0.11405183386026177,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 1.2163803726543396,
-      "upside_pct": -96.14581630971377,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 1.9524815282778205,
+      "upside_pct": -93.81342988505126,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin"
+        "op_margin: raw_margin",
+        "extreme_overvalued_market_premium: dcf=1.95 market 31.56"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -27754,13 +27715,14 @@
       "cost_of_equity": 0.11549442651391281,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 0.21671029070066958,
-      "upside_pct": -98.70697917243038,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 0.8218879143781518,
+      "upside_pct": -95.09613416242154,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "beta: low_r2=0.020",
         "unit_multiplier=1",
-        "op_margin: raw_margin"
+        "op_margin: raw_margin",
+        "extreme_overvalued_market_premium: dcf=0.82 market 16.76"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -27876,12 +27838,13 @@
       "cost_of_equity": 0.1150831333863034,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 1.9100581812445998,
-      "upside_pct": -87.89570227348162,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 9.901729414148738,
+      "upside_pct": -37.25139788245413,
+      "dcf_method": "industrial_engine_a_book_fallback",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin"
+        "op_margin: raw_margin",
+        "negative_fcff_value_destruction: dcf=-1.55 -> bvps 9.90"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -28120,13 +28083,12 @@
       "cost_of_equity": 0.11752366038940112,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 5.681748531405539,
+      "upside_pct": -61.08391416845521,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-9.51 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -28242,13 +28204,13 @@
       "cost_of_equity": 0.12023461361410814,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 1.5022062255072908,
+      "upside_pct": -90.58177915042451,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-0.02 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "extreme_overvalued_market_premium: dcf=1.50 market 15.95"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -28364,9 +28326,9 @@
       "cost_of_equity": 0.10110336337992651,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 43.004511443747745,
-      "upside_pct": 54.02761978419679,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 32.67238462644837,
+      "upside_pct": 17.02143490848269,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -28733,9 +28695,9 @@
       "cost_of_equity": 0.12207487622964397,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 5.200549499661795,
-      "upside_pct": 29.366902976661585,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 1.5656190213077774,
+      "upside_pct": -61.054253201299055,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: cyclical_normalized:1.3x"
@@ -28793,13 +28755,12 @@
       "cost_of_equity": 0.12343594234663417,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 0.46906479446923444,
+      "upside_pct": -82.81813939673134,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-0.30 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -28854,14 +28815,14 @@
       "cost_of_equity": 0.12049167191850224,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 15.220031706306992,
+      "upside_pct": -96.04931039420973,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "beta: low_r2=0.009",
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-214.03 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "extreme_overvalued_market_premium: dcf=15.22 market 385.25"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -29038,9 +28999,9 @@
       "cost_of_equity": 0.11648289854847968,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 17.900458141051804,
-      "upside_pct": -44.1657575138746,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 57.33509420227708,
+      "upside_pct": 78.83685028782618,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -29098,9 +29059,9 @@
       "cost_of_equity": 0.11343427432990577,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 41.694081674017056,
-      "upside_pct": 110.15162134081177,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 46.42797063331753,
+      "upside_pct": 134.01194875664078,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: cyclical_normalized:1.3x"
@@ -29344,12 +29305,13 @@
       "cost_of_equity": 0.11147949927075188,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 2.5819926766317436,
-      "upside_pct": -93.09996612337856,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 1.5302413046731171,
+      "upside_pct": -95.91063253695052,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin"
+        "op_margin: raw_margin",
+        "extreme_overvalued_market_premium: dcf=1.53 market 37.42"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -29465,12 +29427,13 @@
       "cost_of_equity": 0.11416325341083222,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 0.14768315782203104,
-      "upside_pct": -99.43023473062489,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 0.299202069909044,
+      "upside_pct": -98.84567102658548,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin"
+        "op_margin: raw_margin",
+        "extreme_overvalued_market_premium: dcf=0.30 market 25.92"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -29525,14 +29488,13 @@
       "cost_of_equity": 0.11331697770620966,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 15.087205379456947,
+      "upside_pct": -63.55747492884796,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "beta: low_r2=0.021",
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-12.93 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -29587,13 +29549,12 @@
       "cost_of_equity": 0.1148033512958014,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 1.0593411541477937,
+      "upside_pct": -76.51128261313094,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-3.48 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -29648,14 +29609,13 @@
       "cost_of_equity": 0.13005654262925598,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 2.483566614020096,
+      "upside_pct": -67.23526894432591,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "beta: low_r2=0.047",
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-6.19 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -29833,9 +29793,9 @@
       "cost_of_equity": 0.12655500751285395,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 3.5244025153253022,
-      "upside_pct": -87.49324870360077,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 29.26670834548001,
+      "upside_pct": 3.8563106652945662,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: cyclical_normalized:1.3x"
@@ -29893,13 +29853,13 @@
       "cost_of_equity": 0.12635604121977617,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 2.984415612935178,
+      "upside_pct": -13.745213498983293,
+      "dcf_method": "industrial_engine_a_book_fallback",
       "flags": [
         "unit_multiplier=1000",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-3.68 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "negative_fcff_value_destruction: dcf=-1.85 -> bvps 2.98"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -30015,13 +29975,12 @@
       "cost_of_equity": 0.11595617319481616,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 14.238756022196357,
+      "upside_pct": -75.49267466059148,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-5.94 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -30076,14 +30035,14 @@
       "cost_of_equity": 0.10722813055811263,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 14.479580572150345,
+      "upside_pct": -94.8055316333093,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "beta: low_r2=0.045",
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-35.40 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "extreme_overvalued_market_premium: dcf=14.48 market 278.75"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -30138,13 +30097,12 @@
       "cost_of_equity": 0.11119615961676013,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 11.331606136179966,
+      "upside_pct": -82.05604729029301,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-2.62 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -30199,9 +30157,9 @@
       "cost_of_equity": 0.12351120442314106,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 3.6058603682469714,
-      "upside_pct": -54.92674539691286,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 1.9021922825018434,
+      "upside_pct": -76.22259646872695,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -30259,13 +30217,13 @@
       "cost_of_equity": 0.10883779297141742,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 5.102363126307188,
+      "upside_pct": -95.44024742957356,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-2.24 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "extreme_overvalued_market_premium: dcf=5.10 market 111.90"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -30381,13 +30339,13 @@
       "cost_of_equity": 0.12567421937928797,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 10.848832193145414,
+      "upside_pct": 22.3092693702978,
+      "dcf_method": "industrial_engine_a_book_fallback",
       "flags": [
         "unit_multiplier=1",
         "op_margin: cyclical_normalized:1.3x",
-        "dcf_negative_intrinsic=-53.92 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "negative_fcff_value_destruction: dcf=-4.22 -> bvps 10.85"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -30442,9 +30400,9 @@
       "cost_of_equity": 0.11539172335554224,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 0.0338947173937174,
-      "upside_pct": -99.050568140232,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 5.075808586890259,
+      "upside_pct": 42.1795122378224,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -30685,13 +30643,13 @@
       "cost_of_equity": 0.11368043147733388,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 11.075781809352355,
+      "upside_pct": -96.79890699151666,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-3.26 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "extreme_overvalued_market_premium: dcf=11.08 market 346.00"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -30746,13 +30704,13 @@
       "cost_of_equity": 0.15424847732613486,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 2.000945394990752,
+      "upside_pct": -79.32907649802942,
+      "dcf_method": "industrial_engine_a_book_fallback",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-12.32 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "negative_fcff_value_destruction: dcf=-1.28 -> bvps 2.00"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -30807,13 +30765,13 @@
       "cost_of_equity": 0.1165299739348594,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 1.1485126205557041,
+      "upside_pct": -96.83256309830197,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-25.62 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "extreme_overvalued_market_premium: dcf=1.15 market 36.26"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -30929,13 +30887,12 @@
       "cost_of_equity": 0.11333753794648146,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 15.670435264683794,
+      "upside_pct": -24.44341723874737,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-6.87 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -31298,13 +31255,13 @@
       "cost_of_equity": 0.11508256152710247,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 1.101611305848614,
+      "upside_pct": -97.0560895086889,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-0.31 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "extreme_overvalued_market_premium: dcf=1.10 market 37.42"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -31420,9 +31377,9 @@
       "cost_of_equity": 0.1194031073243969,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 13.750478121970952,
-      "upside_pct": 52.27550522669937,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 7.320519508543599,
+      "upside_pct": -18.931123936394243,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -31968,13 +31925,12 @@
       "cost_of_equity": 0.11509521638389413,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 78.16192615469795,
+      "upside_pct": -84.31270925144045,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-420.91 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -32029,13 +31985,13 @@
       "cost_of_equity": 0.12960132601967533,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 14.184644922451826,
+      "upside_pct": -31.20928747598533,
+      "dcf_method": "industrial_engine_a_book_fallback",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-23.82 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "negative_fcff_value_destruction: dcf=-7.44 -> bvps 14.18"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -32151,9 +32107,9 @@
       "cost_of_equity": 0.13324723923729948,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 122.6207605671408,
-      "upside_pct": -56.747527136811,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 82.1430657769352,
+      "upside_pct": -71.02537362365602,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1000",
         "op_margin: raw_margin"
@@ -32394,13 +32350,13 @@
       "cost_of_equity": 0.127279070359347,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 53.544607880485835,
+      "upside_pct": -84.9488101530609,
+      "dcf_method": "industrial_engine_a_book_fallback",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-16.89 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "negative_fcff_value_destruction: dcf=-22.11 -> bvps 53.54"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -32517,9 +32473,9 @@
       "cost_of_equity": 0.13793383964633313,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 17.872449545525857,
-      "upside_pct": -93.11273620596306,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 99.90290592676858,
+      "upside_pct": -61.501770355773175,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "beta: low_r2=0.030",
         "unit_multiplier=1",
@@ -32762,9 +32718,9 @@
       "cost_of_equity": 0.11541250797135963,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 4.335046039061574,
-      "upside_pct": -95.91033392541361,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 14.790742375537418,
+      "upside_pct": -86.04646945704017,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1000",
         "op_margin: raw_margin"
@@ -32822,13 +32778,12 @@
       "cost_of_equity": 0.11692347564838623,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 65.22829653237567,
+      "upside_pct": -46.92571478244454,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1000",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-665.30 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -33193,9 +33148,9 @@
       "cost_of_equity": 0.12466703261528683,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 1.0229961257385647,
-      "upside_pct": -76.75008805139626,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 6.486254991638572,
+      "upside_pct": 47.41488617360389,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: cyclical_normalized:1.3x"
@@ -33253,13 +33208,12 @@
       "cost_of_equity": 0.11816597555295505,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 1.2472164741095957,
+      "upside_pct": -52.577320376060996,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-4.25 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -33375,14 +33329,13 @@
       "cost_of_equity": 0.11028470623747119,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 1.5934789508565061,
+      "upside_pct": -83.06611104297018,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "beta: low_r2=0.030",
         "unit_multiplier=1000",
-        "op_margin: cyclical_normalized:1.3x",
-        "dcf_negative_intrinsic=-0.08 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: cyclical_normalized:1.3x"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -33437,9 +33390,9 @@
       "cost_of_equity": 0.11845237203598091,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 2.688570005005695,
-      "upside_pct": -80.90504257808455,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 5.235937282893727,
+      "upside_pct": -62.812945433993406,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: cyclical_normalized:1.3x"
@@ -33497,9 +33450,9 @@
       "cost_of_equity": 0.12456323384215696,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 2.5696543260165967,
-      "upside_pct": -32.55500456649352,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 2.7648925119578793,
+      "upside_pct": -27.43064273076432,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -33679,9 +33632,9 @@
       "cost_of_equity": 0.12707683466169695,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 211.95412760984857,
-      "upside_pct": -18.557491792565393,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 164.7788700172658,
+      "upside_pct": -36.68439192420142,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "beta: sector_override: KİMYA İLAÇ PETROL LASTİK VE PL → Petrol Rafinerisi (Türkiye)",
         "unit_multiplier=1000",
@@ -33740,13 +33693,12 @@
       "cost_of_equity": 0.1168995754064853,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 7.810285381698734,
+      "upside_pct": -82.2735238726765,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1000",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-91.40 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -33983,9 +33935,9 @@
       "cost_of_equity": 0.1314231734747028,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 29.5685702219703,
-      "upside_pct": -93.48351069488258,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 96.94790212944072,
+      "upside_pct": -78.63407115604613,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -34043,9 +33995,9 @@
       "cost_of_equity": 0.11481425949368428,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 109.52962846728225,
-      "upside_pct": -25.94345607350761,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 93.18553916259583,
+      "upside_pct": -36.994226394458536,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1000",
         "op_margin: raw_margin"
@@ -34711,13 +34663,12 @@
       "cost_of_equity": 0.12080690416932019,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 5.695772857873138,
+      "upside_pct": -89.01490287777601,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1000",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-19.44 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -35078,13 +35029,12 @@
       "cost_of_equity": 0.12022378628020362,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 90.79678395706014,
+      "upside_pct": 859.7968705820309,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-6.52 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -35203,13 +35153,12 @@
       "cost_of_equity": 0.11966189958919665,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 1.6322126355397475,
+      "upside_pct": -8.81493656202528,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: cyclical_normalized:1.3x",
-        "dcf_negative_intrinsic=-5.46 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: cyclical_normalized:1.3x"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -35264,9 +35213,9 @@
       "cost_of_equity": 0.11476543872635486,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 17.71617018555847,
-      "upside_pct": -42.88791042695528,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 8.494892355129549,
+      "upside_pct": -72.61478931292861,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -35324,9 +35273,9 @@
       "cost_of_equity": 0.12787744303171752,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 198.71334372665095,
-      "upside_pct": 52.27076147636088,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 177.0083058831987,
+      "upside_pct": 35.63854856950091,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1000",
         "op_margin: raw_margin"
@@ -35812,12 +35761,13 @@
       "cost_of_equity": 0.12626468017660666,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 3.9811874899190745,
-      "upside_pct": -83.71036215254061,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 8.15571797909305,
+      "upside_pct": -66.62963183677148,
+      "dcf_method": "industrial_engine_a_book_fallback",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin"
+        "op_margin: raw_margin",
+        "negative_fcff_value_destruction: dcf=-3.65 -> bvps 8.16"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -35935,9 +35885,9 @@
       "cost_of_equity": 0.1146602396451383,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 162.4669948819149,
-      "upside_pct": -68.51414827869866,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 129.3897194142331,
+      "upside_pct": -74.92447298173776,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "beta: low_r2=0.026",
         "unit_multiplier=1",
@@ -36241,14 +36191,14 @@
       "cost_of_equity": 0.10837346696998668,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 0.9575053211163497,
+      "upside_pct": -98.94431607374162,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "beta: low_r2=0.016",
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-4.40 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "extreme_overvalued_market_premium: dcf=0.96 market 90.70"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -36363,9 +36313,9 @@
       "cost_of_equity": 0.1212075434987023,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 3.387572533000972,
-      "upside_pct": -76.92389282696885,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 2.1073475829735204,
+      "upside_pct": -85.64477123315041,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -36423,13 +36373,12 @@
       "cost_of_equity": 0.11711761391273404,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 40.920351603760345,
+      "upside_pct": -16.043595396470366,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-42.25 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -36484,13 +36433,13 @@
       "cost_of_equity": 0.12975695692402092,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 9.954083337025805,
+      "upside_pct": -20.557994117910567,
+      "dcf_method": "industrial_engine_a_book_fallback",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-10.99 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "negative_fcff_value_destruction: dcf=-2.79 -> bvps 9.95"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -36668,13 +36617,13 @@
       "cost_of_equity": 0.12711491400907615,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 1.788816335591793,
+      "upside_pct": -97.78062489380672,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-47.82 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "extreme_overvalued_market_premium: dcf=1.79 market 80.60"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -36915,13 +36864,12 @@
       "cost_of_equity": 0.11403636516114139,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 13.133653429674007,
+      "upside_pct": -49.133797716212214,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-3.35 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -37098,13 +37046,12 @@
       "cost_of_equity": 0.11095390163801384,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 1.6102606002902484,
+      "upside_pct": -81.53370871226781,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-2.14 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -37342,9 +37289,9 @@
       "cost_of_equity": 0.11629089864903566,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 26.328046684238267,
-      "upside_pct": 20.439371840065267,
-      "dcf_method": "industrial_fcff_2stage",
+      "intrinsic_per_share_tl": 27.230588963346836,
+      "upside_pct": 24.56811053681078,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
@@ -37402,13 +37349,12 @@
       "cost_of_equity": 0.12530467118429658,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 4.278680698501449,
+      "upside_pct": 34.12792158311753,
+      "dcf_method": "industrial_engine_a_em",
       "flags": [
         "unit_multiplier=1000",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-1.53 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
