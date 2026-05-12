@@ -429,6 +429,51 @@ def enrich_full_financials(td: TickerDataV4, force_refresh: bool = False) -> Tic
     return td
 
 
+_PHASE3B_SUBS_SNAP = None
+_PHASE3B_DIALECT_MAP = None
+
+
+def _phase3b_load_snap_and_map():
+    """Phase 3b helper: lazy load subs_snap + dialect_map (memoized)."""
+    global _PHASE3B_SUBS_SNAP, _PHASE3B_DIALECT_MAP
+    if _PHASE3B_SUBS_SNAP is None:
+        _PHASE3B_SUBS_SNAP = fetch_subsidiaries_snapshot(cache=True)
+    if _PHASE3B_DIALECT_MAP is None:
+        from dcf_engine_v4.cross_holdings import _load_dialect_map
+        _PHASE3B_DIALECT_MAP = _load_dialect_map()
+    return _PHASE3B_SUBS_SNAP, _PHASE3B_DIALECT_MAP
+
+
+def _compute_consolidation_ratio(parent_ticker: str) -> float:
+    """Phase 3b: parent_only_debt asimetri icin consolidation ratio.
+
+    Sum(ownership × is_full × is_listed × is_consolidated_dialect)
+    Capped at 0.85 (parent kendi en az %15 standalone yuku tasir).
+
+    Banking/insurance/unknown DAHIL EDILMEZ — konsolide DCF yapilmiyor.
+    """
+    subs_snap, dialect_map = _phase3b_load_snap_and_map()
+    subs = subs_lookup_parent(subs_snap, parent_ticker)
+    ratio = 0.0
+    for s in subs:
+        rel = s.relationship_type
+        if not isinstance(rel, str):
+            continue
+        if rel.lower() != "full":
+            continue
+        if not s.subsidiary_ticker or not isinstance(s.subsidiary_ticker, str):
+            continue
+        sub_dialect = dialect_map.get(s.subsidiary_ticker)
+        if sub_dialect in ("banking", "insurance", "unknown", None):
+            continue
+        if s.ownership_pct is not None:
+            try:
+                ratio += float(s.ownership_pct)
+            except (ValueError, TypeError):
+                continue
+    return min(ratio, 0.85)
+
+
 def calculate_intrinsic_value(td: TickerDataV4) -> TickerDataV4:
     """Lifecycle → WACC → FCFF DCF → intrinsic per share.
 
@@ -452,13 +497,14 @@ def calculate_intrinsic_value(td: TickerDataV4) -> TickerDataV4:
         td.flags.append(f"dcf_skip: {td.dialect} method_not_implemented_session_4_5")
         return td
 
-    # Holding — Faz B2 Phase 2 Adim 3: minimal SOTP + negative equity guard
+    # Holding — Phase 3b: 3-tier cross_holdings + Phase 3a fields + pragmatic debt asimetri
     if td.dialect == "holding":
         try:
             ch_result = compute_cross_holdings_value(td.ticker)
-            ch_tl = ch_result.total_value_tl
+            ch_tl = ch_result.total_value_tl or 0.0
         except Exception as _ch_e:
             ch_tl = 0.0
+            ch_result = None
             td.flags.append(f"holding_sotp_cross_fail: {type(_ch_e).__name__}")
 
         # Audit echo (her durumda populate)
@@ -466,36 +512,51 @@ def calculate_intrinsic_value(td: TickerDataV4) -> TickerDataV4:
             td.cross_holdings_value_tl = ch_tl
             td.cross_holdings_added_tl = ch_tl
 
-        # Minimal SOTP attempt
-        if ch_tl > 0 and td.shares_outstanding and td.shares_outstanding > 0:
-            equity_minimal = ch_tl + (td.cash or 0) - (td.total_debt or 0)
+        if not (ch_tl > 0 and td.shares_outstanding and td.shares_outstanding > 0):
+            td.dcf_method = "holding_sotp_pending"
+            td.flags.append("dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)")
+            return td
 
-            if equity_minimal > 0:
-                td.intrinsic_per_share_tl = equity_minimal / td.shares_outstanding
-                td.dcf_method = "holding_sotp_minimal"
-                if td.current_price_tl:
-                    td.upside_pct = (
-                        td.intrinsic_per_share_tl - td.current_price_tl
-                    ) / td.current_price_tl * 100
-                td.flags.append(
-                    f"holding_sotp_minimal: cross={ch_tl:.0f} "
-                    f"+ cash={td.cash or 0:.0f} - debt={td.total_debt or 0:.0f} "
-                    f"= {equity_minimal:.0f}"
-                )
-                return td
-            else:
-                td.dcf_method = "holding_sotp_minimal_negative_equity"
-                td.flags.append(
-                    f"holding_sotp_minimal_negative: cross={ch_tl:.0f} "
-                    f"+ cash={td.cash or 0:.0f} - debt={td.total_debt or 0:.0f} "
-                    f"= {equity_minimal:.0f}"
-                )
-                td.flags.append("holding_sotp_full_pending: full sub valuation Phase 3 scope")
-                return td
+        # Phase 3b 5-component formula
+        emi = td.equity_method_investments or 0.0
+        ip = td.investment_properties or 0.0
+        cash = td.cash or 0.0
+        debt = td.total_debt or 0.0
 
-        # Cross-holdings yok veya shares yok → eski davranis
-        td.dcf_method = "holding_sotp_pending"
-        td.flags.append("dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)")
+        cons_ratio = _compute_consolidation_ratio(td.ticker)
+        parent_only_cash = cash * (1 - cons_ratio)
+        parent_only_debt = debt * (1 - cons_ratio)
+
+        parent_equity = ch_tl + emi + ip + parent_only_cash - parent_only_debt
+
+        if parent_equity > 0:
+            td.intrinsic_per_share_tl = parent_equity / td.shares_outstanding
+            td.dcf_method = "holding_sotp_phase3b"
+            if td.current_price_tl:
+                td.upside_pct = (
+                    td.intrinsic_per_share_tl - td.current_price_tl
+                ) / td.current_price_tl * 100
+            td.flags.append(
+                f"holding_sotp_phase3b: ch={ch_tl/1e9:.1f}B "
+                f"+ emi={emi/1e9:.1f}B + ip={ip/1e9:.1f}B "
+                f"+ cash_only={parent_only_cash/1e9:.1f}B "
+                f"- debt_only={parent_only_debt/1e9:.1f}B "
+                f"= {parent_equity/1e9:.1f}B (cons_ratio={cons_ratio:.3f})"
+            )
+            if ch_result and ch_result.banking_proxy_subs:
+                td.flags.append(f"banking_proxy_subs: {ch_result.banking_proxy_subs}")
+            if ch_result and ch_result.unknown_proxy_subs:
+                td.flags.append(f"unknown_proxy_subs: {ch_result.unknown_proxy_subs}")
+        else:
+            td.dcf_method = "holding_sotp_phase3b_negative"
+            td.intrinsic_per_share_tl = None
+            td.flags.append(
+                f"holding_sotp_phase3b_negative: ch={ch_tl/1e9:.1f}B "
+                f"+ emi={emi/1e9:.1f}B + ip={ip/1e9:.1f}B "
+                f"+ cash_only={parent_only_cash/1e9:.1f}B "
+                f"- debt_only={parent_only_debt/1e9:.1f}B "
+                f"= {parent_equity/1e9:.1f}B (cons_ratio={cons_ratio:.3f})"
+            )
         return td
 
     # Industrial DCF
