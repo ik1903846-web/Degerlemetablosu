@@ -176,7 +176,7 @@ def load_latest_v4_batch() -> Optional[Dict[str, Any]]:
 
 @st.cache_data(ttl=300)
 def universe_stats_v4() -> Dict[str, Any]:
-    """turkey_v4_batch.json'dan ozet stats (Phase 2 + Phase 3b)."""
+    """turkey_v4_batch.json'dan ozet stats (Phase 2 + Phase 3b + Phase 3c)."""
     batch = load_latest_v4_batch()
     if not batch:
         return {
@@ -185,6 +185,8 @@ def universe_stats_v4() -> Dict[str, Any]:
             "complete_count": 0,
             "intrinsic_filled": 0,
             "holding_intrinsic_filled": 0,
+            "sector_multiple_count": 0,
+            "book_value_count": 0,
             "anchor_tuprs": None,
             "fetch_date": None,
         }
@@ -194,7 +196,18 @@ def universe_stats_v4() -> Dict[str, Any]:
     )
     holding_intrinsic_filled = sum(
         1 for t in tickers
-        if t.get("dialect") == "holding" and t.get("intrinsic_per_share_tl") is not None
+        if t.get("dcf_method") == "holding_sotp_phase3b"
+        and t.get("intrinsic_per_share_tl") is not None
+    )
+    sector_multiple_count = sum(
+        1 for t in tickers
+        if (t.get("dcf_method") or "").startswith("sector_multiple_regression")
+        and t.get("intrinsic_per_share_tl") is not None
+    )
+    book_value_count = sum(
+        1 for t in tickers
+        if t.get("dcf_method") == "book_value_fallback"
+        and t.get("intrinsic_per_share_tl") is not None
     )
     return {
         "total_count": batch.get("total_count", 0),
@@ -202,6 +215,8 @@ def universe_stats_v4() -> Dict[str, Any]:
         "complete_count": batch.get("complete_count", 0),
         "intrinsic_filled": intrinsic_filled,
         "holding_intrinsic_filled": holding_intrinsic_filled,
+        "sector_multiple_count": sector_multiple_count,
+        "book_value_count": book_value_count,
         "anchor_tuprs": batch.get("anchor_tuprs"),
         "fetch_date": batch.get("fetch_date"),
     }

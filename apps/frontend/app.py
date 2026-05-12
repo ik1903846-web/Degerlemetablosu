@@ -97,6 +97,8 @@ TOTAL_COUNT = v4_stats.get("total_count", 0)
 DCF_COUNT = v4_stats.get("dcf_count", 0)
 INTRINSIC_FILLED = v4_stats.get("intrinsic_filled", DCF_COUNT)
 HOLDING_FILLED = v4_stats.get("holding_intrinsic_filled", 0)
+SECTOR_FILLED = v4_stats.get("sector_multiple_count", 0)
+BOOK_FILLED = v4_stats.get("book_value_count", 0)
 ANCHOR_TUPRS = v4_stats.get("anchor_tuprs")
 
 st.title("REELDEĞER")
@@ -121,11 +123,14 @@ st.divider()
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    _industrial_dcf = max(INTRINSIC_FILLED - HOLDING_FILLED, 0)
+    _industrial_dcf = max(
+        INTRINSIC_FILLED - HOLDING_FILLED - SECTOR_FILLED - BOOK_FILLED, 0
+    )
     st.metric(
         "📈 BIST Universe",
         f"{INTRINSIC_FILLED} / {TOTAL_COUNT} hisse",
-        f"Industrial {_industrial_dcf} + Holding SOTP {HOLDING_FILLED} (Phase 3b)",
+        f"Industrial {_industrial_dcf} + Holding {HOLDING_FILLED} + "
+        f"Sector {SECTOR_FILLED} + Book {BOOK_FILLED} (Phase 3c)",
     )
 
 with col2:
@@ -250,8 +255,14 @@ with st.sidebar:
     st.markdown("- 🔍 **Tarayıcı** ← asıl ürün")
     st.markdown("- 📚 Lessons")
     st.divider()
-    _ind_dcf_sidebar = max(INTRINSIC_FILLED - HOLDING_FILLED, 0)
-    st.caption(f"BIST Universe: {INTRINSIC_FILLED}/{TOTAL_COUNT} (Industrial {_ind_dcf_sidebar} + Holding {HOLDING_FILLED})")
+    _ind_dcf_sidebar = max(
+        INTRINSIC_FILLED - HOLDING_FILLED - SECTOR_FILLED - BOOK_FILLED, 0
+    )
+    st.caption(
+        f"BIST Universe: {INTRINSIC_FILLED}/{TOTAL_COUNT} "
+        f"(Industrial {_ind_dcf_sidebar} + Holding {HOLDING_FILLED} + "
+        f"Sector {SECTOR_FILLED} + Book {BOOK_FILLED})"
+    )
     _anchor_text = f"{ANCHOR_TUPRS:.2f}" if ANCHOR_TUPRS else "N/A"
-    st.caption(f"TUPRS anchor: {_anchor_text} TL (Phase 3b SEALED)")
-    st.caption("v4.3.4 anchor SEALED · Damodaran replication")
+    st.caption(f"TUPRS anchor: {_anchor_text} TL (Phase 3c SEALED)")
+    st.caption("v4.3.5 anchor SEALED · Damodaran replication")
