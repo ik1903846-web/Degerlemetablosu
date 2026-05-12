@@ -71,6 +71,12 @@ class BankingDataConfig:
     source_urls: List[str] = field(default_factory=list)
     source_date: str = ""        # YYYY-MM
     notes: str = ""
+    # Phase 4c: 3-stage DDM TR-tune (outlier override)
+    use_3stage: bool = False
+    stage3_high_growth: Optional[float] = None   # Y1-5 sustained growth (override ROE*retention)
+    stage3_high_payout: Optional[float] = None   # Y1-5 sustainable payout (TR override)
+    stage3_stable_growth: Optional[float] = None # Y11+ stable g
+    stage3_stable_payout: Optional[float] = None # Y11+ stable payout
 
 
 # ============================================================================
@@ -140,13 +146,19 @@ BANKING_DATA: Dict[str, BankingDataConfig] = {
         name="Türkiye Garanti Bankası A.Ş.",
         sector="bank_money_center",
         beta_unlevered=0.2495,
+        # Phase 4c.2: 3-stage TR-tune (Damodaran rule stable_g, sustained ROE 30% fade)
+        use_3stage=True,
+        stage3_high_growth=0.12,        # ROE 30% x retention 40% = 12% (sustainable)
+        stage3_high_payout=0.60,        # TR sustainable payout (yuksek ROE -> yuksek payout)
+        stage3_stable_growth=0.025,     # Damodaran rule USD stable (Rf_USD 3.97% altinda)
+        stage3_stable_payout=0.70,      # Mature TR banking payout
         source_urls=[
             "https://en.wikipedia.org/wiki/Garanti_BBVA",
             "https://www.alphaspread.com/security/ist/garan.e/investor-relations",
             "https://www.bbva.com/en/economy-and-finance/results/",
         ],
         source_date="2025-02",
-        notes="2024 CONFIRMED (BBVA earnings release). 2021-2023 ESTIMATE.",
+        notes="2024 CONFIRMED (BBVA earnings release). 2021-2023 ESTIMATE. Phase 4c: 3-stage tune (high ROE outlier).",
         yearly=[
             BankingYearlyData(
                 year=2024,
@@ -313,12 +325,18 @@ BANKING_DATA: Dict[str, BankingDataConfig] = {
         name="Türkiye Halk Bankası A.Ş.",
         sector="bank_money_center",
         beta_unlevered=0.2495,
+        # Phase 4c.3: 3-stage TR-tune (Damodaran consistency: g_high=ROE*retention, mature payout)
+        use_3stage=True,
+        stage3_high_growth=0.10,        # Damodaran consistency: ROE 10% x retention 100% (Y1-5 capital build)
+        stage3_high_payout=0.00,        # Basel III capital build, Y1-5 sustained payout=0
+        stage3_stable_growth=0.025,     # Damodaran rule USD stable
+        stage3_stable_payout=0.50,      # Mature bank Damodaran avg (ABN Amro 0.67 ref, conservative 0.50)
         source_urls=[
             "https://www.morningstar.com/stocks/xist/halkb/quote",
             "https://companiesmarketcap.com/halkbank/",
         ],
         source_date="2025-02",
-        notes="2024 CONFIRMED (Net Income), EPS reverse-engineered. State-controlled.",
+        notes="2024 CONFIRMED (Net Income), EPS reverse-engineered. State-controlled. Phase 4c: 3-stage Basel III capital build doctrine.",
         yearly=[
             BankingYearlyData(
                 year=2024,

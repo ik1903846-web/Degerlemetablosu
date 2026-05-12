@@ -598,11 +598,12 @@ def calculate_intrinsic_value(td: TickerDataV4) -> TickerDataV4:
     td.lifecycle_stage = lc.stage
     td.lifecycle_rationale = lc.rationale
 
-    # Banking — Phase 4b Engine A DDM 2-stage (USD MANDATORY, ADR-080 doctrine)
+    # Banking — Phase 4b Engine A DDM (USD MANDATORY, ADR-080 doctrine)
+    # Phase 4c: 3-stage select logic (ROE>25% or explicit flag -> Damodaran fade)
     if td.dialect == "banking":
         try:
             from data_layer.banking_data import get_banking_data
-            from dcf_engine.banking_ddm import dcf_ddm
+            from dcf_engine.banking_ddm import dcf_ddm, dcf_ddm_3stage
             cfg = get_banking_data(td.ticker)
         except Exception as _e_imp:
             cfg = None
@@ -623,22 +624,41 @@ def calculate_intrinsic_value(td: TickerDataV4) -> TickerDataV4:
                 eps_usd = bd.eps_tl / FX_TL_USD
                 payout = bd.payout_pct / 100.0
                 roe = bd.roe_pct / 100.0
-                high_growth = roe * (1.0 - payout)
+                high_growth_2s = roe * (1.0 - payout)
                 coe_high = RF_USD + BETA * (MATURE_ERP + CRP_TR)
                 coe_stable = RF_USD + 0.80 * (MATURE_ERP + CRP_TR * 0.5)
-                stable_payout = 1.0 - STABLE_G_USD / STABLE_ROE
 
-                result = dcf_ddm(
-                    starting_eps=eps_usd,
-                    high_growth_rate=high_growth,
-                    high_growth_payout=payout,
-                    high_growth_coe=coe_high,
-                    high_growth_duration=5,
-                    stable_growth=STABLE_G_USD,
-                    stable_payout=stable_payout,
-                    stable_coe=coe_stable,
-                )
-                intrinsic_tl = result.value_per_share * FX_TL_USD
+                # Phase 4c: 3-stage select (ROE>25% boom OR explicit flag, TR-tune)
+                use_3stage = bool(cfg.use_3stage) or roe > 0.25
+
+                if use_3stage and cfg.stage3_high_growth is not None:
+                    result_3 = dcf_ddm_3stage(
+                        starting_eps=eps_usd,
+                        high_growth_rate=cfg.stage3_high_growth,
+                        high_growth_payout=cfg.stage3_high_payout if cfg.stage3_high_payout is not None else payout,
+                        high_growth_coe=coe_high,
+                        stable_growth=cfg.stage3_stable_growth if cfg.stage3_stable_growth is not None else STABLE_G_USD,
+                        stable_payout=cfg.stage3_stable_payout if cfg.stage3_stable_payout is not None else (1.0 - STABLE_G_USD / STABLE_ROE),
+                        stable_coe=coe_stable,
+                        high_growth_duration=5,
+                        transition_period_years=5,
+                    )
+                    intrinsic_tl = result_3.value_per_share * FX_TL_USD
+                    ddm_method = "banking_ddm_3stage_tr_tune"
+                else:
+                    stable_payout_2s = 1.0 - STABLE_G_USD / STABLE_ROE
+                    result = dcf_ddm(
+                        starting_eps=eps_usd,
+                        high_growth_rate=high_growth_2s,
+                        high_growth_payout=payout,
+                        high_growth_coe=coe_high,
+                        high_growth_duration=5,
+                        stable_growth=STABLE_G_USD,
+                        stable_payout=stable_payout_2s,
+                        stable_coe=coe_stable,
+                    )
+                    intrinsic_tl = result.value_per_share * FX_TL_USD
+                    ddm_method = "banking_ddm_2stage_usd"
 
                 # Sanity: negative or >10000 TL -> book_value fallback (Damodaran rule)
                 if intrinsic_tl <= 0 or intrinsic_tl > 10000:
@@ -652,7 +672,7 @@ def calculate_intrinsic_value(td: TickerDataV4) -> TickerDataV4:
                         td.flags.append(f"banking_ddm_outlier_no_bvps: {intrinsic_tl:.0f}TL")
                 else:
                     td.intrinsic_per_share_tl = intrinsic_tl
-                    td.dcf_method = "banking_ddm_2stage_usd"
+                    td.dcf_method = ddm_method
 
                 if td.current_price_tl and td.current_price_tl > 0 and td.intrinsic_per_share_tl:
                     td.upside_pct = (td.intrinsic_per_share_tl / td.current_price_tl - 1) * 100
