@@ -1,278 +1,379 @@
 {
   "Advertising": {
-    "ev_ebitda": 10.209563566636072
+    "ev_ebitda": 10.209563566636072,
+    "op_margin_pretax": 0.10065798723499017
   },
   "Aerospace/Defense": {
-    "ev_ebitda": 16.774963825050364
+    "ev_ebitda": 16.774963825050364,
+    "op_margin_pretax": 0.08654588995592664
   },
   "Air Transport": {
-    "ev_ebitda": 7.349105783188291
+    "ev_ebitda": 7.349105783188291,
+    "op_margin_pretax": 0.05321179963425901
   },
   "Apparel": {
-    "ev_ebitda": 10.295628321706648
+    "ev_ebitda": 10.295628321706648,
+    "op_margin_pretax": 0.09110059660081257
   },
   "Auto & Truck": {
-    "ev_ebitda": 28.717007689023866
+    "ev_ebitda": 28.717007689023866,
+    "op_margin_pretax": 0.023182133033712707
   },
   "Auto Parts": {
-    "ev_ebitda": 4.45564773163195
+    "ev_ebitda": 4.45564773163195,
+    "op_margin_pretax": 0.056737586636622525
   },
   "Beverage (Alcoholic)": {
-    "ev_ebitda": 8.605289811182352
+    "ev_ebitda": 8.605289811182352,
+    "op_margin_pretax": 0.22763344185619852
   },
   "Beverage (Soft)": {
-    "ev_ebitda": 16.57636591165966
+    "ev_ebitda": 16.57636591165966,
+    "op_margin_pretax": 0.20525114640955128
   },
   "Broadcasting": {
-    "ev_ebitda": 7.843762527764077
+    "ev_ebitda": 7.843762527764077,
+    "op_margin_pretax": 0.1233389317157333
   },
   "Building Materials": {
-    "ev_ebitda": 10.829882831183713
+    "ev_ebitda": 10.829882831183713,
+    "op_margin_pretax": 0.12636826516708588
   },
   "Business & Consumer Services": {
-    "ev_ebitda": 13.350050838399527
+    "ev_ebitda": 13.350050838399527,
+    "op_margin_pretax": 0.12272432450303421
   },
   "Cable TV": {
-    "ev_ebitda": 6.183277462658283
+    "ev_ebitda": 6.183277462658283,
+    "op_margin_pretax": 0.18485745815039542
   },
   "Chemical (Basic)": {
-    "ev_ebitda": 7.765953681923204
+    "ev_ebitda": 7.765953681923204,
+    "op_margin_pretax": 0.02673718088170194
   },
   "Chemical (Diversified)": {
-    "ev_ebitda": 7.047447925232237
+    "ev_ebitda": 7.047447925232237,
+    "op_margin_pretax": 0.03291326738773162
   },
   "Chemical (Specialty)": {
-    "ev_ebitda": 11.800762392890713
+    "ev_ebitda": 11.800762392890713,
+    "op_margin_pretax": 0.12171996795178963
   },
   "Coal & Related Energy": {
-    "ev_ebitda": 10.155736972610397
+    "ev_ebitda": 10.155736972610397,
+    "op_margin_pretax": -0.040171813141936595
   },
   "Computer Services": {
-    "ev_ebitda": 11.345329461607312
+    "ev_ebitda": 11.345329461607312,
+    "op_margin_pretax": 0.07409334745931717
   },
   "Computers/Peripherals": {
-    "ev_ebitda": 19.97657320040801
+    "ev_ebitda": 19.97657320040801,
+    "op_margin_pretax": 0.22484874696685003
   },
   "Construction Supplies": {
-    "ev_ebitda": 14.929514342038276
+    "ev_ebitda": 14.929514342038276,
+    "op_margin_pretax": 0.15228587966203128
   },
   "Diversified": {
-    "ev_ebitda": 11.144195599037996
+    "ev_ebitda": 11.144195599037996,
+    "op_margin_pretax": 0.22729326659659724
   },
   "Drugs (Biotechnology)": {
-    "ev_ebitda": 7.443030078732897
+    "ev_ebitda": 7.443030078732897,
+    "op_margin_pretax": 0.08973321008991049
   },
   "Drugs (Pharmaceutical)": {
-    "ev_ebitda": 9.955118858194218
+    "ev_ebitda": 9.955118858194218,
+    "op_margin_pretax": 0.29539699980816747
   },
   "Education": {
-    "ev_ebitda": 7.797852662521094
+    "ev_ebitda": 7.797852662521094,
+    "op_margin_pretax": 0.1401317701349414
   },
   "Electrical Equipment": {
-    "ev_ebitda": 19.98065654274896
+    "ev_ebitda": 19.98065654274896,
+    "op_margin_pretax": 0.09534667101101517
   },
   "Electronics (Consumer & Office)": {
-    "ev_ebitda": 3.899337155880366
+    "ev_ebitda": 3.899337155880366,
+    "op_margin_pretax": -0.04488621563380616
   },
   "Electronics (General)": {
-    "ev_ebitda": 15.742553822255317
+    "ev_ebitda": 15.742553822255317,
+    "op_margin_pretax": 0.1042317781378465
   },
   "Engineering/Construction": {
-    "ev_ebitda": 17.10665390148124
+    "ev_ebitda": 17.10665390148124,
+    "op_margin_pretax": 0.0648772140059397
   },
   "Entertainment": {
-    "ev_ebitda": 16.4960213008331
+    "ev_ebitda": 16.4960213008331,
+    "op_margin_pretax": 0.10604785218649977
   },
   "Environmental & Waste Services": {
-    "ev_ebitda": 15.335555354398492
+    "ev_ebitda": 15.335555354398492,
+    "op_margin_pretax": 0.14608556307315398
   },
   "Farming/Agriculture": {
-    "ev_ebitda": 13.552843522054928
+    "ev_ebitda": 13.552843522054928,
+    "op_margin_pretax": 0.054453187039127465
   },
   "Financial Svcs. (Non-bank & Insurance)": {
-    "ev_ebitda": 52.23762600254185
+    "ev_ebitda": 52.23762600254185,
+    "op_margin_pretax": 0.1848386743924957
   },
   "Food Processing": {
-    "ev_ebitda": 9.615679866581589
+    "ev_ebitda": 9.615679866581589,
+    "op_margin_pretax": 0.10630698109862798
   },
   "Food Wholesalers": {
-    "ev_ebitda": 11.075252232041779
+    "ev_ebitda": 11.075252232041779,
+    "op_margin_pretax": 0.026134886467402488
   },
   "Furn/Home Furnishings": {
-    "ev_ebitda": 9.696795783300631
+    "ev_ebitda": 9.696795783300631,
+    "op_margin_pretax": 0.06585661858487982
   },
   "Green & Renewable Energy": {
-    "ev_ebitda": 13.419890415015413
+    "ev_ebitda": 13.419890415015413,
+    "op_margin_pretax": 0.19872603268162603
   },
   "Healthcare Products": {
-    "ev_ebitda": 15.134273472562674
+    "ev_ebitda": 15.134273472562674,
+    "op_margin_pretax": 0.15338997022486925
   },
   "Healthcare Support Services": {
-    "ev_ebitda": 10.984916505820475
+    "ev_ebitda": 10.984916505820475,
+    "op_margin_pretax": 0.029984058788044197
   },
   "Heathcare Information and Technology": {
-    "ev_ebitda": 16.541371678969373
+    "ev_ebitda": 16.541371678969373,
+    "op_margin_pretax": 0.1470948558823554
   },
   "Homebuilding": {
-    "ev_ebitda": 8.918125636141264
+    "ev_ebitda": 8.918125636141264,
+    "op_margin_pretax": 0.1257495272304001
   },
   "Hospitals/Healthcare Facilities": {
-    "ev_ebitda": 8.841430038967413
+    "ev_ebitda": 8.841430038967413,
+    "op_margin_pretax": 0.13356558024682816
   },
   "Hotel/Gaming": {
-    "ev_ebitda": 13.5716535459462
+    "ev_ebitda": 13.5716535459462,
+    "op_margin_pretax": 0.1938799348814458
   },
   "Household Products": {
-    "ev_ebitda": 12.131944138270073
+    "ev_ebitda": 12.131944138270073,
+    "op_margin_pretax": 0.1862488237477741
   },
   "Information Services": {
-    "ev_ebitda": 10.377375581782342
+    "ev_ebitda": 10.377375581782342,
+    "op_margin_pretax": 0.11886021643397382
   },
   "Insurance (General)": {
-    "ev_ebitda": 15.65183990678602
+    "ev_ebitda": 15.65183990678602,
+    "op_margin_pretax": 0.21312825642510547
   },
   "Insurance (Life)": {
-    "ev_ebitda": 12.522466672718679
+    "ev_ebitda": 12.522466672718679,
+    "op_margin_pretax": 0.10613219864364459
   },
   "Insurance (Prop/Cas.)": {
-    "ev_ebitda": 8.435352471682522
+    "ev_ebitda": 8.435352471682522,
+    "op_margin_pretax": 0.1525411457011631
   },
   "Investments & Asset Management": {
-    "ev_ebitda": 36.761764383842234
+    "ev_ebitda": 36.761764383842234,
+    "op_margin_pretax": 0.255024819913312
   },
   "Machinery": {
-    "ev_ebitda": 14.77554492860966
+    "ev_ebitda": 14.77554492860966,
+    "op_margin_pretax": 0.1586495069517875
   },
   "Metals & Mining": {
-    "ev_ebitda": 11.328682662360462
+    "ev_ebitda": 11.328682662360462,
+    "op_margin_pretax": 0.23854271917353254
   },
   "Office Equipment & Services": {
-    "ev_ebitda": 7.617452418856224
+    "ev_ebitda": 7.617452418856224,
+    "op_margin_pretax": 0.10728305214757801
   },
   "Oil/Gas (Integrated)": {
-    "ev_ebitda": 8.070085304963238
+    "ev_ebitda": 8.070085304963238,
+    "op_margin_pretax": 0.1124866389469229
   },
   "Oil/Gas (Production and Exploration)": {
-    "ev_ebitda": 5.124058240968574
+    "ev_ebitda": 5.124058240968574,
+    "op_margin_pretax": 0.2541582987981389
   },
   "Oil/Gas Distribution": {
-    "ev_ebitda": 11.560581964533533
+    "ev_ebitda": 11.560581964533533,
+    "op_margin_pretax": 0.2577810990734486
   },
   "Oilfield Svcs/Equip.": {
-    "ev_ebitda": 8.31426474236341
+    "ev_ebitda": 8.31426474236341,
+    "op_margin_pretax": 0.046496062786623764
   },
   "Packaging & Container": {
-    "ev_ebitda": 9.460858278733866
+    "ev_ebitda": 9.460858278733866,
+    "op_margin_pretax": 0.09575576545544758
   },
   "Paper/Forest Products": {
-    "ev_ebitda": 8.048467462927075
+    "ev_ebitda": 8.048467462927075,
+    "op_margin_pretax": 0.06344838859073201
   },
   "Power": {
-    "ev_ebitda": 12.343229147337972
+    "ev_ebitda": 12.343229147337972,
+    "op_margin_pretax": 0.2146995662202426
   },
   "Precious Metals": {
-    "ev_ebitda": 10.584208480791197
+    "ev_ebitda": 10.584208480791197,
+    "op_margin_pretax": 0.403887750601932
   },
   "Publishing & Newspapers": {
-    "ev_ebitda": 10.212173670393463
+    "ev_ebitda": 10.212173670393463,
+    "op_margin_pretax": 0.09982688889791565
   },
   "R.E.I.T.": {
-    "ev_ebitda": 19.866834806951587
+    "ev_ebitda": 19.866834806951587,
+    "op_margin_pretax": 0.246434046710382
   },
   "Real Estate (Development)": {
-    "ev_ebitda": 10.23049851021993
+    "ev_ebitda": 10.23049851021993,
+    "op_margin_pretax": 0.21526561249700268
   },
   "Real Estate (General/Diversified)": {
-    "ev_ebitda": 17.286870078907647
+    "ev_ebitda": 17.286870078907647,
+    "op_margin_pretax": 0.21451711491442543
   },
   "Real Estate (Operations & Services)": {
-    "ev_ebitda": 17.857022268817257
+    "ev_ebitda": 17.857022268817257,
+    "op_margin_pretax": 0.028508268242877017
   },
   "Recreation": {
-    "ev_ebitda": 9.008735727795665
+    "ev_ebitda": 9.008735727795665,
+    "op_margin_pretax": 0.0969331006904999
   },
   "Reinsurance": {
-    "ev_ebitda": 8.670902949469651
+    "ev_ebitda": 8.670902949469651,
+    "op_margin_pretax": 0.07213952654232425
   },
   "Restaurant/Dining": {
-    "ev_ebitda": 16.966928100060795
+    "ev_ebitda": 16.966928100060795,
+    "op_margin_pretax": 0.15787862734302993
   },
   "Retail (Automotive)": {
-    "ev_ebitda": 14.77662143299601
+    "ev_ebitda": 14.77662143299601,
+    "op_margin_pretax": 0.06243926058642881
   },
   "Retail (Building Supply)": {
-    "ev_ebitda": 14.293196464323055
+    "ev_ebitda": 14.293196464323055,
+    "op_margin_pretax": 0.11938529703816875
   },
   "Retail (Distributors)": {
-    "ev_ebitda": 13.68249688107587
+    "ev_ebitda": 13.68249688107587,
+    "op_margin_pretax": 0.10097162945597332
   },
   "Retail (General)": {
-    "ev_ebitda": 12.145033753347034
+    "ev_ebitda": 12.145033753347034,
+    "op_margin_pretax": 0.06802333445025074
   },
   "Retail (Grocery and Food)": {
-    "ev_ebitda": 8.576120989894022
+    "ev_ebitda": 8.576120989894022,
+    "op_margin_pretax": 0.022919042843655636
   },
   "Retail (REITs)": {
-    "ev_ebitda": 16.722927808471763
+    "ev_ebitda": 16.722927808471763,
+    "op_margin_pretax": 0.4024828941128652
   },
   "Retail (Special Lines)": {
-    "ev_ebitda": 11.399706813271033
+    "ev_ebitda": 11.399706813271033,
+    "op_margin_pretax": 0.07727354450343683
   },
   "Rubber& Tires": {
-    "ev_ebitda": 5.322473737559048
+    "ev_ebitda": 5.322473737559048,
+    "op_margin_pretax": 0.02242369876648091
   },
   "Semiconductor": {
-    "ev_ebitda": 25.91059488798269
+    "ev_ebitda": 25.91059488798269,
+    "op_margin_pretax": 0.35327791914252643
   },
   "Semiconductor Equip": {
-    "ev_ebitda": 18.325108978585973
+    "ev_ebitda": 18.325108978585973,
+    "op_margin_pretax": 0.2617117457785153
   },
   "Shipbuilding & Marine": {
-    "ev_ebitda": 7.953007498779779
+    "ev_ebitda": 7.953007498779779,
+    "op_margin_pretax": 0.12602123883804783
   },
   "Shoe": {
-    "ev_ebitda": 16.67805736149319
+    "ev_ebitda": 16.67805736149319,
+    "op_margin_pretax": 0.09034931883156833
   },
   "Software (Entertainment)": {
-    "ev_ebitda": 15.171834136907565
+    "ev_ebitda": 15.171834136907565,
+    "op_margin_pretax": 0.3384971230031091
   },
   "Software (Internet)": {
-    "ev_ebitda": 15.725614147670882
+    "ev_ebitda": 15.725614147670882,
+    "op_margin_pretax": 0.03686141997593261
   },
   "Software (System & Application)": {
-    "ev_ebitda": 17.95685777948146
+    "ev_ebitda": 17.95685777948146,
+    "op_margin_pretax": 0.32982513736047653
   },
   "Steel": {
-    "ev_ebitda": 11.59043510860728
+    "ev_ebitda": 11.59043510860728,
+    "op_margin_pretax": 0.04095917963841709
   },
   "Telecom (Wireless)": {
-    "ev_ebitda": 8.958527376759566
+    "ev_ebitda": 8.958527376759566,
+    "op_margin_pretax": 0.20980028345141027
   },
   "Telecom. Equipment": {
-    "ev_ebitda": 15.679833332145373
+    "ev_ebitda": 15.679833332145373,
+    "op_margin_pretax": 0.20696764502165169
   },
   "Telecom. Services": {
-    "ev_ebitda": 6.459410942080079
+    "ev_ebitda": 6.459410942080079,
+    "op_margin_pretax": 0.2047121991102734
   },
   "Tobacco": {
-    "ev_ebitda": 13.054755151157137
+    "ev_ebitda": 13.054755151157137,
+    "op_margin_pretax": 0.43538235748026255
   },
   "Transportation": {
-    "ev_ebitda": 11.457349199145453
+    "ev_ebitda": 11.457349199145453,
+    "op_margin_pretax": 0.07567222148665109
   },
   "Transportation (Railroads)": {
-    "ev_ebitda": 13.48817865261892
+    "ev_ebitda": 13.48817865261892,
+    "op_margin_pretax": 0.3741088611342688
   },
   "Trucking": {
-    "ev_ebitda": 10.326347477222884
+    "ev_ebitda": 10.326347477222884,
+    "op_margin_pretax": 0.06891848716024367
   },
   "Utility (General)": {
-    "ev_ebitda": 13.72701503876966
+    "ev_ebitda": 13.72701503876966,
+    "op_margin_pretax": 0.2349211260172051
   },
   "Utility (Water)": {
-    "ev_ebitda": 14.132446057827247
+    "ev_ebitda": 14.132446057827247,
+    "op_margin_pretax": 0.3371569629910201
   },
   "Total Market (without financials)": {
-    "ev_ebitda": 14.02336899411817
+    "ev_ebitda": 14.02336899411817,
+    "op_margin_pretax": 0.13135588884455865
+  },
+  "Bank (Money Center)": {
+    "op_margin_pretax": 0.0
+  },
+  "Banks (Regional)": {
+    "op_margin_pretax": 4.9066905828215586e-08
+  },
+  "Brokerage & Investment Banking": {
+    "op_margin_pretax": -1.7915896597858007e-05
   }
 }
