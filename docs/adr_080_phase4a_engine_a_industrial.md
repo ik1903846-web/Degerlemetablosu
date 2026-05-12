@@ -45,11 +45,22 @@ TUPRS 211.95 anchor Engine B output — Damodaran reference YOK.
 - Output: TickerDataV4.total_assets field
 - Test: 5 KAP excel manuel parse + value compare
 
-**Adim 2: KAP 5y revenue CAGR helper** — 0.5 gun
+**Adim 2: Composite explicit_growth_rate helper** — 0.5 gun (REVIZE)
 - Hedef: explicit_growth_rate (Engine A input)
-- Implementation: history_rows'tan CAGR (5y geometric mean)
-- Fallback: <5y data → 3y veya median 1y
-- Sanity: cap %50 max (boom outlier protection)
+- Doctrine v2 (revize):
+    history_rows int (yfinance bar count), revenue history degil
+    yfinance Ticker.financials TR icin 4y annual + TRY currency mismatch
+    KAP Excel sadece 2 period (cari/onceki) tutar
+    Damodaran 5y standardi TR-BIST KAP-only altyapida UYGULANAMAZ
+- Implementation: KAP 2y nominal growth + lifecycle bound clamp
+- Composite formula:
+    raw_growth = (kap_revenue_cari / kap_revenue_onceki) - 1
+    bounded    = clamp(raw_growth, lifecycle_min, lifecycle_max)
+- Fallback chain:
+    KAP 2y missing -> lifecycle_default (median of min-max)
+    Lifecycle missing -> %5 (mature_stable conservative)
+- Damodaran "Act Your Age" framework alignment
+- ADR-080 v2 doctrine: 5y CAGR yerine composite (data reality)
 
 **Adim 3: Damodaran sector op_margin fetcher** — 1 gun
 - Hedef: terminal_ebit_margin (Engine A input)
