@@ -2,7 +2,7 @@
   "fetch_date": "2026-05-12",
   "total_count": 615,
   "complete_count": 570,
-  "dcf_count": 143,
+  "dcf_count": 155,
   "anchor_tuprs": 211.95412760984857,
   "tickers": [
     {
@@ -343,7 +343,7 @@
       "flags": [
         "unit_multiplier=1000",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-17.79 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "dcf_negative_intrinsic=-11.01 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -621,16 +621,16 @@
       "cost_of_equity": null,
       "cost_of_debt": null,
       "rating": null,
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "holding_sotp_pending",
+      "intrinsic_per_share_tl": 26.709385660809065,
+      "upside_pct": -4.5411520342778235,
+      "dcf_method": "holding_sotp_phase3b",
       "flags": [
         "unit_multiplier=1",
-        "dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)"
+        "holding_sotp_phase3b: ch=59.1B + emi=0.0B + ip=0.0B + cash_only=18.3B - debt_only=7.9B = 69.4B (cons_ratio=0.000)"
       ],
       "errors": [],
-      "cross_holdings_value_tl": null,
-      "cross_holdings_added_tl": null
+      "cross_holdings_value_tl": 59082170176.307205,
+      "cross_holdings_added_tl": 59082170176.307205
     },
     {
       "ticker": "AKBNK",
@@ -3760,7 +3760,7 @@
         "beta: low_r2=0.027",
         "unit_multiplier=1",
         "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-54.88 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "dcf_negative_intrinsic=-52.35 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -9674,16 +9674,16 @@
       "cost_of_equity": null,
       "cost_of_debt": null,
       "rating": null,
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "holding_sotp_pending",
+      "intrinsic_per_share_tl": 8.34211278228909,
+      "upside_pct": -66.0337427431226,
+      "dcf_method": "holding_sotp_phase3b",
       "flags": [
         "unit_multiplier=1000",
-        "dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)"
+        "holding_sotp_phase3b: ch=11.2B + emi=2.0B + ip=8.4B + cash_only=8.8B - debt_only=8.5B = 21.8B (cons_ratio=0.700)"
       ],
       "errors": [],
-      "cross_holdings_value_tl": null,
-      "cross_holdings_added_tl": null
+      "cross_holdings_value_tl": 11173679820.8,
+      "cross_holdings_added_tl": 11173679820.8
     },
     {
       "ticker": "DGNMO",
@@ -11949,7 +11949,7 @@
       "flags": [
         "unit_multiplier=1000",
         "op_margin: cyclical_normalized:1.3x",
-        "dcf_negative_intrinsic=-49.93 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "dcf_negative_intrinsic=-27.04 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -14399,16 +14399,16 @@
       "cost_of_equity": null,
       "cost_of_debt": null,
       "rating": null,
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "holding_sotp_pending",
+      "intrinsic_per_share_tl": 2.3605388278340764,
+      "upside_pct": -84.77071723978014,
+      "dcf_method": "holding_sotp_phase3b",
       "flags": [
         "unit_multiplier=1",
-        "dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)"
+        "holding_sotp_phase3b: ch=2.4B + emi=0.7B + ip=7.9B + cash_only=1.2B - debt_only=7.6B = 4.6B (cons_ratio=0.850)"
       ],
       "errors": [],
-      "cross_holdings_value_tl": null,
-      "cross_holdings_added_tl": null
+      "cross_holdings_value_tl": 2428248221.1584,
+      "cross_holdings_added_tl": 2428248221.1584
     },
     {
       "ticker": "GOODY",
@@ -14793,16 +14793,16 @@
       "cost_of_equity": null,
       "cost_of_debt": null,
       "rating": null,
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "holding_sotp_pending",
+      "intrinsic_per_share_tl": 2.0291218292348527,
+      "upside_pct": -63.700861731040206,
+      "dcf_method": "holding_sotp_phase3b",
       "flags": [
         "unit_multiplier=1000",
-        "dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)"
+        "holding_sotp_phase3b: ch=1.6B + emi=0.0B + ip=0.0B + cash_only=3.2B - debt_only=2.8B = 2.0B (cons_ratio=0.000)"
       ],
       "errors": [],
-      "cross_holdings_value_tl": null,
-      "cross_holdings_added_tl": null
+      "cross_holdings_value_tl": 1583040000.0,
+      "cross_holdings_added_tl": 1583040000.0
     },
     {
       "ticker": "GUBRF",
@@ -15132,17 +15132,18 @@
       "cost_of_equity": null,
       "cost_of_debt": null,
       "rating": null,
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "holding_sotp_minimal_negative_equity",
+      "intrinsic_per_share_tl": 19.93637560213707,
+      "upside_pct": -80.04366806592886,
+      "dcf_method": "holding_sotp_phase3b",
       "flags": [
         "unit_multiplier=1000",
-        "holding_sotp_minimal_negative: cross=85127722078 + cash=162777200000 - debt=356290390000 = -108385467922",
-        "holding_sotp_full_pending: full sub valuation Phase 3 scope"
+        "holding_sotp_phase3b: ch=318.9B + emi=124.9B + ip=4.0B + cash_only=24.4B - debt_only=53.4B = 418.8B (cons_ratio=0.850)",
+        "banking_proxy_subs: ['AKBNK']",
+        "unknown_proxy_subs: ['AKGRT', 'AGESA']"
       ],
       "errors": [],
-      "cross_holdings_value_tl": 85127722078.20801,
-      "cross_holdings_added_tl": 85127722078.20801
+      "cross_holdings_value_tl": 318935445153.5872,
+      "cross_holdings_added_tl": 318935445153.5872
     },
     {
       "ticker": "HLGYO",
@@ -16897,16 +16898,16 @@
       "cost_of_equity": 0.12434901075047998,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 12.536276785562482,
-      "upside_pct": 8.821847096896548,
+      "intrinsic_per_share_tl": 12.938821789583422,
+      "upside_pct": 12.31616136791165,
       "dcf_method": "industrial_fcff_2stage",
       "flags": [
         "unit_multiplier=1",
         "op_margin: raw_margin"
       ],
       "errors": [],
-      "cross_holdings_value_tl": null,
-      "cross_holdings_added_tl": null
+      "cross_holdings_value_tl": 301958020.6848,
+      "cross_holdings_added_tl": 301958020.6848
     },
     {
       "ticker": "INFO",
@@ -17348,16 +17349,16 @@
       "cost_of_equity": null,
       "cost_of_debt": null,
       "rating": null,
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "holding_sotp_pending",
+      "intrinsic_per_share_tl": 0.39343228949440817,
+      "upside_pct": -99.0738411264256,
+      "dcf_method": "holding_sotp_phase3b",
       "flags": [
         "unit_multiplier=1000",
-        "dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)"
+        "holding_sotp_phase3b: ch=0.4B + emi=0.4B + ip=0.0B + cash_only=4.6B - debt_only=4.8B = 0.6B (cons_ratio=0.289)"
       ],
       "errors": [],
-      "cross_holdings_value_tl": null,
-      "cross_holdings_added_tl": null
+      "cross_holdings_value_tl": 407001644.8256,
+      "cross_holdings_added_tl": 407001644.8256
     },
     {
       "ticker": "ISYAT",
@@ -17687,17 +17688,16 @@
       "cost_of_equity": 0.13261435066067423,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 7.512197994606568,
+      "upside_pct": -15.307801639159313,
+      "dcf_method": "industrial_fcff_2stage",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: cyclical_normalized:1.3x",
-        "dcf_negative_intrinsic=-1.71 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: cyclical_normalized:1.3x"
       ],
       "errors": [],
-      "cross_holdings_value_tl": null,
-      "cross_holdings_added_tl": null
+      "cross_holdings_value_tl": 15191209231.155201,
+      "cross_holdings_added_tl": 15191209231.155201
     },
     {
       "ticker": "IZFAS",
@@ -19277,17 +19277,17 @@
       "cost_of_equity": null,
       "cost_of_debt": null,
       "rating": null,
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "holding_sotp_minimal_negative_equity",
+      "intrinsic_per_share_tl": 161.8491879927111,
+      "upside_pct": -24.085746720116738,
+      "dcf_method": "holding_sotp_phase3b",
       "flags": [
         "unit_multiplier=1000000",
-        "holding_sotp_minimal_negative: cross=192475066447 + cash=311130000000 - debt=646118000000 = -142512933553",
-        "holding_sotp_full_pending: full sub valuation Phase 3 scope"
+        "holding_sotp_phase3b: ch=344.0B + emi=113.6B + ip=3.1B + cash_only=46.7B - debt_only=96.9B = 410.5B (cons_ratio=0.850)",
+        "banking_proxy_subs: ['YKBNK']"
       ],
       "errors": [],
-      "cross_holdings_value_tl": 192475066446.6432,
-      "cross_holdings_added_tl": 192475066446.6432
+      "cross_holdings_value_tl": 343970704071.8848,
+      "cross_holdings_added_tl": 343970704071.8848
     },
     {
       "ticker": "KOCMT",
@@ -20929,17 +20929,18 @@
       "cost_of_equity": null,
       "cost_of_debt": null,
       "rating": null,
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "holding_sotp_pending",
+      "intrinsic_per_share_tl": 20.228840318038802,
+      "upside_pct": 393.38634922045867,
+      "dcf_method": "holding_sotp_phase3b",
       "flags": [
         "beta: low_r2=0.017",
         "unit_multiplier=1000",
-        "dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)"
+        "holding_sotp_phase3b: ch=0.4B + emi=0.1B + ip=15.5B + cash_only=0.2B - debt_only=0.7B = 15.5B (cons_ratio=0.000)",
+        "unknown_proxy_subs: ['ADESE']"
       ],
       "errors": [],
-      "cross_holdings_value_tl": null,
-      "cross_holdings_added_tl": null
+      "cross_holdings_value_tl": 398663982.08000004,
+      "cross_holdings_added_tl": 398663982.08000004
     },
     {
       "ticker": "LXGYO",
@@ -23377,17 +23378,16 @@
       "cost_of_equity": 0.1169126931859159,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "fcff_negative_intrinsic_unsuitable",
+      "intrinsic_per_share_tl": 5.21484160014332,
+      "upside_pct": -26.86056661790575,
+      "dcf_method": "industrial_fcff_2stage",
       "flags": [
         "unit_multiplier=1",
-        "op_margin: raw_margin",
-        "dcf_negative_intrinsic=-0.11 → NULL (reinvestment > NOPAT, capital-intensive cyclical)"
+        "op_margin: raw_margin"
       ],
       "errors": [],
-      "cross_holdings_value_tl": null,
-      "cross_holdings_added_tl": null
+      "cross_holdings_value_tl": 5202712706.56,
+      "cross_holdings_added_tl": 5202712706.56
     },
     {
       "ticker": "NTGAZ",
@@ -23490,16 +23490,16 @@
       "cost_of_equity": 0.1136530257273785,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 24.242109982214245,
-      "upside_pct": -39.72623077520078,
+      "intrinsic_per_share_tl": 32.37480337606712,
+      "upside_pct": -19.505710153985277,
       "dcf_method": "industrial_fcff_2stage",
       "flags": [
         "unit_multiplier=1000",
         "op_margin: raw_margin"
       ],
       "errors": [],
-      "cross_holdings_value_tl": null,
-      "cross_holdings_added_tl": null
+      "cross_holdings_value_tl": 4067666250.752,
+      "cross_holdings_added_tl": 4067666250.752
     },
     {
       "ticker": "NETAS",
@@ -23942,16 +23942,16 @@
       "cost_of_equity": null,
       "cost_of_debt": null,
       "rating": null,
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "holding_sotp_pending",
+      "intrinsic_per_share_tl": 4.244767605502218,
+      "upside_pct": -48.297593112031464,
+      "dcf_method": "holding_sotp_phase3b",
       "flags": [
         "unit_multiplier=1",
-        "dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)"
+        "holding_sotp_phase3b: ch=5.4B + emi=0.0B + ip=0.0B + cash_only=1.4B - debt_only=0.9B = 5.9B (cons_ratio=0.293)"
       ],
       "errors": [],
-      "cross_holdings_value_tl": null,
-      "cross_holdings_added_tl": null
+      "cross_holdings_value_tl": 5404657009.4592,
+      "cross_holdings_added_tl": 5404657009.4592
     },
     {
       "ticker": "ODINE",
@@ -24681,11 +24681,10 @@
       "rating": null,
       "intrinsic_per_share_tl": null,
       "upside_pct": null,
-      "dcf_method": "holding_sotp_minimal_negative_equity",
+      "dcf_method": "holding_sotp_phase3b_negative",
       "flags": [
         "unit_multiplier=1",
-        "holding_sotp_minimal_negative: cross=508753800 + cash=925496751 - debt=6743401711 = -5309151160",
-        "holding_sotp_full_pending: full sub valuation Phase 3 scope"
+        "holding_sotp_phase3b_negative: ch=0.5B + emi=0.0B + ip=0.0B + cash_only=0.9B - debt_only=6.7B = -5.3B (cons_ratio=0.000)"
       ],
       "errors": [],
       "cross_holdings_value_tl": 508753800.0,
@@ -27187,16 +27186,16 @@
       "cost_of_equity": 0.11343427432990577,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 21.92173436930456,
-      "upside_pct": 10.492612748510883,
+      "intrinsic_per_share_tl": 41.694081674017056,
+      "upside_pct": 110.15162134081177,
       "dcf_method": "industrial_fcff_2stage",
       "flags": [
         "unit_multiplier=1",
         "op_margin: cyclical_normalized:1.3x"
       ],
       "errors": [],
-      "cross_holdings_value_tl": null,
-      "cross_holdings_added_tl": null
+      "cross_holdings_value_tl": 39556000317.44,
+      "cross_holdings_added_tl": 39556000317.44
     },
     {
       "ticker": "RODRG",
@@ -30724,16 +30723,16 @@
       "cost_of_equity": null,
       "cost_of_debt": null,
       "rating": null,
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "holding_sotp_pending",
+      "intrinsic_per_share_tl": 245.44726952006295,
+      "upside_pct": 166.79051034789453,
+      "dcf_method": "holding_sotp_phase3b",
       "flags": [
         "unit_multiplier=1000",
-        "dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)"
+        "holding_sotp_phase3b: ch=59.9B + emi=0.0B + ip=2.1B + cash_only=1.8B - debt_only=0.0B = 63.8B (cons_ratio=0.771)"
       ],
       "errors": [],
-      "cross_holdings_value_tl": null,
-      "cross_holdings_added_tl": null
+      "cross_holdings_value_tl": 59903980666.0608,
+      "cross_holdings_added_tl": 59903980666.0608
     },
     {
       "ticker": "TLMAN",
@@ -33579,8 +33578,8 @@
       "cost_of_equity": 0.1146602396451383,
       "cost_of_debt": 0.08257500000000001,
       "rating": "BB+_sovereign_sector",
-      "intrinsic_per_share_tl": 132.53910293037293,
-      "upside_pct": -74.31412733907501,
+      "intrinsic_per_share_tl": 162.4669948819149,
+      "upside_pct": -68.51414827869866,
       "dcf_method": "industrial_fcff_2stage",
       "flags": [
         "beta: low_r2=0.026",
@@ -33588,8 +33587,8 @@
         "op_margin: raw_margin"
       ],
       "errors": [],
-      "cross_holdings_value_tl": 2176188164.992,
-      "cross_holdings_added_tl": 2176188164.992
+      "cross_holdings_value_tl": 4271562360.6656,
+      "cross_holdings_added_tl": 4271562360.6656
     },
     {
       "ticker": "VERTU",
