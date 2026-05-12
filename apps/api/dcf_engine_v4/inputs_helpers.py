@@ -83,3 +83,33 @@ def compute_explicit_growth_rate(
         return max(growth_min, min(growth_max, raw_growth))
 
     return growth_default
+
+
+def compute_taper_config(lifecycle_stage: Optional[str] = None) -> dict:
+    """Phase 4a Adim 4: Damodaran 'Act Your Age' taper config builder.
+
+    Returns ProjectionInputs taper fields (Engine A industrial_fcff):
+      margin_taper_start_year, margin_taper_end_year (lifecycle-aware)
+      tax_taper_start_year, tax_taper_end_year (5/10 Damodaran convention)
+      explicit_period_years (5 mature, 10 growth)
+      transition_period_years (5 Damodaran default)
+
+    Damodaran convention (Heineken/ABN PASS pattern):
+      tax_taper Year 5-10 (her ticker icin sabit, country tax convergence)
+      margin_taper Year-N..10 (lifecycle stage'e gore N degisir)
+
+    Unknown stage -> mature_stable conservative.
+    """
+    from dcf_engine.lifecycle_classifier import get_lifecycle_defaults
+
+    config = get_lifecycle_defaults(lifecycle_stage)
+
+    return {
+        "margin_taper_start_year": int(config["margin_taper_start"]),
+        "margin_taper_end_year": int(config["margin_taper_end"]),
+        # Damodaran tax_taper convention (country tax converge Y5-Y10)
+        "tax_taper_start_year": 5,
+        "tax_taper_end_year": 10,
+        "explicit_period_years": int(config["explicit_period_years"]),
+        "transition_period_years": int(config["transition_period_years"]),
+    }
