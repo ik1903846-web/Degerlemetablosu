@@ -1,16 +1,16 @@
 {
   "schema_version": "1.0",
   "current_anchor": {
-    "version": "v4.3.5",
-    "previous_version": "v4.3.4",
+    "version": "v4.4-phase3-sealed",
+    "previous_version": "v4.3.5-phase3c-sealed",
     "ticker": "TUPRS",
     "value_tl": 211.95,
     "value_tl_shadow_proxy": 216.33,
     "value_tl_shadow_delta_pct": -2.03,
     "computed_date": "2026-05-09",
     "transition_date": "2026-05-12",
-    "transition_commit": "aeeccfc",
-    "method": "Full DCF orchestrator_v4 (kanonik) + cross-holdings (Damodaran) + parser improvement (Phase 2) + phase 3a parse (financial_investments) + phase 3b sub valuation (cons_ratio) + phase 3c sector multiple + book_value fallback",
+    "transition_commit": "caa1600",
+    "method": "Full DCF orchestrator_v4 (kanonik) + cross-holdings (Damodaran) + parser improvement (Phase 2) + phase 3a parse (financial_investments) + phase 3b sub valuation (cons_ratio) + phase 3c sector multiple + book_value fallback + phase 3d master audit (Phase 3 SEALED)",
     "method_doc": "apps/api/outputs/turkey_v4_batch.json",
     "shadow_method_note": "Shadow proxy 216.33 TL (3 profil mean, reports/tuprs_shadow_2026_05_09.md). Profil D/E=0.40 idi, gerçek TUPRS D/E=0.0858 — düşük leverage gerçek WACC'i shadow'dan farklı yaptı (matematik doğru, profil tahmini approximate).",
     "tolerance_initial": 0.005,
@@ -101,6 +101,34 @@
         "2a2b487",
         "aeeccfc"
       ]
+    },
+    "phase3_master_status": "SEALED",
+    "phase3_summary": {
+      "duration_estimated_days": 14,
+      "duration_actual": "1 oturum",
+      "subphases": [
+        "3a",
+        "3b",
+        "3c",
+        "3d"
+      ],
+      "commits_range": "53-72",
+      "commits_count": 20,
+      "audit_docs_count": 9,
+      "anchor_tags": [
+        "v4.3.3",
+        "v4.3.4",
+        "v4.3.5",
+        "v4.4"
+      ],
+      "universe_coverage_pre": "155/615 (25.2%)",
+      "universe_coverage_post": "186/615 (30.2%)",
+      "tuprs_anchor_intact": true,
+      "tuprs_drift_pct": 0.0019,
+      "damodaran_pass": [
+        "KCHOL",
+        "SAHOL"
+      ]
     }
   },
   "previous_anchor": {
@@ -152,7 +180,7 @@
     "findings": "docs/audit_findings_session4.md",
     "decision": "docs/audit_decision_v4.md",
     "progress": "docs/audit_progress_session4.md",
-    "phase": "Faz B2 Phase 3c SEALED (Damodaran sector + book fallback)",
+    "phase": "Faz B2 Phase 3 (a+b+c+d) SEALED — Damodaran SOTP chain",
     "phase_complete": true,
     "phase2_findings": "docs/faz_b2_phase2_findings.md",
     "phase2_decision": "docs/faz_b2_decision.md",
@@ -160,7 +188,7 @@
     "phase2_resolution": "docs/faz_b2_resolution.md",
     "phase2_adr": "docs/adr_078_cross_holdings.md",
     "remaining_steps": [
-      "Faz B2 Phase 3d: Master Phase 3 audit + anchor v4.4-phase3-sealed"
+      "Phase 4: Banking DDM (Faz 6.5+) + Decline/Distress + Multi-multiple consensus"
     ],
     "phase2_decision_2": "docs/faz_b2_phase2_decision.md",
     "phase2_progress_2": "docs/faz_b2_phase2_progress.md",
@@ -177,7 +205,10 @@
     "phase3b_adr": "docs/adr_079_phase3_sub_valuation.md (kapsami: Phase 3a + 3b + 3c)",
     "phase3c_decision": "docs/faz_b2_phase3c_decision.md",
     "phase3c_progress": "docs/faz_b2_phase3c_progress.md",
-    "phase3c_resolution": "docs/faz_b2_phase3c_resolution.md"
+    "phase3c_resolution": "docs/faz_b2_phase3c_resolution.md",
+    "phase3_master_decision": "docs/faz_b2_phase3_master_decision.md",
+    "phase3_master_progress": "docs/faz_b2_phase3_master_progress.md",
+    "phase3_master_resolution": "docs/faz_b2_phase3_master_resolution.md"
   },
   "production_status": {
     "cost_of_capital_py_updated": true,
