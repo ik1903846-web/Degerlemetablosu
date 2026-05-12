@@ -526,6 +526,13 @@ def _parse_balance_sheet(fli: FinancialLineItems, all_tables: List[pd.DataFrame]
     fli.paid_in_capital = _find_value_in_tables(
         all_tables, ["Ödenmiş Sermaye"], "cari", require_exact=True,
     )
+    # Phase 3a: holding sub valuation icin (konsolide bilanco DISI)
+    fli.equity_method_investments = _find_value_in_tables(
+        all_tables, ["Özkaynak Yöntemiyle Değerlenen Yatırımlar"], "cari", require_exact=True,
+    )
+    fli.investment_properties = _find_value_in_tables(
+        all_tables, ["Yatırım Amaçlı Gayrimenkuller"], "cari", require_exact=True,
+    )
 
 
 if __name__ == "__main__":
