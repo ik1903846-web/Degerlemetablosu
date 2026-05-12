@@ -2,7 +2,7 @@
   "fetch_date": "2026-05-12",
   "total_count": 615,
   "complete_count": 570,
-  "dcf_count": 155,
+  "dcf_count": 186,
   "anchor_tuprs": 211.95412760984857,
   "tickers": [
     {
@@ -2837,12 +2837,12 @@
       "cost_of_equity": null,
       "cost_of_debt": null,
       "rating": null,
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "holding_sotp_pending",
+      "intrinsic_per_share_tl": 3.4125849813245632,
+      "upside_pct": -12.497820991677864,
+      "dcf_method": "sector_multiple_regression(Diversified@11.14x)",
       "flags": [
         "unit_multiplier=1",
-        "dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)"
+        "phase3c_level2: sector_multiple_regression(Diversified@11.14x), intrinsic=3.41"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -3123,12 +3123,12 @@
       "cost_of_equity": null,
       "cost_of_debt": null,
       "rating": null,
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "holding_sotp_pending",
+      "intrinsic_per_share_tl": 26.6552679254874,
+      "upside_pct": -91.87958326717825,
+      "dcf_method": "sector_multiple_regression(Machinery@14.78x)",
       "flags": [
         "unit_multiplier=1",
-        "dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)"
+        "phase3c_level2: sector_multiple_regression(Machinery@14.78x), intrinsic=26.66"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -4491,12 +4491,12 @@
       "cost_of_equity": null,
       "cost_of_debt": null,
       "rating": null,
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "holding_sotp_pending",
+      "intrinsic_per_share_tl": 3.642067039889572,
+      "upside_pct": -95.30055865820701,
+      "dcf_method": "book_value_fallback",
       "flags": [
         "unit_multiplier=1",
-        "dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)"
+        "phase3c_level3: book_value=3.64"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -7515,12 +7515,12 @@
       "cost_of_equity": null,
       "cost_of_debt": null,
       "rating": null,
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "holding_sotp_pending",
+      "intrinsic_per_share_tl": 36.89275968035818,
+      "upside_pct": -57.49682064474864,
+      "dcf_method": "sector_multiple_regression(Food Processing@9.62x)",
       "flags": [
         "unit_multiplier=1000",
-        "dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)"
+        "phase3c_level2: sector_multiple_regression(Food Processing@9.62x), intrinsic=36.89"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -7972,12 +7972,12 @@
       "cost_of_equity": null,
       "cost_of_debt": null,
       "rating": null,
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "holding_sotp_pending",
+      "intrinsic_per_share_tl": 78.65216516463998,
+      "upside_pct": 96.23793703752492,
+      "dcf_method": "sector_multiple_regression(Utility (General)@13.73x)",
       "flags": [
         "unit_multiplier=1",
-        "dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)"
+        "phase3c_level2: sector_multiple_regression(Utility (General)@13.73x), intrinsic=78.65"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -9334,13 +9334,13 @@
       "cost_of_equity": null,
       "cost_of_debt": null,
       "rating": null,
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "holding_sotp_pending",
+      "intrinsic_per_share_tl": 12.397656300779758,
+      "upside_pct": -55.722656068643715,
+      "dcf_method": "book_value_fallback",
       "flags": [
         "beta: low_r2=0.011",
         "unit_multiplier=1",
-        "dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)"
+        "phase3c_level3: book_value=12.40"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -9391,12 +9391,12 @@
       "cost_of_equity": null,
       "cost_of_debt": null,
       "rating": null,
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "holding_sotp_pending",
+      "intrinsic_per_share_tl": 0.03383250413492254,
+      "upside_pct": -99.90233110815554,
+      "dcf_method": "book_value_fallback",
       "flags": [
         "unit_multiplier=1",
-        "dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)"
+        "phase3c_level3: book_value=0.03"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -9618,12 +9618,12 @@
       "cost_of_equity": null,
       "cost_of_debt": null,
       "rating": null,
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "holding_sotp_pending",
+      "intrinsic_per_share_tl": 7.504369909751913,
+      "upside_pct": -78.55894311499453,
+      "dcf_method": "sector_multiple_regression(Metals & Mining@11.33x)",
       "flags": [
         "unit_multiplier=1",
-        "dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)"
+        "phase3c_level2: sector_multiple_regression(Metals & Mining@11.33x), intrinsic=7.50"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -10015,12 +10015,12 @@
       "cost_of_equity": null,
       "cost_of_debt": null,
       "rating": null,
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "holding_sotp_pending",
+      "intrinsic_per_share_tl": 20.189391329049403,
+      "upside_pct": -22.88238606169059,
+      "dcf_method": "book_value_fallback",
       "flags": [
         "unit_multiplier=1",
-        "dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)"
+        "phase3c_level3: book_value=20.19"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -10355,12 +10355,12 @@
       "cost_of_equity": null,
       "cost_of_debt": null,
       "rating": null,
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "holding_sotp_pending",
+      "intrinsic_per_share_tl": 21.06101292474551,
+      "upside_pct": -45.66302134998578,
+      "dcf_method": "sector_multiple_regression(Utility (General)@13.73x)",
       "flags": [
         "unit_multiplier=1",
-        "dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)"
+        "phase3c_level2: sector_multiple_regression(Utility (General)@13.73x), intrinsic=21.06"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -11831,12 +11831,12 @@
       "cost_of_equity": null,
       "cost_of_debt": null,
       "rating": null,
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "holding_sotp_pending",
+      "intrinsic_per_share_tl": 380.8985578682967,
+      "upside_pct": 77.98998031228817,
+      "dcf_method": "sector_multiple_regression(Metals & Mining@11.33x)",
       "flags": [
         "unit_multiplier=1",
-        "dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)"
+        "phase3c_level2: sector_multiple_regression(Metals & Mining@11.33x), intrinsic=380.90"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -12114,13 +12114,13 @@
       "cost_of_equity": null,
       "cost_of_debt": null,
       "rating": null,
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "holding_sotp_pending",
+      "intrinsic_per_share_tl": 20.050780828092257,
+      "upside_pct": -62.80003556940213,
+      "dcf_method": "sector_multiple_regression(Financial Svcs. (Non-bank & Insurance)@52.24x)",
       "flags": [
         "beta: low_r2=0.024",
         "unit_multiplier=1",
-        "dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)"
+        "phase3c_level2: sector_multiple_regression(Financial Svcs. (Non-bank & Insurance)@52.24x), intrinsic=20.05"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -12801,12 +12801,12 @@
       "cost_of_equity": null,
       "cost_of_debt": null,
       "rating": null,
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "holding_sotp_pending",
+      "intrinsic_per_share_tl": 4.961046093220411,
+      "upside_pct": -69.01282889931036,
+      "dcf_method": "sector_multiple_regression(Food Processing@9.62x)",
       "flags": [
         "unit_multiplier=1",
-        "dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)"
+        "phase3c_level2: sector_multiple_regression(Food Processing@9.62x), intrinsic=4.96"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -14113,13 +14113,13 @@
       "cost_of_equity": null,
       "cost_of_debt": null,
       "rating": null,
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "holding_sotp_pending",
+      "intrinsic_per_share_tl": 18.86729782540536,
+      "upside_pct": -74.64072872929387,
+      "dcf_method": "book_value_fallback",
       "flags": [
         "beta: low_r2=0.034",
         "unit_multiplier=1",
-        "dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)"
+        "phase3c_level3: book_value=18.87"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -14737,12 +14737,12 @@
       "cost_of_equity": null,
       "cost_of_debt": null,
       "rating": null,
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "holding_sotp_pending",
+      "intrinsic_per_share_tl": 16.62030791700137,
+      "upside_pct": 6.951788397692216,
+      "dcf_method": "book_value_fallback",
       "flags": [
         "unit_multiplier=1000",
-        "dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)"
+        "phase3c_level3: book_value=16.62"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -14905,12 +14905,12 @@
       "cost_of_equity": null,
       "cost_of_debt": null,
       "rating": null,
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "holding_sotp_pending",
+      "intrinsic_per_share_tl": 21.157812525625957,
+      "upside_pct": 392.04215175874316,
+      "dcf_method": "book_value_fallback",
       "flags": [
         "unit_multiplier=1",
-        "dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)"
+        "phase3c_level3: book_value=21.16"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -15076,12 +15076,12 @@
       "cost_of_equity": null,
       "cost_of_debt": null,
       "rating": null,
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "holding_sotp_pending",
+      "intrinsic_per_share_tl": 212.32109739290436,
+      "upside_pct": -35.020322144482215,
+      "dcf_method": "sector_multiple_regression(Transportation@11.46x)",
       "flags": [
         "unit_multiplier=1",
-        "dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)"
+        "phase3c_level2: sector_multiple_regression(Transportation@11.46x), intrinsic=212.32"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -16842,12 +16842,12 @@
       "cost_of_equity": null,
       "cost_of_debt": null,
       "rating": null,
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "holding_sotp_pending",
+      "intrinsic_per_share_tl": 2.220528312028671,
+      "upside_pct": -39.659556738351334,
+      "dcf_method": "sector_multiple_regression(Machinery@14.78x)",
       "flags": [
         "unit_multiplier=1000",
-        "dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)"
+        "phase3c_level2: sector_multiple_regression(Machinery@14.78x), intrinsic=2.22"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -18371,12 +18371,12 @@
       "cost_of_equity": null,
       "cost_of_debt": null,
       "rating": null,
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "holding_sotp_pending",
+      "intrinsic_per_share_tl": 8.03548085509404,
+      "upside_pct": -33.536138502117126,
+      "dcf_method": "book_value_fallback",
       "flags": [
         "unit_multiplier=1000",
-        "dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)"
+        "phase3c_level3: book_value=8.04"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -18483,12 +18483,12 @@
       "cost_of_equity": null,
       "cost_of_debt": null,
       "rating": null,
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "holding_sotp_pending",
+      "intrinsic_per_share_tl": 35.49925122791355,
+      "upside_pct": -69.37079272828858,
+      "dcf_method": "book_value_fallback",
       "flags": [
         "unit_multiplier=1",
-        "dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)"
+        "phase3c_level3: book_value=35.50"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -19051,13 +19051,13 @@
       "cost_of_equity": null,
       "cost_of_debt": null,
       "rating": null,
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "holding_sotp_pending",
+      "intrinsic_per_share_tl": 5.229444301433522,
+      "upside_pct": -96.11482592761254,
+      "dcf_method": "sector_multiple_regression(Diversified@11.14x)",
       "flags": [
         "beta: low_r2=0.044",
         "unit_multiplier=1000",
-        "dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)"
+        "phase3c_level2: sector_multiple_regression(Diversified@11.14x), intrinsic=5.23"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -22526,12 +22526,12 @@
       "cost_of_equity": null,
       "cost_of_debt": null,
       "rating": null,
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "holding_sotp_pending",
+      "intrinsic_per_share_tl": 6.81311855419549,
+      "upside_pct": -4.175547760963581,
+      "dcf_method": "book_value_fallback",
       "flags": [
         "unit_multiplier=1",
-        "dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)"
+        "phase3c_level3: book_value=6.81"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -23659,12 +23659,12 @@
       "cost_of_equity": null,
       "cost_of_debt": null,
       "rating": null,
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "holding_sotp_pending",
+      "intrinsic_per_share_tl": 2.2664361193346276,
+      "upside_pct": -64.80689255691573,
+      "dcf_method": "book_value_fallback",
       "flags": [
         "unit_multiplier=1",
-        "dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)"
+        "phase3c_level3: book_value=2.27"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -24225,12 +24225,12 @@
       "cost_of_equity": null,
       "cost_of_debt": null,
       "rating": null,
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "holding_sotp_pending",
+      "intrinsic_per_share_tl": 3.299688403889364,
+      "upside_pct": -20.870781681310216,
+      "dcf_method": "book_value_fallback",
       "flags": [
         "unit_multiplier=1",
-        "dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)"
+        "phase3c_level3: book_value=3.30"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -24394,12 +24394,12 @@
       "cost_of_equity": null,
       "cost_of_debt": null,
       "rating": null,
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "holding_sotp_pending",
+      "intrinsic_per_share_tl": 5.740714218379968,
+      "upside_pct": -28.33065894656719,
+      "dcf_method": "book_value_fallback",
       "flags": [
         "unit_multiplier=1",
-        "dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)"
+        "phase3c_level3: book_value=5.74"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -24679,12 +24679,13 @@
       "cost_of_equity": null,
       "cost_of_debt": null,
       "rating": null,
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "holding_sotp_phase3b_negative",
+      "intrinsic_per_share_tl": 32.45146817862476,
+      "upside_pct": -40.2367068533614,
+      "dcf_method": "book_value_fallback",
       "flags": [
         "unit_multiplier=1",
-        "holding_sotp_phase3b_negative: ch=0.5B + emi=0.0B + ip=0.0B + cash_only=0.9B - debt_only=6.7B = -5.3B (cons_ratio=0.000)"
+        "holding_sotp_phase3b_negative: ch=0.5B + emi=0.0B + ip=0.0B + cash_only=0.9B - debt_only=6.7B = -5.3B (cons_ratio=0.000)",
+        "phase3c_level3: book_value=32.45"
       ],
       "errors": [],
       "cross_holdings_value_tl": 508753800.0,
@@ -24963,12 +24964,12 @@
       "cost_of_equity": null,
       "cost_of_debt": null,
       "rating": null,
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "holding_sotp_pending",
+      "intrinsic_per_share_tl": 0.6302746754551218,
+      "upside_pct": -73.73855518936992,
+      "dcf_method": "sector_multiple_regression(R.E.I.T.@19.87x)",
       "flags": [
         "unit_multiplier=1",
-        "dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)"
+        "phase3c_level2: sector_multiple_regression(R.E.I.T.@19.87x), intrinsic=0.63"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -28328,13 +28329,13 @@
       "cost_of_equity": null,
       "cost_of_debt": null,
       "rating": null,
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "holding_sotp_pending",
+      "intrinsic_per_share_tl": 0.00334558463521742,
+      "upside_pct": -99.86563917127641,
+      "dcf_method": "sector_multiple_regression(Food Processing@9.62x)",
       "flags": [
         "beta: low_r2=0.046",
         "unit_multiplier=1000",
-        "dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)"
+        "phase3c_level2: sector_multiple_regression(Food Processing@9.62x), intrinsic=0.00"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -30553,13 +30554,13 @@
       "cost_of_equity": null,
       "cost_of_debt": null,
       "rating": null,
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "holding_sotp_pending",
+      "intrinsic_per_share_tl": 14.949048695201787,
+      "upside_pct": -95.30273410991303,
+      "dcf_method": "sector_multiple_regression(Auto & Truck@28.72x)",
       "flags": [
         "beta: sector_override: METAL EŞYA MAKİNE ELEKTRİKLİ C → Otomotiv (Türkiye)",
         "unit_multiplier=1000",
-        "dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)"
+        "phase3c_level2: sector_multiple_regression(Auto & Truck@28.72x), intrinsic=14.95"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -31581,12 +31582,12 @@
       "cost_of_equity": null,
       "cost_of_debt": null,
       "rating": null,
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "holding_sotp_pending",
+      "intrinsic_per_share_tl": 700.1270768510805,
+      "upside_pct": 124.94042629753591,
+      "dcf_method": "book_value_fallback",
       "flags": [
         "unit_multiplier=1000000",
-        "dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)"
+        "phase3c_level3: book_value=700.13"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
@@ -34207,13 +34208,13 @@
       "cost_of_equity": null,
       "cost_of_debt": null,
       "rating": null,
-      "intrinsic_per_share_tl": null,
-      "upside_pct": null,
-      "dcf_method": "holding_sotp_pending",
+      "intrinsic_per_share_tl": 92.84211415078337,
+      "upside_pct": -61.47630118224756,
+      "dcf_method": "sector_multiple_regression(R.E.I.T.@19.87x)",
       "flags": [
         "beta: low_r2=0.041",
         "unit_multiplier=1",
-        "dcf_skip: holding SOTP pending (cross_holdings=0 or shares missing)"
+        "phase3c_level2: sector_multiple_regression(R.E.I.T.@19.87x), intrinsic=92.84"
       ],
       "errors": [],
       "cross_holdings_value_tl": null,
