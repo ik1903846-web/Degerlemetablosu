@@ -1,0 +1,905 @@
+{
+  "Argentina": {
+    "count": 60.0,
+    "median(Current PE)": 16.07514450867052,
+    "median(Trailing PE)": 13.96866840731071,
+    "median(Forward PE)": 29.21875,
+    "median(PEG)": 1.283034885263298,
+    "median(PBV)": 1.389937106918239
+  },
+  "Australia": {
+    "count": 1454.0,
+    "median(Current PE)": 21.62162162162162,
+    "median(Trailing PE)": 21.56582633053221,
+    "median(Forward PE)": 16.61921708185053,
+    "median(PEG)": 2.375624227722828,
+    "median(PBV)": 2.354166666666667
+  },
+  "Austria": {
+    "count": 50.0,
+    "median(Current PE)": 18.40028901734104,
+    "median(Trailing PE)": 16.71428571428572,
+    "median(Forward PE)": 13.59201141226819,
+    "median(PEG)": 1.969836872883964,
+    "median(PBV)": 1.318483200476794
+  },
+  "Azerbaijan": {
+    "count": 1.0,
+    "median(Forward PE)": 11.21212121212121,
+    "median(PBV)": 5.877777777777777
+  },
+  "Bahamas": {
+    "count": 3.0,
+    "median(Current PE)": 70.0,
+    "median(Trailing PE)": 35.74468085106383,
+    "median(Forward PE)": 18.19298245614035,
+    "median(PBV)": 7.127272727272727
+  },
+  "Bahrain": {
+    "count": 13.0,
+    "median(Current PE)": 10.20610687022901,
+    "median(Trailing PE)": 10.64622883530015,
+    "median(Forward PE)": 4.521604938271605,
+    "median(PBV)": 0.7913464655517628
+  },
+  "Bangladesh": {
+    "count": 240.0,
+    "median(Current PE)": 25.73221757322176,
+    "median(Trailing PE)": 23.59712230215827,
+    "median(Forward PE)": 14.43790849673203,
+    "median(PEG)": 0.4422361137621684,
+    "median(PBV)": 1.098765432098765
+  },
+  "Barbados": {
+    "count": 2.0,
+    "median(Current PE)": 25.20107238605898,
+    "median(Trailing PE)": 19.58333333333334,
+    "median(PBV)": 2.303921568627451
+  },
+  "Belgium": {
+    "count": 109.0,
+    "median(Current PE)": 17.78787878787879,
+    "median(Trailing PE)": 16.70468242929995,
+    "median(Forward PE)": 12.21,
+    "median(PEG)": 2.502580304586291,
+    "median(PBV)": 1.032393604307406
+  },
+  "Benin": {
+    "count": 1.0,
+    "median(Current PE)": 13.61061946902655,
+    "median(Trailing PE)": 12.92436974789916
+  },
+  "Bermuda": {
+    "count": 33.0,
+    "median(Current PE)": 11.46559048428207,
+    "median(Trailing PE)": 14.62996553600581,
+    "median(Forward PE)": 12.28571428571428,
+    "median(PEG)": 5.95984775938005,
+    "median(PBV)": 1.219376391982183
+  },
+  "Botswana": {
+    "count": 6.0,
+    "median(Current PE)": 12.53465346534654,
+    "median(Trailing PE)": 10.128,
+    "median(PBV)": 2.728448275862069
+  },
+  "Brazil": {
+    "count": 245.0,
+    "median(Current PE)": 12.29565217391304,
+    "median(Trailing PE)": 10.12919277552525,
+    "median(Forward PE)": 9.173469387755102,
+    "median(PEG)": 0.8510860484544694,
+    "median(PBV)": 0.9987819732034106
+  },
+  "British Virgin Islands": {
+    "count": 24.0,
+    "median(Current PE)": 9.504950495049505,
+    "median(Trailing PE)": 38.72844827586207,
+    "median(Forward PE)": 31.79324894514768,
+    "median(PBV)": 1.476415094339623
+  },
+  "Bulgaria": {
+    "count": 71.0,
+    "median(Current PE)": 0.0,
+    "median(Trailing PE)": 0.0,
+    "median(Forward PE)": 26.91566265060241,
+    "median(PEG)": 0.0,
+    "median(PBV)": 0.0
+  },
+  "Burkina Faso": {
+    "count": 1.0,
+    "median(Current PE)": 8.92330383480826,
+    "median(Trailing PE)": 8.92330383480826
+  },
+  "Cambodia": {
+    "count": 2.0,
+    "median(Current PE)": 24.16149635036496,
+    "median(Trailing PE)": 23.52380952380953,
+    "median(Forward PE)": 7.881578947368421,
+    "median(PEG)": 0.5516323367663234,
+    "median(PBV)": 13.06878306878307
+  },
+  "Canada": {
+    "count": 2392.0,
+    "median(Current PE)": 18.27338129496403,
+    "median(Trailing PE)": 16.96142433234421,
+    "median(Forward PE)": 16.24137931034483,
+    "median(PEG)": 2.542779573367809,
+    "median(PBV)": 2.514285714285714
+  },
+  "Cayman Islands": {
+    "count": 62.0,
+    "median(Current PE)": 19.3302752293578,
+    "median(Trailing PE)": 18.48812095032397,
+    "median(Forward PE)": 20.96219931271478,
+    "median(PEG)": 1.089530332681018,
+    "median(PBV)": 1.431431005110733
+  },
+  "Chile": {
+    "count": 98.0,
+    "median(Current PE)": 16.45979151154133,
+    "median(Trailing PE)": 14.06428571428571,
+    "median(Forward PE)": 11.35198135198135,
+    "median(PEG)": 1.829377080568308,
+    "median(PBV)": 0.8706356934205035
+  },
+  "China": {
+    "count": 6128.0,
+    "median(Current PE)": 44.5593220338983,
+    "median(Trailing PE)": 40.71784232365145,
+    "median(Forward PE)": 26.46153846153846,
+    "median(PEG)": 1.716845550270358,
+    "median(PBV)": 2.633975481611208
+  },
+  "Colombia": {
+    "count": 20.0,
+    "median(Current PE)": 12.94054441260745,
+    "median(Trailing PE)": 10.88089143201325,
+    "median(Forward PE)": 10.18633540372671,
+    "median(PEG)": 0.6603731048864341,
+    "median(PBV)": 0.9808002384726908
+  },
+  "Costa Rica": {
+    "count": 1.0,
+    "median(PBV)": 129.1280487804878
+  },
+  "Croatia": {
+    "count": 46.0,
+    "median(Current PE)": 18.45981772990886,
+    "median(Trailing PE)": 17.81467181467182,
+    "median(Forward PE)": 18.7025,
+    "median(PEG)": 2.838963262764633,
+    "median(PBV)": 1.352230483271376
+  },
+  "Curaçao": {
+    "count": 1.0,
+    "median(PBV)": 2.017985611510791
+  },
+  "Cyprus": {
+    "count": 44.0,
+    "median(Current PE)": 10.18072289156627,
+    "median(Trailing PE)": 9.240162822252374,
+    "median(Forward PE)": 8.252252252252251,
+    "median(PEG)": 2.133333333333333,
+    "median(PBV)": 0.6863492063492063
+  },
+  "Czech Republic": {
+    "count": 23.0,
+    "median(Current PE)": 27.47552447552448,
+    "median(Trailing PE)": 24.31766822598057,
+    "median(Forward PE)": 20.8936877076412,
+    "median(PEG)": 2.166387118416639,
+    "median(PBV)": 2.998142989786444
+  },
+  "Denmark": {
+    "count": 134.0,
+    "median(Current PE)": 18.73546511627907,
+    "median(Trailing PE)": 19.47030356357237,
+    "median(Forward PE)": 16.06635071090047,
+    "median(PEG)": 1.962119599914876,
+    "median(PBV)": 2.134920634920635
+  },
+  "Dominican Republic": {
+    "count": 1.0,
+    "median(PBV)": 21.69230769230769
+  },
+  "Ecuador": {
+    "count": 8.0,
+    "median(Current PE)": 0.0,
+    "median(Trailing PE)": 0.0,
+    "median(PBV)": 0.0
+  },
+  "Egypt": {
+    "count": 162.0,
+    "median(Current PE)": 12.69444444444444,
+    "median(Trailing PE)": 12.45283018867924,
+    "median(Forward PE)": 8.95,
+    "median(PEG)": 0.4464035824237336,
+    "median(PBV)": 3.353448275862069
+  },
+  "El Salvador": {
+    "count": 1.0,
+    "median(PBV)": 270.8653846153846
+  },
+  "Estonia": {
+    "count": 27.0,
+    "median(Current PE)": 12.2326139088729,
+    "median(Trailing PE)": 14.82730923694779,
+    "median(Forward PE)": 14.75728155339806,
+    "median(PEG)": 96.24819624819625,
+    "median(PBV)": 0.9881305637982196
+  },
+  "Finland": {
+    "count": 162.0,
+    "median(Current PE)": 24.43478260869566,
+    "median(Trailing PE)": 20.19867549668874,
+    "median(Forward PE)": 15.72614107883818,
+    "median(PEG)": 2.210921021795172,
+    "median(PBV)": 1.684331797235023
+  },
+  "France": {
+    "count": 534.0,
+    "median(Current PE)": 17.67276422764228,
+    "median(Trailing PE)": 16.44,
+    "median(Forward PE)": 12.55035971223022,
+    "median(PEG)": 2.61755233494364,
+    "median(PBV)": 1.184217262666611
+  },
+  "Gabon": {
+    "count": 1.0,
+    "median(Current PE)": 10.80482456140351,
+    "median(Trailing PE)": 16.31456953642384,
+    "median(PBV)": 0.7450476334492666
+  },
+  "Germany": {
+    "count": 520.0,
+    "median(Current PE)": 21.89614243323442,
+    "median(Trailing PE)": 19.87783595113438,
+    "median(Forward PE)": 17.95876288659794,
+    "median(PEG)": 2.144168894534462,
+    "median(PBV)": 1.425414364640884
+  },
+  "Ghana": {
+    "count": 12.0,
+    "median(Current PE)": 21.66331658291458,
+    "median(Trailing PE)": 14.91695501730104,
+    "median(Forward PE)": 23.58333333333333,
+    "median(PEG)": 0.4942396206239249,
+    "median(PBV)": 3.613821138211382
+  },
+  "Gibraltar": {
+    "count": 4.0,
+    "median(Forward PE)": 1.582010582010582,
+    "median(PBV)": 29.08823529411765
+  },
+  "Greece": {
+    "count": 140.0,
+    "median(Current PE)": 15.99105189898588,
+    "median(Trailing PE)": 12.93258426966292,
+    "median(Forward PE)": 9.352226720647774,
+    "median(PEG)": 1.404151404151404,
+    "median(PBV)": 1.187808896210873
+  },
+  "Guernsey": {
+    "count": 17.0,
+    "median(Current PE)": 40.22346368715084,
+    "median(Trailing PE)": 8.982412060301508,
+    "median(Forward PE)": 14.1304347826087,
+    "median(PEG)": 1.946107635167136,
+    "median(PBV)": 0.7753544165757905
+  },
+  "Hong Kong": {
+    "count": 1305.0,
+    "median(Current PE)": 11.82314410480349,
+    "median(Trailing PE)": 11.04059040590406,
+    "median(Forward PE)": 11.375,
+    "median(PEG)": 1.544161178516879,
+    "median(PBV)": 0.6868287336260149
+  },
+  "Hungary": {
+    "count": 42.0,
+    "median(Current PE)": 11.10330578512397,
+    "median(Trailing PE)": 9.172222222222222,
+    "median(Forward PE)": 10.40909090909091,
+    "median(PEG)": 5.182046453232894,
+    "median(PBV)": 1.802689749972137
+  },
+  "Iceland": {
+    "count": 22.0,
+    "median(Current PE)": 24.49397590361446,
+    "median(Trailing PE)": 17.88324873096447,
+    "median(Forward PE)": 22.06896551724138,
+    "median(PEG)": 1.486873914671933,
+    "median(PBV)": 1.255711775043937
+  },
+  "India": {
+    "count": 4520.0,
+    "median(Current PE)": 25.59375,
+    "median(Trailing PE)": 24.80700280112045,
+    "median(Forward PE)": 28.03846153846154,
+    "median(PEG)": 2.027938850817079,
+    "median(PBV)": 2.150406504065041
+  },
+  "Indonesia": {
+    "count": 746.0,
+    "median(Current PE)": 20.30075187969925,
+    "median(Trailing PE)": 18.18706697459584,
+    "median(Forward PE)": 10.44444444444444,
+    "median(PEG)": 1.413153558958236,
+    "median(PBV)": 1.539689206215876
+  },
+  "Ireland": {
+    "count": 61.0,
+    "median(Current PE)": 22.1656050955414,
+    "median(Trailing PE)": 23.09734513274337,
+    "median(Forward PE)": 14.54225352112676,
+    "median(PEG)": 2.425694724124043,
+    "median(PBV)": 1.799086757990868
+  },
+  "Isle of Man": {
+    "count": 10.0,
+    "median(Current PE)": 15.37796976241901,
+    "median(Trailing PE)": 15.31182795698925,
+    "median(Forward PE)": 12.53112033195021,
+    "median(PEG)": 0.3863811498095229,
+    "median(PBV)": 2.275430359937402
+  },
+  "Israel": {
+    "count": 541.0,
+    "median(Current PE)": 19.89520958083832,
+    "median(Trailing PE)": 18.28070175438597,
+    "median(Forward PE)": 23.34302325581395,
+    "median(PEG)": 2.818049220938578,
+    "median(PBV)": 1.663398692810457
+  },
+  "Italy": {
+    "count": 343.0,
+    "median(Current PE)": 21.92241379310345,
+    "median(Trailing PE)": 17.82606538055952,
+    "median(Forward PE)": 14.76595744680851,
+    "median(PEG)": 2.349831078489942,
+    "median(PBV)": 1.582285881321251
+  },
+  "Ivory Coast": {
+    "count": 26.0,
+    "median(Current PE)": 14.25301204819277,
+    "median(Trailing PE)": 11.83,
+    "median(PBV)": 3.55
+  },
+  "Jamaica": {
+    "count": 65.0,
+    "median(Current PE)": 17.3,
+    "median(Trailing PE)": 17.02412868632708,
+    "median(PBV)": 1.471830985915493
+  },
+  "Japan": {
+    "count": 3760.0,
+    "median(Current PE)": 14.82758620689655,
+    "median(Trailing PE)": 13.88700564971752,
+    "median(Forward PE)": 15.15873015873016,
+    "median(PEG)": 1.900437842800311,
+    "median(PBV)": 1.181547619047619
+  },
+  "Jersey": {
+    "count": 17.0,
+    "median(Current PE)": 28.22346368715084,
+    "median(Trailing PE)": 19.5972850678733,
+    "median(Forward PE)": 12.2265625,
+    "median(PBV)": 1.43605086013463
+  },
+  "Jordan": {
+    "count": 99.0,
+    "median(Current PE)": 17.14225134926754,
+    "median(Trailing PE)": 14.36187399030695,
+    "median(Forward PE)": 11.75886524822695,
+    "median(PBV)": 0.8087487283825026
+  },
+  "Kazakhstan": {
+    "count": 15.0,
+    "median(Current PE)": 10.57663125948407,
+    "median(Trailing PE)": 12.07212115615477,
+    "median(Forward PE)": 8.193116634799235,
+    "median(PEG)": 0.8652717716662651,
+    "median(PBV)": 1.612614913176711
+  },
+  "Kenya": {
+    "count": 37.0,
+    "median(Current PE)": 11.77914110429448,
+    "median(Trailing PE)": 11.77914110429448,
+    "median(Forward PE)": 15.81395348837209,
+    "median(PEG)": 1.118886719345883,
+    "median(PBV)": 0.9614035087719298
+  },
+  "Kuwait": {
+    "count": 84.0,
+    "median(Current PE)": 17.97,
+    "median(Trailing PE)": 16.04721030042918,
+    "median(Forward PE)": 15.37790697674419,
+    "median(PEG)": 1.66992600422833,
+    "median(PBV)": 1.306122448979592
+  },
+  "Latvia": {
+    "count": 8.0,
+    "median(Current PE)": 14.22360248447205,
+    "median(Trailing PE)": 23.83419689119171,
+    "median(PBV)": 1.805755395683453
+  },
+  "Liberia": {
+    "count": 1.0,
+    "median(PBV)": 7.533980582524271
+  },
+  "Liechtenstein": {
+    "count": 1.0
+  },
+  "Lithuania": {
+    "count": 25.0,
+    "median(Current PE)": 9.76771653543307,
+    "median(Trailing PE)": 7.892685063512921,
+    "median(Forward PE)": 17.61290322580645,
+    "median(PEG)": 2.254895129259285,
+    "median(PBV)": 1.111742424242424
+  },
+  "Luxembourg": {
+    "count": 50.0,
+    "median(Current PE)": 12.47260273972603,
+    "median(Trailing PE)": 11.75339741465032,
+    "median(Forward PE)": 11.45214521452145,
+    "median(PEG)": 1.367129909032537,
+    "median(PBV)": 1.212665406427221
+  },
+  "Macau": {
+    "count": 18.0,
+    "median(Current PE)": 10.08264462809917,
+    "median(Trailing PE)": 14.34285714285714,
+    "median(Forward PE)": 10.9,
+    "median(PEG)": 1.469038208168643,
+    "median(PBV)": 1.103734439834025
+  },
+  "Macedonia": {
+    "count": 1.0
+  },
+  "Malawi": {
+    "count": 8.0,
+    "median(Current PE)": 21.55280898876405,
+    "median(Trailing PE)": 22.69230769230769,
+    "median(PBV)": 1.667493796526055
+  },
+  "Malaysia": {
+    "count": 1066.0,
+    "median(Current PE)": 15.55691439322672,
+    "median(Trailing PE)": 14.51820128479657,
+    "median(Forward PE)": 13.78571428571428,
+    "median(PEG)": 1.641533660379097,
+    "median(PBV)": 0.8091397849462365
+  },
+  "Malta": {
+    "count": 30.0,
+    "median(Current PE)": 15.8235294117647,
+    "median(Trailing PE)": 14.77987421383648,
+    "median(Forward PE)": 4.555555555555555,
+    "median(PEG)": 2.101725703905541,
+    "median(PBV)": 0.8462264150943397
+  },
+  "Marshall Islands": {
+    "count": 1.0,
+    "median(Current PE)": 0.4427609427609427,
+    "median(Trailing PE)": 0.4102964118564743,
+    "median(PBV)": 0.07969696969696971
+  },
+  "Martinique": {
+    "count": 1.0,
+    "median(Current PE)": 25.94444444444445,
+    "median(Trailing PE)": 7.53225806451613,
+    "median(PBV)": 0.1775665399239544
+  },
+  "Mauritius": {
+    "count": 50.0,
+    "median(Current PE)": 6.656964656964656,
+    "median(Trailing PE)": 7.015590200445434,
+    "median(Forward PE)": 8.11214953271028,
+    "median(PBV)": 0.4830287206266319
+  },
+  "Mexico": {
+    "count": 91.0,
+    "median(Current PE)": 14.29283489096573,
+    "median(Trailing PE)": 11.54621347644603,
+    "median(Forward PE)": 13.04477611940298,
+    "median(PEG)": 1.756906086685617,
+    "median(PBV)": 1.076519970799875
+  },
+  "Moldova": {
+    "count": 1.0,
+    "median(Current PE)": 15.68965517241379,
+    "median(Trailing PE)": 15.96491228070175,
+    "median(PEG)": 0.6275862068965518,
+    "median(PBV)": 1.909758656873032
+  },
+  "Monaco": {
+    "count": 5.0,
+    "median(Current PE)": 5.944045014066896,
+    "median(Trailing PE)": 10.69848156182213,
+    "median(Forward PE)": 8.58614864864865,
+    "median(PBV)": 0.7789343569058617
+  },
+  "Mongolia": {
+    "count": 2.0,
+    "median(Current PE)": 5.802066115702479,
+    "median(Trailing PE)": 16.38389731621937,
+    "median(Forward PE)": 3.833333333333333,
+    "median(PBV)": 2.626224566691786
+  },
+  "Montenegro": {
+    "count": 1.0
+  },
+  "Morocco": {
+    "count": 58.0,
+    "median(Current PE)": 33.22147651006712,
+    "median(Trailing PE)": 24.53333333333333,
+    "median(Forward PE)": 26.98850574712644,
+    "median(PEG)": 1.791984359726295,
+    "median(PBV)": 3.326059050064185
+  },
+  "Myanmar": {
+    "count": 1.0,
+    "median(Current PE)": 17.00643776824034,
+    "median(Trailing PE)": 12.57936507936508,
+    "median(PBV)": 0.2585222639047464
+  },
+  "Namibia": {
+    "count": 3.0,
+    "median(Current PE)": 7.016891891891891,
+    "median(Trailing PE)": 7.016891891891891,
+    "median(PBV)": 2.993584603047314
+  },
+  "Netherlands": {
+    "count": 99.0,
+    "median(Current PE)": 19.21574973031284,
+    "median(Trailing PE)": 17.11558109833972,
+    "median(Forward PE)": 13.94889267461669,
+    "median(PEG)": 2.263592916422808,
+    "median(PBV)": 1.781456953642384
+  },
+  "New Zealand": {
+    "count": 105.0,
+    "median(Current PE)": 21.89430894308943,
+    "median(Trailing PE)": 18.3953488372093,
+    "median(Forward PE)": 20.66666666666667,
+    "median(PEG)": 2.188927474996555,
+    "median(PBV)": 1.104477611940299
+  },
+  "Nigeria": {
+    "count": 85.0,
+    "median(Current PE)": 19.93069306930693,
+    "median(Trailing PE)": 12.57758620689655,
+    "median(Forward PE)": 11.92982456140351,
+    "median(PEG)": 0.703506490319731,
+    "median(PBV)": 4.025252525252525
+  },
+  "Norway": {
+    "count": 203.0,
+    "median(Current PE)": 18.60650887573965,
+    "median(Trailing PE)": 16.42036553524804,
+    "median(Forward PE)": 14.97225305216426,
+    "median(PEG)": 2.377338807376498,
+    "median(PBV)": 1.621621621621621
+  },
+  "Oman": {
+    "count": 56.0,
+    "median(Current PE)": 10.90680100755667,
+    "median(Trailing PE)": 11.10588235294118,
+    "median(Forward PE)": 10.41758241758242,
+    "median(PEG)": 2.232285927547465,
+    "median(PBV)": 1.013146362839614
+  },
+  "Pakistan": {
+    "count": 369.0,
+    "median(Current PE)": 14.61823647294589,
+    "median(Trailing PE)": 12.88495575221239,
+    "median(Forward PE)": 9.5,
+    "median(PEG)": 0.555431131019037,
+    "median(PBV)": 1.151846785225718
+  },
+  "Palestinian Authority": {
+    "count": 14.0,
+    "median(Current PE)": 18.68217054263566,
+    "median(Trailing PE)": 10.96153846153846,
+    "median(Forward PE)": 13.08510638297872,
+    "median(PBV)": 1.275239107332625
+  },
+  "Panama": {
+    "count": 4.0,
+    "median(Current PE)": 10.39883495145631,
+    "median(Trailing PE)": 9.786915204678362,
+    "median(Forward PE)": 9.402985074626866,
+    "median(PEG)": 1.041683665762419,
+    "median(PBV)": 1.435610122238902
+  },
+  "Papua New Guinea": {
+    "count": 2.0,
+    "median(Current PE)": 18.31858407079646,
+    "median(Trailing PE)": 18.48214285714286,
+    "median(PBV)": 9.964285714285714
+  },
+  "Peru": {
+    "count": 46.0,
+    "median(Current PE)": 10.05803667745415,
+    "median(Trailing PE)": 9.703139013452915,
+    "median(Forward PE)": 9.164265129682999,
+    "median(PBV)": 1.239402731583044
+  },
+  "Philippines": {
+    "count": 219.0,
+    "median(Current PE)": 8.880434782608697,
+    "median(Trailing PE)": 8.534615384615385,
+    "median(Forward PE)": 9.347826086956522,
+    "median(PEG)": 1.324742862784421,
+    "median(PBV)": 0.6714801444043322
+  },
+  "Poland": {
+    "count": 559.0,
+    "median(Current PE)": 14.27830188679245,
+    "median(Trailing PE)": 12.61379310344828,
+    "median(Forward PE)": 11.05228758169935,
+    "median(PEG)": 1.389383244882954,
+    "median(PBV)": 1.470037453183521
+  },
+  "Portugal": {
+    "count": 31.0,
+    "median(Current PE)": 12.30252100840336,
+    "median(Trailing PE)": 12.8421052631579,
+    "median(Forward PE)": 13.41107871720116,
+    "median(PEG)": 1.763506338419888,
+    "median(PBV)": 1.609416242096863
+  },
+  "Qatar": {
+    "count": 35.0,
+    "median(Current PE)": 12.32432432432432,
+    "median(Trailing PE)": 13.18078932095183,
+    "median(Forward PE)": 12.01587301587302,
+    "median(PEG)": 2.066610551220511,
+    "median(PBV)": 1.072916666666667
+  },
+  "Romania": {
+    "count": 198.0,
+    "median(Current PE)": 14.9126213592233,
+    "median(Trailing PE)": 11.63636363636364,
+    "median(Forward PE)": 16.57894736842105,
+    "median(PEG)": 1.244623920680259,
+    "median(PBV)": 0.9144736842105263
+  },
+  "Russia": {
+    "count": 1.0,
+    "median(Current PE)": 11.78953922789539,
+    "median(Trailing PE)": 62.6953642384106,
+    "median(Forward PE)": 8.899999999999999,
+    "median(PBV)": 0.7821381361533377
+  },
+  "Saint Lucia": {
+    "count": 1.0,
+    "median(PBV)": 0.6578073089700996
+  },
+  "Saudi Arabia": {
+    "count": 326.0,
+    "median(Current PE)": 18.69042553191489,
+    "median(Trailing PE)": 18.05309734513274,
+    "median(Forward PE)": 16.70093457943925,
+    "median(PEG)": 1.503883905717911,
+    "median(PBV)": 2.373395565927654
+  },
+  "Senegal": {
+    "count": 2.0,
+    "median(Current PE)": 12.90265486725664,
+    "median(Trailing PE)": 12.90265486725664,
+    "median(Forward PE)": 6.854838709677419,
+    "median(PBV)": 3.128755364806867
+  },
+  "Serbia": {
+    "count": 15.0,
+    "median(Current PE)": 8.817767653758542,
+    "median(Trailing PE)": 8.817767653758542,
+    "median(PBV)": 0.6591760299625469
+  },
+  "Singapore": {
+    "count": 541.0,
+    "median(Current PE)": 15.0,
+    "median(Trailing PE)": 14.72019464720194,
+    "median(Forward PE)": 16.70370370370371,
+    "median(PEG)": 1.541282094095586,
+    "median(PBV)": 0.9723756906077348
+  },
+  "Slovakia": {
+    "count": 4.0,
+    "median(Current PE)": 50.38265306122449,
+    "median(Trailing PE)": 43.69469026548673,
+    "median(Forward PE)": 36.68730650154799,
+    "median(PBV)": 1.740717821782178
+  },
+  "Slovenia": {
+    "count": 12.0,
+    "median(Current PE)": 17.38101884159106,
+    "median(Trailing PE)": 13.56590413943355,
+    "median(Forward PE)": 14.553264604811,
+    "median(PEG)": 5.953282828282828,
+    "median(PBV)": 2.104164906648644
+  },
+  "South Africa": {
+    "count": 158.0,
+    "median(Current PE)": 10.41201716738197,
+    "median(Trailing PE)": 10.17444444444445,
+    "median(Forward PE)": 9.780219780219781,
+    "median(PEG)": 1.571280344356438,
+    "median(PBV)": 1.12443500890289
+  },
+  "South Korea": {
+    "count": 2486.0,
+    "median(Current PE)": 13.57371794871795,
+    "median(Trailing PE)": 12.61049723756906,
+    "median(Forward PE)": 12.27467811158798,
+    "median(PEG)": 1.15001822821728,
+    "median(PBV)": 0.8835403726708074
+  },
+  "Spain": {
+    "count": 178.0,
+    "median(Current PE)": 22.46153846153846,
+    "median(Trailing PE)": 17.03504672897196,
+    "median(Forward PE)": 15.30212765957447,
+    "median(PEG)": 1.989855853614716,
+    "median(PBV)": 1.870919281215693
+  },
+  "Sri Lanka": {
+    "count": 208.0,
+    "median(Current PE)": 15.46261089987326,
+    "median(Trailing PE)": 13.9572192513369,
+    "median(Forward PE)": 11.46938775510204,
+    "median(PBV)": 1.397972116603295
+  },
+  "Sudan": {
+    "count": 1.0,
+    "median(Current PE)": 9.358288770053477,
+    "median(Trailing PE)": 2.144607843137255,
+    "median(PBV)": 1.765893037336024
+  },
+  "Sweden": {
+    "count": 782.0,
+    "median(Current PE)": 28.08584534731324,
+    "median(Trailing PE)": 22.99242424242424,
+    "median(Forward PE)": 16.61184210526316,
+    "median(PEG)": 2.891954022988506,
+    "median(PBV)": 2.060975609756098
+  },
+  "Switzerland": {
+    "count": 211.0,
+    "median(Current PE)": 24.25592417061611,
+    "median(Trailing PE)": 23.20288624787776,
+    "median(Forward PE)": 21.11715481171548,
+    "median(PEG)": 3.582196692097201,
+    "median(PBV)": 2.04778156996587
+  },
+  "Taiwan": {
+    "count": 2190.0,
+    "median(Current PE)": 20.83267045454545,
+    "median(Trailing PE)": 20.68711433756806,
+    "median(Forward PE)": 16.62251655629139,
+    "median(PEG)": 1.775601918281603,
+    "median(PBV)": 1.745406824146982
+  },
+  "Tanzania": {
+    "count": 9.0,
+    "median(Current PE)": 18.46605504587156,
+    "median(Trailing PE)": 19.06060606060606,
+    "median(PBV)": 3.893230174081238
+  },
+  "Thailand": {
+    "count": 824.0,
+    "median(Current PE)": 12.33663366336634,
+    "median(Trailing PE)": 11.85981308411215,
+    "median(Forward PE)": 10.93103448275862,
+    "median(PEG)": 1.622438112625242,
+    "median(PBV)": 0.7597911227154046
+  },
+  "Trinidad & Tobago": {
+    "count": 18.0,
+    "median(Current PE)": 10.11028037383178,
+    "median(Trailing PE)": 8.288690476190476,
+    "median(PBV)": 1.029978586723769
+  },
+  "Tunisia": {
+    "count": 46.0,
+    "median(Current PE)": 14.29770992366412,
+    "median(Trailing PE)": 12.0,
+    "median(Forward PE)": 11.69642857142857,
+    "median(PBV)": 1.910313901345291
+  },
+  "Turkey": {
+    "count": 512.0,
+    "median(Current PE)": 19.47493224932249,
+    "median(Trailing PE)": 20.72041166380789,
+    "median(Forward PE)": 9.15068493150685,
+    "median(PEG)": 0.3416654780582893,
+    "median(PBV)": 1.371534195933457
+  },
+  "Turks & Caicos Islands": {
+    "count": 1.0,
+    "median(Current PE)": 2.886792452830188,
+    "median(Trailing PE)": 2.578651685393258,
+    "median(PBV)": 0.6759941089837996
+  },
+  "Uganda": {
+    "count": 5.0,
+    "median(Current PE)": 10.94982497082847,
+    "median(Trailing PE)": 9.581967213114755,
+    "median(Forward PE)": 9.666666666666666,
+    "median(PEG)": 0.4713874022231371,
+    "median(PBV)": 5.417478430281102
+  },
+  "Ukraine": {
+    "count": 3.0,
+    "median(Current PE)": 7.191435768261965,
+    "median(Trailing PE)": 8.053596614950635,
+    "median(PBV)": 0.7855275828862293
+  },
+  "United Arab Emirates": {
+    "count": 107.0,
+    "median(Current PE)": 14.82323485227842,
+    "median(Trailing PE)": 14.07817303469477,
+    "median(Forward PE)": 13.40740740740741,
+    "median(PEG)": 1.309177803080242,
+    "median(PBV)": 1.562244301578025
+  },
+  "United Kingdom": {
+    "count": 831.0,
+    "median(Current PE)": 17.75439660400242,
+    "median(Trailing PE)": 18.07142857142857,
+    "median(Forward PE)": 14.25868725868726,
+    "median(PEG)": 2.519236617718397,
+    "median(PBV)": 1.625305837119888
+  },
+  "United States": {
+    "count": 4770.0,
+    "median(Current PE)": 22.80934579439252,
+    "median(Trailing PE)": 22.60662251655629,
+    "median(Forward PE)": 19.18045112781955,
+    "median(PEG)": 2.641587149974889,
+    "median(PBV)": 2.188432483474977
+  },
+  "Uruguay": {
+    "count": 3.0,
+    "median(Current PE)": 53.43657770800628,
+    "median(Trailing PE)": 49.16576793452094,
+    "median(Forward PE)": 40.61008064516129,
+    "median(PEG)": 2.559556915090841,
+    "median(PBV)": 16.42285300739788
+  },
+  "Venezuela": {
+    "count": 18.0,
+    "median(PBV)": 0.003780329289428076
+  },
+  "Vietnam": {
+    "count": 606.0,
+    "median(Current PE)": 14.03100775193798,
+    "median(Trailing PE)": 11.35446685878962,
+    "median(Forward PE)": 13.61963190184049,
+    "median(PEG)": 1.046129528721767,
+    "median(PBV)": 0.9220819217739451
+  },
+  "Zambia": {
+    "count": 14.0,
+    "median(Current PE)": 14.20382165605096,
+    "median(Trailing PE)": 12.23611111111111,
+    "median(PBV)": 3.867724867724868
+  },
+  "Zimbabwe": {
+    "count": 2.0,
+    "median(Current PE)": 2347.0,
+    "median(Trailing PE)": 1421.041582830315,
+    "median(PBV)": 617.5380355581462
+  },
+  "Global": {
+    "count": 42878.0,
+    "median(Current PE)": 19.973004618487,
+    "median(Trailing PE)": 18.7593360995851,
+    "median(Forward PE)": 17.1067961165049,
+    "median(PEG)": 2.02343404358561,
+    "median(PBV)": 1.63035714285714
+  }
+}

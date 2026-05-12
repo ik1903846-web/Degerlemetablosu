@@ -1,0 +1,382 @@
+{
+  "Advertising": {
+    "ROE (unadjusted)": 0.027981540341718257,
+    "ROE (adjusted for R&D)": 0.027584818115823126
+  },
+  "Aerospace/Defense": {
+    "ROE (unadjusted)": 0.10191576521892634,
+    "ROE (adjusted for R&D)": 0.08910984389904247
+  },
+  "Air Transport": {
+    "ROE (unadjusted)": 0.12291913286681394,
+    "ROE (adjusted for R&D)": 0.12168273645780124
+  },
+  "Apparel": {
+    "ROE (unadjusted)": 0.08699403688126596,
+    "ROE (adjusted for R&D)": 0.0838459983753969
+  },
+  "Auto & Truck": {
+    "ROE (unadjusted)": 0.11954193142755853,
+    "ROE (adjusted for R&D)": 0.1015605808146813
+  },
+  "Auto Parts": {
+    "ROE (unadjusted)": 0.0807809783763006,
+    "ROE (adjusted for R&D)": 0.0007480260898057905
+  },
+  "Bank (Money Center)": {
+    "ROE (unadjusted)": 0.11000249451620965,
+    "ROE (adjusted for R&D)": 0.11000249451620965
+  },
+  "Banks (Regional)": {
+    "ROE (unadjusted)": 0.09401561231894147,
+    "ROE (adjusted for R&D)": 0.09401544519188906
+  },
+  "Beverage (Alcoholic)": {
+    "ROE (unadjusted)": 0.20532312809037878,
+    "ROE (adjusted for R&D)": 0.20386536892303483
+  },
+  "Beverage (Soft)": {
+    "ROE (unadjusted)": 0.2531210721544429,
+    "ROE (adjusted for R&D)": 0.2504417645812151
+  },
+  "Broadcasting": {
+    "ROE (unadjusted)": 0.0496399951847526,
+    "ROE (adjusted for R&D)": 0.049352589060581424
+  },
+  "Brokerage & Investment Banking": {
+    "ROE (unadjusted)": 0.08895476835182929,
+    "ROE (adjusted for R&D)": 0.08871871783741461
+  },
+  "Building Materials": {
+    "ROE (unadjusted)": 0.05039304877764831,
+    "ROE (adjusted for R&D)": 0.045818849256206384
+  },
+  "Business & Consumer Services": {
+    "ROE (unadjusted)": 0.0485136867691275,
+    "ROE (adjusted for R&D)": 0.04404920806827926
+  },
+  "Cable TV": {
+    "ROE (unadjusted)": -0.03873453960306576,
+    "ROE (adjusted for R&D)": -0.03865849884764052
+  },
+  "Chemical (Basic)": {
+    "ROE (unadjusted)": -0.004747801478765349,
+    "ROE (adjusted for R&D)": -0.004042169798031343
+  },
+  "Chemical (Diversified)": {
+    "ROE (unadjusted)": 0.11021777950933899,
+    "ROE (adjusted for R&D)": 0.10588800806126326
+  },
+  "Chemical (Specialty)": {
+    "ROE (unadjusted)": 0.08207714218223663,
+    "ROE (adjusted for R&D)": 0.07711878751664475
+  },
+  "Coal & Related Energy": {
+    "ROE (unadjusted)": 0.1195198804164023,
+    "ROE (adjusted for R&D)": 0.11555151577513623
+  },
+  "Computer Services": {
+    "ROE (unadjusted)": 0.15454392289050287,
+    "ROE (adjusted for R&D)": 0.1425152628734641
+  },
+  "Computers/Peripherals": {
+    "ROE (unadjusted)": 0.10891617097058628,
+    "ROE (adjusted for R&D)": 0.09130400592060535
+  },
+  "Construction Supplies": {
+    "ROE (unadjusted)": 0.07583144797155676,
+    "ROE (adjusted for R&D)": 0.07015413724264095
+  },
+  "Diversified": {
+    "ROE (unadjusted)": 0.07129128132322642,
+    "ROE (adjusted for R&D)": 0.07050139640618522
+  },
+  "Drugs (Biotechnology)": {
+    "ROE (unadjusted)": -0.02041448297433609,
+    "ROE (adjusted for R&D)": -0.018349720874736714
+  },
+  "Drugs (Pharmaceutical)": {
+    "ROE (unadjusted)": 0.08852780385685709,
+    "ROE (adjusted for R&D)": 0.07769875033783932
+  },
+  "Education": {
+    "ROE (unadjusted)": 0.10449714136290728,
+    "ROE (adjusted for R&D)": 0.1027716254888716
+  },
+  "Electrical Equipment": {
+    "ROE (unadjusted)": 0.08794313296065316,
+    "ROE (adjusted for R&D)": 0.07973163326721142
+  },
+  "Electronics (Consumer & Office)": {
+    "ROE (unadjusted)": 0.060816425512146596,
+    "ROE (adjusted for R&D)": 0.04895142015696011
+  },
+  "Electronics (General)": {
+    "ROE (unadjusted)": 0.08439519751773884,
+    "ROE (adjusted for R&D)": 0.07383792511802273
+  },
+  "Engineering/Construction": {
+    "ROE (unadjusted)": 0.06816958197390616,
+    "ROE (adjusted for R&D)": 0.05483674024694325
+  },
+  "Entertainment": {
+    "ROE (unadjusted)": 0.09685646096610775,
+    "ROE (adjusted for R&D)": 0.08364465821742231
+  },
+  "Environmental & Waste Services": {
+    "ROE (unadjusted)": 0.03302827594217982,
+    "ROE (adjusted for R&D)": 0.031771323987525454
+  },
+  "Farming/Agriculture": {
+    "ROE (unadjusted)": 0.0892340877333663,
+    "ROE (adjusted for R&D)": 0.08763330443575489
+  },
+  "Financial Svcs. (Non-bank & Insurance)": {
+    "ROE (unadjusted)": 0.15051721624101708,
+    "ROE (adjusted for R&D)": 0.14884135289217656
+  },
+  "Food Processing": {
+    "ROE (unadjusted)": 0.12067020037632814,
+    "ROE (adjusted for R&D)": 0.11815846386410483
+  },
+  "Food Wholesalers": {
+    "ROE (unadjusted)": 0.053708025710767604,
+    "ROE (adjusted for R&D)": 0.0536547354943834
+  },
+  "Furn/Home Furnishings": {
+    "ROE (unadjusted)": 0.1660749489754993,
+    "ROE (adjusted for R&D)": 0.14294624026428604
+  },
+  "Green & Renewable Energy": {
+    "ROE (unadjusted)": 0.08407088821917894,
+    "ROE (adjusted for R&D)": 0.08386995409172085
+  },
+  "Healthcare Products": {
+    "ROE (unadjusted)": 0.05882743627981346,
+    "ROE (adjusted for R&D)": 0.047102639219369975
+  },
+  "Healthcare Support Services": {
+    "ROE (unadjusted)": 0.04175865369874985,
+    "ROE (adjusted for R&D)": 0.0406898974038135
+  },
+  "Heathcare Information and Technology": {
+    "ROE (unadjusted)": 0.15125482020318373,
+    "ROE (adjusted for R&D)": 0.1396672573971418
+  },
+  "Homebuilding": {
+    "ROE (unadjusted)": 0.09815948125297118,
+    "ROE (adjusted for R&D)": 0.09843878821178266
+  },
+  "Hospitals/Healthcare Facilities": {
+    "ROE (unadjusted)": 0.12120866679574112,
+    "ROE (adjusted for R&D)": 0.12054401879584752
+  },
+  "Hotel/Gaming": {
+    "ROE (unadjusted)": 0.06847671142401472,
+    "ROE (adjusted for R&D)": 0.06744024684338651
+  },
+  "Household Products": {
+    "ROE (unadjusted)": 0.07432664051274672,
+    "ROE (adjusted for R&D)": 0.07095411673716327
+  },
+  "Information Services": {
+    "ROE (unadjusted)": 0.11342703368062751,
+    "ROE (adjusted for R&D)": 0.11251851328378343
+  },
+  "Insurance (General)": {
+    "ROE (unadjusted)": 0.17680072492095047,
+    "ROE (adjusted for R&D)": 0.1766642543973119
+  },
+  "Insurance (Life)": {
+    "ROE (unadjusted)": 0.17560675235396617,
+    "ROE (adjusted for R&D)": 0.17560253986612623
+  },
+  "Insurance (Prop/Cas.)": {
+    "ROE (unadjusted)": 0.14907960737613224,
+    "ROE (adjusted for R&D)": 0.14907960737613224
+  },
+  "Investments & Asset Management": {
+    "ROE (unadjusted)": 0.07558349621458933,
+    "ROE (adjusted for R&D)": 0.07568969811693206
+  },
+  "Machinery": {
+    "ROE (unadjusted)": 0.06464360622666776,
+    "ROE (adjusted for R&D)": 0.06066450965100735
+  },
+  "Metals & Mining": {
+    "ROE (unadjusted)": 0.13124289253584867,
+    "ROE (adjusted for R&D)": 0.12723198192881463
+  },
+  "Office Equipment & Services": {
+    "ROE (unadjusted)": 0.0661807632163955,
+    "ROE (adjusted for R&D)": 0.06298470901270242
+  },
+  "Oil/Gas (Integrated)": {
+    "ROE (unadjusted)": 0.1587345534311691,
+    "ROE (adjusted for R&D)": 0.15500026694998845
+  },
+  "Oil/Gas (Production and Exploration)": {
+    "ROE (unadjusted)": 0.16796371714506392,
+    "ROE (adjusted for R&D)": 0.16584347483073344
+  },
+  "Oil/Gas Distribution": {
+    "ROE (unadjusted)": 0.09892632835689946,
+    "ROE (adjusted for R&D)": 0.09797088923409314
+  },
+  "Oilfield Svcs/Equip.": {
+    "ROE (unadjusted)": 0.09348622859557254,
+    "ROE (adjusted for R&D)": 0.09158319515052336
+  },
+  "Packaging & Container": {
+    "ROE (unadjusted)": 0.054443102380671085,
+    "ROE (adjusted for R&D)": 0.05232204027874044
+  },
+  "Paper/Forest Products": {
+    "ROE (unadjusted)": 0.019099117928318986,
+    "ROE (adjusted for R&D)": 0.016564263329620202
+  },
+  "Power": {
+    "ROE (unadjusted)": 0.09966392985149845,
+    "ROE (adjusted for R&D)": 0.09856000523833448
+  },
+  "Precious Metals": {
+    "ROE (unadjusted)": 0.20974934254113753,
+    "ROE (adjusted for R&D)": 0.20372100677643404
+  },
+  "Publishing & Newspapers": {
+    "ROE (unadjusted)": 0.052447371138426506,
+    "ROE (adjusted for R&D)": 0.051173622615479544
+  },
+  "R.E.I.T.": {
+    "ROE (unadjusted)": 0.062044544384019774,
+    "ROE (adjusted for R&D)": 0.062044544384019774
+  },
+  "Real Estate (Development)": {
+    "ROE (unadjusted)": -0.06281049760217489,
+    "ROE (adjusted for R&D)": -0.06283204094375458
+  },
+  "Real Estate (General/Diversified)": {
+    "ROE (unadjusted)": 0.01089075069310431,
+    "ROE (adjusted for R&D)": 0.010915284254577853
+  },
+  "Real Estate (Operations & Services)": {
+    "ROE (unadjusted)": 0.03227092004740503,
+    "ROE (adjusted for R&D)": 0.032225912223346226
+  },
+  "Recreation": {
+    "ROE (unadjusted)": 0.04415922295053634,
+    "ROE (adjusted for R&D)": 0.04207609121310739
+  },
+  "Reinsurance": {
+    "ROE (unadjusted)": 0.09697912253442537,
+    "ROE (adjusted for R&D)": 0.09697912253442535
+  },
+  "Restaurant/Dining": {
+    "ROE (unadjusted)": 0.0700410564128149,
+    "ROE (adjusted for R&D)": 0.06596291551981769
+  },
+  "Retail (Automotive)": {
+    "ROE (unadjusted)": 0.037302489651165185,
+    "ROE (adjusted for R&D)": 0.037311163760683594
+  },
+  "Retail (Building Supply)": {
+    "ROE (unadjusted)": 0.04481897138780497,
+    "ROE (adjusted for R&D)": 0.044840899642660303
+  },
+  "Retail (Distributors)": {
+    "ROE (unadjusted)": 0.05695632969391971,
+    "ROE (adjusted for R&D)": 0.055760997971541215
+  },
+  "Retail (General)": {
+    "ROE (unadjusted)": 0.09557380175386339,
+    "ROE (adjusted for R&D)": 0.09235421135201448
+  },
+  "Retail (Grocery and Food)": {
+    "ROE (unadjusted)": 0.06763670980798615,
+    "ROE (adjusted for R&D)": 0.06686886741210324
+  },
+  "Retail (REITs)": {
+    "ROE (unadjusted)": 0.017462304590005476,
+    "ROE (adjusted for R&D)": 0.017462420567299883
+  },
+  "Retail (Special Lines)": {
+    "ROE (unadjusted)": 0.08922189773638711,
+    "ROE (adjusted for R&D)": 0.08802198736437844
+  },
+  "Rubber& Tires": {
+    "ROE (unadjusted)": 0.09187798052033039,
+    "ROE (adjusted for R&D)": 0.08726611200753284
+  },
+  "Semiconductor": {
+    "ROE (unadjusted)": 0.19407742341954048,
+    "ROE (adjusted for R&D)": 0.16308567784554512
+  },
+  "Semiconductor Equip": {
+    "ROE (unadjusted)": 0.02726665926294547,
+    "ROE (adjusted for R&D)": 0.025561740815460095
+  },
+  "Shipbuilding & Marine": {
+    "ROE (unadjusted)": 0.11731462644480736,
+    "ROE (adjusted for R&D)": 0.11685482397655943
+  },
+  "Shoe": {
+    "ROE (unadjusted)": 0.1083289575937837,
+    "ROE (adjusted for R&D)": 0.10117763058666446
+  },
+  "Software (Entertainment)": {
+    "ROE (unadjusted)": 0.1956487020706652,
+    "ROE (adjusted for R&D)": 0.16911671097440514
+  },
+  "Software (Internet)": {
+    "ROE (unadjusted)": 0.11306051304149618,
+    "ROE (adjusted for R&D)": 0.09350981704262842
+  },
+  "Software (System & Application)": {
+    "ROE (unadjusted)": -0.0027743512545546603,
+    "ROE (adjusted for R&D)": 0.002463326897242725
+  },
+  "Steel": {
+    "ROE (unadjusted)": 0.041853699033863566,
+    "ROE (adjusted for R&D)": 0.0394758022962972
+  },
+  "Telecom (Wireless)": {
+    "ROE (unadjusted)": 0.12435110022813475,
+    "ROE (adjusted for R&D)": 0.1194237318015697
+  },
+  "Telecom. Equipment": {
+    "ROE (unadjusted)": 0.060919045790085724,
+    "ROE (adjusted for R&D)": 0.0433754573378458
+  },
+  "Telecom. Services": {
+    "ROE (unadjusted)": 0.10594901219524502,
+    "ROE (adjusted for R&D)": 0.10519854042883389
+  },
+  "Tobacco": {
+    "ROE (unadjusted)": 0.2286157268906667,
+    "ROE (adjusted for R&D)": 0.22179618803974177
+  },
+  "Transportation": {
+    "ROE (unadjusted)": 0.09687550974288596,
+    "ROE (adjusted for R&D)": 0.09428908588219331
+  },
+  "Transportation (Railroads)": {
+    "ROE (unadjusted)": 0.06932270736267941,
+    "ROE (adjusted for R&D)": 0.06918169463029003
+  },
+  "Trucking": {
+    "ROE (unadjusted)": 0.036353744122264324,
+    "ROE (adjusted for R&D)": 0.03563933989744875
+  },
+  "Utility (General)": {
+    "ROE (unadjusted)": 0.08930126774911475,
+    "ROE (adjusted for R&D)": 0.08924457649019599
+  },
+  "Utility (Water)": {
+    "ROE (unadjusted)": 0.09241811139131585,
+    "ROE (adjusted for R&D)": 0.09198739905578204
+  },
+  "Total Market (without financials)": {
+    "ROE (unadjusted)": 0.08572047215229076,
+    "ROE (adjusted for R&D)": 0.0818627999558504
+  }
+}

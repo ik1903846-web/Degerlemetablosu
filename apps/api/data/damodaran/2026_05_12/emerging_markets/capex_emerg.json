@@ -1,0 +1,567 @@
+{
+  "Advertising": {
+    "Capital Expenditures (US $ millions)": 843.9280000000006,
+    "Depreciation & Amort ((US $ millions)": 616.93,
+    "Cap Ex/Deprecn": 1.367947741234825,
+    "Net Cap Ex/Sales": 0.009227276710038103
+  },
+  "Aerospace/Defense": {
+    "Capital Expenditures (US $ millions)": 6227.709999999998,
+    "Depreciation & Amort ((US $ millions)": 3106.3359999999984,
+    "Cap Ex/Deprecn": 2.004841073212943,
+    "Net Cap Ex/Sales": 0.029230567480503088
+  },
+  "Air Transport": {
+    "Capital Expenditures (US $ millions)": 27964.40000000001,
+    "Depreciation & Amort ((US $ millions)": 17870.332000000002,
+    "Cap Ex/Deprecn": 1.5648506138554117,
+    "Net Cap Ex/Sales": 0.04069154597578994
+  },
+  "Apparel": {
+    "Capital Expenditures (US $ millions)": 8649.823000000019,
+    "Depreciation & Amort ((US $ millions)": 5702.29200000001,
+    "Cap Ex/Deprecn": 1.5169028523968964,
+    "Net Cap Ex/Sales": 0.012593300572127044
+  },
+  "Auto & Truck": {
+    "Capital Expenditures (US $ millions)": 48518.269999999975,
+    "Depreciation & Amort ((US $ millions)": 28778.728999999992,
+    "Cap Ex/Deprecn": 1.6859073241212281,
+    "Net Cap Ex/Sales": 0.02806327128011402
+  },
+  "Auto Parts": {
+    "Capital Expenditures (US $ millions)": 23865.066999999985,
+    "Depreciation & Amort ((US $ millions)": 11981.67200000001,
+    "Cap Ex/Deprecn": 1.991797722387991,
+    "Net Cap Ex/Sales": 0.039246836313849065
+  },
+  "Bank (Money Center)": {
+    "Capital Expenditures (US $ millions)": 73250.65699999998,
+    "Depreciation & Amort ((US $ millions)": 384.0230000000001,
+    "Net Cap Ex/Sales": 0.057428217037172075
+  },
+  "Banks (Regional)": {
+    "Capital Expenditures (US $ millions)": 3621.85,
+    "Depreciation & Amort ((US $ millions)": 11.71,
+    "Net Cap Ex/Sales": 0.043292622467324994
+  },
+  "Beverage (Alcoholic)": {
+    "Capital Expenditures (US $ millions)": 6617.828,
+    "Depreciation & Amort ((US $ millions)": 4573.138999999999,
+    "Cap Ex/Deprecn": 1.4471084303363624,
+    "Net Cap Ex/Sales": 0.014849256071104119
+  },
+  "Beverage (Soft)": {
+    "Capital Expenditures (US $ millions)": 3306.937,
+    "Depreciation & Amort ((US $ millions)": 1615.5930000000005,
+    "Cap Ex/Deprecn": 2.0468874277123006,
+    "Net Cap Ex/Sales": 0.05545141655782327
+  },
+  "Broadcasting": {
+    "Capital Expenditures (US $ millions)": 764.5309999999997,
+    "Depreciation & Amort ((US $ millions)": 798.0629999999999,
+    "Cap Ex/Deprecn": 0.9579832669851877,
+    "Net Cap Ex/Sales": -0.04415638104105072
+  },
+  "Brokerage & Investment Banking": {
+    "Capital Expenditures (US $ millions)": 4269.398000000005,
+    "Depreciation & Amort ((US $ millions)": 1277.9509999999993,
+    "Cap Ex/Deprecn": 3.3408151016744827,
+    "Net Cap Ex/Sales": -0.10257755578546708
+  },
+  "Building Materials": {
+    "Capital Expenditures (US $ millions)": 4279.320999999997,
+    "Depreciation & Amort ((US $ millions)": 3149.776,
+    "Cap Ex/Deprecn": 1.3586112155277066,
+    "Net Cap Ex/Sales": 0.0201933739994237
+  },
+  "Business & Consumer Services": {
+    "Capital Expenditures (US $ millions)": 2035.1430000000003,
+    "Depreciation & Amort ((US $ millions)": 1424.8419999999992,
+    "Cap Ex/Deprecn": 1.4283288954143698,
+    "Net Cap Ex/Sales": 0.010451765576291423
+  },
+  "Cable TV": {
+    "Capital Expenditures (US $ millions)": 1589.0270000000007,
+    "Depreciation & Amort ((US $ millions)": 2318.9130000000005,
+    "Cap Ex/Deprecn": 0.6852464926454768,
+    "Net Cap Ex/Sales": 0.011077219506369727
+  },
+  "Chemical (Basic)": {
+    "Capital Expenditures (US $ millions)": 57187.873,
+    "Depreciation & Amort ((US $ millions)": 32767.387,
+    "Cap Ex/Deprecn": 1.74526803128977,
+    "Net Cap Ex/Sales": 0.0419056028533013
+  },
+  "Chemical (Diversified)": {
+    "Capital Expenditures (US $ millions)": 4087.121,
+    "Depreciation & Amort ((US $ millions)": 1980.3690000000001,
+    "Cap Ex/Deprecn": 2.0638179046430234,
+    "Net Cap Ex/Sales": 0.06997254170931012
+  },
+  "Chemical (Specialty)": {
+    "Capital Expenditures (US $ millions)": 27709.468000000008,
+    "Depreciation & Amort ((US $ millions)": 15940.337999999969,
+    "Cap Ex/Deprecn": 1.7383237419432425,
+    "Net Cap Ex/Sales": 0.04477053117170865
+  },
+  "Coal & Related Energy": {
+    "Capital Expenditures (US $ millions)": 35705.68500000002,
+    "Depreciation & Amort ((US $ millions)": 16916.57099999999,
+    "Cap Ex/Deprecn": 2.1106928230313367,
+    "Net Cap Ex/Sales": 0.08370106713443863
+  },
+  "Computer Services": {
+    "Capital Expenditures (US $ millions)": 4898.161000000004,
+    "Depreciation & Amort ((US $ millions)": 4271.272000000006,
+    "Cap Ex/Deprecn": 1.1467686909192383,
+    "Net Cap Ex/Sales": 0.006171388470086401
+  },
+  "Computers/Peripherals": {
+    "Capital Expenditures (US $ millions)": 51375.84,
+    "Depreciation & Amort ((US $ millions)": 9104.724000000007,
+    "Cap Ex/Deprecn": 5.642767424910404,
+    "Net Cap Ex/Sales": 0.054641771248718544
+  },
+  "Construction Supplies": {
+    "Capital Expenditures (US $ millions)": 32173.254000000026,
+    "Depreciation & Amort ((US $ millions)": 25680.43600000001,
+    "Cap Ex/Deprecn": 1.2528312992816795,
+    "Net Cap Ex/Sales": 0.021524378252592406
+  },
+  "Diversified": {
+    "Capital Expenditures (US $ millions)": 48509.32299999992,
+    "Depreciation & Amort ((US $ millions)": 27240.050999999985,
+    "Cap Ex/Deprecn": 1.7808088171347383,
+    "Net Cap Ex/Sales": 0.0349155361685669
+  },
+  "Drugs (Biotechnology)": {
+    "Capital Expenditures (US $ millions)": 3802.7529999999997,
+    "Depreciation & Amort ((US $ millions)": 2490.5660000000016,
+    "Cap Ex/Deprecn": 1.5268629701039833,
+    "Net Cap Ex/Sales": 0.06275270595735746
+  },
+  "Drugs (Pharmaceutical)": {
+    "Capital Expenditures (US $ millions)": 14898.285000000014,
+    "Depreciation & Amort ((US $ millions)": 10508.993,
+    "Cap Ex/Deprecn": 1.4176700850404995,
+    "Net Cap Ex/Sales": 0.03783946759781405
+  },
+  "Education": {
+    "Capital Expenditures (US $ millions)": 1950.4920000000006,
+    "Depreciation & Amort ((US $ millions)": 1437.9619999999998,
+    "Cap Ex/Deprecn": 1.3564280558178874,
+    "Net Cap Ex/Sales": 0.051196678755080445
+  },
+  "Electrical Equipment": {
+    "Capital Expenditures (US $ millions)": 50443.78599999991,
+    "Depreciation & Amort ((US $ millions)": 18415.447999999953,
+    "Cap Ex/Deprecn": 2.7392103629518023,
+    "Net Cap Ex/Sales": 0.06074813286057136
+  },
+  "Electronics (Consumer & Office)": {
+    "Capital Expenditures (US $ millions)": 3270.602,
+    "Depreciation & Amort ((US $ millions)": 3513.1409999999996,
+    "Cap Ex/Deprecn": 0.9309623496466553,
+    "Net Cap Ex/Sales": 0.0012258546713049825
+  },
+  "Electronics (General)": {
+    "Capital Expenditures (US $ millions)": 57631.237,
+    "Depreciation & Amort ((US $ millions)": 38124.88300000004,
+    "Cap Ex/Deprecn": 1.511643642289996,
+    "Net Cap Ex/Sales": 0.026362234007891356
+  },
+  "Engineering/Construction": {
+    "Capital Expenditures (US $ millions)": 52250.98599999994,
+    "Depreciation & Amort ((US $ millions)": 21535.473999999987,
+    "Cap Ex/Deprecn": 2.426275177411928,
+    "Net Cap Ex/Sales": 0.020336296709664844
+  },
+  "Entertainment": {
+    "Capital Expenditures (US $ millions)": 2493.5229999999983,
+    "Depreciation & Amort ((US $ millions)": 3407.5520000000033,
+    "Cap Ex/Deprecn": 0.731763741242979,
+    "Net Cap Ex/Sales": 0.006622019934904435
+  },
+  "Environmental & Waste Services": {
+    "Capital Expenditures (US $ millions)": 5313.420000000001,
+    "Depreciation & Amort ((US $ millions)": 3356.8570000000013,
+    "Cap Ex/Deprecn": 1.5828556295367955,
+    "Net Cap Ex/Sales": 0.04551648592754045
+  },
+  "Farming/Agriculture": {
+    "Capital Expenditures (US $ millions)": 8492.650000000005,
+    "Depreciation & Amort ((US $ millions)": 5679.31600000001,
+    "Cap Ex/Deprecn": 1.4953649347914415,
+    "Net Cap Ex/Sales": 0.01677111300482809
+  },
+  "Financial Svcs. (Non-bank & Insurance)": {
+    "Capital Expenditures (US $ millions)": 8555.844000000026,
+    "Depreciation & Amort ((US $ millions)": 4462.27900000001,
+    "Cap Ex/Deprecn": 1.917370921898879,
+    "Net Cap Ex/Sales": 0.01675687243469288
+  },
+  "Food Processing": {
+    "Capital Expenditures (US $ millions)": 33449.73300000004,
+    "Depreciation & Amort ((US $ millions)": 23415.61199999997,
+    "Cap Ex/Deprecn": 1.4285226881962376,
+    "Net Cap Ex/Sales": 0.016510996065448716
+  },
+  "Food Wholesalers": {
+    "Capital Expenditures (US $ millions)": 1335.028,
+    "Depreciation & Amort ((US $ millions)": 1018.534999999999,
+    "Cap Ex/Deprecn": 1.310733553584316,
+    "Net Cap Ex/Sales": 0.007513770053052515
+  },
+  "Furn/Home Furnishings": {
+    "Capital Expenditures (US $ millions)": 7034.553,
+    "Depreciation & Amort ((US $ millions)": 4737.686999999993,
+    "Cap Ex/Deprecn": 1.4848074598427483,
+    "Net Cap Ex/Sales": 0.019607515739489597
+  },
+  "Green & Renewable Energy": {
+    "Capital Expenditures (US $ millions)": 46902.89100000004,
+    "Depreciation & Amort ((US $ millions)": 12307.374000000009,
+    "Cap Ex/Deprecn": 3.810958454663034,
+    "Net Cap Ex/Sales": 0.5590923241161674
+  },
+  "Healthcare Products": {
+    "Capital Expenditures (US $ millions)": 4972.345000000005,
+    "Depreciation & Amort ((US $ millions)": 2799.6439999999952,
+    "Cap Ex/Deprecn": 1.7760633137641832,
+    "Net Cap Ex/Sales": 0.042933415083889516
+  },
+  "Healthcare Support Services": {
+    "Capital Expenditures (US $ millions)": 3171.9600000000014,
+    "Depreciation & Amort ((US $ millions)": 2377.0449999999983,
+    "Cap Ex/Deprecn": 1.3344131053471868,
+    "Net Cap Ex/Sales": 0.0051546532837582525
+  },
+  "Heathcare Information and Technology": {
+    "Capital Expenditures (US $ millions)": 4277.706000000001,
+    "Depreciation & Amort ((US $ millions)": 1578.51,
+    "Cap Ex/Deprecn": 2.7099644601554638,
+    "Net Cap Ex/Sales": 0.10245505585454837
+  },
+  "Homebuilding": {
+    "Capital Expenditures (US $ millions)": 215.648,
+    "Depreciation & Amort ((US $ millions)": 97.52200000000003,
+    "Cap Ex/Deprecn": 2.2112754045241068,
+    "Net Cap Ex/Sales": 0.021890735209427824
+  },
+  "Hospitals/Healthcare Facilities": {
+    "Capital Expenditures (US $ millions)": 7565.947999999998,
+    "Depreciation & Amort ((US $ millions)": 3486.8979999999992,
+    "Cap Ex/Deprecn": 2.1698220022495636,
+    "Net Cap Ex/Sales": 0.08080086277138596
+  },
+  "Hotel/Gaming": {
+    "Capital Expenditures (US $ millions)": 11196.179000000006,
+    "Depreciation & Amort ((US $ millions)": 8820.821,
+    "Cap Ex/Deprecn": 1.2692898994322643,
+    "Net Cap Ex/Sales": 0.027191996372876538
+  },
+  "Household Products": {
+    "Capital Expenditures (US $ millions)": 4466.901999999999,
+    "Depreciation & Amort ((US $ millions)": 2283.990000000003,
+    "Cap Ex/Deprecn": 1.9557449901269242,
+    "Net Cap Ex/Sales": 0.03304196065896138
+  },
+  "Information Services": {
+    "Capital Expenditures (US $ millions)": 287.36099999999993,
+    "Depreciation & Amort ((US $ millions)": 359.241,
+    "Cap Ex/Deprecn": 0.799911480037078,
+    "Net Cap Ex/Sales": 0.019463650321285907
+  },
+  "Insurance (General)": {
+    "Capital Expenditures (US $ millions)": 1520.7210000000002,
+    "Depreciation & Amort ((US $ millions)": 913.2939999999988,
+    "Cap Ex/Deprecn": 1.6650947011586654,
+    "Net Cap Ex/Sales": 0.006785525320461663
+  },
+  "Insurance (Life)": {
+    "Capital Expenditures (US $ millions)": 5007.348000000001,
+    "Depreciation & Amort ((US $ millions)": 5027.780000000001,
+    "Cap Ex/Deprecn": 0.9959361785917443,
+    "Net Cap Ex/Sales": 0.004139113358569212
+  },
+  "Insurance (Prop/Cas.)": {
+    "Capital Expenditures (US $ millions)": 1498.6299999999992,
+    "Depreciation & Amort ((US $ millions)": 458.7100000000004,
+    "Cap Ex/Deprecn": 3.2670532580497436,
+    "Net Cap Ex/Sales": 0.004408649226992063
+  },
+  "Investments & Asset Management": {
+    "Capital Expenditures (US $ millions)": 1620.5649999999996,
+    "Depreciation & Amort ((US $ millions)": 137.28599999999986,
+    "Cap Ex/Deprecn": 11.804299054528512,
+    "Net Cap Ex/Sales": 0.05094307309072478
+  },
+  "Machinery": {
+    "Capital Expenditures (US $ millions)": 15102.553999999998,
+    "Depreciation & Amort ((US $ millions)": 8413.701000000001,
+    "Cap Ex/Deprecn": 1.7949953296414973,
+    "Net Cap Ex/Sales": 0.03440584753187539
+  },
+  "Metals & Mining": {
+    "Capital Expenditures (US $ millions)": 36873.75399999997,
+    "Depreciation & Amort ((US $ millions)": 20794.940000000002,
+    "Cap Ex/Deprecn": 1.773208001561917,
+    "Net Cap Ex/Sales": 0.032682390996362894
+  },
+  "Office Equipment & Services": {
+    "Capital Expenditures (US $ millions)": 645.0969999999999,
+    "Depreciation & Amort ((US $ millions)": 212.40400000000005,
+    "Cap Ex/Deprecn": 3.03712265305738,
+    "Net Cap Ex/Sales": 0.03948857770211362
+  },
+  "Oil/Gas (Integrated)": {
+    "Capital Expenditures (US $ millions)": 136423.359,
+    "Depreciation & Amort ((US $ millions)": 87887.01200000002,
+    "Cap Ex/Deprecn": 1.5522584725033088,
+    "Net Cap Ex/Sales": 0.03400716058737254
+  },
+  "Oil/Gas (Production and Exploration)": {
+    "Capital Expenditures (US $ millions)": 38888.93200000002,
+    "Depreciation & Amort ((US $ millions)": 21104.538000000004,
+    "Cap Ex/Deprecn": 1.8426810385519936,
+    "Net Cap Ex/Sales": 0.15032980130002999
+  },
+  "Oil/Gas Distribution": {
+    "Capital Expenditures (US $ millions)": 13984.719,
+    "Depreciation & Amort ((US $ millions)": 6024.777,
+    "Cap Ex/Deprecn": 2.321201100057313,
+    "Net Cap Ex/Sales": 0.0722032069064655
+  },
+  "Oilfield Svcs/Equip.": {
+    "Capital Expenditures (US $ millions)": 40567.242999999995,
+    "Depreciation & Amort ((US $ millions)": 18149.687000000024,
+    "Cap Ex/Deprecn": 2.2351483526961067,
+    "Net Cap Ex/Sales": 0.031153426863557192
+  },
+  "Packaging & Container": {
+    "Capital Expenditures (US $ millions)": 4287.152000000001,
+    "Depreciation & Amort ((US $ millions)": 2692.179000000007,
+    "Cap Ex/Deprecn": 1.592446861817134,
+    "Net Cap Ex/Sales": 0.044882013612427905
+  },
+  "Paper/Forest Products": {
+    "Capital Expenditures (US $ millions)": 11179.376999999997,
+    "Depreciation & Amort ((US $ millions)": 6771.177999999996,
+    "Cap Ex/Deprecn": 1.6510239429535012,
+    "Net Cap Ex/Sales": 0.05732730799172628
+  },
+  "Power": {
+    "Capital Expenditures (US $ millions)": 166127.32700000008,
+    "Depreciation & Amort ((US $ millions)": 59921.02999999997,
+    "Cap Ex/Deprecn": 2.7724377735162458,
+    "Net Cap Ex/Sales": 0.13989490310186756
+  },
+  "Precious Metals": {
+    "Capital Expenditures (US $ millions)": 13359.194000000005,
+    "Depreciation & Amort ((US $ millions)": 6315.554000000004,
+    "Cap Ex/Deprecn": 2.115284581526814,
+    "Net Cap Ex/Sales": 0.0849478986761284
+  },
+  "Publishing & Newspapers": {
+    "Capital Expenditures (US $ millions)": 968.0680000000003,
+    "Depreciation & Amort ((US $ millions)": 804.9100000000003,
+    "Cap Ex/Deprecn": 1.2027034078344163,
+    "Net Cap Ex/Sales": 0.009611401878337636
+  },
+  "R.E.I.T.": {
+    "Capital Expenditures (US $ millions)": 1140.7530000000004,
+    "Depreciation & Amort ((US $ millions)": -3625.696,
+    "Net Cap Ex/Sales": 0.29269417369377254
+  },
+  "Real Estate (Development)": {
+    "Capital Expenditures (US $ millions)": 7415.378000000001,
+    "Depreciation & Amort ((US $ millions)": 8208.684000000014,
+    "Cap Ex/Deprecn": 0.9033577123933615,
+    "Net Cap Ex/Sales": -6.499387166058856e-05
+  },
+  "Real Estate (General/Diversified)": {
+    "Capital Expenditures (US $ millions)": 7186.578000000003,
+    "Depreciation & Amort ((US $ millions)": 3924.749999999999,
+    "Cap Ex/Deprecn": 1.8310919166825925,
+    "Net Cap Ex/Sales": 0.039610573513355896
+  },
+  "Real Estate (Operations & Services)": {
+    "Capital Expenditures (US $ millions)": 3264.0140000000033,
+    "Depreciation & Amort ((US $ millions)": 2832.886000000001,
+    "Cap Ex/Deprecn": 1.1521868511475584,
+    "Net Cap Ex/Sales": 0.022762972904920423
+  },
+  "Recreation": {
+    "Capital Expenditures (US $ millions)": 1883.170000000001,
+    "Depreciation & Amort ((US $ millions)": 1024.6969999999992,
+    "Cap Ex/Deprecn": 1.8377822907649797,
+    "Net Cap Ex/Sales": 0.03787732547296857
+  },
+  "Reinsurance": {
+    "Capital Expenditures (US $ millions)": 85.862,
+    "Depreciation & Amort ((US $ millions)": -577.023,
+    "Net Cap Ex/Sales": 0.009267345886875713
+  },
+  "Restaurant/Dining": {
+    "Capital Expenditures (US $ millions)": 4574.783,
+    "Depreciation & Amort ((US $ millions)": 5074.596999999998,
+    "Cap Ex/Deprecn": 0.9015066615142054,
+    "Net Cap Ex/Sales": 3.5780981099439516e-05
+  },
+  "Retail (Automotive)": {
+    "Capital Expenditures (US $ millions)": 8134.488,
+    "Depreciation & Amort ((US $ millions)": 4515.459000000003,
+    "Cap Ex/Deprecn": 1.8014753317436822,
+    "Net Cap Ex/Sales": 0.01763203799268303
+  },
+  "Retail (Building Supply)": {
+    "Capital Expenditures (US $ millions)": 603.7489999999999,
+    "Depreciation & Amort ((US $ millions)": 584.2610000000002,
+    "Cap Ex/Deprecn": 1.0333549560898292,
+    "Net Cap Ex/Sales": 0.0014934258385183837
+  },
+  "Retail (Distributors)": {
+    "Capital Expenditures (US $ millions)": 18605.73700000001,
+    "Depreciation & Amort ((US $ millions)": 7373.977000000008,
+    "Cap Ex/Deprecn": 2.523161789086132,
+    "Net Cap Ex/Sales": 0.022050880328747056
+  },
+  "Retail (General)": {
+    "Capital Expenditures (US $ millions)": 10375.491999999991,
+    "Depreciation & Amort ((US $ millions)": 9662.049000000012,
+    "Cap Ex/Deprecn": 1.0738397207466013,
+    "Net Cap Ex/Sales": 0.009249491487692888
+  },
+  "Retail (Grocery and Food)": {
+    "Capital Expenditures (US $ millions)": 5967.766999999999,
+    "Depreciation & Amort ((US $ millions)": 5323.134999999998,
+    "Cap Ex/Deprecn": 1.1211000660325168,
+    "Net Cap Ex/Sales": 0.006274886873113865
+  },
+  "Retail (REITs)": {
+    "Capital Expenditures (US $ millions)": 11.091,
+    "Depreciation & Amort ((US $ millions)": -423.2629999999998,
+    "Net Cap Ex/Sales": 0.1361897310195932
+  },
+  "Retail (Special Lines)": {
+    "Capital Expenditures (US $ millions)": 4401.217000000002,
+    "Depreciation & Amort ((US $ millions)": 4136.858000000003,
+    "Cap Ex/Deprecn": 1.0639033295317362,
+    "Net Cap Ex/Sales": 0.004064055559519453
+  },
+  "Rubber& Tires": {
+    "Capital Expenditures (US $ millions)": 5774.744,
+    "Depreciation & Amort ((US $ millions)": 2979.631,
+    "Cap Ex/Deprecn": 1.938073539978608,
+    "Net Cap Ex/Sales": 0.04285478327953529
+  },
+  "Semiconductor": {
+    "Capital Expenditures (US $ millions)": 104127.74099999986,
+    "Depreciation & Amort ((US $ millions)": 50672.089999999924,
+    "Cap Ex/Deprecn": 2.054932823966803,
+    "Net Cap Ex/Sales": 0.13455168536373752
+  },
+  "Semiconductor Equip": {
+    "Capital Expenditures (US $ millions)": 11096.268000000005,
+    "Depreciation & Amort ((US $ millions)": 6078.043999999995,
+    "Cap Ex/Deprecn": 1.8256314037871417,
+    "Net Cap Ex/Sales": 0.0716169492663971
+  },
+  "Shipbuilding & Marine": {
+    "Capital Expenditures (US $ millions)": 23363.784000000007,
+    "Depreciation & Amort ((US $ millions)": 12737.698999999999,
+    "Cap Ex/Deprecn": 1.8342232769042517,
+    "Net Cap Ex/Sales": 0.060944126680491234
+  },
+  "Shoe": {
+    "Capital Expenditures (US $ millions)": 1442.876,
+    "Depreciation & Amort ((US $ millions)": 1068.503,
+    "Cap Ex/Deprecn": 1.3503715010627018,
+    "Net Cap Ex/Sales": 0.014894590979047346
+  },
+  "Software (Entertainment)": {
+    "Capital Expenditures (US $ millions)": 13801.083,
+    "Depreciation & Amort ((US $ millions)": 5400.907,
+    "Cap Ex/Deprecn": 2.5553269108318286,
+    "Net Cap Ex/Sales": 0.08009154793139599
+  },
+  "Software (Internet)": {
+    "Capital Expenditures (US $ millions)": 3183.781,
+    "Depreciation & Amort ((US $ millions)": 795.2360000000004,
+    "Cap Ex/Deprecn": 4.0035674944293245,
+    "Net Cap Ex/Sales": 0.08447593246406959
+  },
+  "Software (System & Application)": {
+    "Capital Expenditures (US $ millions)": 4473.033000000001,
+    "Depreciation & Amort ((US $ millions)": 1883.0359999999976,
+    "Cap Ex/Deprecn": 2.375436794623155,
+    "Net Cap Ex/Sales": 0.07763476993307994
+  },
+  "Steel": {
+    "Capital Expenditures (US $ millions)": 45756.24899999991,
+    "Depreciation & Amort ((US $ millions)": 27598.724999999966,
+    "Cap Ex/Deprecn": 1.657911697007741,
+    "Net Cap Ex/Sales": 0.028522615414107153
+  },
+  "Telecom (Wireless)": {
+    "Capital Expenditures (US $ millions)": 62117.83499999998,
+    "Depreciation & Amort ((US $ millions)": 48288.238,
+    "Cap Ex/Deprecn": 1.2863968032960735,
+    "Net Cap Ex/Sales": 0.037667830058451916
+  },
+  "Telecom. Equipment": {
+    "Capital Expenditures (US $ millions)": 5045.744000000003,
+    "Depreciation & Amort ((US $ millions)": 2945.607999999999,
+    "Cap Ex/Deprecn": 1.7129719908419605,
+    "Net Cap Ex/Sales": 0.01890029431100824
+  },
+  "Telecom. Services": {
+    "Capital Expenditures (US $ millions)": 42015.40699999999,
+    "Depreciation & Amort ((US $ millions)": 65799.81499999996,
+    "Cap Ex/Deprecn": 0.6385338165464449,
+    "Net Cap Ex/Sales": -0.050260771732991386
+  },
+  "Tobacco": {
+    "Capital Expenditures (US $ millions)": 1118.1169999999997,
+    "Depreciation & Amort ((US $ millions)": 590.7899999999997,
+    "Cap Ex/Deprecn": 1.8925794275461674,
+    "Net Cap Ex/Sales": 0.020460920223642667
+  },
+  "Transportation": {
+    "Capital Expenditures (US $ millions)": 18414.593999999997,
+    "Depreciation & Amort ((US $ millions)": 14163.059999999987,
+    "Cap Ex/Deprecn": 1.3001847058474663,
+    "Net Cap Ex/Sales": 0.014832946905087062
+  },
+  "Transportation (Railroads)": {
+    "Capital Expenditures (US $ millions)": 6760.153000000001,
+    "Depreciation & Amort ((US $ millions)": 3950.224999999999,
+    "Cap Ex/Deprecn": 1.7113336582093432,
+    "Net Cap Ex/Sales": 0.06860357401324953
+  },
+  "Trucking": {
+    "Capital Expenditures (US $ millions)": 775.015,
+    "Depreciation & Amort ((US $ millions)": 1334.4240000000004,
+    "Cap Ex/Deprecn": 0.5807861669154629,
+    "Net Cap Ex/Sales": -0.023575100325091927
+  },
+  "Utility (General)": {
+    "Capital Expenditures (US $ millions)": 10129.26,
+    "Depreciation & Amort ((US $ millions)": 3981.4349999999986,
+    "Cap Ex/Deprecn": 2.544122910458165,
+    "Net Cap Ex/Sales": 0.14401785496489122
+  },
+  "Utility (Water)": {
+    "Capital Expenditures (US $ millions)": 4577.040999999998,
+    "Depreciation & Amort ((US $ millions)": 4445.813,
+    "Cap Ex/Deprecn": 1.0295172109128292,
+    "Net Cap Ex/Sales": 0.03487118557620436
+  },
+  "Total Market (without financials)": {
+    "Capital Expenditures (US $ millions)": 1637762.2780000065,
+    "Depreciation & Amort ((US $ millions)": 929431.3959999979,
+    "Cap Ex/Deprecn": 1.762112066633921,
+    "Net Cap Ex/Sales": 0.03790708973692276
+  }
+}

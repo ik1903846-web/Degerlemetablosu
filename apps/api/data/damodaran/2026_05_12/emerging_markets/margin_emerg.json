@@ -1,0 +1,667 @@
+{
+  "Advertising": {
+    "Gross Margin": 0.2050927627396751,
+    "Net Margin": 0.015346373130373708,
+    "Pre-tax Unadjusted Operating Margin": 0.033421347046938325,
+    "After-tax Unadjusted Operating Margin": 0.0299854496583607,
+    "EBITDA/Sales": 0.040798225611345586
+  },
+  "Aerospace/Defense": {
+    "Gross Margin": 0.20852323336804338,
+    "Net Margin": 0.06665870560868027,
+    "Pre-tax Unadjusted Operating Margin": 0.08159304993604509,
+    "After-tax Unadjusted Operating Margin": 0.0728264141309698,
+    "EBITDA/Sales": 0.09637150290021976
+  },
+  "Air Transport": {
+    "Gross Margin": 0.2060038368680626,
+    "Net Margin": 0.04474386508102857,
+    "Pre-tax Unadjusted Operating Margin": 0.08970262074220456,
+    "After-tax Unadjusted Operating Margin": 0.07738002515008828,
+    "EBITDA/Sales": 0.1535603779539802
+  },
+  "Apparel": {
+    "Gross Margin": 0.2199938316836866,
+    "Net Margin": 0.04201404958214277,
+    "Pre-tax Unadjusted Operating Margin": 0.057434187001273264,
+    "After-tax Unadjusted Operating Margin": 0.049105338046619706,
+    "EBITDA/Sales": 0.07330822278615004
+  },
+  "Auto & Truck": {
+    "Gross Margin": 0.19037975995972095,
+    "Net Margin": 0.04840795685283058,
+    "Pre-tax Unadjusted Operating Margin": 0.04291265445421787,
+    "After-tax Unadjusted Operating Margin": 0.03694370567165274,
+    "EBITDA/Sales": 0.08158670254073355
+  },
+  "Auto Parts": {
+    "Gross Margin": 0.1880404787150081,
+    "Net Margin": 0.04460965763115867,
+    "Pre-tax Unadjusted Operating Margin": 0.05449209489135871,
+    "After-tax Unadjusted Operating Margin": 0.045671044242565954,
+    "EBITDA/Sales": 0.08360194634931006
+  },
+  "Bank (Money Center)": {
+    "Gross Margin": 0.9921478777798823,
+    "Net Margin": 0.4101449973622773,
+    "Pre-tax Unadjusted Operating Margin": 0.008219173175548681,
+    "After-tax Unadjusted Operating Margin": 0.006448311002375413,
+    "EBITDA/Sales": 0.006532965782457968
+  },
+  "Banks (Regional)": {
+    "Gross Margin": 0.9925668256038385,
+    "Net Margin": 0.42869328540100216,
+    "Pre-tax Unadjusted Operating Margin": -9.975209960272963e-05,
+    "After-tax Unadjusted Operating Margin": -8.449284278514358e-05,
+    "EBITDA/Sales": -0.0012028929657976221
+  },
+  "Beverage (Alcoholic)": {
+    "Gross Margin": 0.5957529207597028,
+    "Net Margin": 0.2283178807605808,
+    "Pre-tax Unadjusted Operating Margin": 0.3068259229793313,
+    "After-tax Unadjusted Operating Margin": 0.24781045646649433,
+    "EBITDA/Sales": 0.33406199250655577
+  },
+  "Beverage (Soft)": {
+    "Gross Margin": 0.4609286867325836,
+    "Net Margin": 0.1247669127362134,
+    "Pre-tax Unadjusted Operating Margin": 0.17772249832530196,
+    "After-tax Unadjusted Operating Margin": 0.14824000777789526,
+    "EBITDA/Sales": 0.1939606777909085
+  },
+  "Broadcasting": {
+    "Gross Margin": 0.33223207525773785,
+    "Net Margin": 0.08161082662899341,
+    "Pre-tax Unadjusted Operating Margin": 0.06341450778310674,
+    "After-tax Unadjusted Operating Margin": 0.05556352829034959,
+    "EBITDA/Sales": 0.11895803232449069
+  },
+  "Brokerage & Investment Banking": {
+    "Gross Margin": 0.6434395425805244,
+    "Net Margin": 0.18916212187025785,
+    "Pre-tax Unadjusted Operating Margin": 0.011438043279036192,
+    "After-tax Unadjusted Operating Margin": 0.009807070431256188,
+    "EBITDA/Sales": 0.009494324519702068
+  },
+  "Building Materials": {
+    "Gross Margin": 0.23861433929285986,
+    "Net Margin": 0.03800533400212181,
+    "Pre-tax Unadjusted Operating Margin": 0.06349282382177657,
+    "After-tax Unadjusted Operating Margin": 0.05409910220371418,
+    "EBITDA/Sales": 0.11815172631763002
+  },
+  "Business & Consumer Services": {
+    "Gross Margin": 0.20438497333051175,
+    "Net Margin": 0.02666382947288902,
+    "Pre-tax Unadjusted Operating Margin": 0.04720210831523386,
+    "After-tax Unadjusted Operating Margin": 0.04146226375001157,
+    "EBITDA/Sales": 0.06148020719507158
+  },
+  "Cable TV": {
+    "Gross Margin": 0.4329472656499399,
+    "Net Margin": -0.056185420424326164,
+    "Pre-tax Unadjusted Operating Margin": 0.018126471625884436,
+    "After-tax Unadjusted Operating Margin": 0.016465145080629816,
+    "EBITDA/Sales": 0.17013009134671325
+  },
+  "Chemical (Basic)": {
+    "Gross Margin": 0.13420739495474857,
+    "Net Margin": -0.0032200808842734584,
+    "Pre-tax Unadjusted Operating Margin": 0.03451289140265221,
+    "After-tax Unadjusted Operating Margin": 0.029489488444545738,
+    "EBITDA/Sales": 0.09209913985336858
+  },
+  "Chemical (Diversified)": {
+    "Gross Margin": 0.3034394951021005,
+    "Net Margin": 0.07944855987133873,
+    "Pre-tax Unadjusted Operating Margin": 0.12002729177835175,
+    "After-tax Unadjusted Operating Margin": 0.09439200825814521,
+    "EBITDA/Sales": 0.15613303523563524
+  },
+  "Chemical (Specialty)": {
+    "Gross Margin": 0.230512124904794,
+    "Net Margin": 0.06786214782539143,
+    "Pre-tax Unadjusted Operating Margin": 0.09447873855174976,
+    "After-tax Unadjusted Operating Margin": 0.07935247756736055,
+    "EBITDA/Sales": 0.14050358623333073
+  },
+  "Coal & Related Energy": {
+    "Gross Margin": 0.3241748423367995,
+    "Net Margin": 0.11501726881945391,
+    "Pre-tax Unadjusted Operating Margin": 0.17197729356783711,
+    "After-tax Unadjusted Operating Margin": 0.13720911611567477,
+    "EBITDA/Sales": 0.2939322230352069
+  },
+  "Computer Services": {
+    "Gross Margin": 0.15559085278702467,
+    "Net Margin": 0.050005255517309756,
+    "Pre-tax Unadjusted Operating Margin": 0.06782512322777995,
+    "After-tax Unadjusted Operating Margin": 0.05847996938438919,
+    "EBITDA/Sales": 0.0751017899863962
+  },
+  "Computers/Peripherals": {
+    "Gross Margin": 0.1929060443334439,
+    "Net Margin": 0.052129959626732766,
+    "Pre-tax Unadjusted Operating Margin": 0.05685185237282948,
+    "After-tax Unadjusted Operating Margin": 0.04923918406853268,
+    "EBITDA/Sales": 0.08985229791114036
+  },
+  "Construction Supplies": {
+    "Gross Margin": 0.23445807261873558,
+    "Net Margin": 0.057520376745138393,
+    "Pre-tax Unadjusted Operating Margin": 0.08320727101687271,
+    "After-tax Unadjusted Operating Margin": 0.07048155172629027,
+    "EBITDA/Sales": 0.11154053564406048
+  },
+  "Diversified": {
+    "Gross Margin": 0.28917790014456174,
+    "Net Margin": 0.05438315569715079,
+    "Pre-tax Unadjusted Operating Margin": 0.13041715021465466,
+    "After-tax Unadjusted Operating Margin": 0.11082530602173274,
+    "EBITDA/Sales": 0.15832046070202427
+  },
+  "Drugs (Biotechnology)": {
+    "Gross Margin": 0.5672985248387882,
+    "Net Margin": -0.04970570399611558,
+    "Pre-tax Unadjusted Operating Margin": -0.03455549007347961,
+    "After-tax Unadjusted Operating Margin": -0.0334241610216955,
+    "EBITDA/Sales": 0.04144955638488019
+  },
+  "Drugs (Pharmaceutical)": {
+    "Gross Margin": 0.46568714952014906,
+    "Net Margin": 0.08900328205989391,
+    "Pre-tax Unadjusted Operating Margin": 0.11415650015154297,
+    "After-tax Unadjusted Operating Margin": 0.09823589464739753,
+    "EBITDA/Sales": 0.15546140215071622
+  },
+  "Education": {
+    "Gross Margin": 0.5113640211144498,
+    "Net Margin": 0.133672594302846,
+    "Pre-tax Unadjusted Operating Margin": 0.20768262835107934,
+    "After-tax Unadjusted Operating Margin": 0.18287768068928714,
+    "EBITDA/Sales": 0.25352195835086133
+  },
+  "Electrical Equipment": {
+    "Gross Margin": 0.18356726096292394,
+    "Net Margin": 0.05253869215369829,
+    "Pre-tax Unadjusted Operating Margin": 0.06875483253043353,
+    "After-tax Unadjusted Operating Margin": 0.05984580835632444,
+    "EBITDA/Sales": 0.09334732273331259
+  },
+  "Electronics (Consumer & Office)": {
+    "Gross Margin": 0.18609755605855374,
+    "Net Margin": 0.01680912645237975,
+    "Pre-tax Unadjusted Operating Margin": 0.027306379680516454,
+    "After-tax Unadjusted Operating Margin": 0.023600639551607787,
+    "EBITDA/Sales": 0.05484750723953499
+  },
+  "Electronics (General)": {
+    "Gross Margin": 0.13646165463338203,
+    "Net Margin": 0.04119700917531896,
+    "Pre-tax Unadjusted Operating Margin": 0.044823137117255246,
+    "After-tax Unadjusted Operating Margin": 0.03981416840953264,
+    "EBITDA/Sales": 0.07856251554635504
+  },
+  "Engineering/Construction": {
+    "Gross Margin": 0.11882117669549647,
+    "Net Margin": 0.02346912079085065,
+    "Pre-tax Unadjusted Operating Margin": 0.04403883964238445,
+    "After-tax Unadjusted Operating Margin": 0.03702962283693232,
+    "EBITDA/Sales": 0.057738323829839275
+  },
+  "Entertainment": {
+    "Gross Margin": 0.5851673852921471,
+    "Net Margin": 0.12097590903038512,
+    "Pre-tax Unadjusted Operating Margin": 0.1450431072287512,
+    "After-tax Unadjusted Operating Margin": 0.1334859380419176,
+    "EBITDA/Sales": 0.16856012947930896
+  },
+  "Environmental & Waste Services": {
+    "Gross Margin": 0.24235193006049593,
+    "Net Margin": 0.038867223761602114,
+    "Pre-tax Unadjusted Operating Margin": 0.11288746186629463,
+    "After-tax Unadjusted Operating Margin": 0.09863107702044563,
+    "EBITDA/Sales": 0.17908103160593397
+  },
+  "Farming/Agriculture": {
+    "Gross Margin": 0.14469740272200604,
+    "Net Margin": 0.04104987236132971,
+    "Pre-tax Unadjusted Operating Margin": 0.06965855188667483,
+    "After-tax Unadjusted Operating Margin": 0.05838708993623766,
+    "EBITDA/Sales": 0.08615166240462237
+  },
+  "Financial Svcs. (Non-bank & Insurance)": {
+    "Gross Margin": 0.7774330078380532,
+    "Net Margin": 0.2618925536251795,
+    "Pre-tax Unadjusted Operating Margin": 0.09271361772121159,
+    "After-tax Unadjusted Operating Margin": 0.07687425390508604,
+    "EBITDA/Sales": 0.08434116013709712
+  },
+  "Food Processing": {
+    "Gross Margin": 0.23468992951059686,
+    "Net Margin": 0.050918577124254495,
+    "Pre-tax Unadjusted Operating Margin": 0.08153366639652208,
+    "After-tax Unadjusted Operating Margin": 0.06819434763443775,
+    "EBITDA/Sales": 0.10792045091696104
+  },
+  "Food Wholesalers": {
+    "Gross Margin": 0.13145016534416734,
+    "Net Margin": 0.010240209963701511,
+    "Pre-tax Unadjusted Operating Margin": 0.034140783892199746,
+    "After-tax Unadjusted Operating Margin": 0.028962087904335927,
+    "EBITDA/Sales": 0.041928147193912496
+  },
+  "Furn/Home Furnishings": {
+    "Gross Margin": 0.27927780906447097,
+    "Net Margin": 0.0821589635579867,
+    "Pre-tax Unadjusted Operating Margin": 0.08826335558192004,
+    "After-tax Unadjusted Operating Margin": 0.07547809565733633,
+    "EBITDA/Sales": 0.10307105048657052
+  },
+  "Green & Renewable Energy": {
+    "Gross Margin": 0.5430937705815089,
+    "Net Margin": 0.20513504332726487,
+    "Pre-tax Unadjusted Operating Margin": 0.3786787548971544,
+    "After-tax Unadjusted Operating Margin": 0.32878234239165777,
+    "EBITDA/Sales": 0.6056993828645983
+  },
+  "Healthcare Products": {
+    "Gross Margin": 0.4562366022264203,
+    "Net Margin": 0.09968912077365451,
+    "Pre-tax Unadjusted Operating Margin": 0.10179679317324122,
+    "After-tax Unadjusted Operating Margin": 0.09289037712078908,
+    "EBITDA/Sales": 0.16184209440492608
+  },
+  "Healthcare Support Services": {
+    "Gross Margin": 0.1218345563276302,
+    "Net Margin": 0.012827488179652367,
+    "Pre-tax Unadjusted Operating Margin": 0.031382430596918,
+    "After-tax Unadjusted Operating Margin": 0.026907888418053222,
+    "EBITDA/Sales": 0.04119160975940227
+  },
+  "Heathcare Information and Technology": {
+    "Gross Margin": 0.45996237019218134,
+    "Net Margin": 0.2626107994271101,
+    "Pre-tax Unadjusted Operating Margin": 0.18450845617493053,
+    "After-tax Unadjusted Operating Margin": 0.16938601733334194,
+    "EBITDA/Sales": 0.20238429513121536
+  },
+  "Homebuilding": {
+    "Gross Margin": 0.2440316387368011,
+    "Net Margin": 0.06481479149562036,
+    "Pre-tax Unadjusted Operating Margin": 0.10686755406461952,
+    "After-tax Unadjusted Operating Margin": 0.09518499565701326,
+    "EBITDA/Sales": 0.0855617621923475
+  },
+  "Hospitals/Healthcare Facilities": {
+    "Gross Margin": 0.32867473128667235,
+    "Net Margin": 0.09317201747956945,
+    "Pre-tax Unadjusted Operating Margin": 0.141321495397227,
+    "After-tax Unadjusted Operating Margin": 0.11524282653256476,
+    "EBITDA/Sales": 0.1693297482280373
+  },
+  "Hotel/Gaming": {
+    "Gross Margin": 0.4840072129795827,
+    "Net Margin": 0.07617942045636097,
+    "Pre-tax Unadjusted Operating Margin": 0.14499273606616744,
+    "After-tax Unadjusted Operating Margin": 0.12233167802272221,
+    "EBITDA/Sales": 0.20977608070677042
+  },
+  "Household Products": {
+    "Gross Margin": 0.4745631554869725,
+    "Net Margin": 0.05520174453936946,
+    "Pre-tax Unadjusted Operating Margin": 0.11163137907220899,
+    "After-tax Unadjusted Operating Margin": 0.09599010022374932,
+    "EBITDA/Sales": 0.1339255462821197
+  },
+  "Information Services": {
+    "Gross Margin": 0.4295151896420645,
+    "Net Margin": 0.05778578887315377,
+    "Pre-tax Unadjusted Operating Margin": 0.117985891175926,
+    "After-tax Unadjusted Operating Margin": 0.09676887557542449,
+    "EBITDA/Sales": 0.128887255386193
+  },
+  "Insurance (General)": {
+    "Gross Margin": 0.24454182095146715,
+    "Net Margin": 0.10485716313514332,
+    "Pre-tax Unadjusted Operating Margin": 0.15641290093196564,
+    "After-tax Unadjusted Operating Margin": 0.13392519884936172,
+    "EBITDA/Sales": 0.12257249838774723
+  },
+  "Insurance (Life)": {
+    "Gross Margin": 0.33995384176288523,
+    "Net Margin": 0.13503412319779387,
+    "Pre-tax Unadjusted Operating Margin": 0.23048095100089594,
+    "After-tax Unadjusted Operating Margin": 0.19314862424899795,
+    "EBITDA/Sales": 0.15518790379172456
+  },
+  "Insurance (Prop/Cas.)": {
+    "Gross Margin": 0.18732677392861088,
+    "Net Margin": 0.09080406131005651,
+    "Pre-tax Unadjusted Operating Margin": 0.13015953143885992,
+    "After-tax Unadjusted Operating Margin": 0.10537869023503835,
+    "EBITDA/Sales": 0.1143393103557799
+  },
+  "Investments & Asset Management": {
+    "Gross Margin": 0.5352855167296127,
+    "Net Margin": 0.28523524901783165,
+    "Pre-tax Unadjusted Operating Margin": 0.21912285081711358,
+    "After-tax Unadjusted Operating Margin": 0.19965693130317336,
+    "EBITDA/Sales": 0.20638805396854332
+  },
+  "Machinery": {
+    "Gross Margin": 0.23907057322722766,
+    "Net Margin": 0.053108791114602705,
+    "Pre-tax Unadjusted Operating Margin": 0.065651832215269,
+    "After-tax Unadjusted Operating Margin": 0.056408726292463365,
+    "EBITDA/Sales": 0.09376761156772077
+  },
+  "Metals & Mining": {
+    "Gross Margin": 0.16957638674243697,
+    "Net Margin": 0.06138383369925413,
+    "Pre-tax Unadjusted Operating Margin": 0.10803404462744436,
+    "After-tax Unadjusted Operating Margin": 0.09167966435785144,
+    "EBITDA/Sales": 0.13151478129181138
+  },
+  "Office Equipment & Services": {
+    "Gross Margin": 0.21180614238206139,
+    "Net Margin": 0.03322466189589965,
+    "Pre-tax Unadjusted Operating Margin": 0.042492634850918296,
+    "After-tax Unadjusted Operating Margin": 0.036476816165617064,
+    "EBITDA/Sales": 0.06769628712150597
+  },
+  "Oil/Gas (Integrated)": {
+    "Gross Margin": 0.3469280524543508,
+    "Net Margin": 0.09170872415943875,
+    "Pre-tax Unadjusted Operating Margin": 0.17743783884935482,
+    "After-tax Unadjusted Operating Margin": 0.13574321992658647,
+    "EBITDA/Sales": 0.24508716146132173
+  },
+  "Oil/Gas (Production and Exploration)": {
+    "Gross Margin": 0.6028223483119913,
+    "Net Margin": 0.23838381042492957,
+    "Pre-tax Unadjusted Operating Margin": 0.3312316215023846,
+    "After-tax Unadjusted Operating Margin": 0.28442015069746557,
+    "EBITDA/Sales": 0.5122665026716066
+  },
+  "Oil/Gas Distribution": {
+    "Gross Margin": 0.1486954051485956,
+    "Net Margin": 0.05946629510922119,
+    "Pre-tax Unadjusted Operating Margin": 0.08194881693565552,
+    "After-tax Unadjusted Operating Margin": 0.07139241754985876,
+    "EBITDA/Sales": 0.1352659809273604
+  },
+  "Oilfield Svcs/Equip.": {
+    "Gross Margin": 0.14901090667826633,
+    "Net Margin": 0.037568376766549595,
+    "Pre-tax Unadjusted Operating Margin": 0.05627280667000346,
+    "After-tax Unadjusted Operating Margin": 0.04750466108527054,
+    "EBITDA/Sales": 0.07834588256846373
+  },
+  "Packaging & Container": {
+    "Gross Margin": 0.19361679344423585,
+    "Net Margin": 0.038883303464344016,
+    "Pre-tax Unadjusted Operating Margin": 0.054359957501089934,
+    "After-tax Unadjusted Operating Margin": 0.04562120627682395,
+    "EBITDA/Sales": 0.10200306324907916
+  },
+  "Paper/Forest Products": {
+    "Gross Margin": 0.1647944317492283,
+    "Net Margin": 0.016148214499738772,
+    "Pre-tax Unadjusted Operating Margin": 0.04781340442234024,
+    "After-tax Unadjusted Operating Margin": 0.041879680668501125,
+    "EBITDA/Sales": 0.13701274181981934
+  },
+  "Power": {
+    "Gross Margin": 0.2384666383971561,
+    "Net Margin": 0.08436348368928732,
+    "Pre-tax Unadjusted Operating Margin": 0.1445880952315252,
+    "After-tax Unadjusted Operating Margin": 0.11949438207294114,
+    "EBITDA/Sales": 0.22442132540381104
+  },
+  "Precious Metals": {
+    "Gross Margin": 0.21947076007533772,
+    "Net Margin": 0.09665410186930966,
+    "Pre-tax Unadjusted Operating Margin": 0.15628595791490552,
+    "After-tax Unadjusted Operating Margin": 0.1313948031565407,
+    "EBITDA/Sales": 0.16107589416670956
+  },
+  "Publishing & Newspapers": {
+    "Gross Margin": 0.33891817017119763,
+    "Net Margin": 0.07118688032676182,
+    "Pre-tax Unadjusted Operating Margin": 0.06938381031531551,
+    "After-tax Unadjusted Operating Margin": 0.06132391932124588,
+    "EBITDA/Sales": 0.11054871532336213
+  },
+  "R.E.I.T.": {
+    "Gross Margin": 0.7380499898437385,
+    "Net Margin": 0.42165756154255146,
+    "Pre-tax Unadjusted Operating Margin": 0.6244202606911858,
+    "After-tax Unadjusted Operating Margin": 0.6089818310441326,
+    "EBITDA/Sales": 0.4324438808069932
+  },
+  "Real Estate (Development)": {
+    "Gross Margin": 0.13205793436425425,
+    "Net Margin": -0.07409388473727317,
+    "Pre-tax Unadjusted Operating Margin": 0.031850223548371505,
+    "After-tax Unadjusted Operating Margin": 0.027328609418871358,
+    "EBITDA/Sales": 0.0503079623366511
+  },
+  "Real Estate (General/Diversified)": {
+    "Gross Margin": 0.34170919118498067,
+    "Net Margin": 0.04123952852404203,
+    "Pre-tax Unadjusted Operating Margin": 0.17537254243838513,
+    "After-tax Unadjusted Operating Margin": 0.1545281435518647,
+    "EBITDA/Sales": 0.22708346680597888
+  },
+  "Real Estate (Operations & Services)": {
+    "Gross Margin": 0.4042668800639079,
+    "Net Margin": 0.10777540237225358,
+    "Pre-tax Unadjusted Operating Margin": 0.24975990466252468,
+    "After-tax Unadjusted Operating Margin": 0.2145611196315575,
+    "EBITDA/Sales": 0.25889358562089093
+  },
+  "Recreation": {
+    "Gross Margin": 0.31821438880078645,
+    "Net Margin": 0.03946529800151457,
+    "Pre-tax Unadjusted Operating Margin": 0.07917926723667494,
+    "After-tax Unadjusted Operating Margin": 0.06981565661959736,
+    "EBITDA/Sales": 0.1145751136091485
+  },
+  "Reinsurance": {
+    "Gross Margin": 0.15852453255598575,
+    "Net Margin": 0.09615496176545338,
+    "Pre-tax Unadjusted Operating Margin": 0.12808863186392883,
+    "After-tax Unadjusted Operating Margin": 0.10710064588875984,
+    "EBITDA/Sales": 0.12727540173968657
+  },
+  "Restaurant/Dining": {
+    "Gross Margin": 0.3196815168317587,
+    "Net Margin": 0.02722501210236789,
+    "Pre-tax Unadjusted Operating Margin": 0.04166690205084081,
+    "After-tax Unadjusted Operating Margin": 0.03653835877702784,
+    "EBITDA/Sales": 0.10562690731020274
+  },
+  "Retail (Automotive)": {
+    "Gross Margin": 0.09840061827519817,
+    "Net Margin": 0.008106713739437615,
+    "Pre-tax Unadjusted Operating Margin": 0.04423931121341685,
+    "After-tax Unadjusted Operating Margin": 0.03690468272724975,
+    "EBITDA/Sales": 0.05958542475532459
+  },
+  "Retail (Building Supply)": {
+    "Gross Margin": 0.36076688000184837,
+    "Net Margin": 0.01583553277255948,
+    "Pre-tax Unadjusted Operating Margin": 0.08459777020162211,
+    "After-tax Unadjusted Operating Margin": 0.07235279340243882,
+    "EBITDA/Sales": 0.09827103692050314
+  },
+  "Retail (Distributors)": {
+    "Gross Margin": 0.07568336890066231,
+    "Net Margin": 0.012084981333107788,
+    "Pre-tax Unadjusted Operating Margin": 0.02621625755490105,
+    "After-tax Unadjusted Operating Margin": 0.022167153909301213,
+    "EBITDA/Sales": 0.03817300836883119
+  },
+  "Retail (General)": {
+    "Gross Margin": 0.31282660916377386,
+    "Net Margin": 0.04383896759636168,
+    "Pre-tax Unadjusted Operating Margin": 0.060762798078360505,
+    "After-tax Unadjusted Operating Margin": 0.051034229476223096,
+    "EBITDA/Sales": 0.08062159595694796
+  },
+  "Retail (Grocery and Food)": {
+    "Gross Margin": 0.241677490018119,
+    "Net Margin": 0.01626985024631276,
+    "Pre-tax Unadjusted Operating Margin": 0.03766603891297933,
+    "After-tax Unadjusted Operating Margin": 0.031063347152599795,
+    "EBITDA/Sales": 0.05721766191255019
+  },
+  "Retail (REITs)": {
+    "Gross Margin": 0.7082690778046528,
+    "Net Margin": 0.14310342028797307,
+    "Pre-tax Unadjusted Operating Margin": 0.6273257795886564,
+    "After-tax Unadjusted Operating Margin": 0.591589051842071,
+    "EBITDA/Sales": 0.5226644806259437
+  },
+  "Retail (Special Lines)": {
+    "Gross Margin": 0.3205134321064437,
+    "Net Margin": 0.034746439258743864,
+    "Pre-tax Unadjusted Operating Margin": 0.06579331132519844,
+    "After-tax Unadjusted Operating Margin": 0.055190620332726516,
+    "EBITDA/Sales": 0.07198753400879139
+  },
+  "Rubber& Tires": {
+    "Gross Margin": 0.22938424009099864,
+    "Net Margin": 0.05358567790889288,
+    "Pre-tax Unadjusted Operating Margin": 0.07825236639895213,
+    "After-tax Unadjusted Operating Margin": 0.06430798847487218,
+    "EBITDA/Sales": 0.12874872829334985
+  },
+  "Semiconductor": {
+    "Gross Margin": 0.34482795906900027,
+    "Net Margin": 0.1872367762640095,
+    "Pre-tax Unadjusted Operating Margin": 0.20394520720940276,
+    "After-tax Unadjusted Operating Margin": 0.18631362719202835,
+    "EBITDA/Sales": 0.257926598862734
+  },
+  "Semiconductor Equip": {
+    "Gross Margin": 0.21743994918680007,
+    "Net Margin": 0.030647182752222113,
+    "Pre-tax Unadjusted Operating Margin": 0.0512675003945338,
+    "After-tax Unadjusted Operating Margin": 0.04576796358041288,
+    "EBITDA/Sales": 0.10616788692268653
+  },
+  "Shipbuilding & Marine": {
+    "Gross Margin": 0.2828206714428751,
+    "Net Margin": 0.1777226039074699,
+    "Pre-tax Unadjusted Operating Margin": 0.19977132999264643,
+    "After-tax Unadjusted Operating Margin": 0.1681159495727541,
+    "EBITDA/Sales": 0.29575260165050227
+  },
+  "Shoe": {
+    "Gross Margin": 0.26184129080803786,
+    "Net Margin": 0.06193986744285393,
+    "Pre-tax Unadjusted Operating Margin": 0.07598675443624554,
+    "After-tax Unadjusted Operating Margin": 0.06336290694576657,
+    "EBITDA/Sales": 0.1096907899823634
+  },
+  "Software (Entertainment)": {
+    "Gross Margin": 0.5930235088897648,
+    "Net Margin": 0.24494353746059283,
+    "Pre-tax Unadjusted Operating Margin": 0.26080815009179514,
+    "After-tax Unadjusted Operating Margin": 0.23310247760270592,
+    "EBITDA/Sales": 0.2590595716295277
+  },
+  "Software (Internet)": {
+    "Gross Margin": 0.1638831976233892,
+    "Net Margin": 0.04515024115688938,
+    "Pre-tax Unadjusted Operating Margin": 0.04152766591170662,
+    "After-tax Unadjusted Operating Margin": 0.036438118152662985,
+    "EBITDA/Sales": 0.06558105269460593
+  },
+  "Software (System & Application)": {
+    "Gross Margin": 0.4631945531405279,
+    "Net Margin": -0.0032601842555470832,
+    "Pre-tax Unadjusted Operating Margin": 0.0027981191176263773,
+    "After-tax Unadjusted Operating Margin": 0.0025685180550820736,
+    "EBITDA/Sales": 0.02680422502349226
+  },
+  "Steel": {
+    "Gross Margin": 0.15622856518778816,
+    "Net Margin": 0.025149958686119137,
+    "Pre-tax Unadjusted Operating Margin": 0.05367187520811698,
+    "After-tax Unadjusted Operating Margin": 0.04597971263656855,
+    "EBITDA/Sales": 0.09134559645455095
+  },
+  "Telecom (Wireless)": {
+    "Gross Margin": 0.43844235350201954,
+    "Net Margin": 0.09278133044282917,
+    "Pre-tax Unadjusted Operating Margin": 0.15635478097881508,
+    "After-tax Unadjusted Operating Margin": 0.12578680921446858,
+    "EBITDA/Sales": 0.283266675104417
+  },
+  "Telecom. Equipment": {
+    "Gross Margin": 0.2076493633434013,
+    "Net Margin": 0.03437880238720844,
+    "Pre-tax Unadjusted Operating Margin": 0.046928308830488985,
+    "After-tax Unadjusted Operating Margin": 0.04298834174901345,
+    "EBITDA/Sales": 0.06632171357009739
+  },
+  "Telecom. Services": {
+    "Gross Margin": 0.5136860046101303,
+    "Net Margin": 0.09664731682808211,
+    "Pre-tax Unadjusted Operating Margin": 0.1314535064452896,
+    "After-tax Unadjusted Operating Margin": 0.1106241184382586,
+    "EBITDA/Sales": 0.26813678760782644
+  },
+  "Tobacco": {
+    "Gross Margin": 0.40938896273905906,
+    "Net Margin": 0.2190374776288063,
+    "Pre-tax Unadjusted Operating Margin": 0.20006926775391778,
+    "After-tax Unadjusted Operating Margin": 0.15429909324187588,
+    "EBITDA/Sales": 0.22385349438341431
+  },
+  "Transportation": {
+    "Gross Margin": 0.15481816251487465,
+    "Net Margin": 0.04788880581852576,
+    "Pre-tax Unadjusted Operating Margin": 0.0748643270797604,
+    "After-tax Unadjusted Operating Margin": 0.06199893699839023,
+    "EBITDA/Sales": 0.10549402870659225
+  },
+  "Transportation (Railroads)": {
+    "Gross Margin": 0.2655683784784666,
+    "Net Margin": 0.15592326255176714,
+    "Pre-tax Unadjusted Operating Margin": 0.24170783421961572,
+    "After-tax Unadjusted Operating Margin": 0.17950490476048908,
+    "EBITDA/Sales": 0.31511147310050386
+  },
+  "Trucking": {
+    "Gross Margin": 0.21727542011132214,
+    "Net Margin": 0.012303841534588047,
+    "Pre-tax Unadjusted Operating Margin": 0.1284049636803874,
+    "After-tax Unadjusted Operating Margin": 0.10379226211196105,
+    "EBITDA/Sales": 0.16575475740299497
+  },
+  "Utility (General)": {
+    "Gross Margin": 0.32012832575401184,
+    "Net Margin": 0.13956405833464017,
+    "Pre-tax Unadjusted Operating Margin": 0.20209890578990475,
+    "After-tax Unadjusted Operating Margin": 0.16861260960318414,
+    "EBITDA/Sales": 0.3276139947380344
+  },
+  "Utility (Water)": {
+    "Gross Margin": 0.3965888782917316,
+    "Net Margin": 0.1401678117984194,
+    "Pre-tax Unadjusted Operating Margin": 0.24546907652900013,
+    "After-tax Unadjusted Operating Margin": 0.20346762941854687,
+    "EBITDA/Sales": 0.35814495535189994
+  },
+  "Total Market (without financials)": {
+    "Gross Margin": 0.23508827262594878,
+    "Net Margin": 0.056275280267663326,
+    "Pre-tax Unadjusted Operating Margin": 0.09169402171771515,
+    "After-tax Unadjusted Operating Margin": 0.07911163172665114,
+    "EBITDA/Sales": 0.13118902646662509
+  }
+}

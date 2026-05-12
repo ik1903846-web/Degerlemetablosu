@@ -1,0 +1,572 @@
+{
+  "Advertising": {
+    "Current PE": 73.4075069717836,
+    "Trailing PE": 58.542293148756954,
+    "Forward PE": 98.72410247030372,
+    "% of Money Losing firms (Trailing)": 0.5163043478260869
+  },
+  "Aerospace/Defense": {
+    "Current PE": 193.65637625178178,
+    "Trailing PE": 280.0487513798593,
+    "Forward PE": 98.05224108980262,
+    "% of Money Losing firms (Trailing)": 0.3112582781456954
+  },
+  "Air Transport": {
+    "Current PE": 29.55547163961237,
+    "Trailing PE": 34.176921548633906,
+    "Forward PE": 22.782574558600516,
+    "% of Money Losing firms (Trailing)": 0.2784810126582279
+  },
+  "Apparel": {
+    "Current PE": 59.96702089661279,
+    "Trailing PE": 64.47732029667623,
+    "Forward PE": 19.342570369840367,
+    "% of Money Losing firms (Trailing)": 0.36455186304128906
+  },
+  "Auto & Truck": {
+    "Current PE": 357.39653290976236,
+    "Trailing PE": 79.66545994280013,
+    "Forward PE": 46.878413348973254,
+    "% of Money Losing firms (Trailing)": 0.3707865168539326
+  },
+  "Auto Parts": {
+    "Current PE": 74.43459444105093,
+    "Trailing PE": 103.05919982192943,
+    "Forward PE": 31.975662474674373,
+    "% of Money Losing firms (Trailing)": 0.1942567567567568
+  },
+  "Bank (Money Center)": {
+    "Current PE": 19.371066253688227,
+    "Trailing PE": 26.945466109999252,
+    "Forward PE": 10.350126601983963,
+    "% of Money Losing firms (Trailing)": 0.06153846153846154
+  },
+  "Banks (Regional)": {
+    "Current PE": 48.30940743362918,
+    "Trailing PE": 24.23877474561295,
+    "Forward PE": 7.820898273084611,
+    "% of Money Losing firms (Trailing)": 0.08653846153846156
+  },
+  "Beverage (Alcoholic)": {
+    "Current PE": 84.38271925855676,
+    "Trailing PE": 58.686360265072175,
+    "Forward PE": 28.532601545085775,
+    "% of Money Losing firms (Trailing)": 0.19696969696969702
+  },
+  "Beverage (Soft)": {
+    "Current PE": 27.11276162692972,
+    "Trailing PE": 24.023358337482975,
+    "Forward PE": 20.06139037386961,
+    "% of Money Losing firms (Trailing)": 0.15000000000000002
+  },
+  "Broadcasting": {
+    "Current PE": 99.25783938102865,
+    "Trailing PE": 28.29030191635428,
+    "Forward PE": 14.126064942984932,
+    "% of Money Losing firms (Trailing)": 0.4444444444444444
+  },
+  "Brokerage & Investment Banking": {
+    "Current PE": 53.39735705606813,
+    "Trailing PE": 58.09151935481406,
+    "Forward PE": 36.806016098287785,
+    "% of Money Losing firms (Trailing)": 0.2841880341880342
+  },
+  "Building Materials": {
+    "Current PE": 89.37781533769918,
+    "Trailing PE": 45.92108654957219,
+    "Forward PE": 46.966780948289255,
+    "% of Money Losing firms (Trailing)": 0.3238434163701067
+  },
+  "Business & Consumer Services": {
+    "Current PE": 51.782685656970834,
+    "Trailing PE": 41.54258245860907,
+    "Forward PE": 21.46776617099445,
+    "% of Money Losing firms (Trailing)": 0.36939313984168864
+  },
+  "Cable TV": {
+    "Current PE": 93.31001831607655,
+    "Trailing PE": 101.19344364621742,
+    "Forward PE": 22.531393284103366,
+    "% of Money Losing firms (Trailing)": 0.5517241379310345
+  },
+  "Chemical (Basic)": {
+    "Current PE": 65.2759383865454,
+    "Trailing PE": 128.84049479535693,
+    "Forward PE": 50.01070682766859,
+    "% of Money Losing firms (Trailing)": 0.2968960863697706
+  },
+  "Chemical (Diversified)": {
+    "Current PE": 54.93736829803964,
+    "Trailing PE": 29.627095734568446,
+    "Forward PE": 20.41620772089858,
+    "% of Money Losing firms (Trailing)": 0.1724137931034483
+  },
+  "Chemical (Specialty)": {
+    "Current PE": 55.95861977323401,
+    "Trailing PE": 71.84279691307115,
+    "Forward PE": 35.82074008090651,
+    "% of Money Losing firms (Trailing)": 0.23580786026200873
+  },
+  "Coal & Related Energy": {
+    "Current PE": 21.524494119431544,
+    "Trailing PE": 38.953252854449666,
+    "Forward PE": 29.12779987340983,
+    "% of Money Losing firms (Trailing)": 0.29166666666666663
+  },
+  "Computer Services": {
+    "Current PE": 181.56923558335265,
+    "Trailing PE": 74.11243057591032,
+    "Forward PE": 57.20173587265246,
+    "% of Money Losing firms (Trailing)": 0.32611832611832614
+  },
+  "Computers/Peripherals": {
+    "Current PE": 94.25257335828448,
+    "Trailing PE": 78.64829338943338,
+    "Forward PE": 59.233607027828505,
+    "% of Money Losing firms (Trailing)": 0.3073770491803278
+  },
+  "Construction Supplies": {
+    "Current PE": 78.83225469607838,
+    "Trailing PE": 148.00359688026427,
+    "Forward PE": 21.198720699523,
+    "% of Money Losing firms (Trailing)": 0.2793103448275862
+  },
+  "Diversified": {
+    "Current PE": 39.43997879215396,
+    "Trailing PE": 30.39333698720974,
+    "Forward PE": 13.284415926684115,
+    "% of Money Losing firms (Trailing)": 0.24651162790697678
+  },
+  "Drugs (Biotechnology)": {
+    "Current PE": 98.61379545262383,
+    "Trailing PE": 64.06748095101537,
+    "Forward PE": 85.0615549923604,
+    "% of Money Losing firms (Trailing)": 0.7303664921465969
+  },
+  "Drugs (Pharmaceutical)": {
+    "Current PE": 74.7160507439989,
+    "Trailing PE": 95.36984888207205,
+    "Forward PE": 29.965637414521954,
+    "% of Money Losing firms (Trailing)": 0.30411686586985387
+  },
+  "Education": {
+    "Current PE": 75.57442865555161,
+    "Trailing PE": 47.13533866237496,
+    "Forward PE": 23.260301479736473,
+    "% of Money Losing firms (Trailing)": 0.34615384615384615
+  },
+  "Electrical Equipment": {
+    "Current PE": 74.41873636135504,
+    "Trailing PE": 73.12719130032991,
+    "Forward PE": 45.36673009761448,
+    "% of Money Losing firms (Trailing)": 0.2753086419753087
+  },
+  "Electronics (Consumer & Office)": {
+    "Current PE": 79.53920828153599,
+    "Trailing PE": 48.12153924906165,
+    "Forward PE": 26.351684514977798,
+    "% of Money Losing firms (Trailing)": 0.308641975308642
+  },
+  "Electronics (General)": {
+    "Current PE": 110.09721322967344,
+    "Trailing PE": 83.9459475339739,
+    "Forward PE": 69.18040634830403,
+    "% of Money Losing firms (Trailing)": 0.3371428571428572
+  },
+  "Engineering/Construction": {
+    "Current PE": 82.86480559926737,
+    "Trailing PE": 67.11789460961326,
+    "Forward PE": 18.993384735605474,
+    "% of Money Losing firms (Trailing)": 0.2992992992992993
+  },
+  "Entertainment": {
+    "Current PE": 134.95650051054574,
+    "Trailing PE": 88.60049856147553,
+    "Forward PE": 25.42967963750203,
+    "% of Money Losing firms (Trailing)": 0.5889212827988338
+  },
+  "Environmental & Waste Services": {
+    "Current PE": 61.003353566989226,
+    "Trailing PE": 78.53564162568468,
+    "Forward PE": 31.22382735883973,
+    "% of Money Losing firms (Trailing)": 0.3811659192825112
+  },
+  "Farming/Agriculture": {
+    "Current PE": 61.58753959040528,
+    "Trailing PE": 42.57974645060219,
+    "Forward PE": 16.812197829400745,
+    "% of Money Losing firms (Trailing)": 0.24038461538461542
+  },
+  "Financial Svcs. (Non-bank & Insurance)": {
+    "Current PE": 67.13006820118656,
+    "Trailing PE": 43.35149491531657,
+    "Forward PE": 22.568142196904315,
+    "% of Money Losing firms (Trailing)": 0.2797704447632712
+  },
+  "Food Processing": {
+    "Current PE": 56.7325416030209,
+    "Trailing PE": 43.05196261937471,
+    "Forward PE": 21.974467459475477,
+    "% of Money Losing firms (Trailing)": 0.2504854368932039
+  },
+  "Food Wholesalers": {
+    "Current PE": 105.76334488506905,
+    "Trailing PE": 33.24357614856911,
+    "Forward PE": 18.95084479563753,
+    "% of Money Losing firms (Trailing)": 0.36363636363636365
+  },
+  "Furn/Home Furnishings": {
+    "Current PE": 49.48766556006919,
+    "Trailing PE": 51.72903712606407,
+    "Forward PE": 24.221635239249764,
+    "% of Money Losing firms (Trailing)": 0.2769784172661871
+  },
+  "Green & Renewable Energy": {
+    "Current PE": 125.4987691118552,
+    "Trailing PE": 86.0793290047097,
+    "Forward PE": 15.556037510220905,
+    "% of Money Losing firms (Trailing)": 0.29220779220779225
+  },
+  "Healthcare Products": {
+    "Current PE": 284.4556591816472,
+    "Trailing PE": 65.57709190744275,
+    "Forward PE": 39.36151786288041,
+    "% of Money Losing firms (Trailing)": 0.4368421052631579
+  },
+  "Healthcare Support Services": {
+    "Current PE": 85.99844181431672,
+    "Trailing PE": 78.16180600503982,
+    "Forward PE": 23.885649578365946,
+    "% of Money Losing firms (Trailing)": 0.36328125
+  },
+  "Heathcare Information and Technology": {
+    "Current PE": 110.73606525941187,
+    "Trailing PE": 484.7956683006138,
+    "Forward PE": 66.5634087716178,
+    "% of Money Losing firms (Trailing)": 0.5
+  },
+  "Homebuilding": {
+    "Current PE": 31.47057649016426,
+    "Trailing PE": 27.798484410497373,
+    "Forward PE": 192.4434727048175,
+    "% of Money Losing firms (Trailing)": 0.4565217391304348
+  },
+  "Hospitals/Healthcare Facilities": {
+    "Current PE": 56.360584980777006,
+    "Trailing PE": 49.90584106671721,
+    "Forward PE": 27.286100888297746,
+    "% of Money Losing firms (Trailing)": 0.19512195121951215
+  },
+  "Hotel/Gaming": {
+    "Current PE": 89.39134802960594,
+    "Trailing PE": 62.92686806661643,
+    "Forward PE": 28.074852119323875,
+    "% of Money Losing firms (Trailing)": 0.3583138173302107
+  },
+  "Household Products": {
+    "Current PE": 85.63927038553933,
+    "Trailing PE": 73.90236002402564,
+    "Forward PE": 30.066468070059432,
+    "% of Money Losing firms (Trailing)": 0.3303834808259587
+  },
+  "Information Services": {
+    "Current PE": 41.005824314012564,
+    "Trailing PE": 43.65402771521347,
+    "Forward PE": 43.8119897894305,
+    "% of Money Losing firms (Trailing)": 0.22448979591836737
+  },
+  "Insurance (General)": {
+    "Current PE": 26.434308006881768,
+    "Trailing PE": 14.864037105287562,
+    "Forward PE": 16.999450458859503,
+    "% of Money Losing firms (Trailing)": 0.18571428571428572
+  },
+  "Insurance (Life)": {
+    "Current PE": 440.0108695683048,
+    "Trailing PE": 107.23601402851385,
+    "Forward PE": 40.43680571000749,
+    "% of Money Losing firms (Trailing)": 0.14130434782608692
+  },
+  "Insurance (Prop/Cas.)": {
+    "Current PE": 16.1636559459767,
+    "Trailing PE": 22.00412112617252,
+    "Forward PE": 12.132143895544862,
+    "% of Money Losing firms (Trailing)": 0.1392405063291139
+  },
+  "Investments & Asset Management": {
+    "Current PE": 72.1824332749963,
+    "Trailing PE": 45.10396847030827,
+    "Forward PE": 22.567441975764527,
+    "% of Money Losing firms (Trailing)": 0.3950617283950617
+  },
+  "Machinery": {
+    "Current PE": 104.88917288264393,
+    "Trailing PE": 120.22141426346921,
+    "Forward PE": 62.56331350707103,
+    "% of Money Losing firms (Trailing)": 0.2816616008105369
+  },
+  "Metals & Mining": {
+    "Current PE": 131.81282529518083,
+    "Trailing PE": 77.17729853514841,
+    "Forward PE": 39.82196434269824,
+    "% of Money Losing firms (Trailing)": 0.2849162011173184
+  },
+  "Office Equipment & Services": {
+    "Current PE": 27.75368604893842,
+    "Trailing PE": 33.73096764837517,
+    "Forward PE": 24.13223135208083,
+    "% of Money Losing firms (Trailing)": 0.39743589743589747
+  },
+  "Oil/Gas (Integrated)": {
+    "Current PE": 13.375766712554727,
+    "Trailing PE": 14.281724891567057,
+    "Forward PE": 12.831844125332305,
+    "% of Money Losing firms (Trailing)": 0.19999999999999996
+  },
+  "Oil/Gas (Production and Exploration)": {
+    "Current PE": 79.65182120866693,
+    "Trailing PE": 34.266030588257046,
+    "Forward PE": 16.28450790937504,
+    "% of Money Losing firms (Trailing)": 0.33333333333333337
+  },
+  "Oil/Gas Distribution": {
+    "Current PE": 31.654286449981868,
+    "Trailing PE": 32.783349980304855,
+    "Forward PE": 16.380336440986703,
+    "% of Money Losing firms (Trailing)": 0.2416666666666667
+  },
+  "Oilfield Svcs/Equip.": {
+    "Current PE": 42.57461604095575,
+    "Trailing PE": 55.19146844728639,
+    "Forward PE": 19.73916721976582,
+    "% of Money Losing firms (Trailing)": 0.29824561403508776
+  },
+  "Packaging & Container": {
+    "Current PE": 52.789059876546375,
+    "Trailing PE": 44.204655695816335,
+    "Forward PE": 20.461961130386744,
+    "% of Money Losing firms (Trailing)": 0.26392961876832843
+  },
+  "Paper/Forest Products": {
+    "Current PE": 72.77612499740415,
+    "Trailing PE": 188.6967496802947,
+    "Forward PE": 20.941383127245476,
+    "% of Money Losing firms (Trailing)": 0.4010152284263959
+  },
+  "Power": {
+    "Current PE": 31.656438706691176,
+    "Trailing PE": 51.136814860630615,
+    "Forward PE": 22.278275186794907,
+    "% of Money Losing firms (Trailing)": 0.12195121951219512
+  },
+  "Precious Metals": {
+    "Current PE": 152.98802109440572,
+    "Trailing PE": 162.40054473710526,
+    "Forward PE": 20.158151295068816,
+    "% of Money Losing firms (Trailing)": 0.34375
+  },
+  "Publishing & Newspapers": {
+    "Current PE": 84.6332307106632,
+    "Trailing PE": 66.57778118133238,
+    "Forward PE": 52.96653518193289,
+    "% of Money Losing firms (Trailing)": 0.4035087719298246
+  },
+  "R.E.I.T.": {
+    "Current PE": 20.23943211420299,
+    "Trailing PE": 18.755083650166313,
+    "Forward PE": 17.42516405660405,
+    "% of Money Losing firms (Trailing)": 0.3125
+  },
+  "Real Estate (Development)": {
+    "Current PE": 92.07682523304784,
+    "Trailing PE": 50.907224515213315,
+    "Forward PE": 17.972741653315065,
+    "% of Money Losing firms (Trailing)": 0.42620865139949105
+  },
+  "Real Estate (General/Diversified)": {
+    "Current PE": 62.87872510405189,
+    "Trailing PE": 44.01747678289732,
+    "Forward PE": 26.492572696170903,
+    "% of Money Losing firms (Trailing)": 0.3317073170731707
+  },
+  "Real Estate (Operations & Services)": {
+    "Current PE": 35.99896503032078,
+    "Trailing PE": 66.62168488344852,
+    "Forward PE": 15.919390386962375,
+    "% of Money Losing firms (Trailing)": 0.3004926108374384
+  },
+  "Recreation": {
+    "Current PE": 47.99966119297547,
+    "Trailing PE": 1072.1010939580972,
+    "Forward PE": 25.596618155043103,
+    "% of Money Losing firms (Trailing)": 0.4113924050632911
+  },
+  "Reinsurance": {
+    "Current PE": 17.39900780079288,
+    "Trailing PE": 10.855421921429896,
+    "Forward PE": 7.2112049944795364,
+    "% of Money Losing firms (Trailing)": 0.07407407407407407
+  },
+  "Restaurant/Dining": {
+    "Current PE": 61.55428132474322,
+    "Trailing PE": 64.38200002861842,
+    "Forward PE": 33.30572569472504,
+    "% of Money Losing firms (Trailing)": 0.44565217391304346
+  },
+  "Retail (Automotive)": {
+    "Current PE": 45.22205464231247,
+    "Trailing PE": 380.5900408185245,
+    "Forward PE": 17.140317606571028,
+    "% of Money Losing firms (Trailing)": 0.30327868852459017
+  },
+  "Retail (Building Supply)": {
+    "Current PE": 115.52302927612466,
+    "Trailing PE": 22.701855654079996,
+    "Forward PE": 13.56850815470757,
+    "% of Money Losing firms (Trailing)": 0.32727272727272727
+  },
+  "Retail (Distributors)": {
+    "Current PE": 91.03551495198523,
+    "Trailing PE": 110.32954219559996,
+    "Forward PE": 15.16067322263403,
+    "% of Money Losing firms (Trailing)": 0.32284541723666216
+  },
+  "Retail (General)": {
+    "Current PE": 79.26096478073664,
+    "Trailing PE": 92.72014245090936,
+    "Forward PE": 58.39529057838268,
+    "% of Money Losing firms (Trailing)": 0.3537414965986394
+  },
+  "Retail (Grocery and Food)": {
+    "Current PE": 143.00060070286816,
+    "Trailing PE": 106.5808934005589,
+    "Forward PE": 48.88163483720959,
+    "% of Money Losing firms (Trailing)": 0.30927835051546393
+  },
+  "Retail (REITs)": {
+    "Current PE": 16.28902960703508,
+    "Trailing PE": 24.813262735766944,
+    "Forward PE": 15.583914363442569,
+    "% of Money Losing firms (Trailing)": 0.23076923076923073
+  },
+  "Retail (Special Lines)": {
+    "Current PE": 470.90099484612756,
+    "Trailing PE": 42.12687745307155,
+    "Forward PE": 29.0795999462398,
+    "% of Money Losing firms (Trailing)": 0.25886524822695034
+  },
+  "Rubber& Tires": {
+    "Current PE": 22.51244316393985,
+    "Trailing PE": 28.75254828849286,
+    "Forward PE": 19.654891736912393,
+    "% of Money Losing firms (Trailing)": 0.16666666666666663
+  },
+  "Semiconductor": {
+    "Current PE": 129.15948373860667,
+    "Trailing PE": 207.81919739730262,
+    "Forward PE": 93.34440500875117,
+    "% of Money Losing firms (Trailing)": 0.4139194139194139
+  },
+  "Semiconductor Equip": {
+    "Current PE": 154.22649981181934,
+    "Trailing PE": 141.88867291911657,
+    "Forward PE": 42.475359471773935,
+    "% of Money Losing firms (Trailing)": 0.35
+  },
+  "Shipbuilding & Marine": {
+    "Current PE": 25.91057047776262,
+    "Trailing PE": 23.086488737390656,
+    "Forward PE": 15.735174018961201,
+    "% of Money Losing firms (Trailing)": 0.1785714285714286
+  },
+  "Shoe": {
+    "Current PE": 57.67486140103468,
+    "Trailing PE": 42.45369419206816,
+    "Forward PE": 19.268131015758957,
+    "% of Money Losing firms (Trailing)": 0.35
+  },
+  "Software (Entertainment)": {
+    "Current PE": 101.56195097068681,
+    "Trailing PE": 67.11731463780123,
+    "Forward PE": 30.17158957881644,
+    "% of Money Losing firms (Trailing)": 0.4626865671641791
+  },
+  "Software (Internet)": {
+    "Current PE": 235.58856831329936,
+    "Trailing PE": 100.5832691238422,
+    "Forward PE": 50.42413495210514,
+    "% of Money Losing firms (Trailing)": 0.26530612244897955
+  },
+  "Software (System & Application)": {
+    "Current PE": 138.89500285618988,
+    "Trailing PE": 105.45460190809594,
+    "Forward PE": 101.1257659381765,
+    "% of Money Losing firms (Trailing)": 0.4927007299270073
+  },
+  "Steel": {
+    "Current PE": 41.745264978068796,
+    "Trailing PE": 44.97019397548249,
+    "Forward PE": 28.514969680543775,
+    "% of Money Losing firms (Trailing)": 0.34774774774774775
+  },
+  "Telecom (Wireless)": {
+    "Current PE": 46.022621105215215,
+    "Trailing PE": 38.071046750156,
+    "Forward PE": 21.98916515291555,
+    "% of Money Losing firms (Trailing)": 0.19117647058823528
+  },
+  "Telecom. Equipment": {
+    "Current PE": 130.7026050416105,
+    "Trailing PE": 146.28047198565477,
+    "Forward PE": 381.4691882056051,
+    "% of Money Losing firms (Trailing)": 0.4763513513513513
+  },
+  "Telecom. Services": {
+    "Current PE": 39.94754097909823,
+    "Trailing PE": 42.73576776318862,
+    "Forward PE": 29.775655859969838,
+    "% of Money Losing firms (Trailing)": 0.2816901408450704
+  },
+  "Tobacco": {
+    "Current PE": 23.0595815916305,
+    "Trailing PE": 21.105211094068416,
+    "Forward PE": 16.12844310828914,
+    "% of Money Losing firms (Trailing)": 0.1333333333333333
+  },
+  "Transportation": {
+    "Current PE": 38.83876557057406,
+    "Trailing PE": 82.40731579751149,
+    "Forward PE": 21.362330415777446,
+    "% of Money Losing firms (Trailing)": 0.25757575757575757
+  },
+  "Transportation (Railroads)": {
+    "Current PE": 28.31581084984723,
+    "Trailing PE": 33.537556502894816,
+    "Forward PE": 21.781841337537248,
+    "% of Money Losing firms (Trailing)": 0.05555555555555558
+  },
+  "Trucking": {
+    "Current PE": 23.11019974362253,
+    "Trailing PE": 31.216166971619796,
+    "Forward PE": 15.988281712159493,
+    "% of Money Losing firms (Trailing)": 0.26315789473684215
+  },
+  "Utility (General)": {
+    "Current PE": 64.0318718456823,
+    "Trailing PE": 56.17786427763568,
+    "Forward PE": 16.333089922401395,
+    "% of Money Losing firms (Trailing)": 0.0714285714285714
+  },
+  "Utility (Water)": {
+    "Current PE": 33.25108157619414,
+    "Trailing PE": 31.6413046444089,
+    "Forward PE": 14.55561027772708,
+    "% of Money Losing firms (Trailing)": 0.09210526315789469
+  },
+  "Total Market (without financials)": {
+    "Current PE": 87.86871987259919,
+    "Trailing PE": 86.40634847340753,
+    "Forward PE": 42.567096700103896,
+    "% of Money Losing firms (Trailing)": 0.3271001615508885
+  }
+}

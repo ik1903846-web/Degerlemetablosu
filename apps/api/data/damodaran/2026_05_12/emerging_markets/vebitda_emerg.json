@@ -1,0 +1,467 @@
+{
+  "Advertising": {
+    "EV/EBITDA": 24.72043275699787,
+    "EV/EBIT": 45.130020828548666,
+    "EV/EBIT (1-t)": 62.5270907175785
+  },
+  "Aerospace/Defense": {
+    "EV/EBITDA": 29.700612915537068,
+    "EV/EBIT": 42.59212037792966,
+    "EV/EBIT (1-t)": 49.86960058077364
+  },
+  "Air Transport": {
+    "EV/EBITDA": 12.444075732000648,
+    "EV/EBIT": 23.357914348070377,
+    "EV/EBIT (1-t)": 28.249572211296872
+  },
+  "Apparel": {
+    "EV/EBITDA": 12.927243617714975,
+    "EV/EBIT": 18.304153831728268,
+    "EV/EBIT (1-t)": 24.545257086952358
+  },
+  "Auto & Truck": {
+    "EV/EBITDA": 10.610271201587762,
+    "EV/EBIT": 20.9705266306958,
+    "EV/EBIT (1-t)": 29.83013827569229
+  },
+  "Auto Parts": {
+    "EV/EBITDA": 15.601056262061853,
+    "EV/EBIT": 26.86785201153388,
+    "EV/EBIT (1-t)": 33.7570464135991
+  },
+  "Bank (Money Center)": {
+    "EV/EBITDA": 69.36744907821924,
+    "EV/EBIT": 75.15332220794264,
+    "EV/EBIT (1-t)": 89.17362194212662
+  },
+  "Beverage (Alcoholic)": {
+    "EV/EBITDA": 15.64249287393286,
+    "EV/EBIT": 17.35294888579746,
+    "EV/EBIT (1-t)": 23.11421990542217
+  },
+  "Beverage (Soft)": {
+    "EV/EBITDA": 16.15500564094822,
+    "EV/EBIT": 20.163713269893126,
+    "EV/EBIT (1-t)": 27.2384269645085
+  },
+  "Broadcasting": {
+    "EV/EBITDA": 10.962619406473452,
+    "EV/EBIT": 23.936173673929975,
+    "EV/EBIT (1-t)": 31.111865135792442
+  },
+  "Brokerage & Investment Banking": {
+    "EV/EBITDA": 30.6918350656954,
+    "EV/EBIT": 34.68234953962997,
+    "EV/EBIT (1-t)": 47.82169776436641
+  },
+  "Building Materials": {
+    "EV/EBITDA": 14.297470760008093,
+    "EV/EBIT": 26.54308658080944,
+    "EV/EBIT (1-t)": 34.2240777822345
+  },
+  "Business & Consumer Services": {
+    "EV/EBITDA": 17.73152136261829,
+    "EV/EBIT": 29.512247840894943,
+    "EV/EBIT (1-t)": 39.08074680520767
+  },
+  "Cable TV": {
+    "EV/EBITDA": 16.107621062215713,
+    "EV/EBIT": 181.54748421105785
+  },
+  "Chemical (Basic)": {
+    "EV/EBITDA": 16.290575860127756,
+    "EV/EBIT": 44.87790853942586,
+    "EV/EBIT (1-t)": 57.79369071780838
+  },
+  "Chemical (Diversified)": {
+    "EV/EBITDA": 10.525007292795387,
+    "EV/EBIT": 15.240209777020917,
+    "EV/EBIT (1-t)": 20.307219173108326
+  },
+  "Chemical (Specialty)": {
+    "EV/EBITDA": 15.950350836678012,
+    "EV/EBIT": 25.80275245539613,
+    "EV/EBIT (1-t)": 32.044351079998705
+  },
+  "Coal & Related Energy": {
+    "EV/EBITDA": 7.599110147866921,
+    "EV/EBIT": 11.11123502813179,
+    "EV/EBIT (1-t)": 14.39916737681044
+  },
+  "Computer Services": {
+    "EV/EBITDA": 18.304360909022876,
+    "EV/EBIT": 21.633463430594784,
+    "EV/EBIT (1-t)": 28.477485820400958
+  },
+  "Computers/Peripherals": {
+    "EV/EBITDA": 12.164229839858098,
+    "EV/EBIT": 21.788285068975743,
+    "EV/EBIT (1-t)": 24.98551821112
+  },
+  "Construction Supplies": {
+    "EV/EBITDA": 11.978783320465071,
+    "EV/EBIT": 19.008712346573425,
+    "EV/EBIT (1-t)": 24.130870799238778
+  },
+  "Diversified": {
+    "EV/EBITDA": 9.366820388042868,
+    "EV/EBIT": 12.352944854432957,
+    "EV/EBIT (1-t)": 15.442866662016502
+  },
+  "Drugs (Biotechnology)": {
+    "EV/EBITDA": 32.10221157969198
+  },
+  "Drugs (Pharmaceutical)": {
+    "EV/EBITDA": 18.21693423086198,
+    "EV/EBIT": 25.6350154890283,
+    "EV/EBIT (1-t)": 32.35367451064874
+  },
+  "Education": {
+    "EV/EBITDA": 8.365693357582016,
+    "EV/EBIT": 11.211754431986382,
+    "EV/EBIT (1-t)": 13.08429608720906
+  },
+  "Electrical Equipment": {
+    "EV/EBITDA": 22.088412936962097,
+    "EV/EBIT": 35.894597789502804,
+    "EV/EBIT (1-t)": 44.456062749129366
+  },
+  "Electronics (Consumer & Office)": {
+    "EV/EBITDA": 10.354566546724936,
+    "EV/EBIT": 21.069147926946926,
+    "EV/EBIT (1-t)": 24.418730120018378
+  },
+  "Electronics (General)": {
+    "EV/EBITDA": 20.05737217709881,
+    "EV/EBIT": 41.87989229232563,
+    "EV/EBIT (1-t)": 52.19757306528385
+  },
+  "Engineering/Construction": {
+    "EV/EBITDA": 10.836102717792018,
+    "EV/EBIT": 15.082647450352193,
+    "EV/EBIT (1-t)": 19.45090758950555
+  },
+  "Entertainment": {
+    "EV/EBITDA": 14.92009668746237,
+    "EV/EBIT": 22.915201238599703,
+    "EV/EBIT (1-t)": 27.979489702557593
+  },
+  "Environmental & Waste Services": {
+    "EV/EBITDA": 14.961912472396534,
+    "EV/EBIT": 26.261017703759038,
+    "EV/EBIT (1-t)": 34.24330332281535
+  },
+  "Farming/Agriculture": {
+    "EV/EBITDA": 10.550456390749627,
+    "EV/EBIT": 14.974718342228197,
+    "EV/EBIT (1-t)": 19.496610441014827
+  },
+  "Financial Svcs. (Non-bank & Insurance)": {
+    "EV/EBITDA": 16.041146242841172,
+    "EV/EBIT": 17.804988614202824,
+    "EV/EBIT (1-t)": 22.16271823080067
+  },
+  "Food Processing": {
+    "EV/EBITDA": 11.052898068227101,
+    "EV/EBIT": 15.865543441926127,
+    "EV/EBIT (1-t)": 20.032870581714775
+  },
+  "Food Wholesalers": {
+    "EV/EBITDA": 9.73623944475248,
+    "EV/EBIT": 13.023348312056822,
+    "EV/EBIT (1-t)": 16.637522559875315
+  },
+  "Furn/Home Furnishings": {
+    "EV/EBITDA": 10.729469080021206,
+    "EV/EBIT": 13.615220724786479,
+    "EV/EBIT (1-t)": 16.145536426248505
+  },
+  "Green & Renewable Energy": {
+    "EV/EBITDA": 15.182833751619286,
+    "EV/EBIT": 23.234808844893294,
+    "EV/EBIT (1-t)": 27.863726565760594
+  },
+  "Healthcare Products": {
+    "EV/EBITDA": 21.05958859300884,
+    "EV/EBIT": 36.95978394312243,
+    "EV/EBIT (1-t)": 44.74523946536127
+  },
+  "Healthcare Support Services": {
+    "EV/EBITDA": 11.111206504535566,
+    "EV/EBIT": 15.200762979310683,
+    "EV/EBIT (1-t)": 20.62929564542768
+  },
+  "Heathcare Information and Technology": {
+    "EV/EBITDA": 25.41015392579796,
+    "EV/EBIT": 38.18936118636459,
+    "EV/EBIT (1-t)": 48.95580451031621
+  },
+  "Homebuilding": {
+    "EV/EBITDA": 11.248908860390225,
+    "EV/EBIT": 13.125681661336818,
+    "EV/EBIT (1-t)": 14.96173427533985
+  },
+  "Hospitals/Healthcare Facilities": {
+    "EV/EBITDA": 18.958813794079095,
+    "EV/EBIT": 25.476935681331685,
+    "EV/EBIT (1-t)": 31.017981480358426
+  },
+  "Hotel/Gaming": {
+    "EV/EBITDA": 13.590456338188424,
+    "EV/EBIT": 20.621456108248353,
+    "EV/EBIT (1-t)": 24.94465462449119
+  },
+  "Household Products": {
+    "EV/EBITDA": 21.987435081560637,
+    "EV/EBIT": 28.403940432959452,
+    "EV/EBIT (1-t)": 36.91960522760787
+  },
+  "Information Services": {
+    "EV/EBITDA": 12.922551877929388,
+    "EV/EBIT": 16.466184784003882,
+    "EV/EBIT (1-t)": 22.306571345194794
+  },
+  "Insurance (General)": {
+    "EV/EBITDA": 7.978691163380998,
+    "EV/EBIT": 8.349806305721957,
+    "EV/EBIT (1-t)": 10.969609719048307
+  },
+  "Insurance (Life)": {
+    "EV/EBITDA": 7.318854334967769,
+    "EV/EBIT": 7.565148636945799,
+    "EV/EBIT (1-t)": 8.919125995578229
+  },
+  "Insurance (Prop/Cas.)": {
+    "EV/EBITDA": 6.956214902000836,
+    "EV/EBIT": 7.150474643566268,
+    "EV/EBIT (1-t)": 8.677118517391037
+  },
+  "Investments & Asset Management": {
+    "EV/EBITDA": 16.122830160391242,
+    "EV/EBIT": 16.5272054201046,
+    "EV/EBIT (1-t)": 21.16622389861589
+  },
+  "Machinery": {
+    "EV/EBITDA": 24.978184569563158,
+    "EV/EBIT": 41.73040238021817,
+    "EV/EBIT (1-t)": 52.531069093496875
+  },
+  "Metals & Mining": {
+    "EV/EBITDA": 12.100967377957275,
+    "EV/EBIT": 16.171639797139722,
+    "EV/EBIT (1-t)": 21.059833200036856
+  },
+  "Office Equipment & Services": {
+    "EV/EBITDA": 16.569520241150173,
+    "EV/EBIT": 25.726943563953892,
+    "EV/EBIT (1-t)": 32.578474176799894
+  },
+  "Oil/Gas (Integrated)": {
+    "EV/EBITDA": 6.474094300218456,
+    "EV/EBIT": 8.52040461307079,
+    "EV/EBIT (1-t)": 15.104449746646388
+  },
+  "Oil/Gas (Production and Exploration)": {
+    "EV/EBITDA": 4.874110424423831,
+    "EV/EBIT": 7.598460630873738,
+    "EV/EBIT (1-t)": 10.49260591240134
+  },
+  "Oil/Gas Distribution": {
+    "EV/EBITDA": 10.3346104919893,
+    "EV/EBIT": 16.436057749291486,
+    "EV/EBIT (1-t)": 19.268604533866686
+  },
+  "Oilfield Svcs/Equip.": {
+    "EV/EBITDA": 10.323186502583887,
+    "EV/EBIT": 16.05480918268978,
+    "EV/EBIT (1-t)": 21.064108579604387
+  },
+  "Packaging & Container": {
+    "EV/EBITDA": 13.332257569948094,
+    "EV/EBIT": 25.842882472581664,
+    "EV/EBIT (1-t)": 33.5459703814211
+  },
+  "Paper/Forest Products": {
+    "EV/EBITDA": 10.417834572660514,
+    "EV/EBIT": 29.380092340742955,
+    "EV/EBIT (1-t)": 40.1604997649485
+  },
+  "Power": {
+    "EV/EBITDA": 9.182827348900405,
+    "EV/EBIT": 15.155456129994855,
+    "EV/EBIT (1-t)": 18.996896350805436
+  },
+  "Precious Metals": {
+    "EV/EBITDA": 14.608139409648267,
+    "EV/EBIT": 19.498284646932646,
+    "EV/EBIT (1-t)": 26.581726319597795
+  },
+  "Publishing & Newspapers": {
+    "EV/EBITDA": 16.284827031413915,
+    "EV/EBIT": 24.981738540741176,
+    "EV/EBIT (1-t)": 27.958354639413194
+  },
+  "R.E.I.T.": {
+    "EV/EBITDA": 16.849181769853256,
+    "EV/EBIT": 12.459492273541528,
+    "EV/EBIT (1-t)": 13.1570956199268
+  },
+  "Real Estate (Development)": {
+    "EV/EBITDA": 14.1551644407782,
+    "EV/EBIT": 43.40006860289256,
+    "EV/EBIT (1-t)": 163.67204467772547
+  },
+  "Real Estate (General/Diversified)": {
+    "EV/EBITDA": 19.33256444420348,
+    "EV/EBIT": 26.743968261517264,
+    "EV/EBIT (1-t)": 31.9278219877704
+  },
+  "Real Estate (Operations & Services)": {
+    "EV/EBITDA": 14.7737983851032,
+    "EV/EBIT": 16.988539738384347,
+    "EV/EBIT (1-t)": 21.40400977696427
+  },
+  "Recreation": {
+    "EV/EBITDA": 15.963849212858065,
+    "EV/EBIT": 26.14338919171197,
+    "EV/EBIT (1-t)": 33.645004995416414
+  },
+  "Reinsurance": {
+    "EV/EBITDA": 8.307032090521055,
+    "EV/EBIT": 7.792007290376873,
+    "EV/EBIT (1-t)": 9.127787261463107
+  },
+  "Restaurant/Dining": {
+    "EV/EBITDA": 20.69166913757583,
+    "EV/EBIT": 41.05115739818426,
+    "EV/EBIT (1-t)": 58.240522688807445
+  },
+  "Retail (Automotive)": {
+    "EV/EBITDA": 8.968591668224272,
+    "EV/EBIT": 12.513192034573262,
+    "EV/EBIT (1-t)": 15.669597499461071
+  },
+  "Retail (Building Supply)": {
+    "EV/EBITDA": 9.616972788830905,
+    "EV/EBIT": 12.13577226940791,
+    "EV/EBIT (1-t)": 15.189645519107518
+  },
+  "Retail (Distributors)": {
+    "EV/EBITDA": 14.158554160951587,
+    "EV/EBIT": 20.61579760238619,
+    "EV/EBIT (1-t)": 29.861064510648447
+  },
+  "Retail (General)": {
+    "EV/EBITDA": 14.860055402388001,
+    "EV/EBIT": 21.940275047053625,
+    "EV/EBIT (1-t)": 28.48856759199021
+  },
+  "Retail (Grocery and Food)": {
+    "EV/EBITDA": 12.704911698612738,
+    "EV/EBIT": 20.67487451044042,
+    "EV/EBIT (1-t)": 27.489041077189412
+  },
+  "Retail (REITs)": {
+    "EV/EBITDA": 16.561236319537485,
+    "EV/EBIT": 14.670115463293694,
+    "EV/EBIT (1-t)": 15.492456025175457
+  },
+  "Retail (Special Lines)": {
+    "EV/EBITDA": 15.3189313784809,
+    "EV/EBIT": 20.20809950175828,
+    "EV/EBIT (1-t)": 26.213928711276843
+  },
+  "Rubber& Tires": {
+    "EV/EBITDA": 8.613357411220406,
+    "EV/EBIT": 13.796655940523499,
+    "EV/EBIT (1-t)": 17.21624282779017
+  },
+  "Semiconductor": {
+    "EV/EBITDA": 16.99834989441493,
+    "EV/EBIT": 28.612226130743075,
+    "EV/EBIT (1-t)": 34.99824558038589
+  },
+  "Semiconductor Equip": {
+    "EV/EBITDA": 31.179128879987747,
+    "EV/EBIT": 87.64967366876336,
+    "EV/EBIT (1-t)": 125.48190882184325
+  },
+  "Shipbuilding & Marine": {
+    "EV/EBITDA": 7.342495054645144,
+    "EV/EBIT": 10.17705882432687,
+    "EV/EBIT (1-t)": 12.076687591871027
+  },
+  "Shoe": {
+    "EV/EBITDA": 8.955629492818607,
+    "EV/EBIT": 12.923490430290705,
+    "EV/EBIT (1-t)": 17.199525976673375
+  },
+  "Software (Entertainment)": {
+    "EV/EBITDA": 19.36929333459793,
+    "EV/EBIT": 22.312459160004636,
+    "EV/EBIT (1-t)": 26.825245677012052
+  },
+  "Software (Internet)": {
+    "EV/EBITDA": 42.38801348167097,
+    "EV/EBIT": 76.12162283113493,
+    "EV/EBIT (1-t)": 90.49074397214042
+  },
+  "Software (System & Application)": {
+    "EV/EBITDA": 40.57085322391194
+  },
+  "Steel": {
+    "EV/EBITDA": 9.247639086713033,
+    "EV/EBIT": 18.094579548811147,
+    "EV/EBIT (1-t)": 23.368007155049852
+  },
+  "Telecom (Wireless)": {
+    "EV/EBITDA": 6.962552220958141,
+    "EV/EBIT": 13.605523853819053,
+    "EV/EBIT (1-t)": 18.28808545276104
+  },
+  "Telecom. Equipment": {
+    "EV/EBITDA": 34.45762613263402,
+    "EV/EBIT": 57.70468726509104,
+    "EV/EBIT (1-t)": 69.27590939297764
+  },
+  "Telecom. Services": {
+    "EV/EBITDA": 6.977871585862324,
+    "EV/EBIT": 14.979084958242268,
+    "EV/EBIT (1-t)": 19.090490531229534
+  },
+  "Tobacco": {
+    "EV/EBITDA": 15.605181059249228,
+    "EV/EBIT": 17.2845370126351,
+    "EV/EBIT (1-t)": 23.97218067973009
+  },
+  "Transportation": {
+    "EV/EBITDA": 9.930946961785436,
+    "EV/EBIT": 15.488816561511273,
+    "EV/EBIT (1-t)": 20.065888294170527
+  },
+  "Transportation (Railroads)": {
+    "EV/EBITDA": 8.230626258881715,
+    "EV/EBIT": 11.347801526816934,
+    "EV/EBIT (1-t)": 15.369865930086082
+  },
+  "Trucking": {
+    "EV/EBITDA": 7.342342065463848,
+    "EV/EBIT": 11.477923861507323,
+    "EV/EBIT (1-t)": 12.745548896230495
+  },
+  "Utility (General)": {
+    "EV/EBITDA": 14.67657447099505,
+    "EV/EBIT": 24.229494582612624,
+    "EV/EBIT (1-t)": 28.45325435420344
+  },
+  "Utility (Water)": {
+    "EV/EBITDA": 10.332925806250463,
+    "EV/EBIT": 15.071247721587309,
+    "EV/EBIT (1-t)": 19.39849898336156
+  },
+  "Total Market (without financials)": {
+    "EV/EBITDA": 12.281498961343903,
+    "EV/EBIT": 19.09846649241061,
+    "EV/EBIT (1-t)": 25.29222923825388
+  }
+}
