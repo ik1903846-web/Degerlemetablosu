@@ -176,20 +176,32 @@ def load_latest_v4_batch() -> Optional[Dict[str, Any]]:
 
 @st.cache_data(ttl=300)
 def universe_stats_v4() -> Dict[str, Any]:
-    """turkey_v4_batch.json'dan ozet stats (Phase 2)."""
+    """turkey_v4_batch.json'dan ozet stats (Phase 2 + Phase 3b)."""
     batch = load_latest_v4_batch()
     if not batch:
         return {
             "total_count": 0,
             "dcf_count": 0,
             "complete_count": 0,
+            "intrinsic_filled": 0,
+            "holding_intrinsic_filled": 0,
             "anchor_tuprs": None,
             "fetch_date": None,
         }
+    tickers = batch.get("tickers", [])
+    intrinsic_filled = sum(
+        1 for t in tickers if t.get("intrinsic_per_share_tl") is not None
+    )
+    holding_intrinsic_filled = sum(
+        1 for t in tickers
+        if t.get("dialect") == "holding" and t.get("intrinsic_per_share_tl") is not None
+    )
     return {
         "total_count": batch.get("total_count", 0),
         "dcf_count": batch.get("dcf_count", 0),
         "complete_count": batch.get("complete_count", 0),
+        "intrinsic_filled": intrinsic_filled,
+        "holding_intrinsic_filled": holding_intrinsic_filled,
         "anchor_tuprs": batch.get("anchor_tuprs"),
         "fetch_date": batch.get("fetch_date"),
     }
