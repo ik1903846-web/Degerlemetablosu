@@ -174,27 +174,50 @@ TUPRS 211.95 anchor Engine B output — Damodaran reference YOK.
     b) Pre-implement: ProjectionInputsBuilder unit test
     c) Engine A 4-case validation re-run (Heineken/ABN/Tube/Toyota)
 
-## Section 7 — Phase 4b/4c/4d Parking
+## Section 7 — Phase 4b/4c SEALED, 4d/4e Parking
 
-**Phase 4b (Banking DDM Tier 1):**
-- AKBNK/YKBNK/ISCTR 2-stage prod (3/5 reasonable)
-- GARAN/HALKB outlier sanity flag (>%200 upside review)
-- 3-stage TR-specific tune (commit 76 sonrasi param adjust)
-- Effort: ~1 gun
-- Hedef anchor: v4.6-phase4b-banking-tier1-sealed
+**Phase 4b SEALED** (commit 89: 35672ad, anchor v4.5-phase4b-banking-prod):
+- orchestrator_v4 banking dialect Engine A entegrasyon (banking_skip -> dcf_ddm)
+- USD MANDATORY doctrine (TL nominal CoE TR enflasyon real returns'u bozar)
+- 5/5 banking ticker production'a Damodaran-sadik intrinsic (AKBNK/GARAN/YKBNK/ISCTR/HALKB)
+- Sanity guard (negative or >10000 -> book_value fallback)
+- 5/5 exact match validate_banking_ddm_tier1.py reference
 
-**Phase 4c (Banking Tier 2 + TR-specific tune):**
-- TSKB/KLNMA/SKBNK/QNBTR (manuel banking_data config)
-- 3-stage DDM TR-banking parametre tune (stable_ROE %18, CRP up)
+**Phase 4c SEALED** (commit 90: 67388ef, anchor v4.6-phase4c-banking-3stage):
+- 3-stage select logic: use_3stage = cfg.use_3stage OR roe > 0.25
+- GARAN 3-stage TR-tune: g_high 12%, payout 60->70%, stable_g 2.5%, stable_payout 70%
+  Intrinsic 335.15 TL, market 137.60, upside +143.6% (band 80-150 PASS)
+- HALKB 3-stage TR-tune: g_high 10%, payout 0->50%, stable_g 2.5%, stable_payout 50%
+  Intrinsic 122.60 TL, market 39.72, upside +208.7% (Damodaran-pure)
+  PBV 0.55, ROE/CoE 0.71 makul value signal
+  Phase 5d Excess Return Model (eqexret.xls) cross-check scope
+- AKBNK/YKBNK/ISCTR 2-stage path INTACT (Phase 4b birebir)
+- BankingDataConfig +5 alan (use_3stage + 4 stage3_* override params)
+
+**Humility Protocol trajectory (Phase 4c iterasyon disiplini):**
+- 4c.1: stable_g 0.07 hatasi (Damodaran rule ihlal) -> +1067% (validate caught)
+- 4c.2: g_high x payout inconsistency (g 0.05 + payout 0) -> +34% (overcorrected)
+- 4c.3: Damodaran-pure achievement (g_high=ROE x retention, stable_g 0.025) -> +208.7%
+- 4c.4: HA-E kabul (Trust the model when parameters are consistent)
+- Lesson: 3-stage DDM Y6-10 transition matematik sensitive (denominator + payout rise birlesik etki)
+
+**Phase 4d Parking (Multi-multiple consensus):**
+- PE + PBV consensus (Phase 3c sector_multiple_fetcher PE/PBV header offset fix gerek)
+- Phase 3c'de skip pattern (header offset) yeniden ele alinmali
 - Effort: ~2 gun
-- Hedef anchor: v4.7-phase4c-banking-tier2-sealed
+- Hedef anchor: v4.7-phase4d-multi-multiple-sealed
 
-**Phase 4d (Multi-multiple + young_firm):**
-- PE + PBV consensus (sadece EV/EBITDA mevcut)
-- Amazon young_firm_dcf (_wip_amazon WIP from commit memory)
-- ImpliedROCROE terminal sanity (Damodaran webcast Phase 4 yan)
+**Phase 4e Parking (TR macro / FX dinamik):**
+- USDTRY dinamik fetch (fx_converter STATIC_YEAR_END_RATES extend)
+- TR inflation premium adjustment
+- Effort: ~2 gun
+- Hedef anchor: v4.8-phase4e-macro-tr-sealed
+
+**Phase 4f Parking (Banking Tier 2/3):**
+- TSKB/KLNMA/SKBNK/QNBTR + 7 kucuk banking ticker (toplam 11)
+- banking_data.py manual config eklenmesi (KAP banking parser eksik)
 - Effort: ~2-3 gun
-- Hedef anchor: v4.8-phase4d-multi-multiple-sealed
+- Hedef anchor: v4.9-phase4f-banking-tier2-sealed
 
 ## Section 8 — Test Plan
 
