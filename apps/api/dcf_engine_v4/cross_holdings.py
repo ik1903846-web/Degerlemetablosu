@@ -42,10 +42,12 @@ REPO_ROOT = Path(__file__).resolve().parents[3]
 DEFAULT_SUBS_CSV = REPO_ROOT / "apps/api/_cache/kap_subsidiaries/kap_subs_2026-05-10.csv"
 DEFAULT_MC_DIR = REPO_ROOT / "apps/api/_cache/market_caps"
 
-# Damodaran skip rule: konsolide bilancoda zaten Operating'de
-SKIP_RELATIONSHIPS = {"full"}
+# Phase 3b Adim 1.5: 'full' SKIP listesinden kaldirildi.
+# Cons_ratio (orchestrator_v4) cash/debt asimetriyi cozuyor.
+# Damodaran SOTP: listed full sub'lar piyasa degerinde dahil edilir.
+SKIP_RELATIONSHIPS: set = set()
 # Eligible cross-holdings (separately added to firm value)
-ELIGIBLE_RELATIONSHIPS = {"equity", "financial", "joint"}
+ELIGIBLE_RELATIONSHIPS = {"equity", "financial", "joint", "full"}
 
 
 @dataclass
