@@ -137,3 +137,70 @@ def compute_non_operating_assets(
     total += investment_properties or 0.0
     total += equity_method_investments or 0.0
     return total
+
+
+_SECTOR_MAP_CACHE: Optional[dict] = None
+
+
+def _load_bist_to_damodaran_sector_map() -> dict:
+    """Lazy-load BIST -> Damodaran sector mapping (Phase 3c config)."""
+    global _SECTOR_MAP_CACHE
+    if _SECTOR_MAP_CACHE is None:
+        import json
+        from pathlib import Path
+        map_path = Path(__file__).resolve().parents[2] / "apps/api/config/damodaran_sector_map.json"
+        if not map_path.exists():
+            # Fallback path resolution
+            map_path = Path("apps/api/config/damodaran_sector_map.json")
+        try:
+            with map_path.open(encoding="utf-8") as f:
+                data = json.load(f)
+            _SECTOR_MAP_CACHE = data.get("mapping", data)
+        except Exception:
+            _SECTOR_MAP_CACHE = {}
+    return _SECTOR_MAP_CACHE
+
+
+def compute_terminal_ebit_margin(
+    ticker_sector_tr: Optional[str],
+    starting_margin: Optional[float],
+    sector_multiples_data: Optional[dict] = None,
+) -> Optional[float]:
+    """Phase 4a Adim 3: Damodaran sector-based terminal_ebit_margin.
+
+    3-tier fallback chain:
+      Tier 1: Damodaran sector op_margin_pretax (via BIST->Damodaran map)
+      Tier 2: 0.5 x starting_margin (Damodaran "margin compression" convention)
+      Tier 3: 0.10 (mature_stable conservative default)
+
+    Sanity cap: [0.05, 0.40]
+
+    Args:
+        ticker_sector_tr: TickerDataV4.sector_name (e.g., 'KIMYA ILAC PETROL...')
+        starting_margin: td.op_income / td.revenue
+        sector_multiples_data: Pre-loaded sector multiples dict
+                               (sector_multiples.json content)
+
+    Returns:
+        Damodaran terminal operating margin (decimal) or None.
+    """
+    SANITY_LOW = 0.05
+    SANITY_HIGH = 0.40
+
+    # Tier 1: Damodaran sector lookup
+    if ticker_sector_tr and sector_multiples_data:
+        sector_map = _load_bist_to_damodaran_sector_map()
+        damodaran_sector = sector_map.get(ticker_sector_tr)
+        if damodaran_sector:
+            sector_data = sector_multiples_data.get(damodaran_sector, {})
+            margin = sector_data.get("op_margin_pretax")
+            if margin is not None and margin > 0:
+                return max(SANITY_LOW, min(SANITY_HIGH, float(margin)))
+
+    # Tier 2: Compression heuristic (Damodaran convention)
+    if starting_margin is not None and starting_margin > 0:
+        compressed = starting_margin * 0.5
+        return max(SANITY_LOW, min(SANITY_HIGH, compressed))
+
+    # Tier 3: Mature stable conservative default
+    return 0.10
