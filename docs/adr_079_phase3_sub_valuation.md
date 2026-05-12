@@ -1,6 +1,6 @@
 # ADR-079: Phase 3 Sub Valuation (Full SOTP)
 
-**Status:** ACCEPTED (Phase 3a SEALED, Phase 3b in design)
+**Status:** SEALED (Phase 3 a+b+c+d tamamlandi, anchor v4.4)
 **Tarih:** 12 Mayis 2026
 **Onceki ADR:** ADR-078 (Phase 1+2 cross_holdings)
 

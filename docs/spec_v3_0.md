@@ -649,11 +649,11 @@ Cross-holdings entegrasyonu tamamlandi. Damodaran formula production'a girdi.
 - 61/61 listed eligible ownership coverage
 - 0 anomali
 
-**Phase 3 PARKING:**
-- Full sub valuation x ownership (KCHOL FROTO/AKBNK gibi)
-- Sector regression (Damodaran Level 2 SOTP)
-- IFRS bilanco financial_investments parse
-- Tahmini scope: ~14 gun
+**Phase 3 SEALED (commits 53-72, anchor v4.4-phase3-sealed) — bkz. §16:**
+- Full sub valuation x ownership (KCHOL FROTO/AKBNK gibi) — Phase 3b OK
+- Sector regression (Damodaran Level 2 SOTP) — Phase 3c OK
+- IFRS bilanco financial_investments parse — Phase 3a OK
+- Tahmini ~14 gun, gerceklesen 1 oturum
 
 **Audit referans:**
 - docs/faz_b2_phase2_findings.md
@@ -663,4 +663,38 @@ Cross-holdings entegrasyonu tamamlandi. Damodaran formula production'a girdi.
 - docs/adr_078_cross_holdings.md (Phase 2 SEALED)
 
 **Git tag:** anchor-v4.3-phase2
+
+## §16 Phase 3 PRODUCTION SEALED (2026-05-12)
+
+Damodaran SOTP fallback chain tamamlandi (a+b+c+d).
+
+**Anchor transition:** v4.3 -> v4.4-phase3-sealed (TUPRS 211.95 INTACT, drift 0.0019%)
+
+**4 alt-faz:**
+- Phase 3a (commits 53-57, tag v4.3.3): KAP XBRL +2 field parse (emi + investment_properties)
+- Phase 3b (commits 58-63, tag v4.3.4): Per-sub DCF + multi-tier holding (cons_ratio cap 0.85)
+- Phase 3c (commits 64-70, tag v4.3.5): Damodaran sector regression + book_value fallback (sanity cap +-100%)
+- Phase 3d (commits 71-72, tag v4.4): Master audit + final anchor transition
+
+**Production etki:**
+- Universe coverage: 155/615 (25.2%) -> 186/615 (30.2%), +31 ticker, +5.0%
+- KCHOL: None -> 161.85 TL (Damodaran +-30% PASS)
+- SAHOL: 19.94 TL (Damodaran +-30% PASS)
+- TUPRS drift: 0.0019% (10 anchor noktasi)
+- 3-Level fallback chain canli: Industrial 145 + Holding 10 + Sector 16 + Book 15
+
+**Audit referans:**
+- docs/faz_b2_phase3a_findings.md / _decision / _progress / _resolution
+- docs/faz_b2_phase3b_decision.md / _progress / _resolution
+- docs/faz_b2_phase3c_decision.md / _progress / _resolution
+- docs/faz_b2_phase3_master_decision.md / _progress / _resolution
+- docs/adr_079_phase3_sub_valuation.md (SEALED)
+
+**Phase 4 PARKING (sirada):**
+- Banking DDM (16 ticker, Faz 6.5+)
+- fcff_negative case'ler (135, Damodaran Decline/Distress)
+- Multi-multiple consensus (PE + PBV)
+- Sector regression refinement
+
+**Git tag:** anchor-v4.4-phase3-sealed
 
