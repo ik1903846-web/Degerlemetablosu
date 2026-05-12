@@ -222,6 +222,28 @@ def _load_scanner_df_v4() -> tuple[pd.DataFrame, str]:
     except Exception as e:
         return pd.DataFrame(), f"❌ v4 parse fail: {e}"
 
+    # Phase 6: Damodaran method badges (Phase 5b.2 + 4b/4c + Phase 3 stack)
+    _DCF_METHOD_LABEL = {
+        # Phase 5b.2 industrial Engine A
+        "industrial_engine_a_em":            "Damodaran EM (Engine A)",
+        "industrial_engine_a_book_fallback": "Book Value (Damodaran Dark Side)",
+        "industrial_engine_a_skip":          "Skip (no book value)",
+        # Phase 4b/4c banking
+        "banking_ddm_2stage_usd":            "Banking DDM 2-stage (USD)",
+        "banking_ddm_3stage_tr_tune":        "Banking DDM 3-stage TR-tune",
+        "banking_book_value_fallback":       "Banking Book Fallback",
+        "banking_skip":                      "Banking Tier 2/3 (parking)",
+        # Phase 3 stack
+        "holding_sotp_phase3b":              "Holding SOTP (Phase 3b)",
+        "book_value_fallback":               "Book Value Fallback (sector)",
+        "holding_sotp_pending":              "Holding SOTP (pending)",
+        "fcff_negative_intrinsic_unsuitable": "Cyclical capex (deprecated)",
+        # Skip cases
+        "insurance_skip":                    "Insurance (parking)",
+        "unknown_skip":                      "Unknown dialect (skip)",
+        "sector_unmapped_no_fallback":       "Sector unmapped",
+    }
+
     rows = []
     for r in batch.get("tickers", []):
         intrinsic = r.get("intrinsic_per_share_tl")
@@ -229,18 +251,23 @@ def _load_scanner_df_v4() -> tuple[pd.DataFrame, str]:
         upside = r.get("upside_pct")
         stage = (r.get("lifecycle_stage") or "unknown").lower()
         method = r.get("dcf_method") or "unknown"
-        # Price yoksa skip (delisted/no_data)
         if price is None:
             continue
-        # Intrinsic yoksa method'a göre tabloda göster
+
+        # Phase 6: human-readable method label
+        if method.startswith("sector_multiple_regression"):
+            method_label = "Sector Multiple"
+        else:
+            method_label = _DCF_METHOD_LABEL.get(method, f"({method[:25]})")
+
+        # Phase 5c: TR fiat regime terminal sustainability flag
+        ts_sustain = r.get("terminal_value_sustainable")
+        warning_badge = ""
+        if ts_sustain is False:
+            warning_badge = " ⚠️ TR-fiat"
+
+        # Intrinsic yoksa method goster
         if intrinsic is None:
-            method_label = {
-                "banking_skip":                       "Banking (4.5+)",
-                "holding_sotp_pending":               "Holding SOTP (4.5+)",
-                "fcff_negative_intrinsic_unsuitable": "Cyclical capex",
-                "insurance_skip":                     "Insurance (parking)",
-                "unknown_skip":                       "Insurance/unknown",
-            }.get(method, f"Skip ({method[:20]})")
             rows.append({
                 "ticker": r.get("ticker", ""),
                 "current_price_tl": float(price),
@@ -248,7 +275,7 @@ def _load_scanner_df_v4() -> tuple[pd.DataFrame, str]:
                 "upside_pct": None,
                 "lifecycle_stage": stage,
                 "lifecycle_label": f"{STAGE_STARS.get(stage, '—')} {STAGE_LABELS.get(stage, '?')}",
-                "method": method_label,
+                "method": method_label + warning_badge,
             })
             continue
         rows.append({
@@ -258,7 +285,7 @@ def _load_scanner_df_v4() -> tuple[pd.DataFrame, str]:
             "upside_pct": float(upside) if upside is not None else 0.0,
             "lifecycle_stage": stage,
             "lifecycle_label": f"{STAGE_STARS.get(stage, '—')} {STAGE_LABELS.get(stage, '?')}",
-            "method": "DCF",
+            "method": method_label + warning_badge,
         })
     df = pd.DataFrame(rows)
     debug = (

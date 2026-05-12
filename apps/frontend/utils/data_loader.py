@@ -176,39 +176,36 @@ def load_latest_v4_batch() -> Optional[Dict[str, Any]]:
 
 @st.cache_data(ttl=300)
 def universe_stats_v4() -> Dict[str, Any]:
-    """turkey_v4_batch.json'dan ozet stats (Phase 2 + Phase 3b + Phase 3c)."""
+    """turkey_v4_batch.json'dan ozet stats (Phase 2 + Phase 3b + Phase 3c + Phase 5b.2 + 5c)."""
     batch = load_latest_v4_batch()
     if not batch:
         return {
-            "total_count": 0,
-            "dcf_count": 0,
-            "complete_count": 0,
-            "intrinsic_filled": 0,
-            "holding_intrinsic_filled": 0,
-            "sector_multiple_count": 0,
-            "book_value_count": 0,
-            "anchor_tuprs": None,
-            "fetch_date": None,
+            "total_count": 0, "dcf_count": 0, "complete_count": 0,
+            "intrinsic_filled": 0, "holding_intrinsic_filled": 0,
+            "sector_multiple_count": 0, "book_value_count": 0,
+            "industrial_engine_a_count": 0, "industrial_book_fallback_count": 0,
+            "banking_ddm_count": 0, "ts_unsustainable_count": 0,
+            "anchor_tuprs": None, "fetch_date": None,
         }
     tickers = batch.get("tickers", [])
-    intrinsic_filled = sum(
-        1 for t in tickers if t.get("intrinsic_per_share_tl") is not None
-    )
-    holding_intrinsic_filled = sum(
-        1 for t in tickers
-        if t.get("dcf_method") == "holding_sotp_phase3b"
-        and t.get("intrinsic_per_share_tl") is not None
-    )
-    sector_multiple_count = sum(
-        1 for t in tickers
-        if (t.get("dcf_method") or "").startswith("sector_multiple_regression")
-        and t.get("intrinsic_per_share_tl") is not None
-    )
-    book_value_count = sum(
-        1 for t in tickers
-        if t.get("dcf_method") == "book_value_fallback"
-        and t.get("intrinsic_per_share_tl") is not None
-    )
+
+    def _count_by_method(prefix=None, exact=None):
+        if exact:
+            return sum(1 for t in tickers if t.get("dcf_method") == exact and t.get("intrinsic_per_share_tl") is not None)
+        return sum(1 for t in tickers if (t.get("dcf_method") or "").startswith(prefix) and t.get("intrinsic_per_share_tl") is not None)
+
+    intrinsic_filled = sum(1 for t in tickers if t.get("intrinsic_per_share_tl") is not None)
+    holding_intrinsic_filled = _count_by_method(exact="holding_sotp_phase3b")
+    sector_multiple_count = _count_by_method(prefix="sector_multiple_regression")
+    book_value_count = _count_by_method(exact="book_value_fallback")
+    # Phase 5b.2 industrial Engine A swap
+    industrial_engine_a_count = _count_by_method(exact="industrial_engine_a_em")
+    industrial_book_fallback_count = _count_by_method(exact="industrial_engine_a_book_fallback")
+    # Phase 4b/4c banking
+    banking_ddm_count = _count_by_method(exact="banking_ddm_2stage_usd") + _count_by_method(exact="banking_ddm_3stage_tr_tune")
+    # Phase 5c terminal sanity
+    ts_unsustainable_count = sum(1 for t in tickers if t.get("terminal_value_sustainable") is False)
+
     return {
         "total_count": batch.get("total_count", 0),
         "dcf_count": batch.get("dcf_count", 0),
@@ -217,6 +214,10 @@ def universe_stats_v4() -> Dict[str, Any]:
         "holding_intrinsic_filled": holding_intrinsic_filled,
         "sector_multiple_count": sector_multiple_count,
         "book_value_count": book_value_count,
+        "industrial_engine_a_count": industrial_engine_a_count,
+        "industrial_book_fallback_count": industrial_book_fallback_count,
+        "banking_ddm_count": banking_ddm_count,
+        "ts_unsustainable_count": ts_unsustainable_count,
         "anchor_tuprs": batch.get("anchor_tuprs"),
         "fetch_date": batch.get("fetch_date"),
     }

@@ -99,6 +99,11 @@ INTRINSIC_FILLED = v4_stats.get("intrinsic_filled", DCF_COUNT)
 HOLDING_FILLED = v4_stats.get("holding_intrinsic_filled", 0)
 SECTOR_FILLED = v4_stats.get("sector_multiple_count", 0)
 BOOK_FILLED = v4_stats.get("book_value_count", 0)
+# Phase 6: Phase 5b.2 + 5c yansimasi
+INDUSTRIAL_EA_COUNT = v4_stats.get("industrial_engine_a_count", 0)
+INDUSTRIAL_BOOK_FB = v4_stats.get("industrial_book_fallback_count", 0)
+BANKING_DDM_COUNT = v4_stats.get("banking_ddm_count", 0)
+TS_UNSUSTAINABLE = v4_stats.get("ts_unsustainable_count", 0)
 ANCHOR_TUPRS = v4_stats.get("anchor_tuprs")
 
 st.title("REELDEĞER")
@@ -123,14 +128,11 @@ st.divider()
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    _industrial_dcf = max(
-        INTRINSIC_FILLED - HOLDING_FILLED - SECTOR_FILLED - BOOK_FILLED, 0
-    )
     st.metric(
         "📈 BIST Universe",
         f"{INTRINSIC_FILLED} / {TOTAL_COUNT} hisse",
-        f"Industrial {_industrial_dcf} + Holding {HOLDING_FILLED} + "
-        f"Sector {SECTOR_FILLED} + Book {BOOK_FILLED} (Phase 3c)",
+        f"Engine A EM {INDUSTRIAL_EA_COUNT} + Book FB {INDUSTRIAL_BOOK_FB} + "
+        f"Holding {HOLDING_FILLED} + Banking {BANKING_DDM_COUNT} + Sector {SECTOR_FILLED} (Phase 5c)",
     )
 
 with col2:
@@ -255,14 +257,17 @@ with st.sidebar:
     st.markdown("- 🔍 **Tarayıcı** ← asıl ürün")
     st.markdown("- 📚 Lessons")
     st.divider()
-    _ind_dcf_sidebar = max(
-        INTRINSIC_FILLED - HOLDING_FILLED - SECTOR_FILLED - BOOK_FILLED, 0
-    )
     st.caption(
         f"BIST Universe: {INTRINSIC_FILLED}/{TOTAL_COUNT} "
-        f"(Industrial {_ind_dcf_sidebar} + Holding {HOLDING_FILLED} + "
+        f"(Engine A EM {INDUSTRIAL_EA_COUNT} + Book FB {INDUSTRIAL_BOOK_FB} + "
+        f"Holding {HOLDING_FILLED} + Banking {BANKING_DDM_COUNT} + "
         f"Sector {SECTOR_FILLED} + Book {BOOK_FILLED})"
     )
     _anchor_text = f"{ANCHOR_TUPRS:.2f}" if ANCHOR_TUPRS else "N/A"
-    st.caption(f"TUPRS anchor: {_anchor_text} TL (Phase 3c SEALED)")
-    st.caption("v4.3.5 anchor SEALED · Damodaran replication")
+    st.caption(f"TUPRS anchor: {_anchor_text} TL (Phase 5b.2 Engine A swap)")
+    if TS_UNSUSTAINABLE:
+        st.caption(
+            f"⚠️ {TS_UNSUSTAINABLE} ticker terminal sustainability uyari "
+            f"(TR fiat regime Damodaran insight, ADR-080 §7.2)"
+        )
+    st.caption("v4.9 anchor SEALED · Damodaran-faithful + TR fiat insight")
