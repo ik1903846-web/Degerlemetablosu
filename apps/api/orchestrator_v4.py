@@ -543,6 +543,14 @@ def _phase3c_sector_intrinsic(td: "TickerDataV4"):
         return None, "negative_equity_sector_multiple"
 
     intrinsic = equity_value / td.shares_outstanding
+
+    # Phase 3c sanity: Damodaran ±%100 cap (valpacket2 SOTP rule)
+    # Sector multiple outlier durumunda Level 3 book_value'ya fall back
+    if td.current_price_tl and td.current_price_tl > 0:
+        upside = abs(intrinsic / td.current_price_tl - 1)
+        if upside > 1.0:
+            return None, "sector_multiple_outlier_capped"
+
     return intrinsic, f"sector_multiple_regression({damo_sector}@{ev_ebitda:.2f}x)"
 
 
