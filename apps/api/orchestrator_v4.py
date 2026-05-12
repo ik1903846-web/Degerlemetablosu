@@ -130,6 +130,9 @@ class TickerDataV4:
     working_capital: Optional[float] = None
     cash: Optional[float] = None
     tax_expense: Optional[float] = None
+    # Phase 3a: holding sub valuation icin (konsolide bilanco DISI)
+    equity_method_investments: Optional[float] = None
+    investment_properties: Optional[float] = None
 
     # DCF outputs
     lifecycle_stage: Optional[str] = None
@@ -394,6 +397,9 @@ def enrich_full_financials(td: TickerDataV4, force_refresh: bool = False) -> Tic
                 "tax_expense":     (fli.tax_expense_cari or 0) * unit_multiplier or None,
                 "total_debt":      (fli.total_debt or 0) * unit_multiplier or None,
                 "total_equity":    (fli.total_equity or 0) * unit_multiplier or None,
+                # Phase 3a: holding sub valuation icin
+                "equity_method_investments": (fli.equity_method_investments or 0) * unit_multiplier or None,
+                "investment_properties":     (fli.investment_properties or 0) * unit_multiplier or None,
             }
             # Atomic cache write
             PARSED_FIN_CACHE_DIR.mkdir(parents=True, exist_ok=True)
@@ -416,6 +422,9 @@ def enrich_full_financials(td: TickerDataV4, force_refresh: bool = False) -> Tic
         td.total_debt = parsed["total_debt"]
     if parsed.get("total_equity") is not None:
         td.total_equity = parsed["total_equity"]
+    # Phase 3a: holding sub valuation icin
+    td.equity_method_investments = parsed.get("equity_method_investments")
+    td.investment_properties = parsed.get("investment_properties")
     td.flags.append(f"unit_multiplier={parsed.get('unit_multiplier', 1):.0f}")
     return td
 
