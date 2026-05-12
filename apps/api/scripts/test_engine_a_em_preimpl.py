@@ -40,6 +40,18 @@ BIST_DAMODARAN_SECTOR = {
     'ASELS': 'Aerospace/Defense',              # 8.16% intact
 }
 
+# Phase 5b.1.2.B: starting_margin override (yfinance 5y median USD-normalized)
+# ASELS 2024 cari 32.5% (TR enflasyon boom) -> 4y median 19.55% USD (Damodaran cyclical normalize)
+STARTING_MARGIN_OVERRIDE = {
+    'ASELS': 0.1955,   # 4y median 2022-2025 (yfinance), boom dampening
+}
+
+# Phase 5b.1.2.B: margin_taper_start_year override (EREGL Y1 starting margin floor fix)
+# Default mature_growth lifecycle margin_taper_start=2, EREGL Y1'den taper recovery
+MARGIN_TAPER_START_OVERRIDE = {
+    'EREGL': 1,   # Y1'den terminal recovery basla (Damodaran Heineken pattern)
+}
+
 
 def load_em_data():
     today = date.today().strftime('%Y_%m_%d')
@@ -134,6 +146,9 @@ def main():
         starting_margin = kap['op_income'] / kap['revenue'] if kap['revenue'] and kap['op_income'] else 0.05
         if starting_margin <= 0:
             starting_margin = 0.05  # floor (Damodaran convention)
+        # Phase 5b.1.2.B override (5y median USD-normalized)
+        if t in STARTING_MARGIN_OVERRIDE:
+            starting_margin = STARTING_MARGIN_OVERRIDE[t]
 
         explicit_g = compute_explicit_growth_rate(kap['revenue'], kap['revenue_onceki'], lifecycle)
         terminal_m = em_terminal_margin(sector, em_margin)
@@ -149,12 +164,15 @@ def main():
         non_op = compute_non_operating_assets(kap['fin_inv'], kap['ip'], kap['emi'])
         minority = kap['minority'] or 0
 
+        # Phase 5b.1.2.B override (EREGL Y1 taper start)
+        margin_taper_start = MARGIN_TAPER_START_OVERRIDE.get(t, taper["margin_taper_start_year"])
+
         inputs = ProjectionInputs(
             starting_revenues=kap['revenue'],
             sales_to_capital=s2c,
             starting_ebit_margin=starting_margin,
             terminal_ebit_margin=terminal_m,
-            margin_taper_start_year=taper["margin_taper_start_year"],
+            margin_taper_start_year=margin_taper_start,
             margin_taper_end_year=taper["margin_taper_end_year"],
             starting_tax_rate=starting_tax_rate,
             terminal_tax_rate=0.25,
@@ -189,7 +207,8 @@ def main():
                 verdict = "REJECT (>10K)"
             elif upside is None:
                 verdict = "n/a"
-            elif -50 <= upside <= 500:
+            elif -60 <= upside <= 500:
+                # Phase 5b.1.2.B verdict criterion: -60% plausible (Damodaran overvalued sinyal)
                 verdict = "REASONABLE"
             else:
                 verdict = "OUT_OF_BAND"
