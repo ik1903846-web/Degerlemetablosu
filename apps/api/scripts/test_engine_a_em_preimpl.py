@@ -28,13 +28,16 @@ from dcf_engine_v4.inputs_helpers import (
 from data_layer.kap_excel_parser import parse_excel_html
 
 
-# BIST -> Damodaran sector map (Phase 3c config + ASELS Aerospace)
+# BIST -> Damodaran sector map (Phase 5b.1.2.A audit — sub-sector specificity)
+# TUPRS refinery -> Oil/Gas Distribution (downstream, Integrated 17.74% too high)
+# EREGL pure steel -> Steel sub-sector (Metals & Mining heterogeneous)
+# BIMAS grocery chain -> Retail (Grocery and Food) sub-sector
 BIST_DAMODARAN_SECTOR = {
-    'TUPRS': 'Oil/Gas (Integrated)',
-    'EREGL': 'Metals & Mining',
-    'ARCLK': 'Household Products',
-    'BIMAS': 'Retail (General)',
-    'ASELS': 'Aerospace/Defense',
+    'TUPRS': 'Oil/Gas Distribution',          # 8.19% (was Integrated 17.74%)
+    'EREGL': 'Steel',                          # 5.37% (was Metals & Mining 10.80%)
+    'ARCLK': 'Household Products',             # 11.16% intact
+    'BIMAS': 'Retail (Grocery and Food)',     # 3.77% (was Retail General 6.08%)
+    'ASELS': 'Aerospace/Defense',              # 8.16% intact
 }
 
 
