@@ -91,20 +91,80 @@ def compute_final_recommendation(
     return "BEKLE"
 
 
-def apply_catalyst_to_td(td) -> None:
-    """Phase 7.2 catalyst + final_recommendation in-place compute.
+def compute_banking_catalyst_proxy(ticker: str) -> int:
+    """Phase 7.2.2.A Banking-aware PROXY (banking_data.py kaynak).
 
-    Tum dialect coverage (industrial / banking / holding / sector / book).
-    Phase 7.1 composite_signal + Phase 7.2 catalyst -> final_recommendation.
+    Damodaran banking rule (max 40):
+      ROE >= 15%        : +20 (strong banking threshold)
+      Payout >= 20%     : +10 (dividend yield signal)
+      ROE YoY positive  : +10 (momentum, latest vs previous year)
+
+    NOT: Phase 7.2.2.B KAP insider real fetcher Damodaran #1 sinyal eklenecek.
     """
-    # Revenue YoY: industrial dialect KAP transfer (Phase 4a Adim 5)
-    rev_current = getattr(td, "revenue", None)
-    rev_previous = getattr(td, "revenue_onceki", None)
-    ts_sustain = getattr(td, "terminal_value_sustainable", None)
-    cons_disp = getattr(td, "consensus_dispersion", None)
-    mos_cons = getattr(td, "mos_consensus", None)
+    try:
+        from data_layer.banking_data import get_banking_data
+        cfg = get_banking_data(ticker)
+    except Exception:
+        return 0
+    if not cfg or not cfg.yearly:
+        return 0
+    yearly_sorted = sorted(cfg.yearly, key=lambda y: y.year, reverse=True)
+    latest = yearly_sorted[0]
+    previous = yearly_sorted[1] if len(yearly_sorted) >= 2 else None
 
-    score = compute_catalyst_score_mvp(ts_sustain, cons_disp, rev_current, rev_previous, mos_cons)
+    score = 0
+    if latest.roe_pct is not None and latest.roe_pct >= 15.0:
+        score += 20
+    if latest.payout_pct is not None and latest.payout_pct >= 20.0:
+        score += 10
+    if previous and latest.roe_pct is not None and previous.roe_pct is not None:
+        if latest.roe_pct > previous.roe_pct:
+            score += 10
+    return score
+
+
+def compute_holding_catalyst_proxy(td) -> int:
+    """Phase 7.2.2.A Holding-aware PROXY (Phase 3b SOTP).
+
+    Holding dialect'te terminal_value_sustainable + consensus_dispersion YOK
+    (Phase 5c/4d industrial-only). Mevcut data ile proxy:
+      revenue_yoy positive (KAP cari/onceki): +15
+      mos_intrinsic positive (consensus var ise +5 ek)
+    Max 20 (holding catalyst data eksik, B-phase ileride genisletilir).
+    """
+    score = 0
+    rev_c = getattr(td, "revenue", None)
+    rev_p = getattr(td, "revenue_onceki", None)
+    if rev_c and rev_p and rev_p > 0 and (rev_c / rev_p - 1) > 0:
+        score += 15
+    mos = getattr(td, "mos_intrinsic", None)
+    if mos is not None and mos > 0:
+        score += 5
+    return score
+
+
+def apply_catalyst_to_td(td) -> None:
+    """Phase 7.2 + 7.2.2.A catalyst dialect-aware dispatcher.
+
+    Industrial -> Phase 7.2 PROXY MVP (sustain + dispersion + rev_yoy + mos_cons)
+    Banking    -> Phase 7.2.2.A banking_data PROXY (ROE + payout + YoY)
+    Holding    -> Phase 7.2.2.A holding PROXY (rev_yoy + mos)
+    Diger      -> Phase 7.2 PROXY MVP fallback
+    """
+    method = getattr(td, "dcf_method", None) or ""
+    if method.startswith("banking_ddm"):
+        score = compute_banking_catalyst_proxy(td.ticker)
+    elif method == "holding_sotp_phase3b":
+        score = compute_holding_catalyst_proxy(td)
+    else:
+        # Industrial / sector / book / unknown: Phase 7.2 MVP
+        rev_current = getattr(td, "revenue", None)
+        rev_previous = getattr(td, "revenue_onceki", None)
+        ts_sustain = getattr(td, "terminal_value_sustainable", None)
+        cons_disp = getattr(td, "consensus_dispersion", None)
+        mos_cons = getattr(td, "mos_consensus", None)
+        score = compute_catalyst_score_mvp(ts_sustain, cons_disp, rev_current, rev_previous, mos_cons)
+
     sig = classify_catalyst_signal(score)
     rec = compute_final_recommendation(getattr(td, "composite_signal", None), sig)
 

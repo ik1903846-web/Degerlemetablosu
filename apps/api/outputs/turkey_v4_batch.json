@@ -892,9 +892,9 @@
       "mos_consensus": null,
       "mos_min": 0.6026933903097369,
       "composite_signal": "BUY",
-      "catalyst_score": 0,
-      "catalyst_signal": "VALUE_TRAP_RISK",
-      "final_recommendation": "VALUE_TRAP_WARNING"
+      "catalyst_score": 40,
+      "catalyst_signal": "STRONG_BUY",
+      "final_recommendation": "PRIMARY_TARGET"
     },
     {
       "ticker": "AKCNS",
@@ -27463,7 +27463,7 @@
       "mos_consensus": null,
       "mos_min": 0.797319078328782,
       "composite_signal": "BUY",
-      "catalyst_score": 0,
+      "catalyst_score": 5,
       "catalyst_signal": "VALUE_TRAP_RISK",
       "final_recommendation": "VALUE_TRAP_WARNING"
     },
@@ -40303,7 +40303,7 @@
       "mos_consensus": null,
       "mos_min": 0.6251740743342028,
       "composite_signal": "BUY",
-      "catalyst_score": 0,
+      "catalyst_score": 5,
       "catalyst_signal": "VALUE_TRAP_RISK",
       "final_recommendation": "VALUE_TRAP_WARNING"
     },
@@ -41870,9 +41870,9 @@
       "mos_consensus": null,
       "mos_min": 0.5894325134487433,
       "composite_signal": "BUY",
-      "catalyst_score": 0,
-      "catalyst_signal": "VALUE_TRAP_RISK",
-      "final_recommendation": "VALUE_TRAP_WARNING"
+      "catalyst_score": 30,
+      "catalyst_signal": "STRONG_BUY",
+      "final_recommendation": "PRIMARY_TARGET"
     },
     {
       "ticker": "HALKB",
@@ -41943,7 +41943,7 @@
       "mos_consensus": null,
       "mos_min": 0.6760128320421647,
       "composite_signal": "BUY",
-      "catalyst_score": 0,
+      "catalyst_score": 10,
       "catalyst_signal": "VALUE_TRAP_RISK",
       "final_recommendation": "VALUE_TRAP_WARNING"
     },
@@ -42239,9 +42239,9 @@
       "mos_consensus": null,
       "mos_min": 0.4218589688914878,
       "composite_signal": "BUY",
-      "catalyst_score": 0,
-      "catalyst_signal": "VALUE_TRAP_RISK",
-      "final_recommendation": "VALUE_TRAP_WARNING"
+      "catalyst_score": 30,
+      "catalyst_signal": "STRONG_BUY",
+      "final_recommendation": "PRIMARY_TARGET"
     },
     {
       "ticker": "KLNMA",
@@ -44475,9 +44475,9 @@
       "mos_consensus": null,
       "mos_min": 0.4782349239907937,
       "composite_signal": "BUY",
-      "catalyst_score": 0,
-      "catalyst_signal": "VALUE_TRAP_RISK",
-      "final_recommendation": "VALUE_TRAP_WARNING"
+      "catalyst_score": 30,
+      "catalyst_signal": "STRONG_BUY",
+      "final_recommendation": "PRIMARY_TARGET"
     },
     {
       "ticker": "YAPRK",
