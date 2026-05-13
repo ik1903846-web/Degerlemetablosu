@@ -296,4 +296,17 @@ with st.sidebar:
         )
         if _mos_med is not None:
             st.caption(f"Universe MoS median: {_mos_med*100:+.1f}%")
-    st.caption("v4.13 anchor SEALED · Damodaran sinyal stack 4-katmanli")
+    # Phase 7.2 Damodaran Sweet Spot
+    _primary = v4_stats.get("primary_target_count", 0)
+    _secondary = v4_stats.get("secondary_target_count", 0)
+    _vt_warn = v4_stats.get("value_trap_warning_count", 0)
+    _re_eval = v4_stats.get("re_evaluate_count", 0)
+    if _primary or _vt_warn:
+        st.caption(
+            f"🎯 Damodaran Sweet Spot (Phase 7.2 PROXY):"
+        )
+        st.caption(
+            f"🎯 PRIMARY {_primary} · 🟢 SECONDARY {_secondary} · "
+            f"⚠️ VALUE_TRAP {_vt_warn} · 🔍 RE-EVAL {_re_eval}"
+        )
+    st.caption("v4.14 anchor SEALED · Sinyal stack 5-katmanli (MoS + catalyst proxy)")

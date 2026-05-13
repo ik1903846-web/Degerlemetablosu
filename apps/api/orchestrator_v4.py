@@ -175,6 +175,11 @@ class TickerDataV4:
     mos_min: Optional[float] = None
     composite_signal: Optional[str] = None  # BUY / WAIT / NO_MARGIN / OVERVALUED
 
+    # Phase 7.2: Catalyst Scorer + Final Recommendation (Damodaran sweet spot)
+    catalyst_score: Optional[int] = None        # 0-50 PROXY MVP
+    catalyst_signal: Optional[str] = None       # VALUE_TRAP_RISK/WATCHLIST/SWEET_SPOT/STRONG_BUY
+    final_recommendation: Optional[str] = None  # PRIMARY_TARGET/SECONDARY/VALUE_TRAP_WARNING/RE_EVALUATE/BEKLE
+
     @property
     def is_complete(self) -> bool:
         """DCF için minimum gereksinim kontrolü."""
@@ -1132,6 +1137,12 @@ def assemble_and_value(
         _apply_mos(td)
     except Exception as _mos_e:
         td.flags.append(f"mos_apply_fail: {type(_mos_e).__name__}")
+    # Phase 7.2: Catalyst Scorer + final_recommendation (Damodaran sweet spot)
+    try:
+        from dcf_engine_v4.catalyst_scorer import apply_catalyst_to_td as _apply_cat
+        _apply_cat(td)
+    except Exception as _cat_e:
+        td.flags.append(f"catalyst_apply_fail: {type(_cat_e).__name__}")
     return td
 
 

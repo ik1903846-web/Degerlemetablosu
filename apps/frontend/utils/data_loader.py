@@ -226,6 +226,11 @@ def universe_stats_v4() -> Dict[str, Any]:
     import statistics as _stat
     _mos_vals = [t["mos_min"] for t in tickers if t.get("mos_min") is not None]
     mos_median = _stat.median(_mos_vals) if _mos_vals else None
+    # Phase 7.2 catalyst + final recommendation
+    primary_target_count = sum(1 for t in tickers if t.get("final_recommendation") == "PRIMARY_TARGET")
+    secondary_target_count = sum(1 for t in tickers if t.get("final_recommendation") == "SECONDARY_TARGET")
+    value_trap_warning_count = sum(1 for t in tickers if t.get("final_recommendation") == "VALUE_TRAP_WARNING")
+    re_evaluate_count = sum(1 for t in tickers if t.get("final_recommendation") == "RE_EVALUATE")
 
     return {
         "total_count": batch.get("total_count", 0),
@@ -248,6 +253,11 @@ def universe_stats_v4() -> Dict[str, Any]:
         "no_margin_signal_count": no_margin_signal_count,
         "overvalued_signal_count": overvalued_signal_count,
         "mos_median": mos_median,
+        # Phase 7.2 final recommendation
+        "primary_target_count": primary_target_count,
+        "secondary_target_count": secondary_target_count,
+        "value_trap_warning_count": value_trap_warning_count,
+        "re_evaluate_count": re_evaluate_count,
         "anchor_tuprs": batch.get("anchor_tuprs"),
         "fetch_date": batch.get("fetch_date"),
     }

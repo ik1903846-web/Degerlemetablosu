@@ -294,6 +294,20 @@ def _load_scanner_df_v4() -> tuple[pd.DataFrame, str]:
         elif composite_signal == "OVERVALUED":
             signal_badge = " 🔴 OVERVALUED"
 
+        # Phase 7.2: Catalyst + final recommendation
+        catalyst_score = r.get("catalyst_score")
+        catalyst_signal = r.get("catalyst_signal")
+        final_rec = r.get("final_recommendation")
+        rec_badge = ""
+        if final_rec == "PRIMARY_TARGET":
+            rec_badge = " 🎯 PRIMARY"
+        elif final_rec == "SECONDARY_TARGET":
+            rec_badge = " 🟢 SECONDARY"
+        elif final_rec == "VALUE_TRAP_WARNING":
+            rec_badge = " ⚠️ VALUE-TRAP"
+        elif final_rec == "RE_EVALUATE":
+            rec_badge = " 🔍 RE-EVAL"
+
         # Intrinsic yoksa method goster
         if intrinsic is None:
             rows.append({
@@ -304,10 +318,12 @@ def _load_scanner_df_v4() -> tuple[pd.DataFrame, str]:
                 "dispersion_pct": dispersion_pct,
                 "mos_min_pct": mos_min_pct,
                 "composite_signal": composite_signal,
+                "catalyst_score": catalyst_score,
+                "final_recommendation": final_rec,
                 "upside_pct": None,
                 "lifecycle_stage": stage,
                 "lifecycle_label": f"{STAGE_STARS.get(stage, '—')} {STAGE_LABELS.get(stage, '?')}",
-                "method": method_label + warning_badge + disp_badge + signal_badge,
+                "method": method_label + warning_badge + disp_badge + signal_badge + rec_badge,
             })
             continue
         rows.append({
@@ -318,10 +334,12 @@ def _load_scanner_df_v4() -> tuple[pd.DataFrame, str]:
             "dispersion_pct": dispersion_pct,
             "mos_min_pct": mos_min_pct,
             "composite_signal": composite_signal,
+            "catalyst_score": catalyst_score,
+            "final_recommendation": final_rec,
             "upside_pct": float(upside) if upside is not None else 0.0,
             "lifecycle_stage": stage,
             "lifecycle_label": f"{STAGE_STARS.get(stage, '—')} {STAGE_LABELS.get(stage, '?')}",
-            "method": method_label + warning_badge + disp_badge + signal_badge,
+            "method": method_label + warning_badge + disp_badge + signal_badge + rec_badge,
         })
     df = pd.DataFrame(rows)
     debug = (
