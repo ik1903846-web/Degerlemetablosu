@@ -309,4 +309,17 @@ with st.sidebar:
             f"🎯 PRIMARY {_primary} · 🟢 SECONDARY {_secondary} · "
             f"⚠️ VALUE_TRAP {_vt_warn} · 🔍 RE-EVAL {_re_eval}"
         )
-    st.caption("v4.14 anchor SEALED · Sinyal stack 5-katmanli (MoS + catalyst proxy)")
+    st.caption("v4.15 anchor SEALED · Sinyal stack 5-katmanli (MoS + catalyst proxy)")
+    # Phase 7.3: Watchlist count + active alert
+    try:
+        from utils.watchlist_storage import watchlist_count, load_watchlist
+        from utils.alert_checker import check_alerts
+        _wl_count = watchlist_count()
+        if _wl_count > 0:
+            _wl = load_watchlist()
+            from utils.data_loader import load_latest_v4_batch
+            _batch = load_latest_v4_batch() or {}
+            _alerts = check_alerts(_wl.get("tickers", []), _batch.get("tickers", []))
+            st.caption(f"📋 Watchlist: {_wl_count} ticker · 🚨 Alert: {len(_alerts)}")
+    except Exception:
+        pass
