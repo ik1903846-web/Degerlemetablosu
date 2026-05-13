@@ -323,6 +323,49 @@ fetch should be opt-in not implicit."
 - Streamlit Cloud daily auto-deploy compatibility test
 - Daily cron fetch opt-in (manuel rerun gerekirse) — implicit data freshness assumption YOK
 
+## Section 7.5 — Phase 7.2.2 Lesson #9 — Brief Scope Optimism Discipline
+
+**Phase 7.2.2 trajectory** (commits 103-105):
+
+Brief tahmini ile gercek scope arasinda buyuk fark:
+- Brief: "Phase 7.2.2 — KAP Insider Real Catalyst, 150 satir, 1 commit"
+- Gercek: KAP search API discovery + Turkce NER parser + 615 ticker fetch loop +
+  dividend yield + ROE YoY multi-year = ~500+ satir, 2-3 gun, multi-session
+
+**Claude Code "DUR" disiplin uygulamasi:**
+- Brief acceptance oncesi reality check (mevcut altyapi check)
+- KAP search endpoint mevcut DEGIL (sadece kap_excel_fetcher disclosure_index ile)
+- Turkce NER parser DEGIL (sadece numeric table parser)
+- 2-phase split onerisi: A (banking-aware PROXY tune, ~30 dk) + B (KAP insider real, multi-session)
+
+**User onayli split (commit 105 Phase 7.2.2.A):**
+- Banking + Holding-aware PROXY dispatcher (catalyst_scorer.py +60 satir)
+- Banking 4 PRIMARY_TARGET (AKBNK/GARAN/YKBNK/ISCTR)
+- HALKB Damodaran ROE 12%% < 15%% rule -> VALUE_TRAP_WARNING (dogru)
+- Damodaran sadakat 99 -> 99.5/100
+
+**Lesson #9 — Brief SCOPE Optimism:**
+"Brief satir tahmini multi-source fetcher icin sistemik underestimate.
+NER/parser/multi-source tasks single-session uretim-grade implement EDILEMEZ."
+
+**Full Lesson Trajectory (105-commit, 24 anchor tag):**
+1. Phase 4c.1 stable_g 0.07 (parametre rule ihlal)
+2. Phase 4c.2 g_high x payout inconsistency
+3. Phase 4c.3 HALKB band hedef yanlis prior (humility kabul)
+4. Phase 5b.1 sub-sector eksik
+5. Phase 5b.1.2.A Distribution dramatic fix
+6. Phase 5b.1.2.B ASELS 5y median backfire
+7. Phase 5c.1 brief formula INVERSE (Damodaran g/RR)
+8. Phase 4d date fallback (operations idempotent)
+9. Phase 7.2.2 brief SCOPE optimism (BU — multi-session zorunlu split)
+
+**Future Briefs Scope Discipline:**
+- Multi-source fetcher (KAP/SPK/yfinance/Damodaran) -> multi-session default
+- NER/parser tasks (Turkce text extraction) -> ayri session
+- Data discovery -> parser -> integration -> validate 4-phase pattern
+- "1 commit ~150 satir" tahmini complex fetcher icin GUVENILIR DEGIL
+- DUR + reality check + 2-phase split onerisi pre-commit zorunlu
+
 ## Section 8 — Test Plan
 
 **Pre-implement test (Adim 6 oncesi):**
