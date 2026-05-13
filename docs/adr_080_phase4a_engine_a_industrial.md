@@ -271,6 +271,58 @@ specificity'sine bagli kalmak Damodaran-rule ihlal riski tasiyor.
 - Distribution priors Damodaran-spec ile align (not over-optimistic)
 - "Trust the model" priors sapma cikinca KORUN, paniğe kapilma
 
+## Section 7.3 — Phase 4d Date Fallback Lesson — Idempotent Data Path Discipline
+
+**Phase 4d SEALED + date fallback fix** (commit 99: dc26fb1, anchor v4.11):
+
+Phase 4d implement sirasinda kritik regression yakalandi:
+- System date 2026-05-13'e gectigi gun
+- EM data fetch 2026_05_12/'de duruyor (Phase 5a fetch tarihindeki)
+- orchestrator_v4 `_today_dir = date.today()` → 2026_05_13/ dizini mevcut DEGIL
+- em_margin_data + sector_multiples_data load FAIL
+- terminal_margin Tier 2 fallback (compression) → starting_margin × 0.5 = 0.025
+- Sanity cap min 0.05 → terminal margin 0.05 (EM Distribution 0.0819 yerine)
+
+**Result: TUPRS 164.78 → 11.31 dramatic regression (-93%)**
+Industrial Engine A em count 253 → 149 (104 ticker book fallback'a dustu).
+
+**Fix:**
+```python
+_damodaran_root = Path(...) / "data" / "damodaran"
+_today_dir = _damodaran_root / date.today().strftime("%Y_%m_%d")
+if not _today_dir.exists():
+    _dated_dirs = sorted(
+        [d for d in _damodaran_root.iterdir() if d.is_dir() and d.name.startswith("2026")],
+        reverse=True,
+    )
+    if _dated_dirs:
+        _today_dir = _dated_dirs[0]  # Latest existing date dir
+```
+
+Idempotent: EM data daily fetch zorunlu degil. Streamlit Cloud daily
+redeploy senaryosu safe. Cache survives across date boundaries.
+
+**Lesson #8 — Operations Discipline:**
+"Model discipline alone is not enough. Idempotent data path design is
+equally critical. Date-dependent paths require fallback chains; daily
+fetch should be opt-in not implicit."
+
+**Full Lesson Trajectory (4-week, 100-commit milestone):**
+1. Phase 4c.1 stable_g 0.07 (+1067% Damodaran rule ihlal)
+2. Phase 4c.2 g_high × payout inconsistency (+34% overcorrected)
+3. Phase 4c.3 HALKB band hedef priori yanlis (+209% Damodaran-pure kabul)
+4. Phase 5b.1 sub-sector eksik (TUPRS Distribution audit gerek)
+5. Phase 5b.1.2.A Integrated → Distribution dramatic fix (718 → 224)
+6. Phase 5b.1.2.B ASELS 5y median backfire (lower starting → lower intrinsic)
+7. Phase 5c.1 brief formula INVERSE yakalandi (Damodaran g/RR convention)
+8. Phase 4d date fallback (BU — operations level, model layer disinda)
+
+**Future Operations Guidance:**
+- Date-dependent path'lerde her zaman fallback chain (iterdir latest)
+- Idempotent fetch operations design (cache-survives-redeploy)
+- Streamlit Cloud daily auto-deploy compatibility test
+- Daily cron fetch opt-in (manuel rerun gerekirse) — implicit data freshness assumption YOK
+
 ## Section 8 — Test Plan
 
 **Pre-implement test (Adim 6 oncesi):**
