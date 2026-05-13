@@ -218,6 +218,14 @@ def universe_stats_v4() -> Dict[str, Any]:
         1 for t in tickers
         if t.get("consensus_dispersion") is not None and t["consensus_dispersion"] <= 0.30
     )
+    # Phase 7.1 MoS composite signal distribution
+    buy_signal_count = sum(1 for t in tickers if t.get("composite_signal") == "BUY")
+    wait_signal_count = sum(1 for t in tickers if t.get("composite_signal") == "WAIT")
+    no_margin_signal_count = sum(1 for t in tickers if t.get("composite_signal") == "NO_MARGIN")
+    overvalued_signal_count = sum(1 for t in tickers if t.get("composite_signal") == "OVERVALUED")
+    import statistics as _stat
+    _mos_vals = [t["mos_min"] for t in tickers if t.get("mos_min") is not None]
+    mos_median = _stat.median(_mos_vals) if _mos_vals else None
 
     return {
         "total_count": batch.get("total_count", 0),
@@ -234,6 +242,12 @@ def universe_stats_v4() -> Dict[str, Any]:
         "high_dispersion_count": high_dispersion_count,
         "extreme_dispersion_count": extreme_dispersion_count,
         "multi_multiple_validated_count": multi_multiple_validated_count,
+        # Phase 7.1 MoS composite signal
+        "buy_signal_count": buy_signal_count,
+        "wait_signal_count": wait_signal_count,
+        "no_margin_signal_count": no_margin_signal_count,
+        "overvalued_signal_count": overvalued_signal_count,
+        "mos_median": mos_median,
         "anchor_tuprs": batch.get("anchor_tuprs"),
         "fetch_date": batch.get("fetch_date"),
     }

@@ -280,6 +280,20 @@ def _load_scanner_df_v4() -> tuple[pd.DataFrame, str]:
             elif dispersion_pct <= 30:
                 disp_badge = " 🟢 Validated"
 
+        # Phase 7.1: Margin of Safety + composite signal
+        mos_min = r.get("mos_min")
+        mos_min_pct = float(mos_min) * 100 if mos_min is not None else None
+        composite_signal = r.get("composite_signal")
+        signal_badge = ""
+        if composite_signal == "BUY":
+            signal_badge = " 🟢 BUY"
+        elif composite_signal == "WAIT":
+            signal_badge = " 🟡 WAIT"
+        elif composite_signal == "NO_MARGIN":
+            signal_badge = " 🟠 NO-MARGIN"
+        elif composite_signal == "OVERVALUED":
+            signal_badge = " 🔴 OVERVALUED"
+
         # Intrinsic yoksa method goster
         if intrinsic is None:
             rows.append({
@@ -288,10 +302,12 @@ def _load_scanner_df_v4() -> tuple[pd.DataFrame, str]:
                 "intrinsic_value_tl": None,
                 "consensus_tl": float(consensus) if consensus is not None else None,
                 "dispersion_pct": dispersion_pct,
+                "mos_min_pct": mos_min_pct,
+                "composite_signal": composite_signal,
                 "upside_pct": None,
                 "lifecycle_stage": stage,
                 "lifecycle_label": f"{STAGE_STARS.get(stage, '—')} {STAGE_LABELS.get(stage, '?')}",
-                "method": method_label + warning_badge + disp_badge,
+                "method": method_label + warning_badge + disp_badge + signal_badge,
             })
             continue
         rows.append({
@@ -300,10 +316,12 @@ def _load_scanner_df_v4() -> tuple[pd.DataFrame, str]:
             "intrinsic_value_tl": float(intrinsic),
             "consensus_tl": float(consensus) if consensus is not None else None,
             "dispersion_pct": dispersion_pct,
+            "mos_min_pct": mos_min_pct,
+            "composite_signal": composite_signal,
             "upside_pct": float(upside) if upside is not None else 0.0,
             "lifecycle_stage": stage,
             "lifecycle_label": f"{STAGE_STARS.get(stage, '—')} {STAGE_LABELS.get(stage, '?')}",
-            "method": method_label + warning_badge + disp_badge,
+            "method": method_label + warning_badge + disp_badge + signal_badge,
         })
     df = pd.DataFrame(rows)
     debug = (
@@ -480,7 +498,7 @@ def _upside_color(val: float) -> str:
     return "background-color: #b71c1c; color: #ffffff;"       # red
 
 
-# Display columns (Phase 6.2: consensus + dispersion eklenmis)
+# Display columns (Phase 7.1: MoS + composite signal eklenmis)
 display_df = df[[
     "ticker",
     "current_price_tl",
@@ -488,6 +506,7 @@ display_df = df[[
     "consensus_tl",
     "dispersion_pct",
     "upside_pct",
+    "mos_min_pct",
     "lifecycle_label",
     "method",
 ]].copy()
@@ -498,6 +517,7 @@ display_df.columns = [
     "Consensus (3-way)",
     "Disp %",
     "Upside %",
+    "MoS Konservatif %",
     "Yaşam Döngüsü",
     "Method (Damodaran)",
 ]
@@ -510,8 +530,10 @@ styled = (
         "Consensus (3-way)": "{:,.2f}",
         "Disp %": "{:.0f}%",
         "Upside %": "{:+.1f}%",
+        "MoS Konservatif %": "{:+.1f}%",
     }, na_rep="—")
     .map(_upside_color, subset=["Upside %"])
+    .map(_upside_color, subset=["MoS Konservatif %"])
 )
 
 st.dataframe(

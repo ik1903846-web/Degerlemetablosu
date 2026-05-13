@@ -281,4 +281,19 @@ with st.sidebar:
             f"high {_hi_disp} (>%50) · "
             f"extreme {_ext_disp} (>%100)"
         )
-    st.caption("v4.11 anchor SEALED · Damodaran multi-multiple + TR fiat insight")
+    # Phase 7.1 MoS composite signal
+    _buy = v4_stats.get("buy_signal_count", 0)
+    _wait = v4_stats.get("wait_signal_count", 0)
+    _no_margin = v4_stats.get("no_margin_signal_count", 0)
+    _overvalued = v4_stats.get("overvalued_signal_count", 0)
+    _mos_med = v4_stats.get("mos_median")
+    if _buy or _overvalued:
+        st.caption(
+            f"💰 Yatirim Sinyali (Phase 7.1 MoS):"
+        )
+        st.caption(
+            f"🟢 BUY {_buy} · 🟡 WAIT {_wait} · 🟠 NO-MARGIN {_no_margin} · 🔴 OVERVALUED {_overvalued}"
+        )
+        if _mos_med is not None:
+            st.caption(f"Universe MoS median: {_mos_med*100:+.1f}%")
+    st.caption("v4.13 anchor SEALED · Damodaran sinyal stack 4-katmanli")

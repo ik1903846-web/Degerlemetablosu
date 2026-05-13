@@ -169,6 +169,12 @@ class TickerDataV4:
     consensus_intrinsic: Optional[float] = None
     consensus_dispersion: Optional[float] = None
 
+    # Phase 7.1: Margin of Safety (Damodaran/Buffett/Graham 4-level signal)
+    mos_intrinsic: Optional[float] = None
+    mos_consensus: Optional[float] = None
+    mos_min: Optional[float] = None
+    composite_signal: Optional[str] = None  # BUY / WAIT / NO_MARGIN / OVERVALUED
+
     @property
     def is_complete(self) -> bool:
         """DCF için minimum gereksinim kontrolü."""
@@ -1116,10 +1122,16 @@ def assemble_and_value(
     caches: Optional[_Caches] = None,
     fetch_yfinance_live: bool = True,
 ) -> TickerDataV4:
-    """Tek atımda assemble + enrich + intrinsic value."""
+    """Tek atımda assemble + enrich + intrinsic value + Phase 7.1 MoS."""
     td = assemble_ticker_data(ticker, caches=caches, fetch_yfinance_live=fetch_yfinance_live)
     td = enrich_full_financials(td)
     td = calculate_intrinsic_value(td)
+    # Phase 7.1: Margin of Safety + composite signal (tum dialect tek nokta)
+    try:
+        from dcf_engine_v4.inputs_helpers import apply_mos_to_td as _apply_mos
+        _apply_mos(td)
+    except Exception as _mos_e:
+        td.flags.append(f"mos_apply_fail: {type(_mos_e).__name__}")
     return td
 
 

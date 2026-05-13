@@ -199,6 +199,69 @@ def compute_consensus(
     return median_val, disp
 
 
+def compute_mos(intrinsic_value: Optional[float], market_price: Optional[float]) -> Optional[float]:
+    """Phase 7.1: Margin of Safety (Damodaran/Buffett/Graham).
+
+    MoS = (Intrinsic - Market) / Intrinsic
+      >0 : intrinsic > market (undervalued, alim adayi)
+      =0 : fair value
+      <0 : overvalued
+    """
+    if intrinsic_value is None or intrinsic_value <= 0:
+        return None
+    if market_price is None or market_price <= 0:
+        return None
+    return (intrinsic_value - market_price) / intrinsic_value
+
+
+def classify_mos_signal(mos: Optional[float]) -> Optional[str]:
+    """Phase 7.1: 4-level composite signal (Damodaran/Buffett threshold).
+
+      >= 0.30 : BUY         (sufficient margin, Damodaran/Buffett standard)
+      0.15-0.30: WAIT       (marginal, dispersion + katalizor incele)
+      0.00-0.15: NO_MARGIN  (insufficient, beklemede)
+      < 0.00  : OVERVALUED  (market > intrinsic)
+    """
+    if mos is None:
+        return None
+    if mos >= 0.30:
+        return "BUY"
+    elif mos >= 0.15:
+        return "WAIT"
+    elif mos >= 0:
+        return "NO_MARGIN"
+    else:
+        return "OVERVALUED"
+
+
+def apply_mos_to_td(td) -> None:
+    """Phase 7.1: TickerDataV4 MoS fields in-place compute.
+
+    Industrial: 3-way MoS (intrinsic, consensus, min konservatif)
+    Banking/Holding/Sector/Book: tek MoS (intrinsic only)
+    Composite signal = classify(mos_min) (Buffett 'use min' pattern)
+    """
+    intrinsic = td.intrinsic_per_share_tl
+    consensus = getattr(td, "consensus_intrinsic", None)
+    market = td.current_price_tl
+
+    mos_intrinsic = compute_mos(intrinsic, market)
+    mos_consensus = compute_mos(consensus, market) if consensus is not None else None
+
+    # En konservatif (Buffett 'use min'): mevcut intrinsiclerden minimum
+    valid_vals = [v for v in [intrinsic, consensus] if v is not None and v > 0]
+    if valid_vals:
+        min_val = min(valid_vals)
+        mos_min = compute_mos(min_val, market)
+    else:
+        mos_min = None
+
+    td.mos_intrinsic = mos_intrinsic
+    td.mos_consensus = mos_consensus
+    td.mos_min = mos_min
+    td.composite_signal = classify_mos_signal(mos_min)
+
+
 def compute_taper_config(lifecycle_stage: Optional[str] = None) -> dict:
     """Phase 4a Adim 4: Damodaran 'Act Your Age' taper config builder.
 
